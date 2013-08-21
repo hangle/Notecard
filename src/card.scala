@@ -7,6 +7,18 @@
 
 	The $<variable> 'symbolTable' is initialized at this level so that
 	it exists accross '.struct' files invoked indirectly by 'Notecard'
+
+	The function 'loadFileAndBuildNetwork(...)' 
+		(1) reads the '.struct' file
+		(2) converts symbolic address to physical ones.
+		(3) returns the root of the linked list structure (i.e, 'notecard')
+
+	Call to 'startNotecard(...) begins the iteration of the linked lists nodes.
+
+	On the return from 'startNotecard(...)' 'TaskGather' determines whether or
+	not a new '.struct' file has been issued by the 'Filename' command.  If
+	not, then it checks to determine if an '* end' command has been issued.
+	If so, then the program terminates. 
 */ 
 import scala.collection.mutable.Map
 import com.client.Notecard
