@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <h1>notecard</h1>
 
 <p>Employees 8 command types to present note-card size windows displaying text and/or capturing user input.</p>
@@ -23,3 +24,9 @@
 </p>
 
 <p>Note, the applet system, written in java, is no longer supported.</p>
+=======
+
+
+
+
+>>>>>>> fcc4a72c65e908575fc5964607fc1dba60f8d0c9
