@@ -4,18 +4,18 @@
 to and accepts input from the program user (see example: www.notecard.org/document). <br />
 The text and response capture are controlled by a script file of eight command types.  </p>
 
-<p>Applications:  </p>
+<h2>Applications:  </h2>
 
 <pre><code>    Survey collection  
     Learning application
 </code></pre>
 
-<p>Language:  </p>
+<h2>Language:  </h2>
 
 <pre><code>    Scala
 </code></pre>
 
-<p>Run (src directory):  </p>
+<h2>Run (src directory):  </h2>
 
 <pre><code>    scala card demo/card
 </code></pre>
@@ -27,15 +27,16 @@ The text and response capture are controlled by a script file of eight command t
                       the script commands.
 </pre>
 
-<pre><code>    These capabilities can also be viewed at:  
-    www.notecard.org:8090/cxm/background/intro_show_features.htm  
-    Note, the applet system, written in java, is no longer supported.
-</code></pre>
+<p>These capabilities can also be viewed at: <br />
+www.notecard.org:8090/cxm/background/intro<em>show</em>features.htm <br />
+Note, the applet system, written in java, is no longer supported.  </p>
 
-<p>Compliation (src directory)  </p>
+<h2>Compliation (src directory)  </h2>
 
 <pre><code>    fsc *.scala
 </code></pre>
+
+<h2>Script repository:</h2>
 
 <p>The command script is validated by the program 'script.scala' (see Script repository).
 The output of 'script.scala' is a file with the extension '.struct' that serves
