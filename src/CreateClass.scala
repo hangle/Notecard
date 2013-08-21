@@ -2,13 +2,13 @@
 /**					CREATE CLASS
 	The Server system has created notecard objects and has built
 	a network of link lists connecting these objects. The system
-	passes the link lists in  '.struct' files to the Client system. 
+	passes the link lists in  '.struct' files to the 'Notecard'  program. 
 	The link list physical addresses, held in the list's 'next' 
 	variable, are converted to strings (symbolic addresses). The 
 	physical address of the object, itself, is converted to a 
 	string and is written to the '.struct' file. 
 			
-	When the object is instantiated by the Client  system it
+	When the object is instantiated by the 'Notecard'  system it
 	reads '<obj>.read_object()' its portion of the '.struct file'
 	Two string items of this portion are:
 			address  --symbolic address of the object

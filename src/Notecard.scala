@@ -11,7 +11,7 @@
 				d three card
 				* end
 	Notecard  executes the three Card Sets and returns
-	to Client(tst) to terminate the program ('* end' command). 
+	to 'card' to terminate the program ('* end' command). 
 	Notecard  is the root of the notecard classes and is the
 	parent of the following children:
 	
@@ -120,7 +120,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				}
 								// If '* end' or 'f <filename>' commands are detected, 
 								// then 'isTaskNone' is false, causing the iteration to
-								// be terminated, returning control to Client(tst). 
+								// be terminated, returning control to 'card'. 
 			if(taskGather.isTaskNone) {
 								// process CardSet or FrameTask or NextFile 
 				executeNotecardChildren(Value, notePanel, taskGather, buttonSet:ButtonSet)
@@ -217,7 +217,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 	def doAsteriskButton(taskGather:TaskGather) {
 				println("Notecard: doAsteriskButton  asteriskButton="+ Session.currentNotecardState)
 							// Session keep track of whether Notecard is invoked	
-							// by Client(tst),i.e., 'clientNotecard'  or invoked 
+							// by 'card',i.e., 'clientNotecard'  or invoked 
 							// by '*' button, i.e., 'manageNotecard'
 			if(Session.isClientNotecardState) {  //current state 'clientNotecardState'
 						println("Notecard: clientNotecard to invoke manageNotecard") 
@@ -247,7 +247,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 							// exception is caught by 'startNotecard', causing it to
 							// be returned to the invoking function.  Since the current
 							// state is 'manageNotecard',then  the invoking function has to
-							// be Notecard, rather than Client (tst). 
+							// be Notecard, rather than 'card'. 
 				println("Notecard: throw new exception")
 				throw new Exception
 				}

@@ -1,10 +1,10 @@
 /* date:   Dec 14, 2011
   							TASK GATHERER 
-		Created in Client (tst) and passed to Notecard and
+		Created in 'card' and passed to Notecard and
 		into: 
 			NextFile 	   Assigns filename
 			NotecardTask,  If the parameter 'xtask' is "end", then
-						   END_SESSION is returned to Client (tst). 
+						   END_SESSION is returned to 'card'. 
 
 		Return from Notecard requires either a new .struct 
 		file or the termination of the session.
@@ -21,13 +21,13 @@ class TaskGather()   {
 	val END_SESSION=2
 	val TASK_NONE=3     //default state
 	var task=TASK_NONE
-	var filename=""     //value transfered from NextFile to Client(tst)
+	var filename=""     //value transfered from NextFile to 'card'.
 	var manageNotecard:Notecard=null
 
 						// Used by Notecard to assign NotecardTask's framer to manageNotecard.
 	def isManagement= if(manageNotecard ==null) false; else true
 
-						// Tested at the completion of Client (tst)
+						// Tested at the completion of 'card'. 
 						// loop. Sets while(isLoop) false for '* end'
 						// command
 	def setEndSession:Unit={ task=END_SESSION }
@@ -35,18 +35,18 @@ class TaskGather()   {
 	def isEndSession=if(task==END_SESSION) true; else false
 						// Tests if NextFile's 'f <filename>' command is found as
 						// a NotecardTask object. If so, NotecardTask.getFilename
-						// returns <filename> to Client (tst).
+						// returns <filename> to 'card'.
 	def isNextFile=if(task==NEXT_FILE) true; else false
 						// If '* end' or 'f <filename>' commands are detected, 
 						// then 'isTaskNone' is false, causing the Notecard's iteration 
-						// to be terminated, returning control to Client(tst). 
+						// to be terminated, returning control to 'card'. 
 	def setTaskNone:Unit={task=TASK_NONE }
 	def isTaskNone=if(task==TASK_NONE) true; else false
 						// NextFile object assigns NEXT_FILE to 'task'.
 	def setNextFileFlag:Unit={ task=NEXT_FILE }
-	def getFileName = filename   // see Client (tst)
+	def getFileName = filename   // see 'card'
 						// Transfers <filename> from NextFile to
-						// TaskGather.getFilename in Client(tst).
+						// TaskGather.getFilename in 'card'.
 	def putFileName(s:String)={ filename=s} //NextFile.startNextFile
  
 }

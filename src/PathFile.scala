@@ -2,7 +2,7 @@
 					PATH FILE  <trait> of FilePort
 	Separates filename from pathname, provided the string
 	has a path  delimited by a slash '/'.
-	Used in NextFile and Client
+	Used in NextFile and 'card'
 */
 package com.client
 

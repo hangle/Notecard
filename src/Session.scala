@@ -1,6 +1,6 @@
 /* date:   May 31, 2012
 
-  Created in Client (tst) to hold variables
+  Created in 'card' to hold variables
   that last the entire Notecard session. The
   session variables extends across the Notecard
   files (*.nc).
@@ -8,7 +8,7 @@
   Active in following objects:
   	Tst:
 			Initialize file path used in FilePort
-			Establishes the current state to that of 'Client'.
+			Establishes the current state to that of 'card'.
  	FilePort:
   			If current filename lacks a pathname, and Session has
 			one, then the Session path (Session.getPath) is added 

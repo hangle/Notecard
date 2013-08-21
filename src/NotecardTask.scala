@@ -31,7 +31,7 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 			}
 //-----------------------------------------------------------
 			//invoked by Notecard
-			//Created by Client(tst) and passed to:
+			//Created by 'card' and passed to:
 			//	Notecard, NextFile, NotecardTask
 	def startNotecardTask(     taskGather:TaskGather) {
 

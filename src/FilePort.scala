@@ -18,7 +18,7 @@ import com.client.Session._
 				//PathFile
 				//  Separates filename from pathname, provided 
 				//  the string has a path  delimited by a slash '/'.
-				//  Used in NextFile and Client
+				//  Used in NextFile and 'card'
 class FilePort  extends PathFile {
 				//name lacking a path has the currentPath
 				//added to it, provided currentPath exists.

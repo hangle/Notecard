@@ -1,6 +1,6 @@
 /*
 	Invoked in:
-		Client (tst)
+		card.scala
 		NotecardTask   (support of Management file)
 
 	Reads <.struct> command file and creates a network

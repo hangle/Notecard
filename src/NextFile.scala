@@ -6,7 +6,7 @@
 			f myfile
 			f onefile (2)=($gender)   
 	For the example 'f myfile', the filename 'myfile' is passed to
-	Client(tst) and is an argument in 'fileLoad_BuildNetwork()' which
+	'card' and is an argument in 'fileLoad_BuildNetwork()' which
 	reads 'myfile.
 */
 package com.client
@@ -30,14 +30,14 @@ case class NextFile(symbolTable:Map[String,String]) extends Linker {
 //-------------------------------------------------------------------
 
 	def getFileName=next_filename
-					// TaskGather created in Client(tst) which
+					// TaskGather created in 'card' which
 					// reads the <.struct> file
 	def startNextFile(taskGather:TaskGather) {
 		println("NextFile  ------------------------------")
 		if(isConditionPresent) {
 			if(isConditionTrue) {
 							//println("NextFile:  isConditionTrue()   ISTRUE")
-						// Instructions passed back to Client (tst)
+						// Instructions passed back to 'card'. 
 					taskGather.setNextFileFlag
 					}
 					// WHY END SESSION ???.  commands should just continue?????
