@@ -1,32 +1,32 @@
-<<<<<<< HEAD
-<h1>notecard</h1>
+<h1>Notecard Program</h1>
 
-<p>Employees 8 command types to present note-card size windows displaying text and/or capturing user input.</p>
+<p>The Notecard presents a window about the size of a note card.  The window displays text <br />
+to and accepts input from the program user (see example: www.notecard.org/document). <br />
+The text and response capture are controlled by a script file of eight command types.  </p>
 
-<p>Application are surveys, interviews, and learning project.</p>
+<p>Applications: <br />
+        Survey collection <br />
+        Learning application  </p>
 
-<p>See www.notecard.org/document</p>
+<p>Language:  Scala  </p>
 
-<p>Language:  scala</p>
+<p>Run (src directory):  </p>
 
-<p>The directory 'script' holds the program that validates the command types and generates the file that is input to the 'notecard' program.</p>
-
-<p>The directory 'card' holds the 'notecard' program that displays note-card size windows. </p>
-
-<p>Execution of notecard illustrates the capabilities of the command types:</p>
-
-<pre><code>$  scala card show/card
+<pre><code>    scala card demo/card
 </code></pre>
 
-<p>These capabilities can be viewed at:</p>
+<pre>
+                           'scala card' executes the Notecard program.  In the argument 
+                           'demo/card/', 'card' is a script file in the 'demo' directory. 
+                           Execution illustrates the capabilities of the script commands.
 
-<p>See www.notecard.org:8090/cxm/background/intro_show_features.htm
-</p>
+                           These capabilities can also be viewed at:
+                               www.notecard.org:8090/cxm/background/intro_show_features.htm
+                               Note, the applet system, written in java, is no longer 
+                               supported.
+</pre>
 
-<p>Note, the applet system, written in java, is no longer supported.</p>
-=======
+<p>Compliation (src directory)  </p>
 
-
-
-
->>>>>>> fcc4a72c65e908575fc5964607fc1dba60f8d0c9
+<pre><code>    fsc *.scala
+</code></pre>
