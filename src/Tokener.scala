@@ -65,17 +65,6 @@ class Tokener {
 		l.reverse
 		}
 }
-object Tokener {
-	def main(argv:Array[String]) {
-		val t=new Tokener
-		var expr= "222+(abc-.444)"
-		expr="2+2"
-		println("expression="+expr)
-		var r=t.extract(expr)
-		if(r.isEmpty) println("result is empty")
-		r.foreach(println)
-		}
-}
 			
 
 

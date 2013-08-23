@@ -22,9 +22,5 @@ object Paint   {
 			case _=> Color.black
 			}
 		}
-/*
-	def main(argv:Array[String]) {
-		}
-*/
 
 }

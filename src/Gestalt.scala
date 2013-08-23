@@ -35,54 +35,54 @@ object Gestalt {
 			else
 				false
 		}
-				// Ratings range from 0 to 100 as a
-				// measure of 'source' and 'target'
-				// string comparison. 
+		// Ratings range from 0 to 100 as a
+		// measure of 'source' and 'target'
+		// string comparison. 
 	def gestaltRating(source:String, target:String): Int={
 		if(source==target) 
 			100     // complete match so return 100%
 		    else
-					// find the degree 'source' and 
-					// 'target' are similar.
+				// find the degree 'source' and 
+				// 'target' are similar.
 			ratePartialMatch(source,target)
 		} 
 	def ratePartialMatch(source:String, target:String): Int={
-					// list of matching substrings
+				// list of matching substrings
 		val matches=matchSubstrings(source, target)
-					// match.length/target.length
+				// match.length/target.length
 		rateSourceTargetAggrement(matches, target)
 		}
 	def matchSubstrings(source:String, target:String): List[String]= {
-				// finds all substring matches between 'source' 
-				// and 'target'.
-				// for example:   xapplle   &  zappell    yields
-				// the substrings   'app'  'll' 'e' in that order.
-				// 'buffer' collects the substring matches. 
+			// finds all substring matches between 'source' 
+			// and 'target'.
+			// for example:   xapplle   &  zappell    yields
+			// the substrings   'app'  'll' 'e' in that order.
+			// 'buffer' collects the substring matches. 
 		val buffer= new ListBuffer[String]
-					// find 1st longest, common substring		
+			// find 1st longest, common substring		
 		val longest=findLongestSubstringMatch(source, target)
-					//recursive function to find other 
-					//common substring in 'source' & 'target'	
+			//recursive function to find other 
+			//common substring in 'source' & 'target'	
 		leftAndRightOfLongestSubstring(buffer, longest, source, target)
 		buffer.toList		
 		}
 	def findLongestSubstringMatch(o:String, t:String): String={
-				// matching 'o' and 't' may produce many matches.
-				// the routine finds the longest match.
+			// matching 'o' and 't' may produce many matches.
+			// the routine finds the longest match.
 		var substrings:List[String]=Nil
 		var longest=""
-					// compare each char of 'o' with all 
-					// chars of 't'
+			// compare each char of 'o' with all 
+			// chars of 't'
 		for(i <- 0 until o.length)
 			for(j<-0 until t.length) 
-						// 1st chars match, 
+				// 1st chars match, 
 		 	   if(o.charAt(i)==t.charAt(j))
 					// now find other matches, for example,
 					// "ppp" and "ppp" will find the following
 					// matches  "ppp", "pp", "p"
 				substrings=getSubMatch(o.substring(i),t.substring(j))::substrings
-						// find substring with greatest length, in
-						// example of "ppp", "pp" "p", longest is "ppp"
+					// find substring with greatest length, in
+					// example of "ppp", "pp" "p", longest is "ppp"
 		substrings.foreach((s)=> if(s.length > longest.length) longest=s)
 		longest
 		}
@@ -90,10 +90,10 @@ object Gestalt {
 					   longest:String, 
 					   source:String, 
 					   target:String) {
-				// capture the prior "longest" match in 'buffer', 
-				// extract the substrings to the right and left of 
-				// the match, and then recursively call itself for
-				// the right and for the left substrings. 
+			// capture the prior "longest" match in 'buffer', 
+			// extract the substrings to the right and left of 
+			// the match, and then recursively call itself for
+			// the right and for the left substrings. 
 		if(longest !="")  
 			buffer += longest  //collect matches
 		val sourceIndex=source.indexOf(longest)
@@ -103,51 +103,30 @@ object Gestalt {
 		val ysource=source.substring(sourceIndex+ longest.length)
 		val ytarget=target.substring(targetIndex+ longest.length)
 		var newLong=""
-					// recursive call for the left substring
+			// recursive call for the left substring
 		if(xtarget!="" && xsource!="" && longest!="") {
 			newLong=findLongestSubstringMatch(xsource, xtarget)
 			leftAndRightOfLongestSubstring(buffer, newLong, xsource, xtarget)
 			}
-					// recursive call for the right substring
+			// recursive call for the right substring
 		if(ytarget!="" && ysource!="" && longest!="") {
 			newLong=findLongestSubstringMatch(ysource, ytarget)
 			leftAndRightOfLongestSubstring(buffer, newLong,ysource,ytarget)
 			}		
 		}
 	def getSubMatch(s:String, t:String):String={
-				// Recursively collect common chars
-				// in 's' and 't' until noncommon chars
-				// are detected or until at end of string. 
+			// Recursively collect common chars
+			// in 's' and 't' until noncommon chars
+			// are detected or until at end of string. 
 		if(s.length==0 || t.length==0  || s.charAt(0) != t.charAt(0) )
 			""	
 		else  s.charAt(0) + getSubMatch(s.substring(1), t.substring(1)) 
 		}	// Operator detected by inspection of 1st character and
 	def rateSourceTargetAggrement(matches:List[String], target:String): Int={
-				// number of chars in all the matching substrings is
-				// divided by the number of chars in target. 
+			// number of chars in all the matching substrings is
+			// divided by the number of chars in target. 
 	        val sourceSize=	(0 /: matches) (_+_.length)
 	        ((sourceSize/(target.length * 1.0)) * 100.0 +0.5).toInt
 		}
 
 }
-/*
-object Gestalt extends App {
-		
-	//-----------TEST CASES--------------//
-	val g=new Gestalt()
-	/*
-	println(gestaltRating("apple", "apple"))
-	println(gestaltRating("ap", "pa"))
-	println(gestaltRating("appllx", "appxll"))
-	println(gestaltRating("xynphiladelphia", "xygphileldelphxa" ))
-	println(gestaltRating("abdcef", "fecdba"))
-	println(gestaltRating("rstavwx", "abcedf"))
-	println(gestaltRating("rastvwx", "abcedf"))
-	println(gestaltRating("rstuvwx", "arcedx"))
-	println(gestaltRating("rstuvwx", "abcedf"))
-	println(gestaltRating("", "philadelphia"))
-	*/
-	println("hugh")
-	println(g.gestaltRating("philedelphia", "philadelphia"))
-}
-*/

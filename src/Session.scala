@@ -24,14 +24,14 @@
 package com.client
 
 object Session  extends App{
-				// Initialized at beginning of session.
-				// Path:
-				// A <*.nc> file having a path, such as, 
-				// pool/file.nc, where 'pool' is the path,
-				// is stored.  This path is appended to
-				// any <.nc> file lacking a path. 
-				// Note, a filename entry of '/<file>'
-				// reinitializes the path to "". 
+		// Initialized at beginning of session.
+		// Path:
+		// A <*.nc> file having a path, such as, 
+		// pool/file.nc, where 'pool' is the path,
+		// is stored.  This path is appended to
+		// any <.nc> file lacking a path. 
+		// Note, a filename entry of '/<file>'
+		// reinitializes the path to "". 
 	var path=""
 	def getSessionPath=path   //In FilePort
 	def setSessionPath(s:String) { path=s}  //In FilePort
@@ -46,9 +46,9 @@ object Session  extends App{
 	def isClientNotecardState=   if(currentNotecardState=="client") true; else false
 
 	var asteriskButtonState="disarmed"
-				// Used in Notecard to activate '*' button in either the
-				// Client or Manage states.
+		// Used in Notecard to activate '*' button in either the
+		// Client or Manage states.
 	def isAsteriskButtonArmed= asteriskButtonState=="arm"
-				// Invoked in NotecardTask by '* manage ..." command
+		// Invoked in NotecardTask by '* manage ..." command
 	def armAsteriskButton= asteriskButtonState="arm"
 }

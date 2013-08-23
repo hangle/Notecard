@@ -68,52 +68,50 @@ class CreateClass   extends Node {
 			// <class name> used to instantiate the class. 
 			// invoked by  CommandNetwork.fileLoad_BuildNetwork(..)
 	def establishObjectNetwork( symbolTable:Map[String,String],
-								allStructSets:List[List[String]])= {
+				allStructSets:List[List[String]])= {
 			for(structSet <-allStructSets) {
-								//'structSet' is List[String], representing one Card
-								// containing the object's  name, such as, %DisplayText,
-								// followed by one or  more argument values that are 
-								// loaded into the object's fields.
+					//'structSet' is List[String], representing one Card
+					// containing the object's  name, such as, %DisplayText,
+					// followed by one or  more argument values that are 
+					// loaded into the object's fields.
 				obj=create_object(structSet, symbolTable) //CreateClass
-								//build object list
+					//build object list
 				coreVector=obj:: coreVector
 				}
 			for(core <- coreVector.reverse) {
-			 					//convert symbolic address to physical one in Node
+			 		//convert symbolic address to physical one in Node
 				swizzleReference(core)
 				}
 			root  // notecard assigned to root  by 'create_object(..)'
 			}
-			// The *.struct commands , such as %DisplayText,  used the
-			// its %<class name> in a match statement to create the named
-			// object, e.g., Display(symbolTable) Next, the remaining list 
-			// string values (class parameters) are added to the object.
-			// Finally, the object's symbolic address is converted to
-			// a physical address.
+		// The *.struct commands , such as %DisplayText,  used the
+		// its %<class name> in a match statement to create the named
+		// object, e.g., Display(symbolTable) Next, the remaining list 
+		// string values (class parameters) are added to the object.
+		// Finally, the object's symbolic address is converted to
+		// a physical address.
 	def create_object(structObj:List[String], symbolTable:Map[String,String]):Any = {
-	//	println("CreateClass: %<objectname>="+structObj.head)
 		structObj.head match{   
 			case "%Notecard"=> // println("\t\tCreateClass  %Notecard") 
 				val notecard= Notecard(symbolTable)
 				root=notecard   //Notecard is special, it is the root of the hierarchy
-
-								// Removes tag such as %%Notecard and passes the
-								// object's file parameters such as height,width,size
-								// Adds object to swizzle table
+					// Removes tag such as %%Notecard and passes the
+					// object's file parameters such as height,width,size
+					// Adds object to swizzle table
 				notecard.receive_objects(structObj.tail)
 				swizzleTable=notecard.setId(swizzleTable, notecard)
 				notecard
-			case "%CardSet"=> // println("\t\tCreateClass: %CardSet")
+			case "%CardSet"=> 
 				val cardSet=CardSet(symbolTable)
 				cardSet.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=cardSet.setId(swizzleTable, cardSet) //setId is a Node method
 				cardSet
-			case "%NotecardTask"=> //println("\t\tCreateClass:  %NotecardTask") 
+			case "%NotecardTask"=>
 				val notecardTask=NotecardTask(symbolTable)
 				notecardTask.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=notecardTask.setId(swizzleTable, notecardTask)
 				notecardTask	
-			case "%NextFile"=> // println("\t\tCreateClass:  %NextFile")
+			case "%NextFile"=> 
 				val nextFile=NextFile(symbolTable)
 				nextFile.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=nextFile.setId(swizzleTable, nextFile)
@@ -128,12 +126,12 @@ class CreateClass   extends Node {
 				cardSetTask.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=cardSetTask.setId(swizzleTable, cardSetTask)
 				cardSetTask
-			case "%RowerNode"=>// println("%\t\tCreateClass:  %RowerNode")
+			case "%RowerNode"=>
 				val rowerNode=RowerNode(symbolTable)
 				rowerNode.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=rowerNode.setId(swizzleTable, rowerNode)
 				rowerNode
-			case "%DisplayText"=> //println("\t\tCreateClass: %DisplayText")
+			case "%DisplayText"=>
 				val displayText=DisplayText(symbolTable)
 				displayText.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=displayText.setId(swizzleTable, displayText)
@@ -167,48 +165,46 @@ class CreateClass   extends Node {
 				}
 		
 		}
-					/* 
-					Every Card command class has 'convertToReference' method. This 
-					method may have one or two Node methods:
-						convertToSibling
-						convertToChild
-					which reads the SwizzleTable, extracting the physical address that
-					is associated with the symbolic address.  The physical addresses
-					are assigned to Node.next or to  Node.child.
-					*/
+		/* 
+		Every Card command class has 'convertToReference' method. This 
+		method may have one or two Node methods:
+			convertToSibling
+			convertToChild
+		which reads the SwizzleTable, extracting the physical address that
+		is associated with the symbolic address.  The physical addresses
+		are assigned to Node.next or to  Node.child.  */
 	def swizzleReference( factoryObj:Any)= {
 		factoryObj match {
-			case nc:Notecard=>//println("Notecard swizzleReference")
-					nc.convertToReference(swizzleTable) 
-			case cs:CardSet=>//println("CardSet swizzleReferecne")
-					cs.convertToReference(swizzleTable) 
-			case ft:NotecardTask=>//println("NotecardTask swizzleReferecne")
-					ft.convertToReference(swizzleTable) 
-			case nf:NextFile=>//println("NextFile swizzleReference")
-					nf.convertToReference(swizzleTable) 
-			case as:Assigner=>//println("Assigner swizzle reference")
-					as.convertToReference(swizzleTable) 
-			case cst:CardSetTask=>//println("CardSetTask")
-					cst.convertToReference(swizzleTable) 
-			case rn:RowerNode=>//println("RowerNode swizzleReference")
-					rn.convertToReference(swizzleTable) 
-			case dt:DisplayText=>//println("DisplayText swizzleReference")r
-					dt.convertToReference(swizzleTable) 
-			case bf:BoxField=>//println("BoxField swizzleReference")
-					bf.convertToReference(swizzleTable)
-			case gn:GroupNode=>//println("GroupNode swizzleReferece")
-					gn.convertToReference(swizzleTable)
-			case dv:DisplayVariable=>//println("DisplayVariable")
-			 		dv.convertToReference(swizzleTable)
-			case xn:XNode=>//println("XNode")
-					xn.convertToReference(swizzleTable)
-			case en:EditNode=> //println("EditNode swizzleReference")
-					en.convertToReference(swizzleTable)
+			case nc:Notecard=>
+				nc.convertToReference(swizzleTable) 
+			case cs:CardSet=>
+				cs.convertToReference(swizzleTable) 
+			case ft:NotecardTask=>
+				ft.convertToReference(swizzleTable) 
+			case nf:NextFile=>
+				nf.convertToReference(swizzleTable) 
+			case as:Assigner=>
+				as.convertToReference(swizzleTable) 
+			case cst:CardSetTask=>
+				cst.convertToReference(swizzleTable) 
+			case rn:RowerNode=>
+				rn.convertToReference(swizzleTable) 
+			case dt:DisplayText=>
+				dt.convertToReference(swizzleTable) 
+			case bf:BoxField=>
+				bf.convertToReference(swizzleTable)
+			case gn:GroupNode=>
+				gn.convertToReference(swizzleTable)
+			case dv:DisplayVariable=>
+			 	dv.convertToReference(swizzleTable)
+			case xn:XNode=>
+				xn.convertToReference(swizzleTable)
+			case en:EditNode=>
+				en.convertToReference(swizzleTable)
 			case _=> 
 				println("CreateClass case_=>  "+factoryObj)
 				throw new Exception
 			}
 		}
-
 	def getNotecard= root  //Notecard is the hierarchy root-- see: createObject
 }

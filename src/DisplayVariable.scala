@@ -60,16 +60,16 @@ import java.awt.Color
 import javax.swing._
 
 case class DisplayVariable(var symbolTable:Map[String,String]) extends JLabel with Node  with Visual {
-															/*
-															Node
-					symbolTable holds $<variables>				def setId
-																def convertToSibling
-																def convertToChild
-																def convertToCondition
-															Visual
-																def render
-																def convertRowColumnToPixel
-															*/
+	/*
+				Node
+symbolTable holds $<variables>		def setId
+					def convertToSibling
+					def convertToChild
+					def convertToCondition
+				Visual
+					def render
+					def convertRowColumnToPixel
+	*/
 //------------paramters pass by .struct file-----------------
 	var styleFont=0
 	var sizeFont=0
@@ -87,61 +87,58 @@ case class DisplayVariable(var symbolTable:Map[String,String]) extends JLabel wi
 	var xx=0   //set by RowPosition
 	var yy=0   //set by RowPosition
 	var metrics:FontMetrics=null
-				// Assigned in RowerNode by visiting each Visual component
-				// of the 'd' command and finding the one with the 
-				// greatest height value. 
+		// Assigned in RowerNode by visiting each Visual component
+		// of the 'd' command and finding the one with the 
+		// greatest height value. 
 	var maxHeight=0
-				//invoked by RowerNode which has the row position
-				//as well as the starting column position.
+		//invoked by RowerNode which has the row position
+		//as well as the starting column position.
 	def startDisplayVariable(rowPosition:RowPosition) {
-							//extract $<variable> value
+			//extract $<variable> value
 		symbolTableText=convertVariableToText(dollarVariable)
-				// the value (getCurrentHeight()) is actually the 'y' axis 
-				// position of the next line, so subtract the height
-				// value of the current line. 
+			// the value (getCurrentHeight()) is actually the 'y' axis 
+			// position of the next line, so subtract the height
+			// value of the current line. 
 		xx=rowPosition.getCurrentWidth()
 		yy=rowPosition.getCurrentHeight()
-				// computes the metric width of the text string so as
-				// to adjust row position for next display component
+			// computes the metric width of the text string so as
+			// to adjust row position for next display component
 		rowPosition.sumToCurrentWidth(local_getMetricsWidth())
 		}
-								//Access symbolTable to find variable <key>.
-								//Returns value associated with key.
+		//Access symbolTable to find variable <key>.
+		//Returns value associated with key.
 	def convertVariableToText(variable:String)= {
-//		println("DisplayText  variable="+variable)
 		if(symbolTable.contains(variable)) {
-//			println("DisplayVariable convertVar..ToText: variable="+variable)
 			symbolTable(variable)
 			}
 		  else
 		  	"Unkwn("+variable+")"
 		}
-						// In NoteLayout, LayoutManager.layoutContainer iterates
-						// thru all components added to the notecard panel.
-						// This method invokes 'render() for all Visual objs.
+		// In NoteLayout, LayoutManager.layoutContainer iterates
+		// thru all components added to the notecard panel.
+		// This method invokes 'render() for all Visual objs.
 	def render() {
-	    setForeground(xcolor)
-//		println("DisplayVariable:  render()..: symbolTableText="+symbolTableText)
-        setText(symbolTableText)
+		setForeground(xcolor)
+		setText(symbolTableText)
 		var y=yy    // in event that yy does not need an adjustment
 		if(isHeightDifferentThanMaxHeight) 
-					// y axis is ajusted downward for text whose height < maxHeight
-					// so that text of different sizes are aligned on the same line.
+				// y axis is ajusted downward for text whose height < maxHeight
+				// so that text of different sizes are aligned on the same line.
 			y=adjustYyForSizeLessThanMax( yy )
-        setBounds(xx, y, local_getMetricsWidth(), local_getMetricsHeight());
+		setBounds(xx, y, local_getMetricsWidth(), local_getMetricsHeight());
 		}
-						// if text height is not same as the largest height 
+		// if text height is not same as the largest height 
 	def isHeightDifferentThanMaxHeight: Boolean={
 			local_getMetricsHeight() != maxHeight
 			}
-					// In 'd' command ( d (%% /size 10/now) (%% /size 15/is) ) for 'now'
-					// to be aligned with 'is',  the y axis value of Component() must be
-					// adjusted. 
+		// In 'd' command ( d (%% /size 10/now) (%% /size 15/is) ) for 'now'
+		// to be aligned with 'is',  the y axis value of Component() must be
+		// adjusted. 
 	def adjustYyForSizeLessThanMax(yy:Int)= { 
 			val difference= maxHeight - local_getMetricsHeight()
 			yy + difference - (difference * .25).toInt
 			}
-								//invoked by 'receive_objects(..)
+		//invoked by 'receive_objects(..)
 	def establishMetrics(nameFont:String, styleFont:Int, sizeFont:Int)={
 		val font=new Font(nameFont,styleFont, sizeFont)
 		setFont(font)		
@@ -149,11 +146,10 @@ case class DisplayVariable(var symbolTable:Map[String,String]) extends JLabel wi
 		}
 	def local_getMetricsHeight()={ metrics.getHeight() +4 }
 	def local_getMetricsWidth() ={ 
-		//println("DisplayVariable dollarVariable-value="+symbolTableText)
 		metrics.stringWidth(symbolTableText) +4 }
-						//Load class instance with argument 
-						//values from <.struct> file. Method
-						//invoked in CreateClass
+		//Load class instance with argument 
+		//values from <.struct> file. Method
+		//invoked in CreateClass
 	def  receive_objects(structSet:List[String] ) {
 		val in=structSet.iterator
 		setAddress(in.next)
@@ -164,8 +160,6 @@ case class DisplayVariable(var symbolTable:Map[String,String]) extends JLabel wi
 		styleFont=in.next.toInt
 		nameFont=in.next
 		xcolor=Paint.setColor(in.next) //see Paint objectw
-//			println("DisplayVariable name="+nameFont+"   style="+styleFont+"    size="+sizeFont)
-
 		metrics=establishMetrics(nameFont, styleFont, sizeFont)
 		}
 	}

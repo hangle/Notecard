@@ -71,14 +71,14 @@ class Evaluator(var l:List[String], symbolTable:Map[String,String])  {
 	var token=""
 	val variableRegex= """([a-zA-Z_])""" .r
 
-					// Assigner's entry routine 
+		// Assigner's entry routine 
 	def evaluate:Double={
 		println("Evaluator ")
 		getToken	// extracts the 1st element from list
 		addSubtract // resolve element having the lowest precedence
 		}
-					// Extracts math element from 
-					// expression list
+		// Extracts math element from 
+		// expression list
 	def getToken{
 		if(isNotEmpty) {
 			token=l.head
@@ -144,9 +144,8 @@ class Evaluator(var l:List[String], symbolTable:Map[String,String])  {
 	def atom:Double ={
 		var number=""
 		val value=token
-						// value having [a-zA-Z_] are variables
+			// value having [a-zA-Z_] are variables
 		if(isVariable(value) ){
-			println("is variable") 
 			number=symbolTable(value)
 			}
 			else number=value

@@ -7,6 +7,7 @@ The text and response capture are controlled by a script file of eight command t
 <h2>Applications:  </h2>
 
 <pre><code>    Survey collection  
+    Interviews
     Learning application
 </code></pre>
 
@@ -28,7 +29,7 @@ The text and response capture are controlled by a script file of eight command t
 </pre>
 
 <p>These capabilities can also be viewed at: <br />
-www.notecard.org:8090/cxm/background/intro_show_features.htm <br />
+www.notecard.org:8090/cxm/background/intro<em>show</em>features.htm <br />
 Note, the applet system, written in java, is no longer supported.  </p>
 
 <h2>Compliation (src directory)  </h2>

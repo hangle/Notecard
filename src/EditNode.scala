@@ -55,12 +55,12 @@ package com.client
 import scala.collection.mutable.Map
 
 case class EditNode(var symbolTable:Map[String,String]) extends Node {
-											/*
-											Node
-	symbolTable holds $<variables>				def setId
-												def convertToSibling
-												def convertToChild
-											*/
+	/*
+					Node
+	symbolTable holds $<variables>		def setId
+						def convertToSibling
+						def convertToChild
+	*/
 //------------------------------swizzle routines---------------------
 	def convertToReference(swizzleTable:Map[String, Node])={
 			convertToSibling(swizzleTable)    //child of AnswerBox
@@ -72,51 +72,43 @@ case class EditNode(var symbolTable:Map[String,String]) extends Node {
 	var conditionStruct=""
 // -----------------------------------------------
 
-						//Invoked by BoxField in an iteration loop
+		//Invoked by BoxField in an iteration loop
 	def evaluateTheEditNode(response:String):Boolean= {
-			if(isNumberOrLetter(xtype)) // edit cmd such as  'e number'
-				evaluateNumberOrLetter(xtype, response)
-			  else {  // edit cmd has logic such as 'e ($age) > (0)'
-				val xxx=isConditionTrue	  // invokes LogicTest.logicTest(..)
-				println("EditNode true/false= "+xxx)
-				xxx
-				}
+		if(isNumberOrLetter(xtype)) // edit cmd such as  'e number'
+			evaluateNumberOrLetter(xtype, response)
+		  else {  // edit cmd has logic such as 'e ($age) > (0)'
+			val xxx=isConditionTrue	  // invokes LogicTest.logicTest(..)
+			xxx
 			}
+		}
 	def isNumberOrLetter(xtype:String):Boolean= { xtype=="number" || xtype=="letter"}
 	def evaluateNumberOrLetter(xtype:String, response:String)= {
-			xtype match {
-				case "number" => 
-							areAllDigits(response)
-				case "letter" => 
-							areAllLetters(response)
-				case _=> println("EditNode unknown xtype="+xtype)
-						false
-				}
+		xtype match {
+			case "number" => 
+				areAllDigits(response)
+			case "letter" => 
+				areAllLetters(response)
+			case _=> println("EditNode unknown xtype="+xtype)
+					false
 			}
+		}
 	def areAllDigits(s:String):Boolean={ s.forall(x=> x.isDigit || x=='.') }
  	def areAllLetters(s:String):Boolean={ s.forall(x=> x.isLetter || x==' ' ) }
- 
 	def isConditionPresent ={ if(conditionStruct != "") true; else false }
-	def	isConditionTrue:Boolean ={ LogicTest.logicTest(conditionStruct, symbolTable) }
-						// Invoked by BoxField
+	def isConditionTrue:Boolean ={ LogicTest.logicTest(conditionStruct, symbolTable) }
+		// Invoked by BoxField
 	def getFailureMessage= statusMessage
 // -----------------------------------------------
-						//Load class instance with argument 
-						//values from <.struct> file. Method
-						//invoked in CreateClass
+		//Load class instance with argument 
+		//values from <.struct> file. Method
+		//invoked in CreateClass
 	def  receive_objects(structSet:List[String] ) {
 		val in=structSet.iterator
 		setAddress(in.next)  //Node
 		setNext(in.next)     //Node link to next EditNode
 		conditionStruct=in.next // logic expression such as (1)=(1)
-		//var conditionStruct=in.next // logic expression such as (1)=(1)
-		//if(conditionStruct=="null") //inconsistent use of "" and "null" in <.struct> file
-		//	conditionStruct=""
-		//setCondition(conditionStruct)  //In Node  
 		xtype=in.next		// 'number' or 'letter'
 		statusMessage=in.next
-		println("EditNode statusMessage="+statusMessage)
 		variable=in.next	// $<variable> associated with edit
 		}
-
 }

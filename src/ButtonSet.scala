@@ -46,52 +46,45 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	val next=new JButton("Next")
 	val prior=new JButton("Prior")
 	val asterisk=new JButton(" * ")
-//	var backupButton=false; // set true by button, set false in Notecard
 	var priorButton=false; // set true by button, set false in Notecard
 	var asteriskButton=false//'true' when '*' button hit (see actionPerformed)
-//	var buttonSelection=""
 	var firstChild=false  // set true when Card is 1st child in Notecard chain. 
-					// button acquires listener and is added to NotePanel
+			// button acquires listener and is added to NotePanel
 	createActionButton(buttonPanel, asterisk)
 	createActionButton(buttonPanel, prior)
 	createActionButton(buttonPanel, next)
 
 	grayAndDisableNextButton
-					// disable until '* manage <filename>' cmd
+			// disable until '* manage <filename>' cmd
 	grayAndDisableAsteriskButton
 	grayAndDisablePriorButton 
-					// 
+	
 	def turnOnFirstChild=firstChild=true // Notecard set it in first iteration
 	def turnOffFirstChild=firstChild=false// Notecard turns off after 1st iteration
-					// Used in CardSet to enable PRIOR button when Card has 
-					//  no input fields.
-					// Used twice InputFocus. First, to enable when all fields
-					//  are captured, and second when '* continue' is issued. 
+		// Used in CardSet to enable PRIOR button when Card has 
+		//  no input fields.
+		// Used twice InputFocus. First, to enable when all fields
+		//  are captured, and second when '* continue' is issued. 
 	def isFirstChildFalse= firstChild==false
 	def isFirstChildTrue= firstChild==true
 
-//	def getNextButton=next  //Used in KeyListenerObject for '* continue' cmd
-					// Determine which button was activated and take 
-					// appropriate action.
+		// Determine which button was activated and take 
+		// appropriate action.
 	def actionPerformed(event:ActionEvent) { 
 		event getActionCommand() match{
-						// Next button enabled by FieldFocus
+				// Next button enabled by FieldFocus
 			case "Next"=>  
-				println("ButtonSet:getAction():  found next")
-						// Next button has been activated, so
-						// disable it,  gray the button,
-						// then release the wait state in CardSet
+					// Next button has been activated, so
+					// disable it,  gray the button,
+					// then release the wait state in CardSet
 				notifyGrayAndDisableNext 
 			case "Prior"=> 
-				println("ButtonSet: actionPerformed:  priorButton=true ")
 				priorButton=true;
-			//	grayAndDisablePriorButton 
 				notifyGrayAndDisableNext 
 			case " * "=> 
-						//println("ButtonSet:  '*' Button activated")
 				asteriskButton=true
 				notifyGrayAndDisableNext 
-			case _=> 		//println("unknown event=")
+			case _=> 		println("ButtonSet unknown event=")
 			}
 
 		}
@@ -101,13 +94,12 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		asterisk.setEnabled(true)
 		asterisk.setBackground(Color.white)
 		}
-					// tested in Notecard.executeNotecardChildren.  If true,
-					// then Linker loads the iterator with the prior
-					// card.
+		// tested in Notecard.executeNotecardChildren.  If true,
+		// then Linker loads the iterator with the prior
+		// card.
 	def isPriorButtonActivated = priorButton //set true by PRIOR button in actionPerformed()
 	def resetPriorButton= priorButton=false //set false in Notecard after executing
-											  // prior Card.
-
+						  // prior Card.
 	def createActionButton(buttonPanel:JPanel, button:JButton)={
 		button.addActionListener(this)
 		buttonPanel.add(button)
@@ -121,46 +113,44 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		prior.setBackground(Color.lightGray)
 		}
 	def grayAndDisableNextButton={ // invoked in CardSet and
-								// in ButtonSet. see notifyGray...
+					// in ButtonSet. see notifyGray...
 		next.setEnabled(false)
 		next.setBackground(Color.lightGray)
 		}
-					// orange Next button arms this method
-					// Invoked early in CardSet:establishNextButton
+		// orange Next button arms this method
+		// Invoked early in CardSet:establishNextButton
 	def notifyGrayAndDisableNext = {
-					// Disabled PRIOR button because it was occasionally
-					// gaining focus after NEXT button activation, causing
-					// the next spacebar key to initiate backup. 
+			// Disabled PRIOR button because it was occasionally
+			// gaining focus after NEXT button activation, causing
+			// the next spacebar key to initiate backup. 
 		grayAndDisablePriorButton
-							// Disable button
+			// Disable button
 		grayAndDisableNextButton
-		start			//(notifyAll). In CardSet, initiates the next 
-		   				// Card Set or terminate XNode wait. 
+		start		//(notifyAll). In CardSet, initiates the next 
+		   		// Card Set or terminate XNode wait. 
 		}
-					// Invoked by CardSet and FieldFocus
-					// CardSet in startCardSet after children 
-					//   iteration and just before 'wait'is issued.
-					//   It causes the 'Next' button to acquire focus.
-					// FieldFocus when all fields are captured. 
-					//	 FieldFocus.actWhenCaptureComplete
+		// Invoked by CardSet and FieldFocus
+		// CardSet in startCardSet after children 
+		//   iteration and just before 'wait'is issued.
+		//   It causes the 'Next' button to acquire focus.
+		// FieldFocus when all fields are captured. 
+		//	 FieldFocus.actWhenCaptureComplete
 	def armNextButton = {
 		next.setEnabled(true)
 		next.requestFocus()
-					//println("ButtonSet armNextButton()  has focus")
 		next setBackground(Color.ORANGE)
 		}
 	def turnOnPriorButton= {
-					//println("ButtonSet turn on prior Button")
 			prior.setBackground(Color.GREEN)		
 			println("ButtonSet  color set to GREEN")
 			prior.setEnabled(true)
 			}
-					//card commands halted by 'wait' in
-					// CardSet. 'Next' button action 
-					// terminates the wait condition.
+		//card commands halted by 'wait' in
+		// CardSet. 'Next' button action 
+		// terminates the wait condition.
 	def start():Unit=lock.synchronized{ lock.notifyAll() }
-					// Invoked by InputFocus in support ofg
-					// the '* continue' statement. 
+		// Invoked by InputFocus in support ofg
+		// the '* continue' statement. 
 	def issueWait:Unit=lock.synchronized{ lock.wait() }
 }
 

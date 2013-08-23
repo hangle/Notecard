@@ -1,7 +1,7 @@
 /* date:   Nov 27, 2011
 							BOX FIELD
 	A component of the Display command, for example:
-				d Enter (# $one)    //(# $one) is an input field component
+			d Enter (# $one)    //(# $one) is an input field component
 	The 'SymbolTable' stores the user's input value along with the
 	key 'one'. 
 
@@ -21,18 +21,16 @@
 	 	Component.setBounds(x, y, local_getMetricsWidth(), local_getMetricsHeight());
 	However, 'render()' is not invoked until just prior to the 'wait()'is issued  by
 	CardSet, for example: 
-							// CardSet children has executed, now invoke the 'render()' methods
-							// of DisplayText, DisplayVisual, and BoxField.
-				showPanel(notePanel) // display panel content (paint, validate)
-				haltCommandExecution(lock)//Stop (issue wait()) to allow the user to enter responses.
-				clearNotePanel(notePanel)		//remove all components & clear screen
- 
+			// CardSet children has executed, now invoke the 'render()' methods
+			// of DisplayText, DisplayVisual, and BoxField.
+			showPanel(notePanel) // display panel content (paint, validate)
+			haltCommandExecution(lock)//Stop (issue wait()) to allow the user to enter responses.
+			clearNotePanel(notePanel)		//remove all components & clear screen
  	A 'd' command, such as:
 			d now is (%% /size 24/for all) good men
 	has two size value (24 and the default size [typically 16] for 'now is' and 'good men').
 	The 'y' coordinates must be adjusted upwards for 'now is' and 'good men' .  
 			(see:  y=adjustYyForSizeLessThanMax(yy:Int) )
-
 */ 
 
 package com.client
@@ -44,18 +42,18 @@ import javax.swing._
 
 case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with Visual with Linker{
 													/*
-													Linker
-														def reset
-														def iterate
-														def Value
-													Linker extends Node
-			symbolTable holds $<variables>				def setId
-														def convertToSibling
-														def convertToChild
-													Visual
-														def render
-														def convertRowColumnToPixel
-													*/
+				Linker
+					def reset
+					def iterate
+					def Value
+				Linker extends Node
+	symbolTable holds $<variables>	def setId
+					def convertToSibling
+					def convertToChild
+				Visual
+					def render
+					def convertRowColumnToPixel
+*/
 //------------paramters pass by .struct file-----------------
    var field=""     //e.g.,  $one where field="$one"
    var length=0		// display length of input field
@@ -85,29 +83,27 @@ case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with
 	def startBoxField(rowPosition:RowPosition) {
 		xx=rowPosition.getCurrentWidth()
 		yy=rowPosition.getCurrentHeight()
-						// computes the metric width of the text string so as
-						// to adjust row position for next display component
+			// computes the metric width of the text string so as
+			// to adjust row position for next display component
 		rowPosition.sumToCurrentWidth(local_getMetricsWidth())
-//		convertRowColumnToPixel(rowPosition) 
 		}
-				// record captured response
+			// record captured response
 	def addFieldToSymbolTable {
-		//println("BoxField: addFieldToSymbolTable:key="+field+"   input="+getInput)
 		symbolTable += (field -> getInput)
 		}
 	def removeFieldFromSymbolTable { 
 		symbolTable -= field
 		}
 	def getInput= getText().trim      //getText() in JTextField
-    var xx=0   //set by RowPosition
+        var xx=0   //set by RowPosition
 	var yy=0   //set by RowPosition
 	var metrics:FontMetrics=null
-				// Assigned in RowerNode by visiting each Visual component
-				// of the 'd' command and finding the one with the 
-				// greatest height value. 
+			// Assigned in RowerNode by visiting each Visual component
+			// of the 'd' command and finding the one with the 
+			// greatest height value. 
 	var maxHeight=0
 
-						// In NoteLayout, LayoutManager.layoutContainer iterates
+				// In NoteLayout, LayoutManager.layoutContainer iterates
                 		// thru all components added to the notecard panel.
                    		// This method invokes 'render() for all Visual objs.
 	def render() {
@@ -115,22 +111,22 @@ case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with
         setColumns(5)
 		var y=yy    // in event that yy does not need an adjustment
 		if(isHeightDifferentThanMaxHeight) 
-					// y axis is ajusted downward for text whose height < maxHeight
-					// so that text of different sizes are aligned on the same line.
+			// y axis is ajusted downward for text whose height < maxHeight
+			// so that text of different sizes are aligned on the same line.
 					y=adjustYyForSizeLessThanMax( yy )
         setBounds(xx, y, local_getMetricsWidth(), local_getMetricsHeight());
 		}
-						// if text height is not same as the largest height 
+		// if text height is not same as the largest height 
 	def isHeightDifferentThanMaxHeight: Boolean={
 			local_getMetricsHeight() != maxHeight
 			}
-					// In 'd' command ( d (%% /size 10/now) (%% /size 15/is) ) for 'now'
-					// to be aligned with 'is',  the y axis value of Component() must be
-					// adjusted. 
+		// In 'd' command ( d (%% /size 10/now) (%% /size 15/is) ) for 'now'
+		// to be aligned with 'is',  the y axis value of Component() must be
+		// adjusted. 
 	def adjustYyForSizeLessThanMax(yy:Int)= { 
-			val difference= maxHeight - local_getMetricsHeight()
-			yy + difference - (difference * .25).toInt
-			}
+		val difference= maxHeight - local_getMetricsHeight()
+		yy + difference - (difference * .25).toInt
+		}
 
 	def establishMetrics(nameFont:String, styleFont:Int, sizeFont:Int)={
 		val font=new Font(nameFont,styleFont, sizeFont)
@@ -139,21 +135,21 @@ case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with
 		}
 	def local_getMetricsHeight()={ metrics.getHeight() +4 }
 	def local_getMetricsWidth() ={ metrics.charWidth('m') * length }
-							// When an EditNode fails, its message parameter
-							// passed to BoxFieldc
+		// When an EditNode fails, its message parameter
+		// passed to BoxFieldc
 	var editMessage=""
-							// Invoked by KeyListenerObject.
+		// Invoked by KeyListenerObject.
 	def getEditMessage=editMessage
 	def detectYesNoToSetLengthToOne(xtype:Int, size:Int)={
 
 		}
-			// used in KeyListenerObject when 'captureInputResponse is invoked.
-			// Indicates the Edit command is present and is subject to test.
+		// used in KeyListenerObject when 'captureInputResponse is invoked.
+		// Indicates the Edit command is present and is subject to test.
 	def isEditNodeOn= {if(symChild != "0") true; else false }
-			// Iterate EditNode children. Returns true if all
-			// EditField(s) associated with the BoxField each return 
-			// true, or returns false is any one returns false
-			//	   Invoked in KeyListenerObject.actOnNewLineEvent(...)
+		// Iterate EditNode children. Returns true if all
+		// EditField(s) associated with the BoxField each return 
+		// true, or returns false is any one returns false
+		//	   Invoked in KeyListenerObject.actOnNewLineEvent(...)
 	def isEditSuccessful: Boolean={
 		var editNode:EditNode=null
 		var editSuccess=true
@@ -163,10 +159,8 @@ case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with
 			editNode=Value.asInstanceOf[EditNode]
 			if(editSuccess){ //any failure turns 'if' expression off
 				editSuccess=editNode.evaluateTheEditNode(response) //return false if failure
-					println("BoxField isEditSuccessful  editSuccess="+editSuccess)
 				if( ! editSuccess) //load message when EditNode fails. 
 					editMessage=editNode.getFailureMessage 
-					
 				}
 			}
 		editSuccess
@@ -189,14 +183,6 @@ case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with
 
 		metrics=establishMetrics(nameFont, styleFont, sizeFont)
 
-/*
-		if(isYesNoMode) {
-			length=1	// length of input field
-			limit=1		// limit number input characters
-			}
-*/
-
 		}
-
 	}
 

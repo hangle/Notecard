@@ -25,8 +25,6 @@ also a parent, having 5 class children.  Finally,
 all extend the 'Node' trait.  The data member 'next' is the
 node element of the linked list.
 
-	
-
 The 'Server' program, whose input is from the 'Script'
 program (<xxx.script>, builds this hierarchy and converts the 
 physical address of 'next' to a symbolic address (symId). Each
@@ -124,8 +122,7 @@ trait Node  {
 			// the "physical address". 
    	def setId(swizzleTable:Map[String, Node], objectx:Any )= {
 		val xnode:Node=objectx.asInstanceOf[Node]	
-		//println("Node: setId   symbolic-address="+ symId)
-       	swizzleTable + (symId -> xnode) 
+		swizzleTable + (symId -> xnode) 
 		}
 			// 'symSibling' of one object matches the symbolic address of
 			//  another object. The latter object is the next node in a 
@@ -134,32 +131,26 @@ trait Node  {
 			// and stores it in 'next' (it now has a physical referenec 
 			// to the next set object).[see Core as how the list is iterated]
 	def convertToSibling(swizzleTable:Map[String, Node]) = {
-		//println("\tNode: convertToSibling  -- invoked")
-		//println("Node:  symSibling=|"+symSibling+"|")
 		if(symSibling=="0" || symSibling=="") next;
 		else {
 			if(swizzleTable.contains(symSibling)) {
 				next=swizzleTable(symSibling)
 				}
-			else{   println("Node: convert_to_ref: not found in Map-- nextStr="+symSibling)
-				val set=swizzleTable.keySet
-			//	println("Node:   ----------- key set---------------------")
-			//	set.foreach(println)
-				throw new Exception
-				}
+			else{   
+			    val set=swizzleTable.keySet
+			    throw new Exception
+			    }
 			}
 		}
 	def convertToChild(swizzleTable:Map[String, Node]) ={
 		if(symChild != "0") {
-				if(swizzleTable.contains(symChild)){
-					child=swizzleTable(symChild) 
-		//		println("\t\tNode: convertToChild  symChild="+symChild)
-			//	println("\t\tNode: convertToChild  child="+child)
-					}
-				else{ println("Node: convertToChild: not found in Map-- nextStr="+symChild)
-					swizzleTable.keySet 
-					throw new Exception 
-					}
+			if(swizzleTable.contains(symChild)){
+				child=swizzleTable(symChild) 
+				}
+			else    {
+				swizzleTable.keySet 
+				throw new Exception 
+				}
 			}
 		}
 

@@ -1,5 +1,5 @@
 /* date:   Nov 2, 2012
-								Collaborates with:  LogicType
+		Collaborates with:  LogicType
    
 	Performs a logic test on an conditional expression, such as:
 		(1)=(2) 
@@ -57,7 +57,6 @@ object LogicTest  {
 		var running:Boolean=true // outcome of 'resolve'
 		var current:Boolean=true // outcome of 'evaluate'
 		var popped: Boolean=true // outcome returned by 'recurse'
-				//println("LogicTest  recurse():  (should always be true) running="+running)
 					// Returns 'list.head' of Logic list as well as shortens  this
 					// list to list.tail
 				def getToken={
@@ -78,14 +77,11 @@ object LogicTest  {
 					running=resolve(andOr, current, running)
 				case a:AndOr=>		// to resolve
 					andOr=a.andOr
-					//println("Test2: AndOr=> running="+running)/g
 				case o:OpenParen =>
-					//println("OpenParen-------------")
 					popped=recurse(logicList, symbolTable)
 					running=resolve(andOr, popped, running)
 					flag=true // its off, so turn on to keep looping 
 				case g:CloseParen=>  	 // to pop
-					//println("CloseParen............")
 					flag=false // terminate while loop
 				case _=> println("test: unknown");false
 				}
@@ -102,41 +98,4 @@ object LogicTest  {
 				current || running
 			}
 		}
-/*
-def main(argv:Array[String]) {
-	import SymbolTable._
-	val table=SymbolTable.load
-	val t=new LogicTokener
-	var expr= ""
-	expr="((axbc)=nc ns(xxab)and(1)=(3))"
-	expr="((axbc)=nc ns(xxab)and(1)=(3))or(2)=(2)"
-	expr="((axbc)=nc ns(xxab)and(1)=(3))or((eft)=(hig)and(33)=(44))"
-	expr="(hugh)=ncns(hugh)"
-	expr="((1)=(1)and(2)=(2))or((3)=(5)and(4)=(9))"  // true
-	expr="((1)=(1)and(2)=(2))and((3)=(5)and(4)=(9))" // false
-	expr="(1)=(1)and(2)=(2)and(3)=(5)or(4)=(5)"
-	expr="((1)=(2)and(2)=(5)or(5)=(5))" // true
-	expr="((3)=(5)and(4)=(9))or((1)=(1)and(2)=(1))or(5)=(5)" // true
-	expr="((3)=(5)and(4)=(9))or((1)=(1)and(2)=(1))or(5)=(4)" //false
-	expr="(1)=(1)and(2)=(2)and(3)=(3)"  // true
-	expr="(1)=(1)and(2)=(2)and(3)=(5)"  // false
-	expr="((1)=(6)or(2)=(2))and((3)=(5)or(4)=(4))"  // true
-	expr="((1)=(6)or(2)=(2))and((3)=(5)or(4)=(7))"  // false
-	expr="($one)=($two)"
-	expr="($one)=(two)"
-	expr="(02.2)<(2.3)and(9)>(12)"
-	println("+++++++++++++expression="+expr+"=====================")
-//	var r=t.extract(expr)
-//	if(r.isEmpty) println("result is empty")
-//	r.foreach(println)
-	//println(" ---Logic---")
-//	val rr= t.combine(r)
-	//rr.foreach(println)
-	//println("-------------")
-	val rr=t.logicTokener(expr)
-	val x=logicTest(rr, table)
-	println("logicTest="+x)
-
-	}
-*/
 }

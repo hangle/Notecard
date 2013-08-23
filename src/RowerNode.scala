@@ -1,5 +1,5 @@
 /* date:   Oct 26, 2011
-						ROWER NODE
+			ROWER NODE
 	A Card set having 5 display lines will have 5 RowerNode objects,
 	that is, each display line (d cmd) is associated with a RowerNode 
 	object.  
@@ -27,15 +27,15 @@ import javax.swing._
 
 case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 													/*
-													Linker
-														def reset
-														def iterate
-														def Value
-													Linker extends Node
-			symbolTable holds $<variables>				def setId
-														def convertToSibling
-														def convertToChild
-													*/
+			Linker
+				def reset
+				def iterate
+				def Value
+			Linker extends Node
+				def setId
+				def convertToSibling
+				def convertToChild
+	*/
 //------------paramters pass by .struct file-----------------
 	var row=0
 	var column=0
@@ -45,130 +45,125 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 			convertToChild(swizzleTable)  // Is a parent
 			}
 //-------------------------------------------------------------------
-
 	def startRowerNode(rowPosition:RowPosition, // converts row values (1,2,3,4,...) to
-												//   pixels.
-						notePanel:JPanel, 		// window where lines are displayed/
-						inputFocus:InputFocus,  // passed to KeyListenerObject
-						indexer:Indexer,		// passed to KeyListenerObject
-						statusLine:StatusLine,	// passed to KeyListenerObject. message 
-												//  to client (optional)
-						listenerArray:ArrayBuffer[KeyListenerObject] //array of KeyListenerObjects
-						) {
+							//   pixels.
+			notePanel:JPanel, 		// window where lines are displayed/
+			inputFocus:InputFocus,  // passed to KeyListenerObject
+			indexer:Indexer,		// passed to KeyListenerObject
+			statusLine:StatusLine,	// passed to KeyListenerObject. message 
+							//  to client (optional)
+			listenerArray:ArrayBuffer[KeyListenerObject] //array of KeyListenerObjects
+			) {
 
 		rowPosition.loadRowAndColumn(row, column)	
-	//	println("RowerNode: column="+column)
 				// Find the largest height value of all 'd' command Visual
 				// components. Insert largest value in each component.  
 		val maxHeight= maxHeightValuesOfVisualObjects()
-
 				//  sets CurrentWidth of RowPosition
 				//	resolveColumnRowPosition(rowPosition, column, row)
 				//  execute DisplayText, DisplayVariable, BoxField
 		iterateRowerNodeChildren(rowPosition, 
-								 notePanel, 
-								 inputFocus, 
-								 indexer, 
-								 statusLine, 
-								 listenerArray)
-				//The visual components of the 'd' command my specify different height
-				//values.  'maxHeightValuesOfVisualObjects' finds the maximum height.
-				// 'currentHeight' is incremented after each 'd' command executes. 
+					 notePanel, 
+					 inputFocus, 
+					 indexer, 
+					 statusLine, 
+					 listenerArray)
+			//The visual components of the 'd' command my specify different height
+			//values.  'maxHeightValuesOfVisualObjects' finds the maximum height.
+			// 'currentHeight' is incremented after each 'd' command executes. 
 		rowPosition.sumMaxHeightToCurrentHeight(maxHeight)
-				// initialized for next 'd' command line. 
+			// initialized for next 'd' command line. 
 		rowPosition.resetCurrentWidth()
 		}
 	def iterateRowerNodeChildren(rowPosition:RowPosition, 
-								 notePanel:JPanel, 
-								 inputFocus:InputFocus, 
-								 indexer:Indexer,
-								 statusLine:StatusLine,
-								 listenerArray:ArrayBuffer[KeyListenerObject]) {
-		reset(getFirstChild)			//point to head of linked list (setFirstChild)
-		while(iterate) {   				//Linker processes linked list of CardSet children
+				 notePanel:JPanel, 
+				 inputFocus:InputFocus, 
+				 indexer:Indexer,
+				 statusLine:StatusLine,
+				 listenerArray:ArrayBuffer[KeyListenerObject]) {
+		reset(getFirstChild)	//point to head of linked list (setFirstChild)
+		while(iterate) {   	//Linker processes linked list of CardSet children
 			executeRowerNodeChildren(Value, // Value references a particular sibling, 
-											// such as DisplayText 
-									 rowPosition, 
-									 notePanel, 
-									 inputFocus, 
-									 indexer, 
-									 statusLine , 
-									 listenerArray)
+							// such as DisplayText 
+						 rowPosition, 
+						 notePanel, 
+						 inputFocus, 
+						 indexer, 
+						 statusLine , 
+						 listenerArray)
 			}
 		}
 	def executeRowerNodeChildren(obj:Any,  
-								 rowPosition:RowPosition, 
-								 notePanel:JPanel, 
-								 inputFocus:InputFocus, 
-								 indexer:Indexer,
-								 statusLine:StatusLine,
-								 listenerArray:ArrayBuffer[KeyListenerObject]) {
-		obj match	{
-
-			case dt:DisplayText=>//println("\t\tRowerNode: is DisplayText")
-					dt.startDisplayText(rowPosition)
-					notePanel.add(dt)			
-			case dv:DisplayVariable=>//println("\t\tRowerNode: is DisplayVariable")
-					dv.startDisplayVariable(rowPosition)
-					notePanel.add(dv)
-			case bf:BoxField=> //println("\t\tis BoxField")
-					bf.startBoxField(rowPosition)
-					notePanel.add(bf) //refresh panel before creating listeners or incur focus problems
-					createListenerAndFocus(bf, inputFocus, indexer:Indexer, statusLine, listenerArray)
-			case _=> println("RowerNode execute.ERROR ERROR..: obj="+obj)
-				 	throw new Exception
+				 rowPosition:RowPosition, 
+				 notePanel:JPanel, 
+				 inputFocus:InputFocus, 
+				 indexer:Indexer,
+				 statusLine:StatusLine,
+				 listenerArray:ArrayBuffer[KeyListenerObject]) {
+		obj match{
+			case dt:DisplayText=>
+				dt.startDisplayText(rowPosition)
+				notePanel.add(dt)			
+			case dv:DisplayVariable=>
+				dv.startDisplayVariable(rowPosition)
+				notePanel.add(dv)
+			case bf:BoxField=>
+				bf.startBoxField(rowPosition)
+				notePanel.add(bf) //refresh panel before creating listeners or incur focus problems
+				createListenerAndFocus(bf, inputFocus, indexer:Indexer, statusLine, listenerArray)
+			case _=>
+			 	throw new Exception
 			}
 		}
 
-				// Find the largest height (size) value in pixels among the 'd' command's
-				// Visual objects. 
+		// Find the largest height (size) value in pixels among the 'd' command's
+		// Visual objects. 
 	def maxHeightValuesOfVisualObjects()= {
 		var maxValue=0
-		reset(getFirstChild)			//point to head of linked list (setFirstChild)
-		while(iterate) {   				//Linker processes linked list of CardSet children
+		reset(getFirstChild)//point to head of linked list (setFirstChild)
+		while(iterate) {   //Linker processes linked list of CardSet children
 			Value match {
-					case dt:DisplayText=>
-						if (maxValue < dt.local_getMetricsHeight() )
-								maxValue=dt.local_getMetricsHeight()
-					case dv:DisplayVariable=>
-						if (maxValue < dv.local_getMetricsHeight() )
-								maxValue=dv.local_getMetricsHeight()
-					case bf:BoxField=>
-						if (maxValue < bf.local_getMetricsHeight() )
-								maxValue=bf.local_getMetricsHeight()
-					case _=> //println("RowerNode: maxHeight..()  case _=>")
-					}
+				case dt:DisplayText=>
+					if (maxValue < dt.local_getMetricsHeight() )
+						maxValue=dt.local_getMetricsHeight()
+				case dv:DisplayVariable=>
+					if (maxValue < dv.local_getMetricsHeight() )
+						maxValue=dv.local_getMetricsHeight()
+				case bf:BoxField=>
+					if (maxValue < bf.local_getMetricsHeight() )
+						maxValue=bf.local_getMetricsHeight()
+				case _=> //println("RowerNode: maxHeight..()  case _=>")
 				}
+			}
 		reset(getFirstChild)
-				// Every Visual object of the 'd' command  will have 'maxHeight
+			// Every Visual object of the 'd' command  will have 'maxHeight
 		while(iterate) {
 			Value match {
-					case dt:DisplayText=>
-							dt.maxHeight=maxValue
-					case dv:DisplayVariable=>
-							dv.maxHeight=maxValue
-					case bf:BoxField=>
-							bf.maxHeight=maxValue
-					case _=> //println("RowerNode: maxHeight..()  case _=>")
-					}
+				case dt:DisplayText=>
+						dt.maxHeight=maxValue
+				case dv:DisplayVariable=>
+						dv.maxHeight=maxValue
+				case bf:BoxField=>
+						bf.maxHeight=maxValue
+				case _=> //println("RowerNode: maxHeight..()  case _=>")
+				}
 			}
 		maxValue
 		}
 
 	def createListenerAndFocus( boxField:BoxField, 
-								inputFocus:InputFocus, 
-								indexer:Indexer, 
-								statusLine:StatusLine,
-								listenerArray:ArrayBuffer[KeyListenerObject]) {
+				inputFocus:InputFocus, 
+				indexer:Indexer, 
+				statusLine:StatusLine,
+				listenerArray:ArrayBuffer[KeyListenerObject]) {
 		indexer.increment   // add one to index member of Indexer
-
-							// ??? when commented out, BoxField does not work ??? 
-							// KeyListenerObject "listens" for key input characters. 
+				// ??? when commented out, BoxField does not work ??? 
+				// KeyListenerObject "listens" for key input characters. 
 		val keyListenerObject=new KeyListenerObject(boxField,  inputFocus, indexer.getIndex, statusLine)
-							// added to an ArrayBuffer of InputFocus
+				// added to an ArrayBuffer of InputFocus
 		inputFocus.addToArray(boxField) 
-							// ListenerArray used in CardSet to remove 
-							// listeners on card termination
+				// ListenerArray used in CardSet to remove 
+				// listeners on card termination
 		listenerArray += keyListenerObject
 		}
 	def  receive_objects(structSet:List[String] ) {

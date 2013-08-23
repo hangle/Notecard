@@ -9,11 +9,11 @@
 	 	Component.setBounds(x, y, local_getMetricsWidth(), local_getMetricsHeight());
 	However, 'render()' is not invoked until just prior to the 'wait()'is issued  by
 	CardSet, for example: 
-							// CardSet children has executed, now invoke the 'render()' methods
-							// of DisplayText, DisplayVisual, and BoxField.
-				showPanel(notePanel) // display panel content (paint, validate)
-				haltCommandExecution(lock)//Stop (issue wait()) to allow the user to enter responses.
-				clearNotePanel(notePanel)		//remove all components & clear screen
+		CardSet children has executed, now invoke the 'render()' methods
+		// of DisplayText, DisplayVisual, and BoxField.
+		showPanel(notePanel) // display panel content (paint, validate)
+		haltCommandExecution(lock)//Stop (issue wait()) to allow the user to enter responses.
+		clearNotePanel(notePanel)		//remove all components & clear screen
  
  	A 'd' command, such as:
 			d now is (%% /size 24/for all) good men
@@ -31,15 +31,15 @@ import java.awt.Color
 import javax.swing._
 
 case class DisplayText(var symbolTable:Map[String,String]) extends JLabel with Node with Visual {
-																/*
-															Node
-					symbolTable holds $<variables>				def setId
-																def convertToSibling
-																def convertToChild
-															Visual
-																def render
-																def convertRowColumnToPixel
-																*/
+		/*
+					Node
+	symbolTable holds $<variables>		def setId
+						def convertToSibling
+						def convertToChild
+					Visual
+						def render
+						def convertRowColumnToPixel
+			*/
 //------------paramters pass by .struct file-----------------
 	var styleFont=0
 	var sizeFont=0
@@ -74,26 +74,26 @@ case class DisplayText(var symbolTable:Map[String,String]) extends JLabel with N
                	// thru all components added to the notecard panel.
                	// This method invokes 'render() for all Visual objs.
 	def render() {
-	    setForeground(xcolor)
-        setText(text)
+	        setForeground(xcolor)
+       	        setText(text)
 		var y=yy    // in event that yy does not need an adjustment
 		if(isHeightDifferentThanMaxHeight) 
-					// y axis is ajusted downward for text whose height < maxHeight
-					// so that text of different sizes are aligned on the same line.
-					y=adjustYyForSizeLessThanMax( yy )
-        setBounds(xx, y, local_getMetricsWidth(), local_getMetricsHeight());
+				// y axis is ajusted downward for text whose height < maxHeight
+				// so that text of different sizes are aligned on the same line.
+			y=adjustYyForSizeLessThanMax( yy )
+		setBounds(xx, y, local_getMetricsWidth(), local_getMetricsHeight());
 		}
 					// if text height is not same as the largest height 
 	def isHeightDifferentThanMaxHeight: Boolean={
-			local_getMetricsHeight() != maxHeight
-			}
-					// In 'd' command ( d (%% /size 10/now) (%% /size 15/is) ) for 'now'
-					// to be aligned with 'is',  the y axis value of Component() must be
-					// adjusted. 
+		local_getMetricsHeight() != maxHeight
+		}
+		// In 'd' command ( d (%% /size 10/now) (%% /size 15/is) ) for 'now'
+		// to be aligned with 'is',  the y axis value of Component() must be
+		// adjusted. 
 	def adjustYyForSizeLessThanMax(yy:Int)= { 
-			val difference= maxHeight - local_getMetricsHeight()
-			yy + difference - (difference * .25).toInt
-			}
+		val difference= maxHeight - local_getMetricsHeight()
+		yy + difference - (difference * .25).toInt
+		}
 	def establishMetrics(nameFont:String, styleFont:Int, sizeFont:Int)={
 		val font=new Font(nameFont,styleFont, sizeFont)
 		setFont(font)
@@ -101,9 +101,9 @@ case class DisplayText(var symbolTable:Map[String,String]) extends JLabel with N
 		}
 	def local_getMetricsHeight()={ metrics.getHeight() +4 }
 	def local_getMetricsWidth() ={ metrics.stringWidth(text) +4 }
-						//Load class instance with argument 
-						//values from <.struct> file. Method
-						//invoked in CreateClass
+		//Load class instance with argument 
+		//values from <.struct> file. Method
+		//invoked in CreateClass
 	def  receive_objects(structSet:List[String] ) {
 		val in=structSet.iterator
 		setAddress(in.next)
@@ -114,7 +114,6 @@ case class DisplayText(var symbolTable:Map[String,String]) extends JLabel with N
 		nameFont=in.next
 		text=in.next
 		xcolor=Paint.setColor(in.next) //see Paint object
-//		println("DisplayText name="+nameFont+"   style="+styleFont+"    size="+sizeFont)
 		metrics=establishMetrics(nameFont, styleFont, sizeFont)
 		}
 	}

@@ -5,8 +5,6 @@ package com.client
 object LinkTool extends Node with Linker {
 
 	def showHierarchy(notecard:Notecard) {
-		println("------------LinkTool: showHierarchy------------")
-	//	if(notecard.getFirstChild==null) println("getFirstChild NULL") else println("getFirstChild not null")
 		notecard.reset(notecard.getFirstChild)
 		while(notecard.iterate) {
 			notecard.Value match	{
@@ -39,15 +37,5 @@ object LinkTool extends Node with Linker {
 						case xx:DisplayText=>println("\t\t\tDisplayText")
 						case _=> println("===========Unknown")
 						}
-		/*
-			while(iterate) {
-				rowerNode.Value match {
-					case dt:DisplayText=>println("\t\t\tDisplayText")
-					case dv:DisplayVariable=>println("\t\t\tDisplayVariable")
-					case bf:BoxField=> println("\t\t\tBoxField")
-					case _=>  println("\t\t\tUnknown: Value="+rowerNode.Value)
-					} 
-			}
-			*/
 	    }
 }

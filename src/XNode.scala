@@ -27,22 +27,21 @@ package com.client
 import scala.collection.mutable.Map
 
 case class XNode(var symbolTable:Map[String,String]) extends Node {
-											/*
-											Node
-	symbolTable holds $<variables>				def setId
-												def convertToSibling
-												def convertToChild
-												def convertToCondition
-
-											*/
+						/*
+						Node
+symbolTable holds $<variables>				def setId
+							def convertToSibling
+							def convertToChild
+							def convertToCondition
+						*/
 //------------------------------swizzle routines---------------------
 	def convertToReference(swizzleTable:Map[String, Node])={
 			convertToSibling(swizzleTable)
 			}
 //-------------------------------------------------------------------
-						//Load class instance with argument 
-						//values from <.struct> file. Method
-						//invoked in CreateClass
+		//Load class instance with argument 
+		//values from <.struct> file. Method
+		//invoked in CreateClass
 	def  receive_objects(structSet:List[String] ) {
 		val in=structSet.iterator
 		setAddress(in.next)  //Node

@@ -41,15 +41,15 @@ import scala.collection.mutable.Map
 
 case class Assigner(var symbolTable:Map[String,String]) extends Linker  {
 													/*
-													Linker
-														def reset
-														def iterate
-														def Value
-													Linker extends Node
-			symbolTable holds $<variables>				def setId
-														def convertToSibling
-														def convertToChild
-													*/
+				Linker
+					def reset
+					def iterate
+					def Value
+				Linker extends Node
+	symbolTable holds $<variables>	def setId
+					def convertToSibling
+					def convertToChild
+*/
 //-------------paramerters from .struct file--------
 	var target=""
 	var source=""
@@ -66,60 +66,43 @@ case class Assigner(var symbolTable:Map[String,String]) extends Linker  {
 	def startAssigner= {
 	    val goOn=if(conditionStruct != "") 
 					LogicTest.logicTest(conditionStruct, symbolTable)
-	//		   else false
 			   else true
-					// Execute if condition is true or if condition does not exist
+			// Execute if condition is true or if condition does not exist
 		if(goOn) {
-				println("Assigner target="+target+"   source="+source+"   special="+special)
-				if(special=="simple") {  //source is a single value, e.g.,  3.14
-					if(isVariable(source)) // detect '$'
-						source=retrieveValueFromSymbolTable(source, symbolTable)
-				    //println("xhere")
+			if(special=="simple") {  //source is a single value, e.g.,  3.14
+				if(isVariable(source)) // detect '$'
+					source=retrieveValueFromSymbolTable(source, symbolTable)
 					addFieldToSymbolTable(target, source, symbolTable)
 					}
 				else 
-						//source is, e.g., (rate+2)/4^tax
+					//source is, e.g., (rate+2)/4^tax
 					mathExpression(target,source, symbolTable)
-				
 				false
 				}
 		}
 	def isVariable(variable:String)= { variable(0)=='$'  }
-	
 	def retrieveValueFromSymbolTable(source:String, 
-									 table:Map[String,String])={
+					 table:Map[String,String])={
 		table.get(source) match {
-				case Some(value)=> value
-				case None=> "uknwn"
-				}
+			case Some(value)=> value
+			case None=> "uknwn"
+			}
 		}
-/*
-	def isVariable(variable:String)= {
-		variableRegex.findFirstIn(variable) match {
-			case Some(x)=> true
-			case None => false
-			}}
-*/
-
 	def addFieldToSymbolTable(key:String, value:String, table:Map[String,String]) {
 		table += (key -> value)
 		println("Assigner: addFieldToSymbolTable:key="+key+"   input="+value)
 		}
-
 	def mathExpression(key:String,expr: String, symbolTable:Map[String,String])  {
-							// converts expression string to List[String]
+			// converts expression string to List[String]
 		val t =new Tokener 
 		val list=t.extract(expr)
-	//	list.foreach(println)
-	//	println("here")
-							// Recursive-decent math expression parser
+			// Recursive-decent math expression parser
 		val e=new Evaluator(list, symbolTable)
 		val result=e.evaluate.toString  // double to string
 		addFieldToSymbolTable(key,result, symbolTable)
 		}
-			
 	//------------------------------------------------------
-					// *.struct file delivers symbolic links and object parameters.
+		// *.struct file delivers symbolic links and object parameters.
 	def  receive_objects(structSet:List[String] ) {
 		val in=structSet.iterator
 		setAddress(in.next)
@@ -127,12 +110,8 @@ case class Assigner(var symbolTable:Map[String,String]) extends Linker  {
 		target=in.next		// Value is assigned to 'target'
 		source=in.next		// Expression whose value is assigned to 'target'.
 		special=in.next		// A one value assignment to 'target' is marked 'simple'.
-//		println("Assigner  receive_obj:   sepcial="+special)
-
-							//     A math expression is marked ""
+					//     A math expression is marked ""
 		conditionStruct=in.next // Address of the first 'Condition' object. 
-//		setCondition(conditionStruct)  
-
 		}
 	}
 

@@ -41,54 +41,43 @@ class GroupResolve()   {
 	val ElseConditionNode=3//post is "else" and has condition--else if
 	val EmptyNode=4		   //No condition or no "else"
 	var kind=0
-	
 	var groupNode:GroupNode=null
-
 	var thenTrue=false      // The Group else clause will consult 
-							// this value.  If true, then the else 
-							// Group of commands are skipped. If true,
-							// then the else Goup commands are executed.
+				// this value.  If true, then the else 
+				// Group of commands are skipped. If true,
+				// then the else Goup commands are executed.
 	var elseCondition=false
 
 	def attachGroupNode(group:GroupNode) { 
-		println("\t\tGroupResolve attachGroupNode ")
 		groupNode=group 
 		}
-							// Group action is based on outcome history
-							// one or more GroupNodes. For example, if
-							// the then Group clause fails, then its 
-							// commands are skipped; and the
-							// else Group clause commands are executed. 
-	def actionToTake= {			// returns either 'skip' or 'do'
-		println("GroupResolve actionToTake: GN.whatKind="+groupNode.whatKind)
-							// GroupNode.whatKind is: 
-							//		ThenNode--	condition only
-							//		ElseNode--	else but no condition
-							//		ElseConditionNode-- else and condition
-							//		EmptyNode--	no condition and no else
+		// Group action is based on outcome history
+		// one or more GroupNodes. For example, if
+		// the then Group clause fails, then its 
+		// commands are skipped; and the
+		// else Group clause commands are executed. 
+	def actionToTake= {	// returns either 'skip' or 'do'
+				// GroupNode.whatKind is: 
+				//		ThenNode--	condition only
+				//		ElseNode--	else but no condition
+				//		ElseConditionNode-- else and condition
+				//		EmptyNode--	no condition and no else
 		groupNode.whatKind match {
 			case ThenNode=>	// condition only 
-					println("\t\tGroupResolve: thenNode")
-					if(groupNode.isConditionTrue) {
-						thenTrue=true
-						println("\t\t\t\tGroupResolve: ThenNode:  (true) action to take is DO")
-						"do"
-						}
-					 else {
-						thenTrue=false
-						println("\t\t\t\tGroupResolve: ThenNode (false) action to take is SKIP")
-						"skip"
-						}
+				if(groupNode.isConditionTrue) {
+					thenTrue=true
+					"do"
+					}
+				 else {
+					thenTrue=false
+					"skip"
+					}
 			case ElseNode=> // else but no condition
-					println("\t\tGroupResolve: elseNode")
-					if(thenTrue ==false) {
-						println("\t\t\t\tGroupResolve: ElseNode:  (false): action to take is DO")
-						"do"	}
-					else{
-						println("\t\t\t\tGroupResolve: ElseNode:  (true): action to take is SKIP")
-						"skip" }
+				if(thenTrue ==false) {
+					"do"	}
+				else{
+					"skip" }
 			case ElseConditionNode=>   // else and condition
-					println("\t\t\tGroupResolve: elseCondtion")
 				if(elseCondition==false) {
 					if(thenTrue==true) "skip"
 					if(groupNode.isConditionTrue) {
@@ -99,7 +88,6 @@ class GroupResolve()   {
 				 else
 				 	"skip"
 			case EmptyNode=>  // no else and no condition
-					println("\t\tGroupResolve: emptyNode") 
 					"done"
 			case _=> println("\t\tGroupResolve: unknown")
 			}

@@ -32,24 +32,22 @@ import javax.swing._
 
 object MultipleListener  extends App{
 
-			// supports multiple choice entry mode. Invoked when 'options'  parameter
-			// is non zero. Rejects non numeric inputs as well as any numeric value
-			// greater than 'options'. /
+		// supports multiple choice entry mode. Invoked when 'options'  parameter
+		// is non zero. Rejects non numeric inputs as well as any numeric value
+		// greater than 'options'. /
 	def multipleListener(key:Int,
-						 countVal:Int,
-						 inputFocus:InputFocus,
-						 boxField: BoxField,
-						 statusLine:StatusLine):Int = {
+				 countVal:Int,
+				 inputFocus:InputFocus,
+				 boxField: BoxField,
+				 statusLine:StatusLine):Int = {
 		var count=countVal  // count is increment and may be set to zero
 		statusLine.clearStatusLine   // removes prior message, if any
 		count+= 1   // increment for each input character
 		key match {
 			case KeyEvent.VK_ENTER=>
-				println("vk-enter   field="+boxField.field)
 				if(boxField.isValidOptionRange){
-					println("valid option range")
-						// switches focus to next component if all fields have
-						// not been captured, otherwise activate NEXT button. 
+					// switches focus to next component if all fields have
+					// not been captured, otherwise activate NEXT button. 
 					inputFocus.actWhenAllFieldsCaptured
 					}
 				else{			// number not in range of options
@@ -69,7 +67,6 @@ object MultipleListener  extends App{
 						// count=0 when option range is exceeded
 					count=validateOptionRange(count, boxField, inputFocus,statusLine)
 				else{
-					println("\tnot number clear input field")
 					count=0
 					statusLine.addMessageToStatusLine("numbers only")
 					boxField.clearInputField // remove current response
@@ -78,25 +75,21 @@ object MultipleListener  extends App{
 		count
 		}
 	def isNumber(key:Int)= { if(key > 47 && key < 58) true; else false }
-
-				// Invoked when input character is a number. The option range
-				// is checked (>0 and less then options+1. Following successful
-				// range check, if the count of input characters is equal to
-				// the limit parameter, the input field is captured.
+		// Invoked when input character is a number. The option range
+		// is checked (>0 and less then options+1. Following successful
+		// range check, if the count of input characters is equal to
+		// the limit parameter, the input field is captured.
 	def validateOptionRange(countVal:Int,
-							boxField:BoxField,
-							inputFocus:InputFocus,
-							statusLine:StatusLine)={
+				boxField:BoxField,
+				inputFocus:InputFocus,
+				statusLine:StatusLine)={
 		println("KetyLIstneerObject validateOptionRange")
 		var count=countVal
 		if(boxField.isValidOptionRange)  
 			if(count==boxField.limit) {
-				println("valid option range  count="+count+"   limit="+boxField.limit)
 				boxField.addFieldToSymbolTable // store input resonse
 				inputFocus.actWhenAllFieldsCaptured
 				}
-			else
-				println("count not equal to limit")
 		else {  // is number but not in option range
 			println("number but not in option range")
 			count=0
@@ -105,6 +98,4 @@ object MultipleListener  extends App{
 		    }
 		count
 		}
-
-
 }

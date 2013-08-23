@@ -6,11 +6,6 @@ import javax.swing._
 
 class StatusLine  extends JLabel {
 	setText("")
-
 	def clearStatusLine=setText("")	
 	def	addMessageToStatusLine(message:String)= setText(message)
-
 }
-object StatusLine extends App {
-	println("status line")
-	}

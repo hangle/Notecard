@@ -35,16 +35,16 @@ object StructScript   {
 		structsToClassnameGroup(list).reverse	
 		}
 	def scriptFile(filename:String):List[String] ={
-					// Terminate program if 'start.struct' file is found
-					// because 'start' file commands are found in 
-					// 'StartFile.scala'.  In event user creates 'start.nc'.
+			// Terminate program if 'start.struct' file is found
+			// because 'start' file commands are found in 
+			// 'StartFile.scala'.  In event user creates 'start.nc'.
 		isStartFile
 		if( ! isFile(filename)) {
-					// file not./ found, so default to 'start' file
-					// in StartFile.scala which allows
-					// user to enter a '.nc' filename
-			println("StructScript   invoke substituteStartFile")
-					// Reads script
+			// file not./ found, so default to 'start' file
+			// in StartFile.scala which allows
+			// user to enter a '.nc' filename
+		println("StructScript   invoke substituteStartFile")
+				// Reads script
 			substituteStartFile //return list
 			}
 		  else {
@@ -55,11 +55,9 @@ object StructScript   {
 				    list
 			}
 		}
-					// <*.struct> file not found so use start.struct
-					// 'start.struct' script is in 'StartFile.scala'.
-	def substituteStartFile ={	
-				println("StructScript substiturte Start File")
-				StartFile.getStartArray.toList }
+		// <*.struct> file not found so use start.struct
+		// 'start.struct' script is in 'StartFile.scala'.
+	def substituteStartFile ={	StartFile.getStartArray.toList }
 	def fileToList(filename: String):List[String] = {
 		Source.fromFile(filename).getLines.toList
 		}
@@ -73,9 +71,9 @@ object StructScript   {
 			sys.exit(0)
 			}
 		}
-				// Combine lines into CardSets where set begins with
-				// '%', like '%DisplayText'. Then combine Card sets lists
-				// in a single list. 
+		// Combine lines into CardSets where set begins with
+		// '%', like '%DisplayText'. Then combine Card sets lists
+		// in a single list. 
 	  def structsToClassnameGroup(l:List[String]):List[List[String]]={
 		var ll:List[List[String]]=Nil
 		var xl:List[String]=Nil
@@ -85,8 +83,8 @@ object StructScript   {
 				case "%%" => 
 					ll=xl.reverse :: ll
 					flag=true
-							// a 'text' line may begin with '%' so make sure
-							// it is followed by '%%' (end of set)
+					// a 'text' line may begin with '%' so make sure
+					// it is followed by '%%' (end of set)
 				case s  if(flag ==true && s.startsWith("%"))=> 
 					xl=s :: Nil
 					flag=false
@@ -96,13 +94,5 @@ object StructScript   {
 			}
 		ll
 		}
-def main(argv: Array[String]) {
-	//val filename="frfn.struct"
-	val filename="pool/c.command"
-	val list=scriptFile(filename)
-			list.foreach(println)
-	val classSets=structsToClassnameGroup(list).reverse	
-		classSets.foreach(println)
-	}
 }
 
