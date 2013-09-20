@@ -46,6 +46,8 @@ symbolTable holds $<variables>				def setId
 		val in=structSet.iterator
 		setAddress(in.next)  //Node
 		setNext(in.next)     //Node
+		val percent=in.next
+		//println("XNode: percent="+percent)
 		}
 	}
 

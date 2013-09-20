@@ -64,5 +64,7 @@ case class GroupNode(symbolTable:Map[String,String]) extends Node   {
 			// but 'else' missing, then the 'kind' value indicates only 
 			// a "then" state.
 		kind=setGroupNodeType
+		val percent= in.next
+		//println("GroupNode: percent="+percent)
 		}
 }

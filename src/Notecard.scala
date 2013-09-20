@@ -114,7 +114,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				// in inputfocus 'isfirstchildfalse' in 'actwhenallfieldscapured' and
 				// 'establishaseriskcontinue' turns prior button green and 
 				// enables button.
-				println("Notecard turnOffFirstChild")
+				//println("Notecard turnOffFirstChild")
 				buttonSet.turnOffFirstChild //sets firstChild to false
 				}
 				// If '* end' or 'f <filename>' commands are detected, 
@@ -254,6 +254,9 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		frame_height=in.next.toInt
 		frame_width=in.next.toInt
 		font_size=in.next.toInt
+		val percent=in.next
+		//println("Notecard: percent="+percent)
+
 		}	
 
 }

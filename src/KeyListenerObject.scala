@@ -45,6 +45,7 @@ class KeyListenerObject( boxField:BoxField,
 		val key:Int= event.getKeyChar()
 			// Example command  'd  (#yn  $ans)' sets 'BoxField.column'
 			// to '1'
+		if(key==KeyEvent.VK_SPACE) println("KeyListernerObject: VK_SPACE")
 		if(boxField.isYesNoMode) {   //BoxField.column ==1
 				// Record 'y' or 'n' if valuation succeeds
 			if(evaluateYesNoEntry(key))
@@ -67,8 +68,8 @@ class KeyListenerObject( boxField:BoxField,
 				// Store input if Edit is on and is successful or
 				// store input if edit if off
 			if(captureInputResponse ){ 	//fails if Edit fails
-				// inputFocus counts number response required
-				// Releases CardSet wait() when count achieved
+						// inputFocus counts number response required
+						// Releases CardSet wait() when count achieved
 				inputFocus.actWhenAllFieldsCaptured
 				}
 			  else{ 
@@ -77,11 +78,11 @@ class KeyListenerObject( boxField:BoxField,
 			}
 				// limit placed on number of input chars
 		  else if(isInputLengthEqualToLimit(key, limit)) //true if count = limit
-				// Store input if Edit is on and is successful or
-				// store input if edit if off
+						// Store input if Edit is on and is successful or
+						// store input if edit if off
 			if(captureInputResponse)	//fails if Edit fails
-				// inputFocus counts number response required
-				// Releases CardSet wait() when count achieved
+						// inputFocus counts number response required
+						// Releases CardSet wait() when count achieved
 				inputFocus.actWhenAllFieldsCaptured
 		}
 		// Invoked when number chars limit reached, or ENTER key detected.
@@ -90,12 +91,12 @@ class KeyListenerObject( boxField:BoxField,
 	def captureInputResponse:Boolean= { // invoked following KeyRelease
 		boxField.addFieldToSymbolTable // store input resonse
 		if(boxField.isEditNodeOn) {      // Edit evaluation active
-			// Iterate EditNode children. Returns true if all
-			// EditField(s) associated with the BoxField each return 
-			// true, or returns false is any one returns false
-			//	   Invoked in KeyListenerObject.actOnNewLineEvent(...)
+					// Iterate EditNode children. Returns true if all
+					// EditField(s) associated with the BoxField each return 
+					// true, or returns false is any one returns false
+					//	   Invoked in KeyListenerObject.actOnNewLineEvent(...)
 			if( ! boxField.isEditSuccessful ){  // Do when Edit evaluation fails
-	 			//On failure, clear input field and display status message.
+					//On failure, clear input field and display status message.
 				boxField.clearInputField
 				statusLine.clearStatusLine   // removes prior message, if any
 				statusLine.addMessageToStatusLine(boxField.getEditMessage)

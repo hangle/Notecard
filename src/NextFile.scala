@@ -75,5 +75,8 @@ case class NextFile(symbolTable:Map[String,String]) extends Linker {
 			        // the Start-file card or from the File-not-found card. 
 			        // At present, the user has no control over this parameter. 
 		conditionStruct=in.next
+		val percent=in.next
+		//println("NextFile: percent="+percent)
+
 		}
 }

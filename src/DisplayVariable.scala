@@ -161,6 +161,8 @@ symbolTable holds $<variables>		def setId
 		nameFont=in.next
 		xcolor=Paint.setColor(in.next) //see Paint objectw
 		metrics=establishMetrics(nameFont, styleFont, sizeFont)
+		val percent= in. next
+		//println("DisplayVariable: percent="+percent)
 		}
 	}
 

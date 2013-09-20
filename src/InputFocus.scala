@@ -88,12 +88,11 @@ class InputFocus ( buttonSet:ButtonSet) {
 			// fields have been captured.
 	def actWhenAllFieldsCaptured  {   //was actWhenCaptureComplete
 		arrayIndex +=1  // JComponent index
-				// When true, than all inputs are accounted for.
+			// When true, than all inputs are accounted for.
 		if(arrayIndex  ==components.size) {
-
-			// XNode state treated differently because the processing of input
-			// fields have been halted. Fields preceeding 'x' command are captured
-			// before command execution is restarted. 
+					// XNode state treated differently because the processing of input
+					// fields have been halted. Fields preceeding 'x' command are captured
+					// before command execution is restarted. 
 			if(xnodeState==true) { // set true in CardSet by XNode command
 				turnOffXNode// turn off until next XNode instance
 					// allows 'isNoInputFields' in CardSet to active 'NEXT' button
@@ -103,10 +102,16 @@ class InputFocus ( buttonSet:ButtonSet) {
 				buttonSet.start() // XNode releases wait()
 				}
 			  else {
-				// In iteration, first CardSet set 'firstChild' to 'true',
-				// next and subsequent CardSet set it to 'false'
-				if( ! buttonSet.isFirstChildFalse) 
-					buttonSet.grayAndDisablePriorButton // color button green and enable it.
+					// In iteration, first CardSet set 'firstChild' to 'true',
+					// next and subsequent CardSet set it to 'false'
+		//		if( ! buttonSet.isFirstChildFalse) {
+				if( buttonSet.isFirstChildFalse) {
+					println("InputFocus: First Child False")
+		//			buttonSet.grayAndDisablePriorButton // color button green and enable it.
+					buttonSet.armPriorButton
+					}
+		//		  else
+		//			println("InputFocus: Is NOT card of card file")
 					// NEXT button releases wait()
 				buttonSet.armNextButton//enable button,set focus,color button orange
 				}
@@ -123,11 +128,12 @@ class InputFocus ( buttonSet:ButtonSet) {
 			// are executed.
 	def establishAsteriskContinue {
 			// In iteration, first CardSet set 'firstChild' to 'true',
-			// next and subsequent CardSet set it to 'false'
-		if(buttonSet.isFirstChildFalse) 
-			// enable button, get focus, color button orange
-		buttonSet.armNextButton
-				buttonSet.turnOnPriorButton
+			// For the next and subsequent CardSet sets it to 'false'
+
+					// enable button, get focus, color button orange
+		buttonSet.armNextButton 
+//		println("InputFocus:  turnOnPriorButton")
+//		buttonSet.turnOnPriorButton
 			// wait() invoked, button hit invokes 'notifyAll()'
 		buttonSet.issueWait
 		}

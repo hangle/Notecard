@@ -59,6 +59,8 @@ case class CardSetTask(var symbolTable:Map[String,String]) extends Node   {
 		setNext(in.next)
 		taskx=in.next
 		typex=in.next
+		val percent=in.next
+		//println("CardSetTask: percent="+percent)
 		}
 	}
 

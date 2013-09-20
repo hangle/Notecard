@@ -110,5 +110,7 @@ case class EditNode(var symbolTable:Map[String,String]) extends Node {
 		xtype=in.next		// 'number' or 'letter'
 		statusMessage=in.next
 		variable=in.next	// $<variable> associated with edit
+		val percent=in.next
+		//println("EditNode: percent="+percent)
 		}
 }

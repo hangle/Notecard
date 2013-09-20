@@ -66,7 +66,7 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		// Used twice InputFocus. First, to enable when all fields
 		//  are captured, and second when '* continue' is issued. 
 	def isFirstChildFalse= firstChild==false
-	def isFirstChildTrue= firstChild==true
+//	def isFirstChildTrue= firstChild==true
 
 		// Determine which button was activated and take 
 		// appropriate action.
@@ -140,10 +140,12 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		next.requestFocus()
 		next setBackground(Color.ORANGE)
 		}
-	def turnOnPriorButton= {
+		// Invoked in:  ButtonSet & CardSet
+	def armPriorButton= {
 			prior.setBackground(Color.GREEN)		
-			println("ButtonSet  color set to GREEN")
+			//println("ButtonSet: turnOnButtonSet")  
 			prior.setEnabled(true)
+			next.requestFocus()
 			}
 		//card commands halted by 'wait' in
 		// CardSet. 'Next' button action 

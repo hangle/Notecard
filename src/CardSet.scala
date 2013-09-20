@@ -105,21 +105,20 @@ symbolTable holds $<variables>		def setId
 					  indexer, 
 					  statusLine, 
 					  listenerArray) 
-				// ------------Card Set has been displayed--------------
-				// arm Buttons and enter 'wait' state. 
-				// Button press releases 'wait' state (ButtonSet.start() ):"
-				// do not enable PRIOR button for 1st CardSet child since there is
-				// nothing more to back up to. 
-		if(buttonSet.isFirstChildFalse) {
-				buttonSet.turnOnPriorButton
-				}
-				// When Card lacks input fields, then turn on NEXT button in
-				// order to transit to next Card. With one or more input 
-				// fields, InputFocus will turn on NEXT button. 
+			// ------------Card Set has been displayed--------------
+				// When Card lacks input fields, then turn on NEXT button 
+				// and PRIOR button-- provided it is not the initial card set
 		if(inputFocus.isNoInputFields){			// True if no input fields 
-				// Enable NEXT button, give it
-				// focus and color it orange
+						// do not enable PRIOR button for 1st CardSet child since there is
+						// nothing more to back up to. 
+				if(buttonSet.isFirstChildFalse) {
+						buttonSet.armPriorButton
+						println("CardSet: armPriorButton")
+						}
+						// Enable NEXT button, give it
+						// focus and color it orange
 				buttonSet.armNextButton	
+				println("CardSet: armNextButton")
 				}
 		showPanel(notePanel) // display panel content (paint, validate)
 			// Stop (issue wait()) to allow the user to enter responses.
@@ -212,6 +211,8 @@ symbolTable holds $<variables>		def setId
 				inputFocus.turnOnXNode  //prevents InputFocus.actWhenAllFieldsCaptured 
 							// from enabling NEXT button
 				haltCommandExecution(lock) // issue lock.wait()
+						// Enable NEXT button, give it
+						// focus and color it orange
 			case _=> println("\tCardSet: unknown CardSetChild obj="+obj)	
 			}
 		}
@@ -355,7 +356,7 @@ symbolTable holds $<variables>		def setId
 		}
 			//wait() released by notifyAll by "Next button" in ButtonSet
 	def haltCommandExecution(lock:AnyRef): Unit=lock.synchronized {
-		println("CardSet lock here")
+		//println("CardSet lock here")
 		lock.wait()	
 		}
 	def clearNotePanel(notePanel:JPanel) {
@@ -393,6 +394,8 @@ symbolTable holds $<variables>		def setId
 		conditionStruct=in.next
 		if(conditionStruct=="null") //inconsistent use of "" and "null" in <.struct> file
 			conditionStruct=""
+		val percent=in.next
+		//println("CardSet: percent="+percent)
 		
 		}
 

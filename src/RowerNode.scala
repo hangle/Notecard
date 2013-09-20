@@ -173,6 +173,8 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 		setNext(in.next)
 		row=in.next.toInt
 		column=in.next.toInt
+		 val percent= in.next
+		 //println("RowerNode: percent="+percent)
 		}
 }
 

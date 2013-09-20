@@ -81,6 +81,7 @@ object StructScript   {
 		for(s <-l) { 
 			s match { 
 				case "%%" => 
+					xl= "%%" :: xl   // sept 9, 2013   --major change
 					ll=xl.reverse :: ll
 					flag=true
 					// a 'text' line may begin with '%' so make sure

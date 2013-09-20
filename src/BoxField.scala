@@ -182,6 +182,8 @@ case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with
 		options=in.next.toInt
 
 		metrics=establishMetrics(nameFont, styleFont, sizeFont)
+		val percent= in.next
+	//	println("BoxField: percent="+percent)
 
 		}
 	}

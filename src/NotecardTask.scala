@@ -83,6 +83,8 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 		setNext(in.next)     //Node
 		xtask=in.next
 		xtype=in.next
+		val percent= in.next
+		//println("NotecardTask: percent="+percent)
 		}
 	}
 

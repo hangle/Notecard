@@ -115,6 +115,8 @@ case class DisplayText(var symbolTable:Map[String,String]) extends JLabel with N
 		text=in.next
 		xcolor=Paint.setColor(in.next) //see Paint object
 		metrics=establishMetrics(nameFont, styleFont, sizeFont)
+		val percent=  in.next
+		//println("DisplayText: percent="+ percent)
 		}
 	}
 

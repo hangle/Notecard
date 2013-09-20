@@ -112,6 +112,8 @@ case class Assigner(var symbolTable:Map[String,String]) extends Linker  {
 		special=in.next		// A one value assignment to 'target' is marked 'simple'.
 					//     A math expression is marked ""
 		conditionStruct=in.next // Address of the first 'Condition' object. 
+		val percent=in.next
+		//println("Assigner: percent="+percent)
 		}
 	}
 
