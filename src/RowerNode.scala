@@ -1,6 +1,6 @@
 /* date:   Oct 26, 2011
 			ROWER NODE
-	A Card set having 5 display lines will have 5 RowerNode objects,
+	A Card set having 5 Display commands will have 5 RowerNode objects,
 	that is, each display line (d cmd) is associated with a RowerNode 
 	object.  
 
@@ -45,13 +45,12 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 			convertToChild(swizzleTable)  // Is a parent
 			}
 //-------------------------------------------------------------------
-	def startRowerNode(rowPosition:RowPosition, // converts row values (1,2,3,4,...) to
-							//   pixels.
+	def startRowerNode(
+			rowPosition:RowPosition, // converts row values (1,2,3,4,...) to pixels.
 			notePanel:JPanel, 		// window where lines are displayed/
 			inputFocus:InputFocus,  // passed to KeyListenerObject
 			indexer:Indexer,		// passed to KeyListenerObject
-			statusLine:StatusLine,	// passed to KeyListenerObject. message 
-							//  to client (optional)
+			statusLine:StatusLine,	// passed to KeyListenerObject. message to client (optional)
 			listenerArray:ArrayBuffer[KeyListenerObject] //array of KeyListenerObjects
 			) {
 
@@ -167,6 +166,29 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 		listenerArray += keyListenerObject
 		}
 	def  receive_objects(structSet:List[String] ) {
+	import util.control.Breaks._
+			var flag=true
+			for( e <- structSet) {
+			  breakable { if(e=="%%") break   // end of arguments
+			  else {
+				var pair=e.split("[\t]")	
+				pair(0) match {
+							case "child" => println(pair(1))
+									setChild(pair(1))
+							case "address" => println(pair(1))
+									setAddress(pair(1))
+							case "sibling" =>
+									setNext(pair(1))
+							case "row" => println(pair(1) )
+									row=pair(1).toInt
+							case "column" => println(pair(1))
+									column= pair(1).toInt
+							}
+				}
+			   }  //breakable		 
+			  }
+	
+/*
 		val in=structSet.iterator
 		setChild(in.next)	
 		setAddress(in.next)
@@ -175,6 +197,7 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 		column=in.next.toInt
 		 val percent= in.next
 		 //println("RowerNode: percent="+percent)
+*/
 		}
 }
 

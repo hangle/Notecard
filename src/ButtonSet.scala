@@ -129,21 +129,22 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		start		//(notifyAll). In CardSet, initiates the next 
 		   		// Card Set or terminate XNode wait. 
 		}
-		// Invoked by CardSet and FieldFocus
+		// Invoked by CardSet and InputFocus
 		// CardSet in startCardSet after children 
 		//   iteration and just before 'wait'is issued.
 		//   It causes the 'Next' button to acquire focus.
-		// FieldFocus when all fields are captured. 
-		//	 FieldFocus.actWhenCaptureComplete
+		// InputFocus when all fields are captured. 
+		//	 InputFocus.actWhenCaptureComplete
 	def armNextButton = {
 		next.setEnabled(true)
-		next.requestFocus()
 		next setBackground(Color.ORANGE)
+			println("ButtonSet: armNextButton")  
+		next.requestFocus()
 		}
 		// Invoked in:  ButtonSet & CardSet
 	def armPriorButton= {
 			prior.setBackground(Color.GREEN)		
-			//println("ButtonSet: turnOnButtonSet")  
+			println("ButtonSet: armPriorButton")  
 			prior.setEnabled(true)
 			next.requestFocus()
 			}

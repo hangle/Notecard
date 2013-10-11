@@ -41,7 +41,7 @@ case class CardSetTask(var symbolTable:Map[String,String]) extends Node   {
 					statusLine.addMessageToStatusLine(typex)
 			case "continue"=>  
 					activateNextButtonForContinue(inputFocus, notePanel)
-			case _=> println("FrameNodeType  unknown type="+ taskx)
+			case _=> println("CardSetTask  unknown type="+ taskx)
 			}
 		}
 		// Invoked by "* continue" cmd.  It displays the text cmds
@@ -54,13 +54,34 @@ case class CardSetTask(var symbolTable:Map[String,String]) extends Node   {
 		}
 		// *.struct file delivers symbolic links and object parameters.
 	def  receive_objects(structSet:List[String] ) {
+			import util.control.Breaks._
+			var flag=true
+			for( e <- structSet) {
+			  breakable { if(e=="%%") break   // end of arguments
+			  else {
+				var pair=e.split("[\t]")	
+				pair(0) match {
+							case "address" => 
+									setAddress(pair(1))
+							case "sibling" =>
+									setNext(pair(1))
+							case "task" => 
+									taskx=pair(1)
+							case "type" => 
+									typex= pair(1)
+							}
+				}
+			   }  //breakable		 
+			  }
+
+/*
 		val in=structSet.iterator
 		setAddress(in.next)
 		setNext(in.next)
 		taskx=in.next
 		typex=in.next
 		val percent=in.next
-		//println("CardSetTask: percent="+percent)
+*/
 		}
 	}
 

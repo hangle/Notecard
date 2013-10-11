@@ -37,6 +37,7 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 
 		xtask match {
 			case "end" => 		// * end   script encountered
+				println("NotecardTask:  * end")
 				taskGather.setEndSession
 			case "manage"=> 	// * manage <filename> script encountered
 				establishManagementFile(taskGather, xtype)
@@ -78,6 +79,30 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 						//CreateClass loads class instance with argument 
 						//values from <.struct> file. 
 	def  receive_objects(structSet:List[String] ) {
+			import util.control.Breaks._
+			var flag=true
+			//println("NotecardTask:   structSet="+structSet)
+			for( e <- structSet) {
+			  breakable { if(e=="%%") break   // end of arguments
+			  else {
+				var pair=e.split("[\t]")	
+				pair(0) match {
+							case "address" => println(pair(1))
+									setAddress(pair(1))
+							case "sibling" =>
+									setNext(pair(1))
+							case "task" => println(pair(1) )
+									xtask=pair(1)
+					//				println("NotecardTask: xtask="+xtask)
+							case "type" => println(pair(1))
+									xtype= pair(1)
+							}
+				}
+			   }  //breakable		 
+			  }
+
+
+/*
 		val in=structSet.iterator
 		setAddress(in.next)  //Node
 		setNext(in.next)     //Node
@@ -86,5 +111,6 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 		val percent= in.next
 		//println("NotecardTask: percent="+percent)
 		}
+*/
 	}
-
+}

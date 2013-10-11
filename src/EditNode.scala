@@ -68,7 +68,7 @@ case class EditNode(var symbolTable:Map[String,String]) extends Node {
 //-------------------------------------------------------------------
 	var xtype=""
 	var statusMessage=""
-	var variable=""
+	var variable=""		// not utilized  ???
 	var conditionStruct=""
 // -----------------------------------------------
 
@@ -94,7 +94,7 @@ case class EditNode(var symbolTable:Map[String,String]) extends Node {
 		}
 	def areAllDigits(s:String):Boolean={ s.forall(x=> x.isDigit || x=='.') }
  	def areAllLetters(s:String):Boolean={ s.forall(x=> x.isLetter || x==' ' ) }
-	def isConditionPresent ={ if(conditionStruct != "") true; else false }
+	def isConditionPresent ={ if(conditionStruct != "0") true; else false }
 	def isConditionTrue:Boolean ={ LogicTest.logicTest(conditionStruct, symbolTable) }
 		// Invoked by BoxField
 	def getFailureMessage= statusMessage
@@ -103,6 +103,35 @@ case class EditNode(var symbolTable:Map[String,String]) extends Node {
 		//values from <.struct> file. Method
 		//invoked in CreateClass
 	def  receive_objects(structSet:List[String] ) {
+
+	import util.control.Breaks._
+			var flag=true
+			for( e <- structSet) {
+			  breakable { if(e=="%%") break   // end of arguments
+			  else {
+				var pair=e.split("[\t]")	
+				pair(0) match {
+					case "address" => 
+							setAddress(pair(1))
+					case "sibling" =>
+							setNext(pair(1))
+					case "condition" =>
+							conditionStruct= pair(1)
+					case "type" => 
+							xtype=pair(1)
+					case "status" => 
+							statusMessage=pair(1)
+							if(statusMessage=="0") //otherwise BoxField displays "0"
+										statusMessage=""
+							case "variable" => 
+									variable=pair(1)
+							}
+				}
+			   }  //breakable		 
+			 }
+		}
+
+/*
 		val in=structSet.iterator
 		setAddress(in.next)  //Node
 		setNext(in.next)     //Node link to next EditNode
@@ -112,5 +141,5 @@ case class EditNode(var symbolTable:Map[String,String]) extends Node {
 		variable=in.next	// $<variable> associated with edit
 		val percent=in.next
 		//println("EditNode: percent="+percent)
-		}
+*/
 }

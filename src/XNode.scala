@@ -43,11 +43,30 @@ symbolTable holds $<variables>				def setId
 		//values from <.struct> file. Method
 		//invoked in CreateClass
 	def  receive_objects(structSet:List[String] ) {
+			import util.control.Breaks._
+			var flag=true
+			for( e <- structSet) {
+			  breakable { if(e=="%%") break   // end of arguments
+			  else {
+				var pair=e.split("[\t]")	
+				pair(0) match {
+							case "address" => 
+									setAddress(pair(1))
+							case "sibling" =>
+									setNext(pair(1))
+							}
+				}
+			   }  //breakable		 
+			 }
+
+		}
+/*
 		val in=structSet.iterator
 		setAddress(in.next)  //Node
 		setNext(in.next)     //Node
 		val percent=in.next
 		//println("XNode: percent="+percent)
-		}
+*/
+
 	}
 

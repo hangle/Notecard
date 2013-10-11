@@ -249,14 +249,25 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		}
 		// *.struct file delivers symbolic links and object parameters.
 	def receive_objects(structSet:List[String]) {
-		val in=structSet.iterator  //note: 'next' is an iterator method
-		setChild(in.next)	
-		frame_height=in.next.toInt
-		frame_width=in.next.toInt
-		font_size=in.next.toInt
-		val percent=in.next
-		//println("Notecard: percent="+percent)
-
+			import util.control.Breaks._
+			var flag=true
+			for( e <- structSet) {
+			  breakable { if(e=="%%") break   // end of arguments
+			  else {
+				var pair=e.split("[\t]")	
+				pair(0) match {
+							case "child" => println(pair(1))
+									setChild(pair(1))
+							case "height" => println(pair(1) )
+									frame_height=pair(1).toInt
+							case "width" => println(pair(1))
+									frame_width= pair(1).toInt
+							case "font_size" => println(pair(1))
+									font_size= pair(1).toInt
+							}
+				}
+			   }  //breakable		 
+			  }
 		}	
 
 }

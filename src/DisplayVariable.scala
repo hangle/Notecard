@@ -151,6 +151,37 @@ symbolTable holds $<variables>		def setId
 		//values from <.struct> file. Method
 		//invoked in CreateClass
 	def  receive_objects(structSet:List[String] ) {
+			import util.control.Breaks._
+			var flag=true
+			for( e <- structSet) {
+			  breakable { if(e=="%%") break   // end of arguments
+			  else {
+				var pair=e.split("[\t]")	
+				pair(0) match {
+							case "address" => println(pair(1))
+									setAddress(pair(1))
+							case "sibling" =>
+									setNext(pair(1))
+							case "style" => println(pair(1) )
+									styleFont=pair(1).toInt
+							case "size" => println(pair(1) )
+									sizeFont=pair(1).toInt
+							case "column" => println(pair(1) )
+									column=pair(1)
+							case "name" => println(pair(1))
+									nameFont= pair(1)
+							case "text"=> println(pair(1))
+									dollarVariable=pair(1)
+							case "color"=> println(pair(1))
+									xcolor=Paint.setColor(pair(1))
+							}
+				}
+			   }  //breakable		 
+			 metrics=establishMetrics(nameFont, styleFont, sizeFont)
+			 }
+
+		}
+/*
 		val in=structSet.iterator
 		setAddress(in.next)
 		setNext(in.next)
@@ -163,6 +194,6 @@ symbolTable holds $<variables>		def setId
 		metrics=establishMetrics(nameFont, styleFont, sizeFont)
 		val percent= in. next
 		//println("DisplayVariable: percent="+percent)
-		}
+*/
 	}
 

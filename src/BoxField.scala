@@ -167,6 +167,45 @@ case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with
 		}
 	def clearInputField=setText("")	
 	def  receive_objects(structSet:List[String] ) {
+		import util.control.Breaks._
+			var flag=true
+			for( e <- structSet) {
+			  breakable { if(e=="%%") break   // end of arguments
+			  else {
+				var pair=e.split("[\t]")	
+				pair(0) match {
+							case "child" =>
+									setChild(pair(1))
+							case "address" => println(pair(1))
+									setAddress(pair(1))
+							case "sibling" =>
+									setNext(pair(1))
+							case "field" => println(pair(1) )
+									field=pair(1)
+							case "length" => println(pair(1) )
+									length=pair(1).toInt
+							case "column" => println(pair(1) )
+									column=pair(1).toInt
+							case "size" => println(pair(1))
+									sizeFont= pair(1).toInt
+							case "style" =>
+									styleFont= pair(1).toInt
+							case "name"=> println(pair(1))
+									nameFont=pair(1)
+							case "color"=> println(pair(1))
+									ycolor=Paint.setColor(pair(1))
+							case "limit"  => 
+									limit= pair(1).toInt
+							case "options" => 
+									options=pair(1).toInt
+							}
+				}
+			   }  //breakable		 
+			 metrics=establishMetrics(nameFont, styleFont, sizeFont)
+			 }
+
+		}
+/*
 		val in=structSet.iterator
 		setChild(in.next)    // EditNode children	
 	   	setAddress(in.next)
@@ -184,7 +223,7 @@ case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with
 		metrics=establishMetrics(nameFont, styleFont, sizeFont)
 		val percent= in.next
 	//	println("BoxField: percent="+percent)
+*/
 
-		}
 	}
 

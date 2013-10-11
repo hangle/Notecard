@@ -20,7 +20,6 @@ case class NextFile(symbolTable:Map[String,String]) extends Linker {
 				*/
 //------------paramters pass by .struct file-----------------
 	var next_filename=""
-	var xtype=""
  	var conditionStruct="" 
 //------------------------------swizzle routines---------------------
 	def convertToReference(swizzleTable:Map[String, Node])={
@@ -50,7 +49,7 @@ case class NextFile(symbolTable:Map[String,String]) extends Linker {
 		taskGather.putFileName(next_filename)   
 		taskGather.isNextFile //indicate that
 		}
-	def isConditionPresent= {if(conditionStruct !="") true; else false}
+	def isConditionPresent= {if(conditionStruct !="0") true; else false}
 	def isConditionTrue ={
 			LogicTest.logicTest(conditionStruct, symbolTable)
 			}
@@ -66,6 +65,30 @@ case class NextFile(symbolTable:Map[String,String]) extends Linker {
 				//values from <.struct> file. Method
 				//invoked in CreateClass
 	def receive_objects(structSet:List[String]) {
+		import util.control.Breaks._
+		var flag=true
+		for( e <- structSet) {
+		  breakable { if(e=="%%") break   // end of arguments
+		  else {
+			var pair=e.split("[\t]")	
+			pair(0) match {
+						case "address" => 
+								setAddress(pair(1))
+						case "sibling" =>
+								setNext(pair(1))
+						case "filename"=>
+								next_filename= pair(1)
+						case "condition"=>
+								conditionStruct=pair(1)
+						case _=> println("NextFile: unknown key="+pair(0) )
+						}
+			}
+		   }  //breakable		 
+		 }
+
+
+		}
+/*
 		val in=structSet.iterator
 		setAddress(in.next);
 		setNext(in.next)
@@ -78,5 +101,5 @@ case class NextFile(symbolTable:Map[String,String]) extends Linker {
 		val percent=in.next
 		//println("NextFile: percent="+percent)
 
-		}
+*/
 }

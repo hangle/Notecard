@@ -64,7 +64,7 @@ case class Assigner(var symbolTable:Map[String,String]) extends Linker  {
 	val variableRegex= """([a-zA-Z_])""" .r
 
 	def startAssigner= {
-	    val goOn=if(conditionStruct != "") 
+	    val goOn=if(conditionStruct != "0") 
 					LogicTest.logicTest(conditionStruct, symbolTable)
 			   else true
 			// Execute if condition is true or if condition does not exist
@@ -104,6 +104,32 @@ case class Assigner(var symbolTable:Map[String,String]) extends Linker  {
 	//------------------------------------------------------
 		// *.struct file delivers symbolic links and object parameters.
 	def  receive_objects(structSet:List[String] ) {
+	import util.control.Breaks._
+			var flag=true
+			for( e <- structSet) {
+			  breakable { if(e=="%%") break   // end of arguments
+			  else {
+				var pair=e.split("[\t]")	
+				pair(0) match {
+							case "address" => println(pair(1))
+									setAddress(pair(1))
+							case "sibling" =>
+									setNext(pair(1))
+							case "target" => println(pair(1) )
+									target=pair(1)
+							case "source" => println(pair(1) )
+									source=pair(1)
+							case "special" => println(pair(1) )
+									special=pair(1)
+							case "condition" => println(pair(1))
+									conditionStruct= pair(1)
+							}
+				}
+			   }  //breakable		 
+			 }
+		}
+
+/*
 		val in=structSet.iterator
 		setAddress(in.next)
 		setNext(in.next)
@@ -114,6 +140,6 @@ case class Assigner(var symbolTable:Map[String,String]) extends Linker  {
 		conditionStruct=in.next // Address of the first 'Condition' object. 
 		val percent=in.next
 		//println("Assigner: percent="+percent)
-		}
+*/
 	}
 

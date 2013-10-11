@@ -1,8 +1,9 @@
 /* date:   Jun 25, 2012
 	Initial creation date:   Dec 10, 2011
              INPUT FOCUS  (was FieldFocus then BoxFieldFocus)   
-             Created in CardSet and passed to RowerNode and then to 
-             KeyListenerObject(boxField, inputFocus,Indexer.getIndex, statusLine) 
+
+       Created in CardSet and passed to RowerNode and then to 
+       KeyListenerObject(boxField, inputFocus,Indexer.getIndex, statusLine) 
    
              RowerNode: 
 	 	Iterates and invokes children (DisplayText,DisplayVariable,BoxField).
@@ -16,7 +17,7 @@
                   When a new line event (ENTER key) is detected, InputFocus.
                   actWhenCaptureComplete(..) is invoked. This method determines 
 		  if all inputs have been collected.  If so, then NEXT button is
-                  activated and, when pressed, it causes the release of 
+          activated and, when pressed, it causes the release of 
 		  CardSet's wait(). 
                   
               The display command   'd  (# $1) (# $2) (# $3) (# $4) ' creates
@@ -78,11 +79,13 @@ class InputFocus ( buttonSet:ButtonSet) {
 	def addToArray(component:JComponent) {
 			components += component
 			counter+= 1
-			// see **Note  above
-			// First JComponent of an XNode group of input fields. This will also
-			// include 1st JComponent of the Card.
-			if(counter==1)
+				// see **Note  above
+				// First JComponent of an XNode group of input fields. This will also
+				// include 1st JComponent of the Card.
+			if(counter==1) {
 				component.requestFocus
+		//		println("InputFocus:  1st component is given focus")
+				}
 			}
 			// Used 'KeyListenerObject' to determine if all input 
 			// fields have been captured.
@@ -104,15 +107,11 @@ class InputFocus ( buttonSet:ButtonSet) {
 			  else {
 					// In iteration, first CardSet set 'firstChild' to 'true',
 					// next and subsequent CardSet set it to 'false'
-		//		if( ! buttonSet.isFirstChildFalse) {
 				if( buttonSet.isFirstChildFalse) {
-					println("InputFocus: First Child False")
-		//			buttonSet.grayAndDisablePriorButton // color button green and enable it.
+					println("InputFocus: First Child False-- armPriorButton")
 					buttonSet.armPriorButton
 					}
-		//		  else
-		//			println("InputFocus: Is NOT card of card file")
-					// NEXT button releases wait()
+				println("InputFocus:  actWhenAllFieldsCaptured-- armNextButton")
 				buttonSet.armNextButton//enable button,set focus,color button orange
 				}
 			}
@@ -131,8 +130,8 @@ class InputFocus ( buttonSet:ButtonSet) {
 			// For the next and subsequent CardSet sets it to 'false'
 
 					// enable button, get focus, color button orange
+		println("InputFocus:  establsihAsteriskContinue--  armNextButtonButton")
 		buttonSet.armNextButton 
-//		println("InputFocus:  turnOnPriorButton")
 //		buttonSet.turnOnPriorButton
 			// wait() invoked, button hit invokes 'notifyAll()'
 		buttonSet.issueWait

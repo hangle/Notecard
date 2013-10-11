@@ -44,11 +44,8 @@ symbolTable holds $<variables>		def setId
 					def Value
 		*/
 //------------paramters pass by .struct file-----------------
-	var node_name=""
-				// such as:  c (1)=(2)
-				// If so, then 'condition' is converted from a symbolic 
-				// to a physical address of a Condition object.
-	var go_continue="" //not operational
+	var node_name=""   /// Name or label of CardSet:  not utilized.
+	//var go_continue="" //not operational
 //------------------------------swizzle routines---------------------
 	def convertToReference(swizzleTable:Map[String, Node]) ={
 			convertToSibling(swizzleTable)
@@ -67,15 +64,15 @@ symbolTable holds $<variables>		def setId
 //------------paramters pass by .struct file-----------------
 	var conditionStruct=""
 //----------------------------------------
-	val indexer=new Indexer(-1) //Indexer has member 'index' that is initialized to 
-		//minus one. RowerNode increments this index each time a
-		//KeyListenerObject is created giving this object a 
-		// unique index
+			// Indexer has member 'index' that is initialized to 
+			// minus one. RowerNode increments this index each time a
+			// KeyListenerObject is created giving this object a unique index
+	val indexer=new Indexer(-1) 
+			// Invoked by Notecard parent
 	def startCardSet(notePanel:JPanel, lock:AnyRef, buttonSet:ButtonSet, statusLine:StatusLine)={ 
 			// Assign Linker.next to 'backup'. The next time
 			// CardSet is executed, 'backup' holds the pointer
-			// to the prior Card. 
-			// Used to capture one or more input fields.
+			// to the prior Card.  Used to capture one or more input fields.
 		val inputFocus= new InputFocus(buttonSet ) 
 			// prior card set may have posted a status message so remove for new card.
 		statusLine.clearStatusLine 
@@ -105,20 +102,24 @@ symbolTable holds $<variables>		def setId
 					  indexer, 
 					  statusLine, 
 					  listenerArray) 
-			// ------------Card Set has been displayed--------------
-				// When Card lacks input fields, then turn on NEXT button 
-				// and PRIOR button-- provided it is not the initial card set
+				// ------------Card Set has been displayed--------------
+				// arm Buttons and enter 'wait' state. 
+				// Button press releases 'wait' state (ButtonSet.start() ):"
+				// do not enable PRIOR button for 1st CardSet child since there is
+				// nothing more to back up to. 
+
+				// When Card lacks input fields, then turn on NEXT button in
+				// order to transit to next Card. With one or more input 
+				// fields, InputFocus will turn on NEXT button. 
 		if(inputFocus.isNoInputFields){			// True if no input fields 
-						// do not enable PRIOR button for 1st CardSet child since there is
-						// nothing more to back up to. 
+					// Also enable PRIOR button when not first CardSet
 				if(buttonSet.isFirstChildFalse) {
+						println("CardSet: isFirstChildFalse--  armPriorButton")
 						buttonSet.armPriorButton
-						println("CardSet: armPriorButton")
 						}
-						// Enable NEXT button, give it
-						// focus and color it orange
+					// Enable NEXT button, give it  focus and color it orange
+				println("CardSet no input fields-- armNextButton")
 				buttonSet.armNextButton	
-				println("CardSet: armNextButton")
 				}
 		showPanel(notePanel) // display panel content (paint, validate)
 			// Stop (issue wait()) to allow the user to enter responses.
@@ -129,6 +130,7 @@ symbolTable holds $<variables>		def setId
 		removeInputFieldListeners(listenerArray) 
 		}
 	}// control returns to Notecard to process the next card set
+
 	def executeCardCommandsAndDisplay(notePanel:JPanel,
 					  rowPosition:RowPosition,
 					  lock:AnyRef,
@@ -185,7 +187,7 @@ symbolTable holds $<variables>		def setId
 						indexer:Indexer, 
 						statusLine,
 						listenerArray) //recusion
-		case as:Assigner=> 
+			case as:Assigner=> 
 				as.startAssigner
 			case cst:CardSetTask =>
 				cst.startCardSetTask (inputFocus, statusLine, notePanel)
@@ -211,8 +213,6 @@ symbolTable holds $<variables>		def setId
 				inputFocus.turnOnXNode  //prevents InputFocus.actWhenAllFieldsCaptured 
 							// from enabling NEXT button
 				haltCommandExecution(lock) // issue lock.wait()
-						// Enable NEXT button, give it
-						// focus and color it orange
 			case _=> println("\tCardSet: unknown CardSetChild obj="+obj)	
 			}
 		}
@@ -262,8 +262,6 @@ symbolTable holds $<variables>		def setId
 								 indexer, 
 								 statusLine, 
 								 listenerArray)
-				if(groupNode==null) println("CardSet:  groupNode is null"); 
-					else println("FRameNode groupNode is NOT null")
 				if(groupNode!=null) { 
 						// Create GroupResolve if not already created and
 						// attach GroupNode instance to it.
@@ -356,7 +354,6 @@ symbolTable holds $<variables>		def setId
 		}
 			//wait() released by notifyAll by "Next button" in ButtonSet
 	def haltCommandExecution(lock:AnyRef): Unit=lock.synchronized {
-		//println("CardSet lock here")
 		lock.wait()	
 		}
 	def clearNotePanel(notePanel:JPanel) {
@@ -377,7 +374,7 @@ symbolTable holds $<variables>		def setId
 		}
 		//Determines whether or not the card is displayed
 	def noConditionOrIsTrue(condition:String, symbolTable:Map[String,String]) ={
-		if(condition != "")
+		if(condition != "0")
 				LogicTest.logicTest(condition, symbolTable)
 			else
 				true   // No logic expression  
@@ -386,6 +383,30 @@ symbolTable holds $<variables>		def setId
 
 	def receive_objects(structSet:List[String]) {
 			//Load class instance with argument 
+		import util.control.Breaks._
+			var flag=true
+			for( e <- structSet) {
+				  breakable { if(e=="%%") break   // end of arguments
+			  else {
+				var pair=e.split("[\t]")	
+				pair(0) match {
+							case "child" => //println(pair(1))
+									setChild(pair(1))
+							case "address" =>// println(pair(1))
+									setAddress(pair(1))
+							case "sibling" =>
+									setNext(pair(1))
+							case "condition" =>// println(pair(1) )
+									conditionStruct=pair(1)
+							case "name" => // println(pair(1))
+									node_name= pair(1)
+							case _=> println("CardSet: unknown "+pair(0) )
+							}
+				}
+			   }  //breakable		 
+			  }
+		}
+/*
 		val in=structSet.iterator
 		setChild(in.next)	
 		setAddress(in.next)
@@ -395,9 +416,12 @@ symbolTable holds $<variables>		def setId
 		if(conditionStruct=="null") //inconsistent use of "" and "null" in <.struct> file
 			conditionStruct=""
 		val percent=in.next
-		//println("CardSet: percent="+percent)
+		println("CardSet: percent="+percent)
 		
 		}
+	val percent=in.next
+	println("CardSet: percent="+percent)
+*/
 
 	}
 

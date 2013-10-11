@@ -39,7 +39,7 @@ case class GroupNode(symbolTable:Map[String,String]) extends Node   {
 		  else
 			true  //condition not present but treat it as if it is true
 		}
-	def isCondition:Boolean= {if(conditionStruct=="") false; else true }
+	def isCondition:Boolean= {if(conditionStruct=="0") false; else true }
 	def setGroupNodeType:Int = {
 		if(isCondition  && post=="") ThenNode  //not else and not an 'g' 
 		else if(post=="else" &&  ! isCondition) ElseNode // else without a condtion expression
