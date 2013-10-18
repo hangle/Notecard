@@ -65,9 +65,9 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 			// hierarchy of linked lists, returning the root of 
 			// the network.  If file not found, then it returns 
 			// 'start.struct'.
-		notecard=loadFileAndBuildNetwork(filename, symbolTable) //In CommandNetwork	
 		println("NotecardTask: manage ")
-		Session.armAsteriskButton  // Allows Notecard to enable AsteriskButton
+		notecard=loadFileAndBuildNetwork(filename, symbolTable) //In CommandNetwork	
+//		Session.armAsteriskButton  // Allows Notecard to enable AsteriskButton
 			// pass notecard to current instance of Notecard
 		taskGather.manageNotecard= notecard
 		}
@@ -87,14 +87,14 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 			  else {
 				var pair=e.split("[\t]")	
 				pair(0) match {
-							case "address" => println(pair(1))
+							case "address" => //println(pair(1))
 									setAddress(pair(1))
 							case "sibling" =>
 									setNext(pair(1))
-							case "task" => println(pair(1) )
+							case "task" => //println(pair(1) )
 									xtask=pair(1)
 					//				println("NotecardTask: xtask="+xtask)
-							case "type" => println(pair(1))
+							case "type" => //println(pair(1))
 									xtype= pair(1)
 							}
 				}

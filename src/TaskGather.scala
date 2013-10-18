@@ -1,14 +1,17 @@
 /* date:   Dec 14, 2011
-  							TASK GATHERER 
+  							TASK GATHER 
+		Establish communication with:
+			Notecard
+			NextFile
+			NotecardTask
 		Created in 'card' and passed to Notecard and
 		into: 
-			NextFile 	   Assigns filename
-			NotecardTask,  If the parameter 'xtask' is "end", then
-						   END_SESSION is returned to 'card'. 
-
+			NextFile 	   'f <filename> cmd assigns filename
+			NotecardTask,  '* end' cmd caused END_SESSION returned to 'card'. 
+							to terminate the session.`
 		Return from Notecard requires either a new .struct 
 		file or the termination of the session.
-		Establishes communication between TaskLoop and Notecard,
+		Establishes communication between  and Notecard,
 		as well as NextFile.  Action taken is to either 
 		end the session or to read a new (next) .struct file.
 _____________________________
@@ -20,7 +23,12 @@ class TaskGather()   {
 	val END_SESSION=2
 	val TASK_NONE=3     //default state
 	var task=TASK_NONE
-	var filename=""     //value transfered from NextFile to 'card'.
+	var oldJFrame=null
+		//'filename' transfered from NextFile to 'card'.
+	var filename=""     
+		// NotecardTask.loadFileAndBuildNetword() creates the Linked List class network
+		// with .struct file from '* manage <filename.struct>. 'manageNotecard' is
+		// the root of this linked list. 
 	var manageNotecard:Notecard=null
 
 		// Used by Notecard to assign NotecardTask's framer to manageNotecard.

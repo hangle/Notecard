@@ -111,6 +111,7 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 				notePanel.add(bf) //refresh panel before creating listeners or incur focus problems
 				createListenerAndFocus(bf, inputFocus, indexer:Indexer, statusLine, listenerArray)
 			case _=>
+				println("RowerNode  throw exception")
 			 	throw new Exception
 			}
 		}
@@ -173,15 +174,15 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 			  else {
 				var pair=e.split("[\t]")	
 				pair(0) match {
-							case "child" => println(pair(1))
+							case "child" => //println(pair(1))
 									setChild(pair(1))
-							case "address" => println(pair(1))
+							case "address" => //println(pair(1))
 									setAddress(pair(1))
 							case "sibling" =>
 									setNext(pair(1))
-							case "row" => println(pair(1) )
+							case "row" => //println(pair(1) )
 									row=pair(1).toInt
-							case "column" => println(pair(1))
+							case "column" => //println(pair(1))
 									column= pair(1).toInt
 							}
 				}

@@ -42,6 +42,9 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 	var frame_height=0
 	var frame_width=0
 	var font_size=0
+	var asteriskButton="on"
+	var priorButton="on"
+
 	symId="2001"    	// Root symbolic address.
 //------------------------------swizzle routines---------------------
 							// uses Map to convert symbolic addr to physical addr
@@ -74,29 +77,22 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		// Initiates Notecard passing an argument 'taskGather' with 
 		// parameters NEXT_FILE or END_SESSION
 	def startNotecard(taskGather:TaskGather) {
-		// Invokes new CardWindow and setVisible:  see above
-		createCardWindow 	
-		// special case for '* manage <filename>' with respect to 
-		// the Manage state. For the Client state, the '*' button is
-		// enabled in 'executeNotecardChildren (invokes armAsteriskBCardSet  
-		// For the Manage state, if not enabled here, then '*' button will
-		// be grayed out, making it impossible to return to Client state.
-		if(Session.isAsteriskButtonArmed)
-			buttonSet.armAsteriskButton
+				// 'oldFrame' references CardWindow whose subclass is JFrame. 
+				// Used in 'card' to dispose of JFrame.
+			//taskGather.oldJFrame=createCardWindow 	
 
+			// Creates the notecard window (JFrame) with a BorderLayout  and adds Note 
+			// and Button panels to this window along with statusLine:JLabel. Also makes
+			// the window visible.
+		createAndMakeVisibleCardWindow (notePanel, buttonPanel, statusLine, frame_width, frame_height)	
 
-	try{ // see 'executeNotecardChildren' when '*' button is activated and 'isClientNotecardState'
-					 // is false.
-		// Notecard is root of a linked list containing its
-		// children.
+				try{ 
+			// Execute Notecard's children (CardSet, NextFile, NotecardTask)
 		iterateNotecardChildren(notePanel, taskGather, buttonSet)
-		// Return to Client to either read a new .struct
-		// file or to terminate the program.
-				}catch { case ex: Exception=> 
-						println("Notecard: exception caught in startNotecard()") 
-						Thread.sleep(1000)
-						sys.exit()
-						}
+						// doAsteriskButton() throws the exception caught here. This function
+						// has recursively invoked Notecard and the exception is a way
+						// to continue processing its children.
+				}catch { case ex: Exception=> }
 		} 
 		// CardSet, FrameTask, and Filename objects of Notecard(parent) are
 		// executed. Execution is interrupted by '* end' or 'f <name>' commands.   
@@ -190,60 +186,68 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		loadIteratorWithBackup  
 		buttonSet.resetPriorButton	// turn off backup mechanism
 		}
-			// Invokes new CardWindow and setVisible:  see above
-	def createCardWindow {
+			// Invokes new CardWindow and setVisible
+	def createAndMakeVisibleCardWindow( notePanel:JPanel,
+										buttonPanel:JPanel,
+										statusLine:JLabel,
+										frame_width:Int,  // object parameter
+										frame_height:Int) // object parameter
+		{
 			// Creates the notecard window (JFrame) with a BorderLayout
 			// and adds Note and Button panels to this window along with
 			// statusLine:JLabel.
 			// Also allows window size to change (height,width)
 		val window= new CardWindow(notePanel,buttonPanel, statusLine, frame_width, frame_height)
 		window.setVisible(true)
+		window
 		}
-			// wait() is over and '*' button detected by 'waitOverDoButtons'.
-			// 1st discover state--either 'client' or 'manage'.
-			// When 'client', then:
-			//	clear states-- resetAsteriskButton
-			//	set Session to indicate manage state
-			//	save client node in the event that it must be restored
-			//	invoke Notecard.startNotecard presenting 1st Card of manage file
-			//	when startNotecard returns, then have Linker restore saved node.
-			// When 'manage', then:
-			//	clear states-- resetAsteriskButton
-			//	set Session to indicate client state
-			//	throw exception
+		// The '*' button was activated to switch from the current script file to a second
+		// script file. Typically, the '* mangage <filename>' command provides the name
+		// of this second file. NotecardTask handles '* manage <filename>' command and
+		// creates a Linked List structure from this file whose root is 'manageNotecard'. 
+		// The root of the List List structure's of the current file is 'initialNotecard'.	
+		// Notecard is recursively invoked by 'manageNotecard.startNotecard(..).
 	def doAsteriskButton(taskGather:TaskGather) {
 			// Session keep track of whether Notecard is invoked	
 			// by 'card',i.e., 'clientNotecard'  or invoked 
 			// by '*' button, i.e., 'manageNotecard'
-		if(Session.isClientNotecardState) {  //current state 'clientNotecardState'
-			buttonSet.resetAsteriskButton
-			Session.setManageNotecardState   // set  'manageNotecard' state  
-			if(manageNotecard != null) {     // in event of no '* manage <file>' command
+			//println("Notecard: doAsteriskButton")
+		if(Session.initialNotecardState) { 
+					// set  'manageNotecard' state false so next time '*' button is
+					// activated, the 'else' group is executed
+			Session.initialNotecardState=false   
+			buttonSet.asteriskButton=false   // turn off '*' button
+			if(manageNotecard == null) 
+					//'*' button activated without '* manage <filename>' command. The 
+					// 'xyzxxyzv' file does not exist, so 'start' file is invoked.
+				manageNotecard=CommandNetwork.loadFileAndBuildNetwork( "xyzxxyzv", symbolTable)
+			if(manageNotecard != null) {     
 					//Store Card node if needed to restart clientNotecard
 				saveCurrentNode   // Linker
 					//Begin executing the Card file designated
 					//by '* manage <filename> in FrameTask
-					manageNotecard.startNotecard(taskGather)
+				manageNotecard.startNotecard(taskGather)
 					// Invokes new CardWindow and setVisible. This function is
 					// also invoked in 'startNotecard', However, unless it is also
 					// called here, the window is blanked when 'startNotecard' 
 					// returns from the manageNotecard state.
-					createCardWindow  
+				createAndMakeVisibleCardWindow (notePanel, buttonPanel, statusLine, frame_width, frame_height)	
 					// Display the Card from which the '*' button was activated
-					restoreCurrentNode //Linker   Restore clientNotecard
+				restoreCurrentNode //Linker   Restore clientNotecard
 					}
 				  else println("Notecard:  manageNotecard is NULL")
 				}
-			else{	// current state is 'manageNotecardState' so switch
-				// to 'clientNotecardState'.
-				buttonSet.resetAsteriskButton
-				Session.setClientNotecardState
+			else{	
+					// set 'manageNotecard' state 'true' so the next time '*' is 
+					// activated the 'then' group is executed
+				Session.initialNotecardState=true // 
+				buttonSet.asteriskButton=false	// turn off '*' button
 					// Notecard's entry point is 'startNotecard'.  The thrown
 					// exception is caught by 'startNotecard', causing it to
 					// be returned to the invoking function.  Since the current
 					// state is 'manageNotecard',then  the invoking function has to
 					// be Notecard, rather than 'card'. 
-				println("Notecard: throw new exception")
+				//println("Notecard: throw new exception")
 				throw new Exception
 				}
 		}
@@ -256,14 +260,18 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 			  else {
 				var pair=e.split("[\t]")	
 				pair(0) match {
-							case "child" => println(pair(1))
+							case "child" => //println(pair(1))
 									setChild(pair(1))
-							case "height" => println(pair(1) )
+							case "height" => //println(pair(1) )
 									frame_height=pair(1).toInt
-							case "width" => println(pair(1))
+							case "width" => //println(pair(1))
 									frame_width= pair(1).toInt
-							case "font_size" => println(pair(1))
+							case "font_size" => //println(pair(1))
 									font_size= pair(1).toInt
+							case "asteriskButton"=>
+									asteriskButton= pair(1)
+							case "priorButton" =>
+									priorButton=pair(1)
 							}
 				}
 			   }  //breakable		 

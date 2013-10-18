@@ -138,6 +138,7 @@ trait Node  {
 				}
 			else{   
 			    val set=swizzleTable.keySet
+				println("Node  sibling throw exception")
 			    throw new Exception
 			    }
 			}
@@ -149,6 +150,7 @@ trait Node  {
 				}
 			else    {
 				swizzleTable.keySet 
+				println("Node  child throw exception")
 				throw new Exception 
 				}
 			}

@@ -114,12 +114,13 @@ symbolTable holds $<variables>		def setId
 		if(inputFocus.isNoInputFields){			// True if no input fields 
 					// Also enable PRIOR button when not first CardSet
 				if(buttonSet.isFirstChildFalse) {
-						println("CardSet: isFirstChildFalse--  armPriorButton")
+						//println("CardSet: isFirstChildFalse--  armPriorButton")
 						buttonSet.armPriorButton
 						}
 					// Enable NEXT button, give it  focus and color it orange
-				println("CardSet no input fields-- armNextButton")
+				//println("CardSet no input fields-- armNextButton")
 				buttonSet.armNextButton	
+				buttonSet.armAsteriskButton
 				}
 		showPanel(notePanel) // display panel content (paint, validate)
 			// Stop (issue wait()) to allow the user to enter responses.

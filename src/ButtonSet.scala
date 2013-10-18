@@ -90,10 +90,6 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		}
 	def isAsteriskOn=asteriskButton  // set true by '*' button
 	def resetAsteriskButton = asteriskButton=false  // turn off by Notecard
-	def armAsteriskButton= {
-		asterisk.setEnabled(true)
-		asterisk.setBackground(Color.white)
-		}
 		// tested in Notecard.executeNotecardChildren.  If true,
 		// then Linker loads the iterator with the prior
 		// card.
@@ -138,16 +134,21 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	def armNextButton = {
 		next.setEnabled(true)
 		next setBackground(Color.ORANGE)
-			println("ButtonSet: armNextButton")  
+			//println("ButtonSet: armNextButton")  
 		next.requestFocus()
 		}
 		// Invoked in:  ButtonSet & CardSet
 	def armPriorButton= {
 			prior.setBackground(Color.GREEN)		
-			println("ButtonSet: armPriorButton")  
+			//println("ButtonSet: armPriorButton")  
 			prior.setEnabled(true)
 			next.requestFocus()
 			}
+	def armAsteriskButton= {
+		asterisk.setEnabled(true)
+		asterisk.setBackground(Color.white)
+		}
+
 		//card commands halted by 'wait' in
 		// CardSet. 'Next' button action 
 		// terminates the wait condition.

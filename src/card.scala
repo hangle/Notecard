@@ -44,7 +44,7 @@ object card   {
 				// file has a path, then it is added to subsequent
 				// files lacking a pathname. Path with '/'
 			Session.setSessionPath("") 
-			Session.setClientNotecardState
+		//	Session.setClientNotecardState
 				// Asterisk command '* end' of FrameTask sets
 			while(isLoop)	{
 					// Passed to Notecard and then to NextFile and
@@ -54,10 +54,10 @@ object card   {
 					// reads <.struct> command file and creates a network
 					// of linked lists changing symbolic address to physical
 					// ones, and finally returning the root of the network. 
-				val f:Notecard=loadFileAndBuildNetwork( structFile, symbolTable)//CommandNetwork
+				val notecard:Notecard=loadFileAndBuildNetwork( structFile, symbolTable)//CommandNetwork
 
 					// Invoke root of network and begin the Card session
-				f.startNotecard(taskGather)
+				notecard.startNotecard(taskGather)
 					// Next file or terminate session 
 				if(taskGather.isNextFile) {			
 					structFile=taskGather.getFileName

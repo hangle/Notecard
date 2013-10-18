@@ -17,13 +17,13 @@
 		  The '*' or Asterisk button switches between two
 		  Card files.  The Session instance keeps track
 		  of which Card file is active: (see Notecard)
-				isClientNotecardState ( state discovery)
+				isInitialNotecardState ( state discovery)
 				setManageNotecardState( transition to Manage state)
-				setClientNotecardState( transition to Client state)
+				setInitialNotecardState( transition to Initial state)
 */
 package com.client
 
-object Session  extends App{
+object Session  {
 		// Initialized at beginning of session.
 		// Path:
 		// A <*.nc> file having a path, such as, 
@@ -33,22 +33,9 @@ object Session  extends App{
 		// Note, a filename entry of '/<file>'
 		// reinitializes the path to "". 
 	var path=""
+	var initialNotecardState:Boolean= true
 	def getSessionPath=path   //In FilePort
 	def setSessionPath(s:String) { path=s}  //In FilePort
 	def pathSessionEmpty = if(path =="") true; else false  //In FilePort
 
-				// Asterisk '*' button controls
-	var currentNotecardState="client"
-	def setClientNotecardState {currentNotecardState="client"}
-	def setManageNotecardState {currentNotecardState="manager"}	
-	def whichNotecardState= currentNotecardState
-	def isManageNotecardState= if(currentNotecardState=="manager") true; else false
-	def isClientNotecardState=   if(currentNotecardState=="client") true; else false
-
-	var asteriskButtonState="disarmed"
-		// Used in Notecard to activate '*' button in either the
-		// Client or Manage states.
-	def isAsteriskButtonArmed= asteriskButtonState=="arm"
-		// Invoked in NotecardTask by '* manage ..." command
-	def armAsteriskButton= asteriskButtonState="arm"
 }

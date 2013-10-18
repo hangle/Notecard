@@ -113,6 +113,7 @@ class InputFocus ( buttonSet:ButtonSet) {
 					}
 				println("InputFocus:  actWhenAllFieldsCaptured-- armNextButton")
 				buttonSet.armNextButton//enable button,set focus,color button orange
+				buttonSet.armAsteriskButton
 				}
 			}
 		  else{
