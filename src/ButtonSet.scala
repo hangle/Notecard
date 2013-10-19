@@ -49,6 +49,8 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	var priorButton=false; // set true by button, set false in Notecard
 	var asteriskButton=false//'true' when '*' button hit (see actionPerformed)
 	var firstChild=false  // set true when Card is 1st child in Notecard chain. 
+	var isAsteriskButtonOn="on"  // when 'off', button is disabled
+	var isPriorButtonOn = "on" //when 'off', button is disabled
 			// button acquires listener and is added to NotePanel
 	createActionButton(buttonPanel, asterisk)
 	createActionButton(buttonPanel, prior)
@@ -66,8 +68,6 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		// Used twice InputFocus. First, to enable when all fields
 		//  are captured, and second when '* continue' is issued. 
 	def isFirstChildFalse= firstChild==false
-//	def isFirstChildTrue= firstChild==true
-
 		// Determine which button was activated and take 
 		// appropriate action.
 	def actionPerformed(event:ActionEvent) { 
@@ -88,12 +88,6 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 			}
 
 		}
-	def isAsteriskOn=asteriskButton  // set true by '*' button
-	def resetAsteriskButton = asteriskButton=false  // turn off by Notecard
-		// tested in Notecard.executeNotecardChildren.  If true,
-		// then Linker loads the iterator with the prior
-		// card.
-	def isPriorButtonActivated = priorButton //set true by PRIOR button in actionPerformed()
 	def resetPriorButton= priorButton=false //set false in Notecard after executing
 						  // prior Card.
 	def createActionButton(buttonPanel:JPanel, button:JButton)={
@@ -139,14 +133,26 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		}
 		// Invoked in:  ButtonSet & CardSet
 	def armPriorButton= {
+			// can be disabled by '* priorButton  off'
+			// on/off assigned in Notecard
+		if(isPriorButtonOn=="on"){
 			prior.setBackground(Color.GREEN)		
 			//println("ButtonSet: armPriorButton")  
 			prior.setEnabled(true)
 			next.requestFocus()
 			}
+		else
+			grayAndDisablePriorButton
+		}
 	def armAsteriskButton= {
-		asterisk.setEnabled(true)
-		asterisk.setBackground(Color.white)
+			// can be disabled by '* asteriskButton  off'
+			// on/off assigned in Notecard
+		if(isAsteriskButtonOn=="on") {
+				asterisk.setEnabled(true)
+				asterisk.setBackground(Color.white)
+				}
+			else
+				grayAndDisableAsteriskButton
 		}
 
 		//card commands halted by 'wait' in

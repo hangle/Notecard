@@ -42,8 +42,8 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 	var frame_height=0
 	var frame_width=0
 	var font_size=0
-	var asteriskButton="on"
-	var priorButton="on"
+	var armAsteriskButton="on"
+	var armPriorButton="on"
 
 	symId="2001"    	// Root symbolic address.
 //------------------------------swizzle routines---------------------
@@ -63,10 +63,12 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		// EditNode fails.
 	val statusLine=new StatusLine
 		// Panel holding buttons
-	val buttonPanel= new JPanel		
 		// Create three buttons with actionListeners.
 		// Buttons are added to panel.Lock to issue notifyAll
+	val buttonPanel= new JPanel		
+
 	val buttonSet= new ButtonSet(buttonPanel, lock) //Buttons:  Next, Prior, and ' * '
+
 		// FrameTask was passed a '* manage <filename>' command and CardSet
 		// has instantiated a Notecard object. This object is
 		// passed here from 'taskGather'. 
@@ -76,6 +78,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 	val notePanel=new NotePanel().getNotePanel 
 		// Initiates Notecard passing an argument 'taskGather' with 
 		// parameters NEXT_FILE or END_SESSION
+
 	def startNotecard(taskGather:TaskGather) {
 				// 'oldFrame' references CardWindow whose subclass is JFrame. 
 				// Used in 'card' to dispose of JFrame.
@@ -131,28 +134,28 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				// CardSet executes a series of commands that
 				// constitute a single Card set. 
 			case cs:CardSet=> //
-				// In Linker, the current iterator is added to
-				// 'backupList' to support PRIOR button
+						// In Linker, the current iterator is added to
+						// 'backupList' to support PRIOR button
 				storeCurrentIterator
-				// Activate CardSet to process RowerNode,
-				// Assigner, CardSetTask, GroupNode, XNode to
-				// present one Card. CardSet enters a wait() state
-				// until button( NEXT,PRIOR,'*') is pressed, thus causing
-				// it to return.
+						// Activate CardSet to process RowerNode,
+						// Assigner, CardSetTask, GroupNode, XNode to
+						// present one Card. CardSet enters a wait() state
+						// until button( NEXT,PRIOR,'*') is pressed, thus causing
+						// it to return.
 				cs.startCardSet(notePanel, lock, buttonSet, statusLine)
-				// wait() of CardSet just released. Determine if either
-				// backup button or * asterisk button was activated.
-				// If so, than take care of // PRIOR and'*' buttons
+						// wait() of CardSet just released. Determine if either
+						// backup button or * asterisk button was activated.
+						// If so, than take care of // PRIOR and'*' buttons
 				waitOverDoButtons(taskGather)
-				// FrameTask is an <asterisk> command that performs
-				// a notecard task, such as ending the card session.
+						// FrameTask is an <asterisk> command that performs
+						// a notecard task, such as ending the card session.
 			case ft:NotecardTask=> 
 					ft.startNotecardTask(taskGather)
 						// check if task was '* manage <filename>'
 					if(taskGather.isManagement){
-						// transfer management's Notecard to current object.
+							// transfer management's Notecard to current object.
 						manageNotecard=taskGather.manageNotecard
-						// Enable button and change button color
+							// Enable button and change button color
 						buttonSet.armAsteriskButton
 						}
 						// NextFile is a command that provides the name 
@@ -167,17 +170,12 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		//   Invokes doPriorButton(),  when Prior button activated in actionPerformed()
 		//   Invokes doAsteriskButton(),  when '*' button activated in actionPerformed()
 	def waitOverDoButtons(taskGather:TaskGather) {
-				// buttons release the wait() state in CardSet.
-				// The button PRIOR and '*' require special 
-				// handling. The NEXT button does not, and falls
-				// thru to execute another iteration loop. 
-		if(buttonSet.isPriorButtonActivated) {
-				// load  iterator with prior CardSet then reset prior 
-				// button ('ButtonSet.priorButton' becomes 'false')
-			doPriorButton // client has activated PRIOR button
-			}
-		else if(buttonSet.isAsteriskOn)	
-			doAsteriskButton(taskGather) //  client has activated '*' button
+				//  'priorButton'  is true when button is activated.
+		if(buttonSet.priorButton) 
+			doPriorButton			
+				// 'asteriskButton' is true when button is activated.
+		else if(buttonSet.asteriskButton)	
+					doAsteriskButton(taskGather) 
 		}
 		//Backup set up
 	def doPriorButton {
@@ -260,19 +258,25 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 			  else {
 				var pair=e.split("[\t]")	
 				pair(0) match {
-							case "child" => //println(pair(1))
-									setChild(pair(1))
-							case "height" => //println(pair(1) )
-									frame_height=pair(1).toInt
-							case "width" => //println(pair(1))
-									frame_width= pair(1).toInt
-							case "font_size" => //println(pair(1))
-									font_size= pair(1).toInt
-							case "asteriskButton"=>
-									asteriskButton= pair(1)
-							case "priorButton" =>
-									priorButton=pair(1)
-							}
+					case "child" => //println(pair(1))
+							setChild(pair(1))
+					case "height" => //println(pair(1) )
+							frame_height=pair(1).toInt
+					case "width" => //println(pair(1))
+							frame_width= pair(1).toInt
+					case "font_size" => //println(pair(1))
+							font_size= pair(1).toInt
+					case "asteriskButton"=>          // either "on" or "off"
+							armAsteriskButton= pair(1)
+								// 'isAsteriskButtonOn' will disable '*' button 
+								//  when 'armAsteriskButton'= 'off'.
+							buttonSet.isAsteriskButtonOn=armAsteriskButton 
+					case "priorButton" =>
+							armPriorButton=pair(1)
+								// 'isPriorButtonOn' will disable PRIOR button 
+								//  when 'armPriorButton'= 'off'.
+							buttonSet.isPriorButtonOn= armPriorButton   
+					}
 				}
 			   }  //breakable		 
 			  }
