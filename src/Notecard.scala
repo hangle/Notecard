@@ -26,6 +26,7 @@ package com.client
 import scala.collection.mutable.Map
 import javax.swing.JPanel
 import javax.swing.JLabel
+import javax.swing.JFrame
 case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 			/*
 				Linker extends Node	
@@ -66,9 +67,8 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		// Create three buttons with actionListeners.
 		// Buttons are added to panel.Lock to issue notifyAll
 	val buttonPanel= new JPanel		
-
+		// Create buttons '*', 'PRIOR', 'NEXT'
 	val buttonSet= new ButtonSet(buttonPanel, lock) //Buttons:  Next, Prior, and ' * '
-
 		// FrameTask was passed a '* manage <filename>' command and CardSet
 		// has instantiated a Notecard object. This object is
 		// passed here from 'taskGather'. 
@@ -87,7 +87,11 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 			// Creates the notecard window (JFrame) with a BorderLayout  and adds Note 
 			// and Button panels to this window along with statusLine:JLabel. Also makes
 			// the window visible.
-		createAndMakeVisibleCardWindow (notePanel, buttonPanel, statusLine, frame_width, frame_height)	
+		taskGather.oldJFrame=createAndMakeVisibleCardWindow (notePanel, 
+															buttonPanel, 
+															statusLine, 
+															frame_width, 
+															frame_height)	
 
 				try{ 
 			// Execute Notecard's children (CardSet, NextFile, NotecardTask)
@@ -110,7 +114,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				buttonSet.grayAndDisablePriorButton
 				}
 			  else{ // for second and subsequent card sets.
-				// in inputfocus 'isfirstchildfalse' in 'actwhenallfieldscapured' and
+				// in inputfocus 'isfirstchildfalse' in 'actWhenAllFieldsCapured' and
 				// 'establishaseriskcontinue' turns prior button green and 
 				// enables button.
 				//println("Notecard turnOffFirstChild")
@@ -120,7 +124,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				// then 'isTaskNone' is false, causing the iteration to
 				// be terminated, returning control to 'card'. 
 			if(taskGather.isTaskNone) {
-				// process CardSet or FrameTask or NextFile 
+					// process CardSet or FrameTask or NextFile. 'Value' returned from 'iterate'.
 				executeNotecardChildren(Value, notePanel, taskGather, buttonSet:ButtonSet)
 				}
 			}      //---while
@@ -190,7 +194,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 										statusLine:JLabel,
 										frame_width:Int,  // object parameter
 										frame_height:Int) // object parameter
-		{
+									: JFrame= {
 			// Creates the notecard window (JFrame) with a BorderLayout
 			// and adds Note and Button panels to this window along with
 			// statusLine:JLabel.
@@ -225,6 +229,9 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					//Begin executing the Card file designated
 					//by '* manage <filename> in FrameTask
 				manageNotecard.startNotecard(taskGather)
+						// release resources of JFrame created in Notecard. 
+			 //	taskGather.oldJFrame.dispose()  // does not work ???
+
 					// Invokes new CardWindow and setVisible. This function is
 					// also invoked in 'startNotecard', However, unless it is also
 					// called here, the window is blanked when 'startNotecard' 

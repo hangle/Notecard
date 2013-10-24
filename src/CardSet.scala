@@ -34,8 +34,9 @@ import java.awt.Font
 import javax.swing._
 case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 															/*
+										symbolTable holds $<variables>		
 				Linker extends Node
-symbolTable holds $<variables>		def setId
+					def setId
 					def convertToSibling
 					def convertToChild
 				Linker

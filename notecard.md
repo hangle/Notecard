@@ -1,100 +1,107 @@
 <h1>Notecard Program</h1>
 
-<p>The program presents a window about the size of a note card.  The window displays text to and accepts <br />
-input from the program user.  The text and input are controlled by a script file of eight command types.   </p>
+<p>The program presents a window about the size of a note card.  The window displays text to and 
+accepts   input from the program user.  The text and input are controlled by a script file of 
+eight command types.   </p>
 
-<p>The description of the Notecard program begins with the script file 'helloWorld.nc' consisting of <br />
-a clear command 'c' and a display command 'd hellow world'.  </p>
+<p>The description of the Notecard program begins with the script file 'nowis.nc'.  To keep the
+explanation simple, 'nowis.nc' consists of the three commands types whose tags are (c, d, *).
+'nowis.nc' presents two successive card windows; the first displays "now is" and the second 
+displays "the time".</p>
 
-<pre><code>              helloWorld.nc  (file)  
+<pre>
+                                c
+                                d now is
+                                c
+                                d the time
+                                * end
+</pre>
 
-    c  
-    d hellow world
-</code></pre>
+<p>The Script program has validated these commands and has generated an input file to the Notecard <br />
+program:  </p>
 
-The Script program has validated these commands and has generated an input file to the Notecard  
-program:  
+<pre>
+                 %Notecard                        %CardSet
+                 child       2002                  child    2006
+                 height 300                        address  2005
+                 width  400                        siblinng 2008
+                 font_size  14                     name        0
+                 asteriskButton on                 condition   0
+                 priorButton    on                 %%
+                 %%
 
-<pre><code>    helloWorld.struct (file)  
+                 %CardSet                         %RowerNode
+                 child      2003                  child     2007
+                 address    2002                  address   2006
+                 sibling    2005                  sibling   0
+                 name       0                     row       0
+                 condition  0                     column    0
+                 %%                               %%
 
-    %Notecard  
-    2002  
-    300  
-    400  
-    14  
-    %%  
-    %CardSet  
-    2003  
-    2002  
-    0  
+                 %RowerNode                       %DisplayText
+                 child      2004                  address   2007
+                 address    2003                  sibling   0
+                 sibling    0                     style   14
+                 row    0                         column  0
+                 column 0                         name TimesRoman
+                 %%                               text the time
+                                                  color black
+                 %DisplayText                     %%
+                 address    2004
+                 sibling    0                     %NotecardTask
+                 style  1                         address   2008
+                 size   14                        task   end
+                 column 0                         type   0
+                 name   TimesRoman                %%
+                 text   now is
+                 color  black
+                 %%
+</pre>
 
+<p>The script beginning with the single '%' symbol, followed by a classname, such as,
+"Notecard", create objects from four case classes (Notecard, CardSet, RowerNode, and
+DisplayText).  </p>
 
-    %%  
-    %RowerNode  
-    2004  
-    2003  
-    0  
-    0  
-    0  
-    %%  
-    %DisplayText  
-    2004  
-    0  
-    1  
-    14  
-    0  
-    TimesRoman  
-    hello world  
-    black  
-    %%
-</code></pre>
-
-The script beginning with the single '%' symbol create objects from four case classes.  
-The 'symbolTable' (Map[String,String]), containing $<variables>, is passed to each   
-object.     
-
-<pre><code>    &lt; %&lt;classname&gt;  match {                             // CreateClass.scala  
-        case "%Notecard" =&gt;     notecard=Notecard(symbolTable)  
-        case "%CardSet" =&gt;      cardSet= CardSet(symbolTablle)  
-        case "%RowerNode" =&gt;    rowerNode=RowerNode(symbolTable)  
-        case "%DipslayText" =&gt;  displayText=DisplayText(symbolTable)  
+<pre><code>    %&lt;classname&gt;  match {                             // CreateClass.scala  
+        case "%Notecard" =&gt;     notecard=Notecard(..)  
+        case "%CardSet" =&gt;      cardSet= CardSet(..)  
+        case "%RowerNode" =&gt;    rowerNode=RowerNode(..)  
+        case "%DipslayText" =&gt;  displayText=DisplayText(..)  
         .... }
 </code></pre>
 
-Using '%Notecard' of the script file 'hellowWorld.nc' as an example, the line '%%' terminates  
-its elements. The script values '2002' to '2004' are symbolic addresses establishing a  
-structure of linked lists:   
+<p>The pairs of values following the '%<classname>' tag are arguments added to the newly
+created case class.  The tag '%%' terminates these arguments. Each case class has the 
+method 'receive_objects(..)' that assigns these arguments to the class parameters. </p>
 
-<pre><code>    'cardSet' is a child of 'notecard'  
-    'rowerNode is a child of 'cardSet'  
-    'displayText is a child of 'rowerNode'
-</code></pre>
+<p>The instances of the case classes form a structure of linked lists; Notecard iterates through
+these lists to display its cards.  Note in the 'nowis.struct' the values ranging from 2002 to
+2008. These numbers are paired with 'child', 'address' and 'sibling'. Together, the pairs
+represent the symbolic addresses of the linked list structure. </p>
 
-The other values of '%Notecard' (300, 400, 14) become field values of 'notecard'. 'cardSet'  
-acquires field values (0, "", "" ), 'rowerNode' acquires values (0,0,0) and 'displayText'    
-acquires (0,14,0, "", 1, 14, 0, TimesRoman, hello world, black).    
+<p>The root node instance of the structure is 'Notecard'.  It is the parent of the two 'CardSet'
+instances. 'Notecard's child value references the first 'CardSet' whose address is 2002.
+The sibling value of the first 'CardSet' references the second 'CardSet' instance whose
+sibling value is 0, terminating the list.</p>
 
-The 'notecard' object is the root of the linked list structure. It may have multiple 'cardSet'  
-objects, but in the case of 'helloWorld.nc', there is only one 'cardSet'
+<p>The two 'CardSet' instances are both parents having child values (2003 and 2006) referencing
+the two 'RowerNode' instances. 'The RowerNode' instances are parents referencing the
+'DisplayText' instances.</p>
 
-The 'cardSet' object clears the window and passes control to its child, 'rowerNode'.   
-The 'rowerNode' object employees its field elements row (0) and column (0) to  
-position its child objects with the context of the window.    
+<p>Finally, 'DisplayText' is also a parent but 'nowis.nc' does not require its children; its
+child value is 0.</p>
 
-The  'rowerNode' object has only one child, 'displayText'.  When control is passed to this  
-object, the text "hello world" is set up in black using TimesRoman font to be rendered.   
+<p>The linked list classes methods 'contvertToReference(swizzleTable:Map[String,Node])' to 
+convert symbolic addresses to physical ones.</p>
 
 <h2>Parent Child Linkage  </h2>
 
-The classes 'Notecard', 'CardSet', 'RowerNode', and 'DisplayText' extend the trait 'Node'.  
-The trait 'Node' has two variables (child and next) that establishes the parent/child  
-linkage. The objects 'notecard', 'cardSet', and 'rowerNode' are parents;  each  
-has one child to which 'Node.child' holds the reference. In the case of a parent object   
-with multiple children, the siblings would be linked by 'Node.next'.  In our example,  
-each parent has only one child so 'Node.next' is null.   
+<p>The classes 'Notecard', 'CardSet', 'RowerNode', and 'DisplayText' extend the trait 'Node'. <br />
+The trait 'Node' has two variables (child and next) that establishes the parent/child <br />
+linkage. </p>
 
-The parent classes 'Notecard', 'CardSet', 'RowerNode', and 'DisplayText' extend the   
-trait 'Link'  having two funtions to process the parent's linked list.  
+<p>The parent classes 'Notecard', 'CardSet', 'RowerNode', and 'DisplayText' extend the <br />
+trait 'Link'  having two funtions to process the parent's linked list.  </p>
 
 <pre><code>    def reset(child:Node) { iterator=child }  
     def iterate= {  
@@ -108,57 +115,74 @@ trait 'Link'  having two funtions to process the parent's linked list.
         }
 </code></pre>
 
-The 'notecard' object passes 'Node.child' to 'reset(...)' and executes:  
+<p>The 'Notecard' instance passes 'Node.child' to 'reset(...)' and executes the
+'while' loop:  </p>
 
-<pre><code>    while(iterate) {  
+<pre><code>    reset(getFirstChild)   
+    while(iterate) {  
         Value match {  
             case cs: CardSet =&gt;  cs.startCardSet(...)  
-            ...
+            ...  }
+        }
 </code></pre>
 
-Control passes to the 'cardSet' object.  The 'Link' trait functions of 'cardSet' passes  
-control to the 'rowerNote' object, and 'rowerNode' objects passes control to the  
-'displayText' object.  The 'displayText' object sets up "hello world" to be rendered   
-which does not happen until 'cardSet' reaches the end of its linked list:  
+<p>When 'startCardSet(..)' is invoked for the first 'CardSet' instance, a similar reset/
+while routine is executed:</p>
 
-<pre><code>    while(iterate) {    
+<pre><code>    reset(getFirstChild)   
+    while(iterate) {  
+        Value match {  
+            case rn: RowerNode =&gt;  rn.startRowerNode(...)  
+            ...  }
+        }
+</code></pre>
+
+<p>Again, in 'RowerNode'  a similar reset/while routine is executed to execute 'DisplayText'
+instance. </p>
+
+<pre><code>    reset(getFirstChild)
+    while(iterate) {    
         Value match {  
             case rn: RowerNode =&gt; rn.startRowerNode(...)  
             ... }  
-            }  
-    showPanel(...)  
-    haultCommandExecution( lock )
+            }
 </code></pre>
 
-The 'showPanel(...)' causes "hellow world" to be displayed.  The next command issues  
-a wait state, haulting the execution of the "script".  At this point, the NEXT button  
-has been enabled and its color is now orange.  When the button is activated, the  
-wait state is released:
+<p>The text of the first card (i.e., "now is") is not shown until 'CardSet' reaches the end of its
+list to terminate the 'while(iterate)' loop.  At this point, the window panel is shown
+and execution is halted by 'wait()'.</p>
+
+<pre><code>    showPanel(...)  
+    haltCommandExecution( lock )
+</code></pre>
+
+<p>At this point, the NEXT button  has been enabled and its color is now orange.  When the button 
+is activated, the  wait state is released:</p>
 
 <pre><code>    ButtonSet.lock.notifyAll()
 </code></pre>
 
-Next, the button is grayed and disabled.   
+<p>The operation is more complicted when a CardSet has one or more input fields to be <br />
+captured.  The Next button is not activated until this capture is completed. </p>
 
-The operation is more complicted when a CardSet has one or more input fields to be   
-captured.  The Next button cannot be activated until this capture is completed. 
+<p>The 'nowis.nc' example is shown as simplified code, for example, the linked list structure was 
+depicted five case classes.  The complete set of linked list classes  are:  </p>
 
-The 'helloWorld.nc' example is shown as simplified code, for example, the linked
-list structure is depicted as:
-
-
-
-b6b11261da4e617553a172b393a9ecfa
-
-
-
-The actual structure is:  
-
-
-
-b0e5d0dc5b268f8c3d0bafce8ae0fd09
-
-
+<pre>
+                                                 Script Examples  
+               Notecard  
+                  NotecardTask                   * end  
+                  NextFile                       f maleScript  
+                  CardSet                        c (1)=(2)  
+                      Assign                     a $count=$count+1  
+                      XNoded                     x  
+                      GroupNode                  g (1) = (1)  
+                      CardSetTask                * continue  
+                      RowerNoded                 d 3/5/  
+                          DisplayText            d now is  
+                          DisplayVariable        d (% $count)  
+                          BoxField               d (# $name)  
+                              EditNode           e ($count) < (5)  
 </pre>
 
 <h2>Specialized Layout Manager</h2>
@@ -168,21 +192,22 @@ is lost from view.  A specialized layout manager 'NoteLayout' that  extends the 
 abstract class 'awt.LayoutManager' is utilized to display lines of text.  The <br />
 crucial abstract method that the 'NoteLayout' impliments is:  </p>
 
-<pre>
-              def layoutContainer(notePanel: Container) {  
-                  for( i - 0 until notePanel.getComponentCount())    
-                       notePanel.getComponent(i).asInstanceOf[Visual].render()    
-                  }  
-The classes that render text are 'DisplayText', 'DisplayVariable' and 'BoxField'; 
-each extends the trait 'Visual' having an abstract method 'render()'.  A simplified  
-version of 'render()' in 'DisplayText' in which 'awt.Component' methods are invoked: 
+<pre><code>          def layoutContainer(notePanel: Container) {  
+              for( i - 0 until notePanel.getComponentCount())    
+                   notePanel.getComponent(i).asInstanceOf[Visual].render()    
+              }
+</code></pre>
 
-              def render() {  
-                  setForeground(color)    //color= black  
-                  setText(text)           //text=  hello world  
-                  setBounds(column,row, ....)  // column=0, row=0  
-                  }      
-</pre>
+<p>The classes that render text are 'DisplayText', 'DisplayVariable' and 'BoxField'; 
+each extends the trait 'Visual' having an abstract method 'render()'.  A simplified <br />
+version of 'render()' in 'DisplayText' in which 'awt.Component' methods are invoked: </p>
+
+<pre><code>          def render() {  
+              setForeground(color)    //color= black  
+              setText(text)           //text=  hello world  
+              setBounds(column,row, ....)  // column=0, row=0  
+              }
+</code></pre>
 
 <p>The 'setBounds' method is the key to the line oriented feature of Notecard.   </p>
 
@@ -191,67 +216,74 @@ object passing it 'new NoteLayout'.  </p>
 
 <h2>Response Capture  </h2>
 
-<p>In the script 'findName.nc' the user is asked to enter first and last names:  </p>
+<p>In the script 'inputOnly.nc' the user is presented a card window that has a response
+or input field. </p>
 
 <pre>
-                            findName.nc (file)
+                            inputOnly.nc (file)
                c  
-               d Enter first (# $first) and last (# $last) names
+               d (# $myInput)
 </pre>
 
-<p>The following shows the structure file (findName.struct) with '%Notecard' and <br />
-'%CarsSet' elements removed. The parent '%RowerNode' and its five children are <br />
-shown:  </p>
+<p>The following shows the 'inputOnly.struct' file.</p>
 
 <pre>
-                                    %RowerNode
-                                    2004
-                                    2003
-                                    0
-                                    0
-                                    0
-                                    %%
+                %Notecard                      %BoxField
+                child   2002                   child     0
+                height  300                    address  2004
+                width   400                    sibling   0
+                font_size   14                 field    $myInput
+                asteriskButton  on             length   10
+                priorButton on                 column   00
+                %%                             size     14
+                                               style    1
+                %CardSet                       name     TimesRoman
+                child   2003                   color    black
+                address 2002                   limit    99
+                sibling 0                      option   0
+                name        0                  %%
+                condition       0
+                %%                             
 
-         %DisplayText   %BoxField   %DisplayText  %BoxField   %DisplayText
-         2004           2005        2006          2007        2008
-         2005           2006        2007          2008        0
-         1              $first      1             $last       1
-         14             10          14            10          14
-         0              00          0             00          0
-         TimesRoman     14          TimesRoman    14          TimesRoman
-         Enter first    1           and last      1            names
-         black          TimesRoman  black         TimesRoman  black 
-         %%             black       %%            black       %%
-                        99                        99
-                        0                         0
-                        %%                        %%
+                %RowerNode
+                child   2004
+                address 2003
+                sibling 0
+                row 0
+                column  0
+                %%
+    </pre>
+
+The user's input is handled by the 'BoxField' class (extends JTextField) . The input is 
+stored in '$myInput'.  Until the user hits the 'ENTER' key, the 'NEXT' button is inactive. 
+The 'ENTER' key set the button color to orange.  Activation of the button would display 
+the next card, provided one existed (instead, a new instance of 'Notecard' is created and 
+the card repeats).  Typically, a '* end' command is present to terminate the session.
+
+<pre>
+        .
 </pre>
 
-<p>The '%DisplayText' script have the text (Enter first, and last, names). The '%BoxField' <br />
-script have the 'symbolTable' variables ($first, $last).  The user is required to <br />
-enter two responses and to then activate the NEXT button.  </p>
+<p>The parent of 'BoxField' is 'RowerNode'.  When this parent detects its 'BoxField' child,
+it creates the following instances and passes its child to both:</p>
 
-<p>A few tasks must occur before the NEXT button is enabled and its color set to orange. The <br />
-first input field must be given focus.  The ENTER key assigns $first to the 'symbolTable' <br />
-and the focus shifts to the second input field. The ENTER key assigns $second. A check <br />
-is made that there are no additional input fields.    </p>
-
-<p>'BoxField' establishes the window's input field. When the field gains focus, then the <br />
-'KeyListener' interface reports the keys that are entered.  The class 'KeyListenerObject' <br />
-extends 'KeyListener'.  'RowerNode' instantiates a 'KeyListererObject' when it detects <br />
-that one of its children is a 'BoxField'.  Also, the 'BoxField' object is passed to <br />
-the 'KeyListenerObject', along with an object of 'InputFocus' that maintains which <br />
-'BoxField' object has focus.  </p>
-
-<p>The 'InputFocus' object is created by the parent 'CardSet'.  A CardSet may have two <br />
-or more Display commands with input fields, for example:  </p>
-
-<pre><code>    c  
-    d First name (# $first) last name (# $last)  
-    d Street (# $street)  city (# $city)  
-    d Zip code (# $zip)
+<pre><code>    KeyListenerObject (extends KeyListener)
+    InputFocus
 </code></pre>
 
-<p>Each 'BoxField' object is added to an array within  'InputFocus'.  In the example, <br />
-'InputFocus' tracks the focus of five 'BoxField' objects. It also determines when all <br />
-five responses have been captured.  It then enables the NEXT button and sets it to orange.   </p>
+<p>'KeyListenerObject' captures the user's response so that 'BoxField' can store it in
+'$myInput'.</p>
+
+<p>The role of 'InputFocus' handles the multiple 'BoxField's that a card my have, for example:</p>
+
+<pre>
+            c
+            d Enter first name (# $first) and last (# $last)
+            d Also your age (# $age) and sex (# $gender)
+            c ....
+</pre>
+
+<p>Four 'BoxField' instances are created for this card.  When the card is presented, the first
+input field is given focus. When '$first' is captured, the focus must shift to the next 
+input field to catpure '$last'. And so on until all fields have been entered; at which point,
+'InputFocus' sets the 'NEXT' button to orange. </p>

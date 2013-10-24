@@ -17,13 +17,16 @@
 _____________________________
 */
 package com.client
+import javax.swing.JFrame
 
 class TaskGather()   {
 	val NEXT_FILE=1
 	val END_SESSION=2
 	val TASK_NONE=3     //default state
 	var task=TASK_NONE
-	var oldJFrame=null
+		// JFrame instance assigned in Notecard that is passed to 'card'
+		// to be disposed of.
+	var oldJFrame:JFrame=null
 		//'filename' transfered from NextFile to 'card'.
 	var filename=""     
 		// NotecardTask.loadFileAndBuildNetword() creates the Linked List class network
