@@ -108,10 +108,10 @@ class InputFocus ( buttonSet:ButtonSet) {
 					// In iteration, first CardSet set 'firstChild' to 'true',
 					// next and subsequent CardSet set it to 'false'
 				if( buttonSet.isFirstChildFalse) {
-					println("InputFocus: First Child False-- armPriorButton")
+					//println("InputFocus: First Child False-- armPriorButton")
 					buttonSet.armPriorButton
 					}
-				println("InputFocus:  actWhenAllFieldsCaptured-- armNextButton")
+				//println("InputFocus:  actWhenAllFieldsCaptured-- armNextButton")
 				buttonSet.armNextButton//enable button,set focus,color button orange
 				buttonSet.armAsteriskButton
 				}
@@ -131,7 +131,7 @@ class InputFocus ( buttonSet:ButtonSet) {
 			// For the next and subsequent CardSet sets it to 'false'
 
 					// enable button, get focus, color button orange
-		println("InputFocus:  establsihAsteriskContinue--  armNextButtonButton")
+		//println("InputFocus:  establsihAsteriskContinue--  armNextButtonButton")
 		buttonSet.armNextButton 
 //		buttonSet.turnOnPriorButton
 			// wait() invoked, button hit invokes 'notifyAll()'

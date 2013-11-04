@@ -45,7 +45,7 @@ class KeyListenerObject( boxField:BoxField,
 		val key:Int= event.getKeyChar()
 			// Example command  'd  (#yn  $ans)' sets 'BoxField.column'
 			// to '1'
-		if(key==KeyEvent.VK_SPACE) println("KeyListernerObject: VK_SPACE")
+//		if(key==KeyEvent.VK_SPACE) println("KeyListernerObject: VK_SPACE")
 		if(boxField.isYesNoMode) {   //BoxField.column ==1
 				// Record 'y' or 'n' if valuation succeeds
 			if(evaluateYesNoEntry(key))
@@ -72,9 +72,9 @@ class KeyListenerObject( boxField:BoxField,
 						// Releases CardSet wait() when count achieved
 				inputFocus.actWhenAllFieldsCaptured
 				}
-			  else{ 
-				println("KeyListenerObject  captureInputResponse returned FALSE")
-				}
+			 // else{ 
+			//	println("KeyListenerObject  captureInputResponse returned FALSE")
+			//	}
 			}
 				// limit placed on number of input chars
 		  else if(isInputLengthEqualToLimit(key, limit)) //true if count = limit

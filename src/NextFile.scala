@@ -31,7 +31,7 @@ case class NextFile(symbolTable:Map[String,String]) extends Linker {
 		// TaskGather created in 'card' which
 		// reads the <.struct> file
 	def startNextFile(taskGather:TaskGather) {
-		println("NextFile  ------------------------------")
+		//println("NextFile  ------------------------------")
 		if(isConditionPresent) {
 			if(isConditionTrue) {
 						// Instructions passed back to 'card'. 

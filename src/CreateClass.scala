@@ -69,7 +69,7 @@ class CreateClass   extends Node {
 			// invoked by  CommandNetwork.fileLoad_BuildNetwork(..)
 	def establishObjectNetwork( symbolTable:Map[String,String],
 								allStructSets:List[List[String]])= {
-			println("CreateClass:  allStructSets.size="+allStructSets.size)
+			//println("CreateClass:  allStructSets.size="+allStructSets.size)
 			for(structSet <-allStructSets) {
 					//'structSet' is List[String], representing one Card
 					// containing the object's  name, such as, %DisplayText,
@@ -92,7 +92,7 @@ class CreateClass   extends Node {
 		// Finally, the object's symbolic address is converted to
 		// a physical address.
 	def create_object(structObj:List[String], symbolTable:Map[String,String]):Any = {
-	//	println("herex head="+structObj.head)
+	//	println("herex ")
 		structObj.head match{   
 			case "%Notecard"=> // println("\t\tCreateClass  %Notecard") 
 				val notecard= Notecard(symbolTable)

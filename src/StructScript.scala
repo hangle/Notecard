@@ -43,7 +43,6 @@ object StructScript   {
 			// file not./ found, so default to 'start' file
 			// in StartFile.scala which allows
 			// user to enter a '.nc' filename
-		println("StructScript   invoke substituteStartFile")
 				// Reads script
 			substituteStartFile //return list
 			}

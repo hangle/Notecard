@@ -29,10 +29,10 @@ The text and response capture are controlled by a script file of eight command t
 </pre>
 
 <p>These capabilities can also be viewed at: <br />
-www.notecard.org:8090/cxm/background/intro<em>show</em>features.htm <br />
+www.notecard.org:8090/cxm/background/introShowFeatures.htm <br />
 Note, the applet system, written in java, is no longer supported.  </p>
 
-<h2>Compliation (src directory)  </h2>
+<h2>Fast Scala Compiler (src directory)  </h2>
 
 <pre><code>    fsc *.scala
 </code></pre>
