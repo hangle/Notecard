@@ -157,7 +157,6 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 				statusLine:StatusLine,
 				listenerArray:ArrayBuffer[KeyListenerObject]) {
 		indexer.increment   // add one to index member of Indexer
-				// ??? when commented out, BoxField does not work ??? 
 				// KeyListenerObject "listens" for key input characters. 
 		val keyListenerObject=new KeyListenerObject(boxField,  inputFocus, indexer.getIndex, statusLine)
 				// added to an ArrayBuffer of InputFocus

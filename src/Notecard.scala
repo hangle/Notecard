@@ -113,11 +113,8 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				buttonSet.turnOnFirstChild    // sets 'firstChild' to true
 				buttonSet.grayAndDisablePriorButton
 				}
-			  else{ // for second and subsequent card sets.
-				// in inputfocus 'isfirstchildfalse' in 'actWhenAllFieldsCapured' and
-				// 'establishaseriskcontinue' turns prior button green and 
-				// enables button.
-				//println("Notecard turnOffFirstChild")
+			  else{ 
+			    	// for second and subsequent card sets.
 				buttonSet.turnOffFirstChild //sets firstChild to false
 				}
 				// If '* end' or 'f <filename>' commands are detected, 
