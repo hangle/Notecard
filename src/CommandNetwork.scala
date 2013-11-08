@@ -29,7 +29,6 @@ object CommandNetwork  {
 			// converted to physical addresses creating network of 
 			// linked lists.
 		val createClass= new CreateClass
-		println("CommandNetwork: here")
 		createClass.establishObjectNetwork(symbolTable, allCardSets)
 		}
 	}
