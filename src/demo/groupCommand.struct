@@ -1,0 +1,1590 @@
+%Notecard
+child	2002
+height	400
+width	400
+font_size	14
+asteriskButton	on
+priorButton	on
+%%
+%CardSet
+child	2003
+address	2002
+sibling	2028
+name	0
+condition	0
+%%
+%RowerNode
+child	2004
+address	2003
+sibling	2005
+row	1
+column	5
+%%
+%DisplayText
+address	2004
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The 'c' command, having a logic expression,
+color	black
+%%
+%RowerNode
+child	2006
+address	2005
+sibling	2007
+row	3
+column	5
+%%
+%DisplayText
+address	2006
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	control whether the Card Set is executed 
+color	black
+%%
+%RowerNode
+child	2008
+address	2007
+sibling	2009
+row	4
+column	5
+%%
+%DisplayText
+address	2008
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	or skipped.
+color	black
+%%
+%RowerNode
+child	2010
+address	2009
+sibling	2011
+row	5
+column	5
+%%
+%DisplayText
+address	2010
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2012
+address	2011
+sibling	2013
+row	6
+column	5
+%%
+%DisplayText
+address	2012
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	It is usefull to do the same with one or
+color	black
+%%
+%RowerNode
+child	2014
+address	2013
+sibling	2015
+row	7
+column	5
+%%
+%DisplayText
+address	2014
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	more successive commands within the Card
+color	black
+%%
+%RowerNode
+child	2016
+address	2015
+sibling	2017
+row	8
+column	5
+%%
+%DisplayText
+address	2016
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Set.
+color	black
+%%
+%CardSetTask
+address	2017
+sibling	2018
+task	continue
+type	0
+%%
+%RowerNode
+child	2019
+address	2018
+sibling	2020
+row	9
+column	5
+%%
+%DisplayText
+address	2019
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2021
+address	2020
+sibling	2024
+row	10
+column	5
+%%
+%DisplayText
+address	2021
+sibling	2022
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The Group or 
+color	black
+%%
+%DisplayText
+address	2022
+sibling	2023
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g
+color	blue
+%%
+%DisplayText
+address	2023
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 command, having  
+color	black
+%%
+%RowerNode
+child	2025
+address	2024
+sibling	2026
+row	11
+column	5
+%%
+%DisplayText
+address	2025
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	a logical expression, controls the execution 
+color	black
+%%
+%RowerNode
+child	2027
+address	2026
+sibling	0
+row	12
+column	5
+%%
+%DisplayText
+address	2027
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	of one or more Card Set commands.`
+color	black
+%%
+%CardSet
+child	2029
+address	2028
+sibling	2069
+name	0
+condition	0
+%%
+%RowerNode
+child	2030
+address	2029
+sibling	2033
+row	0
+column	5
+%%
+%DisplayText
+address	2030
+sibling	2031
+style	1
+size	14
+column	0
+name	TimesRoman
+text	In the following example, the 
+color	black
+%%
+%DisplayText
+address	2031
+sibling	2032
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g
+color	blue
+%%
+%DisplayText
+address	2032
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 command
+color	black
+%%
+%RowerNode
+child	2034
+address	2033
+sibling	2035
+row	2
+column	5
+%%
+%DisplayText
+address	2034
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	determines whether a 'd' command is
+color	black
+%%
+%RowerNode
+child	2036
+address	2035
+sibling	2037
+row	3
+column	5
+%%
+%DisplayText
+address	2036
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	presented or not.
+color	black
+%%
+%RowerNode
+child	2038
+address	2037
+sibling	2039
+row	4
+column	10
+%%
+%DisplayText
+address	2038
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	---------script-----------
+color	black
+%%
+%RowerNode
+child	2040
+address	2039
+sibling	2041
+row	5
+column	10
+%%
+%DisplayText
+address	2040
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c
+color	black
+%%
+%RowerNode
+child	2042
+address	2041
+sibling	2043
+row	6
+column	10
+%%
+%DisplayText
+address	2042
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is always shown.
+color	black
+%%
+%RowerNode
+child	2044
+address	2043
+sibling	2046
+row	7
+column	10
+%%
+%DisplayText
+address	2044
+sibling	2045
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g
+color	blue
+%%
+%DisplayText
+address	2045
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 ($flag)=(3)
+color	black
+%%
+%RowerNode
+child	2047
+address	2046
+sibling	2048
+row	8
+column	10
+%%
+%DisplayText
+address	2047
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line might be shown.
+color	black
+%%
+%RowerNode
+child	2049
+address	2048
+sibling	2050
+row	9
+column	10
+%%
+%DisplayText
+address	2049
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c ...
+color	black
+%%
+%RowerNode
+child	2051
+address	2050
+sibling	2052
+row	10
+column	10
+%%
+%DisplayText
+address	2051
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------
+color	black
+%%
+%CardSetTask
+address	2052
+sibling	2053
+task	continue
+type	0
+%%
+%RowerNode
+child	2054
+address	2053
+sibling	2055
+row	11
+column	10
+%%
+%DisplayText
+address	2054
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2056
+address	2055
+sibling	2057
+row	12
+column	5
+%%
+%DisplayText
+address	2056
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Other commands can follow:
+color	black
+%%
+%RowerNode
+child	2058
+address	2057
+sibling	2059
+row	13
+column	10
+%%
+%DisplayText
+address	2058
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line might be shown.
+color	blue
+%%
+%RowerNode
+child	2060
+address	2059
+sibling	2063
+row	14
+column	5
+%%
+%DisplayText
+address	2060
+sibling	2061
+style	1
+size	14
+column	0
+name	TimesRoman
+text	and still be apart of the 
+color	black
+%%
+%DisplayText
+address	2061
+sibling	2062
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g
+color	blue
+%%
+%DisplayText
+address	2062
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2064
+address	2063
+sibling	2065
+row	15
+column	5
+%%
+%DisplayText
+address	2064
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	command. 
+color	black
+%%
+%RowerNode
+child	2066
+address	2065
+sibling	2067
+row	16
+column	5
+%%
+%DisplayText
+address	2066
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2068
+address	2067
+sibling	0
+row	17
+column	5
+%%
+%DisplayText
+address	2068
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%CardSet
+child	2070
+address	2069
+sibling	2087
+name	0
+condition	0
+%%
+%RowerNode
+child	2071
+address	2070
+sibling	2072
+row	1
+column	5
+%%
+%DisplayText
+address	2071
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The scope of the Card Set extends to 
+color	black
+%%
+%RowerNode
+child	2073
+address	2072
+sibling	2074
+row	3
+column	5
+%%
+%DisplayText
+address	2073
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	the end of the Set. 
+color	black
+%%
+%RowerNode
+child	2075
+address	2074
+sibling	2076
+row	4
+column	5
+%%
+%DisplayText
+address	2075
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2077
+address	2076
+sibling	2078
+row	5
+column	5
+%%
+%DisplayText
+address	2077
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The 'g' command scope is the same, however,
+color	black
+%%
+%RowerNode
+child	2079
+address	2078
+sibling	2080
+row	6
+column	5
+%%
+%DisplayText
+address	2079
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	an exception applies.
+color	black
+%%
+%CardSetTask
+address	2080
+sibling	2081
+task	continue
+type	0
+%%
+%RowerNode
+child	2082
+address	2081
+sibling	2083
+row	7
+column	5
+%%
+%DisplayText
+address	2082
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2084
+address	2083
+sibling	2085
+row	8
+column	5
+%%
+%DisplayText
+address	2084
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The 'g' command scope ends when another 'g'
+color	black
+%%
+%RowerNode
+child	2086
+address	2085
+sibling	0
+row	9
+column	5
+%%
+%DisplayText
+address	2086
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	command is encountered within the Set.
+color	black
+%%
+%CardSet
+child	2088
+address	2087
+sibling	2116
+name	0
+condition	0
+%%
+%RowerNode
+child	2089
+address	2088
+sibling	2090
+row	1
+column	5
+%%
+%DisplayText
+address	2089
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The 'g' command, without the logical
+color	black
+%%
+%RowerNode
+child	2091
+address	2090
+sibling	2092
+row	3
+column	5
+%%
+%DisplayText
+address	2091
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	expression, ends the scope of the first
+color	black
+%%
+%RowerNode
+child	2093
+address	2092
+sibling	2094
+row	4
+column	5
+%%
+%DisplayText
+address	2093
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	'g' command.
+color	black
+%%
+%RowerNode
+child	2095
+address	2094
+sibling	2096
+row	5
+column	5
+%%
+%DisplayText
+address	2095
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2097
+address	2096
+sibling	2098
+row	6
+column	10
+%%
+%DisplayText
+address	2097
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	---------script-----------
+color	black
+%%
+%RowerNode
+child	2099
+address	2098
+sibling	2100
+row	7
+column	10
+%%
+%DisplayText
+address	2099
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c
+color	black
+%%
+%RowerNode
+child	2101
+address	2100
+sibling	2102
+row	8
+column	10
+%%
+%DisplayText
+address	2101
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is always shown.
+color	black
+%%
+%RowerNode
+child	2103
+address	2102
+sibling	2105
+row	9
+column	10
+%%
+%DisplayText
+address	2103
+sibling	2104
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g
+color	blue
+%%
+%DisplayText
+address	2104
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 ($flag)=(3)
+color	black
+%%
+%RowerNode
+child	2106
+address	2105
+sibling	2107
+row	10
+column	10
+%%
+%DisplayText
+address	2106
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line might be shown.
+color	black
+%%
+%RowerNode
+child	2108
+address	2107
+sibling	2110
+row	11
+column	10
+%%
+%DisplayText
+address	2108
+sibling	2109
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g
+color	blue
+%%
+%DisplayText
+address	2109
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2111
+address	2110
+sibling	2112
+row	12
+column	10
+%%
+%DisplayText
+address	2111
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is always shown.
+color	black
+%%
+%RowerNode
+child	2113
+address	2112
+sibling	2114
+row	13
+column	10
+%%
+%DisplayText
+address	2113
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c ...
+color	black
+%%
+%RowerNode
+child	2115
+address	2114
+sibling	0
+row	14
+column	10
+%%
+%DisplayText
+address	2115
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------
+color	black
+%%
+%CardSet
+child	2117
+address	2116
+sibling	2151
+name	0
+condition	0
+%%
+%RowerNode
+child	2118
+address	2117
+sibling	2121
+row	0
+column	5
+%%
+%DisplayText
+address	2118
+sibling	2119
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The Group Else or 
+color	black
+%%
+%DisplayText
+address	2119
+sibling	2120
+style	1
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	blue
+%%
+%DisplayText
+address	2120
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 command, following a 
+color	black
+%%
+%RowerNode
+child	2122
+address	2121
+sibling	2123
+row	2
+column	5
+%%
+%DisplayText
+address	2122
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	'g' command (with a logical expression), 
+color	black
+%%
+%RowerNode
+child	2124
+address	2123
+sibling	2125
+row	3
+column	5
+%%
+%DisplayText
+address	2124
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	executes commands when the logic fails.
+color	black
+%%
+%RowerNode
+child	2126
+address	2125
+sibling	2127
+row	4
+column	5
+%%
+%DisplayText
+address	2126
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2128
+address	2127
+sibling	2129
+row	5
+column	10
+%%
+%DisplayText
+address	2128
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	---------script-----------
+color	black
+%%
+%RowerNode
+child	2130
+address	2129
+sibling	2131
+row	6
+column	10
+%%
+%DisplayText
+address	2130
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c
+color	black
+%%
+%RowerNode
+child	2132
+address	2131
+sibling	2133
+row	7
+column	10
+%%
+%DisplayText
+address	2132
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is always shown.
+color	black
+%%
+%RowerNode
+child	2134
+address	2133
+sibling	2136
+row	8
+column	10
+%%
+%DisplayText
+address	2134
+sibling	2135
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g
+color	blue
+%%
+%DisplayText
+address	2135
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 ($flag)=(3)
+color	black
+%%
+%RowerNode
+child	2137
+address	2136
+sibling	2138
+row	9
+column	10
+%%
+%DisplayText
+address	2137
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d These lines are shown if
+color	black
+%%
+%RowerNode
+child	2139
+address	2138
+sibling	2140
+row	10
+column	10
+%%
+%DisplayText
+address	2139
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d the $flag value is 3.
+color	black
+%%
+%RowerNode
+child	2141
+address	2140
+sibling	2143
+row	11
+column	10
+%%
+%DisplayText
+address	2141
+sibling	2142
+style	1
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	blue
+%%
+%DisplayText
+address	2142
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2144
+address	2143
+sibling	2145
+row	12
+column	10
+%%
+%DisplayText
+address	2144
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d These lines are  shown if 
+color	black
+%%
+%RowerNode
+child	2146
+address	2145
+sibling	2147
+row	13
+column	10
+%%
+%DisplayText
+address	2146
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d the $flag value is not 3.
+color	black
+%%
+%RowerNode
+child	2148
+address	2147
+sibling	2149
+row	14
+column	10
+%%
+%DisplayText
+address	2148
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c ...
+color	black
+%%
+%RowerNode
+child	2150
+address	2149
+sibling	0
+row	15
+column	10
+%%
+%DisplayText
+address	2150
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------
+color	black
+%%
+%CardSet
+child	2152
+address	2151
+sibling	2186
+name	0
+condition	0
+%%
+%RowerNode
+child	2153
+address	2152
+sibling	2154
+row	0
+column	5
+%%
+%DisplayText
+address	2153
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Scope of the 'ge' extends to the end of
+color	black
+%%
+%RowerNode
+child	2155
+address	2154
+sibling	2156
+row	2
+column	5
+%%
+%DisplayText
+address	2155
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	the Set or to the next next 'g' command as
+color	black
+%%
+%RowerNode
+child	2157
+address	2156
+sibling	2158
+row	3
+column	5
+%%
+%DisplayText
+address	2157
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	is the case below.
+color	black
+%%
+%RowerNode
+child	2159
+address	2158
+sibling	2160
+row	4
+column	10
+%%
+%DisplayText
+address	2159
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	---------script-----------
+color	black
+%%
+%RowerNode
+child	2161
+address	2160
+sibling	2162
+row	5
+column	10
+%%
+%DisplayText
+address	2161
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c
+color	black
+%%
+%RowerNode
+child	2163
+address	2162
+sibling	2164
+row	6
+column	10
+%%
+%DisplayText
+address	2163
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is always shown.
+color	black
+%%
+%RowerNode
+child	2165
+address	2164
+sibling	2167
+row	7
+column	10
+%%
+%DisplayText
+address	2165
+sibling	2166
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g
+color	blue
+%%
+%DisplayText
+address	2166
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 ($flag)=(3)
+color	black
+%%
+%RowerNode
+child	2168
+address	2167
+sibling	2169
+row	8
+column	10
+%%
+%DisplayText
+address	2168
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d These lines are show if
+color	black
+%%
+%RowerNode
+child	2170
+address	2169
+sibling	2171
+row	9
+column	10
+%%
+%DisplayText
+address	2170
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d the $flag value is 3.
+color	black
+%%
+%RowerNode
+child	2172
+address	2171
+sibling	2174
+row	10
+column	10
+%%
+%DisplayText
+address	2172
+sibling	2173
+style	1
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	blue
+%%
+%DisplayText
+address	2173
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2175
+address	2174
+sibling	2176
+row	11
+column	10
+%%
+%DisplayText
+address	2175
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d These lines are not shown if 
+color	black
+%%
+%RowerNode
+child	2177
+address	2176
+sibling	2178
+row	12
+column	10
+%%
+%DisplayText
+address	2177
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d the $flag value is 3.
+color	black
+%%
+%RowerNode
+child	2179
+address	2178
+sibling	2180
+row	13
+column	10
+%%
+%DisplayText
+address	2179
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g
+color	blue
+%%
+%RowerNode
+child	2181
+address	2180
+sibling	2182
+row	14
+column	10
+%%
+%DisplayText
+address	2181
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is alway shown
+color	black
+%%
+%RowerNode
+child	2183
+address	2182
+sibling	2184
+row	15
+column	10
+%%
+%DisplayText
+address	2183
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c ...
+color	black
+%%
+%RowerNode
+child	2185
+address	2184
+sibling	0
+row	16
+column	10
+%%
+%DisplayText
+address	2185
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------
+color	black
+%%
+%NextFile
+address	2186
+sibling	2187
+filename	editCommand
+condition	0
+%%
+%NotecardTask
+address	2187
+sibling	0
+task	end
+type	0
+%%

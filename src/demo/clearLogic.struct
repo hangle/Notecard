@@ -1,0 +1,1827 @@
+%Notecard
+child	2002
+height	400
+width	400
+font_size	14
+asteriskButton	on
+priorButton	on
+%%
+%CardSet
+child	2003
+address	2002
+sibling	2036
+name	0
+condition	0
+%%
+%RowerNode
+child	2004
+address	2003
+sibling	2005
+row	1
+column	5
+%%
+%DisplayText
+address	2004
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The following script has two Card Sets.
+color	black
+%%
+%RowerNode
+child	2006
+address	2005
+sibling	2007
+row	3
+column	5
+%%
+%DisplayText
+address	2006
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2008
+address	2007
+sibling	2009
+row	4
+column	10
+%%
+%DisplayText
+address	2008
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	-----------script------------------
+color	black
+%%
+%RowerNode
+child	2010
+address	2009
+sibling	2012
+row	5
+column	10
+%%
+%DisplayText
+address	2010
+sibling	2011
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c
+color	blue
+%%
+%DisplayText
+address	2011
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2013
+address	2012
+sibling	2014
+row	6
+column	10
+%%
+%DisplayText
+address	2013
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d now is the
+color	black
+%%
+%RowerNode
+child	2015
+address	2014
+sibling	2016
+row	7
+column	10
+%%
+%DisplayText
+address	2015
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d time for all
+color	black
+%%
+%RowerNode
+child	2017
+address	2016
+sibling	2018
+row	8
+column	10
+%%
+%DisplayText
+address	2017
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d good men to
+color	black
+%%
+%RowerNode
+child	2019
+address	2018
+sibling	2020
+row	9
+column	10
+%%
+%DisplayText
+address	2019
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c
+color	blue
+%%
+%RowerNode
+child	2021
+address	2020
+sibling	2022
+row	10
+column	10
+%%
+%DisplayText
+address	2021
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d come to the
+color	black
+%%
+%RowerNode
+child	2023
+address	2022
+sibling	2024
+row	11
+column	10
+%%
+%DisplayText
+address	2023
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d aid of their country.
+color	black
+%%
+%RowerNode
+child	2025
+address	2024
+sibling	2028
+row	12
+column	10
+%%
+%DisplayText
+address	2025
+sibling	2026
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c  ... (
+color	black
+%%
+%DisplayText
+address	2026
+sibling	2027
+style	1
+size	14
+column	0
+name	TimesRoman
+text	begining of another Card Set
+color	blue
+%%
+%DisplayText
+address	2027
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	)
+color	black
+%%
+%RowerNode
+child	2029
+address	2028
+sibling	2030
+row	13
+column	10
+%%
+%DisplayText
+address	2029
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------
+color	black
+%%
+%RowerNode
+child	2031
+address	2030
+sibling	2032
+row	14
+column	5
+%%
+%DisplayText
+address	2031
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The 'c' command begins the Card Set and
+color	black
+%%
+%RowerNode
+child	2033
+address	2032
+sibling	2034
+row	15
+column	5
+%%
+%DisplayText
+address	2033
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	the next 'c' command begins the next Card
+color	black
+%%
+%RowerNode
+child	2035
+address	2034
+sibling	0
+row	16
+column	5
+%%
+%DisplayText
+address	2035
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Set.
+color	black
+%%
+%CardSet
+child	2037
+address	2036
+sibling	2067
+name	0
+condition	0
+%%
+%RowerNode
+child	2038
+address	2037
+sibling	2039
+row	1
+column	5
+%%
+%DisplayText
+address	2038
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The 'c' command can have an optional
+color	black
+%%
+%RowerNode
+child	2040
+address	2039
+sibling	2042
+row	3
+column	5
+%%
+%DisplayText
+address	2040
+sibling	2041
+style	1
+size	14
+column	0
+name	TimesRoman
+text	logic expression
+color	blue
+%%
+%DisplayText
+address	2041
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	, for example:
+color	black
+%%
+%RowerNode
+child	2043
+address	2042
+sibling	2044
+row	4
+column	5
+%%
+%DisplayText
+address	2043
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2045
+address	2044
+sibling	2046
+row	5
+column	10
+%%
+%DisplayText
+address	2045
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------script----------
+color	black
+%%
+%RowerNode
+child	2047
+address	2046
+sibling	2048
+row	6
+column	10
+%%
+%DisplayText
+address	2047
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c ($gender)=(male)
+color	black
+%%
+%RowerNode
+child	2049
+address	2048
+sibling	2050
+row	7
+column	10
+%%
+%DisplayText
+address	2049
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------------------------
+color	black
+%%
+%RowerNode
+child	2051
+address	2050
+sibling	2052
+row	8
+column	10
+%%
+%DisplayText
+address	2051
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2053
+address	2052
+sibling	2054
+row	9
+column	5
+%%
+%DisplayText
+address	2053
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	When the contents of $gender is the
+color	black
+%%
+%RowerNode
+child	2055
+address	2054
+sibling	2058
+row	10
+column	5
+%%
+%DisplayText
+address	2055
+sibling	2056
+style	1
+size	14
+column	0
+name	TimesRoman
+text	constant 'male', then the 
+color	black
+%%
+%DisplayText
+address	2056
+sibling	2057
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Card Set
+color	blue
+%%
+%DisplayText
+address	2057
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 is
+color	black
+%%
+%RowerNode
+child	2059
+address	2058
+sibling	2060
+row	11
+column	5
+%%
+%DisplayText
+address	2059
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	executed. 
+color	black
+%%
+%CardSetTask
+address	2060
+sibling	2061
+task	continue
+type	0
+%%
+%RowerNode
+child	2062
+address	2061
+sibling	2063
+row	12
+column	5
+%%
+%DisplayText
+address	2062
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2064
+address	2063
+sibling	2065
+row	13
+column	5
+%%
+%DisplayText
+address	2064
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	If not 'male', then the Card Set is 
+color	black
+%%
+%RowerNode
+child	2066
+address	2065
+sibling	0
+row	14
+column	5
+%%
+%DisplayText
+address	2066
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	skipped. 
+color	black
+%%
+%CardSet
+child	2068
+address	2067
+sibling	2102
+name	0
+condition	0
+%%
+%RowerNode
+child	2069
+address	2068
+sibling	2070
+row	0
+column	5
+%%
+%DisplayText
+address	2069
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The following script has two Card Sets.
+color	black
+%%
+%RowerNode
+child	2071
+address	2070
+sibling	2072
+row	2
+column	5
+%%
+%DisplayText
+address	2071
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2073
+address	2072
+sibling	2074
+row	3
+column	10
+%%
+%DisplayText
+address	2073
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	-----------script------------------
+color	black
+%%
+%RowerNode
+child	2075
+address	2074
+sibling	2077
+row	4
+column	10
+%%
+%DisplayText
+address	2075
+sibling	2076
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c
+color	blue
+%%
+%DisplayText
+address	2076
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 (1)=(2) 
+color	black
+%%
+%RowerNode
+child	2078
+address	2077
+sibling	2079
+row	5
+column	10
+%%
+%DisplayText
+address	2078
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d now is the
+color	black
+%%
+%RowerNode
+child	2080
+address	2079
+sibling	2081
+row	6
+column	10
+%%
+%DisplayText
+address	2080
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d time for all
+color	black
+%%
+%RowerNode
+child	2082
+address	2081
+sibling	2083
+row	7
+column	10
+%%
+%DisplayText
+address	2082
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d good men to
+color	black
+%%
+%RowerNode
+child	2084
+address	2083
+sibling	2086
+row	8
+column	10
+%%
+%DisplayText
+address	2084
+sibling	2085
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c
+color	blue
+%%
+%DisplayText
+address	2085
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 (1)=(1)
+color	black
+%%
+%RowerNode
+child	2087
+address	2086
+sibling	2088
+row	9
+column	10
+%%
+%DisplayText
+address	2087
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d come to the
+color	black
+%%
+%RowerNode
+child	2089
+address	2088
+sibling	2090
+row	10
+column	10
+%%
+%DisplayText
+address	2089
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d aid of their country.
+color	black
+%%
+%RowerNode
+child	2091
+address	2090
+sibling	2094
+row	11
+column	10
+%%
+%DisplayText
+address	2091
+sibling	2092
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c  ... (
+color	black
+%%
+%DisplayText
+address	2092
+sibling	2093
+style	1
+size	14
+column	0
+name	TimesRoman
+text	begining of another Card Set
+color	blue
+%%
+%DisplayText
+address	2093
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	)
+color	black
+%%
+%RowerNode
+child	2095
+address	2094
+sibling	2096
+row	12
+column	10
+%%
+%DisplayText
+address	2095
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------
+color	black
+%%
+%RowerNode
+child	2097
+address	2096
+sibling	2098
+row	13
+column	10
+%%
+%DisplayText
+address	2097
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2099
+address	2098
+sibling	2100
+row	14
+column	5
+%%
+%DisplayText
+address	2099
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Logic expression (1)=(2) fails, and  
+color	black
+%%
+%RowerNode
+child	2101
+address	2100
+sibling	0
+row	15
+column	5
+%%
+%DisplayText
+address	2101
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	first Card Set is never presented.
+color	black
+%%
+%CardSet
+child	2103
+address	2102
+sibling	2134
+name	0
+condition	0
+%%
+%RowerNode
+child	2104
+address	2103
+sibling	2105
+row	0
+column	5
+%%
+%DisplayText
+address	2104
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	A logic expression has three elements:
+color	black
+%%
+%RowerNode
+child	2106
+address	2105
+sibling	2107
+row	2
+column	10
+%%
+%DisplayText
+address	2106
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	1. Operand,  like, 1, 2, 3, male, $age $xyz
+color	black
+%%
+%RowerNode
+child	2108
+address	2107
+sibling	2109
+row	3
+column	10
+%%
+%DisplayText
+address	2108
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	2. Operator,   like,   =, >, <, >=, <=, !=, <>
+color	black
+%%
+%RowerNode
+child	2110
+address	2109
+sibling	2111
+row	4
+column	10
+%%
+%DisplayText
+address	2110
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	3. Condition,  like,   and, or
+color	black
+%%
+%RowerNode
+child	2112
+address	2111
+sibling	2113
+row	5
+column	5
+%%
+%DisplayText
+address	2112
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Examples:
+color	black
+%%
+%RowerNode
+child	2114
+address	2113
+sibling	2115
+row	6
+column	10
+%%
+%DisplayText
+address	2114
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	---------expression--------------
+color	black
+%%
+%RowerNode
+child	2116
+address	2115
+sibling	2117
+row	7
+column	10
+%%
+%DisplayText
+address	2116
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	(1)=(1)
+color	black
+%%
+%RowerNode
+child	2118
+address	2117
+sibling	2119
+row	8
+column	10
+%%
+%DisplayText
+address	2118
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	(1)=(2)
+color	black
+%%
+%RowerNode
+child	2120
+address	2119
+sibling	2121
+row	9
+column	10
+%%
+%DisplayText
+address	2120
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	($age) > (21)
+color	black
+%%
+%RowerNode
+child	2122
+address	2121
+sibling	2123
+row	10
+column	10
+%%
+%DisplayText
+address	2122
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	($age) != ($xyz)
+color	black
+%%
+%RowerNode
+child	2124
+address	2123
+sibling	2125
+row	11
+column	10
+%%
+%DisplayText
+address	2124
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	($age) > (21) and ($age) < (65)
+color	black
+%%
+%RowerNode
+child	2126
+address	2125
+sibling	2127
+row	12
+column	10
+%%
+%DisplayText
+address	2126
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	------------------------------------
+color	black
+%%
+%CardSetTask
+address	2127
+sibling	2128
+task	continue
+type	0
+%%
+%RowerNode
+child	2129
+address	2128
+sibling	2130
+row	13
+column	5
+%%
+%DisplayText
+address	2129
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Operands, or $<variables> and constants, are 
+color	black
+%%
+%RowerNode
+child	2131
+address	2130
+sibling	2132
+row	14
+column	5
+%%
+%DisplayText
+address	2131
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	enclosed in parentheses, and two operands 
+color	black
+%%
+%RowerNode
+child	2133
+address	2132
+sibling	0
+row	15
+column	5
+%%
+%DisplayText
+address	2133
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	are separate by an operator.
+color	black
+%%
+%CardSet
+child	2135
+address	2134
+sibling	2164
+name	0
+condition	0
+%%
+%RowerNode
+child	2136
+address	2135
+sibling	2137
+row	1
+column	5
+%%
+%DisplayText
+address	2136
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The logic expression in the 'c' command
+color	black
+%%
+%RowerNode
+child	2138
+address	2137
+sibling	2139
+row	3
+column	5
+%%
+%DisplayText
+address	2138
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	allows a user's response to control 
+color	black
+%%
+%RowerNode
+child	2140
+address	2139
+sibling	2141
+row	4
+column	5
+%%
+%DisplayText
+address	2140
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	whether or not a following Card is
+color	black
+%%
+%RowerNode
+child	2142
+address	2141
+sibling	2143
+row	5
+column	5
+%%
+%DisplayText
+address	2142
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	presented. 
+color	black
+%%
+%CardSetTask
+address	2143
+sibling	2144
+task	continue
+type	0
+%%
+%RowerNode
+child	2145
+address	2144
+sibling	2146
+row	6
+column	5
+%%
+%DisplayText
+address	2145
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2147
+address	2146
+sibling	2148
+row	7
+column	5
+%%
+%DisplayText
+address	2147
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	In this example, only one
+color	black
+%%
+%RowerNode
+child	2149
+address	2148
+sibling	2150
+row	8
+column	5
+%%
+%DisplayText
+address	2149
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	card can be presneted. 
+color	black
+%%
+%RowerNode
+child	2151
+address	2150
+sibling	2152
+row	9
+column	10
+%%
+%DisplayText
+address	2151
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	------------------
+color	black
+%%
+%RowerNode
+child	2153
+address	2152
+sibling	2154
+row	10
+column	10
+%%
+%DisplayText
+address	2153
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c ($input)=(1)
+color	black
+%%
+%RowerNode
+child	2155
+address	2154
+sibling	2156
+row	11
+column	10
+%%
+%DisplayText
+address	2155
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Card one
+color	black
+%%
+%RowerNode
+child	2157
+address	2156
+sibling	2158
+row	12
+column	10
+%%
+%DisplayText
+address	2157
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c ($input)=(2)
+color	black
+%%
+%RowerNode
+child	2159
+address	2158
+sibling	2160
+row	13
+column	10
+%%
+%DisplayText
+address	2159
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Card two
+color	black
+%%
+%RowerNode
+child	2161
+address	2160
+sibling	2162
+row	14
+column	10
+%%
+%DisplayText
+address	2161
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c ($input)=(3)
+color	black
+%%
+%RowerNode
+child	2163
+address	2162
+sibling	0
+row	15
+column	10
+%%
+%DisplayText
+address	2163
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Card three
+color	black
+%%
+%CardSet
+child	2165
+address	2164
+sibling	2205
+name	0
+condition	0
+%%
+%RowerNode
+child	2166
+address	2165
+sibling	2167
+row	1
+column	5
+%%
+%DisplayText
+address	2166
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The $<variable> of the following input
+color	black
+%%
+%RowerNode
+child	2168
+address	2167
+sibling	2171
+row	3
+column	5
+%%
+%DisplayText
+address	2168
+sibling	2169
+style	1
+size	14
+column	0
+name	TimesRoman
+text	is 
+color	black
+%%
+%DisplayText
+address	2169
+sibling	2170
+style	1
+size	14
+column	0
+name	TimesRoman
+text	$input
+color	blue
+%%
+%DisplayText
+address	2170
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	, that is (# $input).
+color	black
+%%
+%RowerNode
+child	2172
+address	2171
+sibling	2173
+row	4
+column	5
+%%
+%DisplayText
+address	2172
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2174
+address	2173
+sibling	2178
+row	5
+column	5
+%%
+%DisplayText
+address	2174
+sibling	2175
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Enter  a number from 1-3 
+color	black
+%%
+%BoxField
+child	2177
+address	2175
+sibling	2176
+field	$input
+length	2
+column	00
+size	14
+style	1
+name	TimesRoman
+color	black
+limit	1
+options	0
+%%
+%DisplayText
+address	2176
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	.  
+color	black
+%%
+%EditNode
+address	2177
+sibling	0
+condition	($input)>(0)and($input)<(4)
+type	0
+status	Enter 1,2,or 3
+variable	0
+%%
+%RowerNode
+child	2179
+address	2178
+sibling	2180
+row	6
+column	5
+%%
+%DisplayText
+address	2179
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The number entered ensures that only one of 
+color	black
+%%
+%RowerNode
+child	2181
+address	2180
+sibling	2182
+row	7
+column	5
+%%
+%DisplayText
+address	2181
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	the next three example cards is presented.
+color	black
+%%
+%RowerNode
+child	2183
+address	2182
+sibling	2184
+row	8
+column	10
+%%
+%DisplayText
+address	2183
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	------------------
+color	black
+%%
+%RowerNode
+child	2185
+address	2184
+sibling	2186
+row	9
+column	10
+%%
+%DisplayText
+address	2185
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c ($input)=(1)
+color	black
+%%
+%RowerNode
+child	2187
+address	2186
+sibling	2188
+row	10
+column	10
+%%
+%DisplayText
+address	2187
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Card one
+color	black
+%%
+%RowerNode
+child	2189
+address	2188
+sibling	2190
+row	11
+column	10
+%%
+%DisplayText
+address	2189
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c ($input)=(2)
+color	black
+%%
+%RowerNode
+child	2191
+address	2190
+sibling	2192
+row	12
+column	10
+%%
+%DisplayText
+address	2191
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Card two
+color	black
+%%
+%RowerNode
+child	2193
+address	2192
+sibling	2194
+row	13
+column	10
+%%
+%DisplayText
+address	2193
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c ($input)=(3)
+color	black
+%%
+%RowerNode
+child	2195
+address	2194
+sibling	2196
+row	14
+column	10
+%%
+%DisplayText
+address	2195
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Card three
+color	black
+%%
+%XNode
+address	2196
+sibling	2197
+%%
+%RowerNode
+child	2198
+address	2197
+sibling	2199
+row	15
+column	10
+%%
+%DisplayText
+address	2198
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2200
+address	2199
+sibling	0
+row	16
+column	5
+%%
+%DisplayText
+address	2200
+sibling	2201
+style	1
+size	14
+column	0
+name	TimesRoman
+text	You have stored 
+color	black
+%%
+%DisplayVariable
+address	2201
+sibling	2202
+text	$input
+column	0
+size	14
+style	1
+name	TimesRoman
+color	black
+%%
+%DisplayText
+address	2202
+sibling	2203
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 in 
+color	black
+%%
+%DisplayText
+address	2203
+sibling	2204
+style	1
+size	14
+column	0
+name	TimesRoman
+text	$input
+color	blue
+%%
+%DisplayText
+address	2204
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 variable.
+color	black
+%%
+%CardSet
+child	2206
+address	2205
+sibling	2208
+name	0
+condition	($input)=(1)
+%%
+%RowerNode
+child	2207
+address	2206
+sibling	0
+row	0
+column	0
+%%
+%DisplayText
+address	2207
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Card one
+color	black
+%%
+%CardSet
+child	2209
+address	2208
+sibling	2211
+name	0
+condition	($input)=(2)
+%%
+%RowerNode
+child	2210
+address	2209
+sibling	0
+row	0
+column	0
+%%
+%DisplayText
+address	2210
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Card two
+color	black
+%%
+%CardSet
+child	2212
+address	2211
+sibling	2214
+name	0
+condition	($input)=(3)
+%%
+%RowerNode
+child	2213
+address	2212
+sibling	0
+row	0
+column	0
+%%
+%DisplayText
+address	2213
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Card three
+color	black
+%%
+%NextFile
+address	2214
+sibling	2215
+filename	assignCommand
+condition	0
+%%
+%NotecardTask
+address	2215
+sibling	0
+task	end
+type	0
+%%

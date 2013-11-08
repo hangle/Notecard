@@ -1,0 +1,470 @@
+%Notecard
+child	2002
+height	400
+width	400
+font_size	14
+asteriskButton	on
+priorButton	on
+%%
+%CardSet
+child	2003
+address	2002
+sibling	2024
+name	0
+condition	0
+%%
+%RowerNode
+child	2004
+address	2003
+sibling	2005
+row	1
+column	5
+%%
+%DisplayText
+address	2004
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Notecard script consist of 8 command
+color	black
+%%
+%RowerNode
+child	2006
+address	2005
+sibling	2007
+row	3
+column	5
+%%
+%DisplayText
+address	2006
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	types.
+color	black
+%%
+%RowerNode
+child	2008
+address	2007
+sibling	2009
+row	4
+column	5
+%%
+%DisplayText
+address	2008
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2010
+address	2009
+sibling	2011
+row	5
+column	5
+%%
+%DisplayText
+address	2010
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Two of these command types have already
+color	black
+%%
+%RowerNode
+child	2012
+address	2011
+sibling	2013
+row	6
+column	5
+%%
+%DisplayText
+address	2012
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	been introduced:
+color	black
+%%
+%RowerNode
+child	2014
+address	2013
+sibling	2015
+row	7
+column	15
+%%
+%DisplayText
+address	2014
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Clear or 'c' command
+color	black
+%%
+%RowerNode
+child	2016
+address	2015
+sibling	2017
+row	8
+column	15
+%%
+%DisplayText
+address	2016
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Display or 'd' command
+color	black
+%%
+%RowerNode
+child	2018
+address	2017
+sibling	2019
+row	9
+column	5
+%%
+%DisplayText
+address	2018
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%CardSetTask
+address	2019
+sibling	2020
+task	continue
+type	0
+%%
+%RowerNode
+child	2021
+address	2020
+sibling	2022
+row	10
+column	5
+%%
+%DisplayText
+address	2021
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The following Cards presents an
+color	black
+%%
+%RowerNode
+child	2023
+address	2022
+sibling	0
+row	11
+column	5
+%%
+%DisplayText
+address	2023
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	overview of the 8 script commands.
+color	black
+%%
+%CardSet
+child	2025
+address	2024
+sibling	2054
+name	0
+condition	0
+%%
+%RowerNode
+child	2026
+address	2025
+sibling	2027
+row	1
+column	5
+%%
+%DisplayText
+address	2026
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The eight, script command types are:
+color	black
+%%
+%RowerNode
+child	2028
+address	2027
+sibling	2029
+row	3
+column	5
+%%
+%DisplayText
+address	2028
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2030
+address	2029
+sibling	2033
+row	4
+column	10
+%%
+%DisplayText
+address	2030
+sibling	2031
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Clear or 'c' 
+color	black
+%%
+%DisplayText
+address	2031
+sibling	2032
+style	1
+size	10
+column	0
+name	TimesRoman
+text	command
+color	black
+%%
+%DisplayText
+address	2032
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2034
+address	2033
+sibling	2036
+row	5
+column	10
+%%
+%DisplayText
+address	2034
+sibling	2035
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Display or 'd' 
+color	black
+%%
+%DisplayText
+address	2035
+sibling	0
+style	1
+size	10
+column	0
+name	TimesRoman
+text	command
+color	black
+%%
+%RowerNode
+child	2037
+address	2036
+sibling	2039
+row	6
+column	10
+%%
+%DisplayText
+address	2037
+sibling	2038
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Assign or 'a' 
+color	black
+%%
+%DisplayText
+address	2038
+sibling	0
+style	1
+size	10
+column	0
+name	TimesRoman
+text	command
+color	black
+%%
+%RowerNode
+child	2040
+address	2039
+sibling	2042
+row	7
+column	10
+%%
+%DisplayText
+address	2040
+sibling	2041
+style	1
+size	14
+column	0
+name	TimesRoman
+text	File or 'f' 
+color	black
+%%
+%DisplayText
+address	2041
+sibling	0
+style	1
+size	10
+column	0
+name	TimesRoman
+text	command
+color	black
+%%
+%RowerNode
+child	2043
+address	2042
+sibling	2045
+row	8
+column	10
+%%
+%DisplayText
+address	2043
+sibling	2044
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Group or 'g' 
+color	black
+%%
+%DisplayText
+address	2044
+sibling	0
+style	1
+size	10
+column	0
+name	TimesRoman
+text	command
+color	black
+%%
+%RowerNode
+child	2046
+address	2045
+sibling	2048
+row	9
+column	10
+%%
+%DisplayText
+address	2046
+sibling	2047
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Edit or 'c' 
+color	black
+%%
+%DisplayText
+address	2047
+sibling	0
+style	1
+size	10
+column	0
+name	TimesRoman
+text	command
+color	black
+%%
+%RowerNode
+child	2049
+address	2048
+sibling	2051
+row	10
+column	10
+%%
+%DisplayText
+address	2049
+sibling	2050
+style	1
+size	14
+column	0
+name	TimesRoman
+text	eXecute or 'x' 
+color	black
+%%
+%DisplayText
+address	2050
+sibling	0
+style	1
+size	10
+column	0
+name	TimesRoman
+text	command
+color	black
+%%
+%RowerNode
+child	2052
+address	2051
+sibling	0
+row	11
+column	10
+%%
+%DisplayText
+address	2052
+sibling	2053
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Asterisk or '*' 
+color	black
+%%
+%DisplayText
+address	2053
+sibling	0
+style	1
+size	10
+column	0
+name	TimesRoman
+text	command
+color	black
+%%
+%NextFile
+address	2054
+sibling	2055
+filename	displayPlacement
+condition	0
+%%
+%NotecardTask
+address	2055
+sibling	0
+task	end
+type	0
+%%

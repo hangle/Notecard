@@ -1,0 +1,1685 @@
+%Notecard
+child	2002
+height	400
+width	400
+font_size	14
+asteriskButton	on
+priorButton	on
+%%
+%CardSet
+child	2003
+address	2002
+sibling	2023
+name	0
+condition	0
+%%
+%RowerNode
+child	2004
+address	2003
+sibling	2005
+row	1
+column	5
+%%
+%DisplayText
+address	2004
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Special tasks are executed by the
+color	black
+%%
+%RowerNode
+child	2006
+address	2005
+sibling	2009
+row	3
+column	5
+%%
+%DisplayText
+address	2006
+sibling	2007
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Asterisk or 
+color	black
+%%
+%DisplayText
+address	2007
+sibling	2008
+style	1
+size	14
+column	0
+name	TimesRoman
+text	*
+color	blue
+%%
+%DisplayText
+address	2008
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 command. 
+color	black
+%%
+%RowerNode
+child	2010
+address	2009
+sibling	2011
+row	4
+column	5
+%%
+%DisplayText
+address	2010
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2012
+address	2011
+sibling	2013
+row	5
+column	5
+%%
+%DisplayText
+address	2012
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Tasks:
+color	black
+%%
+%RowerNode
+child	2014
+address	2013
+sibling	2015
+row	6
+column	15
+%%
+%DisplayText
+address	2014
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	* end
+color	black
+%%
+%RowerNode
+child	2016
+address	2015
+sibling	2017
+row	7
+column	15
+%%
+%DisplayText
+address	2016
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	* continue
+color	black
+%%
+%RowerNode
+child	2018
+address	2017
+sibling	2019
+row	8
+column	15
+%%
+%DisplayText
+address	2018
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	* save <filename>
+color	black
+%%
+%RowerNode
+child	2020
+address	2019
+sibling	2021
+row	9
+column	15
+%%
+%DisplayText
+address	2020
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	* status <message>
+color	black
+%%
+%RowerNode
+child	2022
+address	2021
+sibling	0
+row	10
+column	15
+%%
+%DisplayText
+address	2022
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	* manage <filename.nc>
+color	black
+%%
+%CardSet
+child	2024
+address	2023
+sibling	2049
+name	0
+condition	0
+%%
+%RowerNode
+child	2025
+address	2024
+sibling	2026
+row	2
+column	5
+%%
+%DisplayText
+address	2025
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The termination of the Card set execution
+color	black
+%%
+%RowerNode
+child	2027
+address	2026
+sibling	2030
+row	4
+column	5
+%%
+%DisplayText
+address	2027
+sibling	2028
+style	1
+size	14
+column	0
+name	TimesRoman
+text	is caused by the 
+color	black
+%%
+%DisplayText
+address	2028
+sibling	2029
+style	1
+size	14
+column	0
+name	TimesRoman
+text	* end
+color	blue
+%%
+%DisplayText
+address	2029
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 command.
+color	black
+%%
+%RowerNode
+child	2031
+address	2030
+sibling	2032
+row	5
+column	5
+%%
+%DisplayText
+address	2031
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2033
+address	2032
+sibling	2034
+row	6
+column	10
+%%
+%DisplayText
+address	2033
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------script----------
+color	black
+%%
+%RowerNode
+child	2035
+address	2034
+sibling	2036
+row	7
+column	10
+%%
+%DisplayText
+address	2035
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	* end
+color	black
+%%
+%RowerNode
+child	2037
+address	2036
+sibling	2038
+row	8
+column	10
+%%
+%DisplayText
+address	2037
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	-----------------------------
+color	black
+%%
+%CardSetTask
+address	2038
+sibling	2039
+task	continue
+type	0
+%%
+%RowerNode
+child	2040
+address	2039
+sibling	2041
+row	9
+column	5
+%%
+%DisplayText
+address	2040
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2042
+address	2041
+sibling	2045
+row	10
+column	5
+%%
+%DisplayText
+address	2042
+sibling	2043
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The 
+color	black
+%%
+%DisplayText
+address	2043
+sibling	2044
+style	1
+size	14
+column	0
+name	TimesRoman
+text	* end
+color	blue
+%%
+%DisplayText
+address	2044
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 typically follows the last 
+color	black
+%%
+%RowerNode
+child	2046
+address	2045
+sibling	2047
+row	11
+column	5
+%%
+%DisplayText
+address	2046
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Card set of the .nc file.  Otherwise, the file 
+color	black
+%%
+%RowerNode
+child	2048
+address	2047
+sibling	0
+row	12
+column	5
+%%
+%DisplayText
+address	2048
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	will "loop" and execute the 1st Card Set. 
+color	black
+%%
+%CardSet
+child	2050
+address	2049
+sibling	2079
+name	0
+condition	0
+%%
+%RowerNode
+child	2051
+address	2050
+sibling	2052
+row	0
+column	5
+%%
+%DisplayText
+address	2051
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	In this demo, text is displayed 
+color	black
+%%
+%RowerNode
+child	2053
+address	2052
+sibling	2054
+row	2
+column	5
+%%
+%DisplayText
+address	2053
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	but often, following the activation 
+color	black
+%%
+%RowerNode
+child	2055
+address	2054
+sibling	2056
+row	3
+column	5
+%%
+%DisplayText
+address	2055
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	of the NEXT button, the window is 
+color	black
+%%
+%RowerNode
+child	2057
+address	2056
+sibling	2058
+row	4
+column	5
+%%
+%DisplayText
+address	2057
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	not cleared.  
+color	black
+%%
+%RowerNode
+child	2059
+address	2058
+sibling	2060
+row	5
+column	5
+%%
+%DisplayText
+address	2059
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2061
+address	2060
+sibling	2062
+row	6
+column	5
+%%
+%DisplayText
+address	2061
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Instead, additional text is 
+color	black
+%%
+%RowerNode
+child	2063
+address	2062
+sibling	2064
+row	7
+column	5
+%%
+%DisplayText
+address	2063
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	displayed within the same 
+color	black
+%%
+%RowerNode
+child	2065
+address	2064
+sibling	2066
+row	8
+column	5
+%%
+%DisplayText
+address	2065
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	window.
+color	black
+%%
+%CardSetTask
+address	2066
+sibling	2067
+task	continue
+type	0
+%%
+%RowerNode
+child	2068
+address	2067
+sibling	2069
+row	9
+column	5
+%%
+%DisplayText
+address	2068
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2070
+address	2069
+sibling	2071
+row	10
+column	5
+%%
+%DisplayText
+address	2070
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The Asterick command:
+color	black
+%%
+%RowerNode
+child	2072
+address	2071
+sibling	2073
+row	11
+column	5
+%%
+%DisplayText
+address	2072
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2074
+address	2073
+sibling	2075
+row	12
+column	15
+%%
+%DisplayText
+address	2074
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	* continue
+color	blue
+%%
+%RowerNode
+child	2076
+address	2075
+sibling	2077
+row	13
+column	5
+%%
+%DisplayText
+address	2076
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2078
+address	2077
+sibling	0
+row	14
+column	5
+%%
+%DisplayText
+address	2078
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	provides this feature. 
+color	black
+%%
+%CardSet
+child	2080
+address	2079
+sibling	2103
+name	0
+condition	0
+%%
+%RowerNode
+child	2081
+address	2080
+sibling	2082
+row	1
+column	5
+%%
+%DisplayText
+address	2081
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The following script is executed to
+color	black
+%%
+%RowerNode
+child	2083
+address	2082
+sibling	2084
+row	3
+column	5
+%%
+%DisplayText
+address	2083
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	illustrate the action of this Asterisk
+color	black
+%%
+%RowerNode
+child	2085
+address	2084
+sibling	2086
+row	4
+column	5
+%%
+%DisplayText
+address	2085
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	command.
+color	black
+%%
+%RowerNode
+child	2087
+address	2086
+sibling	2088
+row	5
+column	10
+%%
+%DisplayText
+address	2087
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	-----------Script--------------
+color	black
+%%
+%RowerNode
+child	2089
+address	2088
+sibling	2090
+row	6
+column	10
+%%
+%DisplayText
+address	2089
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d First you read this.
+color	black
+%%
+%RowerNode
+child	2091
+address	2090
+sibling	2092
+row	7
+column	10
+%%
+%DisplayText
+address	2091
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	* continue
+color	black
+%%
+%RowerNode
+child	2093
+address	2092
+sibling	2094
+row	8
+column	10
+%%
+%DisplayText
+address	2093
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Then you read that.
+color	black
+%%
+%RowerNode
+child	2095
+address	2094
+sibling	2096
+row	9
+column	10
+%%
+%DisplayText
+address	2095
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------
+color	black
+%%
+%RowerNode
+child	2097
+address	2096
+sibling	2098
+row	10
+column	5
+%%
+%DisplayText
+address	2097
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2099
+address	2098
+sibling	2100
+row	11
+column	5
+%%
+%DisplayText
+address	2099
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	First you read this.
+color	black
+%%
+%CardSetTask
+address	2100
+sibling	2101
+task	continue
+type	0
+%%
+%RowerNode
+child	2102
+address	2101
+sibling	0
+row	12
+column	5
+%%
+%DisplayText
+address	2102
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Then you read that.
+color	black
+%%
+%CardSet
+child	2104
+address	2103
+sibling	2135
+name	0
+condition	0
+%%
+%RowerNode
+child	2105
+address	2104
+sibling	2108
+row	1
+column	5
+%%
+%DisplayText
+address	2105
+sibling	2106
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The Asterisk or 
+color	black
+%%
+%DisplayText
+address	2106
+sibling	2107
+style	1
+size	14
+column	0
+name	TimesRoman
+text	*
+color	blue
+%%
+%DisplayText
+address	2107
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 command writes
+color	black
+%%
+%RowerNode
+child	2109
+address	2108
+sibling	2110
+row	3
+column	5
+%%
+%DisplayText
+address	2109
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	or saves the data captured by the 
+color	black
+%%
+%RowerNode
+child	2111
+address	2110
+sibling	2112
+row	4
+column	5
+%%
+%DisplayText
+address	2111
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	(# $<variable) expression and the 
+color	black
+%%
+%RowerNode
+child	2113
+address	2112
+sibling	2114
+row	5
+column	5
+%%
+%DisplayText
+address	2113
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	data logged by the Assign command.
+color	black
+%%
+%RowerNode
+child	2115
+address	2114
+sibling	2116
+row	6
+column	5
+%%
+%DisplayText
+address	2115
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2117
+address	2116
+sibling	2118
+row	7
+column	5
+%%
+%DisplayText
+address	2117
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Example:
+color	black
+%%
+%RowerNode
+child	2119
+address	2118
+sibling	2120
+row	8
+column	10
+%%
+%DisplayText
+address	2119
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	------------script---------
+color	black
+%%
+%RowerNode
+child	2121
+address	2120
+sibling	2122
+row	9
+column	10
+%%
+%DisplayText
+address	2121
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	* save one/two/myfile
+color	black
+%%
+%RowerNode
+child	2123
+address	2122
+sibling	2124
+row	10
+column	10
+%%
+%DisplayText
+address	2123
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	------------------------------
+color	black
+%%
+%CardSetTask
+address	2124
+sibling	2125
+task	continue
+type	0
+%%
+%RowerNode
+child	2126
+address	2125
+sibling	2127
+row	11
+column	5
+%%
+%DisplayText
+address	2126
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2128
+address	2127
+sibling	2130
+row	12
+column	5
+%%
+%DisplayText
+address	2128
+sibling	2129
+style	1
+size	14
+column	0
+name	TimesRoman
+text	$<variable>
+color	blue
+%%
+%DisplayText
+address	2129
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 names, along with their 
+color	black
+%%
+%RowerNode
+child	2131
+address	2130
+sibling	2133
+row	13
+column	5
+%%
+%DisplayText
+address	2131
+sibling	2132
+style	1
+size	14
+column	0
+name	TimesRoman
+text	values
+color	blue
+%%
+%DisplayText
+address	2132
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	, are written to 'myfile' 
+color	black
+%%
+%RowerNode
+child	2134
+address	2133
+sibling	0
+row	14
+column	5
+%%
+%DisplayText
+address	2134
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	file in directory  'one/two'. 
+color	black
+%%
+%CardSet
+child	2136
+address	2135
+sibling	2160
+name	0
+condition	0
+%%
+%RowerNode
+child	2137
+address	2136
+sibling	2138
+row	1
+column	5
+%%
+%DisplayText
+address	2137
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	At present, the appearance of displayed text, 
+color	black
+%%
+%RowerNode
+child	2139
+address	2138
+sibling	2140
+row	3
+column	5
+%%
+%DisplayText
+address	2139
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	such as, color, size, height, are controlled 
+color	black
+%%
+%RowerNode
+child	2141
+address	2140
+sibling	2142
+row	4
+column	5
+%%
+%DisplayText
+address	2141
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	by default values:
+color	black
+%%
+%RowerNode
+child	2143
+address	2142
+sibling	2144
+row	5
+column	10
+%%
+%DisplayText
+address	2143
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2145
+address	2144
+sibling	2146
+row	6
+column	10
+%%
+%DisplayText
+address	2145
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	height "300"  ---window size 
+color	black
+%%
+%RowerNode
+child	2147
+address	2146
+sibling	2148
+row	7
+column	10
+%%
+%DisplayText
+address	2147
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	width  "400"  ---window size 
+color	black
+%%
+%RowerNode
+child	2149
+address	2148
+sibling	2150
+row	8
+column	10
+%%
+%DisplayText
+address	2149
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	name   "TimesRoman" ---font name
+color	black
+%%
+%RowerNode
+child	2151
+address	2150
+sibling	2152
+row	9
+column	10
+%%
+%DisplayText
+address	2151
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	size   "14"   ---size of lettering
+color	black
+%%
+%RowerNode
+child	2153
+address	2152
+sibling	2154
+row	10
+column	10
+%%
+%DisplayText
+address	2153
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	color  "black"---color of lettering
+color	black
+%%
+%RowerNode
+child	2155
+address	2154
+sibling	2156
+row	11
+column	10
+%%
+%DisplayText
+address	2155
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	style  "1"---normal,2=bold,3=italics
+color	black
+%%
+%RowerNode
+child	2157
+address	2156
+sibling	2158
+row	12
+column	10
+%%
+%DisplayText
+address	2157
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	length "10" ---input field size 
+color	black
+%%
+%RowerNode
+child	2159
+address	2158
+sibling	0
+row	13
+column	10
+%%
+%DisplayText
+address	2159
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	limit   "99"---limit of input chars. 
+color	black
+%%
+%CardSet
+child	2161
+address	2160
+sibling	2192
+name	0
+condition	0
+%%
+%RowerNode
+child	2162
+address	2161
+sibling	2163
+row	0
+column	5
+%%
+%DisplayText
+address	2162
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The appearance defaults values can
+color	black
+%%
+%RowerNode
+child	2164
+address	2163
+sibling	2165
+row	2
+column	5
+%%
+%DisplayText
+address	2164
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	be overriden with '*' commands.
+color	black
+%%
+%RowerNode
+child	2166
+address	2165
+sibling	2167
+row	3
+column	5
+%%
+%DisplayText
+address	2166
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	For example:
+color	black
+%%
+%RowerNode
+child	2168
+address	2167
+sibling	2169
+row	4
+column	10
+%%
+%DisplayText
+address	2168
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	------------------------
+color	black
+%%
+%RowerNode
+child	2170
+address	2169
+sibling	2171
+row	5
+column	10
+%%
+%DisplayText
+address	2170
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	* height 645
+color	black
+%%
+%RowerNode
+child	2172
+address	2171
+sibling	2173
+row	6
+column	10
+%%
+%DisplayText
+address	2172
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	* width  500
+color	black
+%%
+%RowerNode
+child	2174
+address	2173
+sibling	2175
+row	7
+column	10
+%%
+%DisplayText
+address	2174
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c
+color	black
+%%
+%RowerNode
+child	2176
+address	2175
+sibling	2177
+row	8
+column	10
+%%
+%DisplayText
+address	2176
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d first card set
+color	black
+%%
+%RowerNode
+child	2178
+address	2177
+sibling	2179
+row	9
+column	10
+%%
+%DisplayText
+address	2178
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	...
+color	black
+%%
+%RowerNode
+child	2180
+address	2179
+sibling	2181
+row	10
+column	10
+%%
+%DisplayText
+address	2180
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------------------------
+color	black
+%%
+%CardSetTask
+address	2181
+sibling	2182
+task	continue
+type	0
+%%
+%RowerNode
+child	2183
+address	2182
+sibling	2184
+row	11
+column	5
+%%
+%DisplayText
+address	2183
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2185
+address	2184
+sibling	2186
+row	12
+column	5
+%%
+%DisplayText
+address	2185
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The window default sizes (300,400)
+color	black
+%%
+%RowerNode
+child	2187
+address	2186
+sibling	2188
+row	13
+column	5
+%%
+%DisplayText
+address	2187
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	are overridden with values (645,500)
+color	black
+%%
+%RowerNode
+child	2189
+address	2188
+sibling	2190
+row	14
+column	5
+%%
+%DisplayText
+address	2189
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Note: these '*' commands precede the
+color	black
+%%
+%RowerNode
+child	2191
+address	2190
+sibling	0
+row	15
+column	5
+%%
+%DisplayText
+address	2191
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	first Card set.
+color	black
+%%
+%CardSet
+child	2193
+address	2192
+sibling	2199
+name	0
+condition	0
+%%
+%RowerNode
+child	2194
+address	2193
+sibling	2195
+row	2
+column	5
+%%
+%DisplayText
+address	2194
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The other appearance default values
+color	black
+%%
+%RowerNode
+child	2196
+address	2195
+sibling	2197
+row	4
+column	5
+%%
+%DisplayText
+address	2196
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	may be overridden with '*'
+color	black
+%%
+%RowerNode
+child	2198
+address	2197
+sibling	0
+row	5
+column	5
+%%
+%DisplayText
+address	2198
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	commands.
+color	black
+%%
+%NextFile
+address	2199
+sibling	2200
+filename	end
+condition	0
+%%
+%NotecardTask
+address	2200
+sibling	0
+task	end
+type	0
+%%

@@ -1,0 +1,784 @@
+%Notecard
+child	2002
+height	400
+width	400
+font_size	14
+asteriskButton	on
+priorButton	on
+%%
+%CardSet
+child	2003
+address	2002
+sibling	2034
+name	0
+condition	0
+%%
+%RowerNode
+child	2004
+address	2003
+sibling	2005
+row	0
+column	5
+%%
+%DisplayText
+address	2004
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The following script:
+color	black
+%%
+%RowerNode
+child	2006
+address	2005
+sibling	2007
+row	2
+column	10
+%%
+%DisplayText
+address	2006
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	---------script------------
+color	black
+%%
+%RowerNode
+child	2008
+address	2007
+sibling	2009
+row	3
+column	10
+%%
+%DisplayText
+address	2008
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Enter age (# $age)
+color	black
+%%
+%RowerNode
+child	2010
+address	2009
+sibling	2011
+row	4
+column	10
+%%
+%DisplayText
+address	2010
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Age is (% $age)
+color	black
+%%
+%RowerNode
+child	2012
+address	2011
+sibling	2013
+row	5
+column	10
+%%
+%DisplayText
+address	2012
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------
+color	black
+%%
+%RowerNode
+child	2014
+address	2013
+sibling	2015
+row	6
+column	10
+%%
+%DisplayText
+address	2014
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2016
+address	2015
+sibling	2017
+row	7
+column	5
+%%
+%DisplayText
+address	2016
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	does not work to display $age via:
+color	black
+%%
+%RowerNode
+child	2018
+address	2017
+sibling	2019
+row	8
+column	10
+%%
+%DisplayText
+address	2018
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Age is (% $age)
+color	black
+%%
+%RowerNode
+child	2020
+address	2019
+sibling	2021
+row	9
+column	5
+%%
+%DisplayText
+address	2020
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	that was captured by:
+color	black
+%%
+%RowerNode
+child	2022
+address	2021
+sibling	2023
+row	10
+column	10
+%%
+%DisplayText
+address	2022
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Enter age (# $age)
+color	black
+%%
+%CardSetTask
+address	2023
+sibling	2024
+task	continue
+type	0
+%%
+%RowerNode
+child	2025
+address	2024
+sibling	2026
+row	11
+column	5
+%%
+%DisplayText
+address	2025
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2027
+address	2026
+sibling	2028
+row	12
+column	5
+%%
+%DisplayText
+address	2027
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The expression (% $age) prints 'Unkwn'
+color	black
+%%
+%RowerNode
+child	2029
+address	2028
+sibling	2030
+row	13
+column	5
+%%
+%DisplayText
+address	2029
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	because the capture or input mechanism
+color	black
+%%
+%RowerNode
+child	2031
+address	2030
+sibling	2032
+row	14
+column	5
+%%
+%DisplayText
+address	2031
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	only works after the Card has been
+color	black
+%%
+%RowerNode
+child	2033
+address	2032
+sibling	0
+row	15
+column	5
+%%
+%DisplayText
+address	2033
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	displayed.
+color	black
+%%
+%CardSet
+child	2035
+address	2034
+sibling	2070
+name	0
+condition	0
+%%
+%RowerNode
+child	2036
+address	2035
+sibling	2037
+row	0
+column	5
+%%
+%DisplayText
+address	2036
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The Card Set execute before control passes 
+color	black
+%%
+%RowerNode
+child	2038
+address	2037
+sibling	2039
+row	2
+column	5
+%%
+%DisplayText
+address	2038
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	to the user to enter input.
+color	black
+%%
+%RowerNode
+child	2040
+address	2039
+sibling	2041
+row	3
+column	5
+%%
+%DisplayText
+address	2040
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2042
+address	2041
+sibling	2047
+row	4
+column	5
+%%
+%DisplayText
+address	2042
+sibling	2043
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The 
+color	black
+%%
+%DisplayText
+address	2043
+sibling	2044
+style	1
+size	14
+column	0
+name	TimesRoman
+text	eXecute
+color	blue
+%%
+%DisplayText
+address	2044
+sibling	2045
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 or 
+color	black
+%%
+%DisplayText
+address	2045
+sibling	2046
+style	1
+size	14
+column	0
+name	TimesRoman
+text	x
+color	blue
+%%
+%DisplayText
+address	2046
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 command within the Card
+color	black
+%%
+%RowerNode
+child	2048
+address	2047
+sibling	2049
+row	5
+column	5
+%%
+%DisplayText
+address	2048
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Set halts execution and gives control to 
+color	black
+%%
+%RowerNode
+child	2050
+address	2049
+sibling	2051
+row	6
+column	5
+%%
+%DisplayText
+address	2050
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	the user. When capture is complete, the
+color	black
+%%
+%RowerNode
+child	2052
+address	2051
+sibling	2053
+row	7
+column	5
+%%
+%DisplayText
+address	2052
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	remaining commands of the Card Set execute. 
+color	black
+%%
+%RowerNode
+child	2054
+address	2053
+sibling	2055
+row	8
+column	5
+%%
+%DisplayText
+address	2054
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2056
+address	2055
+sibling	2057
+row	9
+column	10
+%%
+%DisplayText
+address	2056
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------script------------------
+color	black
+%%
+%RowerNode
+child	2058
+address	2057
+sibling	2059
+row	10
+column	10
+%%
+%DisplayText
+address	2058
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Enter age (# $age)
+color	black
+%%
+%RowerNode
+child	2060
+address	2059
+sibling	2061
+row	11
+column	10
+%%
+%DisplayText
+address	2060
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	x
+color	black
+%%
+%RowerNode
+child	2062
+address	2061
+sibling	2063
+row	12
+column	10
+%%
+%DisplayText
+address	2062
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Age is (% $age)
+color	black
+%%
+%RowerNode
+child	2064
+address	2063
+sibling	2065
+row	13
+column	10
+%%
+%DisplayText
+address	2064
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------------
+color	black
+%%
+%CardSetTask
+address	2065
+sibling	2066
+task	continue
+type	0
+%%
+%RowerNode
+child	2067
+address	2066
+sibling	2068
+row	14
+column	10
+%%
+%DisplayText
+address	2067
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2069
+address	2068
+sibling	0
+row	15
+column	5
+%%
+%DisplayText
+address	2069
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The value of $age will be displayed.
+color	black
+%%
+%CardSet
+child	2071
+address	2070
+sibling	2092
+name	0
+condition	0
+%%
+%RowerNode
+child	2072
+address	2071
+sibling	2073
+row	1
+column	5
+%%
+%DisplayText
+address	2072
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The following script will execute:
+color	black
+%%
+%RowerNode
+child	2074
+address	2073
+sibling	2075
+row	3
+column	10
+%%
+%DisplayText
+address	2074
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------script------------------
+color	black
+%%
+%RowerNode
+child	2076
+address	2075
+sibling	2077
+row	4
+column	10
+%%
+%DisplayText
+address	2076
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Enter age (# $age)
+color	black
+%%
+%RowerNode
+child	2078
+address	2077
+sibling	2079
+row	5
+column	10
+%%
+%DisplayText
+address	2078
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	x
+color	black
+%%
+%RowerNode
+child	2080
+address	2079
+sibling	2081
+row	6
+column	10
+%%
+%DisplayText
+address	2080
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Age is (% $age)
+color	black
+%%
+%RowerNode
+child	2082
+address	2081
+sibling	2083
+row	7
+column	10
+%%
+%DisplayText
+address	2082
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------------
+color	black
+%%
+%RowerNode
+child	2084
+address	2083
+sibling	2085
+row	8
+column	5
+%%
+%DisplayText
+address	2084
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+child	2086
+address	2085
+sibling	2088
+row	9
+column	5
+%%
+%DisplayText
+address	2086
+sibling	2087
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Enter age 
+color	black
+%%
+%BoxField
+child	0
+address	2087
+sibling	0
+field	$age2
+length	10
+column	00
+size	14
+style	1
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%XNode
+address	2088
+sibling	2089
+%%
+%RowerNode
+child	2090
+address	2089
+sibling	0
+row	10
+column	5
+%%
+%DisplayText
+address	2090
+sibling	2091
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Age is 
+color	black
+%%
+%DisplayVariable
+address	2091
+sibling	0
+text	$age2
+column	0
+size	14
+style	1
+name	TimesRoman
+color	blue
+%%
+%NextFile
+address	2092
+sibling	2093
+filename	asteriskCommand
+condition	0
+%%
+%NotecardTask
+address	2093
+sibling	0
+task	end
+type	0
+%%
