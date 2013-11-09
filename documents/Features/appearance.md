@@ -81,7 +81,7 @@ default values for all script files in a session. The following is an example of
 overriding the program values.  They remain  in effect for the session's script files <br />
 ( the '* end' command terminates a session).  </p>
 
-<p>The directory in which the Notecard program is executed is termed the 'home' directory. <br />
+<p>The directory in which the Script program is executed is termed the 'home' directory. <br />
 The 'appearance.ini' file in the 'home' directory is applied to the script files in 'home' <br />
 directory and to all  script files in its subdirectories.  </p>
 
@@ -139,4 +139,6 @@ program.  The Notecard program executes the following '*' commands:  </p>
         * manage <filename>
 </pre>
 
-<p>The  '*'  Appearance commands are consumed in the Script program and are removed.  </p>
+<p>The  '*'  Appearance commands are consumed in the Script program and are removed. <br />
+The 'appearance.ini' file within the directory structure of the Notecard program <br />
+has no affect on the default appearance values.   </p>

@@ -10,7 +10,7 @@ explanation simple, 'nowis.nc' consists of the three commands types whose tags a
 displays "the time".</p>
 
 <pre>
-                                c
+                    c
                                 d now is
                                 c
                                 d the time
