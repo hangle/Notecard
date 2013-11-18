@@ -1,20 +1,21 @@
 /* date:   Dec 12, 2011
   							GROUP RESOLVE 
-		GroupNode is a child of CardSet.  When this child is detected,
+		GroupNode is a child of CardSet.  When the first GroupNode is detected,
 		then CardSet instantiates GroupResolve and passes it GroupNode.
-			(CardSet.createGroupResolveAndPassItGroupNode(groupNode) )
-		Next, 'whatToDo(..)' is invoked having three options:
-			1)	'do'
-						invokes 'iterateCardSetChildren
-			2)  'skip'
-			3)  instantiate a new 'GroupResolve' object.
+				(CardSet.createGroupResolveAndPassItGroupNode(groupNode) )
+		Next, 'whatToDo(..)' is invoked having two options:
+			1)	'do'     Invokes 'iterateCardSetChildren' to execute cmds.
+			2)  'skip'   Iterate to next GroupNode without execution of cmds.
 
-		Example script code:					second example
-		g (1) = (2)						g (1) =(2)
-		d this will not be seen			d this will not be seen
-		d also this						d also this
-		g								ge 
-										d this will be seen
+
+		Example script code:				second example		third example
+		g (1) = (2)					g (1) =(2)						g(1)=(2)
+		d this will not be seen		d this will not be seen			d Not seen
+		d also this					d also this						ge (1)=(3)
+		g							ge								d Not seen 
+									d this will be seen				ge (1)=(1)
+																	d Seen
+
 		Group control covers the two 'd' display commands. In this example, 
 		the second 'g' command releases the Group control.  The "life" of
 		GroupResolve exists until this control ends, that is, it can spans
@@ -41,29 +42,29 @@ class GroupResolve()   {
 	val ElseConditionNode=3//post is "else" and has condition--else if
 	val EmptyNode=4		   //No condition or no "else"
 	var kind=0
-	var groupNode:GroupNode=null
-	var thenTrue=false      // The Group else clause will consult 
-				// this value.  If true, then the else 
-				// Group of commands are skipped. If true,
-				// then the else Goup commands are executed.
+	//var groupNode:GroupNode=null
+					// The 1st GroupNode sets 'thenTrue' to either 'true' or false.
+					// The 2nd GroupNode whose Group tag is 'ge' will executed
+					// the enclose Group command when 'thenTrue' is false.
+	var thenTrue=false      
 	var elseCondition=false
+	var elseConditionTrue=false
 
-	def attachGroupNode(group:GroupNode) { 
-		groupNode=group 
-		}
+		// Invoked in CardSet
 		// Group action is based on outcome history
 		// one or more GroupNodes. For example, if
 		// the then Group clause fails, then its 
 		// commands are skipped; and the
 		// else Group clause commands are executed. 
-	def actionToTake= {	// returns either 'skip' or 'do'
+	def actionToTake(groupNode:GroupNode)= {	// returns either 'skip' or 'do' or 'done'
 				// GroupNode.whatKind is: 
 				//		ThenNode--	condition only
 				//		ElseNode--	else but no condition
 				//		ElseConditionNode-- else and condition
 				//		EmptyNode--	no condition and no else
 		groupNode.whatKind match {
-			case ThenNode=>	// condition only 
+					// condition only 
+			case ThenNode=>	
 				if(groupNode.isConditionTrue) {
 					thenTrue=true
 					"do"
@@ -72,24 +73,26 @@ class GroupResolve()   {
 					thenTrue=false
 					"skip"
 					}
-			case ElseNode=> // else but no condition
-				if(thenTrue ==false) {
+					// tag 'ge' indicating else without condition expression
+			case ElseNode=> 
+							// 'elseConditionTrue' must also be tested
+				if(thenTrue ==false && elseConditionTrue==false) {
 					"do"	}
 				else{
 					"skip" }
-			case ElseConditionNode=>   // else and condition
-				if(elseCondition==false) {
-					if(thenTrue==true) "skip"
-					if(groupNode.isConditionTrue) {
-						elseCondition=true
+
+					// tag 'ge <condition>'. 
+			case ElseConditionNode=>   // (3)  else and condition
+					if( thenTrue==false && elseCondition==false && groupNode.isConditionTrue==true){
+						elseConditionTrue=true
 						"do"
 						}
-					}
-				 else
-				 	"skip"
+					else
+						"skip"
+
 			case EmptyNode=>  // no else and no condition
 					"done"
-			case _=> println("\t\tGroupResolve: unknown")
+			case _=> println("\t\tGroupResolve: unknown match value="+groupNode.whatKind)
 			}
 		}
 			

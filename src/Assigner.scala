@@ -90,7 +90,7 @@ case class Assigner(var symbolTable:Map[String,String]) extends Linker  {
 		}
 	def addFieldToSymbolTable(key:String, value:String, table:Map[String,String]) {
 		table += (key -> value)
-		println("Assigner: addFieldToSymbolTable:key="+key+"   input="+value)
+		//println("Assigner: addFieldToSymbolTable:key="+key+"   input="+value)
 		}
 	def mathExpression(key:String,expr: String, symbolTable:Map[String,String])  {
 			// converts expression string to List[String]
@@ -111,17 +111,17 @@ case class Assigner(var symbolTable:Map[String,String]) extends Linker  {
 			  else {
 				var pair=e.split("[\t]")	
 				pair(0) match {
-							case "address" => println(pair(1))
+							case "address" => //println(pair(1))
 									setAddress(pair(1))
 							case "sibling" =>
 									setNext(pair(1))
-							case "target" => println(pair(1) )
+							case "target" => //println(pair(1) )
 									target=pair(1)
-							case "source" => println(pair(1) )
+							case "source" => //println(pair(1) )
 									source=pair(1)
-							case "special" => println(pair(1) )
+							case "special" => //println(pair(1) )
 									special=pair(1)
-							case "condition" => println(pair(1))
+							case "condition" => //println(pair(1))
 									conditionStruct= pair(1)
 							}
 				}

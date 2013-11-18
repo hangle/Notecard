@@ -142,12 +142,12 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 					  listenerArray: ArrayBuffer[KeyListenerObject]) {
 			reset(getFirstChild)    //point to head of linked list (setFirstChild)
 			iterateCardSetChildren( rowPosition, 
-					  notePanel, 
-					  lock, 
-					  inputFocus, 
-					  indexer, 
-					  statusLine, 
-					  listenerArray)
+									notePanel, 
+									lock, 
+									inputFocus, 
+									indexer, 
+									statusLine, 
+									listenerArray)
 		}
 		// Card set consist of RowerNode, Assigner, CardSetTask 
 		// GroupNode, and XNode
@@ -158,19 +158,19 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				 indexer:Indexer,
 				 statusLine:StatusLine, 
 				 listenerArray: ArrayBuffer[KeyListenerObject]) {
-		reset(getFirstChild)
-			// iterate initialized in executeCardCommandsAndDisplay
+			// Iterate children (via sibling nodes), returning 'Value' as
+			// either the 1st child or the current sibling node.
+			// see 'Linker' trait.
 		while(iterate) 
-			// Value returns 'next' of Node which 
-			// references the next sibling of
-			// resetBackupButton= backupButton=false 
-			// set false in Notecard after executing
-		 	// prior Card.
-			executeCardSetChildren(Value, 
-					 rowPosition, 
-					 notePanel, 
-					 lock:AnyRef, 
-					 inputFocus, indexer, statusLine, listenerArray)
+				// Execute RowerNode, Assigner, CardSetTask, GroupNode, or eXecute.
+			executeCardSetChildren(  Value,   // current  node 
+									 rowPosition, 
+									 notePanel, 
+									 lock:AnyRef, 
+									 inputFocus, 
+									 indexer, 
+									 statusLine, 
+									 listenerArray)
 		}
 		// Children separated by match statement to invoke their respective modules
 	def executeCardSetChildren(obj:Any,  // children
@@ -181,8 +181,10 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				 indexer:Indexer,
 				 statusLine:StatusLine,
 				 listenerArray:ArrayBuffer[KeyListenerObject]) {	
+	//	println("CardSet executeCareSet..:  symId="+symId)
 		obj match	{
 			case rn:RowerNode=> // children DisplayText,DisplayVariable,BoxField
+				//println("CardSet  1st:  executeCardSetWithChildren  RowerNode.symId="+rn.symId)
 				rn.startRowerNode(rowPosition, 
 						notePanel, 
 						inputFocus, 
@@ -195,21 +197,21 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				cst.startCardSetTask (inputFocus, statusLine, notePanel)
 			case gn:GroupNode=> 
 			 		// GroupResolve created if null so as to exist until 'g' 
-					// or end of Card	
-				createGroupResolveAndPassItGroupNode(gn) 
-					// GroupResolve asks GroupNode.whatKind as to Then, Else, 
-					// ElseCondition,or Empty; and following evaluation,  
-					// returns 'skip' or 'do'.  If 'do' then the group of 
-					// commands is executed; if 'skip', then the group is bypassed.
-					whatToDo(groupResolve, 
-							 obj, 
-							 rowPosition, 
-							 notePanel, 
-							 lock, 
-							 inputFocus, 
-							 indexer, 
-							 statusLine, 
-							 listenerArray) //recusion
+					// or end of CardSet	
+				//createGroupResolveAndPassItGroupNode(gn) 
+				createGroupResolve
+						// Determine whether to 'do' the enclosed commnds of the Group command
+						// or 'skip' these commands. 
+				whatToDo(groupResolve, 
+						// obj, 
+					 	 gn,
+						 rowPosition, 
+						 notePanel, 
+						 lock, 
+						 inputFocus, 
+						 indexer, 
+						 statusLine, 
+						 listenerArray) //recusion
 			case xn:XNode=> 
 				showPanel(notePanel)
 				inputFocus.turnOnXNode  //prevents InputFocus.actWhenAllFieldsCaptured 
@@ -231,88 +233,81 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 
 	----------------------------------------------------------------
 	*/
-		// Invoked in 'iterateCardSetChildren when GroupNode child 
-		// is matched. Calls on GroupResolve to decide whether to 
-		// "do" or "skip" or create a new GroupResolve object
-		// Note, when "do", 'iterateCardSetChildren' is called
+		// Recursive function calling itself when GroupResolve.actionToTake'
+		// returns 'skip'.
+		// Invoked in 'CardSet.executeCardSetChildren' when GroupMatch instance
+		// is matched. 
+		// 'whatToDo()' uses 'GroupResolve.actionToTake()' to decide whether to 'do'
+		// or 'skip' the commands enclosed by the Group command. 'actionToTake()' also
+		// returns 'done' which terminates the recursive function.
 	def whatToDo(   groupResolve: GroupResolve, 
-			obj:Any, 
-			rowPosition:RowPosition, 
-			notePanel:JPanel, 
-			lock:AnyRef,
-			inputFocus:InputFocus,
-			indexer:Indexer,
-			statusLine:StatusLine,
-			listenerArray:ArrayBuffer[KeyListenerObject]):Unit= {
-		groupResolve.actionToTake match{
-			case  "do"  => // test was successful so execute to next 'g' or end of Card set
-				iterateCardSetChildren(rowPosition, 
-							notePanel, 
-							lock, 
-							inputFocus, 
-							indexer, 
-							statusLine, 
-							listenerArray)
-			case  "skip" =>  // test was false, so skip to next 'g' or to end of Card set
-					//finds next 'g' cmd or returns null when no 'g' found
-				val groupNode=iterateToNextGroup(groupResolve, 
-								 obj, 
-								 rowPosition, 
-								 notePanel, 
-								 lock, 
-								 inputFocus, 
-								 indexer, 
-								 statusLine, 
-								 listenerArray)
-				if(groupNode!=null) { 
-						// Create GroupResolve if not already created and
-						// attach GroupNode instance to it.
-					createGroupResolveAndPassItGroupNode(groupNode) //creates 
-						// GroupResolve asks GroupNode.whatKind as to Then, Else, ElseCondition,or Empty;
-						// and following evaluation,  returns 'skip' or 'do'.  If 'do' then the group of 
-						// commands is executed; if 'skip', then the group is bypassed.
-					whatToDo(groupResolve, 
-						 obj, 
-						 rowPosition, 
-						 notePanel, 
-						 lock, 
-						 inputFocus, 
-						 indexer, 
-						 statusLine, 
-						 listenerArray)
-					}
-					// No 'else' and no condition
+					//obj:Any, 
+					groupNode:GroupNode,
+					rowPosition: RowPosition, 
+					notePanel: JPanel, 
+					lock:AnyRef,
+					inputFocus:InputFocus,
+					indexer:Indexer,
+					statusLine:StatusLine,
+					listenerArray:ArrayBuffer[KeyListenerObject]):Unit= {
+				// 'actionToTake()' returns 'do', 'skip' and 'done' by determining the type 
+				// of Goup command. The types are:  g <condition>, ge <condition>, ge, and g.  
+				// 'actionToTake() also determines whether the <condition> expression is true
+				// or not.
+		groupResolve.actionToTake(groupNode) match{
+			case  "do"  => 
+				println("CardSet whatToDo: case DO")
+						// Outcome successful, so executed the enclosed Group commands
+				iterateCardSetChildren(	rowPosition, 
+										notePanel, 
+										lock, 
+										inputFocus, 
+										indexer, 
+										statusLine, 
+										listenerArray)
+			case  "skip" =>  
+				println("CardSet whatToDo: case SKIP")
+						// Outcome unccessful, so skip the enclosed Group commands.
+				iterateToNextGroup(groupResolve, 
+								  // groupNode, 
+								   rowPosition, 
+								   notePanel, 
+								   lock, 
+								   inputFocus, 
+								   indexer, 
+								   statusLine, 
+								   listenerArray)
+							// A Group command having just the tag 'g'. --no 'else' and no condition
 			case  "done"=> 
+					println("CardSet  whatToDo   case DONE")
 			}
 		}
-		//skip objects that are within the scope of GroupNode whose outcome 
-		//is 'false'. recursive, skipping objects, until finding the next
+		//Skips objects that are within the scope of GroupNode whose outcome 
+		//is 'false'. Recursive, skipping objects, until finding the next
 		// GroupNode object or reaching the end of the card set of objects.
-	def iterateToNextGroup( groupResolve: GroupResolve, 
-				obj:Any, 
-				rowPosition:RowPosition, 
-				notePanel:JPanel, 
-				lock:AnyRef,
-				inputFocus:InputFocus,
-				indexer:Indexer,
-				statusLine:StatusLine,
-				listenerArray:ArrayBuffer[KeyListenerObject]):GroupNode= {
-		var gNode:GroupNode=null
+	def iterateToNextGroup( 	groupResolve: GroupResolve, 
+							//	obj:Any, 
+								rowPosition:RowPosition, 
+								notePanel:JPanel, 
+								lock:AnyRef,
+								inputFocus:InputFocus,
+								indexer:Indexer,
+								statusLine:StatusLine,
+								listenerArray:ArrayBuffer[KeyListenerObject]) {
+			// Process just one command. If the command is not 'GroupNode' then call itself
+			// to process the next command.
 		if(iterate) {  //iterate is method of Core returning Value (cmd object, eg, GroupNode)
 			       // iteration terminates at end of cmd set, returning 'null'
 			val any:Any=Value match{			
-				   //case gn:GroupNode=> gn  //found next 'g' cmd, so stop iteration
+						//case gn:GroupNode=> gn  //found next 'g' cmd, so stop iteration
 				case gn:GroupNode=> 
 						// Create GroupResolve if not already created and
 						// attach GroupNode instance to it.
-					createGroupResolveAndPassItGroupNode(gn) //creates 
-						// GroupResolve asks GroupNode.whatKind as to Then, Else, 
-						// ElseCondition,or Empty;
-						// and following evaluation,  returns 'skip' or 'do'.  
-						// If 'do' then the group of 
-						// commands is executed; if 'skip', then the group is bypassed.
+						// Determine whether to 'do' the enclosed commnds of the Group command
+						// or 'skip' these commands. 
 					whatToDo(groupResolve, 
-							 obj, 
+							// obj, 
+							 gn,
 							 rowPosition, 
 							 notePanel, 
 							 lock, 
@@ -321,31 +316,29 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 							 statusLine, 
 							 listenerArray)	
 								//keep looking for 'g' cmd
-					gNode=gn
 				case _=> 
-					gNode=iterateToNextGroup(groupResolve, 
-								 obj, 
-								 rowPosition, 
-								 notePanel, 
-								 lock, 
-								 inputFocus, 
-								 indexer, 
-								 statusLine, 
-								 listenerArray)
+						// Not GroupNode, make recursive call to process next command.
+					iterateToNextGroup(groupResolve, 
+									//		 obj, 
+								//			Value,						
+											 rowPosition, 
+											 notePanel, 
+											 lock, 
+											 inputFocus, 
+											 indexer, 
+											 statusLine, 
+											 listenerArray)
 					}
 			}
-
-		gNode
+		//gNode
 		}
 		// created by GroupNode child iteration or by whatToDo(...)
-	def createGroupResolveAndPassItGroupNode(groupNode:GroupNode) {
+	def createGroupResolve {
 				// Only one GroupResolve is allocated for the CardSet, so
 				// Card will not support more than one Group set ???????
 				// Need to remove GroupResolve when 'g' or end of Card.--to do
 			if(groupResolve==null) 
 				groupResolve=new GroupResolve()
-				// GroupResolve uses GroupNode's 'isConditionTrue' to test
-			groupResolve.attachGroupNode(groupNode)
 			}
 //---------------------------------------------------------------------
  	def showPanel(notePanel:JPanel) {
@@ -392,15 +385,15 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			  else {
 				var pair=e.split("[\t]")	
 				pair(0) match {
-							case "child" => //println(pair(1))
+							case "child" => 
 									setChild(pair(1))
-							case "address" =>// println(pair(1))
+							case "address" =>
 									setAddress(pair(1))
 							case "sibling" =>
 									setNext(pair(1))
-							case "condition" =>// println(pair(1) )
+							case "condition" =>
 									conditionStruct=pair(1)
-							case "name" => // println(pair(1))
+							case "name" => 
 									node_name= pair(1)
 							case _=> println("CardSet: unknown "+pair(0) )
 							}
@@ -408,22 +401,5 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			   }  //breakable		 
 			  }
 		}
-/*
-		val in=structSet.iterator
-		setChild(in.next)	
-		setAddress(in.next)
-		setNext(in.next)
-		node_name=in.next
-		conditionStruct=in.next
-		if(conditionStruct=="null") //inconsistent use of "" and "null" in <.struct> file
-			conditionStruct=""
-		val percent=in.next
-		println("CardSet: percent="+percent)
-		
-		}
-	val percent=in.next
-	println("CardSet: percent="+percent)
-*/
-
 	}
 

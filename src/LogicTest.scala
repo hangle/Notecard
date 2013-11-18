@@ -75,10 +75,12 @@ object LogicTest  {
 				case r:Relationx=> 	// to evaluate
 					current=r.evaluate(symbolTable)
 					running=resolve(andOr, current, running)
+					//println("LogicTest: within getToken match   runnint="+running)
 				case a:AndOr=>		// to resolve
 					andOr=a.andOr
 				case o:OpenParen =>
 					popped=recurse(logicList, symbolTable)
+					//println("LogicTest: recursive():  popped="+popped)
 					running=resolve(andOr, popped, running)
 					flag=true // its off, so turn on to keep looping 
 				case g:CloseParen=>  	 // to pop
@@ -86,6 +88,7 @@ object LogicTest  {
 				case _=> println("test: unknown");false
 				}
 			}
+		//println("LogicTest: running="+running)
 		running   // on return, the value of 'running' is assigned to 'popped'
 		}
 			// And or Or comparison of prior relation outcome and current 
@@ -98,4 +101,5 @@ object LogicTest  {
 				current || running
 			}
 		}
+
 }

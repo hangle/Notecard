@@ -118,10 +118,12 @@ trait Node  {
 	def setAddress(value:String) {symId=value}
 	def setNext(value:String) = symSibling=value
 	def setChild(value:String) = symChild=value
-			// symId is the symbolic address whereas 'objectx' is
-			// the "physical address". 
+			// 'symId' is the symbolic address whereas 'objectx' is
+			// the "physical address". Invoked in 'CreateClass' which in turn '			'
+			// switches or swizzles the phy addr for the symbolic one
    	def setId(swizzleTable:Map[String, Node], objectx:Any )= {
 		val xnode:Node=objectx.asInstanceOf[Node]	
+		//println("Node  (symId -> xnode)="+symId+"  "+xnode)
 		swizzleTable + (symId -> xnode) 
 		}
 			// 'symSibling' of one object matches the symbolic address of
@@ -137,7 +139,7 @@ trait Node  {
 				next=swizzleTable(symSibling)
 				}
 			else{   
-			    val set=swizzleTable.keySet
+			    //val set=swizzleTable.keySet
 				println("Node  sibling throw exception")
 			    throw new Exception
 			    }
@@ -145,12 +147,12 @@ trait Node  {
 		}
 	def convertToChild(swizzleTable:Map[String, Node]) ={
 		if(symChild != "0") {
+			//println("Node: swizzleTable.contains(symChild)="+swizzleTable.contains(symChild) )
 			if(swizzleTable.contains(symChild)){
 				child=swizzleTable(symChild) 
 				}
 			else    {
-				swizzleTable.keySet 
-				println("Node  child throw exception")
+				println("Node  child throw exception  symChild="+symChild)
 				throw new Exception 
 				}
 			}

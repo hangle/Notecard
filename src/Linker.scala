@@ -38,7 +38,8 @@ trait Linker extends Node   {
 		var iterator:Node=null // used in a while statemnt, eg., while(iterator)
 		var value:Node=null    
 		var backupList:List[Node]=Nil
-		var childNode:Node=null   // capture 'reset's argument
+			// capture 'reset's argument to be used by 'isChild'
+		var childNode:Node=null   
 			// Invoked by Notecard.iterateNotecardChildren to detect
 			// if iteration involves the first child. If so,
 			// then the Next button is grayed since backup impossible

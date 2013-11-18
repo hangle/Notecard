@@ -89,12 +89,12 @@ class CreateClass   extends Node {
 		// its %<class name> in a match statement to create the named
 		// object, e.g., Display(symbolTable) Next, the remaining list 
 		// string values (class parameters) are added to the object.
-		// Finally, the object's symbolic address is converted to
-		// a physical address.
+		// Next, the object's symbolic address is converted to
+		// a physical address.  Finally, the created name objects are 
+		// returned to be stored in 'coreVector'.
 	def create_object(structObj:List[String], symbolTable:Map[String,String]):Any = {
-	//	println("herex ")
 		structObj.head match{   
-			case "%Notecard"=> // println("\t\tCreateClass  %Notecard") 
+			case "%Notecard"=> 
 				val notecard= Notecard(symbolTable)
 				root=notecard   //Notecard is special, it is the root of the hierarchy
 					// Removes tag such as %%Notecard and passes the
@@ -102,67 +102,68 @@ class CreateClass   extends Node {
 					// Adds object to swizzle table
 				notecard.receive_objects(structObj.tail)
 				swizzleTable=notecard.setId(swizzleTable, notecard)
-				notecard
+				notecard     // returned to be store in 'coreVector'
 			case "%CardSet"=> 
 				val cardSet=CardSet(symbolTable)
 				cardSet.receive_objects(structObj.tail) // pass parameters to object
-				swizzleTable=cardSet.setId(swizzleTable, cardSet) //setId is a Node method
-				cardSet
+				swizzleTable=cardSet.setId(swizzleTable, cardSet) //phy addr added to swizzleTab..
+				cardSet     // returned to be stored in 'coreVector;
 			case "%NotecardTask"=>
 				val notecardTask=NotecardTask(symbolTable)
 				notecardTask.receive_objects(structObj.tail) // pass parameters to object
-				swizzleTable=notecardTask.setId(swizzleTable, notecardTask)
-				notecardTask	
+				swizzleTable=notecardTask.setId(swizzleTable, notecardTask) //phy addr added 
+				notecardTask	     // returned to be stored in 'coreVector;
 			case "%NextFile"=> 
 				val nextFile=NextFile(symbolTable)
 				nextFile.receive_objects(structObj.tail) // pass parameters to object
-				swizzleTable=nextFile.setId(swizzleTable, nextFile)
-				nextFile
+				swizzleTable=nextFile.setId(swizzleTable, nextFile)  //phy addr added to swizzleTab..
+				nextFile     // returned to be stored in 'coreVector;
 			case "%AssignerNode"=>
 				val assigner=Assigner(symbolTable)
 				assigner.receive_objects(structObj.tail) // pass parameters to object
-				swizzleTable=assigner.setId(swizzleTable, assigner)
-				assigner	
+				swizzleTable=assigner.setId(swizzleTable, assigner) // phy addr add to swizzleTable
+				assigner	     // returned to be stored in 'coreVector;
 			case "%CardSetTask"=>
 				val cardSetTask=CardSetTask(symbolTable)
 				cardSetTask.receive_objects(structObj.tail) // pass parameters to object
-				swizzleTable=cardSetTask.setId(swizzleTable, cardSetTask)
-				cardSetTask
+				swizzleTable=cardSetTask.setId(swizzleTable, cardSetTask)// phy addr add swizzleTable
+				cardSetTask     // returned to be stored in 'coreVector;
 			case "%RowerNode"=>
 				val rowerNode=RowerNode(symbolTable)
 				rowerNode.receive_objects(structObj.tail) // pass parameters to object
-				swizzleTable=rowerNode.setId(swizzleTable, rowerNode)
-				rowerNode
+				swizzleTable=rowerNode.setId(swizzleTable, rowerNode)// phy addr add swizzleTable
+				rowerNode     // returned to be stored in 'coreVector;
 			case "%DisplayText"=>
 				val displayText=DisplayText(symbolTable)
 				displayText.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=displayText.setId(swizzleTable, displayText)
-				displayText
+				displayText     // returned to be stored in 'coreVector;
 			case "%BoxField"=>
 				val boxField=BoxField(symbolTable)
 				boxField.receive_objects(structObj.tail) // pass parameters to object
-				swizzleTable=boxField.setId(swizzleTable, boxField)
-				boxField
+				swizzleTable=boxField.setId(swizzleTable, boxField)// phy addr add swizzleTable
+				boxField     // returned to be stored in 'coreVector;
 			case "%GroupNode"=>
 				val groupNode=GroupNode(symbolTable)
 				groupNode.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=groupNode.setId(swizzleTable, groupNode)
-				groupNode
+			//	println("CreateClass:  groupNode's phy address="+groupNode)
+				groupNode     // returned to be stored in 'coreVector;
 			case "%DisplayVariable"=>
 				val displayVariable=DisplayVariable(symbolTable)
 				displayVariable.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=displayVariable.setId(swizzleTable, displayVariable)
-				displayVariable
+				displayVariable     // returned to be stored in 'coreVector;
 			case "%XNode"=>
 				val xnode=XNode(symbolTable)
 				xnode.receive_objects(structObj.tail) // pass parameters to object
-				swizzleTable=xnode.setId(swizzleTable, xnode)
-				xnode
+				swizzleTable=xnode.setId(swizzleTable, xnode)// phy addr add swizzleTable
+				xnode     // returned to be stored in 'coreVector;
 			case "%EditNode"=>
 				val editNode=EditNode(symbolTable)
 				editNode.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=editNode.setId(swizzleTable, editNode)
-				editNode
+				editNode     // returned to be stored in 'coreVector;
 			case _=> println("unknown in CreateClass:create_object="+structObj.head )
 				}
 		

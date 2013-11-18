@@ -33,23 +33,58 @@ case class GroupNode(symbolTable:Map[String,String]) extends Node   {
 
 	def whatKind=kind   	//Invoked by GroupResolve where kind= setGroupNodeType
 	def isConditionTrue:Boolean ={ // Invoked in GroupResolve
-		if(isCondition) 
+		if(isCondition) {
 					// false if condition fails, otherwise true
-			LogicTest.logicTest(conditionStruct, symbolTable) 
+			println("GroupNode:  isConditionTrue:  conditionStruct="+conditionStruct)
+			val outcome=LogicTest.logicTest(conditionStruct, symbolTable) 
+			//println("GroupNode isConditionTrue="+outcome)
+			outcome
+			}
 		  else
 			true  //condition not present but treat it as if it is true
 		}
 	def isCondition:Boolean= {if(conditionStruct=="0") false; else true }
+
+		// returns 1,2,3,or 4 based on post value 0/1 and on condition present true/false.
 	def setGroupNodeType:Int = {
-		if(isCondition  && post=="") ThenNode  //not else and not an 'g' 
+		//println("GroupNode:  setGroupNodeType:  isCondition="+isCondition+"   post="+post)
+		if(isCondition  && post=="0") ThenNode  //not else and not an 'g' 
 		else if(post=="else" &&  ! isCondition) ElseNode // else without a condtion expression
 		else if(post=="else" &&  isCondition) ElseConditionNode // else with condition expression
-		else if( ! isCondition && post=="") EmptyNode  // g without a condition or an 'else'.
+		else if( ! isCondition && post=="0") EmptyNode  // g without a condition or an 'else'.
 		else 0
 		}
 		//Load class instance with argument 
 		//values from <.struct> file. Method
 		//invoked in CreateClass
+		def  receive_objects(structSet:List[String] ) {
+			import util.control.Breaks._
+			var flag=true
+			for( e <- structSet) {
+			  breakable { if(e=="%%") break   // end of arguments
+			  else {
+				var pair=e.split("[\t]")	
+			//		println("GroupNode  pair="+pair(0)+"  "+pair(1))
+				pair(0) match {
+							case "address" => //println(pair(1))
+									setAddress(pair(1))
+							case "sibling" =>
+									setNext(pair(1))
+							case "condition" =>
+									conditionStruct= pair(1)
+									//println("GroupNode   conditionStruct="+conditionStruct)
+							case "post"=>
+									post=pair(1)
+									kind=setGroupNodeType
+							case "name" =>
+									groupName= pair(1)
+						}
+				}
+			   }  //breakable		 
+			 }
+		}
+
+/*
 	def receive_objects(structSet:List[String]) {
 		val in=structSet.iterator
 		setAddress(in.next);
@@ -67,4 +102,5 @@ case class GroupNode(symbolTable:Map[String,String]) extends Node   {
 		val percent= in.next
 		//println("GroupNode: percent="+percent)
 		}
+*/
 }

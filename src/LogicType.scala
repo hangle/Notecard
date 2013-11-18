@@ -80,9 +80,11 @@ object LogicType {
 				}
 				// Indicate whether left and right values are both numbers
 			val bothAreNumbers=areNumbers(leftValue, rightValue)
+				//	println("LogicType:  evaluate():  op="+op)
 		   op match {
 			case "=" =>
 				val xxx=if(leftValue==rightValue) true; else false
+				println("LogicType:  Relationx:  leftValue="+leftValue++"   rightValue="+rightValue+"  xxx="+xxx)
 				xxx
 			case "<>" => 
 				if(leftValue != rightValue) true; else false
@@ -99,7 +101,7 @@ object LogicType {
 			case "<=" => 
 				Comparison.lessThanOrEqual(leftValue,rightValue,bothAreNumbers)
 			case "%"  =>
-				println("LogicType operatorSymbol is %")
+	//			println("LogicType operatorSymbol is %")
 				val percent= operator.init  // drop % symbol
 						// Target to be matched to  is rightValue
 						// rating >= percent
@@ -142,7 +144,7 @@ object LogicType {
 			if(variable(0) != '$') variable
 			  else 	{
 				table.get(variable) match {
-					case Some(s)=> s
+					case Some(s)=> s.trim
 					case _=> "unknown"
 					}
 				}
