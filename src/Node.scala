@@ -123,7 +123,7 @@ trait Node  {
 			// switches or swizzles the phy addr for the symbolic one
    	def setId(swizzleTable:Map[String, Node], objectx:Any )= {
 		val xnode:Node=objectx.asInstanceOf[Node]	
-		//println("Node  (symId -> xnode)="+symId+"  "+xnode)
+			//	println("Node  (symId -> xnode)="+symId+"  "+xnode)
 		swizzleTable + (symId -> xnode) 
 		}
 			// 'symSibling' of one object matches the symbolic address of
@@ -152,7 +152,7 @@ trait Node  {
 				child=swizzleTable(symChild) 
 				}
 			else    {
-				println("Node  child throw exception  symChild="+symChild)
+				println("Node "+symChild+" not in swizzleTable")
 				throw new Exception 
 				}
 			}

@@ -37,7 +37,6 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 
 		xtask match {
 			case "end" => 		// * end   script encountered
-				println("NotecardTask:  * end")
 				taskGather.setEndSession
 			case "manage"=> 	// * manage <filename> script encountered
 				establishManagementFile(taskGather, xtype)
@@ -65,7 +64,6 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 			// hierarchy of linked lists, returning the root of 
 			// the network.  If file not found, then it returns 
 			// 'start.struct'.
-		println("NotecardTask: manage ")
 		notecard=loadFileAndBuildNetwork(filename, symbolTable) //In CommandNetwork	
 //		Session.armAsteriskButton  // Allows Notecard to enable AsteriskButton
 			// pass notecard to current instance of Notecard
@@ -81,7 +79,6 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 	def  receive_objects(structSet:List[String] ) {
 			import util.control.Breaks._
 			var flag=true
-			//println("NotecardTask:   structSet="+structSet)
 			for( e <- structSet) {
 			  breakable { if(e=="%%") break   // end of arguments
 			  else {
@@ -93,7 +90,6 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 									setNext(pair(1))
 							case "task" => //println(pair(1) )
 									xtask=pair(1)
-					//				println("NotecardTask: xtask="+xtask)
 							case "type" => //println(pair(1))
 									xtype= pair(1)
 							}

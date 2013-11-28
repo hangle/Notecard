@@ -2,7 +2,8 @@
 
 <p>The Notecard presents a window about the size of a note card.  The window displays text <br />
 to and accepts input from the program user (see example: www.notecard.org/document). <br />
-The text and response capture are controlled by a script file of eight command types.  </p>
+The text and response capture are controlled by a script file of nine command types <br />
+(see documents/Command directory).    </p>
 
 <h2>Applications:  </h2>
 

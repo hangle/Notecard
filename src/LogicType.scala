@@ -80,11 +80,9 @@ object LogicType {
 				}
 				// Indicate whether left and right values are both numbers
 			val bothAreNumbers=areNumbers(leftValue, rightValue)
-				//	println("LogicType:  evaluate():  op="+op)
 		   op match {
 			case "=" =>
 				val xxx=if(leftValue==rightValue) true; else false
-				println("LogicType:  Relationx:  leftValue="+leftValue++"   rightValue="+rightValue+"  xxx="+xxx)
 				xxx
 			case "<>" => 
 				if(leftValue != rightValue) true; else false
@@ -101,7 +99,6 @@ object LogicType {
 			case "<=" => 
 				Comparison.lessThanOrEqual(leftValue,rightValue,bothAreNumbers)
 			case "%"  =>
-	//			println("LogicType operatorSymbol is %")
 				val percent= operator.init  // drop % symbol
 						// Target to be matched to  is rightValue
 						// rating >= percent
@@ -116,7 +113,6 @@ object LogicType {
 			// each is compared to the 'rightValue'.
 		def	matchMultipleStringsToTarget(leftValue:String, rightValue:String):Boolean={
 				val array= rightValue.trim.split("[ \t]+")
-				array.foreach(println)
 				if(array.contains(leftValue))
 					true
 				 else
@@ -161,10 +157,8 @@ object LogicType {
 					case "nc" =>   // no case 
 						valueString=valueString.toLowerCase
 					case "ns" =>   // no whitespaces
-						println("LogicType 'ns' ")
 						valueString=removeSpacesInString(valueString)
 					case "1s" =>   // one space    
-						println("LogicType '1s' ")
 						valueString=oneSpace(valueString)
 					}
 				tagString=tagString.drop(2) // remove after doing its job
@@ -261,7 +255,7 @@ object LogicType {
 			combine(AndOr(s):: ll,  l.tail)
 			}		
 		else {
-			println("unknown value="+s)
+			println("LogicType: unknown value="+s)
 			Nil
 			}
 		}

@@ -45,8 +45,8 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 					def Value
 		*/
 //------------paramters pass by .struct file-----------------
-	var node_name=""   /// Name or label of CardSet:  not utilized.
-	//var go_continue="" //not operational
+	var conditionStruct=""
+	var node_name=""   /// Name or label of CardSet:  not operational.
 //------------------------------swizzle routines---------------------
 	def convertToReference(swizzleTable:Map[String, Node]) ={
 			convertToSibling(swizzleTable)
@@ -56,15 +56,8 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 
 	var groupResolve:GroupResolve=null //1st GroupNode of card set will instantiate
 									   // GroupResolve. Nulled at end of group.
-	val ThenNode=1        	 	//Has condition expression.e.g., (1)=(1)
-	val ElseNode=2		   		//post is "else" but not condition
-	val ElseConditionNode=3		//post is "else" and has condition
-	val EmptyNode=4	
 
 	var listeners:List[KeyListenerObject]=Nil
-//------------paramters pass by .struct file-----------------
-	var conditionStruct=""
-//----------------------------------------
 			// Indexer has member 'index' that is initialized to 
 			// minus one. RowerNode increments this index each time a
 			// KeyListenerObject is created giving this object a unique index
@@ -115,11 +108,9 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 		if(inputFocus.isNoInputFields){			// True if no input fields 
 					// Also enable PRIOR button when not first CardSet
 				if(buttonSet.isFirstChildFalse) {
-						//println("CardSet: isFirstChildFalse--  armPriorButton")
 						buttonSet.armPriorButton
 						}
 					// Enable NEXT button, give it  focus and color it orange
-				//println("CardSet no input fields-- armNextButton")
 				buttonSet.armNextButton	
 				buttonSet.armAsteriskButton
 				}
@@ -181,10 +172,8 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				 indexer:Indexer,
 				 statusLine:StatusLine,
 				 listenerArray:ArrayBuffer[KeyListenerObject]) {	
-	//	println("CardSet executeCareSet..:  symId="+symId)
 		obj match	{
 			case rn:RowerNode=> // children DisplayText,DisplayVariable,BoxField
-				//println("CardSet  1st:  executeCardSetWithChildren  RowerNode.symId="+rn.symId)
 				rn.startRowerNode(rowPosition, 
 						notePanel, 
 						inputFocus, 
@@ -256,7 +245,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				// or not.
 		groupResolve.actionToTake(groupNode) match{
 			case  "do"  => 
-				println("CardSet whatToDo: case DO")
 						// Outcome successful, so executed the enclosed Group commands
 				iterateCardSetChildren(	rowPosition, 
 										notePanel, 
@@ -266,7 +254,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 										statusLine, 
 										listenerArray)
 			case  "skip" =>  
-				println("CardSet whatToDo: case SKIP")
 						// Outcome unccessful, so skip the enclosed Group commands.
 				iterateToNextGroup(groupResolve, 
 								  // groupNode, 
@@ -279,7 +266,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 								   listenerArray)
 							// A Group command having just the tag 'g'. --no 'else' and no condition
 			case  "done"=> 
-					println("CardSet  whatToDo   case DONE")
 			}
 		}
 		//Skips objects that are within the scope of GroupNode whose outcome 

@@ -1,5 +1,5 @@
 // date:   Oct 26, 2011
-/**					CREATE CLASS
+/*					CREATE CLASS
 	The Server system has created notecard objects and has built
 	a network of link lists connecting these objects. The system
 	passes the link lists in  '.struct' files to the 'Notecard'  program. 
@@ -147,7 +147,6 @@ class CreateClass   extends Node {
 				val groupNode=GroupNode(symbolTable)
 				groupNode.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=groupNode.setId(swizzleTable, groupNode)
-			//	println("CreateClass:  groupNode's phy address="+groupNode)
 				groupNode     // returned to be stored in 'coreVector;
 			case "%DisplayVariable"=>
 				val displayVariable=DisplayVariable(symbolTable)
@@ -164,6 +163,20 @@ class CreateClass   extends Node {
 				editNode.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=editNode.setId(swizzleTable, editNode)
 				editNode     // returned to be stored in 'coreVector;
+			case "%LoadDictionary" =>
+				val loadDictionary=LoadDictionary(symbolTable)
+				loadDictionary.receive_objects(structObj.tail) // pass parameters to object
+				swizzleTable=loadDictionary.setId(swizzleTable, loadDictionary)
+				loadDictionary
+						// LoadAssign is an Assigner object that resides in a different
+						// region of the Linked List structure from that of CardSet
+						// Assigner objects. 
+			case "%LoadAssign"=>   
+				val assigner=Assigner(symbolTable)
+				assigner.receive_objects(structObj.tail) // pass parameters to object
+				swizzleTable=assigner.setId(swizzleTable, assigner) // phy addr add to swizzleTable
+				assigner	     // returned to be stored in 'coreVector;
+
 			case _=> println("unknown in CreateClass:create_object="+structObj.head )
 				}
 		
@@ -204,6 +217,8 @@ class CreateClass   extends Node {
 				xn.convertToReference(swizzleTable)
 			case en:EditNode=>
 				en.convertToReference(swizzleTable)
+			case ld:LoadDictionary=>
+				ld.convertToReference(swizzleTable)
 			case _=> 
 				println("CreateClass case_=>  "+factoryObj)
 				println("CreateClass  throw exception")

@@ -163,7 +163,9 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						// of the <.struct> file that is read by Client. 
 			case nf:NextFile=> 
 					nf.startNextFile(taskGather)
-			case _=> println("unknown isObject")
+			case ld:LoadDictionary=>
+					ld.startLoadDictionary
+			case _=> println("Notecard: unknown isObject"+ obj)
 			}
 		}
 		// Invoked when CardSet returns from  executeNotecardChildren()

@@ -35,9 +35,7 @@ case class GroupNode(symbolTable:Map[String,String]) extends Node   {
 	def isConditionTrue:Boolean ={ // Invoked in GroupResolve
 		if(isCondition) {
 					// false if condition fails, otherwise true
-			println("GroupNode:  isConditionTrue:  conditionStruct="+conditionStruct)
 			val outcome=LogicTest.logicTest(conditionStruct, symbolTable) 
-			//println("GroupNode isConditionTrue="+outcome)
 			outcome
 			}
 		  else
@@ -47,7 +45,6 @@ case class GroupNode(symbolTable:Map[String,String]) extends Node   {
 
 		// returns 1,2,3,or 4 based on post value 0/1 and on condition present true/false.
 	def setGroupNodeType:Int = {
-		//println("GroupNode:  setGroupNodeType:  isCondition="+isCondition+"   post="+post)
 		if(isCondition  && post=="0") ThenNode  //not else and not an 'g' 
 		else if(post=="else" &&  ! isCondition) ElseNode // else without a condtion expression
 		else if(post=="else" &&  isCondition) ElseConditionNode // else with condition expression
@@ -64,7 +61,6 @@ case class GroupNode(symbolTable:Map[String,String]) extends Node   {
 			  breakable { if(e=="%%") break   // end of arguments
 			  else {
 				var pair=e.split("[\t]")	
-			//		println("GroupNode  pair="+pair(0)+"  "+pair(1))
 				pair(0) match {
 							case "address" => //println(pair(1))
 									setAddress(pair(1))
@@ -72,7 +68,6 @@ case class GroupNode(symbolTable:Map[String,String]) extends Node   {
 									setNext(pair(1))
 							case "condition" =>
 									conditionStruct= pair(1)
-									//println("GroupNode   conditionStruct="+conditionStruct)
 							case "post"=>
 									post=pair(1)
 									kind=setGroupNodeType
@@ -100,7 +95,6 @@ case class GroupNode(symbolTable:Map[String,String]) extends Node   {
 			// a "then" state.
 		kind=setGroupNodeType
 		val percent= in.next
-		//println("GroupNode: percent="+percent)
 		}
 */
 }
