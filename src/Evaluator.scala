@@ -69,7 +69,7 @@ import scala.collection.mutable.Map
 class Evaluator(var l:List[String], symbolTable:Map[String,String])  { 
 	println("Evaluator instantiated")
 	var token=""
-	val variableRegex= """([a-zA-Z_])""" .r
+	val variableRegex= """([$a-zA-Z_])""" .r
 
 		// Assigner's entry routine 
 	def evaluate:Double={

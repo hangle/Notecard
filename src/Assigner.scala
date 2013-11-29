@@ -62,9 +62,9 @@ case class Assigner(var symbolTable:Map[String,String]) extends Linker  {
 			}
 //-------------------------------------------------------------------
 	val variableRegex= """([a-zA-Z_])""" .r
-
+		// Invoked by CardSet
 	def startAssigner= {
-	    val goOn=if(conditionStruct != "0") 
+	    val goOn=if(condition/Struct != "0") 
 					LogicTest.logicTest(conditionStruct, symbolTable)
 			   else true
 			// Execute if condition is true or if condition does not exist

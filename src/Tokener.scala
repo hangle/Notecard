@@ -21,7 +21,7 @@ class Tokener {
 			}
 		}
 	def isVariable(c:Char)={
-		val Variable="""([a-zA-Z_])""" .r
+		val Variable="""([$a-zA-Z_])""" .r
 		Variable findFirstIn c.toString match {
 			case Some(e)=> true
 			case None=> false
@@ -36,6 +36,7 @@ class Tokener {
 		// Parses math expression, separating the match elements
 		// into number, variables, operators, and parentheses. :
 	def extract(expr:String) = {
+		println("Tokener: extract() expr="+expr)
 		var l=List[String]()
 		var flag=false
 		var buffer=new StringBuffer
@@ -59,7 +60,7 @@ class Tokener {
 			else if(isVariable(e)) {
 				buffer.append(e)
 				}
-			else  println("unknown char="+e)
+			else  println("Tokener: unknown char="+e)
 			}
 		l=buffer.toString :: l 
 		l.reverse

@@ -2,7 +2,7 @@
 						LOAD DICTIONARY
 
 	Child of Notecard and parent of LoadAssign. Note, LoadAssign is 
-	actually an Assigner object
+	actually an Assigner object.  
 
 	Dictionary is 'symbolTable' containing $<variable> values. 
 
@@ -35,8 +35,9 @@ case class LoadDictionary(var symbolTable:Map[String,String]) extends Linker{
 		symbolTable.get(filename) match {
 				
 				case Some(value) =>
-						//Only executed one time
+								//Only executed one time
 				case None =>
+								// 
 						symbolTable += filename-> "0"
 						iterateAssignerObjects
 				}
