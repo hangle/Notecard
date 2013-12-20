@@ -103,7 +103,8 @@ trait Node  {
 	var symId="" //setAddress(): symbolic address created by server system
 	var symChild:String=""   //setChild
 	var symSibling:String="" //setNext
-	var symCondition:String=""// logic
+	var symButton:String="" 
+//	var symCondition:String=""// logic
 	var child:Node=null	 // 1st child of parent list
 	var next:Node=null   // sibling
 	var condition:Node=null // logic condition, eg, (male)=($gender)
@@ -118,6 +119,7 @@ trait Node  {
 	def setAddress(value:String) {symId=value}
 	def setNext(value:String) = symSibling=value
 	def setChild(value:String) = symChild=value
+	def setButton(value:String)= symButton=value
 			// 'symId' is the symbolic address whereas 'objectx' is
 			// the "physical address". Invoked in 'CreateClass' which in turn '			'
 			// switches or swizzles the phy addr for the symbolic one

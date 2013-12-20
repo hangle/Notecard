@@ -81,9 +81,9 @@ trait Linker extends Node   {
 					// if 1st sibling, then do not drop it otherwise
 					// the list will be empty.
 				if(  backupList.tail != Nil)
-					// also drop the prior Node since it will
-					// again be captured by 'backupList'
-					// the first Card is reloaded by Notecard
+							// also drop the prior Node since it will
+							// again be captured by 'backupList'
+							// the first Card is reloaded by Notecard
 					backupList=backupList.tail
 				}		
 			  else 

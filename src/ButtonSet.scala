@@ -7,9 +7,11 @@
 	ButtonSet instance is passed to CardSet which invokes
 	'armNextButton' to enable the 'NEXT' button to acquire focus,
 	and to set its background to orange. 
+	====================not found ???=====================
 	When the NEXT button is armed, the button is made inactive,
 	its background is grayed, and the 'wait' condition in CardSet 
 	is released (see: 'nextButtonResponse). 
+	=========================================================
 
 	ButtonSet is passed to FieldFocus constructor in CardSet.
 	When FieldFocus in KeyListenerObject detects that all Text fields
@@ -46,12 +48,17 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	val next=new JButton("Next")
 	val prior=new JButton("Prior")
 	val asterisk=new JButton(" * ")
+	val buttonCardSet=new JButton(" + ")
+	var selectedButton="" // indicates 'actionPerformed' result
+	var plusButton=false
+	var nextButton=false
 	var priorButton=false; // set true by button, set false in Notecard
 	var asteriskButton=false//'true' when '*' button hit (see actionPerformed)
 	var firstChild=false  // set true when Card is 1st child in Notecard chain. 
 	var isAsteriskButtonOn="on"  // when 'off', button is disabled
 	var isPriorButtonOn = "on" //when 'off', button is disabled
 			// button acquires listener and is added to NotePanel
+	createActionButton(buttonPanel, buttonCardSet)
 	createActionButton(buttonPanel, asterisk)
 	createActionButton(buttonPanel, prior)
 	createActionButton(buttonPanel, next)
@@ -60,6 +67,7 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 			// disable until '* manage <filename>' cmd
 	grayAndDisableAsteriskButton
 	grayAndDisablePriorButton 
+	grayAndDisableButtonCardSet 
 	
 	def turnOnFirstChild=firstChild=true // Notecard set it in first iteration
 	def turnOffFirstChild=firstChild=false// Notecard turns off after 1st iteration
@@ -74,16 +82,24 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		event getActionCommand() match{
 				// Next button enabled by FieldFocus
 			case "Next"=>  
+				nextButton=true
+				selectedButton="next"
 					// Next button has been activated, so
 					// disable it,  gray the button,
 					// then release the wait state in CardSet
 				notifyGrayAndDisableNext 
 			case "Prior"=> 
 				priorButton=true;
+				selectedButton="prior"
 				notifyGrayAndDisableNext 
 			case " * "=> 
 				asteriskButton=true
+				selectedButton="*"
 				notifyGrayAndDisableNext 
+			case " + "=>
+				plusButton=true
+				selectedButton="+"
+				println("ButtonSet  plusButton is true")
 			case _=> 		println("ButtonSet unknown event=")
 			}
 
@@ -101,6 +117,10 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	def grayAndDisablePriorButton={
 		prior.setEnabled(false)
 		prior.setBackground(Color.lightGray)
+		}
+	def grayAndDisableButtonCardSet={
+		buttonCardSet.setEnabled(false)
+		buttonCardSet.setBackground(Color.lightGray)
 		}
 	def grayAndDisableNextButton={ // invoked in CardSet and
 					// in ButtonSet. see notifyGray...

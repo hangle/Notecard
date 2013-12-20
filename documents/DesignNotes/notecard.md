@@ -1,24 +1,24 @@
 <h1>Notecard Program</h1>
 
-<p>The program presents a window about the size of a note card.  The window displays text to and 
-accepts   input from the program user.  The text and input are controlled by a script file of 
-eight command types.   </p>
+<p>The program presents a window about the size of a note card.  The window displays text to and <br />
+accepts   input from the program user.  The text and input are controlled by a script file of <br />
+nine command types.     </p>
 
-<p>The description of the Notecard program begins with the script file 'nowis.nc'.  To keep the
-explanation simple, 'nowis.nc' consists of the three commands types whose tags are (c, d, *).
-'nowis.nc' presents two successive card windows; the first displays "now is" and the second 
+<p>The description of the Notecard program begins with the script file 'nowis.nc'.  To keep the <br />
+explanation simple, 'nowis.nc' consists of the three commands types whose tags are (c, d, *). <br />
+'nowis.nc' presents two successive card windows; the first displays "now is" and the second <br />
 displays "the time".</p>
 
 <pre>
-                    c
-                                d now is
-                                c
-                                d the time
-                                * end
+                c
+                d now is
+                c
+                d the time
+                * end
 </pre>
 
 <p>The Script program has validated these commands and has generated an input file to the Notecard <br />
-program:  </p>
+program (beginning with the '%Notecard' group and ending with the '%NotecardTask' group:    </p>
 
 <pre>
                  %Notecard                        %CardSet
@@ -58,40 +58,48 @@ program:  </p>
                  %%
 </pre>
 
-<p>The script beginning with the single '%' symbol, followed by a classname, such as,
-"Notecard", create objects from four case classes (Notecard, CardSet, RowerNode, and
-DisplayText).  </p>
+<p>The script beginning with the single '%' symbol, followed by a classname, such as, <br />
+"Notecard", create objects from four case classes (Notecard, CardSet, RowerNode, and <br />
+DisplayText). <br />
+                CreateClass.scala
+                -----------------
+        %<classname>  match { <br />
+            case "%Notecard" =>     notecard=Notecard(..)  ...
+            case "%CardSet" =>      cardSet= CardSet(..)  ...
+            case "%RowerNode" =>    rowerNode=RowerNode(..)  ...
+            case "%DipslayText" =>  displayText=DisplayText(..)  ...
+            .... }  </p>
 
-<pre><code>    %&lt;classname&gt;  match {                             // CreateClass.scala  
-        case "%Notecard" =&gt;     notecard=Notecard(..)  
-        case "%CardSet" =&gt;      cardSet= CardSet(..)  
-        case "%RowerNode" =&gt;    rowerNode=RowerNode(..)  
-        case "%DipslayText" =&gt;  displayText=DisplayText(..)  
-        .... }
+<p>The pairs of values following the '%<classname>' tag are arguments added to the newly <br />
+created case classes.  The tag '%%' terminates these arguments. Each case class has the <br />
+method 'receive_objects(..)' that assigns these arguments to the class parameters.  For <br />
+example, the arguments for the 'displayText' instance are:   </p>
+
+<pre><code>    14
+    0
+    TimesRoman
+    the time
+    black
 </code></pre>
 
-<p>The pairs of values following the '%<classname>' tag are arguments added to the newly
-created case class.  The tag '%%' terminates these arguments. Each case class has the 
-method 'receive_objects(..)' that assigns these arguments to the class parameters. </p>
+<p>The instances of the case classes form a structure of linked lists; Notecard iterates through <br />
+these lists to display its cards.  Note in the 'nowis.struct' the values ranging from 2002 to <br />
+2008. These numbers are paired with 'child', 'address' and 'sibling'. Together, the pairs <br />
+represent the symbolic addresses of the linked list structure.   </p>
 
-<p>The instances of the case classes form a structure of linked lists; Notecard iterates through
-these lists to display its cards.  Note in the 'nowis.struct' the values ranging from 2002 to
-2008. These numbers are paired with 'child', 'address' and 'sibling'. Together, the pairs
-represent the symbolic addresses of the linked list structure. </p>
+<p>The root node instance of the structure is 'Notecard'.  It is the parent of the two 'CardSet' <br />
+instances. 'Notecard's child value references the first 'CardSet' whose address is 2002. <br />
+The sibling value of the first 'CardSet' references the second 'CardSet' instance whose <br />
+sibling value is 0, terminating the list.  </p>
 
-<p>The root node instance of the structure is 'Notecard'.  It is the parent of the two 'CardSet'
-instances. 'Notecard's child value references the first 'CardSet' whose address is 2002.
-The sibling value of the first 'CardSet' references the second 'CardSet' instance whose
-sibling value is 0, terminating the list.</p>
+<p>The two 'CardSet' instances are both parents having child values (2003 and 2006) referencing <br />
+the two 'RowerNode' instances. 'The RowerNode' instances are parents referencing the <br />
+'DisplayText' instances.  </p>
 
-<p>The two 'CardSet' instances are both parents having child values (2003 and 2006) referencing
-the two 'RowerNode' instances. 'The RowerNode' instances are parents referencing the
-'DisplayText' instances.</p>
-
-<p>Finally, 'DisplayText' is also a parent but 'nowis.nc' does not require its children; its
+<p>Finally, 'DisplayText' is also a parent but 'nowis.nc' does not require its children; its <br />
 child value is 0.</p>
 
-<p>The linked list classes methods 'contvertToReference(swizzleTable:Map[String,Node])' to 
+<p>The linked list classes methods 'contvertToReference(swizzleTable:Map[String,Node])' to <br />
 convert symbolic addresses to physical ones.</p>
 
 <h2>Parent Child Linkage  </h2>
@@ -101,7 +109,7 @@ The trait 'Node' has two variables (child and next) that establishes the parent/
 linkage. </p>
 
 <p>The parent classes 'Notecard', 'CardSet', 'RowerNode', and 'DisplayText' extend the <br />
-trait 'Link'  having two funtions to process the parent's linked list.  </p>
+trait 'Link'  having two funtions to process the parent's linked list.    </p>
 
 <pre><code>    def reset(child:Node) { iterator=child }  
     def iterate= {  
@@ -115,7 +123,7 @@ trait 'Link'  having two funtions to process the parent's linked list.  </p>
         }
 </code></pre>
 
-<p>The 'Notecard' instance passes 'Node.child' to 'reset(...)' and executes the
+<p>The 'Notecard' instance passes 'Node.child' to 'reset(...)' and executes the <br />
 'while' loop:  </p>
 
 <pre><code>    reset(getFirstChild)   
@@ -126,7 +134,7 @@ trait 'Link'  having two funtions to process the parent's linked list.  </p>
         }
 </code></pre>
 
-<p>When 'startCardSet(..)' is invoked for the first 'CardSet' instance, a similar reset/
+<p>When 'startCardSet(..)' is invoked for the first 'CardSet' instance, a similar reset <br />
 while routine is executed:</p>
 
 <pre><code>    reset(getFirstChild)   
@@ -137,7 +145,7 @@ while routine is executed:</p>
         }
 </code></pre>
 
-<p>Again, in 'RowerNode'  a similar reset/while routine is executed to execute 'DisplayText'
+<p>Again, in 'RowerNode'  a similar reset/while routine is executed to execute 'DisplayText' <br />
 instance. </p>
 
 <pre><code>    reset(getFirstChild)
@@ -148,29 +156,33 @@ instance. </p>
             }
 </code></pre>
 
-<p>The text of the first card (i.e., "now is") is not shown until 'CardSet' reaches the end of its
-list to terminate the 'while(iterate)' loop.  At this point, the window panel is shown
-and execution is halted by 'wait()'.</p>
+<p>The text of the first card (i.e., "now is") is not shown until 'CardSet' reaches the <br />
+end of its list to terminate the 'while(iterate)' loop.  At this point, the window <br />
+panel is shown and execution is halted by 'wait()'.  </p>
 
 <pre><code>    showPanel(...)  
     haltCommandExecution( lock )
 </code></pre>
 
-<p>At this point, the NEXT button  has been enabled and its color is now orange.  When the button 
-is activated, the  wait state is released:</p>
+<p>At this point, the NEXT button  has been enabled and its color is now orange.  When the button <br />
+is activated, the  wait state is released:  </p>
 
 <pre><code>    ButtonSet.lock.notifyAll()
 </code></pre>
 
 <p>The operation is more complicted when a CardSet has one or more input fields to be <br />
-captured.  The Next button is not activated until this capture is completed. </p>
+captured.  The Next button is not activated until this capture is completed.   </p>
 
-<p>The 'nowis.nc' example is shown as simplified code, for example, the linked list structure was 
-depicted five case classes.  The complete set of linked list classes  are:  </p>
+<p>The 'nowis.nc' example is shown as simplified code, for example, the linked list <br />
+structure was depicted five case classes.  The complete set of linked list classes, <br />
+as well as associated script command examples, are:   </p>
 
 <pre>
                                                  Script Examples  
+                                 ---------------
                Notecard  
+                  Load                           l
+                      Assign                     a $count=0
                   NotecardTask                   * end  
                   NextFile                       f maleScript  
                   CardSet                        c (1)=(2)  
@@ -198,9 +210,9 @@ crucial abstract method that the 'NoteLayout' impliments is:  </p>
               }
 </code></pre>
 
-<p>The classes that render text are 'DisplayText', 'DisplayVariable' and 'BoxField'; 
+<p>The classes that render text are 'DisplayText', 'DisplayVariable' and 'BoxField'; <br />
 each extends the trait 'Visual' having an abstract method 'render()'.  A simplified <br />
-version of 'render()' in 'DisplayText' in which 'awt.Component' methods are invoked: </p>
+version of 'render()' in 'DisplayText' in which 'awt.Component' methods are invoked:   </p>
 
 <pre><code>          def render() {  
               setForeground(color)    //color= black  
@@ -216,11 +228,12 @@ object passing it 'new NoteLayout'.  </p>
 
 <h2>Response Capture  </h2>
 
-<p>In the script 'inputOnly.nc' the user is presented a card window that has a response
-or input field. </p>
+<p>In the script 'inputOnly.nc' the user is presented a card window that has a response <br />
+or input field.   </p>
 
 <pre>
-                            inputOnly.nc (file)
+                inputOnly.nc (file)
+        -----------------
                c  
                d (# $myInput)
 </pre>
@@ -252,29 +265,25 @@ or input field. </p>
                 row 0
                 column  0
                 %%
-    </pre>
-
-The user's input is handled by the 'BoxField' class (extends JTextField) . The input is 
-stored in '$myInput'.  Until the user hits the 'ENTER' key, the 'NEXT' button is inactive. 
-The 'ENTER' key set the button color to orange.  Activation of the button would display 
-the next card, provided one existed (instead, a new instance of 'Notecard' is created and 
-the card repeats).  Typically, a '* end' command is present to terminate the session.
-
-<pre>
-        .
 </pre>
 
-<p>The parent of 'BoxField' is 'RowerNode'.  When this parent detects its 'BoxField' child,
-it creates the following instances and passes its child to both:</p>
+<p>The user's input is handled by the 'BoxField' class (extends JTextField) . The input is <br />
+stored in '$myInput'.  Until the user hits the 'ENTER' key, the 'NEXT' button is inactive. <br />
+The 'ENTER' key set the button color to orange.  Activation of the button would display <br />
+the next card, provided one existed (instead, a new instance of 'Notecard' is created and <br />
+the card repeats).  Typically, a '* end' command is present to terminate the session.  </p>
+
+<p>The parent of 'BoxField' is 'RowerNode'.  When this parent detects its 'BoxField' child, <br />
+it creates the following instances and passes its child to both:  </p>
 
 <pre><code>    KeyListenerObject (extends KeyListener)
     InputFocus
 </code></pre>
 
-<p>'KeyListenerObject' captures the user's response so that 'BoxField' can store it in
+<p>'KeyListenerObject' captures the user's response so that 'BoxField' can store it in <br />
 '$myInput'.</p>
 
-<p>The role of 'InputFocus' handles the multiple 'BoxField's that a card my have, for example:</p>
+<p>The role of 'InputFocus' handles the multiple 'BoxField's that a card my have, for example:  </p>
 
 <pre>
             c
@@ -283,7 +292,7 @@ it creates the following instances and passes its child to both:</p>
             c ....
 </pre>
 
-<p>Four 'BoxField' instances are created for this card.  When the card is presented, the first
-input field is given focus. When '$first' is captured, the focus must shift to the next 
-input field to catpure '$last'. And so on until all fields have been entered; at which point,
-'InputFocus' sets the 'NEXT' button to orange. </p>
+<p>Four 'BoxField' instances are created for this card.  When the card is presented, the first <br />
+input field is given focus. When '$first' is captured, the focus must shift to the next <br />
+input field to catpure '$last'. And so on until all fields have been entered; at which point, <br />
+'InputFocus' sets the 'NEXT' button to orange.   </p>

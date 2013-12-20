@@ -229,13 +229,16 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					//by '* manage <filename> in FrameTask
 				manageNotecard.startNotecard(taskGather)
 						// release resources of JFrame created in Notecard. 
-			 //	taskGather.oldJFrame.dispose()  // does not work ???
 
 					// Invokes new CardWindow and setVisible. This function is
 					// also invoked in 'startNotecard', However, unless it is also
 					// called here, the window is blanked when 'startNotecard' 
 					// returns from the manageNotecard state.
-				createAndMakeVisibleCardWindow (notePanel, buttonPanel, statusLine, frame_width, frame_height)	
+				createAndMakeVisibleCardWindow (notePanel, 
+												buttonPanel, 
+												statusLine, 
+												frame_width, 
+												frame_height)	
 					// Display the Card from which the '*' button was activated
 				restoreCurrentNode //Linker   Restore clientNotecard
 					}
@@ -251,7 +254,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// be returned to the invoking function.  Since the current
 					// state is 'manageNotecard',then  the invoking function has to
 					// be Notecard, rather than 'card'. 
-				//println("Notecard: throw new exception")
 				throw new Exception
 				}
 		}

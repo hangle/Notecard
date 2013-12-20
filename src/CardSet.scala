@@ -57,7 +57,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 	var groupResolve:GroupResolve=null //1st GroupNode of card set will instantiate
 									   // GroupResolve. Nulled at end of group.
 
-	var listeners:List[KeyListenerObject]=Nil
 			// Indexer has member 'index' that is initialized to 
 			// minus one. RowerNode increments this index each time a
 			// KeyListenerObject is created giving this object a unique index
@@ -90,12 +89,12 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 		val rowPosition=initializeRowPosition(18) //***skip*** see LabelPixelHeight.java
 			// Iterate card commands then display	
 		executeCardCommandsAndDisplay(notePanel, 
-					  rowPosition,
-					  lock, 
-					  inputFocus, 
-					  indexer, 
-					  statusLine, 
-					  listenerArray) 
+									  rowPosition,
+									  lock, 
+									  inputFocus, 
+									  indexer, 
+									  statusLine, 
+									  listenerArray) 
 				// ------------Card Set has been displayed--------------
 				// arm Buttons and enter 'wait' state. 
 				// Button press releases 'wait' state (ButtonSet.start() ):"
@@ -125,12 +124,12 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 	}// control returns to Notecard to process the next card set
 
 	def executeCardCommandsAndDisplay(notePanel:JPanel,
-					  rowPosition:RowPosition,
-					  lock:AnyRef,
-					  inputFocus:InputFocus,
-					  indexer:Indexer, 
-					  statusLine: StatusLine,
-					  listenerArray: ArrayBuffer[KeyListenerObject]) {
+									  rowPosition:RowPosition,
+									  lock:AnyRef,
+									  inputFocus:InputFocus,
+									  indexer:Indexer, 
+									  statusLine: StatusLine,
+									  listenerArray: ArrayBuffer[KeyListenerObject]) {
 			reset(getFirstChild)    //point to head of linked list (setFirstChild)
 			iterateCardSetChildren( rowPosition, 
 									notePanel, 
@@ -142,13 +141,13 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 		}
 		// Card set consist of RowerNode, Assigner, CardSetTask 
 		// GroupNode, and XNode
-	def iterateCardSetChildren(rowPosition:RowPosition, 
-				 notePanel:JPanel, 
-				 lock:AnyRef, 
-				 inputFocus:InputFocus,
-				 indexer:Indexer,
-				 statusLine:StatusLine, 
-				 listenerArray: ArrayBuffer[KeyListenerObject]) {
+	def iterateCardSetChildren(  rowPosition:RowPosition, 
+								 notePanel:JPanel, 
+								 lock:AnyRef, 
+								 inputFocus:InputFocus,
+								 indexer:Indexer,
+								 statusLine:StatusLine, 
+								 listenerArray: ArrayBuffer[KeyListenerObject]) {
 			// Iterate children (via sibling nodes), returning 'Value' as
 			// either the 1st child or the current sibling node.
 			// see 'Linker' trait.
@@ -164,22 +163,22 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									 listenerArray)
 		}
 		// Children separated by match statement to invoke their respective modules
-	def executeCardSetChildren(obj:Any,  // children
-				 rowPosition:RowPosition, 
-				 notePanel:JPanel, 
-				 lock:AnyRef, 
-				 inputFocus:InputFocus, 
-				 indexer:Indexer,
-				 statusLine:StatusLine,
-				 listenerArray:ArrayBuffer[KeyListenerObject]) {	
+	def executeCardSetChildren(  obj:Any,  // children
+								 rowPosition:RowPosition, 
+								 notePanel:JPanel, 
+								 lock:AnyRef, 
+								 inputFocus:InputFocus, 
+								 indexer:Indexer,
+								 statusLine:StatusLine,
+								 listenerArray:ArrayBuffer[KeyListenerObject]) {	
 		obj match	{
 			case rn:RowerNode=> // children DisplayText,DisplayVariable,BoxField
 				rn.startRowerNode(rowPosition, 
-						notePanel, 
-						inputFocus, 
-						indexer:Indexer, 
-						statusLine,
-						listenerArray) //recusion
+								  notePanel, 
+								  inputFocus, 
+								  indexer:Indexer, 
+								  statusLine,
+								  listenerArray) //recusion
 			case as:Assigner=> 
 				as.startAssigner
 			case cst:CardSetTask =>
@@ -377,6 +376,8 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									setAddress(pair(1))
 							case "sibling" =>
 									setNext(pair(1))
+							case "button" =>
+									setButton(pair(1))
 							case "condition" =>
 									conditionStruct=pair(1)
 							case "name" => 

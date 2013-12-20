@@ -103,7 +103,7 @@ class CreateClass   extends Node {
 				notecard.receive_objects(structObj.tail)
 				swizzleTable=notecard.setId(swizzleTable, notecard)
 				notecard     // returned to be store in 'coreVector'
-			case "%CardSet"=> 
+			case "%CardSet" | "%ButtonCardSet" => 
 				val cardSet=CardSet(symbolTable)
 				cardSet.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=cardSet.setId(swizzleTable, cardSet) //phy addr added to swizzleTab..
@@ -169,8 +169,9 @@ class CreateClass   extends Node {
 				swizzleTable=loadDictionary.setId(swizzleTable, loadDictionary)
 				loadDictionary
 						// LoadAssign is an Assigner object that resides in a different
-						// region of the Linked List structure from that of CardSet
-						// Assigner objects. 
+						// node of the Linked List structure from that of CardSet
+						// Assigner objects.  The Assigner object will become a child of
+						// LoadDictionary.
 			case "%LoadAssign"=>   
 				val assigner=Assigner(symbolTable)
 				assigner.receive_objects(structObj.tail) // pass parameters to object
