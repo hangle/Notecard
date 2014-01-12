@@ -101,12 +101,13 @@ import scala.collection.mutable.Map
 
 trait Node  {
 	var symId="" //setAddress(): symbolic address created by server system
-	var symChild:String=""   //setChild
-	var symSibling:String="" //setNext
-	var symButton:String="" 
+	var symChild:String="0"   //setChild
+	var symSibling:String="0" //setNext
+	var symButton:String="0" 
 //	var symCondition:String=""// logic
 	var child:Node=null	 // 1st child of parent list
 	var next:Node=null   // sibling
+	var button:Node=null // ButtonCardSet
 	var condition:Node=null // logic condition, eg, (male)=($gender)
 	var backup:Node=null	// current node assigned after Framer completes
 							// processing of CardSet
@@ -135,26 +136,40 @@ trait Node  {
 			// and stores it in 'next' (it now has a physical referenec 
 			// to the next set object).[see Core as how the list is iterated]
 	def convertToSibling(swizzleTable:Map[String, Node]) = {
-		if(symSibling=="0" || symSibling=="") next;
+		if(symSibling=="0" ) next;
 		else {
 			if(swizzleTable.contains(symSibling)) {
 				next=swizzleTable(symSibling)
 				}
 			else{   
 			    //val set=swizzleTable.keySet
-				println("Node  sibling throw exception")
+				//println("Node  sibling throw exception")
 			    throw new Exception
 			    }
 			}
 		}
 	def convertToChild(swizzleTable:Map[String, Node]) ={
 		if(symChild != "0") {
-			//println("Node: swizzleTable.contains(symChild)="+swizzleTable.contains(symChild) )
+		//	println("Node: swizzleTable.contains(symChild)="+swizzleTable.contains(symChild) ")
 			if(swizzleTable.contains(symChild)){
 				child=swizzleTable(symChild) 
 				}
 			else    {
-				println("Node "+symChild+" not in swizzleTable")
+				//println("Node "+symChild+" not in swizzleTable")
+				throw new Exception 
+				}
+			}
+		}
+	def convertToButton(swizzleTable:Map[String, Node]) ={
+	//println("Node convert to Buttton")
+		if(symButton != "0") {
+			//println("Node: swizzleTable.contains(symButton)="+swizzleTable.contains(symButton)+"  symButton="+symButton )
+			if(swizzleTable.contains(symButton)){
+				button=swizzleTable(symButton) 
+				//println("Node: button="+button)
+				}
+			else    {
+				//println("Node (symButton) "+symButton+" not in swizzleTable")
 				throw new Exception 
 				}
 			}

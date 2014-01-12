@@ -32,7 +32,7 @@
 Collaborates with:
 	Notecard
 		'* manage <filename> command    ????
-	h=CardSet
+
 		Following the Card set display (executeCommandsAndDisplay),
 		the Next and Prior (not for 1st Card) buttons are armed and
 		a wait state exists until released by ButtonSet (start())
@@ -48,7 +48,7 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	val next=new JButton("Next")
 	val prior=new JButton("Prior")
 	val asterisk=new JButton(" * ")
-	val buttonCardSet=new JButton(" + ")
+	val buttonCardSet=new JButton("+Add")
 	var selectedButton="" // indicates 'actionPerformed' result
 	var plusButton=false
 	var nextButton=false
@@ -57,9 +57,9 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	var firstChild=false  // set true when Card is 1st child in Notecard chain. 
 	var isAsteriskButtonOn="on"  // when 'off', button is disabled
 	var isPriorButtonOn = "on" //when 'off', button is disabled
-			// button acquires listener and is added to NotePanel
-	createActionButton(buttonPanel, buttonCardSet)
+			// button acquires listener and is added to NotePanel/
 	createActionButton(buttonPanel, asterisk)
+	createActionButton(buttonPanel, buttonCardSet)
 	createActionButton(buttonPanel, prior)
 	createActionButton(buttonPanel, next)
 
@@ -82,24 +82,23 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		event getActionCommand() match{
 				// Next button enabled by FieldFocus
 			case "Next"=>  
-				nextButton=true
-				selectedButton="next"
-					// Next button has been activated, so
+				selectedButton="next" //Notecard: match expression
+					// Next button has been activated, so:
 					// disable it,  gray the button,
 					// then release the wait state in CardSet
 				notifyGrayAndDisableNext 
 			case "Prior"=> 
-				priorButton=true;
-				selectedButton="prior"
+				selectedButton="prior"  //Notecard: match expression
 				notifyGrayAndDisableNext 
 			case " * "=> 
-				asteriskButton=true
-				selectedButton="*"
+				selectedButton="*"  //Notecard: match expression
 				notifyGrayAndDisableNext 
-			case " + "=>
-				plusButton=true
-				selectedButton="+"
-				println("ButtonSet  plusButton is true")
+			case "+Add"=>
+				selectedButton="+"  //Notecard: match expression
+				//println("ButtonSet  actionPerformed()   case +")
+				grayAndDisableButtonCardSet
+				//println("ButtonSet  grayAndDisableButtonCardSet")
+				start  //
 			case _=> 		println("ButtonSet unknown event=")
 			}
 
@@ -173,6 +172,10 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 				}
 			else
 				grayAndDisableAsteriskButton
+		}
+	def armButtonCardSet={
+		buttonCardSet.setEnabled(true)	
+		buttonCardSet.setBackground(Color.YELLOW)
 		}
 
 		//card commands halted by 'wait' in

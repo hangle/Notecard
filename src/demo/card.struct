@@ -7,15 +7,16 @@ asteriskButton	on
 priorButton	on
 %%
 %CardSet
-child	2003
 address	2002
+child	2003
 sibling	2023
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2004
 address	2003
+child	2004
 sibling	2005
 row	1
 column	5
@@ -31,8 +32,8 @@ text	The Notecard program presents a series
 color	black
 %%
 %RowerNode
-child	2006
 address	2005
+child	2006
 sibling	2007
 row	3
 column	5
@@ -48,8 +49,8 @@ text	of windows or cards, one window or card
 color	black
 %%
 %RowerNode
-child	2008
 address	2007
+child	2008
 sibling	2009
 row	4
 column	5
@@ -65,8 +66,8 @@ text	at a time.
 color	black
 %%
 %RowerNode
-child	2010
 address	2009
+child	2010
 sibling	2011
 row	5
 column	5
@@ -82,8 +83,8 @@ text
 color	black
 %%
 %RowerNode
-child	2012
 address	2011
+child	2012
 sibling	2014
 row	11
 column	10
@@ -109,8 +110,8 @@ text	orange button
 color	orange
 %%
 %RowerNode
-child	2015
 address	2014
+child	2015
 sibling	2016
 row	13
 column	17
@@ -126,8 +127,8 @@ text	<or>
 color	black
 %%
 %RowerNode
-child	2017
 address	2016
+child	2017
 sibling	2019
 row	14
 column	10
@@ -153,8 +154,8 @@ text	spacebar
 color	green
 %%
 %RowerNode
-child	2020
 address	2019
+child	2020
 sibling	2021
 row	15
 column	17
@@ -170,8 +171,8 @@ text	<to>
 color	black
 %%
 %RowerNode
-child	2022
 address	2021
+child	2022
 sibling	0
 row	16
 column	10
@@ -187,15 +188,16 @@ text	present the next card or window
 color	black
 %%
 %CardSet
-child	2024
 address	2023
+child	2024
 sibling	2054
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2025
 address	2024
+child	2025
 sibling	2026
 row	1
 column	5
@@ -211,8 +213,8 @@ text	Notecard allows an developer to write
 color	black
 %%
 %RowerNode
-child	2027
 address	2026
+child	2027
 sibling	2030
 row	3
 column	5
@@ -248,8 +250,8 @@ text	.
 color	black
 %%
 %RowerNode
-child	2031
 address	2030
+child	2031
 sibling	2032
 row	4
 column	5
@@ -265,8 +267,8 @@ text
 color	black
 %%
 %RowerNode
-child	2033
 address	2032
+child	2033
 sibling	2036
 row	5
 column	5
@@ -302,8 +304,8 @@ text	.
 color	black
 %%
 %RowerNode
-child	2037
 address	2036
+child	2037
 sibling	2038
 row	6
 column	5
@@ -319,8 +321,8 @@ text
 color	black
 %%
 %RowerNode
-child	2039
 address	2038
+child	2039
 sibling	2040
 row	7
 column	5
@@ -336,8 +338,8 @@ text
 color	black
 %%
 %RowerNode
-child	2041
 address	2040
+child	2041
 sibling	2042
 row	8
 column	5
@@ -353,8 +355,8 @@ text
 color	black
 %%
 %RowerNode
-child	2043
 address	2042
+child	2043
 sibling	2045
 row	11
 column	10
@@ -380,8 +382,8 @@ text	orange button
 color	orange
 %%
 %RowerNode
-child	2046
 address	2045
+child	2046
 sibling	2047
 row	13
 column	17
@@ -397,8 +399,8 @@ text	<or>
 color	black
 %%
 %RowerNode
-child	2048
 address	2047
+child	2048
 sibling	2050
 row	14
 column	10
@@ -424,8 +426,8 @@ text	spacebar
 color	green
 %%
 %RowerNode
-child	2051
 address	2050
+child	2051
 sibling	2052
 row	15
 column	17
@@ -441,8 +443,8 @@ text	<to>
 color	black
 %%
 %RowerNode
-child	2053
 address	2052
+child	2053
 sibling	0
 row	16
 column	10
@@ -458,15 +460,16 @@ text	present the next card
 color	black
 %%
 %CardSet
-child	2055
 address	2054
+child	2055
 sibling	2075
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2056
 address	2055
+child	2056
 sibling	2057
 row	1
 column	5
@@ -482,8 +485,8 @@ text	The next card shows how the following
 color	black
 %%
 %RowerNode
-child	2058
 address	2057
+child	2058
 sibling	2059
 row	3
 column	5
@@ -499,8 +502,8 @@ text	text is scripted:
 color	black
 %%
 %RowerNode
-child	2060
 address	2059
+child	2060
 sibling	2061
 row	4
 column	5
@@ -516,8 +519,8 @@ text
 color	black
 %%
 %RowerNode
-child	2062
 address	2061
+child	2062
 sibling	2063
 row	5
 column	10
@@ -533,8 +536,8 @@ text	This text is written by the
 color	black
 %%
 %RowerNode
-child	2064
 address	2063
+child	2064
 sibling	2065
 row	6
 column	10
@@ -550,8 +553,8 @@ text	Display command.
 color	black
 %%
 %RowerNode
-child	2066
 address	2065
+child	2066
 sibling	2067
 row	7
 column	10
@@ -567,8 +570,8 @@ text
 color	black
 %%
 %RowerNode
-child	2068
 address	2067
+child	2068
 sibling	2070
 row	12
 column	10
@@ -594,8 +597,8 @@ text	orange button
 color	orange
 %%
 %RowerNode
-child	2071
 address	2070
+child	2071
 sibling	2072
 row	14
 column	15
@@ -611,8 +614,8 @@ text	<or>
 color	black
 %%
 %RowerNode
-child	2073
 address	2072
+child	2073
 sibling	0
 row	15
 column	10
@@ -638,15 +641,16 @@ text	spacebar
 color	green
 %%
 %CardSet
-child	2076
 address	2075
+child	2076
 sibling	2111
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2077
 address	2076
+child	2077
 sibling	2078
 row	0
 column	5
@@ -662,8 +666,8 @@ text	The Display commands are shown:
 color	black
 %%
 %RowerNode
-child	2079
 address	2078
+child	2079
 sibling	2080
 row	2
 column	10
@@ -679,8 +683,8 @@ text	--------------------   script   ------------------
 color	black
 %%
 %RowerNode
-child	2081
 address	2080
+child	2081
 sibling	2083
 row	3
 column	10
@@ -706,8 +710,8 @@ text	 This text is written by
 color	black
 %%
 %RowerNode
-child	2084
 address	2083
+child	2084
 sibling	2086
 row	4
 column	10
@@ -733,8 +737,8 @@ text	 the Display command.
 color	black
 %%
 %RowerNode
-child	2087
 address	2086
+child	2087
 sibling	2088
 row	5
 column	10
@@ -750,8 +754,8 @@ text	-----------------------------------------------------
 color	black
 %%
 %RowerNode
-child	2089
 address	2088
+child	2089
 sibling	2090
 row	6
 column	5
@@ -767,8 +771,8 @@ text	Script to display a line is preceded by
 color	black
 %%
 %RowerNode
-child	2091
 address	2090
+child	2091
 sibling	2094
 row	7
 column	5
@@ -804,8 +808,8 @@ text	 and a space
 color	black
 %%
 %RowerNode
-child	2095
 address	2094
+child	2095
 sibling	2096
 row	8
 column	5
@@ -827,8 +831,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2098
 address	2097
+child	2098
 sibling	2099
 row	9
 column	5
@@ -844,8 +848,8 @@ text
 color	black
 %%
 %RowerNode
-child	2100
 address	2099
+child	2100
 sibling	2101
 row	10
 column	5
@@ -861,8 +865,8 @@ text	The two lines of script are referred to as
 color	black
 %%
 %RowerNode
-child	2102
 address	2101
+child	2102
 sibling	2103
 row	11
 column	5
@@ -878,8 +882,8 @@ text	Display commands.
 color	black
 %%
 %RowerNode
-child	2104
 address	2103
+child	2104
 sibling	2106
 row	12
 column	10
@@ -905,8 +909,8 @@ text	orange button
 color	orange
 %%
 %RowerNode
-child	2107
 address	2106
+child	2107
 sibling	2108
 row	14
 column	15
@@ -922,8 +926,8 @@ text	<or>
 color	black
 %%
 %RowerNode
-child	2109
 address	2108
+child	2109
 sibling	0
 row	15
 column	10
@@ -949,15 +953,16 @@ text	spacebar
 color	green
 %%
 %CardSet
-child	2112
 address	2111
+child	2112
 sibling	2136
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2113
 address	2112
+child	2113
 sibling	2114
 row	1
 column	5
@@ -973,8 +978,8 @@ text	Before text is displayed, the card
 color	black
 %%
 %RowerNode
-child	2115
 address	2114
+child	2115
 sibling	2116
 row	3
 column	5
@@ -990,8 +995,8 @@ text	or window is cleared with the Clear
 color	black
 %%
 %RowerNode
-child	2117
 address	2116
+child	2117
 sibling	2118
 row	4
 column	5
@@ -1007,8 +1012,8 @@ text	command whose script begins with
 color	black
 %%
 %RowerNode
-child	2119
 address	2118
+child	2119
 sibling	2122
 row	5
 column	5
@@ -1044,8 +1049,8 @@ text	.
 color	black
 %%
 %RowerNode
-child	2123
 address	2122
+child	2123
 sibling	2124
 row	6
 column	5
@@ -1061,8 +1066,8 @@ text
 color	black
 %%
 %RowerNode
-child	2125
 address	2124
+child	2125
 sibling	2126
 row	7
 column	5
@@ -1078,8 +1083,8 @@ text	The following card has the 'c' command
 color	black
 %%
 %RowerNode
-child	2127
 address	2126
+child	2127
 sibling	2128
 row	8
 column	5
@@ -1095,8 +1100,8 @@ text	but no 'd' commands.
 color	black
 %%
 %RowerNode
-child	2129
 address	2128
+child	2129
 sibling	2131
 row	12
 column	10
@@ -1122,8 +1127,8 @@ text	orange button
 color	orange
 %%
 %RowerNode
-child	2132
 address	2131
+child	2132
 sibling	2133
 row	14
 column	17
@@ -1139,8 +1144,8 @@ text	<or>
 color	black
 %%
 %RowerNode
-child	2134
 address	2133
+child	2134
 sibling	0
 row	15
 column	10
@@ -1166,22 +1171,24 @@ text	spacebar
 color	green
 %%
 %CardSet
-child	0
 address	2136
+child	0
 sibling	2137
+button	0
 name	0
 condition	0
 %%
 %CardSet
-child	2138
 address	2137
+child	2138
 sibling	2156
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2139
 address	2138
+child	2139
 sibling	2140
 row	1
 column	5
@@ -1197,8 +1204,8 @@ text	----'c' command script-------
 color	black
 %%
 %RowerNode
-child	2141
 address	2140
+child	2141
 sibling	2142
 row	3
 column	5
@@ -1214,8 +1221,8 @@ text	c
 color	blue
 %%
 %RowerNode
-child	2143
 address	2142
+child	2143
 sibling	2144
 row	4
 column	5
@@ -1231,8 +1238,8 @@ text	--------------------------------
 color	black
 %%
 %RowerNode
-child	2145
 address	2144
+child	2145
 sibling	2146
 row	5
 column	5
@@ -1248,8 +1255,8 @@ text	A card with only the 'c' command is
 color	black
 %%
 %RowerNode
-child	2147
 address	2146
+child	2147
 sibling	2148
 row	6
 column	5
@@ -1265,8 +1272,8 @@ text	just an empty window.
 color	black
 %%
 %RowerNode
-child	2149
 address	2148
+child	2149
 sibling	2150
 row	7
 column	5
@@ -1282,8 +1289,8 @@ text
 color	black
 %%
 %RowerNode
-child	2151
 address	2150
+child	2151
 sibling	2152
 row	8
 column	5
@@ -1299,8 +1306,8 @@ text	A card always begin with the Clear
 color	black
 %%
 %RowerNode
-child	2153
 address	2152
+child	2153
 sibling	2154
 row	9
 column	5
@@ -1316,8 +1323,8 @@ text	command to remove the prior card
 color	black
 %%
 %RowerNode
-child	2155
 address	2154
+child	2155
 sibling	0
 row	10
 column	5
@@ -1333,15 +1340,16 @@ text	material.
 color	black
 %%
 %CardSet
-child	2157
 address	2156
+child	2157
 sibling	2186
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2158
 address	2157
+child	2158
 sibling	2159
 row	1
 column	5
@@ -1357,8 +1365,8 @@ text	A 'c' (clear) command, followed by one or
 color	black
 %%
 %RowerNode
-child	2160
 address	2159
+child	2160
 sibling	2161
 row	3
 column	5
@@ -1374,8 +1382,8 @@ text	more 'd' commands (as well as other
 color	black
 %%
 %RowerNode
-child	2162
 address	2161
+child	2162
 sibling	2165
 row	4
 column	5
@@ -1411,8 +1419,8 @@ text	.
 color	black
 %%
 %RowerNode
-child	2166
 address	2165
+child	2166
 sibling	2167
 row	5
 column	5
@@ -1434,8 +1442,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2169
 address	2168
+child	2169
 sibling	2170
 row	6
 column	5
@@ -1451,8 +1459,8 @@ text	The following script represents two
 color	black
 %%
 %RowerNode
-child	2171
 address	2170
+child	2171
 sibling	2172
 row	7
 column	5
@@ -1468,8 +1476,8 @@ text	Card Sets.
 color	black
 %%
 %RowerNode
-child	2173
 address	2172
+child	2173
 sibling	2174
 row	8
 column	5
@@ -1485,8 +1493,8 @@ text
 color	black
 %%
 %RowerNode
-child	2175
 address	2174
+child	2175
 sibling	2176
 row	9
 column	10
@@ -1502,8 +1510,8 @@ text	------script-----------
 color	black
 %%
 %RowerNode
-child	2177
 address	2176
+child	2177
 sibling	2178
 row	10
 column	10
@@ -1519,8 +1527,8 @@ text	c
 color	black
 %%
 %RowerNode
-child	2179
 address	2178
+child	2179
 sibling	2180
 row	11
 column	10
@@ -1536,8 +1544,8 @@ text	d one
 color	black
 %%
 %RowerNode
-child	2181
 address	2180
+child	2181
 sibling	2182
 row	12
 column	10
@@ -1553,8 +1561,8 @@ text	c
 color	black
 %%
 %RowerNode
-child	2183
 address	2182
+child	2183
 sibling	2184
 row	13
 column	10
@@ -1570,8 +1578,8 @@ text	d two
 color	black
 %%
 %RowerNode
-child	2185
 address	2184
+child	2185
 sibling	0
 row	14
 column	10
@@ -1587,15 +1595,16 @@ text	-------------------------
 color	black
 %%
 %CardSet
-child	2187
 address	2186
+child	2187
 sibling	2211
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2188
 address	2187
+child	2188
 sibling	2191
 row	1
 column	5
@@ -1631,8 +1640,8 @@ text	.
 color	black
 %%
 %RowerNode
-child	2192
 address	2191
+child	2192
 sibling	2193
 row	3
 column	5
@@ -1648,8 +1657,8 @@ text	and will present the next three windows.
 color	black
 %%
 %RowerNode
-child	2194
 address	2193
+child	2194
 sibling	2195
 row	4
 column	10
@@ -1665,8 +1674,8 @@ text
 color	black
 %%
 %RowerNode
-child	2196
 address	2195
+child	2196
 sibling	2197
 row	5
 column	10
@@ -1682,8 +1691,8 @@ text	 ---------script-----------
 color	black
 %%
 %RowerNode
-child	2198
 address	2197
+child	2198
 sibling	2199
 row	6
 column	10
@@ -1699,8 +1708,8 @@ text	 c
 color	black
 %%
 %RowerNode
-child	2200
 address	2199
+child	2200
 sibling	2201
 row	7
 column	10
@@ -1716,8 +1725,8 @@ text	 d card A
 color	black
 %%
 %RowerNode
-child	2202
 address	2201
+child	2202
 sibling	2203
 row	8
 column	10
@@ -1733,8 +1742,8 @@ text	 c
 color	black
 %%
 %RowerNode
-child	2204
 address	2203
+child	2204
 sibling	2205
 row	9
 column	10
@@ -1750,8 +1759,8 @@ text	 d card B
 color	black
 %%
 %RowerNode
-child	2206
 address	2205
+child	2206
 sibling	2207
 row	10
 column	10
@@ -1767,8 +1776,8 @@ text	 c
 color	black
 %%
 %RowerNode
-child	2208
 address	2207
+child	2208
 sibling	2209
 row	11
 column	10
@@ -1784,8 +1793,8 @@ text	 d card C
 color	black
 %%
 %RowerNode
-child	2210
 address	2209
+child	2210
 sibling	0
 row	12
 column	10
@@ -1801,15 +1810,16 @@ text	--------------------------
 color	black
 %%
 %CardSet
-child	2212
 address	2211
+child	2212
 sibling	2214
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2213
 address	2212
+child	2213
 sibling	0
 row	1
 column	5
@@ -1825,15 +1835,16 @@ text	card A
 color	black
 %%
 %CardSet
-child	2215
 address	2214
+child	2215
 sibling	2217
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2216
 address	2215
+child	2216
 sibling	0
 row	1
 column	5
@@ -1849,15 +1860,16 @@ text	card B
 color	black
 %%
 %CardSet
-child	2218
 address	2217
+child	2218
 sibling	2220
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2219
 address	2218
+child	2219
 sibling	0
 row	1
 column	5
@@ -1873,15 +1885,16 @@ text	card C
 color	black
 %%
 %CardSet
-child	2221
 address	2220
+child	2221
 sibling	2235
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2222
 address	2221
+child	2222
 sibling	2223
 row	1
 column	5
@@ -1897,8 +1910,8 @@ text	The script for one or more cards is
 color	black
 %%
 %RowerNode
-child	2224
 address	2223
+child	2224
 sibling	2227
 row	3
 column	5
@@ -1934,8 +1947,8 @@ text	.
 color	black
 %%
 %RowerNode
-child	2228
 address	2227
+child	2228
 sibling	2229
 row	4
 column	5
@@ -1951,8 +1964,8 @@ text
 color	black
 %%
 %RowerNode
-child	2230
 address	2229
+child	2230
 sibling	2231
 row	5
 column	5
@@ -1968,8 +1981,8 @@ text	The script for the current series of
 color	black
 %%
 %RowerNode
-child	2232
 address	2231
+child	2232
 sibling	0
 row	6
 column	5

@@ -46,12 +46,18 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 		*/
 //------------paramters pass by .struct file-----------------
 	var conditionStruct=""
-	var node_name=""   /// Name or label of CardSet:  not operational.
-//------------------------------swizzle routines---------------------
+	var node_name=""   /// Name or label of CardSet:  <not operational>
+//------------------------------swizzle routines (see: Node)-----------
 	def convertToReference(swizzleTable:Map[String, Node]) ={
 			convertToSibling(swizzleTable)
 			convertToChild(swizzleTable)  // Is a parent
+	//		println("CardSet call convert to button")
+			convertToButton(swizzleTable) // ButtonCardSet
 			}
+				// 'button' is the physical addr of the ButtonCardSet. If CardSet has no
+				// associated ButtonCardSet, then button equals 'null'.
+	def getButtonCardSet=button  //invoked in Notecard by 'loadIteratorWithButton..' prior
+								 // to calling 'cardSet.startCardSet(...)
 //-------------------------------------------------------------------
 
 	var groupResolve:GroupResolve=null //1st GroupNode of card set will instantiate
@@ -61,7 +67,11 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// minus one. RowerNode increments this index each time a
 			// KeyListenerObject is created giving this object a unique index
 	val indexer=new Indexer(-1) 
-			// Invoked by Notecard parent
+
+			// CardSet points to a ButtonCardSet object, or ButtonCardSet object
+			// has return pointer to parent 'button' of CardSet.
+	def isButtonCardSet= { if(symButton != "0") true; else false}			// Invoked by Notecard parent
+			// Invoked by Notecard
 	def startCardSet(notePanel:JPanel, lock:AnyRef, buttonSet:ButtonSet, statusLine:StatusLine)={ 
 			// Assign Linker.next to 'backup'. The next time
 			// CardSet is executed, 'backup' holds the pointer
@@ -73,7 +83,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			//	is tested and the CardSet instances is skipped when 'false',
 			//  If 'c' cmd has no logic, then outcome is always 'true'.
 		if(noConditionOrIsTrue(conditionStruct, symbolTable)){	//'c <cmd> has no logic /
-			// or has logic and the logic is true
 			// Collection container for all KeyListernerObject(s)
 			// created in RowerNode.  At the completion of the
 			// card, listeners are removed via BoxField.
@@ -111,11 +120,14 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 						}
 					// Enable NEXT button, give it  focus and color it orange
 				buttonSet.armNextButton	
+					// Enable PRIOR button, color it 'white'
 				buttonSet.armAsteriskButton
 				}
 		showPanel(notePanel) // display panel content (paint, validate)
 			// Stop (issue wait()) to allow the user to enter responses.
+		//println("CardSet:  prior 'haltCommandExecution(lock)  symButton="+symButton+"  symChild="+symChild+"   address="+symId)
 		haltCommandExecution(lock)	
+	//	println("here b")
 		clearNotePanel(notePanel)	//remove all components & clear screen
 						// KeyListenerObject(s) are removed from the
 						// corresponding BoxField
@@ -371,13 +383,13 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				var pair=e.split("[\t]")	
 				pair(0) match {
 							case "child" => 
-									setChild(pair(1))
+									setChild(pair(1))  // Node  symChild
 							case "address" =>
-									setAddress(pair(1))
+									setAddress(pair(1))  // Node
 							case "sibling" =>
-									setNext(pair(1))
+									setNext(pair(1))  // Node
 							case "button" =>
-									setButton(pair(1))
+									setButton(pair(1))  // Node
 							case "condition" =>
 									conditionStruct=pair(1)
 							case "name" => 

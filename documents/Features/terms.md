@@ -87,6 +87,32 @@
         The 'start file' commands are internal Notecard codes.
 </pre>
 
+<h2>Button Set</h2>
+
+<pre>
+        The bottom of the Notecard window displays four buttons whose icons are:
+            *
+            +Add
+            Prior
+            Next
+        The first three buttons may or may not be enabled.  The 'Next' button is
+        always enabled to transit to the next CardSet or to end the session or to
+        read a new command file.
+        The '*' button, when white, initiates the 'Management File' 
+        The '+Add' button, when yellow, initiates one or more ButtonCardSets
+        The 'Prior' button, when green, executed the preceding CardSet
+</pre>
+
+<h2>Status Line</h2>
+
+<pre>
+        The bottom line of the Notecard panel that displays a user message.     
+        The Asterisk '* status  <msg>' displays the status line message <msg>.
+        The Edit 'e' command has an option argument that display a status
+        message, for example:
+            'e ($age)>(0) and (age)< (100)  status=age must range 1-99'
+</pre>
+
 <h2>Management File</h2>
 
 <pre>
@@ -114,3 +140,16 @@
         response field as well as the number of allowable characters can be 
         specified.  See 'appearance.md'. 
 </pre>  
+
+<h2>Button CardSet</h2>
+
+<pre>
+        A ButtonCardSet is a CardSet that is initiated by the '+Add' button.  
+        The leading command of the CardSet is the 'c' tag.  The leading
+        command of the ButtonCardSet is the 'b' tag (both 'b' and 'c' tags
+        have the same functionality of clearing the window). The role of
+        the ButtonCardSet is to provide a hint or probe or supplimental
+        information to an associated CardSet. If the '+Add' is not activated, 
+        then the one or more ButtonCardSets associated with the CardSet are 
+        skipped.
+</pre>

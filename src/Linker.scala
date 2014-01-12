@@ -35,18 +35,26 @@
 package com.client
 
 trait Linker extends Node   {
-		var iterator:Node=null // used in a while statemnt, eg., while(iterator)
+				// while statemnt argument, eg., 'while(iterator)'
+				// 'reset(child:Node) assigns parent's first child to 'iterator'
+				//	before 'while(iterator)' is invoked.
+				// 'iterate' function assign "next" sibling to 'iterator'
+		var iterator:Node=null 
 		var value:Node=null    
 		var backupList:List[Node]=Nil
 			// capture 'reset's argument to be used by 'isChild'
 		var childNode:Node=null   
+		var current:Node=null  // saved 
+		def saveCurrentNode { current= value }
+		def restoreCurrentNode { iterator=current }
+
 			// Invoked by Notecard.iterateNotecardChildren to detect
 			// if iteration involves the first child. If so,
 			// then the Next button is grayed since backup impossible
-		def isChild= if(childNode eq value) true; else false
 			// and 'iterate' are methods to iterate these
 			// lists of objects. 'Value' returns the object
 			// referenced on each iteration.
+		def isChild= if(childNode eq value) true; else false
 		def Value=value    
 		def reset(child:Node) { //initialize the list
 					// child is the 1st child of the Parent, that is 1st sibling 
@@ -66,14 +74,22 @@ trait Linker extends Node   {
 				true
 				}
 			}
-			// Activated by Notecard to only store Node(s)
+				// Activated by Notecard to only store Node(s)
 			// of CardSet objects
-		def storeCurrentIterator {backupList= value :: backupList}
+		def storeCurrentIteratorInBackupList {backupList= value :: backupList}
+			
+			// Notecard: doButtonCardSet(..) whose argument is
+			// 'cardSet.getButtonSet'
+		def loadIteratorWithButtonCardSet(buttonCardSet:Node)={
+			iterator=buttonCardSet
+			}
+			// Notecard invoked when 'PRIOR' button is activated. 
 			// Instead of loading 'iterator' with the next Card, 
 			// the backup mechanism loads it with the prior Card.
-			// note, the frist Card has no prior Card
+			// Note, the frist Card has no prior Card
 		def loadIteratorWithBackup=  {
-			if( backupList.tail != Nil) {  //attempt backup on 1st sibling
+			if( ! backupList.tail.isEmpty) {  // Indicates that backup
+											  // can be initiated.
 					// backing up so drop the current Node
 				backupList=backupList.tail
 					// set iterator to the prior Node
@@ -86,14 +102,12 @@ trait Linker extends Node   {
 							// the first Card is reloaded by Notecard
 					backupList=backupList.tail
 				}		
-			  else 
+			  else  
+			  		// Can not backup so impliment first CardSet
 			  	iterator=backupList.head  //restore iterator with 1st sibling
-							  //first Card is reloaded by Notecard
 			}
+	
 
-		var current:Node=null  // saved 
-		def saveCurrentNode { current= value }
-		def restoreCurrentNode { iterator=current }
-}
+	}
 																	  
 
