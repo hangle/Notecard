@@ -23,12 +23,12 @@ object CommandNetwork  {
 			// Creates List[List[String]] where each element
 			// is a card set
 		val allCardSets= StructScript.structListList(file)
-		//println("CommandNetwork:  allCardSets.size="+allCardSets.size)	
 			// In CreateClass.  Command classes are instantiated and
 			// symbolic addresses of linked lists nodes are
 			// converted to physical addresses creating network of 
 			// linked lists.
 		val createClass= new CreateClass
+			// returns 'root' or Notecard instance.
 		createClass.establishObjectNetwork(symbolTable, allCardSets)
 		}
 	}

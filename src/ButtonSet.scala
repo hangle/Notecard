@@ -93,12 +93,11 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 			case " * "=> 
 				selectedButton="*"  //Notecard: match expression
 				notifyGrayAndDisableNext 
+				start()
 			case "+Add"=>
 				selectedButton="+"  //Notecard: match expression
-				//println("ButtonSet  actionPerformed()   case +")
 				grayAndDisableButtonCardSet
-				//println("ButtonSet  grayAndDisableButtonCardSet")
-				start  //
+				start() 
 			case _=> 		println("ButtonSet unknown event=")
 			}
 
@@ -147,7 +146,6 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	def armNextButton = {
 		next.setEnabled(true)
 		next setBackground(Color.ORANGE)
-			//println("ButtonSet: armNextButton")  
 		next.requestFocus()
 		}
 		// Invoked in:  ButtonSet & CardSet
@@ -156,7 +154,6 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 			// on/off assigned in Notecard
 		if(isPriorButtonOn=="on"){
 			prior.setBackground(Color.GREEN)		
-			//println("ButtonSet: armPriorButton")  
 			prior.setEnabled(true)
 			next.requestFocus()
 			}
@@ -181,7 +178,7 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		//card commands halted by 'wait' in
 		// CardSet. 'Next' button action 
 		// terminates the wait condition.
-	def start():Unit=lock.synchronized{ lock.notifyAll() }
+	def start():Unit= lock.synchronized{ lock.notifyAll() } 
 		// Invoked by InputFocus in support ofg
 		// the '* continue' statement. 
 	def issueWait:Unit=lock.synchronized{ lock.wait() }

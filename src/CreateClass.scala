@@ -43,8 +43,8 @@
 	In *.struct file,  A parent class having children and which is
 	also a child of a parenet itself, has symbolic addresses immediately
 	following the '%<object name>':
-		1st symbolic value is the address of the first child
-		2nd symbolic value is the address of the object
+		1st symbolic value is the address of the object
+		2nd symbolic value is the address of the first child
 		3d  symbolic value is the address of the next sibling
 	A class that is just a child has:
 		1nd symbolic value is the address of the object

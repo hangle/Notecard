@@ -7,15 +7,16 @@ asteriskButton	on
 priorButton	on
 %%
 %CardSet
-child	2003
 address	2002
+child	2003
 sibling	2023
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2004
 address	2003
+child	2004
 sibling	2005
 row	1
 column	5
@@ -31,8 +32,8 @@ text	Special tasks are executed by the
 color	black
 %%
 %RowerNode
-child	2006
 address	2005
+child	2006
 sibling	2009
 row	3
 column	5
@@ -68,8 +69,8 @@ text	 command.
 color	black
 %%
 %RowerNode
-child	2010
 address	2009
+child	2010
 sibling	2011
 row	4
 column	5
@@ -85,8 +86,8 @@ text
 color	black
 %%
 %RowerNode
-child	2012
 address	2011
+child	2012
 sibling	2013
 row	5
 column	5
@@ -102,8 +103,8 @@ text	Tasks:
 color	black
 %%
 %RowerNode
-child	2014
 address	2013
+child	2014
 sibling	2015
 row	6
 column	15
@@ -119,8 +120,8 @@ text	* end
 color	black
 %%
 %RowerNode
-child	2016
 address	2015
+child	2016
 sibling	2017
 row	7
 column	15
@@ -136,8 +137,8 @@ text	* continue
 color	black
 %%
 %RowerNode
-child	2018
 address	2017
+child	2018
 sibling	2019
 row	8
 column	15
@@ -153,8 +154,8 @@ text	* save <filename>
 color	black
 %%
 %RowerNode
-child	2020
 address	2019
+child	2020
 sibling	2021
 row	9
 column	15
@@ -170,8 +171,8 @@ text	* status <message>
 color	black
 %%
 %RowerNode
-child	2022
 address	2021
+child	2022
 sibling	0
 row	10
 column	15
@@ -187,15 +188,16 @@ text	* manage <filename.nc>
 color	black
 %%
 %CardSet
-child	2024
 address	2023
+child	2024
 sibling	2049
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2025
 address	2024
+child	2025
 sibling	2026
 row	2
 column	5
@@ -211,8 +213,8 @@ text	The termination of the Card set execution
 color	black
 %%
 %RowerNode
-child	2027
 address	2026
+child	2027
 sibling	2030
 row	4
 column	5
@@ -248,8 +250,8 @@ text	 command.
 color	black
 %%
 %RowerNode
-child	2031
 address	2030
+child	2031
 sibling	2032
 row	5
 column	5
@@ -265,8 +267,8 @@ text
 color	black
 %%
 %RowerNode
-child	2033
 address	2032
+child	2033
 sibling	2034
 row	6
 column	10
@@ -282,8 +284,8 @@ text	----------script----------
 color	black
 %%
 %RowerNode
-child	2035
 address	2034
+child	2035
 sibling	2036
 row	7
 column	10
@@ -299,8 +301,8 @@ text	* end
 color	black
 %%
 %RowerNode
-child	2037
 address	2036
+child	2037
 sibling	2038
 row	8
 column	10
@@ -322,8 +324,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2040
 address	2039
+child	2040
 sibling	2041
 row	9
 column	5
@@ -339,8 +341,8 @@ text
 color	black
 %%
 %RowerNode
-child	2042
 address	2041
+child	2042
 sibling	2045
 row	10
 column	5
@@ -376,8 +378,8 @@ text	 typically follows the last
 color	black
 %%
 %RowerNode
-child	2046
 address	2045
+child	2046
 sibling	2047
 row	11
 column	5
@@ -393,8 +395,8 @@ text	Card set of the .nc file.  Otherwise, the file
 color	black
 %%
 %RowerNode
-child	2048
 address	2047
+child	2048
 sibling	0
 row	12
 column	5
@@ -410,15 +412,16 @@ text	will "loop" and execute the 1st Card Set.
 color	black
 %%
 %CardSet
-child	2050
 address	2049
+child	2050
 sibling	2079
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2051
 address	2050
+child	2051
 sibling	2052
 row	0
 column	5
@@ -434,8 +437,8 @@ text	In this demo, text is displayed
 color	black
 %%
 %RowerNode
-child	2053
 address	2052
+child	2053
 sibling	2054
 row	2
 column	5
@@ -451,8 +454,8 @@ text	but often, following the activation
 color	black
 %%
 %RowerNode
-child	2055
 address	2054
+child	2055
 sibling	2056
 row	3
 column	5
@@ -468,8 +471,8 @@ text	of the NEXT button, the window is
 color	black
 %%
 %RowerNode
-child	2057
 address	2056
+child	2057
 sibling	2058
 row	4
 column	5
@@ -485,8 +488,8 @@ text	not cleared.
 color	black
 %%
 %RowerNode
-child	2059
 address	2058
+child	2059
 sibling	2060
 row	5
 column	5
@@ -502,8 +505,8 @@ text
 color	black
 %%
 %RowerNode
-child	2061
 address	2060
+child	2061
 sibling	2062
 row	6
 column	5
@@ -519,8 +522,8 @@ text	Instead, additional text is
 color	black
 %%
 %RowerNode
-child	2063
 address	2062
+child	2063
 sibling	2064
 row	7
 column	5
@@ -536,8 +539,8 @@ text	displayed within the same
 color	black
 %%
 %RowerNode
-child	2065
 address	2064
+child	2065
 sibling	2066
 row	8
 column	5
@@ -559,8 +562,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2068
 address	2067
+child	2068
 sibling	2069
 row	9
 column	5
@@ -576,8 +579,8 @@ text
 color	black
 %%
 %RowerNode
-child	2070
 address	2069
+child	2070
 sibling	2071
 row	10
 column	5
@@ -593,8 +596,8 @@ text	The Asterick command:
 color	black
 %%
 %RowerNode
-child	2072
 address	2071
+child	2072
 sibling	2073
 row	11
 column	5
@@ -610,8 +613,8 @@ text
 color	black
 %%
 %RowerNode
-child	2074
 address	2073
+child	2074
 sibling	2075
 row	12
 column	15
@@ -627,8 +630,8 @@ text	* continue
 color	blue
 %%
 %RowerNode
-child	2076
 address	2075
+child	2076
 sibling	2077
 row	13
 column	5
@@ -644,8 +647,8 @@ text
 color	black
 %%
 %RowerNode
-child	2078
 address	2077
+child	2078
 sibling	0
 row	14
 column	5
@@ -661,15 +664,16 @@ text	provides this feature.
 color	black
 %%
 %CardSet
-child	2080
 address	2079
+child	2080
 sibling	2103
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2081
 address	2080
+child	2081
 sibling	2082
 row	1
 column	5
@@ -685,8 +689,8 @@ text	The following script is executed to
 color	black
 %%
 %RowerNode
-child	2083
 address	2082
+child	2083
 sibling	2084
 row	3
 column	5
@@ -702,8 +706,8 @@ text	illustrate the action of this Asterisk
 color	black
 %%
 %RowerNode
-child	2085
 address	2084
+child	2085
 sibling	2086
 row	4
 column	5
@@ -719,8 +723,8 @@ text	command.
 color	black
 %%
 %RowerNode
-child	2087
 address	2086
+child	2087
 sibling	2088
 row	5
 column	10
@@ -736,8 +740,8 @@ text	-----------Script--------------
 color	black
 %%
 %RowerNode
-child	2089
 address	2088
+child	2089
 sibling	2090
 row	6
 column	10
@@ -753,8 +757,8 @@ text	d First you read this.
 color	black
 %%
 %RowerNode
-child	2091
 address	2090
+child	2091
 sibling	2092
 row	7
 column	10
@@ -770,8 +774,8 @@ text	* continue
 color	black
 %%
 %RowerNode
-child	2093
 address	2092
+child	2093
 sibling	2094
 row	8
 column	10
@@ -787,8 +791,8 @@ text	d Then you read that.
 color	black
 %%
 %RowerNode
-child	2095
 address	2094
+child	2095
 sibling	2096
 row	9
 column	10
@@ -804,8 +808,8 @@ text	----------------------------------
 color	black
 %%
 %RowerNode
-child	2097
 address	2096
+child	2097
 sibling	2098
 row	10
 column	5
@@ -821,8 +825,8 @@ text
 color	black
 %%
 %RowerNode
-child	2099
 address	2098
+child	2099
 sibling	2100
 row	11
 column	5
@@ -844,8 +848,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2102
 address	2101
+child	2102
 sibling	0
 row	12
 column	5
@@ -861,15 +865,16 @@ text	Then you read that.
 color	black
 %%
 %CardSet
-child	2104
 address	2103
+child	2104
 sibling	2135
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2105
 address	2104
+child	2105
 sibling	2108
 row	1
 column	5
@@ -905,8 +910,8 @@ text	 command writes
 color	black
 %%
 %RowerNode
-child	2109
 address	2108
+child	2109
 sibling	2110
 row	3
 column	5
@@ -922,8 +927,8 @@ text	or saves the data captured by the
 color	black
 %%
 %RowerNode
-child	2111
 address	2110
+child	2111
 sibling	2112
 row	4
 column	5
@@ -939,8 +944,8 @@ text	(# $<variable) expression and the
 color	black
 %%
 %RowerNode
-child	2113
 address	2112
+child	2113
 sibling	2114
 row	5
 column	5
@@ -956,8 +961,8 @@ text	data logged by the Assign command.
 color	black
 %%
 %RowerNode
-child	2115
 address	2114
+child	2115
 sibling	2116
 row	6
 column	5
@@ -973,8 +978,8 @@ text
 color	black
 %%
 %RowerNode
-child	2117
 address	2116
+child	2117
 sibling	2118
 row	7
 column	5
@@ -990,8 +995,8 @@ text	Example:
 color	black
 %%
 %RowerNode
-child	2119
 address	2118
+child	2119
 sibling	2120
 row	8
 column	10
@@ -1007,8 +1012,8 @@ text	------------script---------
 color	black
 %%
 %RowerNode
-child	2121
 address	2120
+child	2121
 sibling	2122
 row	9
 column	10
@@ -1024,8 +1029,8 @@ text	* save one/two/myfile
 color	black
 %%
 %RowerNode
-child	2123
 address	2122
+child	2123
 sibling	2124
 row	10
 column	10
@@ -1047,8 +1052,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2126
 address	2125
+child	2126
 sibling	2127
 row	11
 column	5
@@ -1064,8 +1069,8 @@ text
 color	black
 %%
 %RowerNode
-child	2128
 address	2127
+child	2128
 sibling	2130
 row	12
 column	5
@@ -1091,8 +1096,8 @@ text	 names, along with their
 color	black
 %%
 %RowerNode
-child	2131
 address	2130
+child	2131
 sibling	2133
 row	13
 column	5
@@ -1118,8 +1123,8 @@ text	, are written to 'myfile'
 color	black
 %%
 %RowerNode
-child	2134
 address	2133
+child	2134
 sibling	0
 row	14
 column	5
@@ -1135,15 +1140,16 @@ text	file in directory  'one/two'.
 color	black
 %%
 %CardSet
-child	2136
 address	2135
+child	2136
 sibling	2160
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2137
 address	2136
+child	2137
 sibling	2138
 row	1
 column	5
@@ -1159,8 +1165,8 @@ text	At present, the appearance of displayed text,
 color	black
 %%
 %RowerNode
-child	2139
 address	2138
+child	2139
 sibling	2140
 row	3
 column	5
@@ -1176,8 +1182,8 @@ text	such as, color, size, height, are controlled
 color	black
 %%
 %RowerNode
-child	2141
 address	2140
+child	2141
 sibling	2142
 row	4
 column	5
@@ -1193,8 +1199,8 @@ text	by default values:
 color	black
 %%
 %RowerNode
-child	2143
 address	2142
+child	2143
 sibling	2144
 row	5
 column	10
@@ -1210,8 +1216,8 @@ text
 color	black
 %%
 %RowerNode
-child	2145
 address	2144
+child	2145
 sibling	2146
 row	6
 column	10
@@ -1227,8 +1233,8 @@ text	height "300"  ---window size
 color	black
 %%
 %RowerNode
-child	2147
 address	2146
+child	2147
 sibling	2148
 row	7
 column	10
@@ -1244,8 +1250,8 @@ text	width  "400"  ---window size
 color	black
 %%
 %RowerNode
-child	2149
 address	2148
+child	2149
 sibling	2150
 row	8
 column	10
@@ -1261,8 +1267,8 @@ text	name   "TimesRoman" ---font name
 color	black
 %%
 %RowerNode
-child	2151
 address	2150
+child	2151
 sibling	2152
 row	9
 column	10
@@ -1278,8 +1284,8 @@ text	size   "14"   ---size of lettering
 color	black
 %%
 %RowerNode
-child	2153
 address	2152
+child	2153
 sibling	2154
 row	10
 column	10
@@ -1295,8 +1301,8 @@ text	color  "black"---color of lettering
 color	black
 %%
 %RowerNode
-child	2155
 address	2154
+child	2155
 sibling	2156
 row	11
 column	10
@@ -1312,8 +1318,8 @@ text	style  "1"---normal,2=bold,3=italics
 color	black
 %%
 %RowerNode
-child	2157
 address	2156
+child	2157
 sibling	2158
 row	12
 column	10
@@ -1329,8 +1335,8 @@ text	length "10" ---input field size
 color	black
 %%
 %RowerNode
-child	2159
 address	2158
+child	2159
 sibling	0
 row	13
 column	10
@@ -1346,15 +1352,16 @@ text	limit   "99"---limit of input chars.
 color	black
 %%
 %CardSet
-child	2161
 address	2160
+child	2161
 sibling	2192
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2162
 address	2161
+child	2162
 sibling	2163
 row	0
 column	5
@@ -1370,8 +1377,8 @@ text	The appearance defaults values can
 color	black
 %%
 %RowerNode
-child	2164
 address	2163
+child	2164
 sibling	2165
 row	2
 column	5
@@ -1387,8 +1394,8 @@ text	be overriden with '*' commands.
 color	black
 %%
 %RowerNode
-child	2166
 address	2165
+child	2166
 sibling	2167
 row	3
 column	5
@@ -1404,8 +1411,8 @@ text	For example:
 color	black
 %%
 %RowerNode
-child	2168
 address	2167
+child	2168
 sibling	2169
 row	4
 column	10
@@ -1421,8 +1428,8 @@ text	------------------------
 color	black
 %%
 %RowerNode
-child	2170
 address	2169
+child	2170
 sibling	2171
 row	5
 column	10
@@ -1438,8 +1445,8 @@ text	* height 645
 color	black
 %%
 %RowerNode
-child	2172
 address	2171
+child	2172
 sibling	2173
 row	6
 column	10
@@ -1455,8 +1462,8 @@ text	* width  500
 color	black
 %%
 %RowerNode
-child	2174
 address	2173
+child	2174
 sibling	2175
 row	7
 column	10
@@ -1472,8 +1479,8 @@ text	c
 color	black
 %%
 %RowerNode
-child	2176
 address	2175
+child	2176
 sibling	2177
 row	8
 column	10
@@ -1489,8 +1496,8 @@ text	d first card set
 color	black
 %%
 %RowerNode
-child	2178
 address	2177
+child	2178
 sibling	2179
 row	9
 column	10
@@ -1506,8 +1513,8 @@ text	...
 color	black
 %%
 %RowerNode
-child	2180
 address	2179
+child	2180
 sibling	2181
 row	10
 column	10
@@ -1529,8 +1536,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2183
 address	2182
+child	2183
 sibling	2184
 row	11
 column	5
@@ -1546,8 +1553,8 @@ text
 color	black
 %%
 %RowerNode
-child	2185
 address	2184
+child	2185
 sibling	2186
 row	12
 column	5
@@ -1563,8 +1570,8 @@ text	The window default sizes (300,400)
 color	black
 %%
 %RowerNode
-child	2187
 address	2186
+child	2187
 sibling	2188
 row	13
 column	5
@@ -1580,8 +1587,8 @@ text	are overridden with values (645,500)
 color	black
 %%
 %RowerNode
-child	2189
 address	2188
+child	2189
 sibling	2190
 row	14
 column	5
@@ -1597,8 +1604,8 @@ text	Note: these '*' commands precede the
 color	black
 %%
 %RowerNode
-child	2191
 address	2190
+child	2191
 sibling	0
 row	15
 column	5
@@ -1614,15 +1621,16 @@ text	first Card set.
 color	black
 %%
 %CardSet
-child	2193
 address	2192
+child	2193
 sibling	2199
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2194
 address	2193
+child	2194
 sibling	2195
 row	2
 column	5
@@ -1638,8 +1646,8 @@ text	The other appearance default values
 color	black
 %%
 %RowerNode
-child	2196
 address	2195
+child	2196
 sibling	2197
 row	4
 column	5
@@ -1655,9 +1663,9 @@ text	may be overridden with '*'
 color	black
 %%
 %RowerNode
-child	2198
 address	2197
-sibling	0
+child	2198
+sibling	2201
 row	5
 column	5
 %%
@@ -1679,6 +1687,35 @@ condition	0
 %%
 %NotecardTask
 address	2200
+sibling	2203
+task	end
+type	0
+%%
+%RowerNode
+address	2201
+child	2202
+sibling	0
+row	6
+column	5
+%%
+%DisplayText
+address	2202
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	commands.
+color	black
+%%
+%NextFile
+address	2203
+sibling	2204
+filename	end
+condition	0
+%%
+%NotecardTask
+address	2204
 sibling	0
 task	end
 type	0

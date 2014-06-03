@@ -8,6 +8,20 @@
  StartFile.scala is created by the startfile script
 */
 
+/*
+	The 'start file' is a '.nc' script file, such as:
+
+	c
+	d Enter start filename (# $startfile)
+	f $startfile
+	* end
+
+	In the event the user mistypes the name of a
+	'.nc' file, then a window with an input field
+	is presented to allow the user to enter the
+	correct filename.
+
+*/
 package com.client
 
   object StartFile { 

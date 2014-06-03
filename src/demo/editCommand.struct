@@ -7,15 +7,16 @@ asteriskButton	on
 priorButton	on
 %%
 %CardSet
-child	2003
 address	2002
+child	2003
 sibling	2030
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2004
 address	2003
+child	2004
 sibling	2005
 row	1
 column	5
@@ -31,8 +32,8 @@ text	Suppose the correct response for the following
 color	black
 %%
 %RowerNode
-child	2006
 address	2005
+child	2006
 sibling	2008
 row	3
 column	5
@@ -58,8 +59,8 @@ text	cat
 color	blue
 %%
 %RowerNode
-child	2009
 address	2008
+child	2009
 sibling	2010
 row	4
 column	10
@@ -75,8 +76,8 @@ text
 color	black
 %%
 %RowerNode
-child	2011
 address	2010
+child	2011
 sibling	2012
 row	5
 column	10
@@ -92,8 +93,8 @@ text	d Enter name of the animal (# $input)
 color	black
 %%
 %RowerNode
-child	2013
 address	2012
+child	2013
 sibling	2014
 row	6
 column	5
@@ -109,8 +110,8 @@ text
 color	black
 %%
 %RowerNode
-child	2015
 address	2014
+child	2015
 sibling	2017
 row	7
 column	5
@@ -136,8 +137,8 @@ text	cat
 color	blue
 %%
 %RowerNode
-child	2018
 address	2017
+child	2018
 sibling	2019
 row	8
 column	5
@@ -159,8 +160,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2021
 address	2020
+child	2021
 sibling	2022
 row	9
 column	5
@@ -176,8 +177,8 @@ text
 color	black
 %%
 %RowerNode
-child	2023
 address	2022
+child	2023
 sibling	2028
 row	10
 column	5
@@ -233,8 +234,8 @@ text	 command handles
 color	black
 %%
 %RowerNode
-child	2029
 address	2028
+child	2029
 sibling	0
 row	11
 column	5
@@ -250,15 +251,16 @@ text	this situation.
 color	black
 %%
 %CardSet
-child	2031
 address	2030
+child	2031
 sibling	2062
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2032
 address	2031
+child	2032
 sibling	2035
 row	1
 column	5
@@ -294,8 +296,8 @@ text	 command controls what
 color	black
 %%
 %RowerNode
-child	2036
 address	2035
+child	2036
 sibling	2037
 row	3
 column	5
@@ -311,8 +313,8 @@ text	the user may enter as a response or input.
 color	black
 %%
 %RowerNode
-child	2038
 address	2037
+child	2038
 sibling	2039
 row	4
 column	5
@@ -328,8 +330,8 @@ text
 color	black
 %%
 %RowerNode
-child	2040
 address	2039
+child	2040
 sibling	2041
 row	5
 column	5
@@ -345,8 +347,8 @@ text	The 'e' command:
 color	black
 %%
 %RowerNode
-child	2042
 address	2041
+child	2042
 sibling	2043
 row	6
 column	5
@@ -362,8 +364,8 @@ text
 color	black
 %%
 %RowerNode
-child	2044
 address	2043
+child	2044
 sibling	2045
 row	7
 column	10
@@ -379,8 +381,8 @@ text	e ($input)=(cat)
 color	black
 %%
 %RowerNode
-child	2046
 address	2045
+child	2046
 sibling	2047
 row	8
 column	10
@@ -396,8 +398,8 @@ text
 color	black
 %%
 %RowerNode
-child	2048
 address	2047
+child	2048
 sibling	2051
 row	9
 column	5
@@ -433,8 +435,8 @@ text	 is rejected.
 color	black
 %%
 %RowerNode
-child	2052
 address	2051
+child	2052
 sibling	2053
 row	10
 column	5
@@ -456,8 +458,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2055
 address	2054
+child	2055
 sibling	2056
 row	11
 column	5
@@ -473,8 +475,8 @@ text	When rejected, The response field is cleared.
 color	black
 %%
 %RowerNode
-child	2057
 address	2056
+child	2057
 sibling	2060
 row	12
 column	5
@@ -510,8 +512,8 @@ text	 to proceed
 color	black
 %%
 %RowerNode
-child	2061
 address	2060
+child	2061
 sibling	0
 row	13
 column	5
@@ -527,15 +529,16 @@ text	to the next card
 color	black
 %%
 %CardSet
-child	2063
 address	2062
+child	2063
 sibling	2092
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2064
 address	2063
+child	2064
 sibling	2067
 row	0
 column	5
@@ -571,8 +574,8 @@ text	 command:
 color	black
 %%
 %RowerNode
-child	2068
 address	2067
+child	2068
 sibling	2069
 row	2
 column	20
@@ -588,8 +591,8 @@ text	e ($input)=(cat)
 color	blue
 %%
 %RowerNode
-child	2070
 address	2069
+child	2070
 sibling	2071
 row	3
 column	5
@@ -605,8 +608,8 @@ text	must immediately follow the 'd' command
 color	black
 %%
 %RowerNode
-child	2072
 address	2071
+child	2072
 sibling	2073
 row	4
 column	5
@@ -622,8 +625,8 @@ text	having  the (# $input) expression.
 color	black
 %%
 %RowerNode
-child	2074
 address	2073
+child	2074
 sibling	2075
 row	5
 column	5
@@ -645,8 +648,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2077
 address	2076
+child	2077
 sibling	2078
 row	6
 column	5
@@ -662,8 +665,8 @@ text	The following is correct:
 color	black
 %%
 %RowerNode
-child	2079
 address	2078
+child	2079
 sibling	2080
 row	7
 column	10
@@ -679,8 +682,8 @@ text
 color	black
 %%
 %RowerNode
-child	2081
 address	2080
+child	2081
 sibling	2082
 row	8
 column	10
@@ -696,8 +699,8 @@ text	d Enter name of the animal (# $input)
 color	black
 %%
 %RowerNode
-child	2083
 address	2082
+child	2083
 sibling	2084
 row	9
 column	10
@@ -713,8 +716,8 @@ text	e ($input)=(cat)
 color	black
 %%
 %RowerNode
-child	2085
 address	2084
+child	2085
 sibling	2086
 row	10
 column	5
@@ -730,8 +733,8 @@ text
 color	black
 %%
 %RowerNode
-child	2087
 address	2086
+child	2087
 sibling	2090
 row	11
 column	5
@@ -767,8 +770,8 @@ text	 are the same in both the 'd'
 color	black
 %%
 %RowerNode
-child	2091
 address	2090
+child	2091
 sibling	0
 row	12
 column	5
@@ -784,15 +787,16 @@ text	command and the 'e' command.
 color	black
 %%
 %CardSet
-child	2093
 address	2092
+child	2093
 sibling	2111
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2094
 address	2093
+child	2094
 sibling	2095
 row	1
 column	5
@@ -808,8 +812,8 @@ text	Enter input other than 'cat' to note the
 color	black
 %%
 %RowerNode
-child	2096
 address	2095
+child	2096
 sibling	2097
 row	3
 column	5
@@ -825,8 +829,8 @@ text	effects.
 color	black
 %%
 %RowerNode
-child	2098
 address	2097
+child	2098
 sibling	2099
 row	4
 column	5
@@ -842,8 +846,8 @@ text
 color	black
 %%
 %RowerNode
-child	2100
 address	2099
+child	2100
 sibling	2103
 row	5
 column	5
@@ -859,8 +863,8 @@ text	Enter animal name
 color	black
 %%
 %BoxField
-child	2102
 address	2101
+child	2102
 sibling	0
 field	$animal1
 length	10
@@ -881,8 +885,8 @@ status	0
 variable	0
 %%
 %RowerNode
-child	2104
 address	2103
+child	2104
 sibling	2105
 row	6
 column	5
@@ -898,8 +902,8 @@ text
 color	black
 %%
 %RowerNode
-child	2106
 address	2105
+child	2106
 sibling	2107
 row	7
 column	5
@@ -915,8 +919,8 @@ text
 color	black
 %%
 %RowerNode
-child	2108
 address	2107
+child	2108
 sibling	2109
 row	8
 column	5
@@ -932,8 +936,8 @@ text	Eventually, 'cat' has to be entered to
 color	black
 %%
 %RowerNode
-child	2110
 address	2109
+child	2110
 sibling	0
 row	9
 column	5
@@ -949,15 +953,16 @@ text	get to the next card.
 color	black
 %%
 %CardSet
-child	2112
 address	2111
+child	2112
 sibling	2124
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2113
 address	2112
+child	2113
 sibling	2114
 row	0
 column	5
@@ -973,8 +978,8 @@ text	A problem with the previous 'e command is
 color	black
 %%
 %RowerNode
-child	2115
 address	2114
+child	2115
 sibling	2116
 row	2
 column	5
@@ -990,8 +995,8 @@ text	that a user may be unaware of why their
 color	black
 %%
 %RowerNode
-child	2117
 address	2116
+child	2117
 sibling	2118
 row	3
 column	5
@@ -1007,8 +1012,8 @@ text	response failed.
 color	black
 %%
 %RowerNode
-child	2119
 address	2118
+child	2119
 sibling	2120
 row	4
 column	5
@@ -1024,8 +1029,8 @@ text
 color	black
 %%
 %RowerNode
-child	2121
 address	2120
+child	2121
 sibling	2122
 row	5
 column	5
@@ -1041,8 +1046,8 @@ text	The 'e' command is capable to messaging
 color	black
 %%
 %RowerNode
-child	2123
 address	2122
+child	2123
 sibling	0
 row	6
 column	5
@@ -1058,15 +1063,16 @@ text	the user as to why their response failed.
 color	black
 %%
 %CardSet
-child	2125
 address	2124
+child	2125
 sibling	2148
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2126
 address	2125
+child	2126
 sibling	2128
 row	1
 column	5
@@ -1092,8 +1098,8 @@ text	status=
 color	blue
 %%
 %RowerNode
-child	2129
 address	2128
+child	2129
 sibling	2130
 row	3
 column	5
@@ -1109,8 +1115,8 @@ text	tag specifying the required response.
 color	black
 %%
 %RowerNode
-child	2131
 address	2130
+child	2131
 sibling	2132
 row	4
 column	5
@@ -1126,8 +1132,8 @@ text
 color	black
 %%
 %RowerNode
-child	2133
 address	2132
+child	2133
 sibling	2134
 row	5
 column	10
@@ -1143,8 +1149,8 @@ text	--------------script------------------------
 color	black
 %%
 %RowerNode
-child	2135
 address	2134
+child	2135
 sibling	2136
 row	6
 column	10
@@ -1160,8 +1166,8 @@ text	d Enter animal name (# $animal)
 color	black
 %%
 %RowerNode
-child	2137
 address	2136
+child	2137
 sibling	2140
 row	7
 column	10
@@ -1197,8 +1203,8 @@ text	enter cat
 color	black
 %%
 %RowerNode
-child	2141
 address	2140
+child	2141
 sibling	2142
 row	8
 column	10
@@ -1214,8 +1220,8 @@ text	-----------------------------------------------
 color	black
 %%
 %RowerNode
-child	2143
 address	2142
+child	2143
 sibling	2144
 row	9
 column	5
@@ -1231,8 +1237,8 @@ text
 color	black
 %%
 %RowerNode
-child	2145
 address	2144
+child	2145
 sibling	0
 row	10
 column	5
@@ -1268,15 +1274,16 @@ text	.
 color	black
 %%
 %CardSet
-child	2149
 address	2148
+child	2149
 sibling	2161
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2150
 address	2149
+child	2150
 sibling	2151
 row	1
 column	5
@@ -1292,8 +1299,8 @@ text	Again, enter input other than 'cat' to
 color	black
 %%
 %RowerNode
-child	2152
 address	2151
+child	2152
 sibling	2153
 row	3
 column	5
@@ -1309,8 +1316,8 @@ text	view the status message.
 color	black
 %%
 %RowerNode
-child	2154
 address	2153
+child	2154
 sibling	2155
 row	4
 column	5
@@ -1326,8 +1333,8 @@ text
 color	black
 %%
 %RowerNode
-child	2156
 address	2155
+child	2156
 sibling	2159
 row	5
 column	5
@@ -1343,8 +1350,8 @@ text	Enter animal name
 color	black
 %%
 %BoxField
-child	2158
 address	2157
+child	2158
 sibling	0
 field	$animal2
 length	10
@@ -1365,8 +1372,8 @@ status	enter cat
 variable	0
 %%
 %RowerNode
-child	2160
 address	2159
+child	2160
 sibling	0
 row	6
 column	5
@@ -1382,15 +1389,16 @@ text
 color	black
 %%
 %CardSet
-child	2162
 address	2161
+child	2162
 sibling	2200
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2163
 address	2162
+child	2163
 sibling	2164
 row	1
 column	5
@@ -1406,8 +1414,8 @@ text	In place of a logic expression, the 'e'
 color	black
 %%
 %RowerNode
-child	2165
 address	2164
+child	2165
 sibling	2166
 row	3
 column	5
@@ -1423,8 +1431,8 @@ text	command may have a literal. There are two:
 color	black
 %%
 %RowerNode
-child	2167
 address	2166
+child	2167
 sibling	2171
 row	4
 column	20
@@ -1470,8 +1478,8 @@ text	.
 color	black
 %%
 %RowerNode
-child	2172
 address	2171
+child	2172
 sibling	2173
 row	5
 column	20
@@ -1487,8 +1495,8 @@ text
 color	black
 %%
 %RowerNode
-child	2174
 address	2173
+child	2174
 sibling	2175
 row	6
 column	10
@@ -1504,8 +1512,8 @@ text	----------script-------------------------
 color	black
 %%
 %RowerNode
-child	2176
 address	2175
+child	2176
 sibling	2177
 row	7
 column	10
@@ -1521,8 +1529,8 @@ text	d Enter name (# $name)
 color	black
 %%
 %RowerNode
-child	2178
 address	2177
+child	2178
 sibling	2181
 row	8
 column	10
@@ -1558,8 +1566,8 @@ text	 status=letters only
 color	black
 %%
 %RowerNode
-child	2182
 address	2181
+child	2182
 sibling	2183
 row	9
 column	10
@@ -1575,8 +1583,8 @@ text	d Enter age  (# $age)
 color	black
 %%
 %RowerNode
-child	2184
 address	2183
+child	2184
 sibling	2187
 row	10
 column	10
@@ -1612,8 +1620,8 @@ text	 status=numbers only
 color	black
 %%
 %RowerNode
-child	2188
 address	2187
+child	2188
 sibling	2189
 row	11
 column	10
@@ -1635,8 +1643,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2191
 address	2190
+child	2191
 sibling	2192
 row	12
 column	5
@@ -1652,8 +1660,8 @@ text
 color	black
 %%
 %RowerNode
-child	2193
 address	2192
+child	2193
 sibling	2196
 row	13
 column	5
@@ -1689,8 +1697,8 @@ text	 allows input of a decimal '.'
 color	black
 %%
 %RowerNode
-child	2197
 address	2196
+child	2197
 sibling	0
 row	14
 column	5
@@ -1726,15 +1734,16 @@ text	 allows input of spaces ' '
 color	black
 %%
 %CardSet
-child	2201
 address	2200
+child	2201
 sibling	2223
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2202
 address	2201
+child	2202
 sibling	2205
 row	1
 column	5
@@ -1770,8 +1779,8 @@ text	.
 color	black
 %%
 %RowerNode
-child	2206
 address	2205
+child	2206
 sibling	2207
 row	3
 column	5
@@ -1787,8 +1796,8 @@ text	Enter a non numeric input to see effects.
 color	black
 %%
 %RowerNode
-child	2208
 address	2207
+child	2208
 sibling	2209
 row	4
 column	5
@@ -1804,8 +1813,8 @@ text
 color	black
 %%
 %RowerNode
-child	2210
 address	2209
+child	2210
 sibling	2211
 row	5
 column	10
@@ -1821,8 +1830,8 @@ text	-------------script----------------
 color	black
 %%
 %RowerNode
-child	2212
 address	2211
+child	2212
 sibling	2213
 row	6
 column	10
@@ -1838,8 +1847,8 @@ text	d Enter age (# $age)
 color	black
 %%
 %RowerNode
-child	2214
 address	2213
+child	2214
 sibling	2215
 row	7
 column	10
@@ -1855,8 +1864,8 @@ text	e number status=  numbers only
 color	black
 %%
 %RowerNode
-child	2216
 address	2215
+child	2216
 sibling	2217
 row	8
 column	10
@@ -1872,8 +1881,8 @@ text	--------------------------------------
 color	black
 %%
 %RowerNode
-child	2218
 address	2217
+child	2218
 sibling	2219
 row	9
 column	5
@@ -1889,8 +1898,8 @@ text
 color	black
 %%
 %RowerNode
-child	2220
 address	2219
+child	2220
 sibling	0
 row	10
 column	5
@@ -1906,8 +1915,8 @@ text	Enter age
 color	black
 %%
 %BoxField
-child	2222
 address	2221
+child	2222
 sibling	0
 field	$age
 length	10
@@ -1928,15 +1937,16 @@ status	numbers only
 variable	0
 %%
 %CardSet
-child	2224
 address	2223
+child	2224
 sibling	2253
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2225
 address	2224
+child	2225
 sibling	2226
 row	1
 column	5
@@ -1952,8 +1962,8 @@ text	A field expression of the 'd' command may
 color	black
 %%
 %RowerNode
-child	2227
 address	2226
+child	2227
 sibling	2228
 row	3
 column	5
@@ -1969,8 +1979,8 @@ text	have more than one related 'e' commands.
 color	black
 %%
 %RowerNode
-child	2229
 address	2228
+child	2229
 sibling	2230
 row	4
 column	5
@@ -1986,8 +1996,8 @@ text
 color	black
 %%
 %RowerNode
-child	2231
 address	2230
+child	2231
 sibling	2232
 row	5
 column	5
@@ -2003,8 +2013,8 @@ text	For example, age must be a numeric value,
 color	black
 %%
 %RowerNode
-child	2233
 address	2232
+child	2233
 sibling	2234
 row	6
 column	5
@@ -2020,8 +2030,8 @@ text	but not less than 1 or greater than 100.
 color	black
 %%
 %RowerNode
-child	2235
 address	2234
+child	2235
 sibling	2236
 row	7
 column	5
@@ -2037,8 +2047,8 @@ text
 color	black
 %%
 %RowerNode
-child	2237
 address	2236
+child	2237
 sibling	2238
 row	8
 column	5
@@ -2060,8 +2070,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2240
 address	2239
+child	2240
 sibling	2241
 row	9
 column	5
@@ -2077,8 +2087,8 @@ text
 color	black
 %%
 %RowerNode
-child	2242
 address	2241
+child	2242
 sibling	2243
 row	10
 column	5
@@ -2094,8 +2104,8 @@ text	--------------------script------------------------
 color	black
 %%
 %RowerNode
-child	2244
 address	2243
+child	2244
 sibling	2245
 row	11
 column	5
@@ -2111,8 +2121,8 @@ text	d Enter age (# $age)
 color	black
 %%
 %RowerNode
-child	2246
 address	2245
+child	2246
 sibling	2247
 row	12
 column	5
@@ -2128,8 +2138,8 @@ text	e number  status=numbers only
 color	black
 %%
 %RowerNode
-child	2248
 address	2247
+child	2248
 sibling	2249
 row	13
 column	5
@@ -2145,8 +2155,8 @@ text	e ($age)>(0)and($age)<=(100) status=1 to 100
 color	black
 %%
 %RowerNode
-child	2250
 address	2249
+child	2250
 sibling	2251
 row	14
 column	5
@@ -2162,8 +2172,8 @@ text	-------------------------------------------------
 color	black
 %%
 %RowerNode
-child	2252
 address	2251
+child	2252
 sibling	0
 row	15
 column	5
@@ -2179,15 +2189,16 @@ text	Order of 'e' commands is crucial.
 color	black
 %%
 %CardSet
-child	2254
 address	2253
+child	2254
 sibling	2273
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2255
 address	2254
+child	2255
 sibling	2256
 row	1
 column	5
@@ -2203,8 +2214,8 @@ text	This Card executes the following script:
 color	black
 %%
 %RowerNode
-child	2257
 address	2256
+child	2257
 sibling	2258
 row	3
 column	5
@@ -2220,8 +2231,8 @@ text	--------------------script------------------------
 color	black
 %%
 %RowerNode
-child	2259
 address	2258
+child	2259
 sibling	2260
 row	4
 column	5
@@ -2237,8 +2248,8 @@ text	d Enter age (# $age)
 color	black
 %%
 %RowerNode
-child	2261
 address	2260
+child	2261
 sibling	2262
 row	5
 column	5
@@ -2254,8 +2265,8 @@ text	e number  status=numbers only
 color	black
 %%
 %RowerNode
-child	2263
 address	2262
+child	2263
 sibling	2264
 row	6
 column	5
@@ -2271,8 +2282,8 @@ text	e ($age)>(0)and($age)<=(100) status=1 to 100
 color	black
 %%
 %RowerNode
-child	2265
 address	2264
+child	2265
 sibling	2266
 row	7
 column	5
@@ -2288,8 +2299,8 @@ text	-------------------------------------------------
 color	black
 %%
 %RowerNode
-child	2267
 address	2266
+child	2267
 sibling	2268
 row	8
 column	5
@@ -2305,8 +2316,8 @@ text
 color	black
 %%
 %RowerNode
-child	2269
 address	2268
+child	2269
 sibling	0
 row	9
 column	5
@@ -2322,8 +2333,8 @@ text	Enter age
 color	black
 %%
 %BoxField
-child	2271
 address	2270
+child	2271
 sibling	0
 field	$age
 length	10

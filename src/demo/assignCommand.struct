@@ -7,15 +7,16 @@ asteriskButton	on
 priorButton	on
 %%
 %CardSet
-child	2003
 address	2002
+child	2003
 sibling	2033
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2004
 address	2003
+child	2004
 sibling	2005
 row	0
 column	5
@@ -31,8 +32,8 @@ text	The expression (# $xyz) allows the user to
 color	black
 %%
 %RowerNode
-child	2006
 address	2005
+child	2006
 sibling	2007
 row	2
 column	5
@@ -48,8 +49,8 @@ text	input and assign a value to a $xyz.
 color	black
 %%
 %RowerNode
-child	2008
 address	2007
+child	2008
 sibling	2009
 row	3
 column	5
@@ -65,8 +66,8 @@ text
 color	black
 %%
 %RowerNode
-child	2010
 address	2009
+child	2010
 sibling	2011
 row	4
 column	5
@@ -82,8 +83,8 @@ text	The script has a command that also assigns.
 color	black
 %%
 %RowerNode
-child	2012
 address	2011
+child	2012
 sibling	2013
 row	5
 column	5
@@ -99,8 +100,8 @@ text
 color	black
 %%
 %RowerNode
-child	2014
 address	2013
+child	2014
 sibling	2017
 row	6
 column	5
@@ -136,8 +137,8 @@ text	,
 color	black
 %%
 %RowerNode
-child	2018
 address	2017
+child	2018
 sibling	2019
 row	7
 column	5
@@ -153,8 +154,8 @@ text	followed by a space and an $<variable>
 color	black
 %%
 %RowerNode
-child	2020
 address	2019
+child	2020
 sibling	2021
 row	8
 column	5
@@ -170,8 +171,8 @@ text
 color	black
 %%
 %RowerNode
-child	2022
 address	2021
+child	2022
 sibling	2023
 row	9
 column	5
@@ -187,8 +188,8 @@ text	Examples:
 color	black
 %%
 %RowerNode
-child	2024
 address	2023
+child	2024
 sibling	2025
 row	10
 column	10
@@ -204,8 +205,8 @@ text	---------------script---------------
 color	black
 %%
 %RowerNode
-child	2026
 address	2025
+child	2026
 sibling	2027
 row	11
 column	10
@@ -221,8 +222,8 @@ text	a $gender=male
 color	black
 %%
 %RowerNode
-child	2028
 address	2027
+child	2028
 sibling	2029
 row	12
 column	10
@@ -238,8 +239,8 @@ text	a $flag=1
 color	black
 %%
 %RowerNode
-child	2030
 address	2029
+child	2030
 sibling	2031
 row	13
 column	10
@@ -255,8 +256,8 @@ text	a $line=now is the   time   for
 color	black
 %%
 %RowerNode
-child	2032
 address	2031
+child	2032
 sibling	0
 row	14
 column	10
@@ -272,15 +273,16 @@ text	---------------------------------------
 color	black
 %%
 %CardSet
-child	2034
 address	2033
+child	2034
 sibling	2062
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2035
 address	2034
+child	2035
 sibling	2036
 row	1
 column	5
@@ -296,8 +298,8 @@ text	The 'a' command allows the developer to
 color	black
 %%
 %RowerNode
-child	2037
 address	2036
+child	2037
 sibling	2038
 row	3
 column	5
@@ -313,8 +315,8 @@ text	control whether certain Cards are
 color	black
 %%
 %RowerNode
-child	2039
 address	2038
+child	2039
 sibling	2040
 row	4
 column	5
@@ -330,8 +332,8 @@ text	presented to a category of users.
 color	black
 %%
 %RowerNode
-child	2041
 address	2040
+child	2041
 sibling	2042
 row	5
 column	5
@@ -347,8 +349,8 @@ text
 color	black
 %%
 %RowerNode
-child	2043
 address	2042
+child	2043
 sibling	2044
 row	6
 column	10
@@ -364,8 +366,8 @@ text	----------script-----------
 color	black
 %%
 %RowerNode
-child	2045
 address	2044
+child	2045
 sibling	2046
 row	7
 column	10
@@ -381,8 +383,8 @@ text	a $flag=2
 color	black
 %%
 %RowerNode
-child	2047
 address	2046
+child	2047
 sibling	2048
 row	8
 column	10
@@ -398,8 +400,8 @@ text	c ($flag) != (2)
 color	black
 %%
 %RowerNode
-child	2049
 address	2048
+child	2049
 sibling	2050
 row	9
 column	10
@@ -415,8 +417,8 @@ text	d How long have you been a member of A
 color	black
 %%
 %RowerNode
-child	2051
 address	2050
+child	2051
 sibling	2052
 row	10
 column	10
@@ -432,8 +434,8 @@ text	c ($flag) != (2)
 color	black
 %%
 %RowerNode
-child	2053
 address	2052
+child	2053
 sibling	2054
 row	11
 column	10
@@ -449,8 +451,8 @@ text	d When did you join A
 color	black
 %%
 %RowerNode
-child	2055
 address	2054
+child	2055
 sibling	2056
 row	12
 column	10
@@ -466,8 +468,8 @@ text	c ($flag) = (2)
 color	black
 %%
 %RowerNode
-child	2057
 address	2056
+child	2057
 sibling	2058
 row	13
 column	10
@@ -483,8 +485,8 @@ text	d How long have you been a member of B
 color	black
 %%
 %RowerNode
-child	2059
 address	2058
+child	2059
 sibling	2060
 row	14
 column	10
@@ -500,8 +502,8 @@ text	c ($flag) = (2)
 color	black
 %%
 %RowerNode
-child	2061
 address	2060
+child	2061
 sibling	0
 row	15
 column	10
@@ -517,15 +519,16 @@ text	d When did you join B
 color	black
 %%
 %CardSet
-child	2063
 address	2062
+child	2063
 sibling	2090
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2064
 address	2063
+child	2064
 sibling	2065
 row	1
 column	5
@@ -541,8 +544,8 @@ text	The 'a' command is capable of math
 color	black
 %%
 %RowerNode
-child	2066
 address	2065
+child	2066
 sibling	2067
 row	3
 column	5
@@ -558,8 +561,8 @@ text	operations.
 color	black
 %%
 %RowerNode
-child	2068
 address	2067
+child	2068
 sibling	2069
 row	4
 column	5
@@ -575,8 +578,8 @@ text
 color	black
 %%
 %RowerNode
-child	2070
 address	2069
+child	2070
 sibling	2071
 row	5
 column	5
@@ -592,8 +595,8 @@ text	This Card sets $count to zero and
 color	black
 %%
 %RowerNode
-child	2072
 address	2071
+child	2072
 sibling	2073
 row	6
 column	5
@@ -609,8 +612,8 @@ text	then d increment it by one.
 color	black
 %%
 %RowerNode
-child	2074
 address	2073
+child	2074
 sibling	2075
 row	7
 column	10
@@ -626,8 +629,8 @@ text	------------script-----------------
 color	black
 %%
 %RowerNode
-child	2076
 address	2075
+child	2076
 sibling	2077
 row	8
 column	10
@@ -643,8 +646,8 @@ text	a $count=0
 color	black
 %%
 %RowerNode
-child	2078
 address	2077
+child	2078
 sibling	2079
 row	9
 column	10
@@ -660,8 +663,8 @@ text	a $count=$count +1
 color	black
 %%
 %RowerNode
-child	2080
 address	2079
+child	2080
 sibling	2081
 row	10
 column	10
@@ -683,8 +686,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2083
 address	2082
+child	2083
 sibling	2084
 row	11
 column	5
@@ -700,8 +703,8 @@ text	Another example of the math expression:
 color	black
 %%
 %RowerNode
-child	2085
 address	2084
+child	2085
 sibling	2086
 row	12
 column	10
@@ -717,8 +720,8 @@ text	-------------script-----------------
 color	black
 %%
 %RowerNode
-child	2087
 address	2086
+child	2087
 sibling	2088
 row	13
 column	10
@@ -734,8 +737,8 @@ text	a $xyz= (3+$count)/(6*($xyz)-2)
 color	black
 %%
 %RowerNode
-child	2089
 address	2088
+child	2089
 sibling	0
 row	14
 column	10
@@ -751,15 +754,16 @@ text	---------------------------------------
 color	black
 %%
 %CardSet
-child	2091
 address	2090
+child	2091
 sibling	2126
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2092
 address	2091
+child	2092
 sibling	2093
 row	0
 column	5
@@ -775,8 +779,8 @@ text	The 'a' command has an optional logic
 color	black
 %%
 %RowerNode
-child	2094
 address	2093
+child	2094
 sibling	2095
 row	2
 column	5
@@ -792,8 +796,8 @@ text	expression.
 color	black
 %%
 %RowerNode
-child	2096
 address	2095
+child	2096
 sibling	2097
 row	3
 column	5
@@ -809,8 +813,8 @@ text
 color	black
 %%
 %RowerNode
-child	2098
 address	2097
+child	2098
 sibling	2099
 row	4
 column	5
@@ -826,8 +830,8 @@ text	A complication exists, however.
 color	black
 %%
 %RowerNode
-child	2100
 address	2099
+child	2100
 sibling	2101
 row	5
 column	5
@@ -843,8 +847,8 @@ text
 color	black
 %%
 %RowerNode
-child	2102
 address	2101
+child	2102
 sibling	2103
 row	6
 column	5
@@ -860,8 +864,8 @@ text	The parser detects the logic expression in the
 color	black
 %%
 %RowerNode
-child	2104
 address	2103
+child	2104
 sibling	2105
 row	7
 column	5
@@ -877,8 +881,8 @@ text	'c' command by the open parenthesis, i.e., '('.
 color	black
 %%
 %RowerNode
-child	2106
 address	2105
+child	2106
 sibling	2107
 row	8
 column	5
@@ -894,8 +898,8 @@ text
 color	black
 %%
 %RowerNode
-child	2108
 address	2107
+child	2108
 sibling	2109
 row	9
 column	5
@@ -911,8 +915,8 @@ text	The math expression may also have an
 color	black
 %%
 %RowerNode
-child	2110
 address	2109
+child	2110
 sibling	2111
 row	10
 column	5
@@ -928,8 +932,8 @@ text	open parenthesis.
 color	black
 %%
 %RowerNode
-child	2112
 address	2111
+child	2112
 sibling	2113
 row	11
 column	5
@@ -951,8 +955,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2115
 address	2114
+child	2115
 sibling	2116
 row	12
 column	5
@@ -968,8 +972,8 @@ text	The 'a' command with a logic expression,
 color	black
 %%
 %RowerNode
-child	2117
 address	2116
+child	2117
 sibling	2118
 row	13
 column	5
@@ -985,8 +989,8 @@ text	with or without a math expression, must
 color	black
 %%
 %RowerNode
-child	2119
 address	2118
+child	2119
 sibling	2124
 row	14
 column	5
@@ -1042,8 +1046,8 @@ text	 preceding the logic
 color	black
 %%
 %RowerNode
-child	2125
 address	2124
+child	2125
 sibling	0
 row	15
 column	5
@@ -1059,15 +1063,16 @@ text	expression.
 color	black
 %%
 %CardSet
-child	2127
 address	2126
+child	2127
 sibling	2145
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2128
 address	2127
+child	2128
 sibling	2129
 row	1
 column	5
@@ -1083,8 +1088,8 @@ text	Examples of logic expressions in the
 color	black
 %%
 %RowerNode
-child	2130
 address	2129
+child	2130
 sibling	2131
 row	3
 column	5
@@ -1100,8 +1105,8 @@ text	'a' command.
 color	black
 %%
 %RowerNode
-child	2132
 address	2131
+child	2132
 sibling	2133
 row	4
 column	5
@@ -1117,8 +1122,8 @@ text
 color	black
 %%
 %RowerNode
-child	2134
 address	2133
+child	2134
 sibling	2135
 row	5
 column	10
@@ -1134,8 +1139,8 @@ text	-------------------script-----------------------
 color	black
 %%
 %RowerNode
-child	2136
 address	2135
+child	2136
 sibling	2139
 row	6
 column	10
@@ -1171,8 +1176,8 @@ text	($one)=(0)
 color	black
 %%
 %RowerNode
-child	2140
 address	2139
+child	2140
 sibling	2143
 row	7
 column	10
@@ -1208,8 +1213,8 @@ text	 ($timer)>=(22)
 color	black
 %%
 %RowerNode
-child	2144
 address	2143
+child	2144
 sibling	0
 row	8
 column	10

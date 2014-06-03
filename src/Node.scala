@@ -111,6 +111,7 @@ trait Node  {
 	var condition:Node=null // logic condition, eg, (male)=($gender)
 	var backup:Node=null	// current node assigned after Framer completes
 							// processing of CardSet
+	def getId=symId
 	def getFirstChild=child //root of list, assigned by 'reset'
 	def getNext= next
 	def setBackup= backup=next//Framer invoked on return from startCardSet 

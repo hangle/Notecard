@@ -79,7 +79,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		// Initiates Notecard passing an argument 'taskGather' with 
 		// parameters NEXT_FILE or END_SESSION
 		// Save current CardSet to be restore  after ButtonCardSets
-			// have exe
+		// have exe
 	var currentCardSet:Node=null
 
 	def startNotecard(taskGather:TaskGather) {
@@ -150,8 +150,8 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						// it to return.
 				cs.startCardSet(notePanel, lock, buttonSet, statusLine)
 						// wait() of CardSet just released. Determine if either
-						// backup button or * asterisk button was activated.
-						// If so, than take care of // PRIOR and'*' buttons
+						// backup button or * asterisk button or '+Add' button was 
+						// activated. If so, than take care of button activated.
 				waitOverDoButtons(taskGather, cs,notePanel,lock,buttonSet, statusLine)
 						// FrameTask is an <asterisk> command that performs
 						// a notecard task, such as ending the card session.
@@ -182,7 +182,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 	    				  notePanel:JPanel, 
 						  lock:AnyRef, 
 						  buttonSet:ButtonSet, 
-						  statusLine:StatusLine)={ 
+						  statusLine:StatusLine):Unit={ 
 		buttonSet.selectedButton match {
 				case "next"  =>
 				case "prior" =>
@@ -190,6 +190,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				case "*" =>
 							doAsteriskButton(taskGather)
 				case "+" =>
+							cardSet.turnOnAddButton // sets isAddButton=true
 							doButtonCardSet(taskGather,
 											cardSet,
 											notePanel,
@@ -206,18 +207,23 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						lock:AnyRef, 
 						buttonSet:ButtonSet, 
 						statusLine:StatusLine)={ 
-
+				// Node.symButton !="0" indicates that CardSet has a child ButtonCardSet
 		if(cardSet.isButtonCardSet){
 					// Save Link iterator's node in order to restore this node
 					// when button CardSets end.
 				saveCurrentCardSet	  // iterator's node is saved. 
 				val button= cardSet.getButtonCardSet
 				val buttonCardSet= button.asInstanceOf[CardSet]
+					// ButtonCardSet(s) will be processed as if the are CardSet(s).
 				reset(buttonCardSet)
 				while(iterate) {
 					Value match {
 						case cs:CardSet=>
 								cs.startCardSet(notePanel, lock, buttonSet, statusLine)
+									// Note, when 'doButtonCardSet(..) unwinds, it
+									// will encounter 'waitOverDoButton(...) in
+									// 'executeNotecardChildren' to determine
+									// which button was activated. 
 						case _=> println("Notecard: Unknown Value")
 						}
 					}
@@ -255,11 +261,12 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		window
 		}
 		// The '*' button was activated to switch from the current script file to a second
-		// script file. Typically, the '* mangage <filename>' command provides the name
+		// script file. The '* mangage <filename>' command provides the name
 		// of this second file. NotecardTask handles '* manage <filename>' command and
-		// creates a Linked List structure from this file whose root is 'manageNotecard'. 
-		// The root of the List List structure's of the current file is 'initialNotecard'.	
-		// Notecard is recursively invoked by 'manageNotecard.startNotecard(..).
+		// creates a Linked List structure from this file whose root is assigned to 
+		// 'manageNotecard'.   The root of the List List structure's of the current file is 
+		// is assigned to 'initialNotecard'.  Notecard is recursively invoked by 
+		// 'manageNotecard.startNotecard(..).
 	def doAsteriskButton(taskGather:TaskGather) {
 			// Session keep track of whether Notecard is invoked	
 			// by 'card',i.e., 'clientNotecard'  or invoked 
@@ -269,10 +276,12 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// activated, the 'else' group is executed
 			Session.initialNotecardState=false   
 			buttonSet.asteriskButton=false   // turn off '*' button
-			if(manageNotecard == null) 
+			buttonSet.grayAndDisableAsteriskButton
+			if(manageNotecard == null) {
 					//'*' button activated without '* manage <filename>' command. The 
 					// 'xyzxxyzv' file does not exist, so 'start' file is invoked.
 				manageNotecard=CommandNetwork.loadFileAndBuildNetwork( "xyzxxyzv", symbolTable)
+				}
 			if(manageNotecard != null) {     
 					//Store Card node if needed to restart clientNotecard
 				saveCurrentNode   // Linker
@@ -293,9 +302,11 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// Display the Card from which the '*' button was activated
 				restoreCurrentNode //Linker   Restore clientNotecard
 					}
-				  else println("Notecard:  manageNotecard is NULL")
-				}
-			else{	
+			 else println("Notecard:  manageNotecard is NULL")
+			}
+				// Management system currently running. The following code
+				// switches system back to the initial system.
+		  else{	
 					// set 'manageNotecard' state 'true' so the next time '*' is 
 					// activated the 'then' group is executed
 				Session.initialNotecardState=true // 

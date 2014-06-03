@@ -1,6 +1,6 @@
 /* date:   May 31, 2012
 
-  Created in 'card' to hold variables
+  Created in 'card'(main) to hold variables
   that last the entire Notecard session. The
   session variables extends across the Notecard
   files (*.nc).

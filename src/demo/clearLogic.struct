@@ -7,15 +7,16 @@ asteriskButton	on
 priorButton	on
 %%
 %CardSet
-child	2003
 address	2002
+child	2003
 sibling	2036
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2004
 address	2003
+child	2004
 sibling	2005
 row	1
 column	5
@@ -31,8 +32,8 @@ text	The following script has two Card Sets.
 color	black
 %%
 %RowerNode
-child	2006
 address	2005
+child	2006
 sibling	2007
 row	3
 column	5
@@ -48,8 +49,8 @@ text
 color	black
 %%
 %RowerNode
-child	2008
 address	2007
+child	2008
 sibling	2009
 row	4
 column	10
@@ -65,8 +66,8 @@ text	-----------script------------------
 color	black
 %%
 %RowerNode
-child	2010
 address	2009
+child	2010
 sibling	2012
 row	5
 column	10
@@ -92,8 +93,8 @@ text
 color	black
 %%
 %RowerNode
-child	2013
 address	2012
+child	2013
 sibling	2014
 row	6
 column	10
@@ -109,8 +110,8 @@ text	d now is the
 color	black
 %%
 %RowerNode
-child	2015
 address	2014
+child	2015
 sibling	2016
 row	7
 column	10
@@ -126,8 +127,8 @@ text	d time for all
 color	black
 %%
 %RowerNode
-child	2017
 address	2016
+child	2017
 sibling	2018
 row	8
 column	10
@@ -143,8 +144,8 @@ text	d good men to
 color	black
 %%
 %RowerNode
-child	2019
 address	2018
+child	2019
 sibling	2020
 row	9
 column	10
@@ -160,8 +161,8 @@ text	c
 color	blue
 %%
 %RowerNode
-child	2021
 address	2020
+child	2021
 sibling	2022
 row	10
 column	10
@@ -177,8 +178,8 @@ text	d come to the
 color	black
 %%
 %RowerNode
-child	2023
 address	2022
+child	2023
 sibling	2024
 row	11
 column	10
@@ -194,8 +195,8 @@ text	d aid of their country.
 color	black
 %%
 %RowerNode
-child	2025
 address	2024
+child	2025
 sibling	2028
 row	12
 column	10
@@ -231,8 +232,8 @@ text	)
 color	black
 %%
 %RowerNode
-child	2029
 address	2028
+child	2029
 sibling	2030
 row	13
 column	10
@@ -248,8 +249,8 @@ text	----------------------------------
 color	black
 %%
 %RowerNode
-child	2031
 address	2030
+child	2031
 sibling	2032
 row	14
 column	5
@@ -265,8 +266,8 @@ text	The 'c' command begins the Card Set and
 color	black
 %%
 %RowerNode
-child	2033
 address	2032
+child	2033
 sibling	2034
 row	15
 column	5
@@ -282,8 +283,8 @@ text	the next 'c' command begins the next Card
 color	black
 %%
 %RowerNode
-child	2035
 address	2034
+child	2035
 sibling	0
 row	16
 column	5
@@ -299,15 +300,16 @@ text	Set.
 color	black
 %%
 %CardSet
-child	2037
 address	2036
+child	2037
 sibling	2067
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2038
 address	2037
+child	2038
 sibling	2039
 row	1
 column	5
@@ -323,8 +325,8 @@ text	The 'c' command can have an optional
 color	black
 %%
 %RowerNode
-child	2040
 address	2039
+child	2040
 sibling	2042
 row	3
 column	5
@@ -350,8 +352,8 @@ text	, for example:
 color	black
 %%
 %RowerNode
-child	2043
 address	2042
+child	2043
 sibling	2044
 row	4
 column	5
@@ -367,8 +369,8 @@ text
 color	black
 %%
 %RowerNode
-child	2045
 address	2044
+child	2045
 sibling	2046
 row	5
 column	10
@@ -384,8 +386,8 @@ text	----------script----------
 color	black
 %%
 %RowerNode
-child	2047
 address	2046
+child	2047
 sibling	2048
 row	6
 column	10
@@ -401,8 +403,8 @@ text	c ($gender)=(male)
 color	black
 %%
 %RowerNode
-child	2049
 address	2048
+child	2049
 sibling	2050
 row	7
 column	10
@@ -418,8 +420,8 @@ text	----------------------------
 color	black
 %%
 %RowerNode
-child	2051
 address	2050
+child	2051
 sibling	2052
 row	8
 column	10
@@ -435,8 +437,8 @@ text
 color	black
 %%
 %RowerNode
-child	2053
 address	2052
+child	2053
 sibling	2054
 row	9
 column	5
@@ -452,8 +454,8 @@ text	When the contents of $gender is the
 color	black
 %%
 %RowerNode
-child	2055
 address	2054
+child	2055
 sibling	2058
 row	10
 column	5
@@ -489,8 +491,8 @@ text	 is
 color	black
 %%
 %RowerNode
-child	2059
 address	2058
+child	2059
 sibling	2060
 row	11
 column	5
@@ -512,8 +514,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2062
 address	2061
+child	2062
 sibling	2063
 row	12
 column	5
@@ -529,8 +531,8 @@ text
 color	black
 %%
 %RowerNode
-child	2064
 address	2063
+child	2064
 sibling	2065
 row	13
 column	5
@@ -546,8 +548,8 @@ text	If not 'male', then the Card Set is
 color	black
 %%
 %RowerNode
-child	2066
 address	2065
+child	2066
 sibling	0
 row	14
 column	5
@@ -563,15 +565,16 @@ text	skipped.
 color	black
 %%
 %CardSet
-child	2068
 address	2067
+child	2068
 sibling	2102
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2069
 address	2068
+child	2069
 sibling	2070
 row	0
 column	5
@@ -587,8 +590,8 @@ text	The following script has two Card Sets.
 color	black
 %%
 %RowerNode
-child	2071
 address	2070
+child	2071
 sibling	2072
 row	2
 column	5
@@ -604,8 +607,8 @@ text
 color	black
 %%
 %RowerNode
-child	2073
 address	2072
+child	2073
 sibling	2074
 row	3
 column	10
@@ -621,8 +624,8 @@ text	-----------script------------------
 color	black
 %%
 %RowerNode
-child	2075
 address	2074
+child	2075
 sibling	2077
 row	4
 column	10
@@ -648,8 +651,8 @@ text	 (1)=(2)
 color	black
 %%
 %RowerNode
-child	2078
 address	2077
+child	2078
 sibling	2079
 row	5
 column	10
@@ -665,8 +668,8 @@ text	d now is the
 color	black
 %%
 %RowerNode
-child	2080
 address	2079
+child	2080
 sibling	2081
 row	6
 column	10
@@ -682,8 +685,8 @@ text	d time for all
 color	black
 %%
 %RowerNode
-child	2082
 address	2081
+child	2082
 sibling	2083
 row	7
 column	10
@@ -699,8 +702,8 @@ text	d good men to
 color	black
 %%
 %RowerNode
-child	2084
 address	2083
+child	2084
 sibling	2086
 row	8
 column	10
@@ -726,8 +729,8 @@ text	 (1)=(1)
 color	black
 %%
 %RowerNode
-child	2087
 address	2086
+child	2087
 sibling	2088
 row	9
 column	10
@@ -743,8 +746,8 @@ text	d come to the
 color	black
 %%
 %RowerNode
-child	2089
 address	2088
+child	2089
 sibling	2090
 row	10
 column	10
@@ -760,8 +763,8 @@ text	d aid of their country.
 color	black
 %%
 %RowerNode
-child	2091
 address	2090
+child	2091
 sibling	2094
 row	11
 column	10
@@ -797,8 +800,8 @@ text	)
 color	black
 %%
 %RowerNode
-child	2095
 address	2094
+child	2095
 sibling	2096
 row	12
 column	10
@@ -814,8 +817,8 @@ text	----------------------------------
 color	black
 %%
 %RowerNode
-child	2097
 address	2096
+child	2097
 sibling	2098
 row	13
 column	10
@@ -831,8 +834,8 @@ text
 color	black
 %%
 %RowerNode
-child	2099
 address	2098
+child	2099
 sibling	2100
 row	14
 column	5
@@ -848,8 +851,8 @@ text	Logic expression (1)=(2) fails, and
 color	black
 %%
 %RowerNode
-child	2101
 address	2100
+child	2101
 sibling	0
 row	15
 column	5
@@ -865,15 +868,16 @@ text	first Card Set is never presented.
 color	black
 %%
 %CardSet
-child	2103
 address	2102
+child	2103
 sibling	2134
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2104
 address	2103
+child	2104
 sibling	2105
 row	0
 column	5
@@ -889,8 +893,8 @@ text	A logic expression has three elements:
 color	black
 %%
 %RowerNode
-child	2106
 address	2105
+child	2106
 sibling	2107
 row	2
 column	10
@@ -906,8 +910,8 @@ text	1. Operand,  like, 1, 2, 3, male, $age $xyz
 color	black
 %%
 %RowerNode
-child	2108
 address	2107
+child	2108
 sibling	2109
 row	3
 column	10
@@ -923,8 +927,8 @@ text	2. Operator,   like,   =, >, <, >=, <=, !=, <>
 color	black
 %%
 %RowerNode
-child	2110
 address	2109
+child	2110
 sibling	2111
 row	4
 column	10
@@ -940,8 +944,8 @@ text	3. Condition,  like,   and, or
 color	black
 %%
 %RowerNode
-child	2112
 address	2111
+child	2112
 sibling	2113
 row	5
 column	5
@@ -957,8 +961,8 @@ text	Examples:
 color	black
 %%
 %RowerNode
-child	2114
 address	2113
+child	2114
 sibling	2115
 row	6
 column	10
@@ -974,8 +978,8 @@ text	---------expression--------------
 color	black
 %%
 %RowerNode
-child	2116
 address	2115
+child	2116
 sibling	2117
 row	7
 column	10
@@ -991,8 +995,8 @@ text	(1)=(1)
 color	black
 %%
 %RowerNode
-child	2118
 address	2117
+child	2118
 sibling	2119
 row	8
 column	10
@@ -1008,8 +1012,8 @@ text	(1)=(2)
 color	black
 %%
 %RowerNode
-child	2120
 address	2119
+child	2120
 sibling	2121
 row	9
 column	10
@@ -1025,8 +1029,8 @@ text	($age) > (21)
 color	black
 %%
 %RowerNode
-child	2122
 address	2121
+child	2122
 sibling	2123
 row	10
 column	10
@@ -1042,8 +1046,8 @@ text	($age) != ($xyz)
 color	black
 %%
 %RowerNode
-child	2124
 address	2123
+child	2124
 sibling	2125
 row	11
 column	10
@@ -1059,8 +1063,8 @@ text	($age) > (21) and ($age) < (65)
 color	black
 %%
 %RowerNode
-child	2126
 address	2125
+child	2126
 sibling	2127
 row	12
 column	10
@@ -1082,8 +1086,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2129
 address	2128
+child	2129
 sibling	2130
 row	13
 column	5
@@ -1099,8 +1103,8 @@ text	Operands, or $<variables> and constants, are
 color	black
 %%
 %RowerNode
-child	2131
 address	2130
+child	2131
 sibling	2132
 row	14
 column	5
@@ -1116,8 +1120,8 @@ text	enclosed in parentheses, and two operands
 color	black
 %%
 %RowerNode
-child	2133
 address	2132
+child	2133
 sibling	0
 row	15
 column	5
@@ -1133,15 +1137,16 @@ text	are separate by an operator.
 color	black
 %%
 %CardSet
-child	2135
 address	2134
+child	2135
 sibling	2164
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2136
 address	2135
+child	2136
 sibling	2137
 row	1
 column	5
@@ -1157,8 +1162,8 @@ text	The logic expression in the 'c' command
 color	black
 %%
 %RowerNode
-child	2138
 address	2137
+child	2138
 sibling	2139
 row	3
 column	5
@@ -1174,8 +1179,8 @@ text	allows a user's response to control
 color	black
 %%
 %RowerNode
-child	2140
 address	2139
+child	2140
 sibling	2141
 row	4
 column	5
@@ -1191,8 +1196,8 @@ text	whether or not a following Card is
 color	black
 %%
 %RowerNode
-child	2142
 address	2141
+child	2142
 sibling	2143
 row	5
 column	5
@@ -1214,8 +1219,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2145
 address	2144
+child	2145
 sibling	2146
 row	6
 column	5
@@ -1231,8 +1236,8 @@ text
 color	black
 %%
 %RowerNode
-child	2147
 address	2146
+child	2147
 sibling	2148
 row	7
 column	5
@@ -1248,8 +1253,8 @@ text	In this example, only one
 color	black
 %%
 %RowerNode
-child	2149
 address	2148
+child	2149
 sibling	2150
 row	8
 column	5
@@ -1265,8 +1270,8 @@ text	card can be presneted.
 color	black
 %%
 %RowerNode
-child	2151
 address	2150
+child	2151
 sibling	2152
 row	9
 column	10
@@ -1282,8 +1287,8 @@ text	------------------
 color	black
 %%
 %RowerNode
-child	2153
 address	2152
+child	2153
 sibling	2154
 row	10
 column	10
@@ -1299,8 +1304,8 @@ text	c ($input)=(1)
 color	black
 %%
 %RowerNode
-child	2155
 address	2154
+child	2155
 sibling	2156
 row	11
 column	10
@@ -1316,8 +1321,8 @@ text	d Card one
 color	black
 %%
 %RowerNode
-child	2157
 address	2156
+child	2157
 sibling	2158
 row	12
 column	10
@@ -1333,8 +1338,8 @@ text	c ($input)=(2)
 color	black
 %%
 %RowerNode
-child	2159
 address	2158
+child	2159
 sibling	2160
 row	13
 column	10
@@ -1350,8 +1355,8 @@ text	d Card two
 color	black
 %%
 %RowerNode
-child	2161
 address	2160
+child	2161
 sibling	2162
 row	14
 column	10
@@ -1367,8 +1372,8 @@ text	c ($input)=(3)
 color	black
 %%
 %RowerNode
-child	2163
 address	2162
+child	2163
 sibling	0
 row	15
 column	10
@@ -1384,15 +1389,16 @@ text	d Card three
 color	black
 %%
 %CardSet
-child	2165
 address	2164
+child	2165
 sibling	2205
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2166
 address	2165
+child	2166
 sibling	2167
 row	1
 column	5
@@ -1408,8 +1414,8 @@ text	The $<variable> of the following input
 color	black
 %%
 %RowerNode
-child	2168
 address	2167
+child	2168
 sibling	2171
 row	3
 column	5
@@ -1445,8 +1451,8 @@ text	, that is (# $input).
 color	black
 %%
 %RowerNode
-child	2172
 address	2171
+child	2172
 sibling	2173
 row	4
 column	5
@@ -1462,8 +1468,8 @@ text
 color	black
 %%
 %RowerNode
-child	2174
 address	2173
+child	2174
 sibling	2178
 row	5
 column	5
@@ -1479,8 +1485,8 @@ text	Enter  a number from 1-3
 color	black
 %%
 %BoxField
-child	2177
 address	2175
+child	2177
 sibling	2176
 field	$input
 length	2
@@ -1511,8 +1517,8 @@ status	Enter 1,2,or 3
 variable	0
 %%
 %RowerNode
-child	2179
 address	2178
+child	2179
 sibling	2180
 row	6
 column	5
@@ -1528,8 +1534,8 @@ text	The number entered ensures that only one of
 color	black
 %%
 %RowerNode
-child	2181
 address	2180
+child	2181
 sibling	2182
 row	7
 column	5
@@ -1545,8 +1551,8 @@ text	the next three example cards is presented.
 color	black
 %%
 %RowerNode
-child	2183
 address	2182
+child	2183
 sibling	2184
 row	8
 column	10
@@ -1562,8 +1568,8 @@ text	------------------
 color	black
 %%
 %RowerNode
-child	2185
 address	2184
+child	2185
 sibling	2186
 row	9
 column	10
@@ -1579,8 +1585,8 @@ text	c ($input)=(1)
 color	black
 %%
 %RowerNode
-child	2187
 address	2186
+child	2187
 sibling	2188
 row	10
 column	10
@@ -1596,8 +1602,8 @@ text	d Card one
 color	black
 %%
 %RowerNode
-child	2189
 address	2188
+child	2189
 sibling	2190
 row	11
 column	10
@@ -1613,8 +1619,8 @@ text	c ($input)=(2)
 color	black
 %%
 %RowerNode
-child	2191
 address	2190
+child	2191
 sibling	2192
 row	12
 column	10
@@ -1630,8 +1636,8 @@ text	d Card two
 color	black
 %%
 %RowerNode
-child	2193
 address	2192
+child	2193
 sibling	2194
 row	13
 column	10
@@ -1647,8 +1653,8 @@ text	c ($input)=(3)
 color	black
 %%
 %RowerNode
-child	2195
 address	2194
+child	2195
 sibling	2196
 row	14
 column	10
@@ -1668,8 +1674,8 @@ address	2196
 sibling	2197
 %%
 %RowerNode
-child	2198
 address	2197
+child	2198
 sibling	2199
 row	15
 column	10
@@ -1685,8 +1691,8 @@ text
 color	black
 %%
 %RowerNode
-child	2200
 address	2199
+child	2200
 sibling	0
 row	16
 column	5
@@ -1742,15 +1748,16 @@ text	 variable.
 color	black
 %%
 %CardSet
-child	2206
 address	2205
+child	2206
 sibling	2208
+button	0
 name	0
 condition	($input)=(1)
 %%
 %RowerNode
-child	2207
 address	2206
+child	2207
 sibling	0
 row	0
 column	0
@@ -1766,15 +1773,16 @@ text	Card one
 color	black
 %%
 %CardSet
-child	2209
 address	2208
+child	2209
 sibling	2211
+button	0
 name	0
 condition	($input)=(2)
 %%
 %RowerNode
-child	2210
 address	2209
+child	2210
 sibling	0
 row	0
 column	0
@@ -1790,15 +1798,16 @@ text	Card two
 color	black
 %%
 %CardSet
-child	2212
 address	2211
+child	2212
 sibling	2214
+button	0
 name	0
 condition	($input)=(3)
 %%
 %RowerNode
-child	2213
 address	2212
+child	2213
 sibling	0
 row	0
 column	0

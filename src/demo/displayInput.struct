@@ -7,15 +7,16 @@ asteriskButton	on
 priorButton	on
 %%
 %CardSet
-child	2003
 address	2002
+child	2003
 sibling	2012
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2004
 address	2003
+child	2004
 sibling	2005
 row	1
 column	5
@@ -31,8 +32,8 @@ text	The 'd' command can capture a user's
 color	black
 %%
 %RowerNode
-child	2006
 address	2005
+child	2006
 sibling	2007
 row	3
 column	5
@@ -54,8 +55,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2009
 address	2008
+child	2009
 sibling	2010
 row	4
 column	5
@@ -71,8 +72,8 @@ text
 color	black
 %%
 %RowerNode
-child	2011
 address	2010
+child	2011
 sibling	0
 row	5
 column	5
@@ -88,15 +89,16 @@ text	This input is stored in a card variable.
 color	black
 %%
 %CardSet
-child	2013
 address	2012
+child	2013
 sibling	2026
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2014
 address	2013
+child	2014
 sibling	2015
 row	1
 column	5
@@ -112,8 +114,8 @@ text	A captured response is assigned to
 color	black
 %%
 %RowerNode
-child	2016
 address	2015
+child	2016
 sibling	2017
 row	3
 column	5
@@ -129,8 +131,8 @@ text	a variable whose name begins with
 color	black
 %%
 %RowerNode
-child	2018
 address	2017
+child	2018
 sibling	2020
 row	4
 column	5
@@ -156,8 +158,8 @@ text	$<variable>
 color	blue
 %%
 %RowerNode
-child	2021
 address	2020
+child	2021
 sibling	2022
 row	5
 column	5
@@ -173,8 +175,8 @@ text	Examples:
 color	black
 %%
 %RowerNode
-child	2023
 address	2022
+child	2023
 sibling	2024
 row	6
 column	15
@@ -190,8 +192,8 @@ text	$age
 color	blue
 %%
 %RowerNode
-child	2025
 address	2024
+child	2025
 sibling	0
 row	7
 column	15
@@ -207,15 +209,16 @@ text	$xyz
 color	blue
 %%
 %CardSet
-child	2027
 address	2026
+child	2027
 sibling	2052
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2028
 address	2027
+child	2028
 sibling	2029
 row	1
 column	5
@@ -231,8 +234,8 @@ text	To capture a user's input, the
 color	black
 %%
 %RowerNode
-child	2030
 address	2029
+child	2030
 sibling	2031
 row	3
 column	5
@@ -248,8 +251,8 @@ text	'd' command has a field expression
 color	black
 %%
 %RowerNode
-child	2032
 address	2031
+child	2032
 sibling	2035
 row	4
 column	5
@@ -285,8 +288,8 @@ text	, followed by
 color	black
 %%
 %RowerNode
-child	2036
 address	2035
+child	2036
 sibling	2037
 row	5
 column	5
@@ -302,8 +305,8 @@ text	$<variable>, and ends with a closed
 color	black
 %%
 %RowerNode
-child	2038
 address	2037
+child	2038
 sibling	2039
 row	6
 column	5
@@ -319,8 +322,8 @@ text	parenthesis.  For example:
 color	black
 %%
 %RowerNode
-child	2040
 address	2039
+child	2040
 sibling	2041
 row	7
 column	5
@@ -336,8 +339,8 @@ text
 color	black
 %%
 %RowerNode
-child	2042
 address	2041
+child	2042
 sibling	2043
 row	8
 column	15
@@ -353,8 +356,8 @@ text	d (# $age)
 color	black
 %%
 %RowerNode
-child	2044
 address	2043
+child	2044
 sibling	2045
 row	9
 column	15
@@ -376,8 +379,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2047
 address	2046
+child	2047
 sibling	2048
 row	10
 column	5
@@ -393,8 +396,8 @@ text
 color	black
 %%
 %RowerNode
-child	2049
 address	2048
+child	2049
 sibling	2050
 row	11
 column	5
@@ -410,8 +413,8 @@ text	The above script is executed in the next
 color	black
 %%
 %RowerNode
-child	2051
 address	2050
+child	2051
 sibling	0
 row	12
 column	5
@@ -427,15 +430,16 @@ text	card.
 color	black
 %%
 %CardSet
-child	2053
 address	2052
+child	2053
 sibling	2073
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2054
 address	2053
+child	2054
 sibling	2055
 row	1
 column	5
@@ -451,8 +455,8 @@ text	Enter a response (anything) then hit
 color	black
 %%
 %RowerNode
-child	2056
 address	2055
+child	2056
 sibling	2057
 row	3
 column	5
@@ -468,8 +472,8 @@ text	the ENTER key.  Do the same for the
 color	black
 %%
 %RowerNode
-child	2058
 address	2057
+child	2058
 sibling	2059
 row	4
 column	5
@@ -485,8 +489,8 @@ text	second field.
 color	black
 %%
 %RowerNode
-child	2060
 address	2059
+child	2060
 sibling	2061
 row	5
 column	10
@@ -502,8 +506,8 @@ text	(Do not use the TAB key)
 color	blue
 %%
 %RowerNode
-child	2062
 address	2061
+child	2062
 sibling	2063
 row	6
 column	10
@@ -519,8 +523,8 @@ text	------------script-----------
 color	black
 %%
 %RowerNode
-child	2064
 address	2063
+child	2064
 sibling	2065
 row	7
 column	15
@@ -536,8 +540,8 @@ text	d (# $age)
 color	black
 %%
 %RowerNode
-child	2066
 address	2065
+child	2066
 sibling	2067
 row	8
 column	15
@@ -553,8 +557,8 @@ text	d (# $xyz)
 color	black
 %%
 %RowerNode
-child	2068
 address	2067
+child	2068
 sibling	2069
 row	9
 column	10
@@ -570,15 +574,15 @@ text	-----------------------------
 color	black
 %%
 %RowerNode
-child	2070
 address	2069
+child	2070
 sibling	2071
 row	10
 column	10
 %%
 %BoxField
-child	0
 address	2070
+child	0
 sibling	0
 field	$age
 length	10
@@ -591,15 +595,15 @@ limit	99
 options	0
 %%
 %RowerNode
-child	2072
 address	2071
+child	2072
 sibling	0
 row	11
 column	10
 %%
 %BoxField
-child	0
 address	2072
+child	0
 sibling	0
 field	$xyz
 length	10
@@ -612,15 +616,16 @@ limit	99
 options	0
 %%
 %CardSet
-child	2074
 address	2073
+child	2074
 sibling	2100
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2075
 address	2074
+child	2075
 sibling	2076
 row	1
 column	5
@@ -636,8 +641,8 @@ text	The following 'd' commands have both
 color	black
 %%
 %RowerNode
-child	2077
 address	2076
+child	2077
 sibling	2078
 row	3
 column	5
@@ -653,8 +658,8 @@ text	text and response fields. The text
 color	black
 %%
 %RowerNode
-child	2079
 address	2078
+child	2079
 sibling	2080
 row	4
 column	5
@@ -670,8 +675,8 @@ text	request the user to enter their age
 color	black
 %%
 %RowerNode
-child	2081
 address	2080
+child	2081
 sibling	2082
 row	5
 column	5
@@ -687,8 +692,8 @@ text	and their xyz status.
 color	black
 %%
 %RowerNode
-child	2083
 address	2082
+child	2083
 sibling	2084
 row	6
 column	5
@@ -704,8 +709,8 @@ text
 color	black
 %%
 %RowerNode
-child	2085
 address	2084
+child	2085
 sibling	2086
 row	7
 column	10
@@ -721,8 +726,8 @@ text	-----------script-------------
 color	black
 %%
 %RowerNode
-child	2087
 address	2086
+child	2087
 sibling	2088
 row	8
 column	10
@@ -738,8 +743,8 @@ text	d Enter your age: (# $age)
 color	black
 %%
 %RowerNode
-child	2089
 address	2088
+child	2089
 sibling	2090
 row	9
 column	10
@@ -755,8 +760,8 @@ text	d Enter your xyz status (# xyz)
 color	black
 %%
 %RowerNode
-child	2091
 address	2090
+child	2091
 sibling	2092
 row	10
 column	10
@@ -772,8 +777,8 @@ text	-----------------------------------
 color	black
 %%
 %RowerNode
-child	2093
 address	2092
+child	2093
 sibling	2094
 row	11
 column	10
@@ -789,8 +794,8 @@ text
 color	black
 %%
 %RowerNode
-child	2095
 address	2094
+child	2095
 sibling	2097
 row	12
 column	10
@@ -806,8 +811,8 @@ text	Enter your age:
 color	black
 %%
 %BoxField
-child	0
 address	2096
+child	0
 sibling	0
 field	$age
 length	10
@@ -820,8 +825,8 @@ limit	99
 options	0
 %%
 %RowerNode
-child	2098
 address	2097
+child	2098
 sibling	0
 row	13
 column	10
@@ -837,8 +842,8 @@ text	Enter your xyz status
 color	black
 %%
 %BoxField
-child	0
 address	2099
+child	0
 sibling	0
 field	$xyz
 length	10
@@ -851,15 +856,16 @@ limit	99
 options	0
 %%
 %CardSet
-child	2101
 address	2100
+child	2101
 sibling	2126
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2102
 address	2101
+child	2102
 sibling	2103
 row	1
 column	5
@@ -875,8 +881,8 @@ text	A 'd' command may contain multiple field
 color	black
 %%
 %RowerNode
-child	2104
 address	2103
+child	2104
 sibling	2105
 row	3
 column	5
@@ -892,8 +898,8 @@ text	expressions.
 color	black
 %%
 %RowerNode
-child	2106
 address	2105
+child	2106
 sibling	2107
 row	4
 column	5
@@ -909,8 +915,8 @@ text
 color	black
 %%
 %RowerNode
-child	2108
 address	2107
+child	2108
 sibling	2109
 row	5
 column	10
@@ -926,8 +932,8 @@ text	---------------script-------------------
 color	black
 %%
 %RowerNode
-child	2110
 address	2109
+child	2110
 sibling	2111
 row	6
 column	10
@@ -943,8 +949,8 @@ text	d Enter age (# $age) status (# $xyz)
 color	black
 %%
 %RowerNode
-child	2112
 address	2111
+child	2112
 sibling	2113
 row	7
 column	10
@@ -960,8 +966,8 @@ text	-----------------------------------------
 color	black
 %%
 %RowerNode
-child	2114
 address	2113
+child	2114
 sibling	2115
 row	8
 column	1
@@ -977,8 +983,8 @@ text
 color	black
 %%
 %RowerNode
-child	2116
 address	2115
+child	2116
 sibling	2120
 row	9
 column	1
@@ -994,8 +1000,8 @@ text	Enter age
 color	black
 %%
 %BoxField
-child	0
 address	2117
+child	0
 sibling	2118
 field	$age
 length	10
@@ -1018,8 +1024,8 @@ text	 status
 color	black
 %%
 %BoxField
-child	0
 address	2119
+child	0
 sibling	0
 field	$xyz
 length	10
@@ -1032,8 +1038,8 @@ limit	99
 options	0
 %%
 %RowerNode
-child	2121
 address	2120
+child	2121
 sibling	2122
 row	10
 column	1
@@ -1049,8 +1055,8 @@ text
 color	black
 %%
 %RowerNode
-child	2123
 address	2122
+child	2123
 sibling	2124
 row	11
 column	5
@@ -1066,8 +1072,8 @@ text	Do not use TAB key. Use ENTER key to
 color	black
 %%
 %RowerNode
-child	2125
 address	2124
+child	2125
 sibling	0
 row	12
 column	5
@@ -1083,15 +1089,16 @@ text	complete the entry of each field.
 color	black
 %%
 %CardSet
-child	2127
 address	2126
+child	2127
 sibling	2158
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2128
 address	2127
+child	2128
 sibling	2129
 row	1
 column	5
@@ -1107,8 +1114,8 @@ text	The (# $<variable>) expression captures a
 color	black
 %%
 %RowerNode
-child	2130
 address	2129
+child	2130
 sibling	2131
 row	3
 column	5
@@ -1124,8 +1131,8 @@ text	response.
 color	black
 %%
 %RowerNode
-child	2132
 address	2131
+child	2132
 sibling	2133
 row	4
 column	5
@@ -1141,8 +1148,8 @@ text
 color	black
 %%
 %RowerNode
-child	2134
 address	2133
+child	2134
 sibling	2135
 row	5
 column	5
@@ -1158,8 +1165,8 @@ text	The (% $<variable>) expression in the
 color	black
 %%
 %RowerNode
-child	2136
 address	2135
+child	2136
 sibling	2137
 row	6
 column	5
@@ -1175,8 +1182,8 @@ text	'd' command  displays the value of
 color	black
 %%
 %RowerNode
-child	2138
 address	2137
+child	2138
 sibling	2139
 row	7
 column	5
@@ -1192,8 +1199,8 @@ text	the $<variable>.
 color	black
 %%
 %RowerNode
-child	2140
 address	2139
+child	2140
 sibling	2141
 row	8
 column	5
@@ -1209,8 +1216,8 @@ text
 color	black
 %%
 %RowerNode
-child	2142
 address	2141
+child	2142
 sibling	2143
 row	9
 column	5
@@ -1226,8 +1233,8 @@ text	For example:
 color	black
 %%
 %RowerNode
-child	2144
 address	2143
+child	2144
 sibling	2145
 row	10
 column	10
@@ -1243,8 +1250,8 @@ text	----------------script--------------
 color	black
 %%
 %RowerNode
-child	2146
 address	2145
+child	2146
 sibling	2147
 row	11
 column	10
@@ -1260,8 +1267,8 @@ text	d The user's xyz status is (% $xyz)
 color	black
 %%
 %RowerNode
-child	2148
 address	2147
+child	2148
 sibling	2149
 row	12
 column	10
@@ -1277,8 +1284,8 @@ text	d The user's age is (% $age)
 color	black
 %%
 %RowerNode
-child	2150
 address	2149
+child	2150
 sibling	2151
 row	13
 column	10
@@ -1300,8 +1307,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2153
 address	2152
+child	2153
 sibling	2154
 row	14
 column	5
@@ -1317,8 +1324,8 @@ text
 color	black
 %%
 %RowerNode
-child	2155
 address	2154
+child	2155
 sibling	2156
 row	15
 column	5
@@ -1334,8 +1341,8 @@ text	The next card displays the actual values
 color	black
 %%
 %RowerNode
-child	2157
 address	2156
+child	2157
 sibling	0
 row	16
 column	5
@@ -1351,15 +1358,16 @@ text	that are stored in $xyz and $age.
 color	black
 %%
 %CardSet
-child	2159
 address	2158
+child	2159
 sibling	2184
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2160
 address	2159
+child	2160
 sibling	2161
 row	1
 column	5
@@ -1375,8 +1383,8 @@ text	--------script-----------
 color	black
 %%
 %RowerNode
-child	2162
 address	2161
+child	2162
 sibling	2163
 row	3
 column	5
@@ -1392,8 +1400,8 @@ text	d content of $xyz is (% $xyz)
 color	black
 %%
 %RowerNode
-child	2164
 address	2163
+child	2164
 sibling	2165
 row	4
 column	5
@@ -1409,8 +1417,8 @@ text	d content of $age is (% $age)
 color	black
 %%
 %RowerNode
-child	2166
 address	2165
+child	2166
 sibling	2167
 row	5
 column	5
@@ -1426,8 +1434,8 @@ text	------------------------------
 color	black
 %%
 %RowerNode
-child	2168
 address	2167
+child	2168
 sibling	2169
 row	6
 column	5
@@ -1443,8 +1451,8 @@ text
 color	black
 %%
 %RowerNode
-child	2170
 address	2169
+child	2170
 sibling	2172
 row	7
 column	5
@@ -1470,8 +1478,8 @@ name	TimesRoman
 color	blue
 %%
 %RowerNode
-child	2173
 address	2172
+child	2173
 sibling	2175
 row	8
 column	5
@@ -1497,8 +1505,8 @@ name	TimesRoman
 color	blue
 %%
 %RowerNode
-child	2176
 address	2175
+child	2176
 sibling	2177
 row	9
 column	5
@@ -1520,8 +1528,8 @@ task	continue
 type	0
 %%
 %RowerNode
-child	2179
 address	2178
+child	2179
 sibling	2180
 row	10
 column	5
@@ -1537,8 +1545,8 @@ text	A $<variable> that is unknown or
 color	black
 %%
 %RowerNode
-child	2181
 address	2180
+child	2181
 sibling	2182
 row	11
 column	5
@@ -1554,8 +1562,8 @@ text	unassigned prints the string:
 color	black
 %%
 %RowerNode
-child	2183
 address	2182
+child	2183
 sibling	0
 row	12
 column	10
@@ -1571,15 +1579,16 @@ text	Unkwn or Un...
 color	black
 %%
 %CardSet
-child	2185
 address	2184
+child	2185
 sibling	2206
+button	0
 name	0
 condition	0
 %%
 %RowerNode
-child	2186
 address	2185
+child	2186
 sibling	2187
 row	1
 column	5
@@ -1595,8 +1604,8 @@ text	The contents of two or more $<variable>s
 color	black
 %%
 %RowerNode
-child	2188
 address	2187
+child	2188
 sibling	2189
 row	3
 column	5
@@ -1612,8 +1621,8 @@ text	can be displayed by the same 'd' command.
 color	black
 %%
 %RowerNode
-child	2190
 address	2189
+child	2190
 sibling	2191
 row	4
 column	5
@@ -1629,8 +1638,8 @@ text
 color	black
 %%
 %RowerNode
-child	2192
 address	2191
+child	2192
 sibling	2193
 row	5
 column	10
@@ -1646,8 +1655,8 @@ text	------------------scrpt--------------------------
 color	black
 %%
 %RowerNode
-child	2194
 address	2193
+child	2194
 sibling	2195
 row	6
 column	10
@@ -1663,8 +1672,8 @@ text	d xyz status is (% $xyz) and age is (% $age)
 color	black
 %%
 %RowerNode
-child	2196
 address	2195
+child	2196
 sibling	2197
 row	7
 column	10
@@ -1680,8 +1689,8 @@ text	-----------------------------------------------------
 color	black
 %%
 %RowerNode
-child	2198
 address	2197
+child	2198
 sibling	2199
 row	8
 column	10
@@ -1697,8 +1706,8 @@ text
 color	black
 %%
 %RowerNode
-child	2200
 address	2199
+child	2200
 sibling	2201
 row	9
 column	5
@@ -1714,8 +1723,8 @@ text
 color	black
 %%
 %RowerNode
-child	2202
 address	2201
+child	2202
 sibling	0
 row	10
 column	5

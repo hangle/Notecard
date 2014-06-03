@@ -51,7 +51,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 	def convertToReference(swizzleTable:Map[String, Node]) ={
 			convertToSibling(swizzleTable)
 			convertToChild(swizzleTable)  // Is a parent
-	//		println("CardSet call convert to button")
 			convertToButton(swizzleTable) // ButtonCardSet
 			}
 				// 'button' is the physical addr of the ButtonCardSet. If CardSet has no
@@ -59,7 +58,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 	def getButtonCardSet=button  //invoked in Notecard by 'loadIteratorWithButton..' prior
 								 // to calling 'cardSet.startCardSet(...)
 //-------------------------------------------------------------------
-
+	var notecardButtonSet:ButtonSet=null
 	var groupResolve:GroupResolve=null //1st GroupNode of card set will instantiate
 									   // GroupResolve. Nulled at end of group.
 
@@ -67,12 +66,21 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// minus one. RowerNode increments this index each time a
 			// KeyListenerObject is created giving this object a unique index
 	val indexer=new Indexer(-1) 
+			// Notecard sets it to 'true' when '+Add' button is activated.
+	var isAddButton=false
+	def turnOnAddButton= { 
+			isAddButton=true}
 
 			// CardSet points to a ButtonCardSet object, or ButtonCardSet object
-			// has return pointer to parent 'button' of CardSet.
-	def isButtonCardSet= { if(symButton != "0") true; else false}			// Invoked by Notecard parent
+			// has return pointer to parent 'button' of CardSet. [symButton.Node.scala:
+			// similar to 'symChild' and 'symSibling' ]
+	def isButtonCardSet= { if(symButton != "0") true; else false}// Invoked by Notecard parent
 			// Invoked by Notecard
-	def startCardSet(notePanel:JPanel, lock:AnyRef, buttonSet:ButtonSet, statusLine:StatusLine)={ 
+	def startCardSet(notePanel:JPanel, 
+					 lock:AnyRef, 
+					 buttonSet:ButtonSet, 
+					 statusLine:StatusLine)={ 
+		notecardButtonSet= buttonSet  // temporary  /
 			// Assign Linker.next to 'backup'. The next time
 			// CardSet is executed, 'backup' holds the pointer
 			// to the prior Card.  Used to capture one or more input fields.
@@ -104,6 +112,8 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									  indexer, 
 									  statusLine, 
 									  listenerArray) 
+				// Enable * button for Management file
+		buttonSet.armAsteriskButton
 				// ------------Card Set has been displayed--------------
 				// arm Buttons and enter 'wait' state. 
 				// Button press releases 'wait' state (ButtonSet.start() ):"
@@ -120,14 +130,10 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 						}
 					// Enable NEXT button, give it  focus and color it orange
 				buttonSet.armNextButton	
-					// Enable PRIOR button, color it 'white'
-				buttonSet.armAsteriskButton
-				}
+			}
 		showPanel(notePanel) // display panel content (paint, validate)
 			// Stop (issue wait()) to allow the user to enter responses.
-		//println("CardSet:  prior 'haltCommandExecution(lock)  symButton="+symButton+"  symChild="+symChild+"   address="+symId)
 		haltCommandExecution(lock)	
-	//	println("here b")
 		clearNotePanel(notePanel)	//remove all components & clear screen
 						// KeyListenerObject(s) are removed from the
 						// corresponding BoxField
@@ -184,7 +190,8 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 								 statusLine:StatusLine,
 								 listenerArray:ArrayBuffer[KeyListenerObject]) {	
 		obj match	{
-			case rn:RowerNode=> // children DisplayText,DisplayVariable,BoxField
+			case rn:RowerNode=> 
+						// children: DisplayText,DisplayVariable,BoxField
 				rn.startRowerNode(rowPosition, 
 								  notePanel, 
 								  inputFocus, 
@@ -192,18 +199,19 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 								  statusLine,
 								  listenerArray) //recusion
 			case as:Assigner=> 
+						// Assign command, e.g., 'a flag=true' or 'a count=count+1'.
 				as.startAssigner
 			case cst:CardSetTask =>
+						// * asterisk commands for '* status <msg>' and 
+						// '* continue'.
 				cst.startCardSetTask (inputFocus, statusLine, notePanel)
 			case gn:GroupNode=> 
-			 		// GroupResolve created if null so as to exist until 'g' 
-					// or end of CardSet	
-				//createGroupResolveAndPassItGroupNode(gn) 
+						// GroupResolve created if null so as to exist until 'g' 
+						// or end of CardSet	
 				createGroupResolve
-						// Determine whether to 'do' the enclosed commnds of the Group command
-						// or 'skip' these commands. 
+						// Determine whether to 'do' the enclosed commnds of the 
+						// Group command or to 'skip' these commands. 
 				whatToDo(groupResolve, 
-						// obj, 
 					 	 gn,
 						 rowPosition, 
 						 notePanel, 
@@ -212,10 +220,11 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 						 indexer, 
 						 statusLine, 
 						 listenerArray) //recusion
-			case xn:XNode=> 
+			case xn:XNode => 
+						// 'x' command to process prior input fields.
 				showPanel(notePanel)
 				inputFocus.turnOnXNode  //prevents InputFocus.actWhenAllFieldsCaptured 
-							// from enabling NEXT button
+									    // from enabling NEXT button
 				haltCommandExecution(lock) // issue lock.wait()
 			case _=> println("\tCardSet: unknown CardSetChild obj="+obj)	
 			}

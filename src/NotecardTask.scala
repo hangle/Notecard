@@ -65,7 +65,6 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 			// the network.  If file not found, then it returns 
 			// 'start.struct'.
 		notecard=loadFileAndBuildNetwork(filename, symbolTable) //In CommandNetwork	
-//		Session.armAsteriskButton  // Allows Notecard to enable AsteriskButton
 			// pass notecard to current instance of Notecard
 		taskGather.manageNotecard= notecard
 		}
@@ -84,29 +83,17 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 			  else {
 				var pair=e.split("[\t]")	
 				pair(0) match {
-							case "address" => //println(pair(1))
+							case "address" => 
 									setAddress(pair(1))
 							case "sibling" =>
 									setNext(pair(1))
-							case "task" => //println(pair(1) )
+							case "task" => 
 									xtask=pair(1)
-							case "type" => //println(pair(1))
+							case "type" => 
 									xtype= pair(1)
 							}
 				}
 			   }  //breakable		 
 			  }
-
-
-/*
-		val in=structSet.iterator
-		setAddress(in.next)  //Node
-		setNext(in.next)     //Node
-		xtask=in.next
-		xtype=in.next
-		val percent= in.next
-		//println("NotecardTask: percent="+percent)
-		}
-*/
 	}
 }

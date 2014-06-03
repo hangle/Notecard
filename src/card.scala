@@ -44,7 +44,6 @@ object card   {
 				// file has a path, then it is added to subsequent
 				// files lacking a pathname. Path with '/'
 			Session.setSessionPath("") 
-		//	Session.setClientNotecardState
 				// Asterisk command '* end' of FrameTask sets
 			while(isLoop)	{
 					// Passed to Notecard and then to NextFile and
