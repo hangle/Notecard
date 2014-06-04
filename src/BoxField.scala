@@ -166,6 +166,10 @@ case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with
 		editSuccess
 		}
 	def clearInputField=setText("")	
+
+		// CreateClass generates instances of BoxField without fields or parameters.
+		// However, it invokes 'receive_objects' to load parameters from *.struct
+		// file as well as symbolic addresses to be physical ones. 
 	def  receive_objects(structSet:List[String] ) {
 		import util.control.Breaks._
 			var flag=true

@@ -382,6 +382,9 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 		}
 	def initializeRowPosition(size:Int)= { new RowPosition(new Font("Serif", 0, size)) }
 
+		// CreateClass generates instances of CardSet without fields or parameters.
+		// However, it invokes 'receive_objects' to load parameters from *.struct
+		// file as well as symbolic addresses to be made physical ones. 
 	def receive_objects(structSet:List[String]) {
 			//Load class instance with argument 
 		import util.control.Breaks._

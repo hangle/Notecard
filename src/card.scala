@@ -57,8 +57,8 @@ object card   {
 
 					// Invoke root of network and begin the Card session
 				notecard.startNotecard(taskGather)
-					// release resources of JFrame created in Notecard. 
-				taskGather.oldJFrame.dispose()
+					// Window resources created in Notecard are no longer needed.
+				taskGather.disposeJFrameResources
 					// Next file or terminate session 
 				if(taskGather.isNextFile) {			
 					structFile=taskGather.getFileName

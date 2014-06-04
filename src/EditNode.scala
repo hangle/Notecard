@@ -99,12 +99,11 @@ case class EditNode(var symbolTable:Map[String,String]) extends Node {
 		// Invoked by BoxField
 	def getFailureMessage= statusMessage
 // -----------------------------------------------
-		//Load class instance with argument 
-		//values from <.struct> file. Method
-		//invoked in CreateClass
+		// CreateClass generates instances of EditNode without fields or parameters.
+		// However, it invokes 'receive_objects' to load parameters from *.struct
+		// file as well as symbolic addresses to be made physical ones. 
 	def  receive_objects(structSet:List[String] ) {
-
-	import util.control.Breaks._
+			import util.control.Breaks._
 			var flag=true
 			for( e <- structSet) {
 			  breakable { if(e=="%%") break   // end of arguments

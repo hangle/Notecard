@@ -73,8 +73,9 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 	def writeSymbolTableToFile(filename:String	) {
 
 		}
-						//CreateClass loads class instance with argument 
-						//values from <.struct> file. 
+		// CreateClass generates instances of NotecardTask without fields or parameters.
+		// However, it invokes 'receive_objects' to load parameters from *.struct
+		// file as well as symbolic addresses to be made physical ones. 
 	def  receive_objects(structSet:List[String] ) {
 			import util.control.Breaks._
 			var flag=true

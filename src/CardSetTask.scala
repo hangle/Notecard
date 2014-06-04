@@ -52,7 +52,9 @@ case class CardSetTask(var symbolTable:Map[String,String]) extends Node   {
 		 notePanel.repaint() //added because PROR button would not display 'd' cmd
 		 inputFocus.establishAsteriskContinue // enable NEXT button and issue wait()
 		}
-		// *.struct file delivers symbolic links and object parameters.
+		// CreateClass generates instances of CardSetTask without fields or parameters.
+		// However, it invokes 'receive_objects' to load parameters from *.struct
+		// file as well as symbolic addresses to be physical ones. 
 	def  receive_objects(structSet:List[String] ) {
 			import util.control.Breaks._
 			var flag=true

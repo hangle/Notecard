@@ -158,13 +158,19 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 				listenerArray:ArrayBuffer[KeyListenerObject]) {
 		indexer.increment   // add one to index member of Indexer
 				// KeyListenerObject "listens" for key input characters. 
-		val keyListenerObject=new KeyListenerObject(boxField,  inputFocus, indexer.getIndex, statusLine)
+		val keyListenerObject=new KeyListenerObject(boxField,  
+													inputFocus, 
+													indexer.getIndex, 
+													statusLine)
 				// added to an ArrayBuffer of InputFocus
 		inputFocus.addToArray(boxField) 
 				// ListenerArray used in CardSet to remove 
 				// listeners on card termination
 		listenerArray += keyListenerObject
 		}
+		// CreateClass generates instances of RowerNode without fields or parameters.
+		// However, it invokes 'receive_objects' to load parameters from *.struct
+		// file as well as symbolic addresses to be made physical ones. 
 	def  receive_objects(structSet:List[String] ) {
 	import util.control.Breaks._
 			var flag=true

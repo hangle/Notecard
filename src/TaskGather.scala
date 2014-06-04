@@ -33,7 +33,9 @@ class TaskGather()   {
 		// with .struct file from '* manage <filename.struct>. 'manageNotecard' is
 		// the root of this linked list. 
 	var manageNotecard:Notecard=null
+	var oldJFrameManagement:JFrame =null	
 
+	var oldJFrameList=List[JFrame]()
 		// Used by Notecard to assign NotecardTask's framer to manageNotecard.
 	def isManagement= if(manageNotecard ==null) false; else true
 		// Tested at the completion of 'card'. 
@@ -57,4 +59,15 @@ class TaskGather()   {
 		// Transfers <filename> from NextFile to
 		// TaskGather.getFilename in 'card'.
 	def putFileName(s:String)={ filename=s} //NextFile.startNextFile
+		// java.awt.Window.dispose() is used on a GUI component that is
+		// to properly release and destroy native UI resources (such
+		// as the screen).  	
+	def disposeJFrameResources={ 
+				oldJFrame.dispose() 
+				disposeOldJFrame 
+				}
+
+	def addOldJFrameList(old:JFrame)= oldJFrameList = old :: oldJFrameList
+	def disposeOldJFrame= { oldJFrameList.foreach(x=> x.dispose()) }
+
 }

@@ -81,28 +81,38 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		// Save current CardSet to be restore  after ButtonCardSets
 		// have exe
 	var currentCardSet:Node=null
+		// Used in 'doAsteriskButton' to hold JFrame reference to
+		// disposed of Management file.
+	var oldJFrameManagement:JFrame =null
 
 	def startNotecard(taskGather:TaskGather) {
-				// 'oldFrame' references CardWindow whose subclass is JFrame. 
-				// Used in 'card' to dispose of JFrame.
+
+			// 'oldJFrame' references CardWindow whose subclass is JFrame. 
+			// Used in 'card' to dispose of JFrame.
 			//taskGather.oldJFrame=createCardWindow 	
 
 			// Creates the notecard window (JFrame) with a BorderLayout  and adds Note 
 			// and Button panels to this window along with statusLine:JLabel. Also makes
 			// the window visible.
 		taskGather.oldJFrame=createAndMakeVisibleCardWindow (notePanel, 
+
 															buttonPanel, 
 															statusLine, 
 															frame_width, 
 															frame_height)	
-
+			// Load 'oldJFrame' on list to be disposed by 'card' when
+			// the *.struct file ends.
+		taskGather.addOldJFrameList(taskGather.oldJFrame)
 				try{ 
 			// Execute Notecard's children (CardSet, NextFile, NotecardTask)
 		iterateNotecardChildren(notePanel, taskGather, buttonSet)
 						// doAsteriskButton() throws the exception caught here. This function
 						// has recursively invoked Notecard and the exception is a way
 						// to continue processing its children.
-				}catch { case ex: Exception=> }
+				}catch { case ex: Exception=> 
+					//	oldJFrameManagement.dispose()
+					//	println("Notecard:  oldJFrameManagement.dispose()")	
+						}
 		} 
 		// CardSet, FrameTask, and Filename objects of Notecard(parent) are
 		// executed. Execution is interrupted by '* end' or 'f <name>' commands.   
@@ -245,7 +255,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		loadIteratorWithBackup  
 		buttonSet.resetPriorButton	// turn off backup mechanism
 		}
-			// Invokes new CardWindow and setVisible
+			// Invokes new CardWindow (extends JFrame) and setVisible
 	def createAndMakeVisibleCardWindow( notePanel:JPanel,
 										buttonPanel:JPanel,
 										statusLine:JLabel,
@@ -294,19 +304,23 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// also invoked in 'startNotecard', However, unless it is also
 					// called here, the window is blanked when 'startNotecard' 
 					// returns from the manageNotecard state.
-				createAndMakeVisibleCardWindow (notePanel, 
-												buttonPanel, 
-												statusLine, 
-												frame_width, 
-												frame_height)	
+				var oldManagement=createAndMakeVisibleCardWindow (notePanel, 
+																	buttonPanel, 
+																	statusLine, 
+																	frame_width, 
+																	frame_height)	
+					// Put on List to be invoked in 'card' to dispose of
+					// window resources.
+				taskGather.addOldJFrameList(oldManagement)
 					// Display the Card from which the '*' button was activated
 				restoreCurrentNode //Linker   Restore clientNotecard
-					}
+			   	}
 			 else println("Notecard:  manageNotecard is NULL")
 			}
 				// Management system currently running. The following code
 				// switches system back to the initial system.
 		  else{	
+		  		println("Notecard:  here")
 					// set 'manageNotecard' state 'true' so the next time '*' is 
 					// activated the 'then' group is executed
 				Session.initialNotecardState=true // 
@@ -316,10 +330,13 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// be returned to the invoking function.  Since the current
 					// state is 'manageNotecard',then  the invoking function has to
 					// be Notecard, rather than 'card'. 
+				println("Notecard:  oldJFrameManagement.dispose()")
 				throw new Exception
 				}
 		}
-		// *.struct file delivers symbolic links and object parameters.
+		// CreateClass generates an instance of Notecard without fields or parameters.
+		// However, it invokes 'receive_objects' to load parameters from *.struct
+		// file as well as symbolic addresses to be physical ones. 
 	def receive_objects(structSet:List[String]) {
 			import util.control.Breaks._
 			var flag=true

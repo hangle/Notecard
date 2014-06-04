@@ -145,11 +145,11 @@ symbolTable holds $<variables>		def setId
 		getFontMetrics(font) 	// Toolkit method
 		}
 	def local_getMetricsHeight()={ metrics.getHeight() +4 }
-	def local_getMetricsWidth() ={ 
-		metrics.stringWidth(symbolTableText) +4 }
-		//Load class instance with argument 
-		//values from <.struct> file. Method
-		//invoked in CreateClass
+	def local_getMetricsWidth() ={ metrics.stringWidth(symbolTableText) +4 }
+	
+		// CreateClass generates instances of NotecardTask without fields or parameters.
+		// However, it invokes 'receive_objects' to load parameters from *.struct
+		// file as well as symbolic addresses to be made physical ones. 
 	def  receive_objects(structSet:List[String] ) {
 			import util.control.Breaks._
 			var flag=true
