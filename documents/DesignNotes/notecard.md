@@ -181,8 +181,6 @@ as well as associated script command examples, are:   </p>
                                                  Script Examples  
                                  ---------------
                Notecard  
-                  Load                           l
-                      Assign                     a $count=0
                   NotecardTask                   * end  
                   NextFile                       f maleScript  
                   CardSet                        c (1)=(2)  

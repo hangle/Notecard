@@ -55,8 +55,9 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	var priorButton=false; // set true by button, set false in Notecard
 	var asteriskButton=false//'true' when '*' button hit (see actionPerformed)
 	var firstChild=false  // set true when Card is 1st child in Notecard chain. 
-	var isAsteriskButtonOn="on"  // when 'off', button is disabled
+	var isAsteriskButtonOn="on"  // when 'off', button is disabled by * cmd
 	var isPriorButtonOn = "on" //when 'off', button is disabled
+//	var addOrNextState= "next" // Either "next" or "add"
 			// button acquires listener and is added to NotePanel/
 	createActionButton(buttonPanel, asterisk)
 	createActionButton(buttonPanel, buttonCardSet)
@@ -64,11 +65,10 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	createActionButton(buttonPanel, next)
 
 	grayAndDisableNextButton
-			// disable until '* manage <filename>' cmd
 	grayAndDisableAsteriskButton
 	grayAndDisablePriorButton 
-	grayAndDisableButtonCardSet 
-	
+	grayAndDisableAddButton 
+
 	def turnOnFirstChild=firstChild=true // Notecard set it in first iteration
 	def turnOffFirstChild=firstChild=false// Notecard turns off after 1st iteration
 		// Used in CardSet to enable PRIOR button when Card has 
@@ -82,21 +82,33 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		event getActionCommand() match{
 				// Next button enabled by FieldFocus
 			case "Next"=>  
+			//	println("ButtonSet: actionPerf...    --next-- ")
 				selectedButton="next" //Notecard: match expression
 					// Next button has been activated, so:
 					// disable it,  gray the button,
 					// then release the wait state in CardSet
-				notifyGrayAndDisableNext 
+				grayAndDisableNextButton 
+					// Disabled PRIOR button because it was occasionally
+					// gaining focus after NEXT button activation, causing
+					// the next spacebar key to initiate backup. 
+				start()
 			case "Prior"=> 
+			//	println("ButtonSet: actionPerf...    --prior-- ")
 				selectedButton="prior"  //Notecard: match expression
-				notifyGrayAndDisableNext 
+				//notifyGrayAndDisableNext 
+				grayAndDisablePriorButton
+				start()
 			case " * "=> 
-				selectedButton="*"  //Notecard: match expression
-				notifyGrayAndDisableNext 
+			//	println("ButtonSet: actionPerf...    --*-- ")
+						//used in Notecard: match expression
+				selectedButton="*"  
+				//notifyGrayAndDisableNext 
+				grayAndDisableAsteriskButton
 				start()
 			case "+Add"=>
 				selectedButton="+"  //Notecard: match expression
-				grayAndDisableButtonCardSet
+				grayAndDisableAddButton
+				//setAddState
 				start() 
 			case _=> 		println("ButtonSet unknown event=")
 			}
@@ -116,7 +128,7 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		prior.setEnabled(false)
 		prior.setBackground(Color.lightGray)
 		}
-	def grayAndDisableButtonCardSet={
+	def grayAndDisableAddButton={
 		buttonCardSet.setEnabled(false)
 		buttonCardSet.setBackground(Color.lightGray)
 		}
@@ -125,6 +137,7 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		next.setEnabled(false)
 		next.setBackground(Color.lightGray)
 		}
+/*
 		// orange Next button arms this method
 		// Invoked early in CardSet:establishNextButton
 	def notifyGrayAndDisableNext = {
@@ -137,6 +150,7 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		start		//(notifyAll). In CardSet, initiates the next 
 		   		// Card Set or terminate XNode wait. 
 		}
+*/
 		// Invoked by CardSet and InputFocus
 		// CardSet in startCardSet after children 
 		//   iteration and just before 'wait'is issued.
@@ -155,7 +169,7 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		if(isPriorButtonOn=="on"){
 			prior.setBackground(Color.GREEN)		
 			prior.setEnabled(true)
-			next.requestFocus()
+//			next.requestFocus()
 			}
 		else
 			grayAndDisablePriorButton
@@ -170,7 +184,7 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 			else
 				grayAndDisableAsteriskButton
 		}
-	def armButtonCardSet={
+	def armAddCardSet={
 		buttonCardSet.setEnabled(true)	
 		buttonCardSet.setBackground(Color.YELLOW)
 		}

@@ -58,31 +58,33 @@ trait Linker extends Node   {
 		def Value=value    
 		def reset(child:Node) { //initialize the list
 					// child is the 1st child of the Parent, that is 1st sibling 
-					iterator=child
-					childNode=child
-					value=child
-					}
+			iterator=child
+			childNode=child
+			}
+			// Next button terminates iterate loop in Notecard.doAddCardSet
+		def terminateIterate { iterator==null}
+		
 		def iterate= {
 			if(iterator==null)
 				false
 			  else {
-				value=iterator
 					// store current Node before accessing the 
 					// next Node
+				value=iterator
+				node=value
 					// Node.next yeilds the Next sibling
-				iterator=iterator.getNext.asInstanceOf[Node]
+				iterator=iterator.next
 				true
 				}
 			}
-				// Activated by Notecard to only store Node(s)
-			// of CardSet objects
-		def storeCurrentIteratorInBackupList {backupList= value :: backupList}
-			
-			// Notecard: doButtonCardSet(..) whose argument is
-			// 'cardSet.getButtonSet'
-		def loadIteratorWithButtonCardSet(buttonCardSet:Node)={
-			iterator=buttonCardSet
-			}
+			// Activated by Notecard to only store Node(s)
+			// of CardSet objects. Note, in iterate(), value
+			// is prior instance.
+		def storePriorSiblingInBackupList {
+				backupList= value :: backupList
+				//println("Linker:  storeCurr...  backupList.size="+backupList.size)	
+				}
+
 			// Notecard invoked when 'PRIOR' button is activated. 
 			// Instead of loading 'iterator' with the next Card, 
 			// the backup mechanism loads it with the prior Card.

@@ -55,10 +55,10 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			}
 				// 'button' is the physical addr of the ButtonCardSet. If CardSet has no
 				// associated ButtonCardSet, then button equals 'null'.
-	def getButtonCardSet=button  //invoked in Notecard by 'loadIteratorWithButton..' prior
+	def getAddCardSet=addButton  //invoked in Notecard by 'loadIteratorWithButton..' prior
 								 // to calling 'cardSet.startCardSet(...)
 //-------------------------------------------------------------------
-	var notecardButtonSet:ButtonSet=null
+//	var notecardButtonSet:ButtonSet=null
 	var groupResolve:GroupResolve=null //1st GroupNode of card set will instantiate
 									   // GroupResolve. Nulled at end of group.
 
@@ -67,20 +67,17 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// KeyListenerObject is created giving this object a unique index
 	val indexer=new Indexer(-1) 
 			// Notecard sets it to 'true' when '+Add' button is activated.
-	var isAddButton=false
-	def turnOnAddButton= { 
-			isAddButton=true}
 
-			// CardSet points to a ButtonCardSet object, or ButtonCardSet object
+			// CardSet may point to a AddCardSet object, or AddCardSet object
 			// has return pointer to parent 'button' of CardSet. [symButton.Node.scala:
-			// similar to 'symChild' and 'symSibling' ]
-	def isButtonCardSet= { if(symButton != "0") true; else false}// Invoked by Notecard parent
+			// similar to 'symChild' and 'symSibling' ]. Used by Notecard
+	def isAddCardSet= { if(symButton != "0") true; else false}// Invoked by Notecard parent
 			// Invoked by Notecard
 	def startCardSet(notePanel:JPanel, 
 					 lock:AnyRef, 
 					 buttonSet:ButtonSet, 
 					 statusLine:StatusLine)={ 
-		notecardButtonSet= buttonSet  // temporary  /
+	// 	notecardButtonSet= buttonSet  // temporary  /
 			// Assign Linker.next to 'backup'. The next time
 			// CardSet is executed, 'backup' holds the pointer
 			// to the prior Card.  Used to capture one or more input fields.
@@ -90,55 +87,56 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// 	If the 'c' command has logic ,e.g, 'c (2)=(3)', then the logic
 			//	is tested and the CardSet instances is skipped when 'false',
 			//  If 'c' cmd has no logic, then outcome is always 'true'.
+			//  Note: if skipped, then halt and lock are not issued.
 		if(noConditionOrIsTrue(conditionStruct, symbolTable)){	//'c <cmd> has no logic /
-			// Collection container for all KeyListernerObject(s)
-			// created in RowerNode.  At the completion of the
-			// card, listeners are removed via BoxField.
-			// removeKeyListener().  If not removed, then on backup
-			// with the PRIOR button, each BoxField would have 2 or
-			// more KeyListerObject(s).
-		val listenerArray= new ArrayBuffer[KeyListenerObject]
-			// Used by Visual objects (DisplayText, DisplayVariable, BoxField) in 
-			// collaboration with RowerNode. RowerNode passes row and column placement
-			// values to RowPosition.  These value are converted to pixels.  When the
-			// "next" row is to be displayed, RowPosition.currentPosition becomes
-			// the 'y' value java.awt.Component.setBounds(x,y,width, height)
-		val rowPosition=initializeRowPosition(18) //***skip*** see LabelPixelHeight.java
-			// Iterate card commands then display	
-		executeCardCommandsAndDisplay(notePanel, 
-									  rowPosition,
-									  lock, 
-									  inputFocus, 
-									  indexer, 
-									  statusLine, 
-									  listenerArray) 
-				// Enable * button for Management file
-		buttonSet.armAsteriskButton
-				// ------------Card Set has been displayed--------------
-				// arm Buttons and enter 'wait' state. 
-				// Button press releases 'wait' state (ButtonSet.start() ):"
-				// do not enable PRIOR button for 1st CardSet child since there is
-				// nothing more to back up to. 
+				// Collection container for all KeyListernerObject(s)
+				// created in RowerNode.  At the completion of the
+				// card, listeners are removed via BoxField.
+				// removeKeyListener().  If not removed, then on backup
+				// with the PRIOR button, each BoxField would have 2 or
+				// more KeyListerObject(s).
+			val listenerArray= new ArrayBuffer[KeyListenerObject]
+				// Used by Visual objects (DisplayText, DisplayVariable, BoxField) in 
+				// collaboration with RowerNode. RowerNode passes row and column placement
+				// values to RowPosition.  These value are converted to pixels.  When the
+				// "next" row is to be displayed, RowPosition.currentPosition becomes
+				// the 'y' value java.awt.Component.setBounds(x,y,width, height)
+			val rowPosition=initializeRowPosition(18) //***skip*** see LabelPixelHeight.java
+				// Iterate CardSet commands then display	
+			executeCardCommandsAndDisplay(notePanel, 
+										  rowPosition,
+										  lock, 
+										  inputFocus, 
+										  indexer, 
+										  statusLine, 
+										  listenerArray) 
+					// Enable * button for Management file
+			buttonSet.armAsteriskButton
+					// ------------Card Set has been displayed--------------
+					// arm Buttons and enter 'wait' state. 
+					// Button press releases 'wait' state (ButtonSet.start() ):"
+					// do not enable PRIOR button for 1st CardSet child since there is
+					// nothing more to back up to. 
 
-				// When Card lacks input fields, then turn on NEXT button in
-				// order to transit to next Card. With one or more input 
-				// fields, InputFocus will turn on NEXT button. 
-		if(inputFocus.isNoInputFields){			// True if no input fields 
-					// Also enable PRIOR button when not first CardSet
-				if(buttonSet.isFirstChildFalse) {
-						buttonSet.armPriorButton
-						}
-					// Enable NEXT button, give it  focus and color it orange
-				buttonSet.armNextButton	
-			}
-		showPanel(notePanel) // display panel content (paint, validate)
-			// Stop (issue wait()) to allow the user to enter responses.
-		haltCommandExecution(lock)	
-		clearNotePanel(notePanel)	//remove all components & clear screen
-						// KeyListenerObject(s) are removed from the
-						// corresponding BoxField
-		removeInputFieldListeners(listenerArray) 
-		}
+					// When Card lacks input fields, then turn on NEXT button in
+					// order to transit to next Card. With one or more input 
+					// fields, InputFocus will turn on NEXT button. 
+			if(inputFocus.isNoInputFields){			// True if no input fields 
+						// Also enable PRIOR button when not first CardSet
+					if(buttonSet.isFirstChildFalse) {
+							buttonSet.armPriorButton
+							}
+						// Enable NEXT button, give it  focus and color it orange
+					buttonSet.armNextButton	
+				}
+			showPanel(notePanel) // display panel content (paint, validate)
+				// Stop (issue wait()) to allow the user to enter responses.
+			haltCommandExecution(lock)	
+			clearNotePanel(notePanel)	//remove all components & clear screen
+							// KeyListenerObject(s) are removed from the
+							// corresponding BoxField
+			removeInputFieldListeners(listenerArray) 
+			}  // end of 'noConditionOrIsTrue(...)'
 	}// control returns to Notecard to process the next card set
 
 	def executeCardCommandsAndDisplay(notePanel:JPanel,
@@ -171,7 +169,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// see 'Linker' trait.
 		while(iterate) 
 				// Execute RowerNode, Assigner, CardSetTask, GroupNode, or eXecute.
-			executeCardSetChildren(  Value,   // current  node 
+			executeCardSetChildren(  node, // Current sibling--see Linker  Value,   // current  node 
 									 rowPosition, 
 									 notePanel, 
 									 lock:AnyRef, 
@@ -400,8 +398,9 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									setAddress(pair(1))  // Node
 							case "sibling" =>
 									setNext(pair(1))  // Node
+										// +Add button
 							case "button" =>
-									setButton(pair(1))  // Node
+									setAddButton(pair(1))  // Node
 							case "condition" =>
 									conditionStruct=pair(1)
 							case "name" => 

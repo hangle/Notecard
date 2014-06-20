@@ -61,7 +61,11 @@ class KeyListenerObject( boxField:BoxField,
 			//		d 1. Often
 			//		d 2. Sometimes
 			//		d 3. Never
-			count=MultipleListener.multipleListener(key, count, inputFocus, boxField, statusLine) 
+			count=MultipleListener.multipleListener(key, 
+													count, 
+													inputFocus, 
+													boxField, 
+													statusLine) 
 			}
 		  else if(key==KeyEvent.VK_ENTER){  //test for 'ENTER' key.  VK_ENTER= 10
 				// Store input if Edit is on and is successful or

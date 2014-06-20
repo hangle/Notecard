@@ -4,10 +4,12 @@ corresponding to the script commands in <filename.nc> files. The
 Node class builds a hierarchy of linked lists.
 
 Framer(parent)
+		LoadDictionary
+			Assign
 		NextFile
 		FrameTask
 		CardSet(parent)
-				Assigner
+				Assign
 				CardSetTask
 				GroupNode
 				XNode
@@ -104,13 +106,13 @@ trait Node  {
 	var symChild:String="0"   //setChild
 	var symSibling:String="0" //setNext
 	var symButton:String="0" 
-//	var symCondition:String=""// logic
 	var child:Node=null	 // 1st child of parent list
 	var next:Node=null   // sibling
-	var button:Node=null // ButtonCardSet
+	var addButton:Node=null // AddButtonCardSet
 	var condition:Node=null // logic condition, eg, (male)=($gender)
 	var backup:Node=null	// current node assigned after Framer completes
 							// processing of CardSet
+	var node:Node=null
 	def getId=symId
 	def getFirstChild=child //root of list, assigned by 'reset'
 	def getNext= next
@@ -121,7 +123,7 @@ trait Node  {
 	def setAddress(value:String) {symId=value}
 	def setNext(value:String) = symSibling=value
 	def setChild(value:String) = symChild=value
-	def setButton(value:String)= symButton=value
+	def setAddButton(value:String)= symButton=value
 			// 'symId' is the symbolic address whereas 'objectx' is
 			// the "physical address". Invoked in 'CreateClass' which in turn '			'
 			// switches or swizzles the phy addr for the symbolic one
@@ -166,7 +168,7 @@ trait Node  {
 		if(symButton != "0") {
 			//println("Node: swizzleTable.contains(symButton)="+swizzleTable.contains(symButton)+"  symButton="+symButton )
 			if(swizzleTable.contains(symButton)){
-				button=swizzleTable(symButton) 
+				addButton=swizzleTable(symButton) 
 				//println("Node: button="+button)
 				}
 			else    {

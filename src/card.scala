@@ -30,11 +30,13 @@ import com.client.Session
 
 object card   {
 	def main(argv: Array[String]) {
-
+			// Command line argument of script file (no extension).
 		var structFile=if(argv.size ==1) argv(0) 
-			 else "start"   // default script--to input filename
+					 // default script presenting a CardSet window that 
+					 // allows the user to enter a filename.
+			 else "start"   
 
-		var file=""
+//		var file=""
 		var isLoop=true
 			// Create table to hold card variables ($<variable>)
 		var symbolTable=Map[String,String]()
