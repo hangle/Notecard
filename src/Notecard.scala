@@ -203,6 +203,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				case "*" =>
 							doAsteriskButton(taskGather)
 				case "+" =>
+							println("Notecard: disable Prior button")
 							doAddCardSet(taskGather,
 											cardSet,
 											notePanel,
@@ -250,8 +251,8 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				// Node.symButton !="0" indicates that CardSet has a child AddCardSet
 		if(cardSet.isAddCardSet){
 					// Save Link iterator's node in order to restore this node
-					// when button CardSets end.
-				saveCurrentCardSet	  // iterator's node is saved. 
+					// when button CardSets end				saveCurrentCardSet	  
+					// iterator's node is saved. 
 					// fetch physical address of AddCardSet from parent CardSet
 				val addButton= cardSet.getAddCardSet
 				val addCardSet= addButton.asInstanceOf[CardSet]
