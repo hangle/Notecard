@@ -69,8 +69,6 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	grayAndDisablePriorButton 
 	grayAndDisableAddButton 
 
-	def turnOnFirstChild=firstChild=true // Notecard set it in first iteration
-	def turnOffFirstChild=firstChild=false// Notecard turns off after 1st iteration
 		// Used in CardSet to enable PRIOR button when Card has 
 		//  no input fields.
 		// Used twice InputFocus. First, to enable when all fields
@@ -137,20 +135,6 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		next.setEnabled(false)
 		next.setBackground(Color.lightGray)
 		}
-/*
-		// orange Next button arms this method
-		// Invoked early in CardSet:establishNextButton
-	def notifyGrayAndDisableNext = {
-			// Disabled PRIOR button because it was occasionally
-			// gaining focus after NEXT button activation, causing
-			// the next spacebar key to initiate backup. 
-		grayAndDisablePriorButton
-			// Disable button
-		grayAndDisableNextButton
-		start		//(notifyAll). In CardSet, initiates the next 
-		   		// Card Set or terminate XNode wait. 
-		}
-*/
 		// Invoked by CardSet and InputFocus
 		// CardSet in startCardSet after children 
 		//   iteration and just before 'wait'is issued.
@@ -160,7 +144,6 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	def armNextButton = {
 		next.setEnabled(true)
 		next setBackground(Color.ORANGE)
-		next.requestFocus()
 		}
 		// Invoked in:  ButtonSet & CardSet
 	def armPriorButton= {
@@ -169,7 +152,6 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		if(isPriorButtonOn=="on"){
 			prior.setBackground(Color.GREEN)		
 			prior.setEnabled(true)
-//			next.requestFocus()
 			}
 		else
 			grayAndDisablePriorButton

@@ -37,6 +37,7 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 
 		xtask match {
 			case "end" => 		// * end   script encountered
+				println("NotecardTask:   end case")
 				taskGather.setEndSession
 			case "manage"=> 	// * manage <filename> script encountered
 				establishManagementFile(taskGather, xtype)

@@ -68,6 +68,9 @@ class InputFocus ( buttonSet:ButtonSet) {
 			// detects ENTER key and invokes actWenAllFieldsCaptured().
 	var arrayIndex= 0	   
 	var xnodeState=false   // default until XNode is encountered in CardSet
+			// Set false at beginning of iteration and set true at end.
+			// Arm Prior button when true provided CardSet not first. 
+	var completedCardSetIteration=false
 	def turnOnXNode={ xnodeState=true}   // CardSet has encountered a XNode command
 	def turnOffXNode={ xnodeState=false}// capture completes so turn off thirs condition
 			// In 'addToArray(..)', 'counter' is incremented by an InputField 
@@ -83,6 +86,7 @@ class InputFocus ( buttonSet:ButtonSet) {
 				// First JComponent of an XNode group of input fields. This will also
 				// include 1st JComponent of the Card.
 			if(counter==1) {
+				println("InputFocus: addToArray():  counter==1  requestFocus")
 				component.requestFocus
 				}
 			}
@@ -103,18 +107,20 @@ class InputFocus ( buttonSet:ButtonSet) {
 				counter=0  
 				buttonSet.start() // XNode releases wait()
 				}
-			  else {
+			 else{
 					// In iteration, first CardSet set 'firstChild' to 'true',
 					// next and subsequent CardSet set it to 'false'
-				if( buttonSet.isFirstChildFalse) {
-					buttonSet.armPriorButton
+				if( buttonSet.isFirstChildFalse ) {
+		//			if(completedCardSetIteration==true)
+							buttonSet.armPriorButton
 					}
-				buttonSet.armNextButton//enable button,set focus,color button orange
+				buttonSet.armNextButton   //enable button,color button orange
+			    buttonSet.next.requestFocus
 				}
 			}
 		  else{
-			  //setFieldFocus //
-			  components(arrayIndex).requestFocus
+					// Move cursor to next input field 
+	    	  components(arrayIndex).requestFocus
 			  }
 		}
 			// Invoked by CardSetTask in support of '* continue' cmd.
@@ -123,12 +129,10 @@ class InputFocus ( buttonSet:ButtonSet) {
 			// NEXT button enabled. When activated, then rest of Card cmds 
 			// are executed.
 	def establishAsteriskContinue {
-			// In iteration, first CardSet set 'firstChild' to 'true',
-			// For the next and subsequent CardSet sets it to 'false'
-
+			//
+	//	if(completedCardSetIteration==true)
 					// enable button, get focus, color button orange
-		buttonSet.armNextButton 
-//		buttonSet.turnOnPriorButton
+				buttonSet.armNextButton 
 			// wait() invoked, button hit invokes 'notifyAll()'
 		buttonSet.issueWait
 		}

@@ -5,9 +5,11 @@ package com.client
 object LinkTool extends Node with Linker {
 
 	def showHierarchy(notecard:Notecard) {
-		notecard.reset(notecard.getFirstChild)
+//		notecard.reset(notecard.getFirstChild)
+		notecard.reset(child)
 		while(notecard.iterate) {
-			notecard.Value match	{
+			//notecard.Value match	{
+			node match	{
 				case cs:CardSet=> println("\tCardSet")
 						showCardSet(cs)
 				case ft:NotecardTask=> println("\tFrameTask")
@@ -18,9 +20,11 @@ object LinkTool extends Node with Linker {
 		println("------------------------------------------")
 		}
 	def showCardSet(frameNode:CardSet) {
-		frameNode.reset(frameNode.getFirstChild)
+//		frameNode.reset(frameNode.getFirstChild)
+		frameNode.reset(child)
 		while(frameNode.iterate) {
-			frameNode.Value match	{
+		//	frameNode.Value match	{
+		node match	{
 				case rn:RowerNode=>	println("\t\t RowerNode")
 						showRowerNode(rn)
 				case as:Assigner=> println("\t\tAssigner") 
@@ -32,8 +36,10 @@ object LinkTool extends Node with Linker {
 			}
 		}
 	def showRowerNode(rowerNode:RowerNode) {
-			rowerNode.reset(rowerNode.getFirstChild)
-			rowerNode.Value match {
+			//rowerNode.reset(rowerNode.getFirstChild)
+			rowerNode.reset(child)
+			//rowerNode.Value match {
+			next match {
 						case xx:DisplayText=>println("\t\t\tDisplayText")
 						case _=> println("===========Unknown")
 						}

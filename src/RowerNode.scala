@@ -80,9 +80,10 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 				 indexer:Indexer,
 				 statusLine:StatusLine,
 				 listenerArray:ArrayBuffer[KeyListenerObject]) {
-		reset(getFirstChild)	//point to head of linked list (setFirstChild)
+		reset(child)	//point to head of linked list (setFirstChild)
 		while(iterate) {   	//Linker processes linked list of CardSet children
-			executeRowerNodeChildren(Value, // Value references a particular sibling, 
+//			executeRowerNodeChildren(Value, // Value references a particular sibling, 
+			executeRowerNodeChildren(node, // node references a particular sibling, 
 							// such as DisplayText 
 						 rowPosition, 
 						 notePanel, 
@@ -92,7 +93,8 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 						 listenerArray)
 			}
 		}
-	def executeRowerNodeChildren(obj:Any,  
+//	def executeRowerNodeChildren(obj:Any,  
+	def executeRowerNodeChildren(obj:Node,  
 				 rowPosition:RowPosition, 
 				 notePanel:JPanel, 
 				 inputFocus:InputFocus, 
@@ -111,7 +113,7 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 				notePanel.add(bf) //refresh panel before creating listeners or incur focus problems
 				createListenerAndFocus(bf, inputFocus, indexer:Indexer, statusLine, listenerArray)
 			case _=>
-				println("RowerNode  throw exception")
+				println("RowerNode:  unkown RowerNode child")
 			 	throw new Exception
 			}
 		}
@@ -120,9 +122,10 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 		// Visual objects. 
 	def maxHeightValuesOfVisualObjects()= {
 		var maxValue=0
-		reset(getFirstChild)//point to head of linked list (setFirstChild)
+		//reset(getFirstChild)//point to head of linked list (setFirstChild)
+		reset(child)//point to head of linked list (setFirstChild)
 		while(iterate) {   //Linker processes linked list of CardSet children
-			Value match {
+			node match {
 				case dt:DisplayText=>
 					if (maxValue < dt.local_getMetricsHeight() )
 						maxValue=dt.local_getMetricsHeight()
@@ -135,10 +138,10 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 				case _=> //println("RowerNode: maxHeight..()  case _=>")
 				}
 			}
-		reset(getFirstChild)
+		reset(child)
 			// Every Visual object of the 'd' command  will have 'maxHeight
 		while(iterate) {
-			Value match {
+			node match {
 				case dt:DisplayText=>
 						dt.maxHeight=maxValue
 				case dv:DisplayVariable=>

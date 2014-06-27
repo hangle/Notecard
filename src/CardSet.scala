@@ -42,7 +42,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				Linker
 					def reset
 					def iterate
-					def Value
+					var node
 		*/
 //------------paramters pass by .struct file-----------------
 	var conditionStruct=""
@@ -77,11 +77,12 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 					 lock:AnyRef, 
 					 buttonSet:ButtonSet, 
 					 statusLine:StatusLine)={ 
-	// 	notecardButtonSet= buttonSet  // temporary  /
 			// Assign Linker.next to 'backup'. The next time
 			// CardSet is executed, 'backup' holds the pointer
 			// to the prior Card.  Used to capture one or more input fields.
 		val inputFocus= new InputFocus(buttonSet ) 
+			// set true at end
+		inputFocus.completedCardSetIteration=false
 			// prior card set may have posted a status message so remove for new card.
 		statusLine.clearStatusLine 
 			// 	If the 'c' command has logic ,e.g, 'c (2)=(3)', then the logic
@@ -110,6 +111,8 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 										  indexer, 
 										  statusLine, 
 										  listenerArray) 
+				// set false before iteration. Input focus can arm Prior button.
+			inputFocus.completedCardSetIteration= true
 					// Enable * button for Management file
 			buttonSet.armAsteriskButton
 					// ------------Card Set has been displayed--------------
@@ -121,13 +124,15 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 					// When Card lacks input fields, then turn on NEXT button in
 					// order to transit to next Card. With one or more input 
 					// fields, InputFocus will turn on NEXT button. 
-			if(inputFocus.isNoInputFields){			// True if no input fields 
+			if(inputFocus.isNoInputFields){			// True if no input fields,i.e. (# $abc) 
 						// Also enable PRIOR button when not first CardSet
 					if(buttonSet.isFirstChildFalse) {
-							buttonSet.armPriorButton
-							}
+						println("CardSet: noInputFields..  armPriorButton")
+						buttonSet.armPriorButton
+						}
 						// Enable NEXT button, give it  focus and color it orange
 					buttonSet.armNextButton	
+					buttonSet.next.requestFocus
 				}
 			showPanel(notePanel) // display panel content (paint, validate)
 				// Stop (issue wait()) to allow the user to enter responses.
@@ -146,7 +151,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									  indexer:Indexer, 
 									  statusLine: StatusLine,
 									  listenerArray: ArrayBuffer[KeyListenerObject]) {
-			reset(getFirstChild)    //point to head of linked list (setFirstChild)
+			reset(child)    //point to head of linked list
 			iterateCardSetChildren( rowPosition, 
 									notePanel, 
 									lock, 
@@ -164,12 +169,12 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 								 indexer:Indexer,
 								 statusLine:StatusLine, 
 								 listenerArray: ArrayBuffer[KeyListenerObject]) {
-			// Iterate children (via sibling nodes), returning 'Value' as
+			// Iterate children (via sibling nodes), returning 'node' as
 			// either the 1st child or the current sibling node.
 			// see 'Linker' trait.
-		while(iterate) 
+		while(iterate) // initialized by 'reset(child)'
 				// Execute RowerNode, Assigner, CardSetTask, GroupNode, or eXecute.
-			executeCardSetChildren(  node, // Current sibling--see Linker  Value,   // current  node 
+			executeCardSetChildren(  node, // Current sibling--see Linker  node,   // current  node 
 									 rowPosition, 
 									 notePanel, 
 									 lock:AnyRef, 
@@ -179,7 +184,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									 listenerArray)
 		}
 		// Children separated by match statement to invoke their respective modules
-	def executeCardSetChildren(  obj:Any,  // children
+	def executeCardSetChildren(  obj:Node,  // children
 								 rowPosition:RowPosition, 
 								 notePanel:JPanel, 
 								 lock:AnyRef, 
@@ -300,9 +305,10 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 								listenerArray:ArrayBuffer[KeyListenerObject]) {
 			// Process just one command. If the command is not 'GroupNode' then call itself
 			// to process the next command.
-		if(iterate) {  //iterate is method of Core returning Value (cmd object, eg, GroupNode)
+		if(iterate) {  //iterate is method of Core returning node (cmd object, eg, GroupNode)
 			       // iteration terminates at end of cmd set, returning 'null'
-			val any:Any=Value match{			
+			//val any:Any=Value match{			
+			val any:Any=node match{			
 						//case gn:GroupNode=> gn  //found next 'g' cmd, so stop iteration
 				case gn:GroupNode=> 
 						// Create GroupResolve if not already created and
@@ -323,8 +329,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				case _=> 
 						// Not GroupNode, make recursive call to process next command.
 					iterateToNextGroup(groupResolve, 
-									//		 obj, 
-								//			Value,						
 											 rowPosition, 
 											 notePanel, 
 											 lock, 

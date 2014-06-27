@@ -106,15 +106,15 @@ trait Node  {
 	var symChild:String="0"   //setChild
 	var symSibling:String="0" //setNext
 	var symButton:String="0" 
-	var child:Node=null	 // 1st child of parent list
+	var child:Node=null	 // 1st child of parent list assigned by:converToChild
 	var next:Node=null   // sibling
 	var addButton:Node=null // AddButtonCardSet
 	var condition:Node=null // logic condition, eg, (male)=($gender)
 	var backup:Node=null	// current node assigned after Framer completes
 							// processing of CardSet
 	var node:Node=null
-	def getId=symId
-	def getFirstChild=child //root of list, assigned by 'reset'
+//	def getId=symId
+//	def getFirstChild=child //root of list, assigned by 'reset'
 	def getNext= next
 	def setBackup= backup=next//Framer invoked on return from startCardSet 
 	def getBackup= backup		// used by Linker's loadIteratorWithBackup
@@ -139,14 +139,14 @@ trait Node  {
 			// and stores it in 'next' (it now has a physical referenec 
 			// to the next set object).[see Core as how the list is iterated]
 	def convertToSibling(swizzleTable:Map[String, Node]) = {
-		if(symSibling=="0" ) next;
+		if(symSibling=="0" ) 
+			 next;
 		else {
 			if(swizzleTable.contains(symSibling)) {
 				next=swizzleTable(symSibling)
 				}
 			else{   
-			    //val set=swizzleTable.keySet
-				//println("Node  sibling throw exception")
+				println("Node  sibling throw exception")
 			    throw new Exception
 			    }
 			}
