@@ -45,7 +45,7 @@ case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with
 				Linker
 					def reset
 					def iterate
-					def Value
+					val node
 				Linker extends Node
 	symbolTable holds $<variables>	def setId
 					def convertToSibling
@@ -154,9 +154,11 @@ case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with
 		var editNode:EditNode=null
 		var editSuccess=true
 		val response=getInput  // the input to be evaluated
-		reset(getFirstChild) 
-		while(iterate) { 		 
-			editNode=Value.asInstanceOf[EditNode]
+
+		reset(child)    // initialize  'while(iterate)'
+		while(iterate) {// loop to execute children 		 
+			//editNode=Value.asInstanceOf[EditNode] 
+			editNode=node.asInstanceOf[EditNode] 
 			if(editSuccess){ //any failure turns 'if' expression off
 				editSuccess=editNode.evaluateTheEditNode(response) //return false if failure
 				if( ! editSuccess) //load message when EditNode fails. 
@@ -180,23 +182,23 @@ case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with
 				pair(0) match {
 							case "child" =>
 									setChild(pair(1))
-							case "address" => println(pair(1))
+							case "address" => //println(pair(1))
 									setAddress(pair(1))
 							case "sibling" =>
 									setNext(pair(1))
-							case "field" => println(pair(1) )
+							case "field" => //println(pair(1) )
 									field=pair(1)
-							case "length" => println(pair(1) )
+							case "length" => //println(pair(1) )
 									length=pair(1).toInt
-							case "column" => println(pair(1) )
+							case "column" => //println(pair(1) )
 									column=pair(1).toInt
-							case "size" => println(pair(1))
+							case "size" => //println(pair(1))
 									sizeFont= pair(1).toInt
 							case "style" =>
 									styleFont= pair(1).toInt
-							case "name"=> println(pair(1))
+							case "name"=> //println(pair(1))
 									nameFont=pair(1)
-							case "color"=> println(pair(1))
+							case "color"=> //println(pair(1))
 									ycolor=Paint.setColor(pair(1))
 							case "limit"  => 
 									limit= pair(1).toInt

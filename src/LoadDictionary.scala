@@ -44,12 +44,13 @@ case class LoadDictionary(var symbolTable:Map[String,String]) extends Linker{
 		}
 	
 	def iterateAssignerObjects {
-			reset(getFirstChild)
+			reset(child) // 1st child or 1st sibling
 			while( iterate) {
 		//			println("LoadDictionary  iterate")
-				Value match {
+//				Value match {
+				node match {
 						case as:Assigner=> as.startAssigner
-						case _=> println("LoadDictionary:  unknown Value="+Value)
+						case _=> println("LoadDictionary:  unknown Value="+node)
 						}
 				}
 			}

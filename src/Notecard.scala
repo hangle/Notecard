@@ -87,7 +87,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 	var oldJFrameManagement:JFrame =null
 
 	def startNotecard(taskGather:TaskGather) {
-
 			// 'oldJFrame' references CardWindow whose subclass is JFrame. 
 			// Used in 'card' to dispose of JFrame.
 			//taskGather.oldJFrame=createCardWindow 	
@@ -111,43 +110,38 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						// to continue processing its children.
 				}catch { case ex: Exception=> 
 					//	oldJFrameManagement.dispose()
-					//	println("Notecard:  oldJFrameManagement.dispose()")	
 						}
 		} 
 		// CardSet, FrameTask, and Filename objects of Notecard(parent) are
 		// executed. Execution is interrupted by '* end' or 'f <name>' commands.   
 	def iterateNotecardChildren(notePanel:JPanel,taskGather:TaskGather, buttonSet:ButtonSet) {
-		reset(getFirstChild)//In Linker, getFirstChild points to root of linked list 
+		reset(child)//In Linker, getFirstChild points to root of linked list 
 		while(iterate) {	//Linker iterates linked list of siblings
 				// gray the Prior button if 1st sibling is 1st CardSe/t.
 				// thus having no prior CardSet. 
 			if(isChild){ // 1st Card of Card  file  (see Linker)
-				buttonSet.turnOnFirstChild    // sets 'firstChild' to true
+				//buttonSet.turnOnFirstChild    // sets 'firstChild' to true
 				buttonSet.grayAndDisablePriorButton
-				}
-			  else{ 
-			    	// for second and subsequent card sets.
-				buttonSet.turnOffFirstChild //sets firstChild to false
 				}
 				// If '* end' or 'f <filename>' commands are detected, 
 				// then 'isTaskNone' is false, causing the iteration to
 				// be terminated, returning control to 'card'. 
 			if(taskGather.isTaskNone) {
 					// process CardSet or FrameTask or NextFile. 'Value' returned from 'iterate'.
-				//executeNotecardChildren(Value, notePanel, taskGather, buttonSet:ButtonSet)
 				executeNotecardChildren(node, notePanel, taskGather, buttonSet:ButtonSet)
 				}
 			}      //---while
 		}
 		//Notecard's children: CardSet, FrameTask, NextFile, LoadDictionary
-	def executeNotecardChildren(obj:Any, 
-					notePanel:JPanel, 
-					taskGather:TaskGather, 
-					buttonSet:ButtonSet) { 
+//	def executeNotecardChildren(obj:Any, 
+	def executeNotecardChildren(obj:Node, 
+								notePanel:JPanel, 
+								taskGather:TaskGather, 
+								buttonSet:ButtonSet) { 
 		obj match	{
 				// CardSet executes a series of commands that
 				// constitute a single Card set. 
-			case cs:CardSet=> //
+			case cs:CardSet=> //println("cs:CardSet") //
 
 						// In Linker, the current iterator is added to
 						// 'backupList' to support PRIOR button
@@ -168,7 +162,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				waitOverDoButtons(taskGather, cs,notePanel,lock,buttonSet, statusLine)
 						// FrameTask is an <asterisk> command that performs
 						// a notecard task, such as ending the card session.
-			case ft:NotecardTask=> 
+			case ft:NotecardTask=> //println("ft:NotecardTask") 
 					ft.startNotecardTask(taskGather)
 						// check if task was '* manage <filename>'
 					if(taskGather.isManagement){
@@ -179,9 +173,9 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						}
 						// NextFile is a command that provides the name 
 						// of the <.struct> file that is read by Client. 
-			case nf:NextFile=> 
+			case nf:NextFile=> //println(" nf:NextFile")
 					nf.startNextFile(taskGather)
-			case ld:LoadDictionary=>
+			case ld:LoadDictionary=> //println("ld:LoadDictionary")
 					ld.startLoadDictionary
 			case _=> println("Notecard: unknown isObject"+ obj)
 			}
@@ -199,7 +193,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						 	buttonSet.grayAndDisableAddButton
 				case "prior" =>
 							buttonSet.grayAndDisableAddButton
-							doPriorButton			
+							doPriorButton// load Linker.doIteratorWithBackup			
 				case "*" =>
 							doAsteriskButton(taskGather)
 				case "+" =>

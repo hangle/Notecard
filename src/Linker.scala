@@ -43,9 +43,9 @@ trait Linker extends Node   {
 		var value:Node=null    
 		var backupList:List[Node]=Nil
 			// capture 'reset's argument to be used by 'isChild'
-		var childNode:Node=null   
 		var current:Node=null  // saved 
-		def saveCurrentNode { current= value }
+//		def saveCurrentNode { current= value } //Notecard management sys
+		def saveCurrentNode { current= node } //Notecard management sys
 		def restoreCurrentNode { iterator=current }
 
 			// Invoked by Notecard.iterateNotecardChildren to detect
@@ -54,34 +54,32 @@ trait Linker extends Node   {
 			// and 'iterate' are methods to iterate these
 			// lists of objects. 'Value' returns the object
 			// referenced on each iteration.
-		def isChild= if(childNode eq value) true; else false
-		def Value=value    
+		//def isChild= if(childNode eq value) true; else false
+		def isChild= if(child eq node) true; else false
 		def reset(child:Node) { //initialize the list
 					// child is the 1st child of the Parent, that is 1st sibling 
 			iterator=child
-			childNode=child
 			}
 			// Next button terminates iterate loop in Notecard.doAddCardSet
 		def terminateIterate { iterator==null}
 		
 		def iterate= {
 			if(iterator==null)
-				false
+				false   // escape 'while(iterate)' loop
 			  else {
-					// store current Node before accessing the 
-					// next Node
-				value=iterator
-				node=value
+					// store current sibling Node before accessing the 
+					// next sibling Node
+				node=iterator
 					// Node.next yeilds the Next sibling
 				iterator=iterator.next
 				true
 				}
 			}
 			// Activated by Notecard to only store Node(s)
-			// of CardSet objects. Note, in iterate(), value
+			// of CardSet objects. Note, in iterate(), 'node'
 			// is prior instance.
 		def storePriorSiblingInBackupList {
-				backupList= value :: backupList
+				backupList= node :: backupList
 				//println("Linker:  storeCurr...  backupList.size="+backupList.size)	
 				}
 
@@ -112,4 +110,4 @@ trait Linker extends Node   {
 
 	}
 																	  
-
+	

@@ -58,7 +58,7 @@ import scala.collection.mutable.Map
 class CreateClass   extends Node {
 
 
-	var obj:Any=null
+	var obj:Any=null // Any because String to Node
 	var coreVector=List[Any]()
 
 	var swizzleTable= Map[String,Node]()

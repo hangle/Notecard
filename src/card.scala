@@ -56,7 +56,6 @@ object card   {
 					// of linked lists changing symbolic address to physical
 					// ones, and finally returning the root of the network. 
 				val notecard:Notecard=loadFileAndBuildNetwork( structFile, symbolTable)//CommandNetwork
-
 					// Invoke root of network and begin the Card session
 				notecard.startNotecard(taskGather)
 					// Window resources created in Notecard are no longer needed.
