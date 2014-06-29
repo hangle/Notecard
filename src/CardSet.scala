@@ -76,33 +76,28 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 	def startCardSet(notePanel:JPanel, 
 					 lock:AnyRef, 
 					 buttonSet:ButtonSet, 
-					 statusLine:StatusLine)={ 
+					 statusLine:StatusLine,
+					 backupMechanism:BackupMechanism)={ 
 			// Assign Linker.next to 'backup'. The next time
 			// CardSet is executed, 'backup' holds the pointer
 			// to the prior Card.  Used to capture one or more input fields.
-		val inputFocus= new InputFocus(buttonSet ) 
+		val inputFocus= new InputFocus(buttonSet, backupMechanism ) 
 			// set true at end
+		val listenerArray= new ArrayBuffer[KeyListenerObject]
+			// Used by Visual objects (DisplayText, DisplayVariable, BoxField) in 
+			// collaboration with RowerNode. RowerNode passes row and column placement
+			// values to RowPosition.  These value are converted to pixels.  When the
+			// "next" row is to be displayed, RowPosition.currentPosition becomes
+			// the 'y' value java.awt.Component.setBounds(x,y,width, height)
+		val rowPosition=initializeRowPosition(18) //***skip*** see LabelPixelHeight.java
+
 		inputFocus.completedCardSetIteration=false
 			// prior card set may have posted a status message so remove for new card.
 		statusLine.clearStatusLine 
-			// 	If the 'c' command has logic ,e.g, 'c (2)=(3)', then the logic
-			//	is tested and the CardSet instances is skipped when 'false',
-			//  If 'c' cmd has no logic, then outcome is always 'true'.
-			//  Note: if skipped, then halt and lock are not issued.
-		if(noConditionOrIsTrue(conditionStruct, symbolTable)){	//'c <cmd> has no logic /
-				// Collection container for all KeyListernerObject(s)
-				// created in RowerNode.  At the completion of the
-				// card, listeners are removed via BoxField.
-				// removeKeyListener().  If not removed, then on backup
-				// with the PRIOR button, each BoxField would have 2 or
-				// more KeyListerObject(s).
-			val listenerArray= new ArrayBuffer[KeyListenerObject]
-				// Used by Visual objects (DisplayText, DisplayVariable, BoxField) in 
-				// collaboration with RowerNode. RowerNode passes row and column placement
-				// values to RowPosition.  These value are converted to pixels.  When the
-				// "next" row is to be displayed, RowPosition.currentPosition becomes
-				// the 'y' value java.awt.Component.setBounds(x,y,width, height)
-			val rowPosition=initializeRowPosition(18) //***skip*** see LabelPixelHeight.java
+			// 	symButton not zero indicating AddCardSet object
+		if(isAddCardSet)
+				// color button yellow and enable it
+			buttonSet.armAddCardSet
 				// Iterate CardSet commands then display	
 			executeCardCommandsAndDisplay(notePanel, 
 										  rowPosition,
@@ -113,21 +108,15 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 										  listenerArray) 
 				// set false before iteration. Input focus can arm Prior button.
 			inputFocus.completedCardSetIteration= true
-					// Enable * button for Management file
+				// Enable * button for Management file
 			buttonSet.armAsteriskButton
-					// ------------Card Set has been displayed--------------
-					// arm Buttons and enter 'wait' state. 
-					// Button press releases 'wait' state (ButtonSet.start() ):"
-					// do not enable PRIOR button for 1st CardSet child since there is
-					// nothing more to back up to. 
-
-					// When Card lacks input fields, then turn on NEXT button in
-					// order to transit to next Card. With one or more input 
-					// fields, InputFocus will turn on NEXT button. 
+				// When Card lacks input fields, then turn on NEXT button in
+				// order to transit to next Card. With one or more input 
+				// fields, InputFocus will turn on NEXT button. 
 			if(inputFocus.isNoInputFields){			// True if no input fields,i.e. (# $abc) 
 						// Also enable PRIOR button when not first CardSet
-					if(buttonSet.isFirstChildFalse) {
-						println("CardSet: noInputFields..  armPriorButton")
+					if( ! backupMechanism.isFirstChild) {
+							//			println("CardSet  isFirstChild="+backupMechanism.isFirstChild)
 						buttonSet.armPriorButton
 						}
 						// Enable NEXT button, give it  focus and color it orange
@@ -141,7 +130,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 							// KeyListenerObject(s) are removed from the
 							// corresponding BoxField
 			removeInputFieldListeners(listenerArray) 
-			}  // end of 'noConditionOrIsTrue(...)'
 	}// control returns to Notecard to process the next card set
 
 	def executeCardCommandsAndDisplay(notePanel:JPanel,
@@ -376,9 +364,10 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			}
 		}
 		//Determines whether or not the card is displayed
-	def noConditionOrIsTrue(condition:String, symbolTable:Map[String,String]) ={
-		if(condition != "0")
-				LogicTest.logicTest(condition, symbolTable)
+	//def noConditionOrIsTrue(condition:String, symbolTable:Map[String,String]) ={
+	def noConditionOrIsTrue(symbolTable:Map[String,String]) ={
+		if(conditionStruct != "0")
+				LogicTest.logicTest(conditionStruct, symbolTable)
 			else
 				true   // No logic expression  
 		}

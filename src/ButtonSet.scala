@@ -54,7 +54,7 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	var nextButton=false
 	var priorButton=false; // set true by button, set false in Notecard
 	var asteriskButton=false//'true' when '*' button hit (see actionPerformed)
-	var firstChild=false  // set true when Card is 1st child in Notecard chain. 
+	//var firstChild=false  // set true when Card is 1st child in Notecard chain. 
 	var isAsteriskButtonOn="on"  // when 'off', button is disabled by * cmd
 	var isPriorButtonOn = "on" //when 'off', button is disabled
 //	var addOrNextState= "next" // Either "next" or "add"
@@ -69,11 +69,8 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	grayAndDisablePriorButton 
 	grayAndDisableAddButton 
 
-		// Used in CardSet to enable PRIOR button when Card has 
-		//  no input fields.
-		// Used twice InputFocus. First, to enable when all fields
-		//  are captured, and second when '* continue' is issued. 
-	def isFirstChildFalse= firstChild==false
+		// 
+	//def isFirstChildFalse= firstChild==false
 		// Determine which button was activated and take 
 		// appropriate action.
 	def actionPerformed(event:ActionEvent) { 

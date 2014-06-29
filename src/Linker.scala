@@ -74,12 +74,13 @@ trait Linker extends Node   {
 				true
 				}
 			}
-			// Activated by Notecard to only store Node(s)
+/*
+			// Activated by CardSet to only store Node(s)
 			// of CardSet objects. Note, in iterate(), 'node'
 			// is prior instance.
 		def storePriorSiblingInBackupList {
 				backupList= node :: backupList
-				//println("Linker:  storeCurr...  backupList.size="+backupList.size)	
+				println("Linker:  storeCurr...  backupList.size="+backupList.size)	
 				}
 
 			// Notecard invoked when 'PRIOR' button is activated. 
@@ -106,7 +107,8 @@ trait Linker extends Node   {
 			  	iterator=backupList.head  //restore iterator with 1st sibling
 			}
 			// Employed to prevent backing up beyond 1st CardSetg
-//		def isBackupListEmpty= backupList==Nil
+		def isBackupListEmpty= backupList==Nil
+*/
 	
 
 	}

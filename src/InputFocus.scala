@@ -60,7 +60,7 @@ import javax.swing.JComponent
 import collection.mutable.ArrayBuffer
 			// ButtonSet used when when all inputs are captured so as to
 			// activate NEXT button and to release wait() in CardSet
-class InputFocus ( buttonSet:ButtonSet) {
+class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 	var components=new ArrayBuffer[JComponent] //JComponent can be BoxField
 			// Increment in RowerNode when BoxField object is detected.
 	var counter=0  	 
@@ -71,6 +71,7 @@ class InputFocus ( buttonSet:ButtonSet) {
 			// Set false at beginning of iteration and set true at end.
 			// Arm Prior button when true provided CardSet not first. 
 	var completedCardSetIteration=false
+
 	def turnOnXNode={ xnodeState=true}   // CardSet has encountered a XNode command
 	def turnOffXNode={ xnodeState=false}// capture completes so turn off thirs condition
 			// In 'addToArray(..)', 'counter' is incremented by an InputField 
@@ -110,29 +111,25 @@ class InputFocus ( buttonSet:ButtonSet) {
 			 else{
 					// In iteration, first CardSet set 'firstChild' to 'true',
 					// next and subsequent CardSet set it to 'false'
-				if( buttonSet.isFirstChildFalse ) {
-		//			if(completedCardSetIteration==true)
-							buttonSet.armPriorButton
+				if( ! backupMechanism.isFirstChild ) {
+					buttonSet.armPriorButton
 					}
 				buttonSet.armNextButton   //enable button,color button orange
 			    buttonSet.next.requestFocus
 				}
 			}
-		  else{
+		  else
 					// Move cursor to next input field 
 	    	  components(arrayIndex).requestFocus
-			  }
-		}
+	}
 			// Invoked by CardSetTask in support of '* continue' cmd.
 			// CardSetTask 1st invokes 'notePanel.validate(), and then
 			// 'notePanel.repaint(), finally invoking this method.
 			// NEXT button enabled. When activated, then rest of Card cmds 
 			// are executed.
 	def establishAsteriskContinue {
-			//
-	//	if(completedCardSetIteration==true)
-					// enable button, get focus, color button orange
-				buttonSet.armNextButton 
+			// enable button, get focus, color button orange
+		buttonSet.armNextButton 
 			// wait() invoked, button hit invokes 'notifyAll()'
 		buttonSet.issueWait
 		}
