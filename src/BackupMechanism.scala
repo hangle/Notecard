@@ -5,6 +5,10 @@
 	CardSet's 'node' to the next CardSet.  As a CardSet node is
 	processed, it is stored in 'backupList'.  
 
+	The Next button moves the CardSets forward. The Prior button
+	moves the CardSets backward.  When the Prior button is activated,
+	the prior CardSet is presented.
+
 */
 
 package com.client
@@ -27,14 +31,14 @@ class BackupMechanism {
 			if(firstChild eq backupList.head)
 				true
 			else
-				false
+				false l
 			}
 			// Activated by CardSet to only store Node(s)
 			// of CardSet objects. Note, in iterate(), 'node'
 			// is prior instance.
 		def storePriorSiblingInBackupList( node:Node) {
 				backupList= node :: backupList
-				println("Linker:  storeCurr...  backupList.size="+backupList.size)	
+				//		println("Linker:  storeCurr...  backupList.size="+backupList.size)	
 				}
 
 			// Notecard invoked when 'PRIOR' button is activated. 
@@ -43,7 +47,7 @@ class BackupMechanism {
 			// Note, the first Card has no prior Card
 		def loadIteratorWithBackup=  {
 			var iterator:Node=null
-			println("BackupMech:  backupList.tail.size="+backupList.tail.size)
+		//			println("BackupMech:  backupList.tail.size="+backupList.tail.size)
 			if( ! backupList.tail.isEmpty) {  // Indicates that backup
 											  // can be initiated.
 						//   println("BackupMech:  backupList not empty")

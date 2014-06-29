@@ -146,6 +146,9 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 			case cs:CardSet=> //println("cs:CardSet") //
 						// Do CardSet if condition is true or 'c' command lacks condition.
 						// Otherwise skip 'wait' so as to process next CardSet.
+						// 	If the 'c' command has logic ,e.g, 'c (2)=(3)', then the logic
+						//	is tested and the CardSet instances is skipped when 'false',
+						//  If 'c' cmd has no logic, then outcome is always 'true'.
 				if(cs.noConditionOrIsTrue( symbolTable)){	//'c <cmd> has no logic /
 						// 1st sibling to pass condition test is stored in 'firstChild'.
 					backupMechanism.captureFirstChild(node)
@@ -192,19 +195,21 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						  statusLine:StatusLine):Unit={ 
 		buttonSet.selectedButton match {
 				case "next"  =>
-						 	buttonSet.grayAndDisableAddButton
+						buttonSet.grayAndDisableAddButton
 				case "prior" =>
-							buttonSet.grayAndDisableAddButton
-							doPriorButton// load Linker.doIteratorWithBackup			
+						buttonSet.grayAndDisableAddButton
+						doPriorButton// load Linker.doIteratorWithBackup			
 				case "*" =>
-							doAsteriskButton(taskGather)
+						doAsteriskButton(taskGather)
 				case "+" =>
-							doAddCardSet(taskGather,
-											cardSet,
-											notePanel,
-											lock,
-											buttonSet,
-											statusLine)
+					if(cardSet.isAddCardSet){
+						doAddCardSet(taskGather,
+										cardSet,
+										notePanel,
+										lock,
+										buttonSet,
+										statusLine)
+						}
 				case _=>
 							println("Notecard: unknown button actionPerformed")
 				}
@@ -244,44 +249,44 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						buttonSet:ButtonSet,
 						statusLine:StatusLine)={ 
 				// Node.symButton !="0" indicates that CardSet has a child AddCardSet
-		if(cardSet.isAddCardSet){
+//		if(cardSet.isAddCardSet){
 					// Save Link iterator's node in order to restore this node
 					// when button CardSets end.
-				saveCurrentCardSet	  // iterator's node is saved. 
+			saveCurrentCardSet	  // iterator's node is saved. 
 					// fetch physical address of AddCardSet from parent CardSet
-				val addButton= cardSet.getAddCardSet
-				val addCardSet= addButton.asInstanceOf[CardSet]
+			val addButton= cardSet.getAddCardSet
+			val addCardSet= addButton.asInstanceOf[CardSet]
 					// AddCardSet(s) will be processed as if they are CardSet(s).
-				reset(addCardSet)
+			reset(addCardSet)
 					// loop one or more AddCardSet(s)
-				while(iterate) {
-					node match {
-						case cs:CardSet=>
-									// don't activate at end of list
-							if(iterator != null)
+			while(iterate) {
+				node match {
+					case cs:CardSet=>
+									// don't activate Add button at end of list
+						if(iterator != null)
 											// activate +Add button
-									buttonSet.armAddCardSet
+							buttonSet.armAddCardSet
 								// process CarsSet children
-							cs.startCardSet(notePanel, lock, buttonSet, statusLine, backupMechanism)
+						cs.startCardSet(notePanel, lock, buttonSet, statusLine, backupMechanism)
 									// Next button terminates iterate loop by setting
 									// Linker.iterator to null. +Add button does nothing
 									// so looping continues. 
-							waitOverInAddDoButtons(taskGather, 
+						waitOverInAddDoButtons(taskGather, 
 													cs,
 													notePanel,
 													lock,
 													buttonSet, 
 													statusLine)
 									// deactivate +Add button
-							buttonSet.grayAndDisableAddButton
-						case _=> println("Notecard: Unknown Value")
-						}
+						buttonSet.grayAndDisableAddButton
+					case _=> println("Notecard: Unknown Value")
+					}
 					buttonSet.grayAndDisableAddButton
 					}
 					// Restore Link iterator to the CardSet from which '+Add' button was
 					// activated. 
 				restoreCurrentCardSet
-				}
+				//}
 		}
 	def saveCurrentCardSet { 
 				//currentCardSet=value 

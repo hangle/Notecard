@@ -54,10 +54,8 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	var nextButton=false
 	var priorButton=false; // set true by button, set false in Notecard
 	var asteriskButton=false//'true' when '*' button hit (see actionPerformed)
-	//var firstChild=false  // set true when Card is 1st child in Notecard chain. 
 	var isAsteriskButtonOn="on"  // when 'off', button is disabled by * cmd
 	var isPriorButtonOn = "on" //when 'off', button is disabled
-//	var addOrNextState= "next" // Either "next" or "add"
 			// button acquires listener and is added to NotePanel/
 	createActionButton(buttonPanel, asterisk)
 	createActionButton(buttonPanel, buttonCardSet)
@@ -69,15 +67,12 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	grayAndDisablePriorButton 
 	grayAndDisableAddButton 
 
-		// 
-	//def isFirstChildFalse= firstChild==false
 		// Determine which button was activated and take 
 		// appropriate action.
 	def actionPerformed(event:ActionEvent) { 
 		event getActionCommand() match{
 				// Next button enabled by FieldFocus
 			case "Next"=>  
-			//	println("ButtonSet: actionPerf...    --next-- ")
 				selectedButton="next" //Notecard: match expression
 					// Next button has been activated, so:
 					// disable it,  gray the button,
@@ -88,13 +83,13 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 					// the next spacebar key to initiate backup. 
 				start()
 			case "Prior"=> 
-			//	println("ButtonSet: actionPerf...    --prior-- ")
+							//	println("ButtonSet: actionPerf...    --prior-- ")
 				selectedButton="prior"  //Notecard: match expression
 				//notifyGrayAndDisableNext 
 				grayAndDisablePriorButton
 				start()
 			case " * "=> 
-			//	println("ButtonSet: actionPerf...    --*-- ")
+							//	println("ButtonSet: actionPerf...    --*-- ")
 						//used in Notecard: match expression
 				selectedButton="*"  
 				//notifyGrayAndDisableNext 
