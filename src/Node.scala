@@ -105,7 +105,7 @@ trait Node  {
 	var symId="" //setAddress(): symbolic address created by server system
 	var symChild:String="0"   //setChild
 	var symSibling:String="0" //setNext
-	var symButton:String="0" 
+	var symAddButton:String="0" 
 	var child:Node=null	 // 1st child of parent list assigned by:converToChild
 	var next:Node=null   // sibling
 	var addButton:Node=null // AddButtonCardSet
@@ -123,7 +123,7 @@ trait Node  {
 	def setAddress(value:String) {symId=value}
 	def setNext(value:String) = symSibling=value
 	def setChild(value:String) = symChild=value
-	def setAddButton(value:String)= symButton=value
+	def setAddButton(value:String)= symAddButton=value
 			// 'symId' is the symbolic address whereas 'objectx' is
 			// the "physical address". Invoked in 'CreateClass' which in turn '			'
 			// switches or swizzles the phy addr for the symbolic one
@@ -153,26 +153,22 @@ trait Node  {
 		}
 	def convertToChild(swizzleTable:Map[String, Node]) ={
 		if(symChild != "0") {
-		//	println("Node: swizzleTable.contains(symChild)="+swizzleTable.contains(symChild) ")
 			if(swizzleTable.contains(symChild)){
 				child=swizzleTable(symChild) 
 				}
 			else    {
-				//println("Node "+symChild+" not in swizzleTable")
+				println("Node  child throw exception")
 				throw new Exception 
 				}
 			}
 		}
-	def convertToButton(swizzleTable:Map[String, Node]) ={
-	//println("Node convert to Buttton")
-		if(symButton != "0") {
-			//println("Node: swizzleTable.contains(symButton)="+swizzleTable.contains(symButton)+"  symButton="+symButton )
-			if(swizzleTable.contains(symButton)){
-				addButton=swizzleTable(symButton) 
-				//println("Node: button="+button)
+	def convertToAddButton(swizzleTable:Map[String, Node]) ={
+		if(symAddButton != "0") {
+			if(swizzleTable.contains(symAddButton)){
+				addButton=swizzleTable(symAddButton) 
 				}
 			else    {
-				//println("Node (symButton) "+symButton+" not in swizzleTable")
+				println("Node  add throw exception")
 				throw new Exception 
 				}
 			}

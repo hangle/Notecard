@@ -44,8 +44,8 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 	var frame_height=0
 	var frame_width=0
 	var font_size=0
-	var armAsteriskButton="on"
-	var armPriorButton="on"
+	var asteriskButtonState="on"
+	var priorButtonState="on"
 
 //	var symId="2001"    	// Root symbolic address.
 //------------------------------swizzle routines---------------------
@@ -219,19 +219,19 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 	    				  notePanel:JPanel, 
 						  lock:AnyRef, 
 						  buttonSet:ButtonSet, 
-						  statusLine:StatusLine):Unit={ 
+						  statusLine:StatusLine,
+						  addBackupMechanism:BackupMechanism):Unit={ 
 		buttonSet.selectedButton match {
 				case "next"  =>
-							buttonSet.grayAndDisableAddButton
-								// in the +Add-CardSet operation, the Next
-								// button is used to terminate this operation
-								// null will escape 'while(iterate)' in 
-								// 'doAddCardSet'.
-							iterator=null
+						buttonSet.grayAndDisableAddButton
+							// in the +Add-CardSet operation, the Next
+							// button is used to terminate this operation
+							// null will escape 'while(iterate)' in 
+							// 'doAddCardSet'.
+						iterator=null
 				case "prior" =>
-							buttonSet.grayAndDisableAddButton
-						//	doPriorButton			
-						println("Notecard: doPriorButton commented out")
+						buttonSet.grayAndDisableAddButton
+						doAddPriorButton(addBackupMechanism)			
 				case "*" =>
 							doAsteriskButton(taskGather)
 				case "+" =>
@@ -249,36 +249,48 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						buttonSet:ButtonSet,
 						statusLine:StatusLine)={ 
 				// Node.symButton !="0" indicates that CardSet has a child AddCardSet
-//		if(cardSet.isAddCardSet){
-					// Save Link iterator's node in order to restore this node
-					// when button CardSets end.
+				// Save Link iterator's node in order to restore this node
+				// when button CardSets end.
 			saveCurrentCardSet	  // iterator's node is saved. 
-					// fetch physical address of AddCardSet from parent CardSet
+
+			val addBackupMechanism= new BackupMechanism
+
+				// fetch physical address of AddCardSet from parent CardSet
 			val addButton= cardSet.getAddCardSet
 			val addCardSet= addButton.asInstanceOf[CardSet]
 					// AddCardSet(s) will be processed as if they are CardSet(s).
 			reset(addCardSet)
-					// loop one or more AddCardSet(s)
+					// loop one or more AddCardSet(s). iterate() returns 'node'
+					// as current CarsSet.
 			while(iterate) {
 				node match {
 					case cs:CardSet=>
-									// don't activate Add button at end of list
+								// don't activate Add button at end of list (see Linker).
 						if(iterator != null)
-											// activate +Add button
 							buttonSet.armAddCardSet
+								// 	If the 'c' command has logic ,e.g, 'c (2)=(3)', then the logic
+								//	is tested and the CardSet instances is skipped when 'false',
+								//  If 'c' cmd has no logic, then outcome is always 'true'.
+						if(cs.noConditionOrIsTrue( symbolTable)){	//'c <cmd> has no logic /
+								// 1st sibling to pass condition test is stored in 'firstChild'.
+							addBackupMechanism.captureFirstChild(node)
+								// save all 'node's to be used to back up to prior CardSet
+							addBackupMechanism.storePriorSiblingInBackupList( node)
 								// process CarsSet children
-						cs.startCardSet(notePanel, lock, buttonSet, statusLine, backupMechanism)
-									// Next button terminates iterate loop by setting
-									// Linker.iterator to null. +Add button does nothing
-									// so looping continues. 
-						waitOverInAddDoButtons(taskGather, 
+							cs.startCardSet(notePanel, lock, buttonSet, statusLine, addBackupMechanism)
+								// Next button terminates iterate loop by setting
+								// Linker.iterator to null. +Add button does nothing
+								// so looping continues. 
+							waitOverInAddDoButtons(taskGather, 
 													cs,
 													notePanel,
 													lock,
 													buttonSet, 
-													statusLine)
-									// deactivate +Add button
-						buttonSet.grayAndDisableAddButton
+													statusLine,
+													addBackupMechanism)
+										// deactivate +Add button
+							buttonSet.grayAndDisableAddButton
+							}
 					case _=> println("Notecard: Unknown Value")
 					}
 					buttonSet.grayAndDisableAddButton
@@ -300,6 +312,13 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 			// assign Linker.backup to 'iterator' to
 			// enable the 'while(iterate)' to display prior Card.
 		iterator=backupMechanism.loadIteratorWithBackup 		// see Linker 
+		buttonSet.resetPriorButton	// turn off backup mechanism
+		}
+		//Backup set up
+	def doAddPriorButton(addBackupMechanism:BackupMechanism) {
+			// assign Linker.backup to 'iterator' to
+			// enable the 'while(iterate)' to display prior Card.
+		iterator=addBackupMechanism.loadIteratorWithBackup 		// see Linker 
 		buttonSet.resetPriorButton	// turn off backup mechanism
 		}
 			// Invokes new CardWindow (extends JFrame) and setVisible
@@ -401,15 +420,15 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					case "font_size" => 
 							font_size= pair(1).toInt
 					case "asteriskButton"=>          // either "on" or "off"
-							armAsteriskButton= pair(1)
+							asteriskButtonState= pair(1)
 								// 'isAsteriskButtonOn' will disable '*' button 
-								//  when 'armAsteriskButton'= 'off'.
-							buttonSet.isAsteriskButtonOn=armAsteriskButton 
+								//  when 'asteriskButtonState'= 'off'.
+							buttonSet.isAsteriskButtonOn=asteriskButtonState 
 					case "priorButton" =>
-							armPriorButton=pair(1)
+							priorButtonState=pair(1)
 								// 'isPriorButtonOn' will disable PRIOR button 
-								//  when 'armPriorButton'= 'off'.
-							buttonSet.isPriorButtonOn= armPriorButton   
+								//  when 'priorButtonState'= 'off'.
+							buttonSet.isPriorButtonOn= priorButtonState   
 					}
 				}
 			   }  //breakable		 

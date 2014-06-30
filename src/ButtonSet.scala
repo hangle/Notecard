@@ -137,7 +137,7 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		next.setEnabled(true)
 		next setBackground(Color.ORANGE)
 		}
-		// Invoked in:  ButtonSet & CardSet
+		// Invoked in:  ButtonSet, InputFocus & CardSet
 	def armPriorButton= {
 			// can be disabled by '* priorButton  off'
 			// on/off assigned in Notecard

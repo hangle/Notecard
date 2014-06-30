@@ -1,8 +1,7 @@
-<pre><code>    BUTTON CARDSET
-</code></pre>
+<h1>AddCardSet</h1>
 
-<p>In a series of CardSets, the next CardSet is initiated by the
-'Next' button.  A ButtonCardSet is initiated by the '+Add' button.</p>
+<p>In a series of CardSets, the next CardSet is initiated by the <br />
+'Next' button.  A AddCardSet is initiated by the '+Add' button.</p>
 
 <p>The following  CardSet asks the user to enter the capital of Ohio.  </p>
 
@@ -26,7 +25,7 @@ User activation of this button presents the following commands: </p>
     d Person who discovered the New World
 </code></pre>
 
-<p>The tag 'b' is the leading command of the ButtonCardSet.  The 'b' <br />
+<p>The tag 'b' is the leading command of the AddCardSet.  The 'b' <br />
 command has the same functionality as the 'c' command.   </p>
 
 <p>The following commands includes an additional Button CardSet:  </p>
@@ -46,24 +45,24 @@ command has the same functionality as the 'c' command.   </p>
     ...
 </code></pre>
 
-<p>The ButtonCardSets must immediately follow the CardSet to which <br />
+<p>The AddCardSets must immediately follow the CardSet to which <br />
 they are associated.  </p>
 
-<p>A CardSet that has associated one or more ButtonCardSets arms the <br />
-'+Add' button.  Its color becomes green.   </p>
+<p>A CardSet that has associated one or more AddCardSets arms the <br />
+'+Add' button.  Its color becomes yellow.   </p>
 
 <p>The user who answers the Ohio question and does not activate the <br />
-'+Add' button skips the ButtonCardSets and is presented with the <br />
+'+Add' button skips the AddCardSets and is presented with the <br />
 New York question.  </p>
 
 <p>Activation of the '+Add' button in the Ohio question CardSet has <br />
 the same affect has hitting the 'Next' button. That is, the <br />
-following ButtonCardSet is executed.   </p>
+following AddCardSet is executed.   </p>
 
-<p>The user activates the 'Next' button in both ButtonCardSets.   </p>
+<p>The user activates the 'Next' button in both AddCardSets.   </p>
 
-<p>Activation of the 'Next' button in the last ButtonCardSet <br />
-restores the CardSet associated with the ButtonCardSets.   </p>
+<p>Activation of the 'Next' button in the last AddCardSet <br />
+restores the CardSet associated with the AddCardSets.   </p>
 
 <p>The initial CardSet is again executed. Hopefully, the user has been <br />
 provided with enough supplemential informaton to answer the Ohio <br />

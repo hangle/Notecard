@@ -41,10 +41,9 @@ trait Linker extends Node   {
 				// 'iterate' function assign "next" sibling to 'iterator'
 		var iterator:Node=null 
 		var value:Node=null    
-		var backupList:List[Node]=Nil
 			// capture 'reset's argument to be used by 'isChild'
 		var current:Node=null  // saved 
-//		def saveCurrentNode { current= value } //Notecard management sys
+
 		def saveCurrentNode { current= node } //Notecard management sys
 		def restoreCurrentNode { iterator=current }
 
@@ -74,43 +73,6 @@ trait Linker extends Node   {
 				true
 				}
 			}
-/*
-			// Activated by CardSet to only store Node(s)
-			// of CardSet objects. Note, in iterate(), 'node'
-			// is prior instance.
-		def storePriorSiblingInBackupList {
-				backupList= node :: backupList
-				println("Linker:  storeCurr...  backupList.size="+backupList.size)	
-				}
-
-			// Notecard invoked when 'PRIOR' button is activated. 
-			// Instead of loading 'iterator' with the next Card, 
-			// the backup mechanism loads it with the prior Card.
-			// Note, the first Card has no prior Card
-		def loadIteratorWithBackup=  {
-			if( ! backupList.tail.isEmpty) {  // Indicates that backup
-											  // can be initiated.
-					// backing up so drop the current Node
-				backupList=backupList.tail
-					// set iterator to the prior Node
-				iterator=backupList.head
-					// if 1st sibling, then do not drop it otherwise
-					// the list will be empty.
-				if(  backupList.tail != Nil)
-							// also drop the prior Node since it will
-							// again be captured by 'backupList'
-							// the first Card is reloaded by Notecard
-					backupList=backupList.tail
-				}		
-			  else  
-			  		// Can not backup so impliment first CardSet
-			  	iterator=backupList.head  //restore iterator with 1st sibling
-			}
-			// Employed to prevent backing up beyond 1st CardSetg
-		def isBackupListEmpty= backupList==Nil
-*/
-	
-
 	}
 																	  
 	

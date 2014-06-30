@@ -51,7 +51,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 	def convertToReference(swizzleTable:Map[String, Node]) ={
 			convertToSibling(swizzleTable)
 			convertToChild(swizzleTable)  // Is a parent
-			convertToButton(swizzleTable) // ButtonCardSet
+			convertToAddButton(swizzleTable) // ButtonCardSet
 			}
 				// 'button' is the physical addr of the ButtonCardSet. If CardSet has no
 				// associated ButtonCardSet, then button equals 'null'.
@@ -71,7 +71,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// CardSet may point to a AddCardSet object, or AddCardSet object
 			// has return pointer to parent 'button' of CardSet. [symButton.Node.scala:
 			// similar to 'symChild' and 'symSibling' ]. Used by Notecard
-	def isAddCardSet= { if(symButton != "0") true; else false}// Invoked by Notecard parent
+	def isAddCardSet= { if(symAddButton != "0") true; else false}// Invoked by Notecard parent
 			// Invoked by Notecard
 	def startCardSet(notePanel:JPanel, 
 					 lock:AnyRef, 
@@ -90,7 +90,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// "next" row is to be displayed, RowPosition.currentPosition becomes
 			// the 'y' value java.awt.Component.setBounds(x,y,width, height)
 		val rowPosition=initializeRowPosition(18) //***skip*** see LabelPixelHeight.java
-
+			// set true following execution of CardSet children
 		inputFocus.completedCardSetIteration=false
 			// prior card set may have posted a status message so remove for new card.
 		statusLine.clearStatusLine 
@@ -99,37 +99,37 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				// color button yellow and enable it
 			buttonSet.armAddCardSet
 				// Iterate CardSet commands then display	
-			executeCardCommandsAndDisplay(notePanel, 
-										  rowPosition,
-										  lock, 
-										  inputFocus, 
-										  indexer, 
-										  statusLine, 
-										  listenerArray) 
+		executeCardCommandsAndDisplay(notePanel, 
+									  rowPosition,
+									  lock, 
+									  inputFocus, 
+									  indexer, 
+									  statusLine, 
+									  listenerArray) 
 				// set false before iteration. Input focus can arm Prior button.
-			inputFocus.completedCardSetIteration= true
+		inputFocus.completedCardSetIteration= true
 				// Enable * button for Management file
-			buttonSet.armAsteriskButton
+		buttonSet.armAsteriskButton
 				// When Card lacks input fields, then turn on NEXT button in
 				// order to transit to next Card. With one or more input 
 				// fields, InputFocus will turn on NEXT button. 
-			if(inputFocus.isNoInputFields){			// True if no input fields,i.e. (# $abc) 
+		if(inputFocus.isNoInputFields){			// True if no input fields,i.e. (# $abc) 
 						// Also enable PRIOR button when not first CardSet
-					if( ! backupMechanism.isFirstChild) {
+				if( ! backupMechanism.isFirstChild) {
 							//			println("CardSet  isFirstChild="+backupMechanism.isFirstChild)
-						buttonSet.armPriorButton
-						}
+					buttonSet.armPriorButton
+					}
 						// Enable NEXT button, give it  focus and color it orange
-					buttonSet.armNextButton	
-					buttonSet.next.requestFocus
+				buttonSet.armNextButton	
+				buttonSet.next.requestFocus
 				}
-			showPanel(notePanel) // display panel content (paint, validate)
-				// Stop (issue wait()) to allow the user to enter responses.
-			haltCommandExecution(lock)	
-			clearNotePanel(notePanel)	//remove all components & clear screen
+		showPanel(notePanel) // display panel content (paint, validate)
+			// Stop (issue wait()) to allow the user to enter responses.
+		haltCommandExecution(lock)	
+		clearNotePanel(notePanel)	//remove all components & clear screen
 							// KeyListenerObject(s) are removed from the
 							// corresponding BoxField
-			removeInputFieldListeners(listenerArray) 
+		removeInputFieldListeners(listenerArray) 
 	}// control returns to Notecard to process the next card set
 
 	def executeCardCommandsAndDisplay(notePanel:JPanel,

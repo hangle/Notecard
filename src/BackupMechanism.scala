@@ -31,7 +31,7 @@ class BackupMechanism {
 			if(firstChild eq backupList.head)
 				true
 			else
-				false l
+				false
 			}
 			// Activated by CardSet to only store Node(s)
 			// of CardSet objects. Note, in iterate(), 'node'
@@ -70,12 +70,4 @@ class BackupMechanism {
 				}
 			iterator
 			}
-			// Employed to prevent backing up beyond 1st CardSetg
-		def isBackupListEmpty= backupList==Nil
-	
-
-
-
-
-
 }
