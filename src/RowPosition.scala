@@ -34,7 +34,7 @@ class RowPosition (font:Font)  {
 		// 'd (%% now is) the time (# $abc)' have three components. Each
 		// is displayed separately.  'currentWidth' keeps track of where
 		// on the line that the next component begins. 
-	var currentWidth=5;	  // updated by 'setCurrentWidth(..)'
+	var currentWidth=5;	  // updated by 'setCurrentPixelWidth(..)'
 		// 'd (%% /size 10/now is)(%% /size 20/ The time) has two text
 		// components of differet size or height.  RowerNode finds the
 		// larges size, in the case of this example, it is 20. 'maxHeight'
@@ -43,15 +43,27 @@ class RowPosition (font:Font)  {
 	val pair= defaultRowHeightWidth(font) //establish metrics 
 	pixelWidth= pair._1
 		// Invoked by RowerNode.startRowerNode(..)
-	def loadRowAndColumn(r:Int, c:Int) {
+	def loadRowAndColumn(r:Int, c:Int, max:Int) {
 		row=r 
 		column=c
 			//Convert column to currentWidth (pixels)
-		setCurrentWidth(column)
+		setCurrentPixelWidth(column)
+		setCurrentPixelHeight(row, max)
+		}
+	def setCurrentPixelHeight(row:Int, max:Int) {
+		
+		//println("RowPosition: setCurrentPixelHeight():  row="+row+"  maxHeight="+maxHeight)
+//		val rowMaxHeight=row * maxHeight
+		val rowMaxHeight=row * max
+//		println("RowPosition: setCurrentP... row*max="+rowMaxHeight)
+//		println("RowPosition: setCurrentP... row*max="+rowMaxHeight)
+		currentHeight= rowMaxHeight
 		}
 		//Passed by 'convertRowColumnPosition' see Visual trait
 		//to the 'yy' values of the visual components
-	def getCurrentHeight()= {  currentHeight} 
+	def getCurrentHeight()= {
+				//println("RowPosition: getCurrentHeight()")
+				currentHeight} 
 		//Passed by 'convertRowColumnPosition' see Visual trait
 		//to the 'xx'  values of the visual components
 	def getCurrentWidth()={ currentWidth}
@@ -60,8 +72,10 @@ class RowPosition (font:Font)  {
 		// Invoked by  RowerNode.iterateRowerNodeChildren(largestHeight).
 		// after children have been iterated.
 	def sumMaxHeightToCurrentHeight(maxSizePixel:Int) { 
-		maxHeight= maxSizePixel
-		currentHeight += maxSizePixel 
+		maxHeight= maxSizePixel 
+		//println("RowPosition  sumMaxHeight..  row="+row+"   maxSizePixel="+maxSizePixel+"  maxHeight="+maxHeight)
+		currentHeight += maxSizePixel
+		//println("\tRowPosition currentHeight="+currentHeight)
 		} 
 		//Invoked in RowerNode after its children have been
 		//iterated. Reset for the next RowerNode instance
@@ -81,7 +95,7 @@ class RowPosition (font:Font)  {
 		// RowPosition.invokeRowColumn(...).
 		// example:  'd  15/now is' where routine converts
 		// 15 to pixels.
-	def setCurrentWidth( column:Int) { 
+	def setCurrentPixelWidth( column:Int) { 
 			var value=0;
 			if(column==0) value=5;   
 			val pixelColumn= pixelWidth * column + value

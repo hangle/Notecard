@@ -64,7 +64,9 @@ case class DisplayText(var symbolTable:Map[String,String]) extends JLabel with N
 				// the value (getCurrentHeight()) is actually the 'y' axis 
 				// position of the next line, so subtract the height
 				// value of the current line. 
+			//	println("DisplayText: startDisplayText")
 		yy=rowPosition.getCurrentHeight()
+		//println("DisplayText:  yy="+yy)
 		xx=rowPosition.getCurrentWidth()
 				// computes the metric width of the text string so as
 				// to adjust row position for next display component
@@ -81,6 +83,7 @@ case class DisplayText(var symbolTable:Map[String,String]) extends JLabel with N
 				// y axis is ajusted downward for text whose height < maxHeight
 				// so that text of different sizes are aligned on the same line.
 			y=adjustYyForSizeLessThanMax( yy )
+			//println("DisplayText  y="+y+"    local_getMetricsHeight()="+local_getMetricsHeight())
 		setBounds(xx, y, local_getMetricsWidth(), local_getMetricsHeight());
 		}
 					// if text height is not same as the largest height 
