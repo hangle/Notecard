@@ -35,7 +35,7 @@ color	black
 address	2005
 child	2006
 sibling	2007
-row	3
+row	2
 column	5
 %%
 %DisplayText
@@ -52,7 +52,7 @@ color	black
 address	2007
 child	2008
 sibling	2009
-row	4
+row	3
 column	5
 %%
 %DisplayText
@@ -69,7 +69,7 @@ color	black
 address	2009
 child	2010
 sibling	2011
-row	5
+row	4
 column	5
 %%
 %DisplayText
@@ -86,7 +86,7 @@ color	black
 address	2011
 child	2012
 sibling	2013
-row	6
+row	5
 column	5
 %%
 %DisplayText
@@ -103,7 +103,7 @@ color	black
 address	2013
 child	2014
 sibling	2015
-row	7
+row	6
 column	15
 %%
 %DisplayText
@@ -120,7 +120,7 @@ color	black
 address	2015
 child	2016
 sibling	2017
-row	8
+row	7
 column	15
 %%
 %DisplayText
@@ -137,7 +137,7 @@ color	black
 address	2017
 child	2018
 sibling	2019
-row	9
+row	8
 column	5
 %%
 %DisplayText
@@ -160,7 +160,7 @@ type	0
 address	2020
 child	2021
 sibling	2022
-row	10
+row	9
 column	5
 %%
 %DisplayText
@@ -177,7 +177,7 @@ color	black
 address	2022
 child	2023
 sibling	0
-row	11
+row	10
 column	5
 %%
 %DisplayText
@@ -219,7 +219,7 @@ color	black
 address	2027
 child	2028
 sibling	2029
-row	3
+row	2
 column	5
 %%
 %DisplayText
@@ -236,7 +236,7 @@ color	black
 address	2029
 child	2030
 sibling	2033
-row	4
+row	3
 column	10
 %%
 %DisplayText
@@ -273,7 +273,7 @@ color	black
 address	2033
 child	2034
 sibling	2036
-row	5
+row	4
 column	10
 %%
 %DisplayText
@@ -300,7 +300,7 @@ color	black
 address	2036
 child	2037
 sibling	2039
-row	6
+row	5
 column	10
 %%
 %DisplayText
@@ -327,7 +327,7 @@ color	black
 address	2039
 child	2040
 sibling	2042
-row	7
+row	6
 column	10
 %%
 %DisplayText
@@ -354,7 +354,7 @@ color	black
 address	2042
 child	2043
 sibling	2045
-row	8
+row	7
 column	10
 %%
 %DisplayText
@@ -381,7 +381,7 @@ color	black
 address	2045
 child	2046
 sibling	2048
-row	9
+row	8
 column	10
 %%
 %DisplayText
@@ -408,7 +408,7 @@ color	black
 address	2048
 child	2049
 sibling	2051
-row	10
+row	9
 column	10
 %%
 %DisplayText
@@ -435,7 +435,7 @@ color	black
 address	2051
 child	2052
 sibling	0
-row	11
+row	10
 column	10
 %%
 %DisplayText

@@ -1,4 +1,4 @@
-/* date:   Nov 13, 2011
+* date:   Nov 13, 2011
 
 	Trait of:
 		BoxField
@@ -14,8 +14,6 @@ package com.client
 trait Visual   {
 
 	def render()
-//	def convertRowColumnToPixel(rowPosition:RowPosition)
-
 }
 
 

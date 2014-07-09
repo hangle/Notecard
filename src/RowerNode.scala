@@ -70,7 +70,9 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 			//The visual components of the 'd' command my specify different height
 			//values.  'maxHeightValuesOfVisualObjects' finds the maximum height.
 			// 'currentHeight' is incremented after each 'd' command executes. 
-		rowPosition.sumMaxHeightToCurrentHeight(maxHeight)
+	//	rowPosition.sumMaxHeightToCurrentHeight(maxHeight)
+	//	rowPosition.sumMaxHeightToCurrentHeight
+	
 			// initialized for next 'd' command line. 
 		rowPosition.resetCurrentWidth()
 		}
@@ -196,16 +198,6 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 			   }  //breakable		 
 			  }
 	
-/*
-		val in=structSet.iterator
-		setChild(in.next)	
-		setAddress(in.next)
-		setNext(in.next)
-		row=in.next.toInt
-		column=in.next.toInt
-		 val percent= in.next
-		 //println("RowerNode: percent="+percent)
-*/
 		}
 }
 

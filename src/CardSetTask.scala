@@ -44,9 +44,9 @@ case class CardSetTask(var symbolTable:Map[String,String]) extends Node   {
 			case _=> println("CardSetTask  unknown type="+ taskx)
 			}
 		}
-		// Invoked by "* continue" cmd.  It displays the text cmds
-		// that preceded the '* continue' commands, then invokes
-		// InputFocus to activate NEXT button and issue wait().
+		// Invoked by "* continue" cmd.  Text cmds that preceed the command are displayed.
+		// The '* continue' commands, invokes  InputFocus to activate NEXT button and 
+		// issue wait().
 	def  activateNextButtonForContinue(inputFocus:InputFocus, notePanel:JPanel) {
 		 notePanel.validate()
 		 notePanel.repaint() //added because PROR button would not display 'd' cmd

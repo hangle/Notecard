@@ -1,0 +1,259 @@
+%Notecard
+child	2002
+height	500
+width	450
+font_size	14
+asteriskButton	on
+priorButton	on
+%%
+%CardSet
+address	2002
+child	2003
+sibling	2015
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2003
+child	2004
+sibling	2005
+row	2
+column	5
+%%
+%DisplayText
+address	2004
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The highlights of the eight script 
+color	black
+%%
+%RowerNode
+address	2005
+child	2006
+sibling	2007
+row	3
+column	5
+%%
+%DisplayText
+address	2006
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	commands have been covered. 
+color	black
+%%
+%RowerNode
+address	2007
+child	2008
+sibling	2009
+row	4
+column	5
+%%
+%DisplayText
+address	2008
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2009
+child	2010
+sibling	2011
+row	5
+column	5
+%%
+%DisplayText
+address	2010
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	These commands have additional features 
+color	black
+%%
+%RowerNode
+address	2011
+child	2012
+sibling	2013
+row	6
+column	5
+%%
+%DisplayText
+address	2012
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	that are detailed in the script 
+color	black
+%%
+%RowerNode
+address	2013
+child	2014
+sibling	0
+row	7
+column	5
+%%
+%DisplayText
+address	2014
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	documentation.
+color	black
+%%
+%CardSet
+address	2015
+child	2016
+sibling	2024
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2016
+child	2017
+sibling	2018
+row	2
+column	5
+%%
+%DisplayText
+address	2017
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The script documentation is
+color	black
+%%
+%RowerNode
+address	2018
+child	2019
+sibling	2020
+row	3
+column	5
+%%
+%DisplayText
+address	2019
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	found at:
+color	black
+%%
+%RowerNode
+address	2020
+child	2021
+sibling	2022
+row	4
+column	5
+%%
+%DisplayText
+address	2021
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2022
+child	2023
+sibling	0
+row	5
+column	10
+%%
+%DisplayText
+address	2023
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	notecard.org/document
+color	black
+%%
+%CardSet
+address	2024
+child	2025
+sibling	2031
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2025
+child	2026
+sibling	2027
+row	2
+column	5
+%%
+%DisplayText
+address	2026
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Thankyou for your time and effort.
+color	black
+%%
+%RowerNode
+address	2027
+child	2028
+sibling	2029
+row	3
+column	5
+%%
+%DisplayText
+address	2028
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2029
+child	2030
+sibling	0
+row	4
+column	5
+%%
+%DisplayText
+address	2030
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This ends the highlights.
+color	black
+%%
+%NotecardTask
+address	2031
+sibling	0
+task	end
+type	0
+%%

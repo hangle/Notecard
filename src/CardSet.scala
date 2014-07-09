@@ -116,7 +116,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 		if(inputFocus.isNoInputFields){			// True if no input fields,i.e. (# $abc) 
 						// Also enable PRIOR button when not first CardSet
 				if( ! backupMechanism.isFirstChild) {
-							//			println("CardSet  isFirstChild="+backupMechanism.isFirstChild)
 					buttonSet.armPriorButton
 					}
 						// Enable NEXT button, give it  focus and color it orange
@@ -124,8 +123,13 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				buttonSet.next.requestFocus
 				}
 		showPanel(notePanel) // display panel content (paint, validate)
+			// Invoked by CardSet (2 places) just before 'haltCommandExecution'.
+			// Note: focus not requested when CardSet has no InputFields (counterInputFields==0)
+			// or when 'actWhenAllFieldsCaptured' set this value to 0.
+		inputFocus.giveFocusToFirstInputField
 			// Stop (issue wait()) to allow the user to enter responses.
 		haltCommandExecution(lock)	
+
 		clearNotePanel(notePanel)	//remove all components & clear screen
 							// KeyListenerObject(s) are removed from the
 							// corresponding BoxField
@@ -214,6 +218,10 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			case xn:XNode => 
 						// 'x' command to process prior input fields.
 				showPanel(notePanel)
+					// Invoked by CardSet (2 places) just before 'haltCommandExecution'.
+					// Note: focus not requested when CardSet has no InputFields (counterInputFields==0)
+					// or when 'actWhenAllFieldsCaptured' set this value to 0.
+				inputFocus.giveFocusToFirstInputField
 				inputFocus.turnOnXNode  //prevents InputFocus.actWhenAllFieldsCaptured 
 									    // from enabling NEXT button
 				haltCommandExecution(lock) // issue lock.wait()
@@ -229,7 +237,8 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 		d also this
 		g
 	GroupResolve detects that subsequent commands( two 'd' cmds) are to be skipped.
-	The second 'g' command ends the scope of the Group's control.
+	The second 'g' command ends the scope of the Group's control. Scope also ends
+	at end of the CardSet.
 
 	----------------------------------------------------------------
 	*/
@@ -344,6 +353,8 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 		notePanel.repaint()
 		}
 			//wait() released by notifyAll by "Next button" in ButtonSet
+			// Control passes to user to enter response(s).
+			// called in 'startCardSet...' and 'executeCardSetChild...' for xnode
 	def haltCommandExecution(lock:AnyRef): Unit=lock.synchronized {
 		lock.wait()	
 		}

@@ -1,7 +1,14 @@
 <h1>AddCardSet</h1>
 
-<p>In a series of CardSets, the next CardSet is initiated by the <br />
-'Next' button.  A AddCardSet is initiated by the '+Add' button.</p>
+<p>An individual CardSet my have contingent CardSets that are
+not activated by the Next button.  Instead these contingent
+CardSets are activated by the +Add button and are termed
+AddCardSets.  As such, the user may elect to skip the Add-
+CardSets.</p>
+
+<p>A script developer may utilize the AddCardSets to provide
+optional information that serves to clarify the information
+provided by a CardSet.</p>
 
 <p>The following  CardSet asks the user to enter the capital of Ohio.  </p>
 

@@ -37,8 +37,8 @@
 			d (# $b)
 
 		In RowerNode, a BoxField child invokes 'addToArray(<BoxField>)'
-		which increments 'counter' and when '1', it activates:
-						if(counter==1)
+		which increments 'counterInputFields' and when '1', it activates:
+						if(counterInputFields==1)
 							component.requestFocus
 		As a result, this overrides the defined focus cycle, however, the
 		effects are the same.  The very first BoxField is given focus. 
@@ -46,12 +46,12 @@
 		The XNode command halts command execution until the first input
 		field is captured. When captured, 'actWhenAllFieldsCaptured(..) is
 		invoked to discover that, indeed, all fields (i.e., $a) have been
-		accounted for. In this case, 'counter' is returned to zero (0).
+		accounted for. In this case, 'counterInputFields' is returned to zero (0).
 
 		Card command execution is restarted, and now the second field
-		($b) is processed causing 'counter' to be incremented to '1',
+		($b) is processed causing 'counterInputFields' to be incremented to '1',
 		thus invoking:
-				if(counter==1)
+				if(counterInputFields==1)
 					component.requestFocus
 		Thus, $b is given focus.
 */
@@ -63,40 +63,43 @@ import collection.mutable.ArrayBuffer
 class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 	var components=new ArrayBuffer[JComponent] //JComponent can be BoxField
 			// Increment in RowerNode when BoxField object is detected.
-	var counter=0  	 
+	var counterInputFields=0  	 
 			//Index of current component incremented when KeyListenerObject
 			// detects ENTER key and invokes actWenAllFieldsCaptured().
 	var arrayIndex= 0	   
-	var xnodeState=false   // default until XNode is encountered in CardSet
+	var xnodeState=false   // default until XNode is encounterInputFieldsed in CardSet
 			// Set false at beginning of iteration and set true at end.
 			// Arm Prior button when true provided CardSet not first. 
 	var completedCardSetIteration=false
 
-	def turnOnXNode={ xnodeState=true}   // CardSet has encountered a XNode command
+		// Invoked by CardSet (2 places) just before 'haltCommandExecution'.
+		// Note: focus not requested when CardSet has no InputFields (counterInputFields==0)
+		// or when 'actWhenAllFieldsCaptured' set this value to 0.
+	def giveFocusToFirstInputField={
+		if(counterInputFields >0) {
+			val component=components(0)
+			component.requestFocus
+			}
+		}
+
+	def turnOnXNode={ xnodeState=true}   // CardSet has encounterInputFieldsed a XNode command
 	def turnOffXNode={ xnodeState=false}// capture completes so turn off thirs condition
-			// In 'addToArray(..)', 'counter' is incremented by an InputField 
-			// instance. It is also initialized when 'actWhenAllFieldsCaptured(..)'
-			// handles an XNode condition. 
-	def isNoInputFields= {counter == 0}  //Used in CardSet:establishNextButton
-			// ArrayBuffer[JComponent] added to and count of number
-			// Invoked in RowerNode after BoxField detected.r
+		// In 'addToArray(..)', 'counterInputFields' is incremented by an InputField 
+		// instance. It is also initialized when 'actWhenAllFieldsCaptured(..)'
+		// handles an XNode condition. 
+	def isNoInputFields= {counterInputFields == 0}  //Used in CardSet:establishNextButton
+		// ArrayBuffer[JComponent] added to and count of number
+		// Invoked in RowerNode after BoxField detected.
 	def addToArray(component:JComponent) {
 			components += component
-			counter+= 1
-				// see **Note  above
-				// First JComponent of an XNode group of input fields. This will also
-				// include 1st JComponent of the Card.
-			if(counter==1) {
-				println("InputFocus: addToArray():  counter==1  requestFocus")
-				component.requestFocus
-				}
+			counterInputFields+= 1
 			}
-			// Used 'KeyListenerObject' to determine if all input 
-			// fields have been captured.
-	def actWhenAllFieldsCaptured  {   //was actWhenCaptureComplete
+		// called by 'KeyListenerObject' each time a response is posted. 
+		// Function  determines if all input fields have been captured.
+	def actWhenAllFieldsCaptured  {  
 		arrayIndex +=1  // JComponent index
 			// When true, than all inputs are accounted for.
-		if(arrayIndex  ==components.size) {
+		if(arrayIndex == components.size) {
 					// XNode state treated differently because the processing of input
 					// fields have been halted. Fields preceeding 'x' command are captured
 					// before command execution is restarted. 
@@ -105,7 +108,7 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 					// allows 'isNoInputFields' in CardSet to active 'NEXT' button
 					// also forces focus in 'setFieldFocus' to first JComponent
 					// of XNode input fields. 
-				counter=0  
+				counterInputFields=0  
 				buttonSet.start() // XNode releases wait()
 				}
 			 else{
@@ -118,9 +121,10 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 			    buttonSet.next.requestFocus
 				}
 			}
-		  else
+		  else{
 					// Move cursor to next input field 
 	    	  components(arrayIndex).requestFocus
+			  }
 	}
 			// Invoked by CardSetTask in support of '* continue' cmd.
 			// CardSetTask 1st invokes 'notePanel.validate(), and then
@@ -130,6 +134,7 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 	def establishAsteriskContinue {
 			// enable button, get focus, color button orange
 		buttonSet.armNextButton 
+		buttonSet.next.requestFocus
 			// wait() invoked, button hit invokes 'notifyAll()'
 		buttonSet.issueWait
 		}

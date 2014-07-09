@@ -30,7 +30,8 @@ import java.awt.FontMetrics
 import java.awt.Color
 import javax.swing._
 
-case class DisplayText(var symbolTable:Map[String,String]) extends JLabel with Node with Visual {
+case class DisplayText(var symbolTable:Map[String,String]) 
+										extends JLabel with Node with Visual with VisualMetric {
 		/*
 					Node
 	symbolTable holds $<variables>		def setId
@@ -38,7 +39,11 @@ case class DisplayText(var symbolTable:Map[String,String]) extends JLabel with N
 						def convertToChild
 					Visual
 						def render
-						def convertRowColumnToPixel
+					VisualMetric
+						var metrics
+						def establishMetrics
+						def local_getMetricsHeight()
+						dev local_getMetricsWidth()
 			*/
 //------------paramters pass by .struct file-----------------
 	var styleFont=0
@@ -54,7 +59,6 @@ case class DisplayText(var symbolTable:Map[String,String]) extends JLabel with N
 //-------------------------------------------------------------------
 	var xx=0   //set by RowPosition
 	var yy=0   //set by RowPosition
-	var metrics:FontMetrics=null
 				// Assigned in RowerNode by visiting each Visual component
 				// of the 'd' command and finding the one with the 
 				// greatest height value. 
@@ -65,26 +69,26 @@ case class DisplayText(var symbolTable:Map[String,String]) extends JLabel with N
 				// position of the next line, so subtract the height
 				// value of the current line. 
 			//	println("DisplayText: startDisplayText")
-		yy=rowPosition.getCurrentHeight()
-		//println("DisplayText:  yy="+yy)
-		xx=rowPosition.getCurrentWidth()
+		yy=rowPosition.currentPixelHeight
+		xx=rowPosition.currentPixelWidth
 				// computes the metric width of the text string so as
 				// to adjust row position for next display component
-		rowPosition.sumToCurrentWidth(local_getMetricsWidth())
+		rowPosition.sumToCurrentWidth(local_getMetricsWidth(text))
 		}
 				// In NoteLayout, LayoutManager.layoutContainer iterates
                	// thru all components added to the notecard panel.
                	// This method invokes 'render() for all Visual objs.
 	def render() {
-	        setForeground(xcolor)
-       	        setText(text)
+	     setForeground(xcolor)
+       	 setText(text)
 		var y=yy    // in event that yy does not need an adjustment
 		if(isHeightDifferentThanMaxHeight) 
 				// y axis is ajusted downward for text whose height < maxHeight
 				// so that text of different sizes are aligned on the same line.
 			y=adjustYyForSizeLessThanMax( yy )
 			//println("DisplayText  y="+y+"    local_getMetricsHeight()="+local_getMetricsHeight())
-		setBounds(xx, y, local_getMetricsWidth(), local_getMetricsHeight());
+				// local_... are in VisualMetric.trait
+		setBounds(xx, y, local_getMetricsWidth(text), local_getMetricsHeight());
 		}
 					// if text height is not same as the largest height 
 	def isHeightDifferentThanMaxHeight: Boolean={
@@ -97,14 +101,6 @@ case class DisplayText(var symbolTable:Map[String,String]) extends JLabel with N
 		val difference= maxHeight - local_getMetricsHeight()
 		yy + difference - (difference * .25).toInt
 		}
-	def establishMetrics(nameFont:String, styleFont:Int, sizeFont:Int)={
-		val font=new Font(nameFont,styleFont, sizeFont)
-		setFont(font)
-		getFontMetrics(font)
-		}
-	def local_getMetricsHeight()={ metrics.getHeight() +4 }
-	def local_getMetricsWidth() ={ metrics.stringWidth(text) +4 }
-
 		// CreateClass generates instances of DisplayText without fields or parameters.
 		// However, it invokes 'receive_objects' to load parameters from *.struct
 		// file as well as symbolic addresses to be physical ones. 
@@ -137,21 +133,6 @@ case class DisplayText(var symbolTable:Map[String,String]) extends JLabel with N
 			   }  //breakable		 
 			 metrics=establishMetrics(nameFont, styleFont, sizeFont)
 			 }
-
-/*
-		val in=structSet.iterator
-		setAddress(in.next)
-		setNext(in.next)
-		styleFont=in.next.toInt
-		sizeFont=in.next.toInt
-		duration=in.next.toInt
-		nameFont=in.next
-		text=in.next
-		xcolor=Paint.setColor(in.next) //see Paint object
-		metrics=establishMetrics(nameFont, styleFont, sizeFont)
-		val percent=  in.next
-		//println("DisplayText: percent="+ percent)
-*/
 		}
 	}
 
