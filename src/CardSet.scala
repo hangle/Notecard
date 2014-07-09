@@ -58,8 +58,8 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 	def getAddCardSet=addButton  //invoked in Notecard by 'loadIteratorWithButton..' prior
 								 // to calling 'cardSet.startCardSet(...)
 //-------------------------------------------------------------------
-//	var notecardButtonSet:ButtonSet=null
-	var groupResolve:GroupResolve=null //1st GroupNode of card set will instantiate
+//	var groupResolve:GroupResolve=null //1st GroupNode of card set will instantiate
+	var groupResolve:GroupResolve=None //1st GroupNode of card set will instantiate
 									   // GroupResolve. Nulled at end of group.
 
 			// Indexer has member 'index' that is initialized to 
@@ -326,13 +326,13 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				case _=> 
 						// Not GroupNode, make recursive call to process next command.
 					iterateToNextGroup(groupResolve, 
-											 rowPosition, 
-											 notePanel, 
-											 lock, 
-											 inputFocus, 
-											 indexer, 
-											 statusLine, 
-											 listenerArray)
+									 rowPosition, 
+									 notePanel, 
+									 lock, 
+									 inputFocus, 
+									 indexer, 
+									 statusLine, 
+									 listenerArray)
 					}
 			}
 		//gNode
@@ -342,7 +342,8 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				// Only one GroupResolve is allocated for the CardSet, so
 				// Card will not support more than one Group set ???????
 				// Need to remove GroupResolve when 'g' or end of Card.--to do
-			if(groupResolve==null) 
+//			if(groupResolve==null) 
+			if(groupResolve==None) 
 				groupResolve=new GroupResolve()
 			}
 //---------------------------------------------------------------------

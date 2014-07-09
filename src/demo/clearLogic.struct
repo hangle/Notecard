@@ -416,7 +416,7 @@ style	1
 size	14
 column	0
 name	TimesRoman
-text	----------------------------
+text	---------------------------_-
 color	black
 %%
 %RowerNode
@@ -456,23 +456,40 @@ color	black
 %RowerNode
 address	2054
 child	2055
-sibling	2058
+sibling	2056
 row	9
 column	5
 %%
 %DisplayText
 address	2055
-sibling	2056
+sibling	0
 style	1
 size	14
 column	0
 name	TimesRoman
-text	constant 'male', then the 
+text	constant 'male', then the commands 
+color	black
+%%
+%RowerNode
+address	2056
+child	2057
+sibling	2060
+row	10
+column	5
+%%
+%DisplayText
+address	2057
+sibling	2058
+style	1
+size	14
+column	0
+name	TimesRoman
+text	belonging to 
 color	black
 %%
 %DisplayText
-address	2056
-sibling	2057
+address	2058
+sibling	2059
 style	1
 size	14
 column	0
@@ -481,30 +498,13 @@ text	Card Set
 color	blue
 %%
 %DisplayText
-address	2057
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	 is
-color	black
-%%
-%RowerNode
-address	2058
-child	2059
-sibling	2060
-row	10
-column	5
-%%
-%DisplayText
 address	2059
 sibling	0
 style	1
 size	14
 column	0
 name	TimesRoman
-text	executed. 
+text	 are executed. 
 color	black
 %%
 %CardSetTask
@@ -897,7 +897,7 @@ address	2105
 child	2106
 sibling	2107
 row	1
-column	10
+column	7
 %%
 %DisplayText
 address	2106
@@ -914,7 +914,7 @@ address	2107
 child	2108
 sibling	2109
 row	2
-column	10
+column	7
 %%
 %DisplayText
 address	2108
@@ -923,7 +923,7 @@ style	1
 size	14
 column	0
 name	TimesRoman
-text	2. Operator,   like,   =, >, <, >=, <=, !=, <>
+text	2. Operator,   like, =, >, <, >=, <=, !=, <>
 color	black
 %%
 %RowerNode
@@ -931,7 +931,7 @@ address	2109
 child	2110
 sibling	2111
 row	3
-column	10
+column	7
 %%
 %DisplayText
 address	2110
@@ -940,7 +940,7 @@ style	1
 size	14
 column	0
 name	TimesRoman
-text	3. Condition,  like,   and, or
+text	3. Condition,  like, and, or
 color	black
 %%
 %RowerNode
@@ -1099,7 +1099,7 @@ style	1
 size	14
 column	0
 name	TimesRoman
-text	Operands, or $<variables> and constants, are 
+text	Operands, or $<variables> and constants, 
 color	black
 %%
 %RowerNode
@@ -1116,7 +1116,7 @@ style	1
 size	14
 column	0
 name	TimesRoman
-text	enclosed in parentheses, and two operands 
+text	are enclosed in parentheses, and the two 
 color	black
 %%
 %RowerNode
@@ -1133,7 +1133,7 @@ style	1
 size	14
 column	0
 name	TimesRoman
-text	are separate by an operator.
+text	operands are separate by an operator.
 color	black
 %%
 %CardSet
@@ -1266,7 +1266,7 @@ style	1
 size	14
 column	0
 name	TimesRoman
-text	card can be presneted. 
+text	card can be presented. 
 color	black
 %%
 %RowerNode
@@ -1750,7 +1750,7 @@ color	black
 %CardSet
 address	2205
 child	2206
-sibling	2208
+sibling	2232
 button	0
 name	0
 condition	($input)=(1)
@@ -1758,8 +1758,8 @@ condition	($input)=(1)
 %RowerNode
 address	2206
 child	2207
-sibling	0
-row	-1
+sibling	2208
+row	0
 column	0
 %%
 %DisplayText
@@ -1772,23 +1772,226 @@ name	TimesRoman
 text	Card one
 color	black
 %%
-%CardSet
+%RowerNode
 address	2208
 child	2209
+sibling	2210
+row	1
+column	0
+%%
+%DisplayText
+address	2209
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%CardSetTask
+address	2210
 sibling	2211
+task	continue
+type	0
+%%
+%RowerNode
+address	2211
+child	2212
+sibling	2213
+row	2
+column	0
+%%
+%DisplayText
+address	2212
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2213
+child	2214
+sibling	2215
+row	3
+column	5
+%%
+%DisplayText
+address	2214
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The script for this CardSet was:
+color	black
+%%
+%RowerNode
+address	2215
+child	2216
+sibling	2217
+row	4
+column	5
+%%
+%DisplayText
+address	2216
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2217
+child	2218
+sibling	2219
+row	5
+column	10
+%%
+%DisplayText
+address	2218
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	--------script---------------
+color	black
+%%
+%RowerNode
+address	2219
+child	2220
+sibling	2221
+row	6
+column	10
+%%
+%DisplayText
+address	2220
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c ($input) = (1)
+color	black
+%%
+%RowerNode
+address	2221
+child	2222
+sibling	2223
+row	7
+column	10
+%%
+%DisplayText
+address	2222
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Card one
+color	black
+%%
+%RowerNode
+address	2223
+child	2224
+sibling	2225
+row	8
+column	10
+%%
+%DisplayText
+address	2224
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	--------------------------------
+color	black
+%%
+%RowerNode
+address	2225
+child	2226
+sibling	2227
+row	9
+column	5
+%%
+%DisplayText
+address	2226
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2227
+child	2228
+sibling	2230
+row	10
+column	5
+%%
+%DisplayText
+address	2228
+sibling	2229
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Your $input value was 
+color	black
+%%
+%DisplayVariable
+address	2229
+sibling	0
+text	$input
+column	0
+size	14
+style	1
+name	TimesRoman
+color	blue
+%%
+%RowerNode
+address	2230
+child	2231
+sibling	0
+row	11
+column	5
+%%
+%DisplayText
+address	2231
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The 'c' command condition was ($input)=(1)
+color	black
+%%
+%CardSet
+address	2232
+child	2233
+sibling	2259
 button	0
 name	0
 condition	($input)=(2)
 %%
 %RowerNode
-address	2209
-child	2210
-sibling	0
-row	-1
+address	2233
+child	2234
+sibling	2235
+row	0
 column	0
 %%
 %DisplayText
-address	2210
+address	2234
 sibling	0
 style	1
 size	14
@@ -1797,23 +2000,226 @@ name	TimesRoman
 text	Card two
 color	black
 %%
+%CardSetTask
+address	2235
+sibling	2236
+task	continue
+type	0
+%%
+%RowerNode
+address	2236
+child	2237
+sibling	2238
+row	1
+column	0
+%%
+%DisplayText
+address	2237
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2238
+child	2239
+sibling	2240
+row	2
+column	0
+%%
+%DisplayText
+address	2239
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2240
+child	2241
+sibling	2242
+row	3
+column	5
+%%
+%DisplayText
+address	2241
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The script for this CardSet was:
+color	black
+%%
+%RowerNode
+address	2242
+child	2243
+sibling	2244
+row	4
+column	5
+%%
+%DisplayText
+address	2243
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2244
+child	2245
+sibling	2246
+row	5
+column	10
+%%
+%DisplayText
+address	2245
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	--------script---------------
+color	black
+%%
+%RowerNode
+address	2246
+child	2247
+sibling	2248
+row	6
+column	10
+%%
+%DisplayText
+address	2247
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c ($input) = (2)
+color	black
+%%
+%RowerNode
+address	2248
+child	2249
+sibling	2250
+row	7
+column	10
+%%
+%DisplayText
+address	2249
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Card one
+color	black
+%%
+%RowerNode
+address	2250
+child	2251
+sibling	2252
+row	8
+column	10
+%%
+%DisplayText
+address	2251
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	--------------------------------
+color	black
+%%
+%RowerNode
+address	2252
+child	2253
+sibling	2254
+row	9
+column	5
+%%
+%DisplayText
+address	2253
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2254
+child	2255
+sibling	2257
+row	10
+column	5
+%%
+%DisplayText
+address	2255
+sibling	2256
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Your $input value was 
+color	black
+%%
+%DisplayVariable
+address	2256
+sibling	0
+text	$input
+column	0
+size	14
+style	1
+name	TimesRoman
+color	blue
+%%
+%RowerNode
+address	2257
+child	2258
+sibling	0
+row	11
+column	5
+%%
+%DisplayText
+address	2258
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The 'c' command condition was ($input)=(2)
+color	black
+%%
 %CardSet
-address	2211
-child	2212
-sibling	2214
+address	2259
+child	2260
+sibling	2286
 button	0
 name	0
 condition	($input)=(3)
 %%
 %RowerNode
-address	2212
-child	2213
-sibling	0
-row	-1
+address	2260
+child	2261
+sibling	2262
+row	0
 column	0
 %%
 %DisplayText
-address	2213
+address	2261
 sibling	0
 style	1
 size	14
@@ -1822,14 +2228,296 @@ name	TimesRoman
 text	Card three
 color	black
 %%
+%CardSetTask
+address	2262
+sibling	2263
+task	continue
+type	0
+%%
+%RowerNode
+address	2263
+child	2264
+sibling	2265
+row	1
+column	0
+%%
+%DisplayText
+address	2264
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2265
+child	2266
+sibling	2267
+row	2
+column	0
+%%
+%DisplayText
+address	2266
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2267
+child	2268
+sibling	2269
+row	3
+column	5
+%%
+%DisplayText
+address	2268
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The script for this CardSet was:
+color	black
+%%
+%RowerNode
+address	2269
+child	2270
+sibling	2271
+row	4
+column	5
+%%
+%DisplayText
+address	2270
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2271
+child	2272
+sibling	2273
+row	5
+column	10
+%%
+%DisplayText
+address	2272
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	--------script---------------
+color	black
+%%
+%RowerNode
+address	2273
+child	2274
+sibling	2275
+row	6
+column	10
+%%
+%DisplayText
+address	2274
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	c ($input) = (3)
+color	black
+%%
+%RowerNode
+address	2275
+child	2276
+sibling	2277
+row	7
+column	10
+%%
+%DisplayText
+address	2276
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Card one
+color	black
+%%
+%RowerNode
+address	2277
+child	2278
+sibling	2279
+row	8
+column	10
+%%
+%DisplayText
+address	2278
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	--------------------------------
+color	black
+%%
+%RowerNode
+address	2279
+child	2280
+sibling	2281
+row	9
+column	5
+%%
+%DisplayText
+address	2280
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2281
+child	2282
+sibling	2284
+row	10
+column	5
+%%
+%DisplayText
+address	2282
+sibling	2283
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Your $input value was 
+color	black
+%%
+%DisplayVariable
+address	2283
+sibling	0
+text	$input
+column	0
+size	14
+style	1
+name	TimesRoman
+color	blue
+%%
+%RowerNode
+address	2284
+child	2285
+sibling	0
+row	11
+column	5
+%%
+%DisplayText
+address	2285
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The 'c' command condition was ($input)=(3)
+color	black
+%%
+%CardSet
+address	2286
+child	2287
+sibling	2295
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2287
+child	2288
+sibling	2289
+row	2
+column	5
+%%
+%DisplayText
+address	2288
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The two CardSets that did not match the
+color	black
+%%
+%RowerNode
+address	2289
+child	2290
+sibling	2293
+row	3
+column	5
+%%
+%DisplayText
+address	2290
+sibling	2291
+style	1
+size	14
+column	0
+name	TimesRoman
+text	$input value of 
+color	black
+%%
+%DisplayVariable
+address	2291
+sibling	2292
+text	$input
+column	0
+size	14
+style	1
+name	TimesRoman
+color	blue
+%%
+%DisplayText
+address	2292
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 were not
+color	black
+%%
+%RowerNode
+address	2293
+child	2294
+sibling	0
+row	4
+column	5
+%%
+%DisplayText
+address	2294
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	presented and were skipped.
+color	black
+%%
 %NextFile
-address	2214
-sibling	2215
+address	2295
+sibling	2296
 filename	assignCommand
 condition	0
 %%
 %NotecardTask
-address	2215
+address	2296
 sibling	0
 task	end
 type	0

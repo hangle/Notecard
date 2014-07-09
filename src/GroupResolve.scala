@@ -42,7 +42,6 @@ class GroupResolve()   {
 	val ElseConditionNode=3//post is "else" and has condition--else if
 	val EmptyNode=4		   //No condition or no "else"
 	var kind=0
-	//var groupNode:GroupNode=null
 					// The 1st GroupNode sets 'thenTrue' to either 'true' or false.
 					// The 2nd GroupNode whose Group tag is 'ge' will executed
 					// the enclose Group command when 'thenTrue' is false.
