@@ -77,8 +77,10 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 		// or when 'actWhenAllFieldsCaptured' set this value to 0.
 	def giveFocusToFirstInputField={
 		if(counterInputFields >0) {
+			buttonSet.grayAndDisableAllButtons
 			val component=components(0)
 			component.requestFocus
+			println("InputFocus: giveFocusToFirst...")
 			}
 		}
 

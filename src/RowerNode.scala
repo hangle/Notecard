@@ -62,11 +62,11 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 				//	resolveColumnRowPosition(rowPosition, column, row)
 				//  execute DisplayText, DisplayVariable, BoxField
 		iterateRowerNodeChildren(rowPosition, 
-					 notePanel, 
-					 inputFocus, 
-					 indexer, 
-					 statusLine, 
-					 listenerArray)
+								 notePanel, 
+					 			 inputFocus, 
+					 			 indexer, 
+					 			 statusLine, 
+					 			 listenerArray)
 			//The visual components of the 'd' command my specify different height
 			//values.  'maxHeightValuesOfVisualObjects' finds the maximum height.
 			// 'currentHeight' is incremented after each 'd' command executes. 

@@ -43,58 +43,43 @@ case class GroupNode(symbolTable:Map[String,String]) extends Node   {
 		}
 	def isCondition:Boolean= {if(conditionStruct=="0") false; else true }
 
-		// returns 1,2,3,or 4 based on post value 0/1 and on condition present true/false.
+		// returns 1,2,3,or 4 based on post value 0/else and on condition present true/false.
 	def setGroupNodeType:Int = {
-		if(isCondition  && post=="0") ThenNode  //not else and not an 'g' 
-		else if(post=="else" &&  ! isCondition) ElseNode // else without a condtion expression
-		else if(post=="else" &&  isCondition) ElseConditionNode // else with condition expression
-		else if( ! isCondition && post=="0") EmptyNode  // g without a condition or an 'else'.
+		if(isCondition  && post=="0") 
+			ThenNode  //not else and not an 'g' 
+		else if(post=="else" &&  ! isCondition) 
+			ElseNode // else without a condtion expression
+		else if(post=="else" &&  isCondition) 
+			ElseConditionNode // else with condition expression
+		else if( ! isCondition && post=="0") 
+			EmptyNode  // g without a condition or an 'else'.
 		else 0
 		}
 		//Load class instance with argument 
 		//values from <.struct> file. Method
 		//invoked in CreateClass
-		def  receive_objects(structSet:List[String] ) {
-			import util.control.Breaks._
-			var flag=true
-			for( e <- structSet) {
-			  breakable { if(e=="%%") break   // end of arguments
-			  else {
-				var pair=e.split("[\t]")	
-				pair(0) match {
-							case "address" => //println(pair(1))
-									setAddress(pair(1))
-							case "sibling" =>
-									setNext(pair(1))
-							case "condition" =>
-									conditionStruct= pair(1)
-							case "post"=>
-									post=pair(1)
-									kind=setGroupNodeType
-							case "name" =>
-									groupName= pair(1)
-						}
+	def  receive_objects(structSet:List[String] ) {
+		import util.control.Breaks._
+		var flag=true
+		for( e <- structSet) {
+		  breakable { if(e=="%%") break   // end of arguments
+		  else {
+			var pair=e.split("[\t]")	
+			pair(0) match {
+					case "address" => //println(pair(1))
+							setAddress(pair(1))
+					case "sibling" =>
+							setNext(pair(1))
+					case "condition" =>
+							conditionStruct= pair(1)
+					case "post"=>		// 0 or 'else'
+							post=pair(1)
+							kind=setGroupNodeType
+					case "name" =>
+							groupName= pair(1)
+				}
 				}
 			   }  //breakable		 
 			 }
 		}
-
-/*
-	def receive_objects(structSet:List[String]) {
-		val in=structSet.iterator
-		setAddress(in.next);
-		setNext(in.next)
-		groupName= in.next
-		conditionStruct=in.next
-		if(conditionStruct=="") //inconsistent use of "" and "" in <.struct> file
-			conditionStruct=""
-		post=in.next       // "else" or ""
-			// value established based on the combination of 'condition' and
-			// 'else' being present or not.  Example 'condition' present
-			// but 'else' missing, then the 'kind' value indicates only 
-			// a "then" state.
-		kind=setGroupNodeType
-		val percent= in.next
-		}
-*/
 }

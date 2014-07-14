@@ -92,8 +92,9 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 							//	println("ButtonSet: actionPerf...    --*-- ")
 						//used in Notecard: match expression
 				selectedButton="*"  
-				//notifyGrayAndDisableNext 
-				grayAndDisableAsteriskButton
+					// Move to a new script file so gray all buttons
+					// in old script before the move.
+				grayAndDisableAllButtons
 				start()
 			case "+Add"=>
 				selectedButton="+"  //Notecard: match expression
@@ -109,6 +110,12 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	def createActionButton(buttonPanel:JPanel, button:JButton)={
 		button.addActionListener(this)
 		buttonPanel.add(button)
+		}
+	def grayAndDisableAllButtons {
+		grayAndDisableNextButton
+		grayAndDisableAsteriskButton
+		grayAndDisableAddButton
+		grayAndDisablePriorButton
 		}
 	def grayAndDisableAsteriskButton={
 		asterisk.setEnabled(false)

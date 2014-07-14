@@ -65,7 +65,7 @@ class GroupResolve()   {
 					// condition only 
 			case ThenNode=>	
 				if(groupNode.isConditionTrue) {
-					thenTrue=true
+					thenTrue=true  // case ElseNode=> will return 'skip'
 					"do"
 					}
 				 else {
@@ -90,6 +90,7 @@ class GroupResolve()   {
 						"skip"
 
 			case EmptyNode=>  // no else and no condition
+					println("GroupResolve:  case EmptyNode=> done")
 					"done"
 			case _=> println("\t\tGroupResolve: unknown match value="+groupNode.whatKind)
 			}

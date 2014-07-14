@@ -20,7 +20,7 @@ package com.client
 import java.awt._
 import javax.swing._
 
-class RowPosition (font:Font)  {
+class RowPosition (defaultFont:DefaultFont)  {
 		// Number pixels from top of window.  First line 
 		// height is 0.  The 1st line's font size is added
 		// to 'currentPixelHeight' and so on for subsequent lines. 
@@ -33,19 +33,20 @@ class RowPosition (font:Font)  {
 		// components of differet size or height.  RowerNode finds the
 		// larges size, in the case of this example, it is 20. 'maxRowHeight'
 		// is added to 'currentPixelHeight'. 
-	val pair= defaultRowHeightWidth(font) //establish metrics 
+	val pair= defaultRowHeightWidth(defaultFont) //establish metrics 
+	println("RowPosition: fontWidth="+pair._1+"  fontHeight="+pair._2)
 		// width of default font used to establish
 		// a line's starting column position. 
 	var pixelWidth= pair._1
+	val defaultHeight= pair._2
 		// Invoked by RowerNode.startRowerNode(..)
 		// 'maxRowHeight' is the maximum height of the scan of all visial object of row
 		// Note:  row and column arguments set by Script program
 	def loadRowAndColumn(row:Int, column:Int, maxRowHeight:Int) {
-		//println("RowPosition: maxRowHeight="+maxRowHeight+"  row="+row)
-			//Convert column to currentPixelWidth (pixels)
+		println("RowPosition: maxRowHeight="+maxRowHeight+"  row="+row)
 //		currentPixelWidth=setCurrentPixelWidth(column)
 		currentPixelWidth=pixelWidth * column
-		//println("\tRowPosition:  currentPixelHeight="+maxRowHeight * row)
+		println("\tRowPosition:  currentPixelHeight="+maxRowHeight * row)
 		currentPixelHeight= maxRowHeight * row
 		}
 				// invoke in RowerNode.startRowerNode by call to
@@ -66,10 +67,10 @@ class RowPosition (font:Font)  {
 		//Visual.local_getMetricsWidth() determines the width
 	def sumToCurrentWidth(value:Int) { currentPixelWidth += value; }
 		// Invoked when object is instantiated
-	def defaultRowHeightWidth(font:Font):(Int,Int)={
+	def defaultRowHeightWidth(defaultFont:DefaultFont):(Int,Int)={
 		val label=new JLabel("text");  //"text" used to get fontMetrics
-		label.setFont(font) 
-		val fm:FontMetrics=label.getFontMetrics(font)
+		label.setFont(defaultFont) 
+		val fm:FontMetrics=label.getFontMetrics(defaultFont)
 		(fm.charWidth(' '), fm.getHeight() )
 		} 
 	}
