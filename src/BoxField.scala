@@ -84,10 +84,18 @@ case class BoxField(var symbolTable:Map[String,String])
 			convertToChild(swizzleTable)  // Is a parent of the Edit commands
 			}
 //-------------------------------------------------------------------
+	var xx=0   //set by RowPosition
+	var yy=0   //set by RowPosition
+			// Assigned in RowerNode by visiting each Visual component
+			// of the 'd' command and finding the one with the 
+			// greatest height value. 
+	var maxHeight=0
+
+
 
 	def startBoxField(rowPosition:RowPosition) {
 		xx=rowPosition.currentPixelWidth
-		yy=rowPosition.currentPixelHeight
+		yy=rowPosition.yCoordinate
 			// computes the metric width of the text string so as
 			// to adjust row position for next display component
 		rowPosition.sumToCurrentWidth(length * local_getMetricsWidth("m"))
@@ -100,19 +108,12 @@ case class BoxField(var symbolTable:Map[String,String])
 		symbolTable -= field
 		}
 	def getInput= getText().trim      //getText() in JTextField
-    var xx=0   //set by RowPosition
-	var yy=0   //set by RowPosition
-			// Assigned in RowerNode by visiting each Visual component
-			// of the 'd' command and finding the one with the 
-			// greatest height value. 
-	var maxHeight=0
-
-			// In NoteLayout, LayoutManager.layoutContainer iterates
+  			// In NoteLayout, LayoutManager.layoutContainer iterates
            	// thru all components added to the notecard panel.
            	// This method invokes 'render() for all Visual objs.
 	def render() {
 		setForeground(ycolor)
-        setColumns(5)
+        //setColumns(5)
 		var y=yy    // in event that yy does not need an adjustment
 		if(isHeightDifferentThanMaxHeight) 
 			// y axis is ajusted downward for text whose height < maxHeight

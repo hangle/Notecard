@@ -431,12 +431,14 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 							fontSize= pair(1).toInt
 					case "style"=>
 							fontStyle= pair(1).toInt
-					case "fontSize" => 
+					case "fontSize" | "font_size" => 
 							font_size= pair(1).toInt
 					case "fontStyle" =>
 							fontStyle= pair(1).toInt
 					case "fontName" =>
 							fontName= pair(1)
+					case "name" =>
+							fontName=pair(1)
 					case "asteriskButton"=>          // either "on" or "off"
 							asteriskButtonState= pair(1)
 								// 'isAsteriskButtonOn' will disable '*' button 

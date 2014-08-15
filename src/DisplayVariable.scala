@@ -47,8 +47,6 @@
  	A 'd' command, such as:
 			d now is (%% /size 24/for all) good men
 	has two size value (24 and the default size [typically 16] for 'now is' and 'good men').
-	The 'y' coordinates must be adjusted upwards for 'now is' and 'good men' .  
-			(see:  y=adjustYyForSizeLessThanMax(yy:Int) )
 
 */ 
 
@@ -94,18 +92,25 @@ symbolTable holds $<variables>		def setId
 		// Assigned in RowerNode by visiting each Visual component
 		// of the 'd' command and finding the one with the 
 		// greatest height value. 
+	//var greatestHeight= rowPosition.greatestHeight
+    //var defaultHeight=  rowPosition.defaultHeight
+	var defaultHeight=0
+	var greatestHeight=0
 	var maxHeight=0
 		//invoked by RowerNode which has the row position
 		//as well as the starting column position.
 	def startDisplayVariable(rowPosition:RowPosition) {
-			//extract $<variable> value
-		symbolTableText=convertVariableToText(dollarVariable)
 			// the value (getCurrentHeight()) is actually the 'y' axis 
 			// position of the next line, so subtract the height
 			// value of the current line. 
+		yy=rowPosition.yCoordinate
 		xx=rowPosition.currentPixelWidth
-		yy=rowPosition.currentPixelHeight
+		greatestHeight= rowPosition.greatestHeight
+		defaultHeight=  rowPosition.defaultHeight
+
 			// computes the metric width of the text string so as
+			//extract $<variable> value
+		symbolTableText=convertVariableToText(dollarVariable)
 			// to adjust row position for next display component
 		rowPosition.sumToCurrentWidth(local_getMetricsWidth(symbolTableText))
 		}
@@ -122,26 +127,20 @@ symbolTable holds $<variables>		def setId
 		// thru all components added to the notecard panel.
 		// This method invokes 'render() for all Visual objs.
 	def render() {
+		val maxHeight= local_getMetricsHeight()
 		setForeground(xcolor)
 		setText(symbolTableText)
 		var y=yy    // in event that yy does not need an adjustment
-		if(isHeightDifferentThanMaxHeight) 
-				// y axis is ajusted downward for text whose height < maxHeight
-				// so that text of different sizes are aligned on the same line.
-			y=adjustYyForSizeLessThanMax( yy )
-		setBounds(xx, y, local_getMetricsWidth(symbolTableText), local_getMetricsHeight());
+		//println("DisplayVariable y="+y)
+
+		 if (greatestHeight != maxHeight){ 		 
+		 //	println("DisplayVariable greatestHeight="+greatestHeight+"   maxHeight="+maxHeight)
+			y+= greatestHeight - maxHeight - 3 
+			}
+
+		// println("DisplayVariable: y="+y)
+		setBounds(xx, y, local_getMetricsWidth(symbolTableText), maxHeight);
 		}
-		// if text height is not same as the largest height 
-	def isHeightDifferentThanMaxHeight: Boolean={
-			local_getMetricsHeight() != maxHeight
-			}
-		// In 'd' command ( d (%% /size 10/now) (%% /size 15/is) ) for 'now'
-		// to be aligned with 'is',  the y axis value of Component() must be
-		// adjusted. 
-	def adjustYyForSizeLessThanMax(yy:Int)= { 
-			val difference= maxHeight - local_getMetricsHeight()
-			yy + difference - (difference * .25).toInt
-			}
 		// CreateClass generates instances of NotecardTask without fields or parameters.
 		// However, it invokes 'receive_objects' to load parameters from *.struct
 		// file as well as symbolic addresses to be made physical ones. 

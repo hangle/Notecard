@@ -12,9 +12,9 @@
 package com.client
 import java.awt.Font
 
-class DefaultFont( fontName:String, fontStyle:Int, fontSize:Int)
-		extends Font(fontName, fontStyle, fontSize){
-
+class DefaultFont( fontName:String, fontStyle:Int, fontSize:Int) 
+								extends Font(fontName, fontStyle, fontSize){
+	override def toString= {"name="+fontName+"  style="+fontStyle+"  size="+fontSize }
 	}
 
 

@@ -59,18 +59,21 @@ case class DisplayText(var symbolTable:Map[String,String])
 //-------------------------------------------------------------------
 	var xx=0   //set by RowPosition
 	var yy=0   //set by RowPosition
+	var defaultHeight=0
+	var greatestHeight=0
+	var maxHeight=0
 				// Assigned in RowerNode by visiting each Visual component
 				// of the 'd' command and finding the one with the 
 				// greatest height value. 
-	var maxHeight=0
-									// invoked by RowerNode	
 	def startDisplayText(rowPosition:RowPosition) {
 				// the value (getCurrentHeight()) is actually the 'y' axis 
 				// position of the next line, so subtract the height
 				// value of the current line. 
 			//	println("DisplayText: startDisplayText")
-		yy=rowPosition.currentPixelHeight
+		yy=rowPosition.yCoordinate
 		xx=rowPosition.currentPixelWidth
+		greatestHeight= rowPosition.greatestHeight
+		defaultHeight=  rowPosition.defaultHeight
 				// computes the metric width of the text string so as
 				// to adjust row position for next display component
 		rowPosition.sumToCurrentWidth(local_getMetricsWidth(text))
@@ -79,27 +82,15 @@ case class DisplayText(var symbolTable:Map[String,String])
                	// thru all components added to the notecard panel.
                	// This method invokes 'render() for all Visual objs.
 	def render() {
+		 val maxHeight=local_getMetricsHeight()
+
 	     setForeground(xcolor)
        	 setText(text)
-		var y=yy    // in event that yy does not need an adjustment
-		if(isHeightDifferentThanMaxHeight) 
-				// y axis is ajusted downward for text whose height < maxHeight
-				// so that text of different sizes are aligned on the same line.
-			y=adjustYyForSizeLessThanMax( yy )
-			//println("DisplayText  y="+y+"    local_getMetricsHeight()="+local_getMetricsHeight())
-				// local_... are in VisualMetric.trait
-		setBounds(xx, y, local_getMetricsWidth(text), local_getMetricsHeight());
-		}
-					// if text height is not same as the largest height 
-	def isHeightDifferentThanMaxHeight: Boolean={
-		local_getMetricsHeight() != maxHeight
-		}
-		// In 'd' command ( d (%% /size 10/now) (%% /size 15/is) ) for 'now'
-		// to be aligned with 'is',  the y axis value of Component() must be
-		// adjusted. 
-	def adjustYyForSizeLessThanMax(yy:Int)= { 
-		val difference= maxHeight - local_getMetricsHeight()
-		yy + difference - (difference * .25).toInt
+		 var y=yy    // in event that yy does not need an adjustment
+		 if (greatestHeight != maxHeight){ 
+			y+= greatestHeight - maxHeight - 3 
+			}
+		setBounds(xx, y, local_getMetricsWidth(text), maxHeight )
 		}
 		// CreateClass generates instances of DisplayText without fields or parameters.
 		// However, it invokes 'receive_objects' to load parameters from *.struct
