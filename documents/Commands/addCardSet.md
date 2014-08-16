@@ -1,14 +1,19 @@
 <h1>AddCardSet</h1>
 
-<p>An individual CardSet my have contingent CardSets that are
-not activated by the Next button.  Instead these contingent
-CardSets are activated by the +Add button and are termed
-AddCardSets.  As such, the user may elect to skip the Add-
-CardSets.</p>
+<p>An Add Card Set has the same functionality as a Card Set. <br />
+However, it does not begin with the 'c' command. Instead, <br />
+it begins with the 'b' command that also clears the <br />
+screen.  </p>
 
-<p>A script developer may utilize the AddCardSets to provide
-optional information that serves to clarify the information
-provided by a CardSet.</p>
+<p>The Sets differ by their controlling button.  The Add <br />
+Card Set is activated by the +Add button and are termed <br />
+AddCardSets.  The user, activating the Next button, may <br />
+elect to skip the AddCardSets.  </p>
+
+<p>One or more Add Card Sets is associated with a particular <br />
+Card Set.  A script developer may utilize the AddCardSets <br />
+to provide  optional information that serves to clarify the <br />
+information provided by a CardSet.  </p>
 
 <p>The following  CardSet asks the user to enter the capital of Ohio.  </p>
 
@@ -22,8 +27,8 @@ it, a hint or a probe would be beneficial.  Something like:  </p>
 <pre><code>    Person who discovered the New World
 </code></pre>
 
-<p>A CardSet providing the hint or probe must be optional.  Users <br />
-knowing the answer should not be encumbered with this CardSet  </p>
+<p>An Add Card Set providing the hint or probe must be optional.  Users <br />
+knowing the answer should not be encumbered with unneeded information.</p>
 
 <p>The hint or probe CardSet is assigned to the '+Add' button. <br />
 User activation of this button presents the following commands: </p>
@@ -48,12 +53,15 @@ command has the same functionality as the 'c' command.   </p>
     d and has 8 letters:
     d         C o l _ _ b u s
                         .
-    c Capital of New York is (# capitalNY)
+    c 
+    d Capital of New York is (# capitalNY)
     ...
 </code></pre>
 
 <p>The AddCardSets must immediately follow the CardSet to which <br />
-they are associated.  </p>
+they are associated.  In the above script, the  two Add <br />
+CardSets relate only to the Ohio capital question and not <br />
+the subsequent New York question.  </p>
 
 <p>A CardSet that has associated one or more AddCardSets arms the <br />
 '+Add' button.  Its color becomes yellow.   </p>
