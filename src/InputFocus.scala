@@ -70,17 +70,18 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 	var xnodeState=false   // default until XNode is encounterInputFieldsed in CardSet
 			// Set false at beginning of iteration and set true at end.
 			// Arm Prior button when true provided CardSet not first. 
-	var completedCardSetIteration=false
+	//var completedCardSetIteration=false
 
 		// Invoked by CardSet (2 places) just before 'haltCommandExecution'.
 		// Note: focus not requested when CardSet has no InputFields (counterInputFields==0)
 		// or when 'actWhenAllFieldsCaptured' set this value to 0.
 	def giveFocusToFirstInputField={
 		if(counterInputFields >0) {
+				// while input active, disable all 4 buttons.
 			buttonSet.grayAndDisableAllButtons
 			val component=components(0)
+			//println("InputFocus giveFocusToFirstInputField--1st component.requestFocus")
 			component.requestFocus
-			println("InputFocus: giveFocusToFirst...")
 			}
 		}
 
@@ -120,11 +121,13 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 					buttonSet.armPriorButton
 					}
 				buttonSet.armNextButton   //enable button,color button orange
+				//println("InputFocus: actWhenAllFieldsCaptured arrayInex==size-- NextButton.requestFocus")
 			    buttonSet.next.requestFocus
 				}
 			}
 		  else{
 					// Move cursor to next input field 
+				//println("InputFocus: actWhenAllFieldsCaptured arrayIndex!=size-- component.requestFocus")
 	    	  components(arrayIndex).requestFocus
 			  }
 	}
@@ -136,6 +139,7 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 	def establishAsteriskContinue {
 			// enable button, get focus, color button orange
 		buttonSet.armNextButton 
+		//println("InputFocus: establishAsteriskContinue-- NextButton.requstFocus")
 		buttonSet.next.requestFocus
 			// wait() invoked, button hit invokes 'notifyAll()'
 		buttonSet.issueWait

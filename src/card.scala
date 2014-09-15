@@ -47,6 +47,7 @@ object card   {
 				// files lacking a pathname. Path with '/'
 			Session.setSessionPath("") 
 				// Asterisk command '* end' of FrameTask sets
+				try{
 			while(isLoop)	{
 					// Passed to Notecard and then to NextFile and
 					// FrameTask to read new .struct file or to 
@@ -63,11 +64,15 @@ object card   {
 					// Next file or terminate session 
 				if(taskGather.isNextFile) {			
 					structFile=taskGather.getFileName
+					//println("card: structFile=["+structFile+"]")
 					}
 				   else if(taskGather.isEndSession) {
 					isLoop=false         // terminate while loop
 					}
 				} //while
+				}catch{ case ex: Exception=>
+					println("card: Exception thrown")
+					}
 
 			System.exit(0)
 		} //main

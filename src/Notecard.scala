@@ -367,6 +367,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 			if(manageNotecard == null) {
 					//'*' button activated without '* manage <filename>' command. The 
 					// 'xyzxxyzv' file does not exist, so 'start' file is invoked.
+						println("Notecard: doAsteriskButton()  manageNotecard is null")
 				manageNotecard=CommandNetwork.loadFileAndBuildNetwork( "xyzxxyzv", symbolTable)
 				}
 					// check if 'loadFileAnd...' changed variable's state.

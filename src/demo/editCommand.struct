@@ -2,7 +2,9 @@
 child	2002
 height	500
 width	450
-font_size	14
+size	14
+name	TimesRoman
+style	1
 asteriskButton	on
 priorButton	on
 %%

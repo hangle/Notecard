@@ -50,7 +50,11 @@ class FilePort  extends PathFile {
 	def replaceNonExistentFile(s: String)= {
 		val f=new java.io.File(s)
 		val e=f.exists()
-		if(e) s else "start.struct"
+		if(e) s else {
+				println("FilePort:  exit(0)")
+				System.exit(0)
+				"start.struct"
+				}
 	}
 
 }

@@ -104,7 +104,7 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 				 listenerArray:ArrayBuffer[KeyListenerObject]) {
 		obj match{
 			case dt:DisplayText=>
-			//println("RowerNode: case dt:DisplayText=>")
+					//println("RowerNode:  case dt:DisplayText=>")
 				dt.startDisplayText(rowPosition)
 				notePanel.add(dt)			
 			case dv:DisplayVariable=>

@@ -90,7 +90,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// the 'y' value java.awt.Component.setBounds(x,y,width, height)
 		val rowPosition= new RowPosition(defaultFont) 
 			// set true following execution of CardSet children
-		inputFocus.completedCardSetIteration=false
+	//	inputFocus.completedCardSetIteration=false
 			// prior card set may have posted a status message so remove for new card.
 		statusLine.clearStatusLine 
 			// 	symButton not zero indicating AddCardSet object
@@ -106,7 +106,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									  statusLine, 
 									  listenerArray) 
 				// set false before iteration. Input focus can arm Prior button.
-		inputFocus.completedCardSetIteration= true
+//		inputFocus.completedCardSetIteration= true
 				// Enable * button for Management file
 		buttonSet.armAsteriskButton
 				// When Card lacks input fields, then turn on NEXT button in
@@ -114,24 +114,36 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				// fields, InputFocus will turn on NEXT button. 
 		if(inputFocus.isNoInputFields){			// True if no input fields,i.e. (# $abc) 
 						// Also enable PRIOR button when not first CardSet
-				if( ! backupMechanism.isFirstChild) {
-					buttonSet.armPriorButton
-					}
-						// Enable NEXT button, give it  focus and color it orange
-				buttonSet.armNextButton	
-				buttonSet.next.requestFocus
+			if( ! backupMechanism.isFirstChild) {
+				buttonSet.armPriorButton
 				}
-		showPanel(notePanel) // display panel content (paint, validate)
+					// Enable NEXT button, give it  focus and color it orange
+			buttonSet.armNextButton	
+					// to correct problem of the Asterisk button grabing the focus
+					// rather than the Next button.
+
+			//println("CardSet startCardSet  noInputFields-- NextButton.requestFocus")
+			buttonSet.next.requestFocus
+			showPanel(notePanel) // display panel content (paint, validate)
+			buttonSet.next.requestFocus
+			}
+		else{ // CardSet has an Input Field
+				// 1st input field receives focus and all buttons are disabled.
+			inputFocus.giveFocusToFirstInputField
+			showPanel(notePanel) // display panel content (paint, validate)
+			}
+			
 			// Invoked by CardSet (2 places) just before 'haltCommandExecution'.
 			// Note: focus not requested when CardSet has no InputFields (counterInputFields==0)
 			// or when 'actWhenAllFieldsCaptured' set this value to 0.
-		inputFocus.giveFocusToFirstInputField
 			// Stop (issue wait()) to allow the user to enter responses.
+			//
 		haltCommandExecution(lock)	
 
-		clearNotePanel(notePanel)	//remove all components & clear screen
-							// KeyListenerObject(s) are removed from the
-							// corresponding BoxField
+			//remove all components & calls 'repaint()'
+		clearNotePanel(notePanel)	
+			// KeyListenerObject(s) are removed from the
+			// corresponding BoxField
 		removeInputFieldListeners(listenerArray) 
 	}// control returns to Notecard to process the next card set
 
@@ -200,6 +212,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 						// '* continue'.
 				cst.startCardSetTask (inputFocus, statusLine, notePanel)
 			case gn:GroupNode=> 
+						// 		println("CardSet GroupNode")
 						// Determine whether to 'do' the enclosed commnds of the 
 						// Group command or to 'skip' these commands. 
 				whatToDo(groupResolve,     // global variable 
@@ -215,8 +228,9 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 						// 'x' command to process prior input fields.
 				showPanel(notePanel)
 					// Invoked by CardSet (2 places) just before 'haltCommandExecution'.
-					// Note: focus not requested when CardSet has no InputFields (counterInputFields==0)
-					// or when 'actWhenAllFieldsCaptured' set this value to 0.
+					// Note: focus not requested when CardSet has no InputFields 
+					// (counterInputFields==0)  or when 'actWhenAllFieldsCaptured' 
+					// set this value to 0.
 				inputFocus.giveFocusToFirstInputField
 				inputFocus.turnOnXNode  //prevents InputFocus.actWhenAllFieldsCaptured 
 									    // from enabling NEXT button
@@ -345,6 +359,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 	def clearNotePanel(notePanel:JPanel) {
 			// JPanel extends JComponent having
 			// val, statusLine:StatusLine, idate(), and repaint()/
+			//println("CArdSet clearNotePanel removeAll()")
 		notePanel.removeAll()  // removes all components from panel
 		notePanel.repaint()
 		}
