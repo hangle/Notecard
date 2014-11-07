@@ -14,6 +14,7 @@ package com.client
 import java.awt._
 import javax.swing._
 import javax.swing.border._
+import scala.language.postfixOps
 
 class CardWindow(notePanel:JPanel, buttonPanel:JPanel, statusLine:JLabel, width:Int, height:Int)  extends JFrame {
 					// 350 width & 450 height are default values for window size

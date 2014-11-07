@@ -58,7 +58,7 @@ import scala.collection.mutable.Map
 class CreateClass   extends Node {
 
 
-	var obj:Any=null // Any because String to Node
+	var objOption:Option[Any]=None // Any because String to Node
 	var coreVector=List[Any]()
 
 	var swizzleTable= Map[String,Node]()
@@ -75,8 +75,13 @@ class CreateClass   extends Node {
 					// containing the object's  name, such as, %DisplayText,
 					// followed by one or  more argument values that are 
 					// loaded into the object's fields.
-				obj=create_object(structSet, symbolTable) //CreateClass
+				objOption=create_object(structSet, symbolTable) //CreateClass
 					//build object list
+				var obj= objOption match {
+					case Some(e)=> e
+					case None=> println("create_object(..) failed in CreateClass.scala")
+						throw new Exception
+						}
 				coreVector=obj:: coreVector
 				}
 			for(core <- coreVector.reverse) {
@@ -92,7 +97,7 @@ class CreateClass   extends Node {
 		// Next, the object's symbolic address is converted to
 		// a physical address.  Finally, the created name objects are 
 		// returned to be stored in 'coreVector'.
-	def create_object(structObj:List[String], symbolTable:Map[String,String]):Any = {
+	def create_object(structObj:List[String], symbolTable:Map[String,String]):Option[Any] = {
 		structObj.head match{   
 			case "%Notecard"=> 
 				val notecard= Notecard(symbolTable)
@@ -102,72 +107,72 @@ class CreateClass   extends Node {
 					// Adds object to swizzle table
 				notecard.receive_objects(structObj.tail)
 				swizzleTable=notecard.setId(swizzleTable, notecard)
-				notecard     // returned to be store in 'coreVector'
+				Some(notecard )    // returned to be store in 'coreVector'
 			case "%CardSet" | "%ButtonCardSet" => 
 				val cardSet=CardSet(symbolTable)
 				cardSet.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=cardSet.setId(swizzleTable, cardSet) //phy addr added to swizzleTab..
-				cardSet     // returned to be stored in 'coreVector;
+				Some(cardSet )    // returned to be stored in 'coreVector;
 			case "%NotecardTask"=>
 				val notecardTask=NotecardTask(symbolTable)
 				notecardTask.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=notecardTask.setId(swizzleTable, notecardTask) //phy addr added 
-				notecardTask	     // returned to be stored in 'coreVector;
+				Some(notecardTask)	     // returned to be stored in 'coreVector;
 			case "%NextFile"=> 
 				val nextFile=NextFile(symbolTable)
 				nextFile.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=nextFile.setId(swizzleTable, nextFile)  //phy addr added to swizzleTab..
-				nextFile     // returned to be stored in 'coreVector;
+				Some(nextFile )    // returned to be stored in 'coreVector;
 			case "%AssignerNode"=>
 				val assigner=Assigner(symbolTable)
 				assigner.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=assigner.setId(swizzleTable, assigner) // phy addr add to swizzleTable
-				assigner	     // returned to be stored in 'coreVector;
+				Some(assigner)	     // returned to be stored in 'coreVector;
 			case "%CardSetTask"=>
 				val cardSetTask=CardSetTask(symbolTable)
 				cardSetTask.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=cardSetTask.setId(swizzleTable, cardSetTask)// phy addr add swizzleTable
-				cardSetTask     // returned to be stored in 'coreVector;
+				Some(cardSetTask)     // returned to be stored in 'coreVector;
 			case "%RowerNode"=>
 				val rowerNode=RowerNode(symbolTable)
 				rowerNode.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=rowerNode.setId(swizzleTable, rowerNode)// phy addr add swizzleTable
-				rowerNode     // returned to be stored in 'coreVector;
+				Some(rowerNode )    // returned to be stored in 'coreVector;
 			case "%DisplayText"=>
 				val displayText=DisplayText(symbolTable)
 				displayText.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=displayText.setId(swizzleTable, displayText)
-				displayText     // returned to be stored in 'coreVector;
+				Some(displayText )    // returned to be stored in 'coreVector;
 			case "%BoxField"=>
 				val boxField=BoxField(symbolTable)
 				boxField.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=boxField.setId(swizzleTable, boxField)// phy addr add swizzleTable
-				boxField     // returned to be stored in 'coreVector;
+				Some(boxField )    // returned to be stored in 'coreVector;
 			case "%GroupNode"=>
 				val groupNode=GroupNode(symbolTable)
 				groupNode.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=groupNode.setId(swizzleTable, groupNode)
-				groupNode     // returned to be stored in 'coreVector;
+				Some(groupNode )    // returned to be stored in 'coreVector;
 			case "%DisplayVariable"=>
 				val displayVariable=DisplayVariable(symbolTable)
 				displayVariable.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=displayVariable.setId(swizzleTable, displayVariable)
-				displayVariable     // returned to be stored in 'coreVector;
+				Some(displayVariable)     // returned to be stored in 'coreVector;
 			case "%XNode"=>
 				val xnode=XNode(symbolTable)
 				xnode.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=xnode.setId(swizzleTable, xnode)// phy addr add swizzleTable
-				xnode     // returned to be stored in 'coreVector;
+				Some(xnode )    // returned to be stored in 'coreVector;
 			case "%EditNode"=>
 				val editNode=EditNode(symbolTable)
 				editNode.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=editNode.setId(swizzleTable, editNode)
-				editNode     // returned to be stored in 'coreVector;
+				Some(editNode )    // returned to be stored in 'coreVector;
 			case "%LoadDictionary" =>
 				val loadDictionary=LoadDictionary(symbolTable)
 				loadDictionary.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=loadDictionary.setId(swizzleTable, loadDictionary)
-				loadDictionary
+				Some(loadDictionary)
 						// LoadAssign is an Assigner object that resides in a different
 						// node of the Linked List structure from that of CardSet
 						// Assigner objects.  The Assigner object will become a child of
@@ -176,9 +181,10 @@ class CreateClass   extends Node {
 				val assigner=Assigner(symbolTable)
 				assigner.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=assigner.setId(swizzleTable, assigner) // phy addr add to swizzleTable
-				assigner	     // returned to be stored in 'coreVector;
+				Some(assigner)	     // returned to be stored in 'coreVector;
 
 			case _=> println("unknown in CreateClass:create_object="+structObj.head )
+				None
 				}
 		
 		}
