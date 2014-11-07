@@ -62,9 +62,7 @@ class CreateClass   extends Node {
 	var coreVector=List[Any]()
 
 	var swizzleTable= Map[String,Node]()
-	var root:Notecard=null
-			// 'allStructSets' is a List containing List elements. Each element
-			// 'structSet' begins with '%<class name> followed by class parameters
+	var root:Option[Notecard]=None
 			// <class name> used to instantiate the class. 
 			// invoked by  CommandNetwork.fileLoad_BuildNetwork(..)
 	def establishObjectNetwork( symbolTable:Map[String,String],
@@ -88,7 +86,9 @@ class CreateClass   extends Node {
 			 		//convert symbolic address to physical one in Node
 				swizzleReference(core)
 				}
-			root  // notecard assigned to root  by 'create_object(..)'
+			if(root==None)
+				throw new Exception(".struct file lacks %Notecard group")
+			root.get  // notecard assigned to root  by 'create_object(..)'
 			}
 		// The *.struct commands , such as %DisplayText,  used the
 		// its %<class name> in a match statement to create the named
@@ -101,7 +101,7 @@ class CreateClass   extends Node {
 		structObj.head match{   
 			case "%Notecard"=> 
 				val notecard= Notecard(symbolTable)
-				root=notecard   //Notecard is special, it is the root of the hierarchy
+				root=Some(notecard)   //Notecard is special, it is the root of the hierarchy
 					// Removes tag such as %%Notecard and passes the
 					// object's file parameters such as height,width,size
 					// Adds object to swizzle table

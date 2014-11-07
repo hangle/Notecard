@@ -109,7 +109,7 @@ trait Node  {
 	var child:Node=null	 // 1st child of parent list assigned by:converToChild
 	var next:Node=null   // sibling
 	var addButton:Node=null // AddButtonCardSet
-	var condition:Node=null // logic condition, eg, (male)=($gender)
+//	var condition:Node=null // logic condition, eg, (male)=($gender)
 	var backup:Node=null	// current node assigned after Framer completes
 							// processing of CardSet
 	var node:Node=null
