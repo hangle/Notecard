@@ -1,0 +1,213 @@
+Display Command
+===============
+
+The Display command renders text within the Notecard window.  It also captures   
+the user's input or response.  The 'd' command's text occupies one line of the   
+Notecard window.  The 'd' command is line oriented; it does not wrap.  A space  
+must follow the 'd' tag if subsequent components are included (see optional   
+components).  
+
+The Display or 'd' command has six optional components:  
+
+		(1) Column/Row  placement  of a line of text  
+		(2) Text appearance arguments covering the line of text  
+		(3) Text line  
+		(4) Input field  
+		(5) Display of $(variables)  
+		(6) Text appearance of a subset of the text line  
+
+The simplest 'd' command is:  
+
+		d   
+
+This command has just  the 'd' tag (no trailing space required).  It renders an   
+empty text line.  
+
+_______________________________________________________________________
+
+Column/Row  Placement component  
+________________________________________________________________________
+
+This component has two optional arguments:  row and column values.  
+Row value controls the text line placement within the Notecard window.  
+Column value controls the column where the text line begins.  
+
+A component having both Column and Row requires the column value to begin   
+without a slash '/' but to end with a slash.  
+
+The row value has both a beginning and ending slashes:  
+
+		d 20/5/this text is displayed on the 5th row, beginning in column 20  
+
+A component having just the column value.  
+
+		d 15/this text begins in column 15  
+
+A component with a column value establishes the column position of subsequent   
+'d' commands or until a 'd' commands establishes a new column position:  
+ 
+		d 20/begins in column 20  
+		d begins in column 20, next row  
+		d begins in column 20, next row   
+		d 15/begins in column 15, next row  
+		d begins in column 15, next row  
+
+A component having just the row value:  
+
+		d /14/this text is on row 14, beginning in column 1.  
+
+A display command without the row value  has its row value automatically   
+incremented by the system.   
+
+		c  
+		d this line begins on row 1  
+		d this line begins on row 2  
+		d this line begins on row 3  
+
+_________________________________________________________________________
+
+Text appearance arguments covering the line of text  
+______________________________________________________________________
+
+The Appearance  component consist of  a "type" "value" pair where  
+the pair is enclosed in slashes.  The component may consist of multiple  
+pairs.   
+
+<pre>
+              Type                           Value
+
+             name             font name   e.g., TimeRoman
+             size             size of lettering,   e.g., 14
+             color            color of lettering   e.g., black 
+             style            normal, bold, or italic
+</pre>
+
+Component with one type/value pair:  
+
+		d /color blue/all letters are colored blue  
+		d /size 16/all letter have the same size  
+		d /style bold/all letter are in bold type  
+
+Component with multiple type/value pairs:  
+
+		d /color blue/size  16/style bold/ a line with color, size, and style  
+
+The appearance features of:  
+
+		name  
+		size  
+		color  
+		style  
+
+can be applied to one or more words of the text line.  
+
+In the script example, the appearance pair (color, blue) is applied   
+to (for all).  
+
+		d now is the (%% /color blue/ for all) good men  
+
+Again (color, blue) is enclosed in slashes, i.e.,  /color blue/.  
+The appearance subset is enclosed in parentheses and the open parenthesis is   
+followed by the tag '%%'.  
+
+Multiple appearance pairs can be applied to a subset of line words.  
+Multiple subsets of line words can be incorporated, for example:  
+
+        d (%%/color blue/now is) the (%%/style bold/time for) all good men.  
+
+____________________________________________________________________________
+
+Display of $(variables)  
+____________________________________________________________________________
+
+Variables that have been captured or assigned by the Assigned 'a' command can  
+be displayed on the text line.  Suppose in one Card set that the value 'male'   
+was assigned to $gender via the command:  
+
+		a $gender=male  
+
+Another Card set can display  'male' with:  
+
+	d The client's gender is (% $gender)  
+
+The component is enclosed in parentheses and the open parenthesis is followed   
+by '%'.  
+
+The appearance features of:  
+
+		name  
+		size  
+		color  
+		style  
+
+can be applied to the displayed $(variable), for example:  
+
+
+		d The client's gender is (% /color blue/size 20/ $gender)  
+
+____________________________________________________________________________
+
+Input Field component  
+____________________________________________________________________________
+
+
+In the Display command, enclosing a $(variable) expression in parentheses   
+where the open parenthesis is followed by the '#' symbol, for example:  
+
+		d Enter your gender (# $gender)  
+
+causes an input field to be rendered on the text line. Following the execution   
+of the Card set, control is passed to the input mechanism. Focus is given to   
+the input field, and the user types a response. The 'enter' key causes the   
+response value to be stored in $gender.  A display command may have up to 32   
+input fields. The following has two input fields:  
+
+		d Enter your gender (# $gender) and age (# $age)  
+
+The appearance features of:  
+
+		name  
+		size  
+		color  
+		style  
+
+can be applied to one or more words of the text line.  
+
+		d Enter your gender (# /color red/ $gender)  
+
+The color red is applied to the letters the user types.  The Input field component   
+has two additional type-value pairs. These are:  
+
+<pre>
+            length              size of the input field
+            limit               number of input character allowed.
+</pre>
+
+All appearance features have default values. The name/value components overrides   
+these default values. In the case of the limit type-value pair, a limit value of   
+1 forces the processing of the input mechanism after the user' s first letter is   
+entered. For example:  
+
+		d Enter 'y' or 'n' (# /limit 1/length 1/ $yesNoAnswer)  
+
+The problem with the above 'd' command is that an entry of letters other than   
+'y' and 'n' would be captured. The Edit command would resolve this problem.  
+The following commands display a field length of 1 and limits the user input to   
+a single letter. It also allows the single letter to be either a 'y' or 'n'.  
+
+		d (#yn $male) Are you a male  
+		d (#yn $over60) Are you over 60  
+
+The Input Field component's open parenthesis '(' is followed by the tag '#yn'.  
+A specialized Input Field component is available to handle multiple choice   
+answers where the choices are numbered from 1 to n. In this case, the Input   
+Field component's open parenthesis '(' , it is followed by #n, where n is the   
+number of choices. The input mechanism rejects any answer that is not in the   
+range of 1 to n. For example:  
+
+		d Indicate the direction (#4 $directon)  
+		d 20/1. North  
+		d 2. East  
+		d 3. West  
+		d 4. South  
+  

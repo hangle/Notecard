@@ -1,0 +1,136 @@
+
+Load Dictionary (Notecard)
+==========================
+
+Script File
+--------------
+
+The Load 'l' command, along with associated Assign 'a' commands,   
+initializes '$variables'. That is, the associated 'a' commands  
+are only executed once.  The 'l' command and   associated 'a'  
+commands are termed the  Load command set.  
+
+		l 
+		a $one=1
+		a $one=2
+
+The script can be made to loop or repeat when and '* end'  
+command is missing or a file  command is not executed. 
+
+		l
+		a $one=0
+		c
+		d (% $one)		// prints the value of $one
+		a $one = $one + 1
+
+The above script, without '* end',  loops  and increment the   
+value of $one each time that the CardSet is encountered:   
+
+		c
+		d (% one)		// prints 0,1,2,3,...
+		a $one=$one+1
+
+A practical application of the Load command set is to require  
+questions to be correctly answered before proceeding with the  
+exercise.  
+
+		l
+		a $capital1=false
+		a $capital2=false
+		c
+		d Capital of Ohio (# $columbus)
+		g ($columbus)=(Columbus)
+		a $capital1=true
+		c
+		d Capital of New York (# $albany)
+		g ($albany)=(Albany)
+		a $capital2=true
+		f nextExercise ($capital1)=(true) and ($capital2)=(true)
+
+Correct answers set $capital1 and $capital2 to 'true',  
+allowing the File  'f' command to execute. The script is  
+incomplete in order to simplify.  The 'Capital of Ohio'  
+script is shown with added commands:   
+
+		c ($capital1) = (false)
+		d Capital of Ohio (# $columbus)
+		g ($columbus)=(Columbus)
+		a $capital1=true
+		d Correct
+		ge
+		d Sorry, Columbus is the capital
+
+
+Linked-List Class Structure
+--------------------------
+
+Before the advent of the Load command, the linked-list  
+class structure was: 
+
+<pre>
+		Notecard
+			NotecardType
+			NextFile
+			CardSet
+				AssignerNode
+				CardSetType
+				GroupNode
+				XNode
+				RowerNode
+					DisplayVariable
+					DisplayText
+					BoxField
+						EditNode
+</pre>
+
+The classes to the right of 'Notecard' are children and  
+grandchildren of 'Notecard'.  The classes to the right of  
+'CardSet' are children and grandchildren of this class.   
+The Load command (classname: LoadDictionary) and its  
+associated Assign commands  add the following substructure:  
+
+<pre>
+		Notecard
+			LoadDictionary
+				AssignerNode
+			NotecardType
+			NextFile
+			CardSet
+				AssignerNode
+				CardSetType
+				GroupNode
+				XNode
+				RowerNode
+					DisplayVariable
+					DisplayText
+					BoxField
+						EditNode
+</pre>
+
+The Assign command (clasname: AssignerNode) has different  
+parant classes   (LoadDictionary and CardSet).   The  
+AssignerNode, whose parent is CardSet, executes everytime  
+it is accessed; the AssignerNode, whose parant is  
+LoadDictionary, exectues just once.  
+ 
+A crucial task of the LoadDictionary class is to access  
+the $< script filename > value.    Initially, the  
+Dictionary of $< variables >s does not contain the  
+script's filename; therefore, the associated Assign  
+commands are executed. The $< script filename > key     
+is added to the Dictionary preventing the subsequent  
+execution of Assign commands.   
+
+Renaming the AssignNode class
+----------------------------
+
+The AssignNode class whose parent is LoadDictionary has  
+had its '%< classname >   renamed from that of '%AssignerNode'  
+to that of '%LoadAssign'.  The name change was   done by  
+the Script program.  'CreateClass' instantiates the  
+'AssignerNode' instance when either '%AssignerNode' or  
+'%LoadAssign' is encounter in 'create_object()'.  The  
+function 'CreateClass.swizzleReferences()' converts  
+the symbolic addresses to physical ones. The Script program  
+made sure that the AssignerNode instances were  attached  
+to their proper parent instance. 

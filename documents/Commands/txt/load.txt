@@ -1,0 +1,60 @@
+Load Command
+=============
+
+The Load command has an 'l' tag, followed by none  or one or more spaces.  
+ 
+The Load command line is followed by one or more Assign commands. Together,  
+the Load and Assign commands is termed the Load Command Set.  This set
+typically is placed at the beginning of a '.nc' file.  for example:    
+
+		l
+		a $one=1
+		a $two= $one +3
+		c
+		...
+
+The Load command set is a special case.  It assign values to   
+$variables the first time the Load Command Set is executed but  
+but not on subsequent encounters.   
+
+The execution of a script file repeats when the file does not   
+terminated with the '* end' command or with the execution of  
+the File 'f' command.  For example:  
+
+		l
+		a $one =0
+		c
+		d (% $one)
+		c
+		d last card set
+		a $one=$one + 1
+
+The script file does not end; it loops. The variable $one is   
+initialized once and is incremented on each loop.   
+
+How is the 'l' command practical? Suppose a script asked two questions   
+requiring that they be successfully answered before continuing.  
+
+		l
+		a $capital1=false
+		a $capital2=false
+		c
+		d capital of Ohio (# $columbus)
+		g ($columbus)=(Columbus)
+		a $capital1=true
+		c
+		d capital of New York (# $albany)	
+		g ($albany)=(Albany)
+		a $capital2=true
+		f nextFile ($capital1)=(true) and ($capital2)=(true)
+
+Both '$capital1' and '$capital2' must be 'true' to escape the loop.  
+
+The 'l' command and its associated 'a' commands are not commands of  
+the CardSet.  A script syntax error is displayed when a 'l'  tag   
+is found within the CardSet scope (*todo*).  
+
+Note, the Assign 'a' command is a member of the CardSet as well  
+as a member of the Load command set.  In the '*.struct' file,   
+membership distinction is maintained by renaming '%Assign' to   
+'%LoadAssign' for 'a' commands associated with the Load command set.   

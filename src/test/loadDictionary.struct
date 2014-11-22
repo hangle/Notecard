@@ -1,0 +1,917 @@
+%Notecard
+child	2002
+height	550
+width	400
+size	14
+name	TimesRoman
+style	0
+asteriskButton	on
+priorButton	on
+%%
+%CardSet
+address	2002
+child	2003
+sibling	2035
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2003
+child	2004
+sibling	2005
+row	2
+column	5
+%%
+%DisplayText
+address	2004
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 Test Load Dictionary Command.
+color	black
+%%
+%RowerNode
+address	2005
+child	2006
+sibling	2007
+row	3
+column	5
+%%
+%DisplayText
+address	2006
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2007
+child	2008
+sibling	2009
+row	4
+column	5
+%%
+%DisplayText
+address	2008
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	A CardSet whose only task is to 
+color	black
+%%
+%RowerNode
+address	2009
+child	2010
+sibling	2011
+row	5
+column	5
+%%
+%DisplayText
+address	2010
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	assigns values to $<variables>.
+color	black
+%%
+%RowerNode
+address	2011
+child	2012
+sibling	2013
+row	6
+column	5
+%%
+%DisplayText
+address	2012
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2013
+child	2014
+sibling	2015
+row	7
+column	5
+%%
+%DisplayText
+address	2014
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	This CardSet only contains
+color	black
+%%
+%RowerNode
+address	2015
+child	2016
+sibling	2019
+row	8
+column	5
+%%
+%DisplayText
+address	2016
+sibling	2017
+style	0
+size	14
+column	0
+name	TimesRoman
+text	assigment commands 
+color	black
+%%
+%DisplayText
+address	2017
+sibling	2018
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a
+color	blue
+%%
+%DisplayText
+address	2018
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	, such as:
+color	black
+%%
+%RowerNode
+address	2019
+child	2020
+sibling	2021
+row	9
+column	5
+%%
+%DisplayText
+address	2020
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2021
+child	2022
+sibling	2023
+row	10
+column	10
+%%
+%DisplayText
+address	2022
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $found=false
+color	black
+%%
+%RowerNode
+address	2023
+child	2024
+sibling	2025
+row	11
+column	10
+%%
+%DisplayText
+address	2024
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $max= 0
+color	black
+%%
+%RowerNode
+address	2025
+child	2026
+sibling	2027
+row	12
+column	5
+%%
+%DisplayText
+address	2026
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2027
+child	2028
+sibling	2029
+row	13
+column	5
+%%
+%DisplayText
+address	2028
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Besides the 'a' Assign command, 
+color	black
+%%
+%RowerNode
+address	2029
+child	2030
+sibling	2033
+row	14
+column	5
+%%
+%DisplayText
+address	2030
+sibling	2031
+style	0
+size	14
+column	0
+name	TimesRoman
+text	this CardSet begins with the '
+color	black
+%%
+%DisplayText
+address	2031
+sibling	2032
+style	0
+size	14
+column	0
+name	TimesRoman
+text	l
+color	blue
+%%
+%DisplayText
+address	2032
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'
+color	black
+%%
+%RowerNode
+address	2033
+child	2034
+sibling	0
+row	15
+column	5
+%%
+%DisplayText
+address	2034
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	symbol rather than the 'c' symbol.
+color	black
+%%
+%CardSet
+address	2035
+child	2036
+sibling	2068
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2036
+child	2037
+sibling	2038
+row	2
+column	5
+%%
+%DisplayText
+address	2037
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The role of the 'l' or Load Dictionay
+color	black
+%%
+%RowerNode
+address	2038
+child	2039
+sibling	2040
+row	3
+column	5
+%%
+%DisplayText
+address	2039
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	command is to initialize $<variables>. 
+color	black
+%%
+%RowerNode
+address	2040
+child	2041
+sibling	2042
+row	4
+column	5
+%%
+%DisplayText
+address	2041
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2042
+child	2043
+sibling	2044
+row	5
+column	5
+%%
+%DisplayText
+address	2043
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	It is typically the 1st CardSet of the .nc
+color	black
+%%
+%RowerNode
+address	2044
+child	2045
+sibling	2046
+row	6
+column	5
+%%
+%DisplayText
+address	2045
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	file. 
+color	black
+%%
+%RowerNode
+address	2046
+child	2047
+sibling	2048
+row	7
+column	5
+%%
+%DisplayText
+address	2047
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2048
+child	2049
+sibling	2050
+row	8
+column	5
+%%
+%DisplayText
+address	2049
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	If this CardSet is encounter again within
+color	black
+%%
+%RowerNode
+address	2050
+child	2051
+sibling	2052
+row	9
+column	5
+%%
+%DisplayText
+address	2051
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	the same file execution, then its assign
+color	black
+%%
+%RowerNode
+address	2052
+child	2053
+sibling	2054
+row	10
+column	5
+%%
+%DisplayText
+address	2053
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	commands are not re-executed.  That is,
+color	black
+%%
+%RowerNode
+address	2054
+child	2055
+sibling	2056
+row	11
+column	5
+%%
+%DisplayText
+address	2055
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	the $<varables> are not again initialized. 
+color	black
+%%
+%RowerNode
+address	2056
+child	2057
+sibling	2058
+row	12
+column	5
+%%
+%DisplayText
+address	2057
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2058
+child	2059
+sibling	2060
+row	13
+column	5
+%%
+%DisplayText
+address	2059
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The way to have the .nc file execute more
+color	black
+%%
+%RowerNode
+address	2060
+child	2061
+sibling	2062
+row	14
+column	5
+%%
+%DisplayText
+address	2061
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	than once is to not provide a Asterisk
+color	black
+%%
+%RowerNode
+address	2062
+child	2063
+sibling	2066
+row	15
+column	5
+%%
+%DisplayText
+address	2063
+sibling	2064
+style	0
+size	14
+column	0
+name	TimesRoman
+text	End command (
+color	black
+%%
+%DisplayText
+address	2064
+sibling	2065
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* end
+color	blue
+%%
+%DisplayText
+address	2065
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	) to
+color	black
+%%
+%RowerNode
+address	2066
+child	2067
+sibling	0
+row	16
+column	5
+%%
+%DisplayText
+address	2067
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	terminate the file.
+color	black
+%%
+%CardSet
+address	2068
+child	2069
+sibling	2106
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2069
+child	2070
+sibling	2071
+row	2
+column	5
+%%
+%DisplayText
+address	2070
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The following CardSets of file 'loadLoop.nc'
+color	black
+%%
+%RowerNode
+address	2071
+child	2072
+sibling	2073
+row	3
+column	5
+%%
+%DisplayText
+address	2072
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	increments $max three times to cause the file
+color	black
+%%
+%RowerNode
+address	2073
+child	2074
+sibling	2075
+row	4
+column	5
+%%
+%DisplayText
+address	2074
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'f' command 'f escape ($max)=(3.0)' to execute.
+color	black
+%%
+%RowerNode
+address	2075
+child	2076
+sibling	2077
+row	5
+column	15
+%%
+%DisplayText
+address	2076
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2077
+child	2078
+sibling	2081
+row	6
+column	15
+%%
+%DisplayText
+address	2078
+sibling	2079
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 ---------file: 
+color	black
+%%
+%DisplayText
+address	2079
+sibling	2080
+style	0
+size	14
+column	0
+name	TimesRoman
+text	loadLoop.nc
+color	blue
+%%
+%DisplayText
+address	2080
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 ------------
+color	black
+%%
+%RowerNode
+address	2081
+child	2082
+sibling	2083
+row	7
+column	15
+%%
+%DisplayText
+address	2082
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	l
+color	black
+%%
+%RowerNode
+address	2083
+child	2084
+sibling	2085
+row	8
+column	15
+%%
+%DisplayText
+address	2084
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $max=0.0
+color	black
+%%
+%RowerNode
+address	2085
+child	2086
+sibling	2087
+row	9
+column	15
+%%
+%DisplayText
+address	2086
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	c
+color	black
+%%
+%RowerNode
+address	2087
+child	2088
+sibling	2089
+row	10
+column	15
+%%
+%DisplayText
+address	2088
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $max= $max +1.0
+color	black
+%%
+%RowerNode
+address	2089
+child	2090
+sibling	2091
+row	11
+column	15
+%%
+%DisplayText
+address	2090
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d max= (% $max)
+color	black
+%%
+%RowerNode
+address	2091
+child	2092
+sibling	2093
+row	12
+column	15
+%%
+%DisplayText
+address	2092
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	f loadLoop  ($max) = (3.0)
+color	black
+%%
+%RowerNode
+address	2093
+child	2094
+sibling	2095
+row	13
+column	15
+%%
+%DisplayText
+address	2094
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2095
+child	2096
+sibling	2097
+row	14
+column	15
+%%
+%DisplayText
+address	2096
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------------------------------
+color	black
+%%
+%RowerNode
+address	2097
+child	2098
+sibling	2099
+row	15
+column	15
+%%
+%DisplayText
+address	2098
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%CardSetTask
+address	2099
+sibling	2100
+task	continue
+type	0
+%%
+%RowerNode
+address	2100
+child	2101
+sibling	2102
+row	16
+column	5
+%%
+%DisplayText
+address	2101
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The Next button or space bar activation will
+color	black
+%%
+%RowerNode
+address	2102
+child	2103
+sibling	0
+row	17
+column	5
+%%
+%DisplayText
+address	2103
+sibling	2104
+style	0
+size	14
+column	0
+name	TimesRoman
+text	execute 
+color	black
+%%
+%DisplayText
+address	2104
+sibling	2105
+style	0
+size	14
+column	0
+name	TimesRoman
+text	loadLoop.nc
+color	blue
+%%
+%DisplayText
+address	2105
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	.
+color	black
+%%
+%NextFile
+address	2106
+sibling	2107
+filename	loadLoop
+condition	0
+%%
+%NotecardTask
+address	2107
+sibling	0
+task	end
+type	0
+%%

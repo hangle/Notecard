@@ -1,0 +1,3148 @@
+%Notecard
+child	2002
+height	550
+width	400
+font_size	14
+asteriskButton	on
+priorButton	on
+%%
+%CardSet
+address	2002
+child	2003
+sibling	2005
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2003
+child	2004
+sibling	0
+row	2
+column	5
+%%
+%DisplayText
+address	2004
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Group Command Test Script
+color	black
+%%
+%CardSet
+address	2005
+child	2006
+sibling	2023
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2006
+child	2007
+sibling	2008
+row	2
+column	5
+%%
+%DisplayText
+address	2007
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2008
+child	2009
+sibling	2010
+row	3
+column	5
+%%
+%DisplayText
+address	2009
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	---------script----------
+color	black
+%%
+%RowerNode
+address	2010
+child	2011
+sibling	2012
+row	4
+column	10
+%%
+%DisplayText
+address	2011
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g (1)=(1)
+color	black
+%%
+%RowerNode
+address	2012
+child	2013
+sibling	2014
+row	5
+column	10
+%%
+%DisplayText
+address	2013
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is displayed
+color	black
+%%
+%RowerNode
+address	2014
+child	2015
+sibling	2016
+row	6
+column	5
+%%
+%DisplayText
+address	2015
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------------------
+color	black
+%%
+%RowerNode
+address	2016
+child	2017
+sibling	2018
+row	7
+column	5
+%%
+%DisplayText
+address	2017
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%GroupNode
+address	2018
+sibling	2019
+name		0
+condition	(1)=(1)
+post	0
+%%
+%RowerNode
+address	2019
+child	2020
+sibling	2021
+row	8
+column	10
+%%
+%DisplayText
+address	2020
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is displayed
+color	black
+%%
+%RowerNode
+address	2021
+child	2022
+sibling	0
+row	9
+column	20
+%%
+%DisplayText
+address	2022
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	***success**
+color	black
+%%
+%CardSet
+address	2023
+child	2024
+sibling	2039
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2024
+child	2025
+sibling	2026
+row	2
+column	5
+%%
+%DisplayText
+address	2025
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2026
+child	2027
+sibling	2028
+row	3
+column	5
+%%
+%DisplayText
+address	2027
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	---------script----------
+color	black
+%%
+%RowerNode
+address	2028
+child	2029
+sibling	2030
+row	4
+column	10
+%%
+%DisplayText
+address	2029
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g (1)=(2)
+color	black
+%%
+%RowerNode
+address	2030
+child	2031
+sibling	2032
+row	5
+column	10
+%%
+%DisplayText
+address	2031
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is NOT displayed
+color	black
+%%
+%RowerNode
+address	2032
+child	2033
+sibling	2034
+row	6
+column	5
+%%
+%DisplayText
+address	2033
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------------------
+color	black
+%%
+%RowerNode
+address	2034
+child	2035
+sibling	2036
+row	7
+column	5
+%%
+%DisplayText
+address	2035
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%GroupNode
+address	2036
+sibling	2037
+name		0
+condition	(1)=(2)
+post	0
+%%
+%RowerNode
+address	2037
+child	2038
+sibling	0
+row	8
+column	10
+%%
+%DisplayText
+address	2038
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is NOT displayed
+color	black
+%%
+%CardSet
+address	2039
+child	2040
+sibling	2068
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2040
+child	2041
+sibling	2042
+row	2
+column	5
+%%
+%DisplayText
+address	2041
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2042
+child	2043
+sibling	2044
+row	3
+column	5
+%%
+%DisplayText
+address	2043
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	'g' tag added to end the
+color	black
+%%
+%RowerNode
+address	2044
+child	2045
+sibling	2046
+row	4
+column	5
+%%
+%DisplayText
+address	2045
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	scope of the 'g' group.
+color	black
+%%
+%RowerNode
+address	2046
+child	2047
+sibling	2048
+row	5
+column	5
+%%
+%DisplayText
+address	2047
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2048
+child	2049
+sibling	2050
+row	6
+column	5
+%%
+%DisplayText
+address	2049
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	---------script----------
+color	black
+%%
+%RowerNode
+address	2050
+child	2051
+sibling	2052
+row	7
+column	10
+%%
+%DisplayText
+address	2051
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g (1)=(1)
+color	black
+%%
+%RowerNode
+address	2052
+child	2053
+sibling	2054
+row	8
+column	10
+%%
+%DisplayText
+address	2053
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is displayed
+color	black
+%%
+%RowerNode
+address	2054
+child	2055
+sibling	2056
+row	9
+column	10
+%%
+%DisplayText
+address	2055
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g
+color	black
+%%
+%RowerNode
+address	2056
+child	2057
+sibling	2058
+row	10
+column	10
+%%
+%DisplayText
+address	2057
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is always displayed
+color	black
+%%
+%RowerNode
+address	2058
+child	2059
+sibling	2060
+row	11
+column	5
+%%
+%DisplayText
+address	2059
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------------------
+color	black
+%%
+%RowerNode
+address	2060
+child	2061
+sibling	2062
+row	12
+column	5
+%%
+%DisplayText
+address	2061
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%GroupNode
+address	2062
+sibling	2063
+name		0
+condition	(1)=(1)
+post	0
+%%
+%RowerNode
+address	2063
+child	2064
+sibling	2065
+row	13
+column	10
+%%
+%DisplayText
+address	2064
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is displayed
+color	black
+%%
+%GroupNode
+address	2065
+sibling	2066
+name		0
+condition	0
+post	0
+%%
+%RowerNode
+address	2066
+child	2067
+sibling	0
+row	14
+column	10
+%%
+%DisplayText
+address	2067
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is always displayed
+color	black
+%%
+%CardSet
+address	2068
+child	2069
+sibling	2097
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2069
+child	2070
+sibling	2071
+row	2
+column	5
+%%
+%DisplayText
+address	2070
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2071
+child	2072
+sibling	2073
+row	3
+column	5
+%%
+%DisplayText
+address	2072
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	'g' tag added to end the
+color	black
+%%
+%RowerNode
+address	2073
+child	2074
+sibling	2075
+row	4
+column	5
+%%
+%DisplayText
+address	2074
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	scope of the 'g' group.
+color	black
+%%
+%RowerNode
+address	2075
+child	2076
+sibling	2077
+row	5
+column	5
+%%
+%DisplayText
+address	2076
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2077
+child	2078
+sibling	2079
+row	6
+column	5
+%%
+%DisplayText
+address	2078
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	---------script----------
+color	black
+%%
+%RowerNode
+address	2079
+child	2080
+sibling	2081
+row	7
+column	10
+%%
+%DisplayText
+address	2080
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g (1)=(2)
+color	black
+%%
+%RowerNode
+address	2081
+child	2082
+sibling	2083
+row	8
+column	10
+%%
+%DisplayText
+address	2082
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is NOT displayed
+color	black
+%%
+%RowerNode
+address	2083
+child	2084
+sibling	2085
+row	9
+column	10
+%%
+%DisplayText
+address	2084
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g
+color	black
+%%
+%RowerNode
+address	2085
+child	2086
+sibling	2087
+row	10
+column	10
+%%
+%DisplayText
+address	2086
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is always displayed
+color	black
+%%
+%RowerNode
+address	2087
+child	2088
+sibling	2089
+row	11
+column	5
+%%
+%DisplayText
+address	2088
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------------------
+color	black
+%%
+%RowerNode
+address	2089
+child	2090
+sibling	2091
+row	12
+column	5
+%%
+%DisplayText
+address	2090
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%GroupNode
+address	2091
+sibling	2092
+name		0
+condition	(1)=(2)
+post	0
+%%
+%RowerNode
+address	2092
+child	2093
+sibling	2094
+row	13
+column	10
+%%
+%DisplayText
+address	2093
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is NOT displayed
+color	black
+%%
+%GroupNode
+address	2094
+sibling	2095
+name		0
+condition	0
+post	0
+%%
+%RowerNode
+address	2095
+child	2096
+sibling	0
+row	14
+column	10
+%%
+%DisplayText
+address	2096
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is always displayed
+color	black
+%%
+%CardSet
+address	2097
+child	2098
+sibling	2138
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2098
+child	2099
+sibling	2100
+row	2
+column	5
+%%
+%DisplayText
+address	2099
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Two lines are displayed and two
+color	black
+%%
+%RowerNode
+address	2100
+child	2101
+sibling	2102
+row	3
+column	5
+%%
+%DisplayText
+address	2101
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	lines are not displayed
+color	black
+%%
+%RowerNode
+address	2102
+child	2103
+sibling	2104
+row	4
+column	5
+%%
+%DisplayText
+address	2103
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2104
+child	2105
+sibling	2106
+row	5
+column	5
+%%
+%DisplayText
+address	2105
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------script---------
+color	black
+%%
+%RowerNode
+address	2106
+child	2107
+sibling	2108
+row	6
+column	10
+%%
+%DisplayText
+address	2107
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g (1)=(1)
+color	black
+%%
+%RowerNode
+address	2108
+child	2109
+sibling	2110
+row	7
+column	10
+%%
+%DisplayText
+address	2109
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line (1) is displayed
+color	black
+%%
+%RowerNode
+address	2110
+child	2111
+sibling	2112
+row	8
+column	10
+%%
+%DisplayText
+address	2111
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g (1)=(2)
+color	black
+%%
+%RowerNode
+address	2112
+child	2113
+sibling	2114
+row	9
+column	10
+%%
+%DisplayText
+address	2113
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line (2) is NOT displayed
+color	black
+%%
+%RowerNode
+address	2114
+child	2115
+sibling	2116
+row	10
+column	10
+%%
+%DisplayText
+address	2115
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g (1)=(1)
+color	black
+%%
+%RowerNode
+address	2116
+child	2117
+sibling	2118
+row	11
+column	10
+%%
+%DisplayText
+address	2117
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line (3) is displayed
+color	black
+%%
+%RowerNode
+address	2118
+child	2119
+sibling	2120
+row	12
+column	10
+%%
+%DisplayText
+address	2119
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g (1)=(2)
+color	black
+%%
+%RowerNode
+address	2120
+child	2121
+sibling	2122
+row	13
+column	10
+%%
+%DisplayText
+address	2121
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line (4) is NOT displayed
+color	black
+%%
+%RowerNode
+address	2122
+child	2123
+sibling	2124
+row	14
+column	5
+%%
+%DisplayText
+address	2123
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------------------
+color	black
+%%
+%RowerNode
+address	2124
+child	2125
+sibling	2126
+row	15
+column	10
+%%
+%DisplayText
+address	2125
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%GroupNode
+address	2126
+sibling	2127
+name		0
+condition	(1)=(1)
+post	0
+%%
+%RowerNode
+address	2127
+child	2128
+sibling	2129
+row	16
+column	10
+%%
+%DisplayText
+address	2128
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line (1) is displayed
+color	black
+%%
+%GroupNode
+address	2129
+sibling	2130
+name		0
+condition	(1)=(2)
+post	0
+%%
+%RowerNode
+address	2130
+child	2131
+sibling	2132
+row	17
+column	10
+%%
+%DisplayText
+address	2131
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line (2) is NOT displayed
+color	black
+%%
+%GroupNode
+address	2132
+sibling	2133
+name		0
+condition	(1)=(1)
+post	0
+%%
+%RowerNode
+address	2133
+child	2134
+sibling	2135
+row	18
+column	10
+%%
+%DisplayText
+address	2134
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line (3) is displayed
+color	black
+%%
+%GroupNode
+address	2135
+sibling	2136
+name		0
+condition	(1)=(2)
+post	0
+%%
+%RowerNode
+address	2136
+child	2137
+sibling	0
+row	19
+column	10
+%%
+%DisplayText
+address	2137
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line (4) is NOT displayed
+color	black
+%%
+%CardSet
+address	2138
+child	2139
+sibling	2179
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2139
+child	2140
+sibling	2141
+row	2
+column	5
+%%
+%DisplayText
+address	2140
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Lines 'scope ended' will display
+color	black
+%%
+%RowerNode
+address	2141
+child	2142
+sibling	2143
+row	3
+column	5
+%%
+%DisplayText
+address	2142
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	two times.
+color	black
+%%
+%RowerNode
+address	2143
+child	2144
+sibling	2145
+row	4
+column	5
+%%
+%DisplayText
+address	2144
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2145
+child	2146
+sibling	2147
+row	5
+column	5
+%%
+%DisplayText
+address	2146
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------script---------
+color	black
+%%
+%RowerNode
+address	2147
+child	2148
+sibling	2149
+row	6
+column	10
+%%
+%DisplayText
+address	2148
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g (1)=(1)
+color	black
+%%
+%RowerNode
+address	2149
+child	2150
+sibling	2151
+row	7
+column	10
+%%
+%DisplayText
+address	2150
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line (1) is displayed
+color	black
+%%
+%RowerNode
+address	2151
+child	2152
+sibling	2153
+row	8
+column	10
+%%
+%DisplayText
+address	2152
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g 
+color	black
+%%
+%RowerNode
+address	2153
+child	2154
+sibling	2155
+row	9
+column	10
+%%
+%DisplayText
+address	2154
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d scope ended
+color	black
+%%
+%RowerNode
+address	2155
+child	2156
+sibling	2157
+row	10
+column	10
+%%
+%DisplayText
+address	2156
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g (1)=(2)
+color	black
+%%
+%RowerNode
+address	2157
+child	2158
+sibling	2159
+row	11
+column	10
+%%
+%DisplayText
+address	2158
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line (2) is NOT displayed
+color	black
+%%
+%RowerNode
+address	2159
+child	2160
+sibling	2161
+row	12
+column	10
+%%
+%DisplayText
+address	2160
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g
+color	black
+%%
+%RowerNode
+address	2161
+child	2162
+sibling	2163
+row	13
+column	10
+%%
+%DisplayText
+address	2162
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d scope ended
+color	black
+%%
+%RowerNode
+address	2163
+child	2164
+sibling	2165
+row	14
+column	5
+%%
+%DisplayText
+address	2164
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------------------
+color	black
+%%
+%RowerNode
+address	2165
+child	2166
+sibling	2167
+row	15
+column	10
+%%
+%DisplayText
+address	2166
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%GroupNode
+address	2167
+sibling	2168
+name		0
+condition	(1)=(1)
+post	0
+%%
+%RowerNode
+address	2168
+child	2169
+sibling	2170
+row	16
+column	10
+%%
+%DisplayText
+address	2169
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line (1) is displayed
+color	black
+%%
+%GroupNode
+address	2170
+sibling	2171
+name		0
+condition	0
+post	0
+%%
+%RowerNode
+address	2171
+child	2172
+sibling	2173
+row	17
+column	10
+%%
+%DisplayText
+address	2172
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	scope ended
+color	black
+%%
+%GroupNode
+address	2173
+sibling	2174
+name		0
+condition	(1)=(2)
+post	0
+%%
+%RowerNode
+address	2174
+child	2175
+sibling	2176
+row	18
+column	10
+%%
+%DisplayText
+address	2175
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line (2) is NOT displayed
+color	black
+%%
+%GroupNode
+address	2176
+sibling	2177
+name		0
+condition	0
+post	0
+%%
+%RowerNode
+address	2177
+child	2178
+sibling	0
+row	19
+column	10
+%%
+%DisplayText
+address	2178
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	scope ended
+color	black
+%%
+%CardSet
+address	2179
+child	2180
+sibling	2225
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2180
+child	2181
+sibling	2182
+row	0
+column	5
+%%
+%DisplayText
+address	2181
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Test of two 'ge' groups.  In the 1st
+color	black
+%%
+%RowerNode
+address	2182
+child	2183
+sibling	2184
+row	1
+column	5
+%%
+%DisplayText
+address	2183
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	the 'if/then' succeeds, but in the second,
+color	black
+%%
+%RowerNode
+address	2184
+child	2185
+sibling	2186
+row	2
+column	5
+%%
+%DisplayText
+address	2185
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	the 'else' succeeds.
+color	black
+%%
+%RowerNode
+address	2186
+child	2187
+sibling	2188
+row	3
+column	5
+%%
+%DisplayText
+address	2187
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------script---------
+color	black
+%%
+%RowerNode
+address	2188
+child	2189
+sibling	2190
+row	4
+column	10
+%%
+%DisplayText
+address	2189
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g (1)=(1)
+color	black
+%%
+%RowerNode
+address	2190
+child	2191
+sibling	2192
+row	5
+column	10
+%%
+%DisplayText
+address	2191
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d The 'if/then' is successful
+color	black
+%%
+%RowerNode
+address	2192
+child	2193
+sibling	2194
+row	6
+column	10
+%%
+%DisplayText
+address	2193
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2194
+child	2195
+sibling	2196
+row	7
+column	10
+%%
+%DisplayText
+address	2195
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line NOT displayed
+color	black
+%%
+%RowerNode
+address	2196
+child	2197
+sibling	2198
+row	8
+column	10
+%%
+%DisplayText
+address	2197
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g
+color	black
+%%
+%RowerNode
+address	2198
+child	2199
+sibling	2200
+row	9
+column	10
+%%
+%DisplayText
+address	2199
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d Second group
+color	black
+%%
+%RowerNode
+address	2200
+child	2201
+sibling	2202
+row	10
+column	10
+%%
+%DisplayText
+address	2201
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g (1)=(2)
+color	black
+%%
+%RowerNode
+address	2202
+child	2203
+sibling	2204
+row	11
+column	10
+%%
+%DisplayText
+address	2203
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line NOT displayed
+color	black
+%%
+%RowerNode
+address	2204
+child	2205
+sibling	2206
+row	12
+column	10
+%%
+%DisplayText
+address	2205
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2206
+child	2207
+sibling	2208
+row	13
+column	10
+%%
+%DisplayText
+address	2207
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d The 'else' is successful
+color	black
+%%
+%RowerNode
+address	2208
+child	2209
+sibling	2210
+row	14
+column	5
+%%
+%DisplayText
+address	2209
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	-------------------------
+color	black
+%%
+%GroupNode
+address	2210
+sibling	2211
+name		0
+condition	(1)=(1)
+post	0
+%%
+%RowerNode
+address	2211
+child	2212
+sibling	2213
+row	15
+column	10
+%%
+%DisplayText
+address	2212
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The 'if/then' is successful
+color	black
+%%
+%GroupNode
+address	2213
+sibling	2214
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2214
+child	2215
+sibling	2216
+row	16
+column	10
+%%
+%DisplayText
+address	2215
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is NOT displayed
+color	black
+%%
+%GroupNode
+address	2216
+sibling	2217
+name		0
+condition	0
+post	0
+%%
+%RowerNode
+address	2217
+child	2218
+sibling	2219
+row	17
+column	10
+%%
+%DisplayText
+address	2218
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Second group
+color	black
+%%
+%GroupNode
+address	2219
+sibling	2220
+name		0
+condition	(1)=(2)
+post	0
+%%
+%RowerNode
+address	2220
+child	2221
+sibling	2222
+row	18
+column	10
+%%
+%DisplayText
+address	2221
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is NOT displayed
+color	black
+%%
+%GroupNode
+address	2222
+sibling	2223
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2223
+child	2224
+sibling	0
+row	19
+column	10
+%%
+%DisplayText
+address	2224
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	The 'else' is successful
+color	black
+%%
+%CardSet
+address	2225
+child	2226
+sibling	2252
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2226
+child	2227
+sibling	2228
+row	2
+column	5
+%%
+%DisplayText
+address	2227
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Test of 'ge' tag.  If 'g <condition>'
+color	black
+%%
+%RowerNode
+address	2228
+child	2229
+sibling	2230
+row	3
+column	5
+%%
+%DisplayText
+address	2229
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	fails, then the 'ge' group is executed.
+color	black
+%%
+%RowerNode
+address	2230
+child	2231
+sibling	2232
+row	4
+column	5
+%%
+%DisplayText
+address	2231
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2232
+child	2233
+sibling	2234
+row	5
+column	5
+%%
+%DisplayText
+address	2233
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------script---------
+color	black
+%%
+%RowerNode
+address	2234
+child	2235
+sibling	2236
+row	6
+column	10
+%%
+%DisplayText
+address	2235
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g (1)=(1)
+color	black
+%%
+%RowerNode
+address	2236
+child	2237
+sibling	2238
+row	7
+column	10
+%%
+%DisplayText
+address	2237
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is displayed
+color	black
+%%
+%RowerNode
+address	2238
+child	2239
+sibling	2240
+row	8
+column	10
+%%
+%DisplayText
+address	2239
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2240
+child	2241
+sibling	2242
+row	9
+column	10
+%%
+%DisplayText
+address	2241
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is NOT displayed
+color	black
+%%
+%RowerNode
+address	2242
+child	2243
+sibling	2244
+row	10
+column	5
+%%
+%DisplayText
+address	2243
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	-------------------------
+color	black
+%%
+%RowerNode
+address	2244
+child	2245
+sibling	2246
+row	11
+column	5
+%%
+%DisplayText
+address	2245
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%GroupNode
+address	2246
+sibling	2247
+name		0
+condition	(1)=(1)
+post	0
+%%
+%RowerNode
+address	2247
+child	2248
+sibling	2249
+row	12
+column	10
+%%
+%DisplayText
+address	2248
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is displayed
+color	black
+%%
+%GroupNode
+address	2249
+sibling	2250
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2250
+child	2251
+sibling	0
+row	13
+column	10
+%%
+%DisplayText
+address	2251
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is NOT displayed
+color	black
+%%
+%CardSet
+address	2252
+child	2253
+sibling	2279
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2253
+child	2254
+sibling	2255
+row	2
+column	5
+%%
+%DisplayText
+address	2254
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Test of 'ge' tag.  If 'g <condition>'
+color	black
+%%
+%RowerNode
+address	2255
+child	2256
+sibling	2257
+row	3
+column	5
+%%
+%DisplayText
+address	2256
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	fails, then the 'ge' group is executed.
+color	black
+%%
+%RowerNode
+address	2257
+child	2258
+sibling	2259
+row	4
+column	5
+%%
+%DisplayText
+address	2258
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2259
+child	2260
+sibling	2261
+row	5
+column	5
+%%
+%DisplayText
+address	2260
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------script---------
+color	black
+%%
+%RowerNode
+address	2261
+child	2262
+sibling	2263
+row	6
+column	10
+%%
+%DisplayText
+address	2262
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g (1)=(2)
+color	black
+%%
+%RowerNode
+address	2263
+child	2264
+sibling	2265
+row	7
+column	10
+%%
+%DisplayText
+address	2264
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line NOT displayed
+color	black
+%%
+%RowerNode
+address	2265
+child	2266
+sibling	2267
+row	8
+column	10
+%%
+%DisplayText
+address	2266
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2267
+child	2268
+sibling	2269
+row	9
+column	10
+%%
+%DisplayText
+address	2268
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is displayed
+color	black
+%%
+%RowerNode
+address	2269
+child	2270
+sibling	2271
+row	10
+column	5
+%%
+%DisplayText
+address	2270
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	-------------------------
+color	black
+%%
+%RowerNode
+address	2271
+child	2272
+sibling	2273
+row	11
+column	5
+%%
+%DisplayText
+address	2272
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%GroupNode
+address	2273
+sibling	2274
+name		0
+condition	(1)=(2)
+post	0
+%%
+%RowerNode
+address	2274
+child	2275
+sibling	2276
+row	12
+column	10
+%%
+%DisplayText
+address	2275
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is NOT displayed
+color	black
+%%
+%GroupNode
+address	2276
+sibling	2277
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2277
+child	2278
+sibling	0
+row	13
+column	10
+%%
+%DisplayText
+address	2278
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is displayed
+color	black
+%%
+%CardSet
+address	2279
+child	2280
+sibling	2306
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2280
+child	2281
+sibling	2282
+row	2
+column	5
+%%
+%DisplayText
+address	2281
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Test of 'ge <condition>' with
+color	black
+%%
+%RowerNode
+address	2282
+child	2283
+sibling	2284
+row	3
+column	10
+%%
+%DisplayText
+address	2283
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	ge (1)=(1)
+color	black
+%%
+%RowerNode
+address	2284
+child	2285
+sibling	2286
+row	4
+column	10
+%%
+%DisplayText
+address	2285
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2286
+child	2287
+sibling	2288
+row	5
+column	5
+%%
+%DisplayText
+address	2287
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------script-----------
+color	black
+%%
+%RowerNode
+address	2288
+child	2289
+sibling	2290
+row	6
+column	10
+%%
+%DisplayText
+address	2289
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g (1)=(1)
+color	black
+%%
+%RowerNode
+address	2290
+child	2291
+sibling	2292
+row	7
+column	10
+%%
+%DisplayText
+address	2291
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is displayed
+color	black
+%%
+%RowerNode
+address	2292
+child	2293
+sibling	2294
+row	8
+column	10
+%%
+%DisplayText
+address	2293
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	ge (1)=(2)
+color	black
+%%
+%RowerNode
+address	2294
+child	2295
+sibling	2296
+row	9
+column	10
+%%
+%DisplayText
+address	2295
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is NOT displayed
+color	black
+%%
+%RowerNode
+address	2296
+child	2297
+sibling	2298
+row	10
+column	5
+%%
+%DisplayText
+address	2297
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	---------------------------
+color	black
+%%
+%RowerNode
+address	2298
+child	2299
+sibling	2300
+row	11
+column	5
+%%
+%DisplayText
+address	2299
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%GroupNode
+address	2300
+sibling	2301
+name		0
+condition	(1)=(1)
+post	0
+%%
+%RowerNode
+address	2301
+child	2302
+sibling	2303
+row	12
+column	10
+%%
+%DisplayText
+address	2302
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is displayed
+color	black
+%%
+%GroupNode
+address	2303
+sibling	2304
+name		0
+condition	(1)=(2)
+post	else
+%%
+%RowerNode
+address	2304
+child	2305
+sibling	0
+row	13
+column	10
+%%
+%DisplayText
+address	2305
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is NOT displayed
+color	black
+%%
+%CardSet
+address	2306
+child	2307
+sibling	2340
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2307
+child	2308
+sibling	2309
+row	2
+column	5
+%%
+%DisplayText
+address	2308
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Test of 'else' with <condition> with
+color	black
+%%
+%RowerNode
+address	2309
+child	2310
+sibling	2311
+row	3
+column	5
+%%
+%DisplayText
+address	2310
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	terminating 'ge' without <condition>
+color	black
+%%
+%RowerNode
+address	2311
+child	2312
+sibling	2313
+row	4
+column	5
+%%
+%DisplayText
+address	2312
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2313
+child	2314
+sibling	2315
+row	5
+column	5
+%%
+%DisplayText
+address	2314
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------script-----------
+color	black
+%%
+%RowerNode
+address	2315
+child	2316
+sibling	2317
+row	6
+column	10
+%%
+%DisplayText
+address	2316
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g (1)=(2)
+color	black
+%%
+%RowerNode
+address	2317
+child	2318
+sibling	2319
+row	7
+column	10
+%%
+%DisplayText
+address	2318
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is NOT displayed
+color	black
+%%
+%RowerNode
+address	2319
+child	2320
+sibling	2321
+row	8
+column	10
+%%
+%DisplayText
+address	2320
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	ge (1)=(2)
+color	black
+%%
+%RowerNode
+address	2321
+child	2322
+sibling	2323
+row	9
+column	10
+%%
+%DisplayText
+address	2322
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is NOT displayed
+color	black
+%%
+%RowerNode
+address	2323
+child	2324
+sibling	2325
+row	10
+column	10
+%%
+%DisplayText
+address	2324
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2325
+child	2326
+sibling	2327
+row	11
+column	10
+%%
+%DisplayText
+address	2326
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is displayed
+color	black
+%%
+%RowerNode
+address	2327
+child	2328
+sibling	2329
+row	12
+column	5
+%%
+%DisplayText
+address	2328
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	---------------------------
+color	black
+%%
+%RowerNode
+address	2329
+child	2330
+sibling	2331
+row	13
+column	5
+%%
+%DisplayText
+address	2330
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%GroupNode
+address	2331
+sibling	2332
+name		0
+condition	(1)=(2)
+post	0
+%%
+%RowerNode
+address	2332
+child	2333
+sibling	2334
+row	14
+column	10
+%%
+%DisplayText
+address	2333
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line (1) is NOT displayed
+color	black
+%%
+%GroupNode
+address	2334
+sibling	2335
+name		0
+condition	(1)=(2)
+post	else
+%%
+%RowerNode
+address	2335
+child	2336
+sibling	2337
+row	15
+column	10
+%%
+%DisplayText
+address	2336
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line (2) is NOT displayed
+color	black
+%%
+%GroupNode
+address	2337
+sibling	2338
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2338
+child	2339
+sibling	0
+row	16
+column	10
+%%
+%DisplayText
+address	2339
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is displayed
+color	black
+%%
+%CardSet
+address	2340
+child	2341
+sibling	2374
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2341
+child	2342
+sibling	2343
+row	2
+column	5
+%%
+%DisplayText
+address	2342
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Repeat test of 'else' with <condition> 
+color	black
+%%
+%RowerNode
+address	2343
+child	2344
+sibling	2345
+row	3
+column	5
+%%
+%DisplayText
+address	2344
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	with terminating 'ge' without <condition>
+color	black
+%%
+%RowerNode
+address	2345
+child	2346
+sibling	2347
+row	4
+column	5
+%%
+%DisplayText
+address	2346
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2347
+child	2348
+sibling	2349
+row	5
+column	5
+%%
+%DisplayText
+address	2348
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	----------script-----------
+color	black
+%%
+%RowerNode
+address	2349
+child	2350
+sibling	2351
+row	6
+column	10
+%%
+%DisplayText
+address	2350
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	g (1)=(2)
+color	black
+%%
+%RowerNode
+address	2351
+child	2352
+sibling	2353
+row	7
+column	10
+%%
+%DisplayText
+address	2352
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is NOT displayed
+color	black
+%%
+%RowerNode
+address	2353
+child	2354
+sibling	2355
+row	8
+column	10
+%%
+%DisplayText
+address	2354
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	ge (1)=(1)
+color	black
+%%
+%RowerNode
+address	2355
+child	2356
+sibling	2357
+row	9
+column	10
+%%
+%DisplayText
+address	2356
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is displayed
+color	black
+%%
+%RowerNode
+address	2357
+child	2358
+sibling	2359
+row	10
+column	10
+%%
+%DisplayText
+address	2358
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2359
+child	2360
+sibling	2361
+row	11
+column	10
+%%
+%DisplayText
+address	2360
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	d This line is NOT displayed
+color	black
+%%
+%RowerNode
+address	2361
+child	2362
+sibling	2363
+row	12
+column	5
+%%
+%DisplayText
+address	2362
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	---------------------------
+color	black
+%%
+%RowerNode
+address	2363
+child	2364
+sibling	2365
+row	13
+column	5
+%%
+%DisplayText
+address	2364
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%GroupNode
+address	2365
+sibling	2366
+name		0
+condition	(1)=(2)
+post	0
+%%
+%RowerNode
+address	2366
+child	2367
+sibling	2368
+row	14
+column	10
+%%
+%DisplayText
+address	2367
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line  is NOT displayed
+color	black
+%%
+%GroupNode
+address	2368
+sibling	2369
+name		0
+condition	(1)=(2)
+post	else
+%%
+%RowerNode
+address	2369
+child	2370
+sibling	2371
+row	15
+column	10
+%%
+%DisplayText
+address	2370
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is NOT displayed
+color	black
+%%
+%GroupNode
+address	2371
+sibling	2372
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2372
+child	2373
+sibling	0
+row	16
+column	10
+%%
+%DisplayText
+address	2373
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	This line is displayed
+color	black
+%%
+%CardSet
+address	2374
+child	2375
+sibling	2377
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2375
+child	2376
+sibling	0
+row	2
+column	5
+%%
+%DisplayText
+address	2376
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	Completion of Group Command test
+color	black
+%%
+%NotecardTask
+address	2377
+sibling	0
+task	end
+type	0
+%%

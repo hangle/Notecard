@@ -1,0 +1,71 @@
+
+Group Command Mechanism
+========================
+
+The following command script displays 'not in scope...'.  The two display   
+commands:
+
+		d in scope of group command
+		d also in scope of group command
+
+are bounded by the Group command 'g (1)=(1)' and the Clear command of   
+the next CardSet.  These Display commands are executed when the   
+condition '(1)=(1)' of the Group Command is true.   
+
+		c
+		d not in scope of group command
+		g (1)=(1)
+		d in scope of group command
+		d also in scope of group command
+		c  
+		...
+
+The two Display commands in question are not executed in the following:  
+
+		c
+		d not in scope of group command
+		g (1)=(2)
+		d in scope of group command
+		d also in scope of group command
+		c  
+		...
+
+The role of GroupNode is to test the condition of the Group command,   
+provided that the command has a conditional expression. In the   
+following script, the second Group command has just the tag 'g'.  
+
+		c
+		d not in scope of group command
+		g (1)=(2)
+		d in scope of group command
+		d also in scope of group command
+		g
+		d not in scope of group command
+		c  
+		...
+
+The scope of 'g (1)=(2)' extends not to the start of the Clear command   
+but to the second 'g' command.  The second 'd not in scope of ...' is   
+displayed.   
+
+The 'g' command, without a conditional expression, is a means to   
+establish scope of the Group command execution.  
+
+The script arguments passed to GroupNode when instantiated are:  
+
+		condition	<expression>    //<expression>  e.g., (1)=(2)
+		post		else <or> 0     // else condition cited below.
+
+The Group command may have the tag 'ge' that denotes an else   
+condition. For example:
+
+		c
+		g($capital)=(Columbus)
+		d Correct
+		ge
+		d Sorry, Columbus is the capital of Ohio
+		c
+		...
+
+Had $capital contained the value Cleveland, then the second Displays   
+command, and not the first, would have printed.   

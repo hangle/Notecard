@@ -1,0 +1,162 @@
+Appearance Features 
+=================
+
+Appearance features cover the size, style, color, and font style   
+of text.  It also includes the size and length of the input field,  
+as well as the appearance features of input characters.  The   
+number of input characters can be limited.  The window height    
+and window width are Appearance features.  Activation and  
+deactivation of the '*' and 'PRIOR' buttons are included   
+as Appearance features.   
+
+The Appearance features are established by the default values  
+of the program as listed below:  
+
+<pre>
+	 key           value
+
+	height    	300		//window size argument
+	width   	400		//window size argument
+	name    	TimesRoman	// name of Font
+	size       	14		// pixel size of lettering
+	color     	black		// color of lettering
+	style      	1		// 1=normal, 2=bold, 3=italics
+	length    	10  		// input field length
+	limit      	99		// limits the number of input characters 
+	asteriskButton  on		//  "on" allows '* button' to be armed (active)
+	priorButton     on 		//  "on" allow 'PRIOR button' to be armed (active)
+</pre>
+
+The script command file:
+
+<pre>
+		c 
+		d now is the time for all good men
+		* end
+</pre>
+
+The text of the 'd' command  is displayed in a window  
+dimensioned as 300 x 400.  The   text color is black.  Its size  
+is 14, and its font style is TimesRoman.  
+
+Ways to override default value.
+-------------------------------
+
+Asterisk Commands.   The '*' command  with an appearance  
+key/value pair,  supercedes the   corresponding program  
+default value.  
+
+The script command file:
+
+<pre>
+		* width 500
+		* height 600
+		* size 22
+		c 
+		d now is the time for all good men
+		* end
+</pre>
+
+The window size changes to 500 x 600, and the text size becomes  
+'22'.  The  text color  is still black and the font size is still  
+TimesRoman.  However, the introduction of the following '*'  
+commands can change this.  
+
+<pre>
+		* color  green
+		* name   Arial
+</pre>
+
+The '*' commands of the script file remains in effect until  
+the next script file is executed.   
+
+###The appearance.ini file.
+
+The  'appearance.ini' file,  consisting of key/value pairs.  
+These key/value pairs  change the default values for all  
+script files in a session. The following is an example of an    
+'appearance.ini' file.     
+
+<pre>
+			appearance.ini
+		____________________________
+		|    height 320
+		|    width  260
+		|    size     16
+		|    color   green
+</pre>
+
+The file changes four default, appearance values.  These  
+values become new default values   overriding the program  
+values.  They remain  in effect for the session's script  
+files ( the '* end' command terminates a session).  
+
+The directory in which the Notecard program is executed is  
+termed the 'home' directory.  The 'appearance.ini' file in  
+the 'home' directory is applied to the script files in 'home'   
+directory and to all  script files in its subdirectories.   
+
+An 'appearance.ini' directory within a 'home' subdirectory  
+is applied to just the script files in that directory.   
+
+In the event that 'appearance.ini' files are in both the  
+'home' directory and in a 'home' subdirectory, then the  
+subdirectory 'ini' file supercedes the 'home' 'ini'  file,  
+but only for script files in the subdirectory.  
+
+The Appearance feature of an '*' command overrides a  
+corresponding feature of the 'appearance.ini' file.   
+For example, the following 'appearance.ini' file in the  
+'home' directory is:  
+
+<pre>
+			appearance.ini
+		__________________
+		|  size  12
+</pre>
+
+The initial default value of 14 is becomes 12 for all  
+script files in the 'home' directory and its 
+subdirectories.   
+
+Next, an 'appeaance.ini' file in a subdirectory is:
+
+<pre>
+			appearance.ini
+		____________________
+		|  size 10
+</pre>
+
+The previous defaults letter size of 14 and 12 become 10 for  
+just the script files in the   subdirectory.  In the 'home'  
+directory and its other subdirectories,  the default value   
+is 12.  
+
+Finally the following '*' command is added to a script file  
+in the subdirectory whose 'appearance.ini' file specifies a  
+size is 10 :  
+
+<pre>
+		* size 22
+</pre>
+
+The default letter size is 22 for text in the script file  
+having the '*' size 22 command.  The other script files  
+have a default letter size of 10.  
+
+Two Types of '*' commands.
+--------------------------
+
+The '*'  Appearance commands, such as, '* size 22',  are   
+not executed by the Notecard program.  The Notecard program  
+executes the following '*' commands:  
+
+<pre>
+		* end
+		* continue
+		* save
+		* manage <filename>
+</pre>
+
+The  '*'  Appearance commands are consumed in the Script  
+program and are removed.  

@@ -36,11 +36,13 @@ class Tokener {
 		// Parses math expression, separating the match elements
 		// into number, variables, operators, and parentheses. :
 	def extract(expr:String) = {
-		println("Tokener: extract() expr="+expr)
+				//println("Tokener: extract() expr="+expr)
 		var l=List[String]()
 		var flag=false
 		var buffer=new StringBuffer
-		for(e <- expr) {
+		println("Tokener:  extract():  expr="+expr)
+		val expr2=LogicType.removeSpacesInString(expr)
+		for(e <- expr2) {
 			if(isOperator(e)) {
 				l=buffer.toString :: l
 				l=e.toString :: l
@@ -60,7 +62,7 @@ class Tokener {
 			else if(isVariable(e)) {
 				buffer.append(e)
 				}
-			else  println("Tokener: unknown char="+e)
+			else  println("Tokener: unknown char=|"+e+"|")
 			}
 		l=buffer.toString :: l 
 		l.reverse

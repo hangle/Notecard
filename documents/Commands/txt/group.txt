@@ -1,0 +1,57 @@
+Group Command
+=============
+
+The Group command, with the tag 'g' and a logic component, controls whether or   
+not a group of Card Set commands execute.   The following script shows two   
+Group commands. One Group command suceeds; the other fails.  
+
+<pre>
+        c                     c
+        d now                 d now
+        d is                  d is
+        g (1) = (1)           g (1) = (2)
+        d the                 d the
+        d time                d time
+        c ...                 c  ...        
+</pre>
+
+In the case of 'g (1)=(1)', the following commands are executed:  
+    
+		d the  
+		d time  
+
+In the case of 'g (1)=(2), these commands are skipped.  
+
+The scope of Group command extends to the end of the Card Set, or until another   
+'g' tag is encountered, for example  
+
+<pre>
+        c                     c
+        d now                 d now
+        d is                  d is
+        g (1) = (1)           g (1) = (2)
+        d the                 d the  
+        g                     g
+        d time                d time
+        c ...                 c  ...        
+</pre>
+
+In the left hand script, all 'd' commands will execute.  In the right hand script,   
+all 'd' commands will execute with the exception of 'd the'.  The tag 'ge' may   
+follow a Group command with a logic component. When the logic component fails,   
+then the group of commands following the 'ge' tag are executed.  
+
+<pre>
+        c                     c
+        d now                 d now
+        d is                  d is
+        g (1) = (1)           g (1) = (2)
+        d the                 d the  
+        ge                    ge
+        d time                d time
+        c ...                 c  ...       
+</pre>
+ 
+In the left-hand script, the 'd the' command is executed but not the 'd time'   
+command.  In the right-hand script, the 'd time' command is executed but not   
+the 'd the' command.  

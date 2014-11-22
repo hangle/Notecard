@@ -1,0 +1,36 @@
+File Command
+===========
+
+The script of Notecard commands are in files with the '.nc' extension. The file   
+command establishes a link between '.nc' files. The File command's tag is 'f',   
+followed by one or more spaces, and then the name of the '.nc file it is linked   
+to, for example:  
+
+		f myProgram  
+
+Note: the '.nc' extension is dropped.  
+
+When the File command is encounter, then execution passes to the designated '.nc'   
+file. In the above example, the first Card Set of 'myProgram.nc' is processed.  
+In this linkage, when the file is not found, control passes to the Start window,   
+where a Card Set will ask, via an input field,  for a '.nc' filename.  The   
+Start window script is similar to the following:  
+
+		c  
+		d Enter a filename (# $filename)  
+		f $filename  
+
+The example illustrates that the File command my have a $<variable> whose value   
+is treated as a filename.  The File command my have an optional Logic component   
+that controls whether or not the command is executed. For example:  
+
+		f maleQuestions ($gender) = (male)  
+		f femaleQuestions  
+
+In the above, if the client or student is not male, then then execution passes   
+to the script in the femaleQuestions.nc file.  The logic component is involved   
+and is described in the Logic Component page.  The File command is not a command     
+member of the Card Set. It is placed following a Card Set. In many cases it is    
+found at the end of a '.nc' file    
+
+

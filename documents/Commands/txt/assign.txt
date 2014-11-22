@@ -1,0 +1,28 @@
+Assign Command
+=============
+
+The Assign command has an 'a' tag, followed by one or more spaces and by a   
+$<variable> having a trailing equal '=' sign. The $<variable> is always the   
+left-hand expression.  The expression to the right of the '=' sign is either:    
+
+		value  
+		$<variable>  
+		math expression of Values and $<Variables>  
+
+For example:  
+
+		a $one = 22  
+		a $two = $three  
+		a $three = 2.123 * 5/ ( 2.1 - $fraction)  
+
+In the math expression, numeric character strings are converted to decimals.  
+The Assign Command has an optional Logic component (see Logic component).   
+This component has a restriction that is not present for this component in   
+the Clear, File, and Edit commands. In the case of the Assign command, the   
+Logic expression must be preceded by an 'if' tag, for example:  
+
+		a $one = 22 if ($one) > (22)  
+		a $two = $three if ($four) <= ($five)  
+		a $three= 2.123 * 5/ ( 2.1 - $fraction) if ($three) <> (5)  
+
+

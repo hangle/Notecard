@@ -1,0 +1,125 @@
+Logic Component
+=============
+
+
+The following command types have a logic component.  
+
+		Clear
+		Group
+		Assign
+		File
+		Edit
+
+The outcome of the logic component determines whether or not the command is   
+executed.  An example a Clear command with a logic component and an associated   
+Display command is:  
+
+		c (1) = (2)  
+		d This display is never executed becase the Clear command always fails.  
+		c ...  
+
+The logic component consists of the following elements:  
+
+		value/$(variable)  
+		relational operators  
+		logic operators  
+		qualifying tags  
+___________________________________________________________________
+
+Value / $(Variable) elements  
+________________________________________________________________________
+
+Logic values are, for example:   
+
+		22, male, flag, 3.14.  
+
+$(variable)s are, for example:    
+
+		$male and $xyz.  
+
+A Value or $(Variable) are enclosed in parentheses, for example:   
+
+		(22), (male), (flag), (3.14), ($male), ($xyz)  
+_____________________________________________________________________
+
+Relational operator
+________________________________________________________________________
+
+The relational operators are:
+
+<pre>
+        <        less than
+        >        greater than
+        <=       less than or equal to
+        >=       greater than or equal to
+        !=       not equal
+        <>       not equal
+        n%       percentage match when n is a percentage value (see explanation below)
+        m        match left-operand with right-operand list of items. (see explanation below)
+</pre>
+
+The relational operator compares two Value/$(Variable) operands, for example:  
+
+		($age) >= (21)
+_____________________________________________________________________
+
+Logic operators 
+________________________________________________________________________
+
+		or
+		and
+
+The logic operator compares the outcome of relational operations, for example:
+
+		$age) >= (21) and ($age) < (65)
+		($a) < ($b) or ($c) =($d) ) and ( ($e) >= ($f) and ($g) <> ($h) )
+_____________________________________________________________________
+
+Qualifying tags
+________________________________________________________________________
+
+		nc      No case. Convert to lower case before relational operation.
+		ns      No spaces. Remove spaces before relational operation.
+
+The following logic component with the 'nc' tag returns true:  
+
+		(Columbus) = nc (columbus)  
+
+The following logic component with the 'ns' tag returns true:  
+
+		(Columbus) = ns ( C olu m bus )  
+
+The following logic component with the 'nc' and 'ns' tags returns true:  
+
+		(Columbus) = nc ns ( c olu m bus )  
+
+_____________________________________________________________________
+
+n % operator   
+________________________________________________________________________
+
+Measures the similarity of two strings. Two identical strings measure 100%. Two   
+strings that are closely similar have a higher score than two completely dissimilar   
+strings which measure 0%.  The two strings “philadelphia” and “philedelphia” are   
+not identical but are similar in that both contain “phil” and “delphia”. There is   
+a 11 to 12 letter match, yielding a value of 91%. The following logic component   
+would return a true outcome because 91% match exceeds 80%:  
+
+        (philadelphia) 80% (philedelphia)  
+
+In an application, use of the N % operator allows partial credit  for a typing   
+or misspelling mistake.   
+
+_____________________________________________________________________
+
+m operator   
+________________________________________________________________________
+
+The m operator compares a Value or $(variable) to one or more values (i.e., list   
+of values and/or $<variables>).  For example, the following returns true because   
+'west' is a member of the list of values.  
+
+		(west) m (north east west south)  
+
+The list of Values and/or $(Variables) is contained in the right operand.  
+

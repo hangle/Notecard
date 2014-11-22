@@ -1,0 +1,63 @@
+Edit Command
+============
+
+The Edit command, with the tag 'e' (follow by a space) and a logic component, 
+causes a captured response to be evaluated prior to being stored. When the 
+evaluation fails, then the input is not retained. Instead, the response field 
+is cleared and the user is given the opportunity to enter a valid response.  
+The Edit command is associated with a Display command having a input field 
+component. For example:
+
+		d Enter your gender (# $gender)
+		e ($gender)=(male) or ($gender)=(female)
+
+The Edit command acts upon the Display's (# $gender) component. The user must 
+enter 'male' or 'female' in order to proceed.  The problem with the above script 
+is that the user may not know the proper response. The Edit command, however,  
+has an optional feature that presents a message to the user when the Edit 
+condition fails.  The message has the tag 'status=' followed by the message:
+
+		e ($gender)=(male) or ($gender)=(female) status=enter male or female
+
+The 'status=' message is displayed on the line above the button set. 
+
+The are two specialized Edit Commands that have tags in place of the logic 
+components. These tags are:
+
+		letter
+		number
+
+The 'e letter' command requires all input characters to be letters of a-z or 
+A-Z.  The 'e number' command requires all input characters to be numbers of 0-9.
+The specialized Edit commands have builtin messages of:
+
+		'number is required'
+		'letters are required'
+
+More than one Edit command may be associated with the Display's input field. All 
+Edit commands must must pass evaluation before the response is stored. For 
+example:
+
+		d Enter age (# $age)
+		e number
+		e ($age) > 0 and ($age) < (100) status=99 if age > 99
+
+A Display command with multiple input field components poses a problem, for 
+example:
+
+		d Enter name (# $name) age (# $age) and gender (# $gender)
+
+In a Display command with a single input field component, the association of input 
+field component and the following Edit commands is obvious. With multiple input 
+field components, a different syntax is required. The Edit command requires an 
+identifier establishing the association with the particular input field component. 
+The identifier is the $<variable> of the input field component.  The $(variable) 
+identifier follows the 'e' tag and space. For example:
+
+		d Enter name (# $name) age (# $age) and gender (# $gender)
+		e $name letter
+		e $age number
+		e $age ($age) >(0) and ($age) < (100) status=99 if age > 99
+		e $gender ($gender)=(male) or ($gender)=(female) status= male or female
+
+

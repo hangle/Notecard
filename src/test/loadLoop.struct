@@ -1,0 +1,73 @@
+%Notecard
+child	2002
+height	550
+width	400
+size	14
+name	TimesRoman
+style	0
+asteriskButton	on
+priorButton	on
+%%
+%LoadDictionary
+address	2002
+child	2003
+sibling	2004
+filename	test.loadLoop
+%%
+%LoadAssign
+address	2003
+sibling	0
+target	$max
+source	0.0
+special	math
+condition	0
+%%
+%CardSet
+address	2004
+child	2005
+sibling	2009
+button	0
+name	0
+condition	0
+%%
+%AssignerNode
+address	2005
+sibling	2006
+target	$max
+source	 $max +1.0
+special	math
+condition	0
+%%
+%RowerNode
+address	2006
+child	2007
+sibling	0
+row	0
+column	0
+%%
+%DisplayText
+address	2007
+sibling	2008
+style	0
+size	14
+column	0
+name	TimesRoman
+text	max= 
+color	black
+%%
+%DisplayVariable
+address	2008
+sibling	0
+text	$max
+column	0
+size	14
+style	0
+name	TimesRoman
+color	black
+%%
+%NextFile
+address	2009
+sibling	0
+filename	loadDictionary2
+condition	($max)=(3.0)
+%%

@@ -1,0 +1,1927 @@
+%Notecard
+child	2002
+height	550
+width	400
+size	14
+name	TimesRoman
+style	0
+asteriskButton	on
+priorButton	on
+%%
+%CardSet
+address	2002
+child	2003
+sibling	2019
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2003
+child	2004
+sibling	2005
+row	2
+column	20
+%%
+%DisplayText
+address	2004
+sibling	0
+style	1
+size	20
+column	0
+name	TimesRoman
+text	Appearance Components.
+color	blue
+%%
+%RowerNode
+address	2005
+child	2006
+sibling	2007
+row	3
+column	5
+%%
+%DisplayText
+address	2006
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2007
+child	2008
+sibling	2009
+row	4
+column	5
+%%
+%DisplayText
+address	2008
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Two types of Appearance Components:
+color	black
+%%
+%RowerNode
+address	2009
+child	2010
+sibling	2011
+row	5
+column	10
+%%
+%DisplayText
+address	2010
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	1. Start of the 'd' command, 
+color	black
+%%
+%RowerNode
+address	2011
+child	2012
+sibling	2013
+row	6
+column	10
+%%
+%DisplayText
+address	2012
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	         such as: d /size 20/...
+color	black
+%%
+%RowerNode
+address	2013
+child	2014
+sibling	2015
+row	7
+column	10
+%%
+%DisplayText
+address	2014
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	2. Embedded such as (# /size 20/$abc)
+color	black
+%%
+%RowerNode
+address	2015
+child	2016
+sibling	2017
+row	8
+column	13
+%%
+%DisplayText
+address	2016
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	or   (%/color blue/ $abc)
+color	black
+%%
+%RowerNode
+address	2017
+child	2018
+sibling	0
+row	9
+column	13
+%%
+%DisplayText
+address	2018
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	or   (%%/style bold/now is)
+color	black
+%%
+%CardSet
+address	2019
+child	2020
+sibling	2036
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2020
+child	2021
+sibling	2022
+row	2
+column	20
+%%
+%DisplayText
+address	2021
+sibling	0
+style	1
+size	20
+column	0
+name	TimesRoman
+text	size parameter
+color	blue
+%%
+%RowerNode
+address	2022
+child	2023
+sibling	2024
+row	3
+column	10
+%%
+%DisplayText
+address	2023
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2024
+child	2025
+sibling	2026
+row	4
+column	10
+%%
+%DisplayText
+address	2025
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	--------------------script----------------
+color	black
+%%
+%RowerNode
+address	2026
+child	2027
+sibling	2028
+row	5
+column	10
+%%
+%DisplayText
+address	2027
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d /size 20/line size is 20
+color	black
+%%
+%RowerNode
+address	2028
+child	2029
+sibling	2030
+row	6
+column	10
+%%
+%DisplayText
+address	2029
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------------
+color	black
+%%
+%RowerNode
+address	2030
+child	2031
+sibling	2032
+row	7
+column	10
+%%
+%DisplayText
+address	2031
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2032
+child	2033
+sibling	2034
+row	8
+column	10
+%%
+%DisplayText
+address	2033
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2034
+child	2035
+sibling	0
+row	9
+column	10
+%%
+%DisplayText
+address	2035
+sibling	0
+style	0
+size	20
+column	0
+name	TimesRoman
+text	line size is 20
+color	black
+%%
+%CardSet
+address	2036
+child	2037
+sibling	2053
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2037
+child	2038
+sibling	2039
+row	2
+column	20
+%%
+%DisplayText
+address	2038
+sibling	0
+style	1
+size	20
+column	0
+name	TimesRoman
+text	color parameter
+color	blue
+%%
+%RowerNode
+address	2039
+child	2040
+sibling	2041
+row	3
+column	10
+%%
+%DisplayText
+address	2040
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2041
+child	2042
+sibling	2043
+row	4
+column	10
+%%
+%DisplayText
+address	2042
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-----------------------script----------------------
+color	black
+%%
+%RowerNode
+address	2043
+child	2044
+sibling	2045
+row	5
+column	10
+%%
+%DisplayText
+address	2044
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d /color blue/color is blue
+color	black
+%%
+%RowerNode
+address	2045
+child	2046
+sibling	2047
+row	6
+column	10
+%%
+%DisplayText
+address	2046
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------------------------------------------
+color	black
+%%
+%RowerNode
+address	2047
+child	2048
+sibling	2049
+row	7
+column	10
+%%
+%DisplayText
+address	2048
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2049
+child	2050
+sibling	2051
+row	8
+column	10
+%%
+%DisplayText
+address	2050
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2051
+child	2052
+sibling	0
+row	9
+column	10
+%%
+%DisplayText
+address	2052
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	color is blue
+color	blue
+%%
+%CardSet
+address	2053
+child	2054
+sibling	2070
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2054
+child	2055
+sibling	2056
+row	2
+column	20
+%%
+%DisplayText
+address	2055
+sibling	0
+style	1
+size	20
+column	0
+name	TimesRoman
+text	style parameter
+color	blue
+%%
+%RowerNode
+address	2056
+child	2057
+sibling	2058
+row	3
+column	10
+%%
+%DisplayText
+address	2057
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2058
+child	2059
+sibling	2060
+row	4
+column	10
+%%
+%DisplayText
+address	2059
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	--------------------script-----------------------
+color	black
+%%
+%RowerNode
+address	2060
+child	2061
+sibling	2062
+row	5
+column	10
+%%
+%DisplayText
+address	2061
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d /style bold/style is bold
+color	black
+%%
+%RowerNode
+address	2062
+child	2063
+sibling	2064
+row	6
+column	10
+%%
+%DisplayText
+address	2063
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------------------------
+color	black
+%%
+%RowerNode
+address	2064
+child	2065
+sibling	2066
+row	7
+column	10
+%%
+%DisplayText
+address	2065
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2066
+child	2067
+sibling	2068
+row	8
+column	10
+%%
+%DisplayText
+address	2067
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2068
+child	2069
+sibling	0
+row	9
+column	10
+%%
+%DisplayText
+address	2069
+sibling	0
+style	1
+size	14
+column	0
+name	TimesRoman
+text	style is bold
+color	black
+%%
+%CardSet
+address	2070
+child	2071
+sibling	2087
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2071
+child	2072
+sibling	2073
+row	2
+column	20
+%%
+%DisplayText
+address	2072
+sibling	0
+style	1
+size	20
+column	0
+name	TimesRoman
+text	style parameter
+color	blue
+%%
+%RowerNode
+address	2073
+child	2074
+sibling	2075
+row	3
+column	10
+%%
+%DisplayText
+address	2074
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2075
+child	2076
+sibling	2077
+row	4
+column	10
+%%
+%DisplayText
+address	2076
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------script--------------------
+color	black
+%%
+%RowerNode
+address	2077
+child	2078
+sibling	2079
+row	5
+column	10
+%%
+%DisplayText
+address	2078
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d /style italic/style is italic
+color	black
+%%
+%RowerNode
+address	2079
+child	2080
+sibling	2081
+row	6
+column	10
+%%
+%DisplayText
+address	2080
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------------------------------------
+color	black
+%%
+%RowerNode
+address	2081
+child	2082
+sibling	2083
+row	7
+column	10
+%%
+%DisplayText
+address	2082
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2083
+child	2084
+sibling	2085
+row	8
+column	10
+%%
+%DisplayText
+address	2084
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2085
+child	2086
+sibling	0
+row	9
+column	10
+%%
+%DisplayText
+address	2086
+sibling	0
+style	2
+size	14
+column	0
+name	TimesRoman
+text	style is italic
+color	black
+%%
+%CardSet
+address	2087
+child	2088
+sibling	2104
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2088
+child	2089
+sibling	2090
+row	2
+column	20
+%%
+%DisplayText
+address	2089
+sibling	0
+style	1
+size	20
+column	0
+name	TimesRoman
+text	style parameter
+color	blue
+%%
+%RowerNode
+address	2090
+child	2091
+sibling	2092
+row	3
+column	10
+%%
+%DisplayText
+address	2091
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2092
+child	2093
+sibling	2094
+row	4
+column	10
+%%
+%DisplayText
+address	2093
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------------script-------------------------
+color	black
+%%
+%RowerNode
+address	2094
+child	2095
+sibling	2096
+row	5
+column	10
+%%
+%DisplayText
+address	2095
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d /style bold+italic /style is bold and italic
+color	black
+%%
+%RowerNode
+address	2096
+child	2097
+sibling	2098
+row	6
+column	10
+%%
+%DisplayText
+address	2097
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------------------------------------------
+color	black
+%%
+%RowerNode
+address	2098
+child	2099
+sibling	2100
+row	7
+column	10
+%%
+%DisplayText
+address	2099
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2100
+child	2101
+sibling	2102
+row	8
+column	10
+%%
+%DisplayText
+address	2101
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2102
+child	2103
+sibling	0
+row	9
+column	10
+%%
+%DisplayText
+address	2103
+sibling	0
+style	3
+size	14
+column	0
+name	TimesRoman
+text	style is bold and italic
+color	black
+%%
+%CardSet
+address	2104
+child	2105
+sibling	2119
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2105
+child	2106
+sibling	2107
+row	2
+column	20
+%%
+%DisplayText
+address	2106
+sibling	0
+style	1
+size	20
+column	0
+name	TimesRoman
+text	name parameter
+color	blue
+%%
+%RowerNode
+address	2107
+child	2108
+sibling	2109
+row	3
+column	10
+%%
+%DisplayText
+address	2108
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2109
+child	2110
+sibling	2111
+row	4
+column	10
+%%
+%DisplayText
+address	2110
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	------------------script---------------------
+color	black
+%%
+%RowerNode
+address	2111
+child	2112
+sibling	2113
+row	5
+column	10
+%%
+%DisplayText
+address	2112
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d /name Monospaced/now is the time
+color	black
+%%
+%RowerNode
+address	2113
+child	2114
+sibling	2115
+row	6
+column	10
+%%
+%DisplayText
+address	2114
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------------------------------------
+color	black
+%%
+%RowerNode
+address	2115
+child	2116
+sibling	2117
+row	7
+column	10
+%%
+%DisplayText
+address	2116
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2117
+child	2118
+sibling	0
+row	8
+column	10
+%%
+%DisplayText
+address	2118
+sibling	0
+style	0
+size	14
+column	0
+name	Monospaced
+text	now is the time
+color	black
+%%
+%CardSet
+address	2119
+child	2120
+sibling	2144
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2120
+child	2121
+sibling	2122
+row	2
+column	5
+%%
+%DisplayText
+address	2121
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Portions of the 'd' command text can
+color	black
+%%
+%RowerNode
+address	2122
+child	2123
+sibling	2124
+row	3
+column	5
+%%
+%DisplayText
+address	2123
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	be altered by the 'appearance parameter
+color	black
+%%
+%RowerNode
+address	2124
+child	2125
+sibling	2126
+row	4
+column	5
+%%
+%DisplayText
+address	2125
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	enclosed within '/' delimiters, that  
+color	black
+%%
+%RowerNode
+address	2126
+child	2127
+sibling	2130
+row	5
+column	5
+%%
+%DisplayText
+address	2127
+sibling	2128
+style	0
+size	14
+column	0
+name	TimesRoman
+text	follows the 
+color	black
+%%
+%DisplayText
+address	2128
+sibling	2129
+style	0
+size	14
+column	0
+name	TimesRoman
+text	(%%
+color	blue
+%%
+%DisplayText
+address	2129
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 tag, for
+color	black
+%%
+%RowerNode
+address	2130
+child	2131
+sibling	2132
+row	6
+column	5
+%%
+%DisplayText
+address	2131
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	example:
+color	black
+%%
+%RowerNode
+address	2132
+child	2133
+sibling	2134
+row	7
+column	15
+%%
+%DisplayText
+address	2133
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	--------------------script------------------------
+color	black
+%%
+%RowerNode
+address	2134
+child	2135
+sibling	2136
+row	8
+column	15
+%%
+%DisplayText
+address	2135
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d now is the (%% /color blue/for all) good men
+color	black
+%%
+%RowerNode
+address	2136
+child	2137
+sibling	2138
+row	9
+column	15
+%%
+%DisplayText
+address	2137
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------------------------
+color	black
+%%
+%RowerNode
+address	2138
+child	2139
+sibling	2140
+row	10
+column	15
+%%
+%DisplayText
+address	2139
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2140
+child	2141
+sibling	0
+row	11
+column	15
+%%
+%DisplayText
+address	2141
+sibling	2142
+style	0
+size	14
+column	0
+name	TimesRoman
+text	now is the 
+color	black
+%%
+%DisplayText
+address	2142
+sibling	2143
+style	0
+size	14
+column	0
+name	TimesRoman
+text	for all
+color	blue
+%%
+%DisplayText
+address	2143
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 good men
+color	black
+%%
+%CardSet
+address	2144
+child	2145
+sibling	2172
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2145
+child	2146
+sibling	2147
+row	2
+column	15
+%%
+%DisplayText
+address	2146
+sibling	0
+style	1
+size	20
+column	0
+name	TimesRoman
+text	color parameter
+color	blue
+%%
+%RowerNode
+address	2147
+child	2148
+sibling	2149
+row	3
+column	15
+%%
+%DisplayText
+address	2148
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2149
+child	2150
+sibling	2151
+row	4
+column	1
+%%
+%DisplayText
+address	2150
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	------------------------script--------------------------
+color	black
+%%
+%RowerNode
+address	2151
+child	2152
+sibling	2153
+row	5
+column	1
+%%
+%DisplayText
+address	2152
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d /color green/now (%% /color magenta/the) time 
+color	black
+%%
+%RowerNode
+address	2153
+child	2154
+sibling	2155
+row	6
+column	1
+%%
+%DisplayText
+address	2154
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------------------------------
+color	black
+%%
+%RowerNode
+address	2155
+child	2156
+sibling	2157
+row	7
+column	1
+%%
+%DisplayText
+address	2156
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2157
+child	2158
+sibling	2161
+row	8
+column	5
+%%
+%DisplayText
+address	2158
+sibling	2159
+style	0
+size	14
+column	0
+name	TimesRoman
+text	now 
+color	green
+%%
+%DisplayText
+address	2159
+sibling	2160
+style	0
+size	14
+column	0
+name	TimesRoman
+text	the
+color	magenta
+%%
+%DisplayText
+address	2160
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 time 
+color	green
+%%
+%RowerNode
+address	2161
+child	2162
+sibling	2163
+row	9
+column	5
+%%
+%DisplayText
+address	2162
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%CardSetTask
+address	2163
+sibling	2164
+task	continue
+type	0
+%%
+%RowerNode
+address	2164
+child	2165
+sibling	2168
+row	10
+column	5
+%%
+%DisplayText
+address	2165
+sibling	2166
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Following the 
+color	black
+%%
+%DisplayText
+address	2166
+sibling	2167
+style	0
+size	14
+column	0
+name	TimesRoman
+text	magenta
+color	magenta
+%%
+%DisplayText
+address	2167
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 collor
+color	black
+%%
+%RowerNode
+address	2168
+child	2169
+sibling	0
+row	11
+column	5
+%%
+%DisplayText
+address	2169
+sibling	2170
+style	0
+size	14
+column	0
+name	TimesRoman
+text	change, the text color reverts to 
+color	black
+%%
+%DisplayText
+address	2170
+sibling	2171
+style	0
+size	14
+column	0
+name	TimesRoman
+text	green
+color	green
+%%
+%DisplayText
+address	2171
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	.
+color	black
+%%
+%CardSet
+address	2172
+child	2173
+sibling	2189
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2173
+child	2174
+sibling	2175
+row	2
+column	15
+%%
+%DisplayText
+address	2174
+sibling	0
+style	1
+size	20
+column	0
+name	TimesRoman
+text	size parameter
+color	blue
+%%
+%RowerNode
+address	2175
+child	2176
+sibling	2177
+row	3
+column	10
+%%
+%DisplayText
+address	2176
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2177
+child	2178
+sibling	2179
+row	4
+column	10
+%%
+%DisplayText
+address	2178
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------script------------------
+color	black
+%%
+%RowerNode
+address	2179
+child	2180
+sibling	2181
+row	5
+column	10
+%%
+%DisplayText
+address	2180
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d now is (%%/size 20/is the) time
+color	black
+%%
+%RowerNode
+address	2181
+child	2182
+sibling	2183
+row	6
+column	10
+%%
+%DisplayText
+address	2182
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------------------
+color	black
+%%
+%RowerNode
+address	2183
+child	2184
+sibling	2185
+row	7
+column	10
+%%
+%DisplayText
+address	2184
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2185
+child	2186
+sibling	0
+row	8
+column	10
+%%
+%DisplayText
+address	2186
+sibling	2187
+style	0
+size	14
+column	0
+name	TimesRoman
+text	now is 
+color	black
+%%
+%DisplayText
+address	2187
+sibling	2188
+style	0
+size	20
+column	0
+name	TimesRoman
+text	is the
+color	black
+%%
+%DisplayText
+address	2188
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 time
+color	black
+%%
+%CardSet
+address	2189
+child	2190
+sibling	2206
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2190
+child	2191
+sibling	2192
+row	2
+column	15
+%%
+%DisplayText
+address	2191
+sibling	0
+style	1
+size	20
+column	0
+name	TimesRoman
+text	style parameter
+color	blue
+%%
+%RowerNode
+address	2192
+child	2193
+sibling	2194
+row	3
+column	10
+%%
+%DisplayText
+address	2193
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2194
+child	2195
+sibling	2196
+row	4
+column	10
+%%
+%DisplayText
+address	2195
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------script------------------
+color	black
+%%
+%RowerNode
+address	2196
+child	2197
+sibling	2198
+row	5
+column	10
+%%
+%DisplayText
+address	2197
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d now is (%%/ style bold  /is the) time
+color	black
+%%
+%RowerNode
+address	2198
+child	2199
+sibling	2200
+row	6
+column	10
+%%
+%DisplayText
+address	2199
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------------------
+color	black
+%%
+%RowerNode
+address	2200
+child	2201
+sibling	2202
+row	7
+column	10
+%%
+%DisplayText
+address	2201
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2202
+child	2203
+sibling	0
+row	8
+column	10
+%%
+%DisplayText
+address	2203
+sibling	2204
+style	0
+size	14
+column	0
+name	TimesRoman
+text	now is 
+color	black
+%%
+%DisplayText
+address	2204
+sibling	2205
+style	1
+size	14
+column	0
+name	TimesRoman
+text	is the
+color	black
+%%
+%DisplayText
+address	2205
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 time
+color	black
+%%
+%CardSet
+address	2206
+child	2207
+sibling	2225
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2207
+child	2208
+sibling	2209
+row	2
+column	12
+%%
+%DisplayText
+address	2208
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Change from TimesRoman to Monospaced and
+color	black
+%%
+%RowerNode
+address	2209
+child	2210
+sibling	2211
+row	3
+column	12
+%%
+%DisplayText
+address	2210
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	back to TimesRoman.
+color	black
+%%
+%RowerNode
+address	2211
+child	2212
+sibling	2213
+row	4
+column	5
+%%
+%DisplayText
+address	2212
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2213
+child	2214
+sibling	2215
+row	5
+column	5
+%%
+%DisplayText
+address	2214
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------script-------------------------
+color	black
+%%
+%RowerNode
+address	2215
+child	2216
+sibling	2217
+row	6
+column	5
+%%
+%DisplayText
+address	2216
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d abcdef(%%/ name Monospaced   /ghijkl)mnopqrs 
+color	black
+%%
+%RowerNode
+address	2217
+child	2218
+sibling	2219
+row	7
+column	5
+%%
+%DisplayText
+address	2218
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-----------------------------------------------------
+color	black
+%%
+%RowerNode
+address	2219
+child	2220
+sibling	2221
+row	8
+column	5
+%%
+%DisplayText
+address	2220
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2221
+child	2222
+sibling	0
+row	9
+column	5
+%%
+%DisplayText
+address	2222
+sibling	2223
+style	0
+size	14
+column	0
+name	TimesRoman
+text	abcdef
+color	black
+%%
+%DisplayText
+address	2223
+sibling	2224
+style	0
+size	14
+column	0
+name	Monospaced
+text	ghijkl
+color	black
+%%
+%DisplayText
+address	2224
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	mnopqrs 
+color	black
+%%
+%NotecardTask
+address	2225
+sibling	0
+task	end
+type	0
+%%

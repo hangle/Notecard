@@ -1,0 +1,143 @@
+ButtonCardSet (Notecard)
+=======================
+
+The script shows a CardSet and a ButtonCardSet: 
+
+		c
+		d I am a card set
+
+		b
+		d I am a button card set
+
+		* end
+	
+The ButtonCardSet with the beginning 'b' tag is associated with   
+the CardSet with the begnning 'c' tag.  Both the 'c' and 'b'    
+commands have the same functionality of clearing the screen.    
+
+A CardSet having an associated ButtonCardSet arms its '+Add'   
+button; the button color becomes yellow.  Activating this button   
+executes the ButtonCardSet.  Waiting for the 'Next' button to   
+be armed and activating it causes the ButtonCardSet to be    
+skipped.    
+
+Approach
+--------
+
+Notecard  execution is based on a linked list structure of   
+commands where there is a hierarchy of four sublists and   
+four parent classes for the four sublists:   
+
+		Notecard
+		CarsSet
+		RowerNode
+		BoxField
+
+CardSet, RowerNode, and BoxField parent classes have two    
+variables that hold physical addresses to other class types:   
+
+		child           // starting address of sublist
+		sibling         // address of next member in
+					//   the current sublist
+
+The CardSet class has an additional physical address variable:   
+
+		button		// starting address of ButtonCardSet
+
+The script program treated the ButtonCardSet as if it was   
+a CardSet.  At the end, ButtonCardSet elements are removed    
+from the linked list heirarchy and assigned to the 'button'    
+address variables.  The sibling address of CardSet with an    
+associated ButtonCardSet is changed to point to next sibling   
+remaining in the heirarchy.   
+
+Note, a CardSet may have two or more associated ButtonCardSet   
+members. Thus it is appropriate to indicate that the button   
+variable of CardSet holds a sublist of ButtonCardSet members.   
+	
+Notecard's input file '*.struct' distinguishes CardSet and   
+ButtonCardSet by different classnames:   
+
+		%CardSet
+		%ButtonCardSet
+
+'CreateClass.create_object(...)' removed this distinction    
+by instantiating a CardSet object for both:   
+
+		case "%CardSet" | "%ButtonCardSet" =>
+			val cardSet=CardSet(symbolTable)
+
+The common CardSet object maintains the distinction via   
+the 'button' address variable; either it is zero (0) or   
+it has a physical address value of a ButtonCardSet.    
+'CardSet.isButtonCardSet' return true when a physical   
+address is present.    
+
+'Notecard' iterates its children and invokes    
+'executeNotecardChildren(...):   
+
+		def iterateNotecardChildren(...)
+			reset(getFirstChild)
+			while(iterate) {
+				...
+				executeNotecardChildren(...)
+				}
+
+		def executeNotecardChildren(obj:Any, ...)
+			obj match	{
+		    		case cs:CardSet=> 
+					if(cs.isButtonCardSet) 
+						buttonSet.armButtonCardSet		
+					...
+					cs.startCardSet(...)
+					waitOverDoButtons(..., cs, ...)
+
+			case ft:NotecardTask=> ...
+			case nf:NextFile => ...
+			...
+
+If the CardSet object has an associated ButtonCardSet, then the   
+'+Add' button is colored yellow (armButtonCardSet).  Next, the    
+parent CardList processes its sublist of children:   
+
+		cs.startCardSet(...)
+
+The 'waitOverDoButton(...)' test whether the user activated the   
+'Next' or the '+Add' button.  In the case of the '+Add' button,   
+the 'doButtonCardSet' function is invoked.     
+
+		...
+		val button= cs.getButtonCardSet 
+		val buttonCardSet= button.asInstanceOf[CardSet]
+		reset(buttonCardSet)		// Linker trait
+		while(iterate) {		// Linker trait
+		    Value match {
+			case bcs:CardSet=>
+				bcs.startCardSet(...)
+		...	
+
+The 'cs.getButtonCardSet' returns CardSet's button:Node value.    
+The asInstanceOf[CardSet] expression converts it to a CardSet object     
+which is the associated ButtonCardSet. 'bsc.startCardSet(...) is   
+invoked to executed this particular CardSet.   
+
+Two Notecard function have similar code:   
+
+		def iterateNotecardChildren(...)
+			reset(getFirstChild)
+			while(iterate) {
+
+		def doButtonCardSet(..., cs, ...) 
+                        ...
+			reset(buttonCardSet)	
+			while(iterate) {
+
+When 'doButtonCardSet' terminates, then the stack will unwind to   
+the 'while(iterate)' loop in 'iterateNotecardChildren'. Unfortunately,  
+as shown, this loop will not point to the initial CardSet object which   
+is in the linked list hierarchy.  The 'reset(buttonCardSet)' switched    
+the pointer to the '+Add' button that was removed from the heirarchy.    
+
+Beore 'reset(buttonCardSet)' was executed. the 'cs' value was saved     
+and following the while loop, it was restored.  Restoring the value   
+allows the inital CardSet to redisplayed.   
