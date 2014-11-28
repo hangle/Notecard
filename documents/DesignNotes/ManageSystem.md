@@ -8,28 +8,52 @@ file, activation of the button returns the display of the CardSet <br />
 within the first file  from which the button was initially activated.  </p>
 
 <p>Switching to a 'management' file was useful within a survey/interview <br />
-context.  When an   interviewee is unable to complete the survey, <br />
+context.  When an interviewee is unable to complete the survey, <br />
 then an interviewer, following button activation, can record in <br />
 the 'management' file the reasons for interruption.  In addition, <br />
 the 'management' file records the stopping point of the interview <br />
-so that the interview can   be restarted at a later time (current <br />
+so that the interview can be restarted at a later time (current <br />
 system lacks the restart mechanism).</p>
 
 <p>The button with the symbol '<em>'  controls the file switching. The <br />
-'</em>' button is one of   three buttons that reside at the bottom of <br />
-the Notecard window.  When the '<em>' button is   activated, then the <br />
+'</em>' button is one of four buttons that reside at the bottom of <br />
+the Notecard window.  When the '<em>' button is activated, then the <br />
 user is switched to the start of the 'management' file.  Within the <br />
 'management' file, the activation of the '</em>' button returns the <br />
-user to the initial file   and to the CardSet from which the '*' <br />
+user to the initial file and to the CardSet from which the '*' <br />
 button was initiated.  </p>
 
-<p>The designated <filenameA>  serves as an example of the initial <br />
-file;  and the <management>   file as the switch-to target file. <br />
-Both <filenameA>  and <management> are converted to    Linked <br />
+<p>The designated (filenameA)  serves as an example of the initial <br />
+file;  and the (management) file as the switch-to target file. <br />
+Both (filenameA)  and (management) files are converted to Linked <br />
 List structures by CommandNetwork.loadFileAndBuildNetwork(). <br />
 The function returns the root of the Linked List structure and <br />
-is invoked in two places:  (card and NotecardTask).  The two <br />
-roots produces by <filenameA> and <management> files are <br />
+is invoked in three places:  </p>
+
+<pre><code>card 
+NotecardTask.  
+Notecard
+</code></pre>
+
+<p>'card' invokes 'loadFileAnd...' to create the 'root' structure <br />
+for the current script file that will be termed (filenameA). <br />
+A child of 'Notecard' is 'NotecardTask' which handles the <br />
+command '* management filename'. This command causes <br />
+'NotecardTask' to invoked 'loadFileAnd...' to created a 'root' <br />
+structure of the management file that will be termed (management).  </p>
+
+<p>In the event that script file lacks a '* management filename' <br />
+command, then 'loadFileAndBuildNetwork' is invoked with a <br />
+filename that does not exist, causing the start-file CardSet <br />
+to appear.</p>
+
+<p>When the (management) file executes along with the (filenameA) <br />
+file, the asterisk buttons of both files may be viewed. The <br />
+asterisk button of (filenameA) is grayed but is high-lighted <br />
+when a transition is made from the (management) file to <br />
+the (filenameA) file.</p>
+
+<p>The two roots produces by (filenameA) and (management) files are <br />
 assigned different names   ('initialNotecard:Notecard' and <br />
 'manageNotecard:Notecard')</p>
 

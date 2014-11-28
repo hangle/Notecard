@@ -9,28 +9,51 @@ file, activation of the button returns the display of the CardSet
 within the first file  from which the button was initially activated.  
 
 Switching to a 'management' file was useful within a survey/interview   
-context.  When an   interviewee is unable to complete the survey,  
+context.  When an interviewee is unable to complete the survey,  
 then an interviewer, following button activation, can record in   
 the 'management' file the reasons for interruption.  In addition,     
 the 'management' file records the stopping point of the interview   
-so that the interview can   be restarted at a later time (current   
+so that the interview can be restarted at a later time (current   
 system lacks the restart mechanism).
 
 The button with the symbol '*'  controls the file switching. The   
-'*' button is one of   three buttons that reside at the bottom of   
-the Notecard window.  When the '*' button is   activated, then the   
+'*' button is one of four buttons that reside at the bottom of   
+the Notecard window.  When the '*' button is activated, then the   
 user is switched to the start of the 'management' file.  Within the   
 'management' file, the activation of the '*' button returns the   
-user to the initial file   and to the CardSet from which the '*'   
+user to the initial file and to the CardSet from which the '*'   
 button was initiated.  
 
-The designated <filenameA>  serves as an example of the initial   
-file;  and the <management>   file as the switch-to target file.  
-Both <filenameA>  and <management> are converted to    Linked   
+The designated (filenameA)  serves as an example of the initial   
+file;  and the (management) file as the switch-to target file.  
+Both (filenameA)  and (management) files are converted to Linked   
 List structures by CommandNetwork.loadFileAndBuildNetwork().   
 The function returns the root of the Linked List structure and   
-is invoked in two places:  (card and NotecardTask).  The two   
-roots produces by <filenameA> and <management> files are   
+is invoked in three places:  
+
+	card 
+	NotecardTask.  
+	Notecard	
+
+'card' invokes 'loadFileAnd...' to create the 'root' structure  
+for the current script file that will be termed (filenameA).  
+A child of 'Notecard' is 'NotecardTask' which handles the  
+command '* management filename'. This command causes  
+'NotecardTask' to invoked 'loadFileAnd...' to created a 'root'  
+structure of the management file that will be termed (management).  
+
+In the event that script file lacks a '* management filename'   
+command, then 'loadFileAndBuildNetwork' is invoked with a   
+filename that does not exist, causing the start-file CardSet  
+to appear.
+
+When the (management) file executes along with the (filenameA)  
+file, the asterisk buttons of both files may be viewed. The  
+asterisk button of (filenameA) is grayed but is high-lighted  
+when a transition is made from the (management) file to   
+the (filenameA) file.
+
+The two roots produces by (filenameA) and (management) files are   
 assigned different names   ('initialNotecard:Notecard' and   
 'manageNotecard:Notecard')
 

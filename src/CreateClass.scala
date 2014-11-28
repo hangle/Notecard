@@ -66,7 +66,7 @@ class CreateClass   extends Node {
 			// <class name> used to instantiate the class. 
 			// invoked by  CommandNetwork.fileLoad_BuildNetwork(..)
 	def establishObjectNetwork( symbolTable:Map[String,String],
-								allStructSets:List[List[String]])= {
+								allStructSets:List[List[String]]):Notecard= {
 			//println("CreateClass:  allStructSets.size="+allStructSets.size)
 			for(structSet <-allStructSets) {
 					//'structSet' is List[String], representing one Card

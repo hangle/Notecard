@@ -108,7 +108,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				// set false before iteration. Input focus can arm Prior button.
 //		inputFocus.completedCardSetIteration= true
 				// Enable * button for Management file
-		buttonSet.armAsteriskButton
+//		buttonSet.armAsteriskButton
 				// When Card lacks input fields, then turn on NEXT button in
 				// order to transit to next Card. With one or more input 
 				// fields, InputFocus will turn on NEXT button. 

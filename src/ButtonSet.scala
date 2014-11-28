@@ -81,13 +81,13 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 					// Disabled PRIOR button because it was occasionally
 					// gaining focus after NEXT button activation, causing
 					// the next spacebar key to initiate backup. 
-				start()
+				start()   //unlock all
 			case "Prior"=> 
 							//	println("ButtonSet: actionPerf...    --prior-- ")
 				selectedButton="prior"  //Notecard: match expression
 				//notifyGrayAndDisableNext 
 				grayAndDisablePriorButton
-				start()
+				start()   //unlock all
 			case " * "=> 
 							//	println("ButtonSet: actionPerf...    --*-- ")
 						//used in Notecard: match expression
@@ -95,12 +95,12 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 					// Move to a new script file so gray all buttons
 					// in old script before the move.
 				grayAndDisableAllButtons
-				start()
+				start()   //unlock all
 			case "+Add"=>
 				selectedButton="+"  //Notecard: match expression
 				grayAndDisableAddButton
 				//setAddState
-				start() 
+				start()    //unlock all
 			case _=> 		println("ButtonSet unknown event=")
 			}
 
@@ -111,9 +111,10 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		button.addActionListener(this)
 		buttonPanel.add(button)
 		}
+			// Invoked in InputFocus  ??
 	def grayAndDisableAllButtons {
 		grayAndDisableNextButton
-		grayAndDisableAsteriskButton
+	//	grayAndDisableAsteriskButton
 		grayAndDisableAddButton
 		grayAndDisablePriorButton
 		}
@@ -158,12 +159,15 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	def armAsteriskButton= {
 			// can be disabled by '* asteriskButton  off'
 			// on/off assigned in Notecard
+			//println("ButtonSet: armAsteriskButton")
 		if(isAsteriskButtonOn=="on") {
 				asterisk.setEnabled(true)
 				asterisk.setBackground(Color.white)
 				}
-			else
+			else {
+				//println("ButtonSet: grayAndDisableAsteriskButton")
 				grayAndDisableAsteriskButton
+				}
 		}
 	def armAddCardSet={
 		buttonCardSet.setEnabled(true)	

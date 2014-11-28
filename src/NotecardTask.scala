@@ -40,7 +40,7 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 					//println("NotecardTask:   end case")
 				taskGather.setEndSession
 			case "manage"=> 	// * manage <filename> script encountered
-				establishManagementFile(taskGather, xtype)
+				establishManagementFile(taskGather, xtype) // xtype is filename
 			case "save"=>		// * save <filename> script encountered.
 				writeSymbolTableToFile(xtype, symbolTable)
 			case "nobackup"=>
@@ -64,7 +64,7 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 			// reads <.struct> command file and creates a command 
 			// hierarchy of linked lists, returning the root of 
 			// the network.  If file not found, then it returns 
-			// 'start.struct'.
+			// 'start.struct'. Also invoked in card.scala to start Notecard
 		notecard=loadFileAndBuildNetwork(filename, symbolTable) //In CommandNetwork	
 			// pass notecard to current instance of Notecard
 		taskGather.manageNotecard= notecard

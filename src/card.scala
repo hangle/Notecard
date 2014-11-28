@@ -53,9 +53,9 @@ object card   {
 					// FrameTask to read new .struct file or to 
 					// end the session. 
 				var taskGather=new TaskGather()
-					// reads <.struct> command file and creates a network
-					// of linked lists changing symbolic address to physical
-					// ones, and finally returning the root of the network. 
+					// reads <.struct> command file and creates a network/ of linked 
+					// lists changing symbolic address to physical ones, and finally 
+					// returning the root of the network. Also invoked in NotecardTask.
 				val notecard:Notecard=loadFileAndBuildNetwork( structFile, symbolTable)//CommandNetwork
 					// Invoke root of network and begin the Card session
 				notecard.startNotecard(taskGather)

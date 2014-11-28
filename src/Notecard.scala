@@ -74,10 +74,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 	val buttonPanel= new JPanel		
 		// Create buttons '*', 'PRIOR', 'NEXT'
 	val buttonSet= new ButtonSet(buttonPanel, lock) //Buttons:  Next, Prior, and ' * '
-		// FrameTask was passed a '* manage <filename>' command and CardSet
-		// has instantiated a Notecard object. This object is
-		// passed here from 'taskGather'. 
-	var manageNotecard:Notecard= _
 		// Create a JPanel with a layout of NoteLayout and
 		// enclose it in a black border.
 	val notePanel=new NotePanel().getNotePanel 
@@ -89,8 +85,14 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		// Used in 'doAsteriskButton' to hold JFrame reference to
 		// disposed of Management file.
 	val backupMechanism= new BackupMechanism
+		// FrameTask was passed a '* manage <filename>' command and CardSet
+		// has instantiated a Notecard object. This object is created  in 
+		// NotecardTask and is passed here from 'taskGather'. 
+	var manageNotecard:Notecard= _
 
 	def startNotecard(taskGather:TaskGather) {
+			// * button to Management file is alway armed
+		buttonSet.armAsteriskButton
 			// Container of values to pass to RowPosition.
 		val defaultFont=new DefaultFont(fontName, fontStyle, fontSize)
 
@@ -186,8 +188,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					if(taskGather.isManagement){
 							// transfer management's Notecard to current object.
 						manageNotecard=taskGather.manageNotecard
-							// Enable button and change button color
-						buttonSet.armAsteriskButton
 						}
 						// NextFile is a command that provides the name 
 						// of the <.struct> file that is read by Client. 
@@ -238,6 +238,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						  addBackupMechanism:BackupMechanism):Unit={ 
 		buttonSet.selectedButton match {
 				case "next"  =>
+						//println("Notecard case next")
 						buttonSet.grayAndDisableAddButton
 							// in the +Add-CardSet operation, the Next
 							// button is used to terminate this operation
@@ -245,11 +246,14 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 							// 'doAddCardSet'.
 						iterator=null
 				case "prior" =>
+						//println("Notecard case prior")
 						buttonSet.grayAndDisableAddButton
 						doAddPriorButton(addBackupMechanism)			
 				case "*" =>
+						//println("Notecard case +")
 							doAsteriskButton(taskGather)
 				case "+" =>
+						//println("Notecard case +")
 							// do nothing
 				case _=>
 
@@ -362,18 +366,20 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// set  'manageNotecard' state false so next time '*' button is
 					// activated, the 'else' group is executed
 			Session.initialNotecardState=false   
-			buttonSet.asteriskButton=false   // turn off '*' button
-			buttonSet.grayAndDisableAsteriskButton
+		//	buttonSet.asteriskButton=false   // turn off '*' button
+					//buttonSet.grayAndDisableAsteriskButton
 			if(manageNotecard == null) {
 					//'*' button activated without '* manage <filename>' command. The 
 					// 'xyzxxyzv' file does not exist, so 'start' file is invoked.
-						println("Notecard: doAsteriskButton()  manageNotecard is null")
 				manageNotecard=CommandNetwork.loadFileAndBuildNetwork( "xyzxxyzv", symbolTable)
 				}
 					// check if 'loadFileAnd...' changed variable's state.
 			if(manageNotecard != null) {     
 					//Store Card node if needed to restart clientNotecard
 				saveCurrentNode   // Linker
+					// window may display two asterisk buttons. ensure that
+					// 'initialNotecardState's asterisk button is grayed
+				buttonSet.grayAndDisableAsteriskButton
 					//Begin executing the Card file designated
 					//by '* manage <filename> in FrameTask
 				manageNotecard.startNotecard(taskGather)
@@ -383,7 +389,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// also invoked in 'startNotecard', However, unless it is also
 					// called here, the window is blanked when 'startNotecard' 
 					// returns from the manageNotecard state.
-				var oldManagement=createAndMakeVisibleCardWindow (notePanel, 
+				var oldManagement=createAndMakeVisibleCardWindow (  notePanel, 
 																	buttonPanel, 
 																	statusLine, 
 																	frame_width, 
@@ -393,8 +399,11 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				taskGather.addOldJFrameList(oldManagement)
 					// Display the Card from which the '*' button was activated
 				restoreCurrentNode //Linker   Restore clientNotecard
+					// reestablish 'initialNotecardState's grayed button is high-
+					// lighted.
+				buttonSet.armAsteriskButton
 			   	}
-			 else println("Notecard:  manageNotecard is NULL")
+			 else println("Notecard: manageNotecard is NULL unable to call startFile?")
 			}
 				// Management system currently running. The following code
 				// switches system back to the initial system.
@@ -402,7 +411,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// set 'manageNotecard' state 'true' so the next time '*' is 
 					// activated the 'then' group is executed
 				Session.initialNotecardState=true // 
-				buttonSet.asteriskButton=false	// turn off '*' button
 					// Notecard's entry point is 'startNotecard'.  The thrown
 					// exception is caught by 'startNotecard', causing it to
 					// be returned to the invoking function.  Since the current
