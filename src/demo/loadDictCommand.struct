@@ -1,0 +1,1739 @@
+%Notecard
+child	2002
+height	500
+width	450
+size	14
+name	TimesRoman
+style	0
+asteriskButton	on
+priorButton	on
+%%
+%CardSet
+address	2002
+child	2003
+sibling	2009
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2003
+child	2004
+sibling	2007
+row	2
+column	5
+%%
+%DisplayText
+address	2004
+sibling	2005
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The 
+color	black
+%%
+%DisplayText
+address	2005
+sibling	2006
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Load
+color	blue
+%%
+%DisplayText
+address	2006
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 command with the 'l' tag 
+color	black
+%%
+%RowerNode
+address	2007
+child	2008
+sibling	0
+row	3
+column	5
+%%
+%DisplayText
+address	2008
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	and Assign commands initialize $<variable>s.
+color	black
+%%
+%CardSet
+address	2009
+child	2010
+sibling	2049
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2010
+child	2011
+sibling	2012
+row	0
+column	5
+%%
+%DisplayText
+address	2011
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	There are two ways to terminate a script
+color	black
+%%
+%RowerNode
+address	2012
+child	2013
+sibling	2014
+row	1
+column	5
+%%
+%DisplayText
+address	2013
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	file:
+color	black
+%%
+%RowerNode
+address	2014
+child	2015
+sibling	2016
+row	2
+column	10
+%%
+%DisplayText
+address	2015
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	1. An Asterisk End command (* end)
+color	black
+%%
+%RowerNode
+address	2016
+child	2017
+sibling	2018
+row	3
+column	10
+%%
+%DisplayText
+address	2017
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	2. A File command, such as (f nextFile)
+color	black
+%%
+%RowerNode
+address	2018
+child	2019
+sibling	2020
+row	4
+column	5
+%%
+%DisplayText
+address	2019
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2020
+child	2021
+sibling	2022
+row	5
+column	5
+%%
+%DisplayText
+address	2021
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The following script file (my.nc) has
+color	black
+%%
+%RowerNode
+address	2022
+child	2023
+sibling	2026
+row	6
+column	5
+%%
+%DisplayText
+address	2023
+sibling	2024
+style	0
+size	14
+column	0
+name	TimesRoman
+text	one CardSet and 
+color	black
+%%
+%DisplayText
+address	2024
+sibling	2025
+style	0
+size	14
+column	0
+name	TimesRoman
+text	no
+color	blue
+%%
+%DisplayText
+address	2025
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 command to terminate
+color	black
+%%
+%RowerNode
+address	2026
+child	2027
+sibling	2028
+row	7
+column	5
+%%
+%DisplayText
+address	2027
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	the file
+color	black
+%%
+%RowerNode
+address	2028
+child	2029
+sibling	2030
+row	8
+column	10
+%%
+%DisplayText
+address	2029
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------my.nc--------------
+color	black
+%%
+%RowerNode
+address	2030
+child	2031
+sibling	2032
+row	9
+column	10
+%%
+%DisplayText
+address	2031
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     c 
+color	black
+%%
+%RowerNode
+address	2032
+child	2033
+sibling	2034
+row	10
+column	10
+%%
+%DisplayText
+address	2033
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     d my.nc file
+color	black
+%%
+%RowerNode
+address	2034
+child	2035
+sibling	2036
+row	11
+column	10
+%%
+%DisplayText
+address	2035
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2036
+child	2037
+sibling	2038
+row	12
+column	10
+%%
+%DisplayText
+address	2037
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------------------------
+color	black
+%%
+%CardSetTask
+address	2038
+sibling	2039
+task	continue
+type	0
+%%
+%RowerNode
+address	2039
+child	2040
+sibling	2041
+row	13
+column	5
+%%
+%DisplayText
+address	2040
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	As such, when the Next button is
+color	black
+%%
+%RowerNode
+address	2041
+child	2042
+sibling	2043
+row	14
+column	5
+%%
+%DisplayText
+address	2042
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	activate, the CardSet will repeat.
+color	black
+%%
+%RowerNode
+address	2043
+child	2044
+sibling	2045
+row	15
+column	5
+%%
+%DisplayText
+address	2044
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2045
+child	2046
+sibling	2047
+row	16
+column	5
+%%
+%DisplayText
+address	2046
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	And again and again with Next button
+color	black
+%%
+%RowerNode
+address	2047
+child	2048
+sibling	0
+row	17
+column	5
+%%
+%DisplayText
+address	2048
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	activations.
+color	black
+%%
+%CardSet
+address	2049
+child	2050
+sibling	2085
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2050
+child	2051
+sibling	2054
+row	0
+column	5
+%%
+%DisplayText
+address	2051
+sibling	2052
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The 
+color	black
+%%
+%DisplayText
+address	2052
+sibling	2053
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'l' Load
+color	blue
+%%
+%DisplayText
+address	2053
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 command, followed by one
+color	black
+%%
+%RowerNode
+address	2054
+child	2055
+sibling	2056
+row	1
+column	5
+%%
+%DisplayText
+address	2055
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	or more 'a' Assign commands initialize
+color	black
+%%
+%RowerNode
+address	2056
+child	2057
+sibling	2058
+row	2
+column	5
+%%
+%DisplayText
+address	2057
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	$<variable> values. 
+color	black
+%%
+%RowerNode
+address	2058
+child	2059
+sibling	2060
+row	3
+column	5
+%%
+%DisplayText
+address	2059
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2060
+child	2061
+sibling	2062
+row	4
+column	10
+%%
+%DisplayText
+address	2061
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------my.nc--------------
+color	black
+%%
+%RowerNode
+address	2062
+child	2063
+sibling	2064
+row	5
+column	10
+%%
+%DisplayText
+address	2063
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     l
+color	black
+%%
+%RowerNode
+address	2064
+child	2065
+sibling	2066
+row	6
+column	10
+%%
+%DisplayText
+address	2065
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     a  $counter=0
+color	black
+%%
+%RowerNode
+address	2066
+child	2067
+sibling	2068
+row	7
+column	10
+%%
+%DisplayText
+address	2067
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2068
+child	2069
+sibling	2070
+row	8
+column	10
+%%
+%DisplayText
+address	2069
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     c 
+color	black
+%%
+%RowerNode
+address	2070
+child	2071
+sibling	2072
+row	9
+column	10
+%%
+%DisplayText
+address	2071
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     d  my.nc file
+color	black
+%%
+%RowerNode
+address	2072
+child	2073
+sibling	2074
+row	10
+column	10
+%%
+%DisplayText
+address	2073
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2074
+child	2075
+sibling	2076
+row	11
+column	10
+%%
+%DisplayText
+address	2075
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------------------------
+color	black
+%%
+%RowerNode
+address	2076
+child	2077
+sibling	2078
+row	12
+column	5
+%%
+%DisplayText
+address	2077
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	$counter is initialized to zero the
+color	black
+%%
+%RowerNode
+address	2078
+child	2079
+sibling	2080
+row	13
+column	5
+%%
+%DisplayText
+address	2079
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	first time the Assign is executed. It is
+color	black
+%%
+%RowerNode
+address	2080
+child	2081
+sibling	2083
+row	14
+column	5
+%%
+%DisplayText
+address	2081
+sibling	2082
+style	0
+size	14
+column	0
+name	TimesRoman
+text	not
+color	blue
+%%
+%DisplayText
+address	2082
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 re-initialized when the
+color	black
+%%
+%RowerNode
+address	2083
+child	2084
+sibling	0
+row	15
+column	5
+%%
+%DisplayText
+address	2084
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	file repeates.
+color	black
+%%
+%CardSet
+address	2085
+child	2086
+sibling	2125
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2086
+child	2087
+sibling	2088
+row	0
+column	5
+%%
+%DisplayText
+address	2087
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The following 'my.nc' script reveals a more
+color	black
+%%
+%RowerNode
+address	2088
+child	2089
+sibling	2090
+row	1
+column	5
+%%
+%DisplayText
+address	2089
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	practical application where the CardSet
+color	black
+%%
+%RowerNode
+address	2090
+child	2091
+sibling	2092
+row	2
+column	5
+%%
+%DisplayText
+address	2091
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	increments $counter, and a 'f' File command
+color	black
+%%
+%RowerNode
+address	2092
+child	2093
+sibling	2094
+row	3
+column	5
+%%
+%DisplayText
+address	2093
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	is executed when $counter equals 3.
+color	black
+%%
+%RowerNode
+address	2094
+child	2095
+sibling	2096
+row	4
+column	5
+%%
+%DisplayText
+address	2095
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2096
+child	2097
+sibling	2098
+row	5
+column	10
+%%
+%DisplayText
+address	2097
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------my.nc--------------
+color	black
+%%
+%RowerNode
+address	2098
+child	2099
+sibling	2100
+row	6
+column	10
+%%
+%DisplayText
+address	2099
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     l
+color	black
+%%
+%RowerNode
+address	2100
+child	2101
+sibling	2102
+row	7
+column	10
+%%
+%DisplayText
+address	2101
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     a  $counter=0
+color	black
+%%
+%RowerNode
+address	2102
+child	2103
+sibling	2104
+row	8
+column	10
+%%
+%DisplayText
+address	2103
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2104
+child	2105
+sibling	2106
+row	9
+column	10
+%%
+%DisplayText
+address	2105
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     c 
+color	black
+%%
+%RowerNode
+address	2106
+child	2107
+sibling	2108
+row	10
+column	10
+%%
+%DisplayText
+address	2107
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     a  $counter=$counter + 1
+color	black
+%%
+%RowerNode
+address	2108
+child	2109
+sibling	2110
+row	11
+column	10
+%%
+%DisplayText
+address	2109
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     d  my.nc file
+color	black
+%%
+%RowerNode
+address	2110
+child	2111
+sibling	2112
+row	12
+column	10
+%%
+%DisplayText
+address	2111
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2112
+child	2113
+sibling	2114
+row	13
+column	10
+%%
+%DisplayText
+address	2113
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     f  nextFile ($counter) = (3)
+color	black
+%%
+%RowerNode
+address	2114
+child	2115
+sibling	2116
+row	14
+column	10
+%%
+%DisplayText
+address	2115
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------------------------
+color	black
+%%
+%CardSetTask
+address	2116
+sibling	2117
+task	continue
+type	0
+%%
+%RowerNode
+address	2117
+child	2118
+sibling	2119
+row	15
+column	5
+%%
+%DisplayText
+address	2118
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	It may be questionable how practical the example
+color	black
+%%
+%RowerNode
+address	2119
+child	2120
+sibling	2121
+row	16
+column	5
+%%
+%DisplayText
+address	2120
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	is.  In a learning situation, however, a question may
+color	black
+%%
+%RowerNode
+address	2121
+child	2122
+sibling	2123
+row	17
+column	5
+%%
+%DisplayText
+address	2122
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	repeat until the learner enters a correct 
+color	black
+%%
+%RowerNode
+address	2123
+child	2124
+sibling	0
+row	18
+column	5
+%%
+%DisplayText
+address	2124
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	answer. 
+color	black
+%%
+%CardSet
+address	2125
+child	2126
+sibling	2163
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2126
+child	2127
+sibling	2128
+row	0
+column	5
+%%
+%DisplayText
+address	2127
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Asking the capital of Ohio will repeat until 
+color	black
+%%
+%RowerNode
+address	2128
+child	2129
+sibling	2130
+row	1
+column	5
+%%
+%DisplayText
+address	2129
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	the learner enters Columbus.
+color	black
+%%
+%RowerNode
+address	2130
+child	2131
+sibling	2132
+row	2
+column	10
+%%
+%DisplayText
+address	2131
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------my.nc--------------
+color	black
+%%
+%RowerNode
+address	2132
+child	2133
+sibling	2134
+row	3
+column	10
+%%
+%DisplayText
+address	2133
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     l 
+color	black
+%%
+%RowerNode
+address	2134
+child	2135
+sibling	2136
+row	4
+column	10
+%%
+%DisplayText
+address	2135
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     a  $q1= false
+color	black
+%%
+%RowerNode
+address	2136
+child	2137
+sibling	2138
+row	5
+column	10
+%%
+%DisplayText
+address	2137
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2138
+child	2139
+sibling	2140
+row	6
+column	10
+%%
+%DisplayText
+address	2139
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     c ($q1)=(false) 
+color	black
+%%
+%RowerNode
+address	2140
+child	2141
+sibling	2142
+row	7
+column	10
+%%
+%DisplayText
+address	2141
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     d Capital of Ohio is: (# $columbus)
+color	black
+%%
+%RowerNode
+address	2142
+child	2143
+sibling	2144
+row	8
+column	10
+%%
+%DisplayText
+address	2143
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     x
+color	black
+%%
+%RowerNode
+address	2144
+child	2145
+sibling	2146
+row	9
+column	10
+%%
+%DisplayText
+address	2145
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     g ($colmbus)=(Columbus)
+color	black
+%%
+%RowerNode
+address	2146
+child	2147
+sibling	2148
+row	10
+column	10
+%%
+%DisplayText
+address	2147
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     a $q1= true
+color	black
+%%
+%RowerNode
+address	2148
+child	2149
+sibling	2150
+row	11
+column	10
+%%
+%DisplayText
+address	2149
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2150
+child	2151
+sibling	2152
+row	12
+column	10
+%%
+%DisplayText
+address	2151
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     f nextFile ($q1)=(true)
+color	black
+%%
+%RowerNode
+address	2152
+child	2153
+sibling	2154
+row	13
+column	10
+%%
+%DisplayText
+address	2153
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------------------------
+color	black
+%%
+%CardSetTask
+address	2154
+sibling	2155
+task	continue
+type	0
+%%
+%RowerNode
+address	2155
+child	2156
+sibling	2157
+row	14
+column	5
+%%
+%DisplayText
+address	2156
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The question repeats until the correct response
+color	black
+%%
+%RowerNode
+address	2157
+child	2158
+sibling	2159
+row	15
+column	5
+%%
+%DisplayText
+address	2158
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	is entered.  However, if the answer is unknown, 
+color	black
+%%
+%RowerNode
+address	2159
+child	2160
+sibling	2161
+row	16
+column	5
+%%
+%DisplayText
+address	2160
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	then it is not practical until the learner is 
+color	black
+%%
+%RowerNode
+address	2161
+child	2162
+sibling	0
+row	17
+column	5
+%%
+%DisplayText
+address	2162
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	shown the correct response.
+color	black
+%%
+%CardSet
+address	2163
+child	2164
+sibling	2205
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2164
+child	2165
+sibling	2166
+row	0
+column	5
+%%
+%DisplayText
+address	2165
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The following script provides feedback for an
+color	black
+%%
+%RowerNode
+address	2166
+child	2167
+sibling	2168
+row	1
+column	5
+%%
+%DisplayText
+address	2167
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	incorrect answer.
+color	black
+%%
+%RowerNode
+address	2168
+child	2169
+sibling	2170
+row	2
+column	10
+%%
+%DisplayText
+address	2169
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------my.nc--------------
+color	black
+%%
+%RowerNode
+address	2170
+child	2171
+sibling	2172
+row	3
+column	10
+%%
+%DisplayText
+address	2171
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     l 
+color	black
+%%
+%RowerNode
+address	2172
+child	2173
+sibling	2174
+row	4
+column	10
+%%
+%DisplayText
+address	2173
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     a  $q1= false
+color	black
+%%
+%RowerNode
+address	2174
+child	2175
+sibling	2176
+row	5
+column	10
+%%
+%DisplayText
+address	2175
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     c ($q1)=(false) 
+color	black
+%%
+%RowerNode
+address	2176
+child	2177
+sibling	2178
+row	6
+column	10
+%%
+%DisplayText
+address	2177
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     d Capital of Ohio is: (# $columbus)
+color	black
+%%
+%RowerNode
+address	2178
+child	2179
+sibling	2180
+row	7
+column	10
+%%
+%DisplayText
+address	2179
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     x
+color	black
+%%
+%RowerNode
+address	2180
+child	2181
+sibling	2182
+row	8
+column	10
+%%
+%DisplayText
+address	2181
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     g ($colmbus)=(Columbus)
+color	black
+%%
+%RowerNode
+address	2182
+child	2183
+sibling	2184
+row	9
+column	10
+%%
+%DisplayText
+address	2183
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     a $q1= true
+color	black
+%%
+%RowerNode
+address	2184
+child	2185
+sibling	2186
+row	10
+column	10
+%%
+%DisplayText
+address	2185
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     f nextFile ($q1)=(true)
+color	black
+%%
+%RowerNode
+address	2186
+child	2187
+sibling	2188
+row	11
+column	10
+%%
+%DisplayText
+address	2187
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2188
+child	2189
+sibling	2190
+row	12
+column	10
+%%
+%DisplayText
+address	2189
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     c
+color	black
+%%
+%RowerNode
+address	2190
+child	2191
+sibling	2192
+row	13
+column	10
+%%
+%DisplayText
+address	2191
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     g ($q1)=(false)
+color	black
+%%
+%RowerNode
+address	2192
+child	2193
+sibling	2194
+row	14
+column	10
+%%
+%DisplayText
+address	2193
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	     d Columbus is the capital of Ohio
+color	black
+%%
+%RowerNode
+address	2194
+child	2195
+sibling	2196
+row	15
+column	10
+%%
+%DisplayText
+address	2195
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------------------------
+color	black
+%%
+%CardSetTask
+address	2196
+sibling	2197
+task	continue
+type	0
+%%
+%RowerNode
+address	2197
+child	2198
+sibling	2199
+row	16
+column	5
+%%
+%DisplayText
+address	2198
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The statement:   g ($q1)=(false)
+color	black
+%%
+%RowerNode
+address	2199
+child	2200
+sibling	2201
+row	17
+column	5
+%%
+%DisplayText
+address	2200
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	is unnecessary in a quiz of only one question.
+color	black
+%%
+%RowerNode
+address	2201
+child	2202
+sibling	2203
+row	18
+column	5
+%%
+%DisplayText
+address	2202
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	But suppose the script asked 10 questions. In that
+color	black
+%%
+%RowerNode
+address	2203
+child	2204
+sibling	0
+row	19
+column	5
+%%
+%DisplayText
+address	2204
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	case, feedback is not given for correct answers.
+color	black
+%%
+%NotecardTask
+address	2205
+sibling	0
+task	end
+type	0
+%%
