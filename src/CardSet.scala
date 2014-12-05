@@ -64,19 +64,21 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// minus one. RowerNode increments this index each time a
 			// KeyListenerObject is created giving this object a unique index
 	val indexer=new Indexer(-1) 
-			// Notecard sets it to 'true' when '+Add' button is activated.
-
 			// CardSet may point to a AddCardSet object, or AddCardSet object
 			// has return pointer to parent 'button' of CardSet. [symButton.Node.scala:
-			// similar to 'symChild' and 'symSibling' ]. Used by Notecard
+			// similar to 'symChild' and 'symSibling' ]. 
 	def isAddCardSet= { if(symAddButton != "0") true; else false}// Invoked by Notecard parent
-			// Invoked by Notecard
+	def isLastAddCardSet= { if(symSibling == "0") true; else false} 
+
+			// Invoked by Notecard for CardSet and AddCardSet objects. When invoked by
+			// a AddCardSet object, then addCardSetFlag is true, otherwise it is false. 
 	def startCardSet(notePanel:JPanel, 
 					 lock:AnyRef, 
 					 buttonSet:ButtonSet, 
 					 statusLine:StatusLine,
 					 backupMechanism:BackupMechanism,
-					 defaultFont:DefaultFont)={ 
+					 defaultFont:DefaultFont,
+					 addCardSetFlag:Boolean)={ 
 			// Assign Linker.next to 'backup'. The next time
 			// CardSet is executed, 'backup' holds the pointer
 			// to the prior Card.  Used to capture one or more input fields.
@@ -89,14 +91,31 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// "next" row is to be displayed, RowPosition.currentPosition becomes
 			// the 'y' value java.awt.Component.setBounds(x,y,width, height)
 		val rowPosition= new RowPosition(defaultFont) 
-			// set true following execution of CardSet children
-	//	inputFocus.completedCardSetIteration=false
-			// prior card set may have posted a status message so remove for new card.
+			// prior CardSet set may have posted a status message so remove for new CardSet.
 		statusLine.clearStatusLine 
-			// 	symButton not zero indicating AddCardSet object
-		if(isAddCardSet)
+			// 	symButton of CardSet is not zero indicating an AddCardSet object.
+			//  This is not the case with 'symButton' when addCardSet button invokes 
+			//  'startCardSet(...)'. In this case 'addCardSetFlag' is true.
+		addCardSetFlag match {
+			case true =>			// AddCardSet
+				if(isLastAddCardSet)			// symSibling =="0"     see def above
+					buttonSet.grayAndDisableAddButton
+				  else
+					buttonSet.armAddButton		// color button yellow
+			case false =>			// CardSet
+				if(isAddCardSet)				// symAddButton != "0"  see def above
+					buttonSet.armAddButton		// color button yellow
+				  else
+					buttonSet.grayAndDisableAddButton
+
+			}
+	/*
+		if(isAddCardSet &&  ! addCardSetFlag){
+			println("CardSet:  isAddCardSet()   arm Add button  symId="+symId)
 				// color button yellow and enable it
-			buttonSet.armAddCardSet
+			buttonSet.armAddButton
+			}
+	*/
 				// Iterate CardSet commands then display	
 		executeCardCommandsAndDisplay(notePanel, 
 									  rowPosition,
@@ -105,10 +124,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									  indexer, 
 									  statusLine, 
 									  listenerArray) 
-				// set false before iteration. Input focus can arm Prior button.
-//		inputFocus.completedCardSetIteration= true
-				// Enable * button for Management file
-//		buttonSet.armAsteriskButton
 				// When Card lacks input fields, then turn on NEXT button in
 				// order to transit to next Card. With one or more input 
 				// fields, InputFocus will turn on NEXT button. 

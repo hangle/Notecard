@@ -77,16 +77,16 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 		// or when 'actWhenAllFieldsCaptured' set this value to 0.
 	def giveFocusToFirstInputField={
 		if(counterInputFields >0) {
-				// while input active, disable all 4 buttons.
-			buttonSet.grayAndDisableAllButtons
+				// while input active, disable +Add, Prior, and Next buttons
+			buttonSet.grayAndDisableThreeButtons
 			val component=components(0)
-			//println("InputFocus giveFocusToFirstInputField--1st component.requestFocus")
+			println("InputFocus giveFocusToFirstInputField--1st component.requestFocus")
 			component.requestFocus
 			}
 		}
 
 	def turnOnXNode={ xnodeState=true}   // CardSet has encounterInputFieldsed a XNode command
-	def turnOffXNode={ xnodeState=false}// capture completes so turn off thirs condition
+	def turnOffXNode={ xnodeState=false}// capture completes so turn off this condition
 		// In 'addToArray(..)', 'counterInputFields' is incremented by an InputField 
 		// instance. It is also initialized when 'actWhenAllFieldsCaptured(..)'
 		// handles an XNode condition. 
@@ -101,6 +101,7 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 		// Function  determines if all input fields have been captured.
 	def actWhenAllFieldsCaptured  {  
 		arrayIndex +=1  // JComponent index
+			println("InputField: here arrayIndex="+arrayIndex)
 			// When true, than all inputs are accounted for.
 		if(arrayIndex == components.size) {
 					// XNode state treated differently because the processing of input
@@ -119,7 +120,11 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 					// next and subsequent CardSet set it to 'false'
 				if( ! backupMechanism.isFirstChild ) {
 					buttonSet.armPriorButton
+					println("InputFocus: actWhenAll...  isFirstChild")
 					}
+		//		  else
+		//		  	buttonSet.grayAndDisablePriorButton
+
 				buttonSet.armNextButton   //enable button,color button orange
 				//println("InputFocus: actWhenAllFieldsCaptured arrayInex==size-- NextButton.requestFocus")
 			    buttonSet.next.requestFocus

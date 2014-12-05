@@ -48,7 +48,7 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	val next=new JButton("Next")
 	val prior=new JButton("Prior")
 	val asterisk=new JButton(" * ")
-	val buttonCardSet=new JButton("+Add")
+	val addButton=new JButton("+Add")
 	var selectedButton="" // indicates 'actionPerformed' result
 	var plusButton=false
 	var nextButton=false
@@ -58,7 +58,7 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	var isPriorButtonOn = "on" //when 'off', button is disabled
 			// button acquires listener and is added to NotePanel/
 	createActionButton(buttonPanel, asterisk)
-	createActionButton(buttonPanel, buttonCardSet)
+	createActionButton(buttonPanel, addButton)
 	createActionButton(buttonPanel, prior)
 	createActionButton(buttonPanel, next)
 
@@ -85,7 +85,6 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 			case "Prior"=> 
 							//	println("ButtonSet: actionPerf...    --prior-- ")
 				selectedButton="prior"  //Notecard: match expression
-				//notifyGrayAndDisableNext 
 				grayAndDisablePriorButton
 				start()   //unlock all
 			case " * "=> 
@@ -94,17 +93,15 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 				selectedButton="*"  
 					// Move to a new script file so gray all buttons
 					// in old script before the move.
-				grayAndDisableAllButtons
 				start()   //unlock all
 			case "+Add"=>
 				selectedButton="+"  //Notecard: match expression
-				grayAndDisableAddButton
-				//setAddState
+//				grayAndDisableAddButton
 				start()    //unlock all
 			case _=> 		println("ButtonSet unknown event=")
 			}
-
 		}
+
 	def resetPriorButton= priorButton=false //set false in Notecard after executing
 						  // prior Card.
 	def createActionButton(buttonPanel:JPanel, button:JButton)={
@@ -112,9 +109,8 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		buttonPanel.add(button)
 		}
 			// Invoked in InputFocus  ??
-	def grayAndDisableAllButtons {
+	def grayAndDisableThreeButtons { //+,Prior,Next buttons
 		grayAndDisableNextButton
-	//	grayAndDisableAsteriskButton
 		grayAndDisableAddButton
 		grayAndDisablePriorButton
 		}
@@ -127,8 +123,8 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		prior.setBackground(Color.lightGray)
 		}
 	def grayAndDisableAddButton={
-		buttonCardSet.setEnabled(false)
-		buttonCardSet.setBackground(Color.lightGray)
+		addButton.setEnabled(false)
+		addButton.setBackground(Color.lightGray)
 		}
 	def grayAndDisableNextButton={ // invoked in CardSet and
 					// in ButtonSet. see notifyGray...
@@ -169,9 +165,9 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 				grayAndDisableAsteriskButton
 				}
 		}
-	def armAddCardSet={
-		buttonCardSet.setEnabled(true)	
-		buttonCardSet.setBackground(Color.YELLOW)
+	def armAddButton={
+		addButton.setEnabled(true)	
+		addButton.setBackground(Color.YELLOW)
 		}
 
 		//card commands halted by 'wait' in

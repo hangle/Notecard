@@ -9,6 +9,9 @@
 	moves the CardSets backward.  When the Prior button is activated,
 	the prior CardSet is presented.
 
+	Note, a second BackupMechanism object is created in Notecard for
+	Add-CardSets.
+
 */
 
 package com.client

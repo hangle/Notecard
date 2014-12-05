@@ -28,7 +28,7 @@ displaying 'I am an add card set'.
 
 One or more Add-CardSets that immediately follow a CardSet are  
 controlled by the +Add button.  While 'I am a card set' is  
-shown, then activation of the +Add button clear the screen and  
+shown, then activation of the +Add button clears the screen and  
 displays 'I am an add card set'.  A second activation of the  
 +Add button terminates the Add-CardSet because the linked list  
 of the one Add-CardSet has ended.  
@@ -76,11 +76,11 @@ The CardSet class has an additional physical address variable:
 		button		// starting address of AddCardSet
 
 The script program treated the AddCardSet as if it was   
-a CardSet.  At the end, AddCardSet elements are removed     
-from the linked list heirarchy and assigned to the 'button'      
-address variables.  The sibling address of CardSet with an    
-associated AddCardSet is changed to point to next sibling   
-remaining in the heirarchy.   
+a CardSet.  In the Script program, AddCardSet elements are removed      
+from the linked list heirarchy by ButtonCardSetRemap and are  
+assigned to the 'button' address variables.  The sibling address   
+of CardSet with an associated AddCardSet is changed to point to   
+next sibling remaining in the heirarchy.   
 
 Note, a CardSet may have two or more associated AddCardSet   
 members. Thus it is appropriate to indicate that the button   
@@ -100,19 +100,14 @@ by instantiating a CardSet object for both:
 
 The common CardSet object maintains the distinction via   
 the 'button' address variable; either it is zero (0) or   
-it has a physical address value of a AddCardSet.    
+it has a physical address value of an AddCardSet.    
 'CardSet.isAddCardSet' return true when a physical   
 address is present.    
 
-'Notecard' iterates its children and invokes    
-'executeNotecardChildren(...):   
-
-		def iterateNotecardChildren(...)
-			reset(getFirstChild)
-			while(iterate) {
-				...
-				executeNotecardChildren(...)
-				}
+Notecard
+--------
+'Notecard', as the root of the linked hierarchy, iterates its children  
+and invokes 'executeNotecardChildren(...):   
 
 		def executeNotecardChildren(obj:Any, ...)
 			obj match	{
@@ -123,52 +118,43 @@ address is present.
 					cs.startCardSet(...)
 					waitOverDoButtons(..., cs, ...)
 
-			case ft:NotecardTask=> ...
-			case nf:NextFile => ...
+				case ft:NotecardTask=> ...
+				case nf:NextFile => ...
 			...
 
-If the CardSet object has an associated AddCardSet, then the   
-'+Add' button is colored yellow (armAddCardSet).  Next, the    
-parent CardList processes its sublist of children:   
-
+If the CardSet object has an associated AddCardSet, then
+on completion of the CardSet objects (waitOverDoButtons(...),
+the '+Add' button is colored yellow (armAddCardSet).  
+Activation of the +Add button along with 'doAddCardButton(...)   
+invokes:
 		cs.startCardSet(...)
 
-The 'waitOverDoButton(...)' test whether the user activated the   
-'Next' or the '+Add' button.  In the case of the '+Add' button,   
-the 'doAddCardSet' function is invoked.     
+It is noted that Notecard invokes 'startCardSet(...)' from two 
+different functions:
+		1.  startNotecard(...)   
+		2.  doAddCardButton(...)
+Also, 'doAddCardButton' is called within the scope of
+'startNotecard'.  The 'startCardSet' boolean parameter 'addCardSetFlag'
+indicates which function invoked it. This parameter is 'true' when
+called by 'doAddCardButton'. The parameter functions to enable and
+disable the +Add button.
 
-		...
-		val button= cs.getAddCardSet 
-		val buttonCardSet= button.asInstanceOf[CardSet]
-		reset(buttonCardSet)		// Linker trait
-		while(iterate) {		// Linker trait
-		    Value match {
-			case bcs:CardSet=>
-				bcs.startCardSet(...)
-		...	
+Add Button
+----------
+Two functions of ButtonSet control the AddCardSet button
+	1. armAddButton             --yellow highlight 
+	2. grayAndDisableAddButton  --grays an inactivates the button
 
-The 'cs.getAddCardSet' returns CardSet's button:Node value.    
-The asInstanceOf[CardSet] expression converts it to a CardSet object     
-which is the associated AddCardSet. 'bsc.startCardSet(...) is   
-invoked to executed this particular CardSet.   
+	addCardSetFlag match {
+		case true =>			// AddCardSet
+			if(isLastAddCardSet)	// symSibling =="0"     see def above
+				buttonSet.grayAndDisableAddButton
+			  else
+				buttonSet.armAddButton	// color button yellow
+		case false =>			// CardSet
+			if(isAddCardSet)		// symAddButton != "0"  see def above
+				buttonSet.armAddButton	// color button yellow
+			  else
+				buttonSet.grayAndDisableAddButton
+			}
 
-Two Notecard function have similar code:   
-
-		def iterateNotecardChildren(...)
-			reset(getFirstChild)
-			while(iterate) {
-
-		def doAddCardSet(..., cs, ...) 
-                        ...
-			reset(buttonCardSet)	
-			while(iterate) {
-
-When 'doAddCardSet' terminates, then the stack will unwind to   
-the 'while(iterate)' loop in 'iterateNotecardChildren'. Unfortunately,  
-as shown, this loop will not point to the initial CardSet object which   
-is in the linked list hierarchy.  The 'reset(buttonCardSet)' switched    
-the pointer to the '+Add' button that was removed from the heirarchy.    
-
-Before 'reset(buttonCardSet)' was executed, the 'cs' value was saved     
-and following the while loop, it was restored.  Restoring the value   
-allows the inital CardSet to redisplayed.   

@@ -36,7 +36,7 @@ object card   {
 					 // allows the user to enter a filename.
 			 else "start"   
 
-//		var file=""
+		println("card:  structFile="+structFile)
 		var isLoop=true
 			// Create table to hold card variables ($<variable>)
 		var symbolTable=Map[String,String]()
