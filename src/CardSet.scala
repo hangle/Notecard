@@ -56,8 +56,9 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			}
 				// 'button' is the physical addr of the ButtonCardSet. If CardSet has no
 				// associated ButtonCardSet, then button equals 'null'.
-	def getAddCardSet=addButton  //invoked in Notecard by 'loadIteratorWithButton..' prior
-								 // to calling 'cardSet.startCardSet(...)
+				// Invoked in Notecard by 'loadIteratorWithButton..' prior
+				// to calling 'cardSet.startCardSet(...) and in CardSet itself.
+	def getAddCardSet=addButton  
 //-------------------------------------------------------------------
 	var groupResolve:GroupResolve=new GroupResolve  
 			// Indexer has member 'index' that is initialized to 
@@ -68,9 +69,10 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// has return pointer to parent 'button' of CardSet. [symButton.Node.scala:
 			// similar to 'symChild' and 'symSibling' ]. 
 	def isAddCardSet= { if(symAddButton != "0") true; else false}// Invoked by Notecard parent
+			// end of the Add-CardSet children used to control 'grayAndDisableAddButton'.
 	def isLastAddCardSet= { if(symSibling == "0") true; else false} 
 
-			// Invoked by Notecard for CardSet and AddCardSet objects. When invoked by
+			// Invoked by Notecard for CardSet and AddCardSet /objects. When invoked by
 			// a AddCardSet object, then addCardSetFlag is true, otherwise it is false. 
 	def startCardSet(notePanel:JPanel, 
 					 lock:AnyRef, 
@@ -96,57 +98,44 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// 	symButton of CardSet is not zero indicating an AddCardSet object.
 			//  This is not the case with 'symButton' when addCardSet button invokes 
 			//  'startCardSet(...)'. In this case 'addCardSetFlag' is true.
+			//  'addCardSetFlag' is false when startCardSet(..) is invoked by Notecard
+			//  and true when invoked by Notecard.doAddButton(..).
+			//			println("CardSet  addCardSetFlag="+addCardSetFlag)
 		addCardSetFlag match {
-			case true =>			// AddCardSet
+			case true =>			// startCardSet invoked from Notecard.doAddButton 
+				println("CardSet:  addCardSet=true indicating invoked from doAddButton")
 				if(isLastAddCardSet)			// symSibling =="0"     see def above
 					buttonSet.grayAndDisableAddButton
 				  else
 					buttonSet.armAddButton		// color button yellow
-			case false =>			// CardSet
-				if(isAddCardSet)				// symAddButton != "0"  see def above
+			case false =>			// startCardSet invoked from Notecard's executeNoteCardChildren() ...
+				println("CardSet: from Notecard: isAddCardSet="+isAddCardSet+"   symId"+
+														symId+"    symAddButton="+symAddButton)
+				if(isAddCardSet){				// symAddButton != "0"  see def above
 					buttonSet.armAddButton		// color button yellow
+					println("CardSet armAddButton")
+					}
 				  else
 					buttonSet.grayAndDisableAddButton
 
 			}
-	/*
-		if(isAddCardSet &&  ! addCardSetFlag){
-			println("CardSet:  isAddCardSet()   arm Add button  symId="+symId)
-				// color button yellow and enable it
-			buttonSet.armAddButton
-			}
-	*/
 				// Iterate CardSet commands then display	
 		executeCardCommandsAndDisplay(notePanel, 
+									  buttonSet,
 									  rowPosition,
 									  lock, 
 									  inputFocus, 
 									  indexer, 
 									  statusLine, 
+									  defaultFont,
 									  listenerArray) 
-				// When Card lacks input fields, then turn on NEXT button in
-				// order to transit to next Card. With one or more input 
-				// fields, InputFocus will turn on NEXT button. 
-		if(inputFocus.isNoInputFields){			// True if no input fields,i.e. (# $abc) 
-						// Also enable PRIOR button when not first CardSet
-			if( ! backupMechanism.isFirstChild) {
-				buttonSet.armPriorButton
-				}
-					// Enable NEXT button, give it  focus and color it orange
-			buttonSet.armNextButton	
-					// to correct problem of the Asterisk button grabing the focus
-					// rather than the Next button.
-
-			//println("CardSet startCardSet  noInputFields-- NextButton.requestFocus")
-			buttonSet.next.requestFocus
-			showPanel(notePanel) // display panel content (paint, validate)
-			buttonSet.next.requestFocus
+		if( ! backupMechanism.isFirstChild) {
+			buttonSet.armPriorButton
 			}
-		else{ // CardSet has an Input Field
-				// 1st input field receives focus and all buttons are disabled.
-			inputFocus.giveFocusToFirstInputField
-			showPanel(notePanel) // display panel content (paint, validate)
-			}
+		buttonSet.armNextButton	
+		buttonSet.next.requestFocus
+		inputFocus.giveFocusToFirstInputField
+		showPanel(notePanel) // display panel content (paint, validate)
 			
 			// Invoked by CardSet (2 places) just before 'haltCommandExecution'.
 			// Note: focus not requested when CardSet has no InputFields (counterInputFields==0)
@@ -163,29 +152,35 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 	}// control returns to Notecard to process the next card set
 
 	def executeCardCommandsAndDisplay(notePanel:JPanel,
+									  buttonSet:ButtonSet,
 									  rowPosition:RowPosition,
 									  lock:AnyRef,
 									  inputFocus:InputFocus,
 									  indexer:Indexer, 
 									  statusLine: StatusLine,
+									  defaultFont: DefaultFont,
 									  listenerArray: ArrayBuffer[KeyListenerObject]) {
-			reset(child)    //point to head of linked list
+			reset(child)    //point to head of linked list.  'child' see Node.scala
 			iterateCardSetChildren( rowPosition, 
+									buttonSet,
 									notePanel, 
 									lock, 
 									inputFocus, 
 									indexer, 
 									statusLine, 
+									defaultFont,
 									listenerArray)
 		}
 		// Card set consist of RowerNode, Assigner, CardSetTask 
 		// GroupNode, and XNode
 	def iterateCardSetChildren(  rowPosition:RowPosition, 
+								 buttonSet:ButtonSet,
 								 notePanel:JPanel, 
 								 lock:AnyRef, 
 								 inputFocus:InputFocus,
 								 indexer:Indexer,
 								 statusLine:StatusLine, 
+								 defaultFont:DefaultFont,
 								 listenerArray: ArrayBuffer[KeyListenerObject]) {
 			// Iterate children (via sibling nodes), returning 'node' as
 			// either the 1st child or the current sibling node.
@@ -193,22 +188,26 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 		while(iterate) // initialized by 'reset(child)'
 				// Execute RowerNode, Assigner, CardSetTask, GroupNode, or eXecute.
 			executeCardSetChildren(  node, // Current sibling--see Linker  node,   // current  node 
+									 buttonSet,
 									 rowPosition, 
 									 notePanel, 
 									 lock:AnyRef, 
 									 inputFocus, 
 									 indexer, 
 									 statusLine, 
+									 defaultFont,
 									 listenerArray)
 		}
 		// Children separated by match statement to invoke their respective modules
 	def executeCardSetChildren(  obj:Node,  // children
+								 buttonSet:ButtonSet,
 								 rowPosition:RowPosition, 
 								 notePanel:JPanel, 
 								 lock:AnyRef, 
 								 inputFocus:InputFocus, 
 								 indexer:Indexer,
 								 statusLine:StatusLine,
+								 defaultFont:DefaultFont,
 								 listenerArray:ArrayBuffer[KeyListenerObject]) {	
 		obj match	{
 			case rn:RowerNode=> 
@@ -233,11 +232,13 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				whatToDo(groupResolve,     // global variable 
 					 	 gn,   // groupNode
 						 rowPosition, 
+						 buttonSet,
 						 notePanel, 
 						 lock, 
 						 inputFocus, 
 						 indexer, 
 						 statusLine, 
+						 defaultFont,
 						 listenerArray) //recusion
 			case xn:XNode => 
 						// 'x' command to process prior input fields.
@@ -249,9 +250,54 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				inputFocus.giveFocusToFirstInputField
 				inputFocus.turnOnXNode  //prevents InputFocus.actWhenAllFieldsCaptured 
 									    // from enabling NEXT button
+				println("CardSet: case xn:Xnode=>   haltCommandExecution(lock)")
 				haltCommandExecution(lock) // issue lock.wait()
+				println("CardSet: case xn:Xnode=>   unlock(lock)")
+					// Button activation has released wait state, however, if button is
+					// +Add, then 'startCardSet(..) is invoked.
+				buttonSet.selectedButton match {
+					case "+"=> 
+							// Add-CardSet has its own backup system so create class.
+						val addBackupMechanism= new BackupMechanism
+						doAddCardSet( notePanel, 
+									  lock, 
+									  buttonSet, 
+									  statusLine, 
+									  addBackupMechanism, 
+									  defaultFont,
+									  true)   // indicate AddCardSet
+
+					case _=>
+					}
 			case _=> println("\tCardSet: unknown CardSetChild obj="+obj)	
 			}
+		}
+			// Note. similar funct in Notecard.
+	def doAddCardSet(notePanel:JPanel, 
+					 lock:AnyRef, 
+					 buttonSet:ButtonSet, 
+					 statusLine:StatusLine,
+					 addBackupMechanism:BackupMechanism,
+					 defaultFont:DefaultFont,
+					 addCardSetFlag:Boolean) = {
+			println("CardSet hashCode="+this.hashCode)
+
+		val addButton= getAddCardSet
+		val addCardSet= addButton.asInstanceOf[CardSet]
+			println("CardSet: AddCardSet hashCode="+addCardSet.hashCode)
+		println("CardSet:  addButton="+addButton+"   symId="+symId+"   +symAddButton="+symAddButton)
+				// AddCardSet(s) will be processed as if they are CardSet(s).
+		reset(addCardSet)
+		while(iterate) {
+				startCardSet(notePanel, 
+							lock, 
+							buttonSet, 
+							statusLine, 
+							addBackupMechanism, 
+							defaultFont,
+							true)   // indicate AddCardSet
+				}
+
 		}
 	/*
 	---------------------------------------------------------------
@@ -272,14 +318,18 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 		// 'whatToDo()' uses 'GroupResolve.actionToTake()' to decide whether to 'do'
 		// or to 'skip' the commands enclosed by the Group command. The'actionToTake()' also
 		// returns 'done' which terminates the recursive function.
+
+
 	def whatToDo(   groupResolve: GroupResolve, 
 					groupNode:GroupNode,
 					rowPosition: RowPosition, 
+					buttonSet: ButtonSet,
 					notePanel: JPanel, 
 					lock:AnyRef,
 					inputFocus:InputFocus,
 					indexer:Indexer,
 					statusLine:StatusLine,
+					defaultFont:DefaultFont,
 					listenerArray:ArrayBuffer[KeyListenerObject]):Unit= {
 				// 'actionToTake()' returns 'do', 'skip' and 'done' by determining the type 
 				// of Goup command. The types are:  g <condition>, ge <condition>, ge, and g.  
@@ -289,22 +339,25 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			case  "do"  => 
 						// Outcome successful, so executed the enclosed Group commands
 				iterateCardSetChildren(	rowPosition, 
+										buttonSet,
 										notePanel, 
 										lock, 
 										inputFocus, 
 										indexer, 
 										statusLine, 
+										defaultFont,
 										listenerArray)
 			case  "skip" =>  
 						// Outcome unccessful, so skip the enclosed Group commands.
 				iterateToNextGroup(groupResolve, 
-								  // groupNode, 
 								   rowPosition, 
+								   buttonSet,
 								   notePanel, 
 								   lock, 
 								   inputFocus, 
 								   indexer, 
 								   statusLine, 
+								   defaultFont,
 								   listenerArray)
 							// A Group command having just the tag 'g'. --no 'else' and no condition
 			case  "done"=> 
@@ -316,11 +369,13 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 		// GroupNode object or reaching the end of the card set of objects.
 	def iterateToNextGroup( 	groupResolve: GroupResolve, 
 								rowPosition:RowPosition, 
+								buttonSet: ButtonSet,
 								notePanel:JPanel, 
 								lock:AnyRef,
 								inputFocus:InputFocus,
 								indexer:Indexer,
 								statusLine:StatusLine,
+								defaultFont: DefaultFont,
 								listenerArray:ArrayBuffer[KeyListenerObject]) {
 			// Process just one command. If the command is not 'GroupNode' then call itself
 			// to process the next command.
@@ -334,36 +389,50 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 						// Determine whether to 'do' the enclosed commnds of the Group command
 						// or 'skip' these commands. 
 					whatToDo(groupResolve, 
-							// obj, 
 							 gn,
 							 rowPosition, 
+							 buttonSet,
 							 notePanel, 
 							 lock, 
 							 inputFocus, 
 							 indexer, 
 							 statusLine, 
+							 defaultFont,
 							 listenerArray)	
 								//keep looking for 'g' cmd
 				case _=> 
 						// Not GroupNode, make recursive call to process next command.
 					iterateToNextGroup(groupResolve, 
 									 rowPosition, 
+									 buttonSet,
 									 notePanel, 
 									 lock, 
 									 inputFocus, 
 									 indexer, 
 									 statusLine, 
+									 defaultFont,
 									 listenerArray)
 					}
 			}
 		//gNode
 		}
 //---------------------------------------------------------------------
+		// used startCardSet(): No input fields
+		// used startCardSet(): Input fields-- focus to 1st field
+		// used executeCardSetChildren(): case xn: Xnode=>
  	def showPanel(notePanel:JPanel) {
 			// JPanel extends JComponent having
 			// validate(), and repaint()
 		notePanel.validate()
 		notePanel.repaint()
+		}
+	def showButtonSet(buttonSet: JPanel) ={
+			// JPanel extends JComponent having
+			// validate(), and repaint()
+		buttonSet.validate()
+		buttonSet.repaint()
+//		buttonSet.visible()
+		//println("CardSet  buttonSet.repaint()")
 		}
 			//wait() released by notifyAll by "Next button" in ButtonSet
 			// Control passes to user to enter response(s).

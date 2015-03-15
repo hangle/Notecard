@@ -77,7 +77,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		// enclose it in a black border.
 	val notePanel=new NotePanel().getNotePanel 
 		// Save current CardSet to be restore  after AddCardSet
-		// have exe
+		// has executed
 	var currentCardSet:Node= _
 		// Used in 'doAsteriskButton' to hold JFrame reference to
 		// disposed of Management file.
@@ -101,7 +101,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 			// and Button panels to this window along with statusLine:JLabel. Also makes
 			// the window visible.
 		taskGather.oldJFrame=createAndMakeVisibleCardWindow (notePanel, 
-															buttonPanel, 
+															buttonPanel,
 															statusLine, 
 															frame_width, 
 															frame_height)	
@@ -124,6 +124,8 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 								taskGather:TaskGather, 
 								buttonSet:ButtonSet,
 								defaultFont:DefaultFont) {
+		println("Notecard:  iterateNotecardChild..()  addButton="+addButton+"  symId="+symId+"    symAddButton="+symAddButton)
+
 		reset(child)//In Linker, getFirstChild points to root of linked list 
 		while(iterate) {	//Linker iterates linked list of siblings
 				// gray the Prior button if 1st sibling is 1st CardSe/t.
@@ -136,7 +138,11 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				// be terminated, returning control to 'card'. 
 			if(taskGather.isTaskNone) {
 					// process CardSet or FrameTask or NextFile. 'Value' returned from 'iterate'.
-				executeNotecardChildren(node, notePanel, taskGather, buttonSet, defaultFont)
+				executeNotecardChildren(node, 
+										notePanel, 
+										taskGather, 
+										buttonSet, 
+										defaultFont)
 				}
 			}      //---while
 		}
@@ -165,6 +171,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						// present one Card. CardSet enters a wait() state
 						// until button( NEXT,PRIOR,'*') is pressed, thus causing
 						// it to return.
+					println("Notecard: startCardSet from executeNotecardChildren")
 					cs.startCardSet(notePanel, 
 									lock, 
 									buttonSet, 
@@ -175,10 +182,15 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						// wait() of CardSet just released. Determine if either
 						// backup button or * asterisk button or '+Add' button was 
 						// activated. If so, than take care of button activated.
-					waitOverDoButtons(taskGather, cs,notePanel,lock,buttonSet, statusLine, defaultFont)
-					}
-						// FrameTask is an <asterisk> command that performs
-						// a notecard task, such as ending the card session.
+					waitOverDoButtons(taskGather,
+									  cs,
+									  notePanel,
+									  lock,buttonSet, 
+									  statusLine, 
+									  defaultFont) 
+						}
+					// FrameTask is an <asterisk> command that performs
+					// a notecard task, such as ending the card session.
 			case ft:NotecardTask=> //println("ft:NotecardTask") 
 					ft.startNotecardTask(taskGather)
 						// check if task was '* manage <filename>'
@@ -206,6 +218,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						  defaultFont: DefaultFont):Unit={ 
 		buttonSet.selectedButton match {
 				case "next"  =>
+						println("Notecard case Next")
 						buttonSet.grayAndDisableAddButton
 				case "prior" =>
 						buttonSet.grayAndDisableAddButton
@@ -213,6 +226,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				case "*" =>
 						doAsteriskButton(taskGather)
 				case "+" =>
+						println("Notecard: waitOverDoButtons() case +")
 						doAddCardSet(taskGather,
 										cardSet,
 										notePanel,
@@ -224,19 +238,13 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 							println("Notecard: unknown button actionPerformed")
 				}
 		}
-	def waitOverInAddDoButtons(taskGather:TaskGather, 
-						  cardSet:CardSet,
-	    				  notePanel:JPanel, 
-						  lock:AnyRef, 
-						  buttonSet:ButtonSet, 
-						  statusLine:StatusLine,
-						  addBackupMechanism:BackupMechanism):Unit={ 
+	def waitOverInAddDoButtons( taskGather:TaskGather, 
+								addBackupMechanism:BackupMechanism):Unit={ 
 		buttonSet.selectedButton match {
 			case "next"  =>
 							//println("Notecard case next")
 					buttonSet.grayAndDisableAddButton
 						// in the +Add-CardSet operation, the Next
-
 						// null will escape 'while(iterate)' in 
 						// 'doAddCardSet'.
 					iterator=null
@@ -248,7 +256,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 							//println("Notecard case +")
 					doAsteriskButton(taskGather)
 			case "+" =>
-							//println("Notecard case +")
+							println("Notecard  waitOverInAddDoButton:  case +")
 						// do nothing
 			case _=>
 
@@ -265,14 +273,19 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					 defaultFont:DefaultFont)={ 
 			// Node.symButton !="0" indicates that CardSet has a child AddCardSet
 			// Save Link iterator's node in order to restore this node
-			// when button CardSets end.
+			// when AddCardSet(s) end.
 		saveCurrentCardSet	  // iterator's node is saved in Notecard.currentCardSet. 
 			// Add-CardSet has its own backup system so create class.
 		val addBackupMechanism= new BackupMechanism
 			// fetch physical address of AddCardSet from parent CardSet that
 			// addresses the 1st Add-CardSet.
+		println("Nodecard  this.hashCode="+this.hashCode)
 		val addButton= cardSet.getAddCardSet
 		val addCardSet= addButton.asInstanceOf[CardSet]
+		println("Nodecard addCardSet.hashCode="+addCardSet.hashCode)
+
+		println("Notecard:  doAddCardSet()  addButton="+addButton+"  symId="+symId+"   symAddButton="+symAddButton)
+
 				// AddCardSet(s) will be processed as if they are CardSet(s).
 		reset(addCardSet)
 				// loop one or more AddCardSet(s). iterate() returns 'node'
@@ -289,6 +302,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 							// save all 'node's to be used to back up to prior Add-CardSets
 						addBackupMechanism.storePriorSiblingInBackupList( node)
 							// process Add-CardSet children
+							println("Notecard: startCardSet from doAddCardSet")
 						cs.startCardSet(notePanel, 
 										lock, 
 										buttonSet, 
@@ -300,22 +314,16 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 							// Linker.iterator to null. +Add button does nothing
 							// so looping continues. 
 						waitOverInAddDoButtons(taskGather, 
-												cs, 
-												notePanel, 
-												lock, 
-												buttonSet, 
-												statusLine, 
-												addBackupMechanism)
+											   addBackupMechanism)
 						}
 				case _=> println("Notecard: Unknown Value")
 			}
-	//		buttonSet.grayAndDisableAddButton
 		}
 			// Restore Link iterator to the CardSet from which '+Add' button was
 			// activated. 
 		restoreCurrentCardSet
 	}
-		// keep in order to restore after management file completes.
+		// Keep iterator's node in order to restore after management file completes.
 	def saveCurrentCardSet { currentCardSet=node }
 	def restoreCurrentCardSet { iterator=currentCardSet }
 		//Backup set up
@@ -343,7 +351,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 			// and adds Note and Button panels to this window along with
 			// statusLine:JLabel.
 			// Also allows window size to change (height,width)
-		val window= new CardWindow(notePanel,buttonPanel, statusLine, frame_width, frame_height)
+		val window= new CardWindow(notePanel, buttonPanel, statusLine, frame_width, frame_height)
 		window.setVisible(true)
 		window
 		}
@@ -383,7 +391,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// called here, the window is blanked when 'startNotecard' 
 					// returns from the manageNotecard state.
 				var oldManagement=createAndMakeVisibleCardWindow (  notePanel, 
-																	buttonPanel, 
+																	buttonPanel,
 																	statusLine, 
 																	frame_width, 
 																	frame_height)	

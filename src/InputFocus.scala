@@ -1,6 +1,6 @@
 /* date:   Jun 25, 2012
 	Initial creation date:   Dec 10, 2011
-             INPUT FOCUS  (was FieldFocus then BoxFieldFocus)   
+             INPUT FOCUS  (in Java was FieldFocus then BoxFieldFocus)   
 
        Created in CardSet and passed to RowerNode and then to 
        KeyListenerObject(boxField, inputFocus,Indexer.getIndex, statusLine) 
@@ -75,13 +75,13 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 		// Invoked by CardSet (2 places) just before 'haltCommandExecution'.
 		// Note: focus not requested when CardSet has no InputFields (counterInputFields==0)
 		// or when 'actWhenAllFieldsCaptured' set this value to 0.
-	def giveFocusToFirstInputField={
+	def giveFocusToFirstInputField {
 		if(counterInputFields >0) {
 				// while input active, disable +Add, Prior, and Next buttons
-			buttonSet.grayAndDisableThreeButtons
+			buttonSet.grayAndDisableNextAndPrior
 			val component=components(0)
-			println("InputFocus giveFocusToFirstInputField--1st component.requestFocus")
 			component.requestFocus
+			println("InputFocus giveFocusToFirstInputField--1st component.requestFocus")
 			}
 		}
 
@@ -101,7 +101,7 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 		// Function  determines if all input fields have been captured.
 	def actWhenAllFieldsCaptured  {  
 		arrayIndex +=1  // JComponent index
-			println("InputField: here arrayIndex="+arrayIndex)
+				//	println("InputField: here arrayIndex="+arrayIndex)
 			// When true, than all inputs are accounted for.
 		if(arrayIndex == components.size) {
 					// XNode state treated differently because the processing of input
@@ -113,6 +113,7 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 					// also forces focus in 'setFieldFocus' to first JComponent
 					// of XNode input fields. 
 				counterInputFields=0  
+					// Release CardSet to execute remaining CardSet commands.
 				buttonSet.start() // XNode releases wait()
 				}
 			 else{
@@ -120,13 +121,14 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 					// next and subsequent CardSet set it to 'false'
 				if( ! backupMechanism.isFirstChild ) {
 					buttonSet.armPriorButton
-					println("InputFocus: actWhenAll...  isFirstChild")
+			//			println("InputFocus: actWhenAll...  isFirstChild")
 					}
 		//		  else
 		//		  	buttonSet.grayAndDisablePriorButton
-
+					// CardSet has been halted so control is turned over to
+					// Next button to initiate release (start()). 
 				buttonSet.armNextButton   //enable button,color button orange
-				//println("InputFocus: actWhenAllFieldsCaptured arrayInex==size-- NextButton.requestFocus")
+				println("InputFocus: actWhenAllFieldsCaptured arrayInex==size-- NextButton.requestFocus")
 			    buttonSet.next.requestFocus
 				}
 			}
@@ -147,6 +149,7 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 		//println("InputFocus: establishAsteriskContinue-- NextButton.requstFocus")
 		buttonSet.next.requestFocus
 			// wait() invoked, button hit invokes 'notifyAll()'
+		println("INputFocus:  establishAsteriksContinue   issue wait")
 		buttonSet.issueWait
 		}
 }				

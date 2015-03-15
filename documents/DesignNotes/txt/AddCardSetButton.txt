@@ -9,7 +9,6 @@ Two functions that control the AddCardSet button
 	1. armAddButton             --yellow highlight 
 	2. grayAndDisableAddButton  --grays button
 
-
 	armAddButton   --location
 		CardSet
 			startCardSet(...)
@@ -18,3 +17,4 @@ Two functions that control the AddCardSet button
 					buttonSet.armAddButton
 					}
 `
+	grayAndDisableAddButton    --location

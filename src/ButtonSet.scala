@@ -66,13 +66,13 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	grayAndDisableAsteriskButton
 	grayAndDisablePriorButton 
 	grayAndDisableAddButton 
-
 		// Determine which button was activated and take 
 		// appropriate action.
 	def actionPerformed(event:ActionEvent) { 
 		event getActionCommand() match{
 				// Next button enabled by FieldFocus
 			case "Next"=>  
+				println("ButtonSet: actionPerformed:  Next")
 				selectedButton="next" //Notecard: match expression
 					// Next button has been activated, so:
 					// disable it,  gray the button,
@@ -83,11 +83,13 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 					// the next spacebar key to initiate backup. 
 				start()   //unlock all
 			case "Prior"=> 
+				println("ButtonSet: actionPerformed:  Prior")
 							//	println("ButtonSet: actionPerf...    --prior-- ")
 				selectedButton="prior"  //Notecard: match expression
 				grayAndDisablePriorButton
 				start()   //unlock all
 			case " * "=> 
+				println("ButtonSet: actionPerformed:  * button")
 							//	println("ButtonSet: actionPerf...    --*-- ")
 						//used in Notecard: match expression
 				selectedButton="*"  
@@ -95,8 +97,8 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 					// in old script before the move.
 				start()   //unlock all
 			case "+Add"=>
+				println("ButtonSet: actionPerformed:  +Add")
 				selectedButton="+"  //Notecard: match expression
-//				grayAndDisableAddButton
 				start()    //unlock all
 			case _=> 		println("ButtonSet unknown event=")
 			}
@@ -109,9 +111,9 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		buttonPanel.add(button)
 		}
 			// Invoked in InputFocus  ??
-	def grayAndDisableThreeButtons { //+,Prior,Next buttons
+	def grayAndDisableNextAndPrior { //Prior,Next buttons
 		grayAndDisableNextButton
-		grayAndDisableAddButton
+//		grayAndDisableAddButton
 		grayAndDisablePriorButton
 		}
 	def grayAndDisableAsteriskButton={
@@ -168,12 +170,16 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	def armAddButton={
 		addButton.setEnabled(true)	
 		addButton.setBackground(Color.YELLOW)
+		//  println("ButtonSet   armAddButton set Yellow")
 		}
 
 		//card commands halted by 'wait' in
 		// CardSet. 'Next' button action 
 		// terminates the wait condition.
-	def start():Unit= lock.synchronized{ lock.notifyAll() } 
+	def start():Unit= {
+			println("ButtonSet start()")
+			lock.synchronized{ lock.notifyAll() } 
+			}
 		// Invoked by InputFocus in support ofg
 		// the '* continue' statement. 
 	def issueWait:Unit=lock.synchronized{ lock.wait() }

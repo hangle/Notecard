@@ -86,6 +86,7 @@ case class DisplayText(var symbolTable:Map[String,String])
 
 	     setForeground(xcolor)
        	 setText(text)
+		 // println("DisplayText:  render()  text="+text)
 		 var y=yy    // in event that yy does not need an adjustment
 		 if (greatestHeight != maxHeight){ 
 			y+= greatestHeight - maxHeight - 3 

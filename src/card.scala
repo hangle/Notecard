@@ -36,7 +36,7 @@ object card   {
 					 // allows the user to enter a filename.
 			 else "start"   
 
-		println("card:  structFile="+structFile)
+				//println("card:  structFile="+structFile)
 		var isLoop=true
 			// Create table to hold card variables ($<variable>)
 		var symbolTable=Map[String,String]()
@@ -47,7 +47,7 @@ object card   {
 				// files lacking a pathname. Path with '/'
 			Session.setSessionPath("") 
 				// Asterisk command '* end' of FrameTask sets
-				try{
+						try{
 			while(isLoop)	{
 					// Passed to Notecard and then to NextFile and
 					// FrameTask to read new .struct file or to 
@@ -70,9 +70,9 @@ object card   {
 					isLoop=false         // terminate while loop
 					}
 				} //while
-				}catch{ case ex: Exception=>
-					println("card: Exception thrown")
-					}
+						}catch{ case ex: Exception=>
+							println("card: Exception thrown")
+							}
 
 			System.exit(0)
 		} //main
