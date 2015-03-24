@@ -105,7 +105,7 @@ trait Node  {
 	var symId="" //setAddress(): symbolic address created by server system
 	var symChild:String="0"   //setChild
 	var symSibling:String="0" //setNext
-	var symAddButton:String="0" 
+//	var symAddButton:String="0" 
 	var child:Node=null	 // 1st child of parent list assigned by:converToChild
 	var next:Node=null   // sibling
 	var addButton:Node=null // AddButtonCardSet
@@ -120,7 +120,7 @@ trait Node  {
 	def setAddress(value:String) {symId=value}
 	def setNext(value:String) = symSibling=value
 	def setChild(value:String) = symChild=value
-	def setAddButton(value:String)= symAddButton=value
+//	def setAddButton(value:String)= symAddButton=value
 			// 'symId' is the symbolic address whereas 'objectx' is
 			// the "physical address". Invoked in 'CreateClass' which in turn '			'
 			// switches or swizzles the phy addr for the symbolic one
@@ -159,6 +159,7 @@ trait Node  {
 				}
 			}
 		}
+/*
 	def convertToAddButton(swizzleTable:Map[String, Node]) ={
 		if(symAddButton != "0") {
 			if(swizzleTable.contains(symAddButton)){
@@ -170,5 +171,6 @@ trait Node  {
 				}
 			}
 		}
+*/
 
 }

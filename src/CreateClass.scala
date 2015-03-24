@@ -54,7 +54,6 @@
 package com.client
 import scala.collection.mutable.Map
 
-//object CreateClass   extends Node {
 class CreateClass   extends Node {
 
 

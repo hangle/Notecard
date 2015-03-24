@@ -70,11 +70,9 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 	var xnodeState=false   // default until XNode is encounterInputFieldsed in CardSet
 			// Set false at beginning of iteration and set true at end.
 			// Arm Prior button when true provided CardSet not first. 
-	//var completedCardSetIteration=false
-
-		// Invoked by CardSet (2 places) just before 'haltCommandExecution'.
-		// Note: focus not requested when CardSet has no InputFields (counterInputFields==0)
-		// or when 'actWhenAllFieldsCaptured' set this value to 0.
+			// Invoked by CardSet (2 places) just before 'haltCommandExecution'.
+			// Note: focus not requested when CardSet has no InputFields (counterInputFields==0)
+			// or when 'actWhenAllFieldsCaptured' set this value to 0.
 	def giveFocusToFirstInputField {
 		if(counterInputFields >0) {
 				// while input active, disable +Add, Prior, and Next buttons
@@ -135,6 +133,10 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 		  else{
 					// Move cursor to next input field 
 				//println("InputFocus: actWhenAllFieldsCaptured arrayIndex!=size-- component.requestFocus")
+			  println("InputFocus:  components size="+components.length+"  arrayIndex="+arrayIndex)
+			if(arrayIndex+1 >=components.length)
+			  	println("ImputFocus:  ********* arrayIndex >= components.length********")
+			else
 	    	  components(arrayIndex).requestFocus
 			  }
 	}

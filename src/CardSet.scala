@@ -48,30 +48,26 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 //------------paramters pass by .struct file-----------------
 	var conditionStruct=""
 	var node_name=""   /// Name or label of CardSet:  <not operational>
+	var button=0		// When value is:
+						//	0	CardSet has no AddCardSet(s)
+						//	1	CardSet has Add Card Set(s)
+						//	2	AddCardSet
+						// 99	Last AddCardSet in series.
 //------------------------------swizzle routines (see: Node)-----------
 	def convertToReference(swizzleTable:Map[String, Node]) ={
 			convertToSibling(swizzleTable)
 			convertToChild(swizzleTable)  // Is a parent
-			convertToAddButton(swizzleTable) // ButtonCardSet
 			}
-				// 'button' is the physical addr of the ButtonCardSet. If CardSet has no
-				// associated ButtonCardSet, then button equals 'null'.
-				// Invoked in Notecard by 'loadIteratorWithButton..' prior
-				// to calling 'cardSet.startCardSet(...) and in CardSet itself.
-	def getAddCardSet=addButton  
 //-------------------------------------------------------------------
 	var groupResolve:GroupResolve=new GroupResolve  
 			// Indexer has member 'index' that is initialized to 
 			// minus one. RowerNode increments this index each time a
 			// KeyListenerObject is created giving this object a unique index
 	val indexer=new Indexer(-1) 
-			// CardSet may point to a AddCardSet object, or AddCardSet object
-			// has return pointer to parent 'button' of CardSet. [symButton.Node.scala:
-			// similar to 'symChild' and 'symSibling' ]. 
-	def isAddCardSet= { if(symAddButton != "0") true; else false}// Invoked by Notecard parent
-			// end of the Add-CardSet children used to control 'grayAndDisableAddButton'.
-	def isLastAddCardSet= { if(symSibling == "0") true; else false} 
 
+	def isAddCardSet= button > 1 //AddCardSets have button values of 2 or 99
+	def isLastAddCardSet= button == 99   // last AddCardSet in the series.
+	def hasAddCardSet= button == 1    // otherwise button==0
 			// Invoked by Notecard for CardSet and AddCardSet /objects. When invoked by
 			// a AddCardSet object, then addCardSetFlag is true, otherwise it is false. 
 	def startCardSet(notePanel:JPanel, 
@@ -79,8 +75,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 					 buttonSet:ButtonSet, 
 					 statusLine:StatusLine,
 					 backupMechanism:BackupMechanism,
-					 defaultFont:DefaultFont,
-					 addCardSetFlag:Boolean)={ 
+					 defaultFont:DefaultFont)={
 			// Assign Linker.next to 'backup'. The next time
 			// CardSet is executed, 'backup' holds the pointer
 			// to the prior Card.  Used to capture one or more input fields.
@@ -95,30 +90,9 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 		val rowPosition= new RowPosition(defaultFont) 
 			// prior CardSet set may have posted a status message so remove for new CardSet.
 		statusLine.clearStatusLine 
-			// 	symButton of CardSet is not zero indicating an AddCardSet object.
-			//  This is not the case with 'symButton' when addCardSet button invokes 
-			//  'startCardSet(...)'. In this case 'addCardSetFlag' is true.
-			//  'addCardSetFlag' is false when startCardSet(..) is invoked by Notecard
-			//  and true when invoked by Notecard.doAddButton(..).
-			//			println("CardSet  addCardSetFlag="+addCardSetFlag)
-		addCardSetFlag match {
-			case true =>			// startCardSet invoked from Notecard.doAddButton 
-				println("CardSet:  addCardSet=true indicating invoked from doAddButton")
-				if(isLastAddCardSet)			// symSibling =="0"     see def above
-					buttonSet.grayAndDisableAddButton
-				  else
-					buttonSet.armAddButton		// color button yellow
-			case false =>			// startCardSet invoked from Notecard's executeNoteCardChildren() ...
-				println("CardSet: from Notecard: isAddCardSet="+isAddCardSet+"   symId"+
-														symId+"    symAddButton="+symAddButton)
-				if(isAddCardSet){				// symAddButton != "0"  see def above
-					buttonSet.armAddButton		// color button yellow
-					println("CardSet armAddButton")
-					}
-				  else
-					buttonSet.grayAndDisableAddButton
+			// prevent XNode from terminating the process of  CardSet children
+		buttonSet.turnOffExitCardSet
 
-			}
 				// Iterate CardSet commands then display	
 		executeCardCommandsAndDisplay(notePanel, 
 									  buttonSet,
@@ -132,6 +106,9 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 		if( ! backupMechanism.isFirstChild) {
 			buttonSet.armPriorButton
 			}
+		if(buttonSet.exitCardSet)
+				clearNotePanel(notePanel)
+		else {
 		buttonSet.armNextButton	
 		buttonSet.next.requestFocus
 		inputFocus.giveFocusToFirstInputField
@@ -141,14 +118,13 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// Note: focus not requested when CardSet has no InputFields (counterInputFields==0)
 			// or when 'actWhenAllFieldsCaptured' set this value to 0.
 			// Stop (issue wait()) to allow the user to enter responses.
-			//
 		haltCommandExecution(lock)	
-
 			//remove all components & calls 'repaint()'
 		clearNotePanel(notePanel)	
 			// KeyListenerObject(s) are removed from the
 			// corresponding BoxField
 		removeInputFieldListeners(listenerArray) 
+		}	
 	}// control returns to Notecard to process the next card set
 
 	def executeCardCommandsAndDisplay(notePanel:JPanel,
@@ -185,7 +161,8 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// Iterate children (via sibling nodes), returning 'node' as
 			// either the 1st child or the current sibling node.
 			// see 'Linker' trait.
-		while(iterate) // initialized by 'reset(child)'
+		while(iterate){ // initialized by 'reset(child)'
+			println("CardSet begin iteration")
 				// Execute RowerNode, Assigner, CardSetTask, GroupNode, or eXecute.
 			executeCardSetChildren(  node, // Current sibling--see Linker  node,   // current  node 
 									 buttonSet,
@@ -197,6 +174,15 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									 statusLine, 
 									 defaultFont,
 									 listenerArray)
+					println("CardSet:  iteration")
+						// +Add button set exitCardSet = true
+			if(buttonSet.isExitCardSet){
+						// terminate children processing to allow ButtonCardSet to operate
+				iterator=null
+				println("CardSet  iterator="+iterator)
+				}
+			}
+		println("CardSet  end of iterateCardSetChildren")
 		}
 		// Children separated by match statement to invoke their respective modules
 	def executeCardSetChildren(  obj:Node,  // children
@@ -249,56 +235,13 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 					// set this value to 0.
 				inputFocus.giveFocusToFirstInputField
 				inputFocus.turnOnXNode  //prevents InputFocus.actWhenAllFieldsCaptured 
-									    // from enabling NEXT button
+										// from enabling NEXT button
 				println("CardSet: case xn:Xnode=>   haltCommandExecution(lock)")
 				haltCommandExecution(lock) // issue lock.wait()
 				println("CardSet: case xn:Xnode=>   unlock(lock)")
-					// Button activation has released wait state, however, if button is
-					// +Add, then 'startCardSet(..) is invoked.
-				buttonSet.selectedButton match {
-					case "+"=> 
-							// Add-CardSet has its own backup system so create class.
-						val addBackupMechanism= new BackupMechanism
-						doAddCardSet( notePanel, 
-									  lock, 
-									  buttonSet, 
-									  statusLine, 
-									  addBackupMechanism, 
-									  defaultFont,
-									  true)   // indicate AddCardSet
-
-					case _=>
-					}
 			case _=> println("\tCardSet: unknown CardSetChild obj="+obj)	
 			}
-		}
-			// Note. similar funct in Notecard.
-	def doAddCardSet(notePanel:JPanel, 
-					 lock:AnyRef, 
-					 buttonSet:ButtonSet, 
-					 statusLine:StatusLine,
-					 addBackupMechanism:BackupMechanism,
-					 defaultFont:DefaultFont,
-					 addCardSetFlag:Boolean) = {
-			println("CardSet hashCode="+this.hashCode)
-
-		val addButton= getAddCardSet
-		val addCardSet= addButton.asInstanceOf[CardSet]
-			println("CardSet: AddCardSet hashCode="+addCardSet.hashCode)
-		println("CardSet:  addButton="+addButton+"   symId="+symId+"   +symAddButton="+symAddButton)
-				// AddCardSet(s) will be processed as if they are CardSet(s).
-		reset(addCardSet)
-		while(iterate) {
-				startCardSet(notePanel, 
-							lock, 
-							buttonSet, 
-							statusLine, 
-							addBackupMechanism, 
-							defaultFont,
-							true)   // indicate AddCardSet
-				}
-
-		}
+			}
 	/*
 	---------------------------------------------------------------
 						GroupNode
@@ -465,8 +408,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			else
 				true   // No logic expression  
 		}
-	//def initializeRowPosition(defaultFont:DefaultFont)= { new RowPosition(defaultFont) }
-
 		// CreateClass generates instances of CardSet without fields or parameters.
 		// However, it invokes 'receive_objects' to load parameters from *.struct
 		// file as well as symbolic addresses to be made physical ones. 
@@ -487,7 +428,8 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									setNext(pair(1))  // Node
 										// +Add button
 							case "button" =>
-									setAddButton(pair(1))  // Node
+									//setAddButton(pair(1))  // Node
+									button=pair(1).toInt
 							case "condition" =>
 									conditionStruct=pair(1)
 							case "name" => 
