@@ -79,7 +79,6 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 			buttonSet.grayAndDisableNextAndPrior
 			val component=components(0)
 			component.requestFocus
-			println("InputFocus giveFocusToFirstInputField--1st component.requestFocus")
 			}
 		}
 
@@ -126,14 +125,12 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 					// CardSet has been halted so control is turned over to
 					// Next button to initiate release (start()). 
 				buttonSet.armNextButton   //enable button,color button orange
-				println("InputFocus: actWhenAllFieldsCaptured arrayInex==size-- NextButton.requestFocus")
 			    buttonSet.next.requestFocus
 				}
 			}
 		  else{
 					// Move cursor to next input field 
 				//println("InputFocus: actWhenAllFieldsCaptured arrayIndex!=size-- component.requestFocus")
-			  println("InputFocus:  components size="+components.length+"  arrayIndex="+arrayIndex)
 			if(arrayIndex+1 >=components.length)
 			  	println("ImputFocus:  ********* arrayIndex >= components.length********")
 			else
@@ -151,7 +148,6 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 		//println("InputFocus: establishAsteriskContinue-- NextButton.requstFocus")
 		buttonSet.next.requestFocus
 			// wait() invoked, button hit invokes 'notifyAll()'
-		println("INputFocus:  establishAsteriksContinue   issue wait")
 		buttonSet.issueWait
 		}
 }				

@@ -162,7 +162,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// either the 1st child or the current sibling node.
 			// see 'Linker' trait.
 		while(iterate){ // initialized by 'reset(child)'
-			println("CardSet begin iteration")
 				// Execute RowerNode, Assigner, CardSetTask, GroupNode, or eXecute.
 			executeCardSetChildren(  node, // Current sibling--see Linker  node,   // current  node 
 									 buttonSet,
@@ -174,15 +173,12 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									 statusLine, 
 									 defaultFont,
 									 listenerArray)
-					println("CardSet:  iteration")
 						// +Add button set exitCardSet = true
 			if(buttonSet.isExitCardSet){
 						// terminate children processing to allow ButtonCardSet to operate
 				iterator=null
-				println("CardSet  iterator="+iterator)
 				}
 			}
-		println("CardSet  end of iterateCardSetChildren")
 		}
 		// Children separated by match statement to invoke their respective modules
 	def executeCardSetChildren(  obj:Node,  // children
@@ -212,7 +208,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 						// '* continue'.
 				cst.startCardSetTask (inputFocus, statusLine, notePanel)
 			case gn:GroupNode=> 
-						// 		println("CardSet GroupNode")
 						// Determine whether to 'do' the enclosed commnds of the 
 						// Group command or to 'skip' these commands. 
 				whatToDo(groupResolve,     // global variable 
@@ -236,9 +231,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				inputFocus.giveFocusToFirstInputField
 				inputFocus.turnOnXNode  //prevents InputFocus.actWhenAllFieldsCaptured 
 										// from enabling NEXT button
-				println("CardSet: case xn:Xnode=>   haltCommandExecution(lock)")
 				haltCommandExecution(lock) // issue lock.wait()
-				println("CardSet: case xn:Xnode=>   unlock(lock)")
 			case _=> println("\tCardSet: unknown CardSetChild obj="+obj)	
 			}
 			}
@@ -375,7 +368,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 		buttonSet.validate()
 		buttonSet.repaint()
 //		buttonSet.visible()
-		//println("CardSet  buttonSet.repaint()")
 		}
 			//wait() released by notifyAll by "Next button" in ButtonSet
 			// Control passes to user to enter response(s).
@@ -386,7 +378,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 	def clearNotePanel(notePanel:JPanel) {
 			// JPanel extends JComponent having
 			// val, statusLine:StatusLine, idate(), and repaint()/
-			//println("CArdSet clearNotePanel removeAll()")
 		notePanel.removeAll()  // removes all components from panel
 		notePanel.repaint()
 		}

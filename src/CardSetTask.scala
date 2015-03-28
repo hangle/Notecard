@@ -6,7 +6,8 @@
 		taskx		-- task, such as, 'status', 'continue', 'break'
 		typex		-- task argument
 	'*' commands:
-		* status <message> Message is displayed in status box
+		* status <message> Message is displayed in status box--just above
+										row of buttons.
 		* continue<no arg> Preceding Card commands are displayed and
 							NEXT button is enabled. When NEXT is
 							activated, then following Card commands

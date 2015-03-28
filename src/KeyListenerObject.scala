@@ -75,7 +75,6 @@ class KeyListenerObject(boxField:BoxField,
 			if(captureInputResponse ){ 	//fails if Edit fails
 						// inputFocus counts number response required
 						// Releases CardSet wait() when count achieved
-						//		println("KeyListenerObject: captureInputResponse")
 				inputFocus.actWhenAllFieldsCaptured
 				}
 			}

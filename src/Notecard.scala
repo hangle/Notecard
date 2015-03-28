@@ -203,7 +203,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// +Add button detected in 'waitOverDoButton'				
 					// ButtonCardSets fall thru (not processed) unless 'activatedAddButton' 
 					// has been set 'true' in 'waitOverDoButtons' by '+' button.
-				println("Notecard bcs:=>   activatedAddButton="+activatedAddButton)
 				if(activatedAddButton) {
 						startCardSetThenDoButtonsAfter( bcs,
 														obj,
@@ -215,7 +214,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				// CardSet executes a series of children commands that
 				// constitute a single Card set. 
 			case cs:CardSet=> //println("cs:CardSet") //
-				println("Notecard:  cs=> ")
 						// button==1 A CardSet with associate ButtonCardSet
 				if(cs.hasAddCardSet) {
 						// Arm +Add button and save 'current node' to restore CardSet
@@ -236,7 +234,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						// present one Card. CardSet enters a wait() state
 						// until button( NEXT,PRIOR,'*') is pressed, thus causing
 						// it to return.
-									//println("Notecard: startCardSet from executeNotecardChildren")
 					startCardSetThenDoButtonsAfter( cs,
 													obj,
 													notePanel,
@@ -274,7 +271,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						  defaultFont: DefaultFont):Unit={ 
 		buttonSet.selectedButton match {
 				case "next"  =>
-						println("Notecard case Next")
+						//println("Notecard case Next")
 							// add button armed via 'bcs:CardSet=> ...'
 						buttonSet.grayAndDisableAddButton
 							// last ButtonCardSet in series has a button value
