@@ -107,7 +107,7 @@ class CreateClass   extends Node {
 				notecard.receive_objects(structObj.tail)
 				swizzleTable=notecard.setId(swizzleTable, notecard)
 				Some(notecard )    // returned to be store in 'coreVector'
-			case "%CardSet" | "%ButtonCardSet" => 
+			case "%CardSet" | "%AddCardSet" => 
 				val cardSet=CardSet(symbolTable)
 				cardSet.receive_objects(structObj.tail) // pass parameters to object
 				swizzleTable=cardSet.setId(swizzleTable, cardSet) //phy addr added to swizzleTab..

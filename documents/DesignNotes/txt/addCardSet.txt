@@ -1,0 +1,132 @@
+AddCardSet
+-------------
+
+The following script creates a CardSet and an AddCardSet.   
+
+		c
+		d What is the capital of Ohio (# $columbus)
+
+		+
+		d Discover of the New World.
+
+		* end
+
+The CardSet, beginning with the command 'c', asks a    
+question requiring a user response. The AddCardSet,   
+beginning with the command '+', provides a probe or   
+prompt, that is, a hint, to the user   
+
+The question-CardSet arms the '+Add' button. Activation    
+of the +Add button presents the AddCardSet along    
+with its hint. In the AddCardSet, the activation of   
+the +Add button returns the user to the question-CardSet  
+to complete the response.       
+
+On the otherhand, the AddCardSet can be avoided. The   
+user can answer the question, followed by the 'Next'   
+button, to skip the AddCardSet.   
+
+The AddCardSet is always associated with the   
+immediately preceding CardSet.  A CardSet may have   
+more than one AddCardSet as the following script   
+illustrates.   
+
+		c
+		d What is the capital of Ohio (# $columbus)
+
+		+
+		d Discover of the New World.
+
+		+
+		d Begins with 'C' and has 8 letters
+
+		* end
+
+Termination of the last AddCardSet initiates the   
+return or re-display of the question-CardSet. A   
+single AddCardSet is also the last in the series.    
+The series my be terminated before the last   
+AddCardSet by activation of the 'Next' button.   
+
+
+Notecard Program
+
+The CardSet and AddCardSet are identical in almost   
+all respects. The differ by the 'button' parameter that   
+each has.    
+
+		CardSet        button=0     No associated AddCardSet
+		CardSet        button=1     Associated AddCardSet
+		AddCardSet     button=2     Not last
+		AddCardSet     button=99    Last AddCardSet
+
+A CardSet whose button parameter is '1' has one or more   
+associated AddCardSets.   
+
+Notecard class:   
+
+CardSet and AddCardSet are children of the Notecard object.   
+The AddCardSet objects are treated as CardSet objects but retains   
+AddCardSet indentity by 'button' parameter values of '2' or '99'.      
+
+	def executeNotecardChildren(...)  obj match{
+
+				// test button for '2' or '99'
+		case bcs:CardSet if(bcs.isAddCardSet) =>
+			if(activatedAddButton)
+				startCardSetThenDoButtonsAfter(...)
+		case cs:CardSet=> 
+				// test button for '1'
+			if(cs.hasAddCardSet) {
+				saveCurrentNode
+				buttonSet.armAddButton
+				}
+			  ...
+			startCardSetThenDoButtonsAfter(...)
+
+The first case statement will catch all AddCardSet; however, it   
+is not executed unless 'activatedAddButton' is true.  The +Add   
+button sets this boolean value to 'true'.  The user activating   
+the Next button causes the AddCardSet to be skipped (actuvated-   
+AddButton is false). The function 'startCardSetThenDoButtonsAfter'   
+is bypassed.   
+
+Since a CardSet preceeds an associated AddCardSet, the second case    
+statement handles this object. The 'if(cs.hasAddCardSet)' detects    
+(button ==1) CardSet objects with dependent AddCardSets. In this   
+situation, the '+Add' button is highlighted and 'Node' or pointer   
+to the CardSet is saved to allow the CardSet to be re-presented.   
+
+	def waitOverDoButtons(...)  buttonSet.selectedButton match {
+
+		case "+"     //+Add button activated
+			if(cardSet.isLastAddCardSet) {  //button== 99	
+				activateAddButton=false
+				restoreCurrentNode
+				}
+			  else
+				activateAddButton=true
+
+The last AddCardSet, following the associated CardSet, establishes    
+a return to this CardSet with the function 'restoreCurrentNode'    
+(see Linker.scala).   
+
+	def iterateNotecardChildren(...)
+
+		reset(child)
+		while(iterate) {
+			...
+			executeNotecardChildren(node, 
+			}
+
+The 'iterate' function addresses the next Notecard child to execute.  
+Assume that a series of AddCardSets have been processed. The CardSet   
+that is associated with these objects has had it address saved:   
+		
+		saveCurrentNode	
+
+The function:  
+
+		restoreCurrentNode
+
+causes 'while(iterate) {...' to reprocess the associated CardSet.   

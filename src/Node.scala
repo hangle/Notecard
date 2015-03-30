@@ -108,7 +108,7 @@ trait Node  {
 //	var symAddButton:String="0" 
 	var child:Node=null	 // 1st child of parent list assigned by:converToChild
 	var next:Node=null   // sibling
-	var addButton:Node=null // AddButtonCardSet
+	var addButton:Node=null // AddCardSet
 	var backup:Node=null	// current node assigned after Framer completes
 							// processing of CardSet
 	var node:Node=null

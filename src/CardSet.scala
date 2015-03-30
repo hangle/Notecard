@@ -175,7 +175,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									 listenerArray)
 						// +Add button set exitCardSet = true
 			if(buttonSet.isExitCardSet){
-						// terminate children processing to allow ButtonCardSet to operate
+						// terminate children processing to allow AddCardSet to operate
 				iterator=null
 				}
 			}

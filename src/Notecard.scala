@@ -151,21 +151,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				}
 			}   
 		}
-			// Invoked in 'executeNoteCardChildren'
-			// when CardSet's button is 1 indicating that the
-			// CardSet has associated AddCardSet(s), so arm Add button
-			// and save CardSet's node to allow it to be restored. 
-	def addCardSetSettings(buttonSet:ButtonSet)  {
-			saveCurrentNode
-			buttonSet.armAddButton
-			}
-			// Invoked when CardSet's button is  2 or 99.
-	def	buttonCardSetSettings(buttonSet:ButtonSet, bcs:CardSet) {
-			if(bcs.isLastAddCardSet) // true when button==99, otherwise==2
-				buttonSet.grayAndDisableAddButton
-			 else
-				buttonSet.armAddButton
-			}
 	def startCardSetThenDoButtonsAfter( cardSet:CardSet,
 										obj:Node,
 										notePanel:JPanel,
@@ -198,8 +183,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				// CardSet with 'button' values of 2 or 99 are ButtonCardSet types.
 				// button > 1  where 1=CardSet, 2=ButtonCardSet, 3=LastButtonCardSet
 			case bcs:CardSet if(bcs.isAddCardSet) =>
-					// activate +Add button	unless it is last ButtonCardSet type
-				buttonCardSetSettings(buttonSet, bcs)
 					// +Add button detected in 'waitOverDoButton'				
 					// ButtonCardSets fall thru (not processed) unless 'activatedAddButton' 
 					// has been set 'true' in 'waitOverDoButtons' by '+' button.
@@ -217,7 +200,8 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						// button==1 A CardSet with associate ButtonCardSet
 				if(cs.hasAddCardSet) {
 						// Arm +Add button and save 'current node' to restore CardSet
-					addCardSetSettings(buttonSet)
+					saveCurrentNode
+					buttonSet.armAddButton
 					}
 						// Do CardSet if condition is true or 'c' command lacks condition.
 						// Otherwise skip 'wait' so as to process next CardSet.
@@ -271,12 +255,10 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						  defaultFont: DefaultFont):Unit={ 
 		buttonSet.selectedButton match {
 				case "next"  =>
-						//println("Notecard case Next")
 							// add button armed via 'bcs:CardSet=> ...'
 						buttonSet.grayAndDisableAddButton
-							// last ButtonCardSet in series has a button value
-							// of 99, therefore, terminate the series.
-						if(cardSet.isLastAddCardSet){
+							// Terminate AddCardSet series
+						if(activatedAddButton) {
 							activatedAddButton=false
 							restoreCurrentNode
 							}
@@ -286,20 +268,17 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				case "*" =>
 						doAsteriskButton(taskGather)
 				case "+" =>
-							// toggleAddButton is initially false
-						if( ! toggleAddButton){
-								// '+' button initially causes via 'activatedAddButton'
-								// to process 'ButtonCardSet(s).
-							activatedAddButton=true
-							toggleAddButton=true
-							}
-								// '+' button terminates ButtonCardSet processing and
-								// restore the 'current' CardSet
-						  else{
+							// Last AddCardSet restores associated CardSet
+							// last ButtonCardSet in series has a button value
+							// of 99, therefore, terminate the series.
+						if(cardSet.isLastAddCardSet){
 							activatedAddButton=false
-							toggleAddButton= false
+								//Enable CardSet to repeat
 							restoreCurrentNode
 							}
+						else
+								//Allow AddCardSets to be executed.
+							activatedAddButton=true
 				case _=>
 							println("Notecard: unknown button actionPerformed")
 				}
