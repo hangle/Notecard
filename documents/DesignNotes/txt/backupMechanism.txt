@@ -2,50 +2,42 @@
 Backup  Mechanism
 ----------------
 
-The script file 'threeCardSets.nc' shows three CardSets:  
+The following script  shows three CardSets.  In the present case,
+each CardSet consist of a clear (c) command and a display (d)
+command
 
 <pre>
 		c
-		d First card set
+		d First CardSet display
+
 		c
-		d Second card set
+		d Second CardSet display
+
 		c
-		d Third card set
+		d Third CardSet display
 </pre>
 
 The design document NodeLinker.md describes how the Notecard  
-program processes these card sets in their proper order.   
-The parent classes (Notecard, CardSet, RowerNode, BoxField  
-and LoadDictionary) of the linked list hierarchy employ two  
-traits Node and Linker to move from one card set to the next.  
+program processes  CardSets in their proper order (First,
+Second, Third).  This design document describes how Notecard
+processes CardSets in reverse order (Third, Second, First).
+Reversing the order provides a backup mechanism.
 
-<pre>
-		Notecard Class Hierarchy
-                                                 Script Examples  
-						 ---------------
-               Notecard  
-                  NotecardTask                   * end  
-                  NextFile                       f maleScript  
-                  CardSet                        c (1)=(2)  
-                      Assign                     a $count=$count+1  
-                      XNode                      x  
-                      GroupNode                  g (1) = (1)  
-                      CardSetTask                * continue  
-                      RowerNode                  d 3/5/  
-                          DisplayText            d now is  
-                          DisplayVariable        d (% $count)  
-                          BoxField               d (# $name)  
-                              EditNode           e ($count) < (5)  
-</pre>
+When a backup operation is available, the Prior button is
+highlighted along with the Next button.  Assume the current
+CardSet is the second CardSet with the display:
 
-Every hierarchy class extends the trait Node. Every class, with  
-the exception of Notecard, references its 'next' sibling of type   
-Node.   
+		Second CardSet display
 
-Every parent class (Notecard, LoadDictionary, CardSet, RowerNode,   
-BoxField) references its 1st child or sibling of type Node.  The  
-parent class also extends Linker allowing transition from one  
-Node type to the next.    
+Both the Next and the Prior buttons are highlighted. The
+activation of the Next button executes the third CardSet.
+The execution of the Prior button re-presents the first
+CardSet.
+
+Assume the CardSet is the first CardSet. In this case,
+the Prior button is greyed. There is no Prior CardSet.
+  
+
 
 The trait Linker has two functions (reset and iterate). These two   
 functions are shown for the Notecard class to process its four   

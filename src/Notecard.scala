@@ -72,7 +72,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		// Create three buttons with actionListeners.
 		// Buttons are added to panel.Lock to issue notifyAll
 	val buttonPanel= new JPanel		
-		// Create buttons '*', 'PRIOR', 'NEXT'
+		// Create buttons '*', "+ADD", 'PRIOR', 'NEXT'
 	val buttonSet= new ButtonSet(buttonPanel, lock) //Buttons:  Next, Prior, and ' * '
 		// Create a JPanel with a layout of NoteLayout and
 		// enclose it in a black border.
@@ -80,8 +80,8 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		// Save current CardSet to be restore  after AddCardSet
 		// has executed
 	var currentCardSet:Node= _
-		// Used in 'doAsteriskButton' to hold JFrame reference to
-		// disposed of Management file.
+		// Creates a List of nodes used when Prior button is activated to
+		// re-present the prior CardSet.
 	val backupMechanism= new BackupMechanism
 		// FrameTask was passed a '* manage <filename>' command and CardSet
 		// has instantiated a Notecard object. This object is created  in 
@@ -209,7 +209,8 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						//	is tested and the CardSet instances is skipped when 'false',
 						//  If 'c' cmd has no logic, then outcome is always 'true'.
 				if(cs.noConditionOrIsTrue( symbolTable)){	//'c <cmd> has no logic /
-						// 1st sibling to pass condition test is stored in 'firstChild'.
+						// 1st sibling to pass condition test is stored in 'firstChild'
+						// to prevent backup beyond the 1st child.
 					backupMechanism.captureFirstChild(node)
 						// save all 'node's to be used to back up to prior CardSet
 					backupMechanism.storePriorSiblingInBackupList( node)
@@ -257,6 +258,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				case "next"  =>
 							// add button armed via 'bcs:CardSet=> ...'
 						buttonSet.grayAndDisableAddButton
+						buttonSet.grayAndDisablePriorButton
 							// Terminate AddCardSet series
 						if(activatedAddButton) {
 							activatedAddButton=false
@@ -264,6 +266,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 							}
 				case "prior" =>
 						buttonSet.grayAndDisableAddButton
+						buttonSet.grayAndDisablePriorButton
 						doPriorButton// load Linker.doIteratorWithBackup			
 				case "*" =>
 						doAsteriskButton(taskGather)
@@ -280,7 +283,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 								//Allow AddCardSets to be executed.
 							activatedAddButton=true
 				case _=>
-							println("Notecard: unknown button actionPerformed")
+							println("Notecard: unknown button actionPerformed--"+buttonSet.selectedButton)
 				}
 		}
 		// Keep iterator's node in order to restore after management file completes.
@@ -293,6 +296,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		iterator=backupMechanism.loadIteratorWithBackup 		// see Linker 
 		buttonSet.resetPriorButton	// turn off backup mechanism
 		}
+/*
 		//Backup set up
 	def doAddPriorButton(addBackupMechanism:BackupMechanism) {
 			// assign Linker.backup to 'iterator' to
@@ -300,6 +304,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		iterator=addBackupMechanism.loadIteratorWithBackup 		// see Linker 
 		buttonSet.resetPriorButton	// turn off backup mechanism
 		}
+*/
 			// Invokes new CardWindow (extends JFrame) and setVisible
 	def createAndMakeVisibleCardWindow( notePanel:JPanel,
 										buttonPanel:JPanel,

@@ -1,0 +1,82 @@
+		Prior Button Path
+
+ButtonSet:
+	var priorButton=false;		
+	var isPriorButtonOn = "on" //when 'off', button is disabled
+
+	def actionPerformed(event:ActionEvent) { 
+		case "Prior"=> 
+			selectedButton="prior"  //Notecard: match expression
+			start()   //unlock all
+
+	def resetPriorButton= priorButton=false
+
+	def armPriorButton= {
+		if(isPriorButtonOn=="on"){
+			prior.setBackground(Color.GREEN)		
+			prior.setEnabled(true)
+			}
+		else
+			grayAndDisablePriorButton
+
+	def actWhenAllFieldsCaptured { ...
+		if(xnodeState==true)
+			...
+		else
+			if( ! backupMechanism.isFirstChild)
+				buttonSet.armPriorButton
+
+InputFocus:
+
+
+	def giveFocusToFirstInputField {
+		if(counterInputFields >0) {
+			buttonSet.grayAndDisableNextButton
+			buttonSet.grayAndDisablePriorButton
+			val component=components(0)
+			component.requestFocus
+			}
+	def armPriorButton= {
+		if(isPriorButtonOn=="on"){
+			prior.setBackground(Color.GREEN)		
+			prior.setEnabled(true)
+			}
+		else
+			grayAndDisablePriorButton
+
+	def establishAsteriskContinue {
+		buttonSet.armNextButton 
+		buttonSet.next.requestFocus
+		buttonSet.issueWait
+		}
+
+
+CardSetTask:
+
+	case "continue"=>
+		activateNextButtonForContinue( ......
+
+	def  activateNextButtonForContinue(...
+		 notePanel.validate()
+		 notePanel.repaint()
+		 inputFocus.establishAsteriskContinue 
+		}
+
+Notecard:
+	var priorButtonState="on"
+
+	def receive_objects
+		case "priorButton" =>
+			priorButtonState=pair(1)
+			buttonSet.isPriorButtonOn= priorButtonState   
+
+	def doPriorButton {
+		iterator=backupMechanism.loadIteratorWithBackup 
+		buttonSet.resetPriorButton	
+		}
+
+	def waitOverDoButtons(...
+
+		case "prior" =>
+			buttonSet.grayAndDisableAddButton
+			doPriorButton

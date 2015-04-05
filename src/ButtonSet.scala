@@ -55,7 +55,7 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	var asteriskButton=false//'true' when '*' button hit (see actionPerformed)
 	var isAsteriskButtonOn="on"  // when 'off', button is disabled by * cmd
 	var isPriorButtonOn = "on" //when 'off', button is disabled
-	var exitCardSet=false  
+//	var exitCardSet=false  
 			// button acquires listener and is added to NotePanel/
 	createActionButton(buttonPanel, asterisk)
 	createActionButton(buttonPanel, addButton)
@@ -66,6 +66,7 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	grayAndDisableAsteriskButton
 	grayAndDisablePriorButton 
 	grayAndDisableAddButton 
+		// Buttons terminate wait state  (start())
 		// Determine which button was activated and take 
 		// appropriate action.
 	def actionPerformed(event:ActionEvent) { 
@@ -74,6 +75,7 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 			case "Next"=>  
 				//println("ButtonSet: actionPerformed:  Next")
 				selectedButton="next" //Notecard: match expression
+/*
 					// Next button has been activated, so:
 					// disable it,  gray the button,
 					// then release the wait state in CardSet
@@ -81,12 +83,13 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 					// Disabled PRIOR button because it was occasionally
 					// gaining focus after NEXT button activation, causing
 					// the next spacebar key to initiate backup. 
+*/
 				start()   //unlock all
 			case "Prior"=> 
 				//println("ButtonSet: actionPerformed:  Prior")
 							//	println("ButtonSet: actionPerf...    --prior-- ")
 				selectedButton="prior"  //Notecard: match expression
-				grayAndDisablePriorButton
+		//		grayAndDisablePriorButton
 				start()   //unlock all
 			case " * "=> 
 				//println("ButtonSet: actionPerformed:  * button")
@@ -97,17 +100,19 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 					// in old script before the move.
 				start()   //unlock all
 			case "+Add"=>
-				println("ButtonSet: actionPerformed:  +Add")
+		//		println("ButtonSet: actionPerformed:  +Add")
 				selectedButton="+"  //Notecard: match expression
-				turnOnExitCardSet	// allows return in <CardSet>  xn:case=>
+//				turnOnExitCardSet	// allows return in <CardSet>  xn:case=>
 				start()    //unlock all
 			case _=> 		println("ButtonSet unknown event=")
 			}
 		}
+/*
 				// Initially set in CardSet.startCardSet
 	def turnOffExitCardSet=exitCardSet=false
 	def turnOnExitCardSet =exitCardSet=true
 	def isExitCardSet= exitCardSet
+*/
 
 	def resetPriorButton= priorButton=false //set false in Notecard after executing
 						  // prior Card.
@@ -115,12 +120,13 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		button.addActionListener(this)
 		buttonPanel.add(button)
 		}
+/*
 			// Invoked in InputFocus  ??
 	def grayAndDisableNextAndPrior { //Prior,Next buttons
 		grayAndDisableNextButton
-//		grayAndDisableAddButton
 		grayAndDisablePriorButton
 		}
+*/
 	def grayAndDisableAsteriskButton={
 		asterisk.setEnabled(false)
 		asterisk.setBackground(Color.lightGray)

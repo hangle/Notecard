@@ -1,0 +1,43 @@
+
+		XNodeMechanism
+
+The following CardSet script request that the user enter 
+a response and appears to provide feedback as to the correct
+answer.
+		c
+		d 2+2 = (# $sum4)
+		g ($sum4)=(4)
+		d Correct
+		ge 
+		d Wrong, the answer is 4
+
+Unfortunately, all the CardSet commands are executed before
+the user has the opportunity to respond.  The variable '$sum4'
+is empty causing the logical expression to fail.  Thus, the 
+text "Wrong, the answer is 4". is displayed.
+
+The 'eXecute' command with the tag 'x' halts the processing of
+commands until the response is captured.
+
+		c
+		d 2+2 = (# $sum4)
+		x                   // wait state invoked
+		g ($sum4)=(4)
+		d Correct
+		ge 
+		d Wrong, the answer is 4
+
+Command processing begins when the Next button is
+activated (wait released), and the commands:
+
+		g ($sum4)=(4)
+		d Correct
+		ge 
+		d Wrong, the answer is 4
+
+are executed.  The variable '$sum4' now holds the user's
+response. Again, the Next button is highlighted (wait invoked). 
+Until it is activated, the user has the opportunity to read
+the feedback.
+
+

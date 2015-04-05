@@ -49,11 +49,11 @@
 		accounted for. In this case, 'counterInputFields' is returned to zero (0).
 
 		Card command execution is restarted, and now the second field
-		($b) is processed causing 'counterInputFields' to be incremented to '1',
+		(# $b) is processed causing 'counterInputFields' to be incremented to '1',
 		thus invoking:
 				if(counterInputFields==1)
 					component.requestFocus
-		Thus, $b is given focus.
+		Thus, (# $b) field is given focus.
 */
 package com.client
 import javax.swing.JComponent
@@ -62,26 +62,30 @@ import collection.mutable.ArrayBuffer
 			// activate NEXT button and to release wait() in CardSet
 class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 	var components=new ArrayBuffer[JComponent] //JComponent can be BoxField
-			// Increment in RowerNode when BoxField object is detected.
+			// Increment in  InputFocus.addToArray(...), however, RowerNode invokes
+			// this function `when BoxField object is detected.
 	var counterInputFields=0  	 
 			//Index of current component incremented when KeyListenerObject
 			// detects ENTER key and invokes actWenAllFieldsCaptured().
 	var arrayIndex= 0	   
-	var xnodeState=false   // default until XNode is encounterInputFieldsed in CardSet
+			// default until XNode is encounterInputFieldsed in CardSet
+	var xnodeState=false   
 			// Set false at beginning of iteration and set true at end.
 			// Arm Prior button when true provided CardSet not first. 
-			// Invoked by CardSet (2 places) just before 'haltCommandExecution'.
+			// Invoked by CardSet (2 places): 
+			// (1) following 'executeCardSetCommands(...'.
+			// (2) following case xn:Xnode =>
 			// Note: focus not requested when CardSet has no InputFields (counterInputFields==0)
 			// or when 'actWhenAllFieldsCaptured' set this value to 0.
 	def giveFocusToFirstInputField {
 		if(counterInputFields >0) {
-				// while input active, disable +Add, Prior, and Next buttons
-			buttonSet.grayAndDisableNextAndPrior
+				// input has not been captured so disable +Add and Prior buttons
+			buttonSet.grayAndDisableNextButton
+			buttonSet.grayAndDisablePriorButton
 			val component=components(0)
 			component.requestFocus
 			}
 		}
-
 	def turnOnXNode={ xnodeState=true}   // CardSet has encounterInputFieldsed a XNode command
 	def turnOffXNode={ xnodeState=false}// capture completes so turn off this condition
 		// In 'addToArray(..)', 'counterInputFields' is incremented by an InputField 
@@ -105,27 +109,25 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 					// fields have been halted. Fields preceeding 'x' command are captured
 					// before command execution is restarted. 
 			if(xnodeState==true) { // set true in CardSet by XNode command
-				turnOffXNode// turn off until next XNode instance
-					// allows 'isNoInputFields' in CardSet to active 'NEXT' button
-					// also forces focus in 'setFieldFocus' to first JComponent
-					// of XNode input fields. 
+					// turn off until next XNode instance
+				turnOffXNode
+					//Allows RowerNode to begin counting BoxField objects , if any.
 				counterInputFields=0  
 					// Release CardSet to execute remaining CardSet commands.
 				buttonSet.start() // XNode releases wait()
-				}
-			 else{
-					// In iteration, first CardSet set 'firstChild' to 'true',
-					// next and subsequent CardSet set it to 'false'
-				if( ! backupMechanism.isFirstChild ) {
-					buttonSet.armPriorButton
-			//			println("InputFocus: actWhenAll...  isFirstChild")
 					}
-		//		  else
-		//		  	buttonSet.grayAndDisablePriorButton
-					// CardSet has been halted so control is turned over to
-					// Next button to initiate release (start()). 
+			  else{
+		/*
+							// In iteration, first CardSet set 'firstChild' to 'true',
+							// next and subsequent CardSet set it to 'false'
+				if( ! backupMechanism.isFirstChild ) {
+						buttonSet.armPriorButton
+							}
+		*/
+							// CardSet has been halted so control is turned over to
+							// Next button to initiate release (start()). 
 				buttonSet.armNextButton   //enable button,color button orange
-			    buttonSet.next.requestFocus
+			   	buttonSet.next.requestFocus
 				}
 			}
 		  else{

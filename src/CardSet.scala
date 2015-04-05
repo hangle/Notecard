@@ -68,8 +68,8 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 	def isAddCardSet= button > 1 //AddCardSets have button values of 2 or 99
 	def isLastAddCardSet= button == 99   // last AddCardSet in the series.
 	def hasAddCardSet= button == 1    // otherwise button==0
-			// Invoked by Notecard for CardSet and AddCardSet /objects. When invoked by
-			// a AddCardSet object, then addCardSetFlag is true, otherwise it is false. 
+			// Invoked by Notecard for CardSet and AddCardSet objects. When invoked by
+			// an AddCardSet object, then addCardSetFlag is true, otherwise it is false. 
 	def startCardSet(notePanel:JPanel, 
 					 lock:AnyRef, 
 					 buttonSet:ButtonSet, 
@@ -86,15 +86,12 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// collaboration with RowerNode. RowerNode passes row and column placement
 			// values to RowPosition.  These value are converted to pixels.  When the
 			// "next" row is to be displayed, RowPosition.currentPosition becomes
-			// the 'y' value java.awt.Component.setBounds(x,y,width, height)
+			// the 'y' value for 'java.awt.Component.setBounds(x,y,width, height)'
 		val rowPosition= new RowPosition(defaultFont) 
 			// prior CardSet set may have posted a status message so remove for new CardSet.
 		statusLine.clearStatusLine 
-			// prevent XNode from terminating the process of  CardSet children
-		buttonSet.turnOffExitCardSet
-
-				// Iterate CardSet commands then display	
-		executeCardCommandsAndDisplay(notePanel, 
+			// Iterate CardSet commands then display	
+		executeCardSetCommands        (notePanel, 
 									  buttonSet,
 									  rowPosition,
 									  lock, 
@@ -103,17 +100,19 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									  statusLine, 
 									  defaultFont,
 									  listenerArray) 
+				// 1st child has no sibling to backup to.
 		if( ! backupMechanism.isFirstChild) {
+				// arm only after '* continue' abd 'x' commands have completed.
 			buttonSet.armPriorButton
 			}
-		if(buttonSet.exitCardSet)
-				clearNotePanel(notePanel)
-		else {
+			// Execution of CardSet commands have ended. So arm Next button
 		buttonSet.armNextButton	
+			// Give focus to Next button
 		buttonSet.next.requestFocus
+			// Not executed if CardSet lacks one or more answer fields, otherwise
+			// these fields are given focus and are processed by InputFocus.
 		inputFocus.giveFocusToFirstInputField
 		showPanel(notePanel) // display panel content (paint, validate)
-			
 			// Invoked by CardSet (2 places) just before 'haltCommandExecution'.
 			// Note: focus not requested when CardSet has no InputFields (counterInputFields==0)
 			// or when 'actWhenAllFieldsCaptured' set this value to 0.
@@ -124,10 +123,9 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// KeyListenerObject(s) are removed from the
 			// corresponding BoxField
 		removeInputFieldListeners(listenerArray) 
-		}	
-	}// control returns to Notecard to process the next card set
+	}// return to Notecard to process the next CardSet
 
-	def executeCardCommandsAndDisplay(notePanel:JPanel,
+	def executeCardSetCommands       (notePanel:JPanel,
 									  buttonSet:ButtonSet,
 									  rowPosition:RowPosition,
 									  lock:AnyRef,
@@ -163,7 +161,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// see 'Linker' trait.
 		while(iterate){ // initialized by 'reset(child)'
 				// Execute RowerNode, Assigner, CardSetTask, GroupNode, or eXecute.
-			executeCardSetChildren(  node, // Current sibling--see Linker  node,   // current  node 
+			executeCardSetChildren(  node, // Current sibling--see Linker  node
 									 buttonSet,
 									 rowPosition, 
 									 notePanel, 
@@ -173,11 +171,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									 statusLine, 
 									 defaultFont,
 									 listenerArray)
-						// +Add button set exitCardSet = true
-			if(buttonSet.isExitCardSet){
-						// terminate children processing to allow AddCardSet to operate
-				iterator=null
-				}
 			}
 		}
 		// Children separated by match statement to invoke their respective modules
@@ -229,8 +222,9 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 					// (counterInputFields==0)  or when 'actWhenAllFieldsCaptured' 
 					// set this value to 0.
 				inputFocus.giveFocusToFirstInputField
-				inputFocus.turnOnXNode  //prevents InputFocus.actWhenAllFieldsCaptured 
-										// from enabling NEXT button
+					//InputFocus.actWhenAllFieldsCaptured invoked/ 
+					// from enabling NEXT button
+				inputFocus.turnOnXNode  
 				haltCommandExecution(lock) // issue lock.wait()
 			case _=> println("\tCardSet: unknown CardSetChild obj="+obj)	
 			}
