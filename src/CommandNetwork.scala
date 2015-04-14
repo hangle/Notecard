@@ -12,8 +12,12 @@ import scala.collection.mutable.Map
 
 object CommandNetwork  {
 		// Returns Notecard the root of the command hierarchy of 
-		// linked lists.
-	def loadFileAndBuildNetwork(fileName:String, symbolTable:Map[String,String])= {
+		// linked lists. Invoked in:
+		//					card
+		//					Notecard
+		//					NotecardTask
+	def loadFileAndBuildNetwork(fileName:String, 
+								symbolTable:Map[String,String]):Notecard= {
 			// Routines to extract filename and pathname
 		val fp=new FilePort
 			//Returns 'start.struct' if file not found. 

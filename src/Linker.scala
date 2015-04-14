@@ -43,8 +43,11 @@ trait Linker extends Node   {
 		var value:Node=null    
 			// capture 'reset's argument to be used by 'isChild'
 		var current:Node=null  // saved 
-
-		def saveCurrentNode { current= node } //Notecard management sys
+			// Notecard: doAsteriskButton() Employed to restart clientNotecard state.
+			// Invoked prior to calling 'startNotecard()
+		def saveCurrentNode { current= node } 
+			// Notecard: doAsteriskButton() Employed to restart clientNotecard state.
+			// Invoked following  call to 'startNotecard()
 		def restoreCurrentNode { iterator=current }
 
 			// Invoked by Notecard.iterateNotecardChildren to detect

@@ -18,10 +18,12 @@ import java.awt.event._
 import java.awt._
 import javax.swing._
 
-class KeyListenerObject( boxField:BoxField,  
-			 inputFocus:InputFocus, 
-			 listenerIndex:Int, // unique identifer for each listener
-			 statusLine:StatusLine)	extends KeyListener   { 
+class KeyListenerObject(boxField:BoxField,  
+						inputFocus:InputFocus, 
+						listenerIndex:Int, // unique identifer for each listener
+										// Note:  listenerIndex not used in class 
+										// suggesting that it is no longer operational.
+						statusLine:StatusLine)	extends KeyListener   { 
 
 			// BoxField parameters, i.e., getLimit, isYesNoMode, 
 			// IndexFocus   -- allow communication with IndexFocus
@@ -48,7 +50,7 @@ class KeyListenerObject( boxField:BoxField,
 		if(boxField.isYesNoMode) {   //BoxField.column ==1
 				// Record 'y' or 'n' if valuation succeeds
 			if(evaluateYesNoEntry(key))
-				// switches focus to next component if all fields have
+						// switches focus to next component if all fields have
 						// not been captured.
 					inputFocus.actWhenAllFieldsCaptured
 			}

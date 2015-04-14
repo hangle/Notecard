@@ -28,9 +28,9 @@ package com.client
 val array=Array(
 "%Notecard",
 "child	2002",
-"height	250",
-"width	350",
-"font_size	14",
+//"height	250",
+//"width	350",
+//"font_size	14",
 "%%",
 "%CardSet",
 "child	2003",

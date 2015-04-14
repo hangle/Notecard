@@ -33,7 +33,6 @@ class TaskGather()   {
 		// with .struct file from '* manage <filename.struct>. 'manageNotecard' is
 		// the root of this linked list. 
 	var manageNotecard:Notecard=null
-	var oldJFrameManagement:JFrame =null	
 
 	var oldJFrameList=List[JFrame]()
 		// Used by Notecard to assign NotecardTask's framer to manageNotecard.

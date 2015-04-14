@@ -54,23 +54,26 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 			listenerArray:ArrayBuffer[KeyListenerObject] //array of KeyListenerObjects
 			) {
 
-		rowPosition.loadRowAndColumn(row, column)	
-				// Find the largest height value of all 'd' command Visual
-				// components. Insert largest value in each component.  
+				// For the current Row, find the largest height value of all 'd' 
+				// command Visual components. Insert largest value in each component.  
 		val maxHeight= maxHeightValuesOfVisualObjects()
+//		println("\n RowerNode:  maxHeight="+maxHeight)
+		rowPosition.loadRowAndColumn(row, column, maxHeight)	
 				//  sets CurrentWidth of RowPosition
 				//	resolveColumnRowPosition(rowPosition, column, row)
 				//  execute DisplayText, DisplayVariable, BoxField
 		iterateRowerNodeChildren(rowPosition, 
-					 notePanel, 
-					 inputFocus, 
-					 indexer, 
-					 statusLine, 
-					 listenerArray)
+								 notePanel, 
+					 			 inputFocus, 
+					 			 indexer, 
+					 			 statusLine, 
+					 			 listenerArray)
 			//The visual components of the 'd' command my specify different height
 			//values.  'maxHeightValuesOfVisualObjects' finds the maximum height.
 			// 'currentHeight' is incremented after each 'd' command executes. 
-		rowPosition.sumMaxHeightToCurrentHeight(maxHeight)
+	//	rowPosition.sumMaxHeightToCurrentHeight(maxHeight)
+	//	rowPosition.sumMaxHeightToCurrentHeight
+	
 			// initialized for next 'd' command line. 
 		rowPosition.resetCurrentWidth()
 		}
@@ -82,7 +85,6 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 				 listenerArray:ArrayBuffer[KeyListenerObject]) {
 		reset(child)	//point to head of linked list (setFirstChild)
 		while(iterate) {   	//Linker processes linked list of CardSet children
-//			executeRowerNodeChildren(Value, // Value references a particular sibling, 
 			executeRowerNodeChildren(node, // node references a particular sibling, 
 							// such as DisplayText 
 						 rowPosition, 
@@ -93,7 +95,6 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 						 listenerArray)
 			}
 		}
-//	def executeRowerNodeChildren(obj:Any,  
 	def executeRowerNodeChildren(obj:Node,  
 				 rowPosition:RowPosition, 
 				 notePanel:JPanel, 
@@ -103,6 +104,7 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 				 listenerArray:ArrayBuffer[KeyListenerObject]) {
 		obj match{
 			case dt:DisplayText=>
+					//println("RowerNode:  case dt:DisplayText=>")
 				dt.startDisplayText(rowPosition)
 				notePanel.add(dt)			
 			case dv:DisplayVariable=>
@@ -122,13 +124,14 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 		// Visual objects. 
 	def maxHeightValuesOfVisualObjects()= {
 		var maxValue=0
-		//reset(getFirstChild)//point to head of linked list (setFirstChild)
 		reset(child)//point to head of linked list (setFirstChild)
-		while(iterate) {   //Linker processes linked list of CardSet children
+		while(iterate) {   //Linker processes linked list of visual display components
 			node match {
 				case dt:DisplayText=>
-					if (maxValue < dt.local_getMetricsHeight() )
+					if (maxValue < dt.local_getMetricsHeight() ) { 
+						//println("RowerNode: maxValue or local_getMetricsHeight()="+dt.local_getMetricsHeight() )
 						maxValue=dt.local_getMetricsHeight()
+						}
 				case dv:DisplayVariable=>
 					if (maxValue < dv.local_getMetricsHeight() )
 						maxValue=dv.local_getMetricsHeight()
@@ -197,16 +200,6 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 			   }  //breakable		 
 			  }
 	
-/*
-		val in=structSet.iterator
-		setChild(in.next)	
-		setAddress(in.next)
-		setNext(in.next)
-		row=in.next.toInt
-		column=in.next.toInt
-		 val percent= in.next
-		 //println("RowerNode: percent="+percent)
-*/
 		}
 }
 

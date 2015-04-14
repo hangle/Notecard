@@ -42,7 +42,6 @@ class GroupResolve()   {
 	val ElseConditionNode=3//post is "else" and has condition--else if
 	val EmptyNode=4		   //No condition or no "else"
 	var kind=0
-	//var groupNode:GroupNode=null
 					// The 1st GroupNode sets 'thenTrue' to either 'true' or false.
 					// The 2nd GroupNode whose Group tag is 'ge' will executed
 					// the enclose Group command when 'thenTrue' is false.
@@ -66,10 +65,12 @@ class GroupResolve()   {
 					// condition only 
 			case ThenNode=>	
 				if(groupNode.isConditionTrue) {
-					thenTrue=true
+					println("GroupResolve:  thenTrue is true and do returned")	
+					thenTrue=true  // case ElseNode=> will return 'skip'
 					"do"
 					}
 				 else {
+					println("GroupResolve:  thenTrue is fasle and skip is returned")	
 					thenTrue=false
 					"skip"
 					}
@@ -91,6 +92,7 @@ class GroupResolve()   {
 						"skip"
 
 			case EmptyNode=>  // no else and no condition
+					println("GroupResolve:  case EmptyNode=> done")
 					"done"
 			case _=> println("\t\tGroupResolve: unknown match value="+groupNode.whatKind)
 			}

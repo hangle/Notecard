@@ -18,7 +18,7 @@
 	BoxField is a child of CardSet.  When CardSet executes BoxField.startBoxField(..)
 	then the 'x' and 'y' coordinates as pixels are computed by RowPlacement functions.
 	These coordinates are used in 'render()' by 'setBounds()':
-	 	Component.setBounds(x, y, local_getMetricsWidth(), local_getMetricsHeight());
+	 	Component.setBounds(x, y, local_getMetricsWidth("m"), local_getMetricsHeight());
 	However, 'render()' is not invoked until just prior to the 'wait()'is issued  by
 	CardSet, for example: 
 			// CardSet children has executed, now invoke the 'render()' methods
@@ -40,8 +40,9 @@ import java.awt.FontMetrics
 import java.awt.Color
 import javax.swing._
 
-case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with Visual with Linker{
-													/*
+case class BoxField(var symbolTable:Map[String,String]) 
+				extends JTextField  with Visual with Linker with VisualMetric{
+/*
 				Linker
 					def reset
 					def iterate
@@ -52,8 +53,12 @@ case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with
 					def convertToChild
 				Visual
 					def render
-					def convertRowColumnToPixel
-*/
+				VisualMetric
+					var metrics
+					def establishMetrics
+					def local_getMetricsHeight()
+					dev local_getMetricsWidth("m")
+	*/
 //------------paramters pass by .struct file-----------------
    var field=""     //e.g.,  $one where field="$one"
    var length=0		// display length of input field
@@ -79,13 +84,21 @@ case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with
 			convertToChild(swizzleTable)  // Is a parent of the Edit commands
 			}
 //-------------------------------------------------------------------
+	var xx=0   //set by RowPosition
+	var yy=0   //set by RowPosition
+			// Assigned in RowerNode by visiting each Visual component
+			// of the 'd' command and finding the one with the 
+			// greatest height value. 
+	var maxHeight=0
+
+
 
 	def startBoxField(rowPosition:RowPosition) {
-		xx=rowPosition.getCurrentWidth()
-		yy=rowPosition.getCurrentHeight()
+		xx=rowPosition.currentPixelWidth
+		yy=rowPosition.yCoordinate
 			// computes the metric width of the text string so as
 			// to adjust row position for next display component
-		rowPosition.sumToCurrentWidth(local_getMetricsWidth())
+		rowPosition.sumToCurrentWidth(length * local_getMetricsWidth("m"))
 		}
 			// record captured response
 	def addFieldToSymbolTable {
@@ -95,26 +108,18 @@ case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with
 		symbolTable -= field
 		}
 	def getInput= getText().trim      //getText() in JTextField
-        var xx=0   //set by RowPosition
-	var yy=0   //set by RowPosition
-	var metrics:FontMetrics=null
-			// Assigned in RowerNode by visiting each Visual component
-			// of the 'd' command and finding the one with the 
-			// greatest height value. 
-	var maxHeight=0
-
-				// In NoteLayout, LayoutManager.layoutContainer iterates
-                		// thru all components added to the notecard panel.
-                   		// This method invokes 'render() for all Visual objs.
+  			// In NoteLayout, LayoutManager.layoutContainer iterates
+           	// thru all components added to the notecard panel.
+           	// This method invokes 'render() for all Visual objs.
 	def render() {
 		setForeground(ycolor)
-        setColumns(5)
+        //setColumns(5)
 		var y=yy    // in event that yy does not need an adjustment
 		if(isHeightDifferentThanMaxHeight) 
 			// y axis is ajusted downward for text whose height < maxHeight
-			// so that text of different sizes are aligned on the same line.
+			// so that text of different heights are aligned on the same line.
 					y=adjustYyForSizeLessThanMax( yy )
-        setBounds(xx, y, local_getMetricsWidth(), local_getMetricsHeight());
+        setBounds(xx, y, length * local_getMetricsWidth("m"), local_getMetricsHeight());
 		}
 		// if text height is not same as the largest height 
 	def isHeightDifferentThanMaxHeight: Boolean={
@@ -127,14 +132,6 @@ case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with
 		val difference= maxHeight - local_getMetricsHeight()
 		yy + difference - (difference * .25).toInt
 		}
-
-	def establishMetrics(nameFont:String, styleFont:Int, sizeFont:Int)={
-		val font=new Font(nameFont,styleFont, sizeFont)
-		setFont(font)
-		getFontMetrics(font)
-		}
-	def local_getMetricsHeight()={ metrics.getHeight() +4 }
-	def local_getMetricsWidth() ={ metrics.charWidth('m') * length }
 		// When an EditNode fails, its message parameter
 		// passed to BoxFieldc
 	var editMessage=""
@@ -209,27 +206,6 @@ case class BoxField(var symbolTable:Map[String,String]) extends JTextField  with
 			   }  //breakable		 
 			 metrics=establishMetrics(nameFont, styleFont, sizeFont)
 			 }
-
 		}
-/*
-		val in=structSet.iterator
-		setChild(in.next)    // EditNode children	
-	   	setAddress(in.next)
-		setNext(in.next)	 // next Sibling
-		field=in.next
-		length=in.next.toInt
-		column=in.next.toInt
-		sizeFont=in.next.toInt
-		styleFont=in.next.toInt
-		nameFont=in.next
-		ycolor=Paint.setColor(in.next) //see Paint object
-		limit=in.next.toInt
-		options=in.next.toInt
-
-		metrics=establishMetrics(nameFont, styleFont, sizeFont)
-		val percent= in.next
-	//	println("BoxField: percent="+percent)
-*/
-
 	}
 

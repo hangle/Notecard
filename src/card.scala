@@ -36,7 +36,7 @@ object card   {
 					 // allows the user to enter a filename.
 			 else "start"   
 
-//		var file=""
+				//println("card:  structFile="+structFile)
 		var isLoop=true
 			// Create table to hold card variables ($<variable>)
 		var symbolTable=Map[String,String]()
@@ -47,14 +47,15 @@ object card   {
 				// files lacking a pathname. Path with '/'
 			Session.setSessionPath("") 
 				// Asterisk command '* end' of FrameTask sets
+						try{
 			while(isLoop)	{
 					// Passed to Notecard and then to NextFile and
 					// FrameTask to read new .struct file or to 
 					// end the session. 
 				var taskGather=new TaskGather()
-					// reads <.struct> command file and creates a network
-					// of linked lists changing symbolic address to physical
-					// ones, and finally returning the root of the network. 
+					// reads <.struct> command file and creates a network/ of linked 
+					// lists changing symbolic address to physical ones, and finally 
+					// returning the root of the network. Also invoked in NotecardTask.
 				val notecard:Notecard=loadFileAndBuildNetwork( structFile, symbolTable)//CommandNetwork
 					// Invoke root of network and begin the Card session
 				notecard.startNotecard(taskGather)
@@ -63,11 +64,15 @@ object card   {
 					// Next file or terminate session 
 				if(taskGather.isNextFile) {			
 					structFile=taskGather.getFileName
+					//println("card: structFile=["+structFile+"]")
 					}
 				   else if(taskGather.isEndSession) {
 					isLoop=false         // terminate while loop
 					}
 				} //while
+						}catch{ case ex: Exception=>
+							println("card: Exception thrown")
+							}
 
 			System.exit(0)
 		} //main

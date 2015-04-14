@@ -9,17 +9,21 @@
 	moves the CardSets backward.  When the Prior button is activated,
 	the prior CardSet is presented.
 
+	Note, a second BackupMechanism object is created in Notecard for
+	Add-CardSets.
+
 */
 
 package com.client
 		// Created in Notecard.
-class BackupMechanism {
+class BackupMechanism(val kind:String) {
 			// stores nodes of CardSets that have been processed.
 		var backupList:List[Node]=Nil
 
 			// 1st CardSet sibling that passes the condition test 
 		var firstChild:Node=null
 
+		def showKind=println("BackupMechanism:  kind="+kind)
 			// Store 1st CardSet sibling that passes the condition test 
 		def captureFirstChild(node:Node) {
 			if(firstChild==null)
@@ -28,10 +32,14 @@ class BackupMechanism {
 			// test in Notecard and InputFocus to prevent backup
 			// beyond 1st sibling. Also to disable Prior button.
 		def isFirstChild={
-			if(firstChild eq backupList.head)
+			if(firstChild eq backupList.head) {
+				//println(s"BackupMechanism: $kind is first child")
 				true
-			else
+				}
+			else{
+				//println(s"BackupMechanism: $kind is NOT first child")
 				false
+				}
 			}
 			// Activated by CardSet to only store Node(s)
 			// of CardSet objects. Note, in iterate(), 'node'

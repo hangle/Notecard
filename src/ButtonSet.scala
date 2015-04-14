@@ -48,17 +48,17 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	val next=new JButton("Next")
 	val prior=new JButton("Prior")
 	val asterisk=new JButton(" * ")
-	val buttonCardSet=new JButton("+Add")
+	val addButton=new JButton("+Add")
 	var selectedButton="" // indicates 'actionPerformed' result
-	var plusButton=false
 	var nextButton=false
 	var priorButton=false; // set true by button, set false in Notecard
 	var asteriskButton=false//'true' when '*' button hit (see actionPerformed)
 	var isAsteriskButtonOn="on"  // when 'off', button is disabled by * cmd
 	var isPriorButtonOn = "on" //when 'off', button is disabled
+//	var exitCardSet=false  
 			// button acquires listener and is added to NotePanel/
 	createActionButton(buttonPanel, asterisk)
-	createActionButton(buttonPanel, buttonCardSet)
+	createActionButton(buttonPanel, addButton)
 	createActionButton(buttonPanel, prior)
 	createActionButton(buttonPanel, next)
 
@@ -66,43 +66,35 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	grayAndDisableAsteriskButton
 	grayAndDisablePriorButton 
 	grayAndDisableAddButton 
-
+		// Buttons terminate wait state  (start())
 		// Determine which button was activated and take 
 		// appropriate action.
 	def actionPerformed(event:ActionEvent) { 
 		event getActionCommand() match{
 				// Next button enabled by FieldFocus
 			case "Next"=>  
+				//println("ButtonSet: actionPerformed:  Next")
 				selectedButton="next" //Notecard: match expression
-					// Next button has been activated, so:
-					// disable it,  gray the button,
-					// then release the wait state in CardSet
-				grayAndDisableNextButton 
-					// Disabled PRIOR button because it was occasionally
-					// gaining focus after NEXT button activation, causing
-					// the next spacebar key to initiate backup. 
-				start()
+				start()   //unlock all
 			case "Prior"=> 
+				//println("ButtonSet: actionPerformed:  Prior")
 							//	println("ButtonSet: actionPerf...    --prior-- ")
 				selectedButton="prior"  //Notecard: match expression
-				//notifyGrayAndDisableNext 
-				grayAndDisablePriorButton
-				start()
+				start()   //unlock all
 			case " * "=> 
+				//println("ButtonSet: actionPerformed:  * button")
 							//	println("ButtonSet: actionPerf...    --*-- ")
 						//used in Notecard: match expression
 				selectedButton="*"  
-				//notifyGrayAndDisableNext 
-				grayAndDisableAsteriskButton
-				start()
+					// Move to a new script file so gray all buttons
+					// in old script before the move.
+				start()   //unlock all
 			case "+Add"=>
+		//		println("ButtonSet: actionPerformed:  +Add")
 				selectedButton="+"  //Notecard: match expression
-				grayAndDisableAddButton
-				//setAddState
-				start() 
+		//		start()    //unlock all
 			case _=> 		println("ButtonSet unknown event=")
 			}
-
 		}
 	def resetPriorButton= priorButton=false //set false in Notecard after executing
 						  // prior Card.
@@ -119,8 +111,8 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		prior.setBackground(Color.lightGray)
 		}
 	def grayAndDisableAddButton={
-		buttonCardSet.setEnabled(false)
-		buttonCardSet.setBackground(Color.lightGray)
+		addButton.setEnabled(false)
+		addButton.setBackground(Color.lightGray)
 		}
 	def grayAndDisableNextButton={ // invoked in CardSet and
 					// in ButtonSet. see notifyGray...
@@ -151,22 +143,29 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	def armAsteriskButton= {
 			// can be disabled by '* asteriskButton  off'
 			// on/off assigned in Notecard
+			//println("ButtonSet: armAsteriskButton")
 		if(isAsteriskButtonOn=="on") {
 				asterisk.setEnabled(true)
 				asterisk.setBackground(Color.white)
 				}
-			else
+			else {
+				//println("ButtonSet: grayAndDisableAsteriskButton")
 				grayAndDisableAsteriskButton
+				}
 		}
-	def armAddCardSet={
-		buttonCardSet.setEnabled(true)	
-		buttonCardSet.setBackground(Color.YELLOW)
+	def armAddButton={
+		addButton.setEnabled(true)	
+		addButton.setBackground(Color.YELLOW)
+		//println("ButtonSet   armAddButton set Yellow")
 		}
 
 		//card commands halted by 'wait' in
 		// CardSet. 'Next' button action 
 		// terminates the wait condition.
-	def start():Unit= lock.synchronized{ lock.notifyAll() } 
+	def start():Unit= {
+			//println("ButtonSet start()")
+			lock.synchronized{ lock.notifyAll() } 
+			}
 		// Invoked by InputFocus in support ofg
 		// the '* continue' statement. 
 	def issueWait:Unit=lock.synchronized{ lock.wait() }

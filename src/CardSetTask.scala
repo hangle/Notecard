@@ -6,7 +6,8 @@
 		taskx		-- task, such as, 'status', 'continue', 'break'
 		typex		-- task argument
 	'*' commands:
-		* status <message> Message is displayed in status box
+		* status <message> Message is displayed in status box--just above
+										row of buttons.
 		* continue<no arg> Preceding Card commands are displayed and
 							NEXT button is enabled. When NEXT is
 							activated, then following Card commands
@@ -44,9 +45,9 @@ case class CardSetTask(var symbolTable:Map[String,String]) extends Node   {
 			case _=> println("CardSetTask  unknown type="+ taskx)
 			}
 		}
-		// Invoked by "* continue" cmd.  It displays the text cmds
-		// that preceded the '* continue' commands, then invokes
-		// InputFocus to activate NEXT button and issue wait().
+		// Invoked by "* continue" cmd.  Text cmds that preceed the command are displayed.
+		// The '* continue' commands, invokes  InputFocus to activate NEXT button and 
+		// issue wait().
 	def  activateNextButtonForContinue(inputFocus:InputFocus, notePanel:JPanel) {
 		 notePanel.validate()
 		 notePanel.repaint() //added because PROR button would not display 'd' cmd
