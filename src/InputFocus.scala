@@ -49,7 +49,11 @@
 		accounted for. In this case, 'counterInputFields' is returned to zero (0).
 
 		Card command execution is restarted, and now the second field
+<<<<<<< HEAD
 		(# $b) is processed causing 'counterInputFields' to be incremented to '1',
+=======
+		($b) is processed causing 'counterInputFields' to be incremented to '1',
+>>>>>>> addBackup
 		thus invoking:
 				if(counterInputFields==1)
 					component.requestFocus
@@ -72,20 +76,33 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 	var xnodeState=false   
 			// Set false at beginning of iteration and set true at end.
 			// Arm Prior button when true provided CardSet not first. 
+<<<<<<< HEAD
 			// Invoked by CardSet (2 places): 
 			// (1) following 'executeCardSetCommands(...'.
 			// (2) following case xn:Xnode =>
+=======
+			// Invoked by CardSet (2 places) just before 'haltCommandExecution'.
+>>>>>>> addBackup
 			// Note: focus not requested when CardSet has no InputFields (counterInputFields==0)
 			// or when 'actWhenAllFieldsCaptured' set this value to 0.
 	def giveFocusToFirstInputField {
 		if(counterInputFields >0) {
+<<<<<<< HEAD
 				// input has not been captured so disable +Add and Prior buttons
+=======
+				// while input active, disable +Add, Prior, and Next buttons
+			//buttonSet.grayAndDisableNextAndPrior
+>>>>>>> addBackup
 			buttonSet.grayAndDisableNextButton
 			buttonSet.grayAndDisablePriorButton
 			val component=components(0)
 			component.requestFocus
 			}
 		}
+<<<<<<< HEAD
+=======
+
+>>>>>>> addBackup
 	def turnOnXNode={ xnodeState=true}   // CardSet has encounterInputFieldsed a XNode command
 	def turnOffXNode={ xnodeState=false}// capture completes so turn off this condition
 		// In 'addToArray(..)', 'counterInputFields' is incremented by an InputField 
@@ -117,13 +134,19 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 				buttonSet.start() // XNode releases wait()
 					}
 			  else{
+<<<<<<< HEAD
 		/*
+=======
+>>>>>>> addBackup
 							// In iteration, first CardSet set 'firstChild' to 'true',
 							// next and subsequent CardSet set it to 'false'
 				if( ! backupMechanism.isFirstChild ) {
 						buttonSet.armPriorButton
 							}
+<<<<<<< HEAD
 		*/
+=======
+>>>>>>> addBackup
 							// CardSet has been halted so control is turned over to
 							// Next button to initiate release (start()). 
 				buttonSet.armNextButton   //enable button,color button orange
@@ -133,9 +156,15 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 		  else{
 					// Move cursor to next input field 
 				//println("InputFocus: actWhenAllFieldsCaptured arrayIndex!=size-- component.requestFocus")
+<<<<<<< HEAD
 			if(arrayIndex+1 >=components.length)
 			  	println("ImputFocus:  ********* arrayIndex >= components.length********")
 			else
+=======
+	//		if(arrayIndex+1 >=components.length)
+	//		  	println("ImputFocus:  ********* arrayIndex >= components.length********")
+	//		else
+>>>>>>> addBackup
 	    	  components(arrayIndex).requestFocus
 			  }
 	}

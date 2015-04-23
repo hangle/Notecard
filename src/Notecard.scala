@@ -79,21 +79,23 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 	val notePanel=new NotePanel().getNotePanel 
 		// Save current CardSet to be restore  after AddCardSet
 		// has executed
+	var tmpNode:Node= _
 	var currentCardSet:Node= _
 		// Creates a List of nodes used when Prior button is activated to
 		// re-present the prior CardSet.
-	val backupMechanism= new BackupMechanism
+	val backupMechanism= new BackupMechanism("CardSet")
+		// Creates list of nodes to enable backup within AddCardSets.
+		// Instaniated in 'executeOneNotecardChild when CardSet button==1
+	var addBackupMechanism:BackupMechanism = _
+		// Support of two backup mechanism (1) CardSet, and (2)AddCardSet/
+		// variable indicates the current backup system./
+	var whichBackup="cardSet"
 		// FrameTask was passed a '* manage <filename>' command and CardSet
 		// has instantiated a Notecard object. This object is created  in 
 		// NotecardTask and is passed here from 'taskGather'. 
 	var manageNotecard:Notecard= _
-
-		// Set 'true' by '+Add' button allowing the processing of 'ButtonCardSet(s)
-		// in 'executeNotecardChildren  "bcs:CardSet=>"
-		// Set 'false' by 'Next' when 'isLastAddCardSet' is true.
-		// 
-	var activatedAddButton= false
-	var toggleAddButton=false
+		// Contains 'activatedAddButton', 'isFirstAddCardSet'. 
+	val addCardSetFlags=new AddCardSetFlags
 
 	def startNotecard(taskGather:TaskGather) {
 			// * button to Management file is alway armed
@@ -122,59 +124,44 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						// doAsteriskButton() throws the exception caught here. This function
 						// has recursively invoked Notecard and the exception is a way
 						// to continue processing its children.
-				}catch { case ex: Exception=> }
+				}catch { case ex: AsteriskException=>  }
 		} 
-		// CardSet, FrameTask, and Filename objects of Notecard(parent) are
+		// CardSet, FrameTask, and Filename children of Notecard(parent) are
 		// executed. Execution is interrupted by '* end' or 'f <name>' commands.   
 	def iterateNotecardChildren(notePanel:JPanel,
 								taskGather:TaskGather, 
 								buttonSet:ButtonSet,
 								defaultFont:DefaultFont) {
-
 		reset(child)//In Linker, getFirstChild points to root of linked list 
+
 		while(iterate) {	//Linker iterates linked list of siblings
 				// gray the Prior button if 1st sibling is 1st CardSe/t.
 				// thus having no prior CardSet. 
 			if(isChild){ // 1st Card of Card  file  (see Linker)
 				buttonSet.grayAndDisablePriorButton
 				}
+						// The 'AddButtonException' is caught having been thrown by the
+						// 'CardSet.executeOneCardSetChild' (see xn:XNode=> ) causing the
+						// termination of the current CardSet and the initiation of the
+						// dependent AddCardSet.
+					try {
 				// If '* end' or 'f <filename>' commands are detected, 
 				// then 'isTaskNone' is false, causing the iteration to
 				// be terminated, returning control to 'card'. 
-			if(taskGather.isTaskNone) {
+			if(taskGather.isTaskNone){ 
 					// process CardSet or FrameTask or NextFile. 'Value' returned from 'iterate'.
-				executeNotecardChildren(node, 
+				executeOneNotecardChild(node,   // iterate return node (see Linker)
 										notePanel, 
 										taskGather, 
 										buttonSet, 
 										defaultFont)
+
 				}
+					}  catch { case _:AddButtonException => }
 			}   
 		}
-	def startCardSetThenDoButtonsAfter( cardSet:CardSet,
-										obj:Node,
-										notePanel:JPanel,
-										taskGather:TaskGather,
-										buttonSet:ButtonSet,
-										defaultFont:DefaultFont) {
-		cardSet.startCardSet(notePanel, 
-							lock, 
-							buttonSet, 
-							statusLine, 
-							backupMechanism,
-							defaultFont)
-				// wait() of CardSet just released. Determine if either
-				// backup button or * asterisk button or '+Add' button was 
-				// activated. If so, than take care of button activated.
-		waitOverDoButtons(taskGather,
-						  cardSet,
-						  notePanel,
-						  lock,buttonSet, 
-						  statusLine, 
-						  defaultFont) 
-		}
 			//Notecard's children: CardSet, FrameTask, NextFile, LoadDictionary
-	def executeNotecardChildren(obj:Node, 
+	def executeOneNotecardChild(obj:Node, 
 								notePanel:JPanel, 
 								taskGather:TaskGather, 
 								buttonSet:ButtonSet,
@@ -182,51 +169,66 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		obj match	{
 				// CardSet with 'button' values of 2 or 99 are ButtonCardSet types.
 				// button > 1  where 1=CardSet, 2=ButtonCardSet, 3=LastButtonCardSet
-			case bcs:CardSet if(bcs.isAddCardSet) =>
+			case acs:CardSet if(acs.isAddCardSet) =>
 					// +Add button detected in 'waitOverDoButton'				
-					// ButtonCardSets fall thru (not processed) unless 'activatedAddButton' 
-					// has been set 'true' in 'waitOverDoButtons' by '+' button.
-				if(activatedAddButton) {
-						startCardSetThenDoButtonsAfter( bcs,
-														obj,
+					// AddCardSets fall thru (not processed) unless ButtonSet 'event'
+					// indicated that the '+Add' button was activated in addition that
+					// the '+Add' button is only armed by a CardSet with dependent
+					// AddCardSet objects.
+					// The "||" <or> necessary to support backup of AddCardSet(s).
+				if(buttonSet.selectedButton == "+" || buttonSet.selectedButton=="prior"){
+							// Indicates which BackupMechanism to execute in 'doPriorButton'
+						whichBackup="addCardSet"
+							// 1st sibling to pass condition test is stored in 'firstChild'
+							// to prevent backup beyond the 1st child. 'firstChild' in 
+							// AddBackupMechansim is null and is replaced by 'obj'.
+						addBackupMechanism.captureFirstChild(obj)
+							// save all 'node's (obj) to be used to back up to prior CardSet
+						addBackupMechanism.storePriorSiblingInBackupList( obj)
+						startCardSetThenDoButtonsAfter( acs,
 														notePanel,
 														taskGather,
 														buttonSet,
-														defaultFont)
+														defaultFont,
+														addCardSetFlags,
+														addBackupMechanism)
 						}
 				// CardSet executes a series of children commands that
 				// constitute a single Card set. 
 			case cs:CardSet=> //println("cs:CardSet") //
-						// button==1 A CardSet with associate ButtonCardSet
-				if(cs.hasAddCardSet) {
-						// Arm +Add button and save 'current node' to restore CardSet
-					saveCurrentNode
-					buttonSet.armAddButton
-					}
 						// Do CardSet if condition is true or 'c' command lacks condition.
 						// Otherwise skip 'wait' so as to process next CardSet.
 						// 	If the 'c' command has logic ,e.g, 'c (2)=(3)', then the logic
 						//	is tested and the CardSet instances is skipped when 'false',
 						//  If 'c' cmd has no logic, then outcome is always 'true'.
 				if(cs.noConditionOrIsTrue( symbolTable)){	//'c <cmd> has no logic /
-						// 1st sibling to pass condition test is stored in 'firstChild'
+						// 1st sibling to pass condition test is stored in 'firstChild'/
 						// to prevent backup beyond the 1st child.
 					backupMechanism.captureFirstChild(node)
 						// save all 'node's to be used to back up to prior CardSet
 					backupMechanism.storePriorSiblingInBackupList( node)
+								// button==1 A CardSet with associate ButtonCardSet
+					if(cs.hasAddCardSet) {
+								// Arm +Add button and save 'current node' to restore CardSet
+						buttonSet.armAddButton
+							// Create BackupMechanism for AddCardSet(s)
+						establishAddBackup(addCardSetFlags)
+						}
 						// Activate CardSet to process RowerNode,:
 						// Assigner, CardSetTask, GroupNode, XNode to
 						// present one Card. CardSet enters a wait() state
 						// until button( NEXT,PRIOR,'*') is pressed, thus causing
 						// it to return.
 					startCardSetThenDoButtonsAfter( cs,
-													obj,
 													notePanel,
 													taskGather,
 													buttonSet,
-													defaultFont)
+													defaultFont,
+													addCardSetFlags,
+													backupMechanism)
 
-						}
+					}
+					else println("Notecard:  skip cs.noConditionOrIsTrue")
 					// FrameTask is an <asterisk> command that performs
 					// a notecard task, such as ending the card session.
 			case ft:NotecardTask=> //println("ft:NotecardTask") 
@@ -245,7 +247,49 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 			case _=> println("Notecard: unknown isObject"+ obj)
 			}
 		}
-		// Invoked when CardSet returns from  executeNotecardChildren()
+			// Create BackupMechanism for AddCardSet(s)
+	def establishAddBackup(addCardSetFlags:AddCardSetFlags) {
+				// Indicates which BackupMechanism to execute in 'doPriorButton'
+			whichBackup="cardSet"
+				// release prior backup mechanism
+			addBackupMechanism=null
+				// AddCardSets have their own backup mechanism.
+			addBackupMechanism= new BackupMechanism("AddCardSet")
+				// In CardSet. 'hadDependentAdd' along with "+" throws
+				// AddButtonException in 'xn:XNote=>'
+			addCardSetFlags.hasDependentAdd=true
+				// current CardSet node is saved to be re-installed by
+				// 'restoreCurrentCardSet'
+			saveCurrentCardSet 
+		}
+
+	def startCardSetThenDoButtonsAfter( cardSet:CardSet,
+										notePanel:JPanel,
+										taskGather:TaskGather,
+										buttonSet:ButtonSet,
+										defaultFont:DefaultFont,
+										addCardSetFlags:AddCardSetFlags,
+										backupMechanism:BackupMechanism)= {
+		cardSet.startCardSet(notePanel, 
+							lock, 
+							buttonSet, 
+							statusLine, 
+							backupMechanism,
+							defaultFont,
+							addCardSetFlags)
+				// wait() of CardSet just released. Determine if either
+				// backup button or * asterisk button or '+Add' button was 
+				// activated. If so, than take care of button activated.
+		waitOverDoButtons(taskGather,
+						  cardSet,
+						  notePanel,
+						  lock,buttonSet, 
+						  statusLine, 
+						  defaultFont,
+						  addCardSetFlags) 
+		}
+
+		// Invoked when CardSet returns from  executeOneNotecardChild()
 		// Determine if and which button (Prior, +Add ,Next or '*')  was activated.
 	def waitOverDoButtons(taskGather:TaskGather, 
 						  cardSet:CardSet,
@@ -253,73 +297,62 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						  lock:AnyRef, 
 						  buttonSet:ButtonSet, 
 						  statusLine:StatusLine,
-						  defaultFont: DefaultFont):Unit={ 
+						  defaultFont: DefaultFont,
+						  addCardSetFlags:AddCardSetFlags):Unit={ 
+			// Note: in CardSet child XNode, button activations are not in
+			// this control path.
 		buttonSet.selectedButton match {
 				case "next"  =>
-							// add button armed via 'bcs:CardSet=> ...'
-						buttonSet.grayAndDisableAddButton
-						buttonSet.grayAndDisablePriorButton
-							// Terminate AddCardSet series
-						if(activatedAddButton) {
-							activatedAddButton=false
-							restoreCurrentNode
-							}
+						doNextButton(buttonSet, addCardSetFlags)
 				case "prior" =>
-						buttonSet.grayAndDisableAddButton
-						buttonSet.grayAndDisablePriorButton
-						doPriorButton// load Linker.doIteratorWithBackup			
+						doPriorButton(buttonSet, addCardSetFlags)
 				case "*" =>
-						doAsteriskButton(taskGather)
+						doAsteriskButton(buttonSet, taskGather)
 				case "+" =>
-							// Last AddCardSet restores associated CardSet
-							// last ButtonCardSet in series has a button value
-							// of 99, therefore, terminate the series.
-						if(cardSet.isLastAddCardSet){
-							activatedAddButton=false
-								//Enable CardSet to repeat
-							restoreCurrentNode
-							}
-						else
-								//Allow AddCardSets to be executed.
-							activatedAddButton=true
+						doAddButton(buttonSet, cardSet, addCardSetFlags)
 				case _=>
-							println("Notecard: unknown button actionPerformed--"+buttonSet.selectedButton)
+					println("Notecard: unknown button actionPerformed--"+buttonSet.selectedButton)
 				}
 		}
-		// Keep iterator's node in order to restore after management file completes.
+			//
 	def saveCurrentCardSet { currentCardSet=node }
 	def restoreCurrentCardSet { iterator=currentCardSet }
-		//Backup set up
-	def doPriorButton {
+
+	def doNextButton(buttonSet:ButtonSet, addCardSetFlags:AddCardSetFlags) ={
+			// add button armed via 'acs:CardSet=> ...'
+		buttonSet.grayAndDisableAddButton
+		buttonSet.grayAndDisablePriorButton
+			// Terminate AddCardSet series
+		if(addCardSetFlags.activatedAddButton) {
+			addCardSetFlags.activatedAddButton=false
+			restoreCurrentCardSet
+			}
+		}
+		// Return to previous CardSet by assigning the previous CardSet node
+		// to Linker's 'iterator'. 
+		// Note: CardSet and AddCardSet have separate backup mechanisms.
+	def doPriorButton(buttonSet:ButtonSet, addCardSetFlags:AddCardSetFlags)={
+		buttonSet.grayAndDisableAddButton
+		buttonSet.grayAndDisablePriorButton
+		if(whichBackup=="cardSet"){
+				doPriorButtonBackup(backupMechanism)
+				}
+			else{ //--if else then whichBackup=="addCardSet"
+
+					// processing Add sets so armAddButton
+				buttonSet.armAddButton	
+				doPriorButtonBackup(addBackupMechanism)
+				}
+		}
+
+		//Execute back up operation for either CardSet or for AddCardSet
+	def doPriorButtonBackup(backupMechanism:BackupMechanism) {
 			// assign Linker.backup to 'iterator' to
 			// enable the 'while(iterate)' to display prior Card.
 		iterator=backupMechanism.loadIteratorWithBackup 		// see Linker 
-		buttonSet.resetPriorButton	// turn off backup mechanism
+		buttonSet.resetPriorButton	// 'priorButton=false
 		}
-/*
-		//Backup set up
-	def doAddPriorButton(addBackupMechanism:BackupMechanism) {
-			// assign Linker.backup to 'iterator' to
-			// enable the 'while(iterate)' to display prior Card.
-		iterator=addBackupMechanism.loadIteratorWithBackup 		// see Linker 
-		buttonSet.resetPriorButton	// turn off backup mechanism
-		}
-*/
-			// Invokes new CardWindow (extends JFrame) and setVisible
-	def createAndMakeVisibleCardWindow( notePanel:JPanel,
-										buttonPanel:JPanel,
-										statusLine:JLabel,
-										frame_width:Int,  // object parameter
-										frame_height:Int) // object parameter
-										={
-			// Creates the notecard window (JFrame) with a BorderLayout
-			// and adds Note and Button panels to this window along with
-			// statusLine:JLabel.
-			// Also allows window size to change (height,width)
-		val window= new CardWindow(notePanel, buttonPanel, statusLine, frame_width, frame_height)
-		window.setVisible(true)
-		window
-		}
+
 		// The '*' button was activated to switch from the current script file to a second
 		// script file. The '* mangage <filename>' command provides the name
 		// of this second file. NotecardTask handles '* manage <filename>' command and
@@ -327,7 +360,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		// 'manageNotecard'.   The root of the List List structure's of the current file is 
 		// is assigned to 'initialNotecard'.  Notecard is recursively invoked by 
 		// 'manageNotecard.startNotecard(..).
-	def doAsteriskButton(taskGather:TaskGather) {
+	def doAsteriskButton(buttonSet:ButtonSet, taskGather:TaskGather) {
 			// Session keep track of whether Notecard is invoked	
 			// by 'card',i.e., 'clientNotecard'  or invoked 
 			// by '*' button, i.e., 'manageNotecard'
@@ -335,13 +368,14 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// set  'manageNotecard' state false so next time '*' button is
 					// activated, the 'else' group is executed
 			Session.initialNotecardState=false   
-					//buttonSet.grayAndDisableAsteriskButton
 			if(manageNotecard == null) {
 					//'*' button activated without '* manage <filename>' command. The 
 					// 'xyzxxyzv' file does not exist, so 'start' file is invoked.
 				manageNotecard=CommandNetwork.loadFileAndBuildNetwork( "xyzxxyzv", symbolTable)
 				}
-					// check if 'loadFileAnd...' changed variable's state.
+					// 'manageNotecard' is the command linked-list hierarchy of the file
+					// whose filename is an argument of NotecardTask (* manage <filename> ).
+					// see 'executeOneNotecardChild'-- 'case ft:NotecardTask'. 
 			if(manageNotecard != null) {     
 					//Store Card node if needed to restart clientNotecard
 				saveCurrentNode   // Linker
@@ -369,6 +403,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// lighted.
 				buttonSet.armAsteriskButton
 			   	}
+				
 			 else println("Notecard: manageNotecard is NULL unable to call startFile?")
 			}
 				// Management system currently running. The following code
@@ -382,8 +417,41 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// be returned to the invoking function.  Since the current
 					// state is 'manageNotecard',then  the invoking function has to
 					// be Notecard, rather than 'card'. 
-				throw new Exception
+				throw new AsteriskException
 				}
+		}
+
+	def doAddButton(buttonSet:ButtonSet,
+					cardSet:CardSet,
+					addCardSetFlags:AddCardSetFlags)={
+			 // Restores the parent CardSet (see: doNextButton(... ) 
+		addCardSetFlags.activatedAddButton=true
+
+			// Last AddCardSet restores associated CardSet
+			// last AddCardSet in series has a button value
+			// of 99, therefore, terminate the series.
+		if(cardSet.isLastAddCardSet){
+				// Prevents addCardSet(s) from being executed.
+			addCardSetFlags.activatedAddButton=false
+				//Enable CardSet to repeat
+			restoreCurrentCardSet  // see Linker trait
+			}
+
+		}
+			// Invokes new CardWindow (extends JFrame) and setVisible
+	def createAndMakeVisibleCardWindow( notePanel:JPanel,
+										buttonPanel:JPanel,
+										statusLine:JLabel,
+										frame_width:Int,  // object parameter
+										frame_height:Int) // object parameter
+										={
+			// Creates the notecard window (JFrame) with a BorderLayout
+			// and adds Note and Button panels to this window along with
+			// statusLine:JLabel.
+			// Also allows window size to change (height,width)
+		val window= new CardWindow(notePanel, buttonPanel, statusLine, frame_width, frame_height)
+		window.setVisible(true)
+		window
 		}
 		// CreateClass generates an instance of Notecard without fields or parameters.
 		// However, it invokes 'receive_objects' to load parameters from *.struct

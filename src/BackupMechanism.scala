@@ -10,19 +10,26 @@
 	the prior CardSet is presented.
 
 	Note, a second BackupMechanism object is created in Notecard for
+<<<<<<< HEAD
 	Add-CardSets.
+=======
+	AddCardSets.
+>>>>>>> addBackup
 
 */
 
 package com.client
 		// Created in Notecard.
-class BackupMechanism {
+class BackupMechanism(val kind:String) {
 			// stores nodes of CardSets that have been processed.
 		var backupList:List[Node]=Nil
 
 			// 1st CardSet sibling that passes the condition test 
 		var firstChild:Node=null
 
+		def listSize=backupList.length
+
+	//	def showKind=println("BackupMechanism:  kind="+kind)
 			// Store 1st CardSet sibling that passes the condition test 
 		def captureFirstChild(node:Node) {
 			if(firstChild==null)
@@ -31,17 +38,18 @@ class BackupMechanism {
 			// test in Notecard and InputFocus to prevent backup
 			// beyond 1st sibling. Also to disable Prior button.
 		def isFirstChild={
-			if(firstChild eq backupList.head)
+			if(firstChild eq backupList.head) {
 				true
-			else
+				}
+			else{
 				false
+				}
 			}
 			// Activated by CardSet to only store Node(s)
 			// of CardSet objects. Note, in iterate(), 'node'
 			// is prior instance.
 		def storePriorSiblingInBackupList( node:Node) {
 				backupList= node :: backupList
-				//		println("Linker:  storeCurr...  backupList.size="+backupList.size)	
 				}
 
 			// Notecard invoked when 'PRIOR' button is activated. 
@@ -50,10 +58,9 @@ class BackupMechanism {
 			// Note, the first Card has no prior Card
 		def loadIteratorWithBackup=  {
 			var iterator:Node=null
-		//			println("BackupMech:  backupList.tail.size="+backupList.tail.size)
 			if( ! backupList.tail.isEmpty) {  // Indicates that backup
 											  // can be initiated.
-						//   println("BackupMech:  backupList not empty")
+						  //println("BackupMech:  backupList not empty")
 					// backing up so drop the current Node
 				backupList=backupList.tail
 					// set iterator to the prior Node

@@ -75,6 +75,7 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 			case "Next"=>  
 				//println("ButtonSet: actionPerformed:  Next")
 				selectedButton="next" //Notecard: match expression
+<<<<<<< HEAD
 /*
 					// Next button has been activated, so:
 					// disable it,  gray the button,
@@ -84,12 +85,17 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 					// gaining focus after NEXT button activation, causing
 					// the next spacebar key to initiate backup. 
 */
+=======
+>>>>>>> addBackup
 				start()   //unlock all
 			case "Prior"=> 
 				//println("ButtonSet: actionPerformed:  Prior")
 							//	println("ButtonSet: actionPerf...    --prior-- ")
 				selectedButton="prior"  //Notecard: match expression
+<<<<<<< HEAD
 		//		grayAndDisablePriorButton
+=======
+>>>>>>> addBackup
 				start()   //unlock all
 			case " * "=> 
 				//println("ButtonSet: actionPerformed:  * button")
@@ -100,9 +106,14 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 					// in old script before the move.
 				start()   //unlock all
 			case "+Add"=>
+<<<<<<< HEAD
 		//		println("ButtonSet: actionPerformed:  +Add")
 				selectedButton="+"  //Notecard: match expression
 //				turnOnExitCardSet	// allows return in <CardSet>  xn:case=>
+=======
+				//println("ButtonSet: actionPerformed:  +Add")
+				selectedButton="+"  //Notecard: match expression
+>>>>>>> addBackup
 				start()    //unlock all
 			case _=> 		println("ButtonSet unknown event=")
 			}
