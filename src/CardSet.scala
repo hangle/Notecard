@@ -47,7 +47,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 */
 //------------paramters pass by .struct file-----------------
 	var conditionStruct=""
-	var node_name=""   /// Name or label of CardSet:  <not operational>
+	var node_name=""   /// Name or label of Card/pSet:  <not operational>
 	var button=0		// When value is:
 						//	0	CardSet has no AddCardSet(s)
 						//	1	CardSet has Add Card Set(s)
@@ -75,7 +75,8 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 					 buttonSet:ButtonSet, 
 					 statusLine:StatusLine,
 					 backupMechanism:BackupMechanism,
-					 defaultFont:DefaultFont)={
+					 defaultFont:DefaultFont,
+					 addCardSetFlags:AddCardSetFlags)={		
 			// Assign Linker.next to 'backup'. The next time
 			// CardSet is executed, 'backup' holds the pointer
 			// to the prior Card.  Used to capture one or more input fields.
@@ -91,23 +92,22 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// prior CardSet set may have posted a status message so remove for new CardSet.
 		statusLine.clearStatusLine 
 			// Iterate CardSet commands then display	
-		executeCardSetCommands        (notePanel, 
-									  buttonSet,
-									  rowPosition,
-									  lock, 
-									  inputFocus, 
-									  indexer, 
-									  statusLine, 
-									  defaultFont,
-									  listenerArray) 
+		executeCardSetCommands(notePanel, 
+							  buttonSet,
+							  rowPosition,
+							  lock, 
+							  inputFocus, 
+							  indexer, 
+							  statusLine, 
+							  defaultFont,
+							  addCardSetFlags,
+							  listenerArray) 
 				// 1st child has no sibling to backup to
-			//	println("CardSet: showKind="+backupMechanism.showKind)
 		if( ! backupMechanism.isFirstChild) {
 				// arm only after '* continue' abd 'x' commands have completed.
 			buttonSet.armPriorButton
 			}
 		else {
-			//println("CardSet: if(isFirstChild) else part--grayAndDisablePrior...")
 			buttonSet.grayAndDisablePriorButton
 			}
 			// Execution of CardSet commands have ended. So arm Next button
@@ -138,8 +138,12 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									  indexer:Indexer, 
 									  statusLine: StatusLine,
 									  defaultFont: DefaultFont,
+									  addCardSetFlags:AddCardSetFlags,
 									  listenerArray: ArrayBuffer[KeyListenerObject]) {
-			reset(child)    //point to head of linked list.  'child' see Node.scala
+				//point to head of linked list.  'child' see Node.scala
+			reset(child)    
+				// Note: 'whatToDo' for GroupCommand also invokes this function to process
+				// commands when 'g' command is successful.
 			iterateCardSetChildren( rowPosition, 
 									buttonSet,
 									notePanel, 
@@ -148,9 +152,10 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									indexer, 
 									statusLine, 
 									defaultFont,
+									addCardSetFlags,
 									listenerArray)
 		}
-		// Card set consist of RowerNode, Assigner, CardSetTask 
+		// CardSet children consist of RowerNode, Assigner, CardSetTask 
 		// GroupNode, and XNode
 	def iterateCardSetChildren(  rowPosition:RowPosition, 
 								 buttonSet:ButtonSet,
@@ -160,21 +165,25 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 								 indexer:Indexer,
 								 statusLine:StatusLine, 
 								 defaultFont:DefaultFont,
+								 addCardSetFlags:AddCardSetFlags,
 								 listenerArray: ArrayBuffer[KeyListenerObject]) {
 			// Iterate children (via sibling nodes), returning 'node' as
 			// either the 1st child or the current sibling node.
 			// see 'Linker' trait.
 		while(iterate){ // initialized by 'reset(child)'
-				// Execute RowerNode, Assigner, CardSetTask, GroupNode, or eXecute.
+				// Execute only one command of either RowerNode, Assigner, CardSetTask, 
+				// GroupNode, or eXecute.
 			executeOneCardSetChild(  node, // Current sibling--see Linker  node
 									 buttonSet,
 									 rowPosition, 
 									 notePanel, 
-									 lock:AnyRef, 
+									 //lock:AnyRef, 
+									 lock,
 									 inputFocus, 
 									 indexer, 
 									 statusLine, 
 									 defaultFont,
+									 addCardSetFlags,
 									 listenerArray)
 			}
 		}
@@ -188,6 +197,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 								 indexer:Indexer,
 								 statusLine:StatusLine,
 								 defaultFont:DefaultFont,
+								 addCardSetFlags:AddCardSetFlags,
 								 listenerArray:ArrayBuffer[KeyListenerObject]) {	
 		obj match	{
 			case rn:RowerNode=> 
@@ -206,9 +216,8 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 						// '* continue'.
 				cst.startCardSetTask (inputFocus, statusLine, notePanel)
 			case gn:GroupNode=> 
-						// Determine whether to 'do' the enclosed commnds of the 
-						// Group command or to 'skip' these commands. 
-				println("CardSet: group node")
+						// Determine whether to 'do', that is, execute the enclosed 
+						// commnds of the Group command or to 'skip' these commands. 
 				whatToDo(groupResolve,     // global variable 
 					 	 gn,   // groupNode
 						 rowPosition, 
@@ -219,8 +228,13 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 						 indexer, 
 						 statusLine, 
 						 defaultFont,
+						 addCardSetFlags,
 						 listenerArray) //recusion
-			case xn:XNode => 	// 'x' command to process prior input fields.
+
+					// 'x' command to process  input field(s).
+					// Note: this command issues a wait state that halts execution
+					// of additional CarsSet commands. 
+			case xn:XNode => 	
 				showPanel(notePanel)
 					// Invoked by CardSet (2 places) just before 'haltCommandExecution'.
 					// Note: focus not requested when CardSet has no InputFields 
@@ -230,10 +244,31 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 					//InputFocus.actWhenAllFieldsCaptured invoked/ 
 					// from enabling NEXT button
 				inputFocus.turnOnXNode  
-				haltCommandExecution(lock) // issue lock.wait()
+					// issue lock.wait(). When released, control returns to 
+					// 'iterateCardSetChildren' to process remaining CardSet children.
+					// Following release of the 'wait' state, 'selectedButton' determines
+					// if the '+Add' button was activated.  When '+Add' button returns the
+					// the CardSet with dependent AddCardSets, the 'selectedButton' will
+					// hold "+" and needs clearing, otherwise, 'AddButtonException is thrown.
+				buttonSet.selectedButton = "-" 
+				haltCommandExecution(lock) 
+					// Execute group when the '+Add' button is activated and when the CardSet
+					// has dependent AddCardSet(s). 
+				if(buttonSet.selectedButton == "+" && addCardSetFlags.hasDependentAdd ){
+					addCardSetFlags.hasDependentAdd=false
+							// Clear window of the current CardSet.
+					clearNotePanel(notePanel)	
+							// '+Add' button was activated in CardSet with a dependent
+							// AddCardSet.
+					addCardSetFlags.activatedAddButton=true
+							// This exception is caught in 'Notecard.iterateNotecardChildren'
+							// The current CardSet with dependent AddCardSet(s) is terminated,
+							// and its first AddCardSet begins execution
+					throw new AddButtonException
+					}
 			case _=> println("\tCardSet: unknown CardSetChild obj="+obj)	
 			}
-			}
+		}
 	/*
 	---------------------------------------------------------------
 						GroupNode
@@ -265,6 +300,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 					indexer:Indexer,
 					statusLine:StatusLine,
 					defaultFont:DefaultFont,
+					addCardSetFlags:AddCardSetFlags,
 					listenerArray:ArrayBuffer[KeyListenerObject]):Unit= {
 				// 'actionToTake()' returns 'do', 'skip' and 'done' by determining the type 
 				// of Goup command. The types are:  g <condition>, ge <condition>, ge, and g.  
@@ -281,6 +317,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 										indexer, 
 										statusLine, 
 										defaultFont,
+										addCardSetFlags,
 										listenerArray)
 			case  "skip" =>  
 						// Outcome unccessful, so skip the enclosed Group commands.
@@ -293,6 +330,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 								   indexer, 
 								   statusLine, 
 								   defaultFont,
+								   addCardSetFlags,
 								   listenerArray)
 							// A Group command having just the tag 'g'. --no 'else' and no condition
 			case  "done"=> 
@@ -311,6 +349,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 								indexer:Indexer,
 								statusLine:StatusLine,
 								defaultFont: DefaultFont,
+								addCardSetFlags:AddCardSetFlags,
 								listenerArray:ArrayBuffer[KeyListenerObject]) {
 			// Process just one command. If the command is not 'GroupNode' then call itself
 			// to process the next command.
@@ -333,6 +372,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 							 indexer, 
 							 statusLine, 
 							 defaultFont,
+							 addCardSetFlags,
 							 listenerArray)	
 								//keep looking for 'g' cmd
 				case _=> 
@@ -346,6 +386,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									 indexer, 
 									 statusLine, 
 									 defaultFont,
+									 addCardSetFlags,
 									 listenerArray)
 					}
 			}

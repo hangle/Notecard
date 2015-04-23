@@ -131,9 +131,9 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 		  else{
 					// Move cursor to next input field 
 				//println("InputFocus: actWhenAllFieldsCaptured arrayIndex!=size-- component.requestFocus")
-			if(arrayIndex+1 >=components.length)
-			  	println("ImputFocus:  ********* arrayIndex >= components.length********")
-			else
+	//		if(arrayIndex+1 >=components.length)
+	//		  	println("ImputFocus:  ********* arrayIndex >= components.length********")
+	//		else
 	    	  components(arrayIndex).requestFocus
 			  }
 	}

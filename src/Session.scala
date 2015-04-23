@@ -6,7 +6,7 @@
   files (*.nc).
 
   Active in following objects:
-  	Tst:
+  	card:
 			Initialize file path used in FilePort
 			Establishes the current state to that of 'card'.
  	FilePort:
@@ -17,9 +17,6 @@
 		  The '*' or Asterisk button switches between two
 		  Card files.  The Session instance keeps track
 		  of which Card file is active: (see Notecard)
-				isInitialNotecardState ( state discovery)
-				setManageNotecardState( transition to Manage state)
-				setInitialNotecardState( transition to Initial state)
 */
 package com.client
 
@@ -33,8 +30,16 @@ object Session  {
 		// Note, a filename entry of '/<file>'
 		// reinitializes the path to "". 
 	var path=""
+
+		// Notecard.doAsteriskButton if true, then set to false as well as
+		// store Current Node and invoke 'startNotecard' with Management file.
+		// When false, then set true and throw exception that is caught in
+		// 'startNotecard' following 'iterateNotecardChildren'.
 	var initialNotecardState:Boolean= true
+
+
 	def getSessionPath=path   //In FilePort
+			// In card, path==""
 	def setSessionPath(s:String) { path=s}  //In FilePort
 	def pathSessionEmpty = if(path =="") true; else false  //In FilePort
 

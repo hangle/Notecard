@@ -90,9 +90,9 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 					// in old script before the move.
 				start()   //unlock all
 			case "+Add"=>
-		//		println("ButtonSet: actionPerformed:  +Add")
+				//println("ButtonSet: actionPerformed:  +Add")
 				selectedButton="+"  //Notecard: match expression
-		//		start()    //unlock all
+				start()    //unlock all
 			case _=> 		println("ButtonSet unknown event=")
 			}
 		}
