@@ -75,27 +75,12 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 			case "Next"=>  
 				//println("ButtonSet: actionPerformed:  Next")
 				selectedButton="next" //Notecard: match expression
-<<<<<<< HEAD
-/*
-					// Next button has been activated, so:
-					// disable it,  gray the button,
-					// then release the wait state in CardSet
-				grayAndDisableNextButton 
-					// Disabled PRIOR button because it was occasionally
-					// gaining focus after NEXT button activation, causing
-					// the next spacebar key to initiate backup. 
-*/
-=======
->>>>>>> addBackup
 				start()   //unlock all
 			case "Prior"=> 
 				//println("ButtonSet: actionPerformed:  Prior")
 							//	println("ButtonSet: actionPerf...    --prior-- ")
 				selectedButton="prior"  //Notecard: match expression
-<<<<<<< HEAD
 		//		grayAndDisablePriorButton
-=======
->>>>>>> addBackup
 				start()   //unlock all
 			case " * "=> 
 				//println("ButtonSet: actionPerformed:  * button")
@@ -106,24 +91,15 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 					// in old script before the move.
 				start()   //unlock all
 			case "+Add"=>
-<<<<<<< HEAD
 		//		println("ButtonSet: actionPerformed:  +Add")
 				selectedButton="+"  //Notecard: match expression
 //				turnOnExitCardSet	// allows return in <CardSet>  xn:case=>
-=======
 				//println("ButtonSet: actionPerformed:  +Add")
 				selectedButton="+"  //Notecard: match expression
->>>>>>> addBackup
 				start()    //unlock all
 			case _=> 		println("ButtonSet unknown event=")
 			}
 		}
-/*
-				// Initially set in CardSet.startCardSet
-	def turnOffExitCardSet=exitCardSet=false
-	def turnOnExitCardSet =exitCardSet=true
-	def isExitCardSet= exitCardSet
-*/
 
 	def resetPriorButton= priorButton=false //set false in Notecard after executing
 						  // prior Card.
@@ -131,13 +107,6 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		button.addActionListener(this)
 		buttonPanel.add(button)
 		}
-/*
-			// Invoked in InputFocus  ??
-	def grayAndDisableNextAndPrior { //Prior,Next buttons
-		grayAndDisableNextButton
-		grayAndDisablePriorButton
-		}
-*/
 	def grayAndDisableAsteriskButton={
 		asterisk.setEnabled(false)
 		asterisk.setBackground(Color.lightGray)

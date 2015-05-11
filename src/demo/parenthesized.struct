@@ -11,7 +11,7 @@ priorButton	on
 %CardSet
 address	2002
 child	2003
-sibling	2034
+sibling	2032
 button	0
 name	0
 condition	0
@@ -30,69 +30,45 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	The script:
+text	The value of a $<variable>, such as,
 color	black
 %%
 %RowerNode
 address	2005
 child	2006
-sibling	2007
+sibling	2008
 row	3
-column	10
+column	5
 %%
 %DisplayText
 address	2006
-sibling	0
+sibling	2007
 style	0
 size	14
 column	0
 name	TimesRoman
-text	--------script------------
-color	black
+text	$age
+color	blue
 %%
-%RowerNode
+%DisplayText
 address	2007
-child	2008
-sibling	2009
-row	4
-column	10
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 is displayed by the expression:
+color	black
 %%
-%DisplayText
+%RowerNode
 address	2008
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	d (# $xyz) 
-color	black
+child	2009
+sibling	2010
+row	4
+column	5
 %%
-%RowerNode
+%DisplayText
 address	2009
-child	2010
-sibling	2011
-row	5
-column	10
-%%
-%DisplayText
-address	2010
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	-----------------------------
-color	black
-%%
-%RowerNode
-address	2011
-child	2012
-sibling	2013
-row	6
-column	10
-%%
-%DisplayText
-address	2012
 sibling	0
 style	0
 size	14
@@ -102,119 +78,82 @@ text
 color	black
 %%
 %RowerNode
+address	2010
+child	2011
+sibling	2012
+row	5
+column	20
+%%
+%DisplayText
+address	2011
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d (% $age)
+color	black
+%%
+%RowerNode
+address	2012
+child	2013
+sibling	2014
+row	6
+column	5
+%%
+%DisplayText
 address	2013
-child	2014
-sibling	2015
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2014
+child	2015
+sibling	2016
 row	7
 column	5
 %%
 %DisplayText
-address	2014
+address	2015
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	allows the user to input and assign a 
+text	The $<variable> is preceded by the tag: '(%'
 color	black
 %%
 %RowerNode
-address	2015
-child	2016
-sibling	2017
+address	2016
+child	2017
+sibling	2018
 row	8
 column	5
 %%
 %DisplayText
-address	2016
+address	2017
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	value to a $xyz.
+text	and is enclosed by ')'.
 color	black
 %%
 %RowerNode
-address	2017
-child	2018
-sibling	2019
+address	2018
+child	2019
+sibling	2020
 row	9
 column	5
 %%
 %DisplayText
-address	2018
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
 address	2019
-child	2020
-sibling	2023
-row	10
-column	5
-%%
-%DisplayText
-address	2020
-sibling	2021
-style	0
-size	14
-column	0
-name	TimesRoman
-text	The 
-color	black
-%%
-%DisplayText
-address	2021
-sibling	2022
-style	0
-size	14
-column	0
-name	TimesRoman
-text	Assign
-color	blue
-%%
-%DisplayText
-address	2022
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 command also performs
-color	black
-%%
-%RowerNode
-address	2023
-child	2024
-sibling	2025
-row	11
-column	5
-%%
-%DisplayText
-address	2024
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	this function.
-color	black
-%%
-%RowerNode
-address	2025
-child	2026
-sibling	2027
-row	12
-column	5
-%%
-%DisplayText
-address	2026
 sibling	0
 style	0
 size	14
@@ -224,10 +163,69 @@ text
 color	black
 %%
 %CardSetTask
-address	2027
-sibling	2028
+address	2020
+sibling	2021
 task	continue
 type	0
+%%
+%RowerNode
+address	2021
+child	2022
+sibling	2023
+row	10
+column	5
+%%
+%DisplayText
+address	2022
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Assume the user entered 22 to (# $age) 
+color	black
+%%
+%AssignerNode
+address	2023
+sibling	2024
+target	$age
+source	22
+special	simple
+condition	0
+%%
+%RowerNode
+address	2024
+child	2025
+sibling	2026
+row	11
+column	5
+%%
+%DisplayText
+address	2025
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2026
+child	2027
+sibling	2028
+row	12
+column	5
+%%
+%DisplayText
+address	2027
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
 %%
 %RowerNode
 address	2028
@@ -243,7 +241,7 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	It allows the script developer to load values
+text	The following CardSet displays the value
 color	black
 %%
 %RowerNode
@@ -255,68 +253,62 @@ column	5
 %%
 %DisplayText
 address	2031
-sibling	2032
-style	0
-size	14
-column	0
-name	TimesRoman
-text	into 
-color	black
-%%
-%DisplayText
-address	2032
-sibling	2033
-style	0
-size	14
-column	0
-name	TimesRoman
-text	$<variable>
-color	blue
-%%
-%DisplayText
-address	2033
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	s.
+text	of $age.
 color	black
 %%
 %CardSet
-address	2034
-child	2035
-sibling	2070
+address	2032
+child	2033
+sibling	2049
 button	0
 name	0
 condition	0
 %%
 %RowerNode
-address	2035
-child	2036
-sibling	2039
-row	1
+address	2033
+child	2034
+sibling	2035
+row	2
 column	5
 %%
 %DisplayText
-address	2036
-sibling	2037
+address	2034
+sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	The Assign command has the tag 
+text	 
 color	black
 %%
+%RowerNode
+address	2035
+child	2036
+sibling	2037
+row	3
+column	15
+%%
 %DisplayText
-address	2037
-sibling	2038
+address	2036
+sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	a
-color	blue
+text	---------script------------
+color	black
+%%
+%RowerNode
+address	2037
+child	2038
+sibling	2039
+row	4
+column	15
 %%
 %DisplayText
 address	2038
@@ -325,15 +317,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	,
+text	c
 color	black
 %%
 %RowerNode
 address	2039
 child	2040
 sibling	2041
-row	2
-column	5
+row	5
+column	15
 %%
 %DisplayText
 address	2040
@@ -342,15 +334,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	followed by a space and a $<variable>
+text	d $age =(% $age)
 color	black
 %%
 %RowerNode
 address	2041
 child	2042
 sibling	2043
-row	3
-column	5
+row	6
+column	15
 %%
 %DisplayText
 address	2042
@@ -359,154 +351,127 @@ style	0
 size	14
 column	0
 name	TimesRoman
+text	------------------------------
+color	black
+%%
+%CardSetTask
+address	2043
+sibling	2044
+task	continue
+type	0
+%%
+%RowerNode
+address	2044
+child	2045
+sibling	2046
+row	7
+column	5
+%%
+%DisplayText
+address	2045
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
 text	 
 color	black
 %%
 %RowerNode
-address	2043
-child	2044
-sibling	2045
-row	4
+address	2046
+child	2047
+sibling	0
+row	8
 column	5
 %%
 %DisplayText
-address	2044
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	Examples:
-color	black
-%%
-%RowerNode
-address	2045
-child	2046
-sibling	2047
-row	5
-column	10
-%%
-%DisplayText
-address	2046
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	---------------script---------------
-color	black
-%%
-%RowerNode
 address	2047
-child	2048
-sibling	2049
-row	6
-column	10
+sibling	2048
+style	0
+size	14
+column	0
+name	TimesRoman
+text	age =
+color	black
 %%
-%DisplayText
+%DisplayVariable
 address	2048
 sibling	0
-style	0
-size	14
+text	$age
 column	0
+size	14
+style	0
 name	TimesRoman
-text	a $gender=male
 color	black
 %%
-%RowerNode
+%CardSet
 address	2049
 child	2050
-sibling	2051
-row	7
-column	10
+sibling	2071
+button	0
+name	0
+condition	0
 %%
-%DisplayText
+%RowerNode
 address	2050
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	a $flag=1
-color	black
+child	2051
+sibling	2052
+row	2
+column	5
 %%
-%RowerNode
+%DisplayText
 address	2051
-child	2052
-sibling	2053
-row	8
-column	10
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The appearance of text is altered by the
+color	black
 %%
-%DisplayText
+%RowerNode
 address	2052
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	a $line=now is the time for
-color	black
+child	2053
+sibling	2054
+row	3
+column	5
 %%
-%RowerNode
+%DisplayText
 address	2053
-child	2054
-sibling	2055
-row	9
-column	10
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	expression:
+color	black
 %%
-%DisplayText
+%RowerNode
 address	2054
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	---------------------------------------
-color	black
+child	2055
+sibling	2056
+row	4
+column	20
 %%
-%RowerNode
+%DisplayText
 address	2055
-child	2056
-sibling	2057
-row	10
-column	5
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d (%% /<key> <value>/ <text>)
+color	black
 %%
-%DisplayText
+%RowerNode
 address	2056
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2057
-child	2058
-sibling	2059
-row	11
+child	2057
+sibling	2058
+row	5
 column	5
 %%
 %DisplayText
-address	2058
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	The strings:
-color	black
-%%
-%RowerNode
-address	2059
-child	2060
-sibling	2061
-row	12
-column	10
-%%
-%DisplayText
-address	2060
+address	2057
 sibling	0
 style	0
 size	14
@@ -516,48 +481,68 @@ text
 color	black
 %%
 %RowerNode
-address	2061
-child	2062
-sibling	2064
-row	13
-column	10
+address	2058
+child	2059
+sibling	2060
+row	6
+column	5
 %%
 %DisplayText
+address	2059
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	For example:
+color	black
+%%
+%RowerNode
+address	2060
+child	2061
+sibling	2062
+row	7
+column	20
+%%
+%DisplayText
+address	2061
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d (%% /color blue/text in blue)
+color	black
+%%
+%CardSetTask
 address	2062
 sibling	2063
-style	0
-size	14
-column	0
-name	TimesRoman
-text	male
-color	blue
+task	continue
+type	0
+%%
+%RowerNode
+address	2063
+child	2064
+sibling	2065
+row	8
+column	5
 %%
 %DisplayText
-address	2063
+address	2064
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	 is assigned to $gender.
+text	 
 color	black
 %%
 %RowerNode
-address	2064
-child	2065
-sibling	2067
-row	14
-column	10
-%%
-%DisplayText
 address	2065
-sibling	2066
-style	0
-size	14
-column	0
-name	TimesRoman
-text	1
-color	blue
+child	2066
+sibling	2067
+row	9
+column	5
 %%
 %DisplayText
 address	2066
@@ -566,155 +551,111 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	 to $flag.
+text	Execution of the above script:
 color	black
 %%
 %RowerNode
 address	2067
 child	2068
-sibling	0
-row	15
-column	10
+sibling	2069
+row	10
+column	5
 %%
 %DisplayText
 address	2068
-sibling	2069
-style	0
-size	14
-column	0
-name	TimesRoman
-text	now is the time for
-color	blue
-%%
-%DisplayText
-address	2069
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	 to $line.
+text	 
 color	black
 %%
-%CardSet
+%RowerNode
+address	2069
+child	2070
+sibling	0
+row	11
+column	15
+%%
+%DisplayText
 address	2070
-child	2071
-sibling	2107
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	text in blue
+color	blue
+%%
+%CardSet
+address	2071
+child	2072
+sibling	2091
 button	0
 name	0
 condition	0
 %%
 %RowerNode
-address	2071
-child	2072
-sibling	2073
+address	2072
+child	2073
+sibling	2074
 row	1
 column	5
 %%
 %DisplayText
-address	2072
+address	2073
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	The 'a' command allows the developer to
+text	 
 color	black
 %%
 %RowerNode
-address	2073
-child	2074
-sibling	2075
+address	2074
+child	2075
+sibling	2076
 row	2
 column	5
 %%
 %DisplayText
-address	2074
+address	2075
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	control whether certain CardSets are 
+text	The appearance of text may be altered in
 color	black
 %%
 %RowerNode
-address	2075
-child	2076
-sibling	2077
+address	2076
+child	2077
+sibling	2078
 row	3
 column	5
 %%
 %DisplayText
-address	2076
+address	2077
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	presented to a category of users. 
+text	many other ways. 
 color	black
 %%
 %RowerNode
-address	2077
-child	2078
-sibling	2079
+address	2078
+child	2079
+sibling	2080
 row	4
 column	5
 %%
 %DisplayText
-address	2078
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
 address	2079
-child	2080
-sibling	2081
-row	5
-column	10
-%%
-%DisplayText
-address	2080
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	----------script-----------
-color	black
-%%
-%RowerNode
-address	2081
-child	2082
-sibling	2083
-row	6
-column	10
-%%
-%DisplayText
-address	2082
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	a $flag=groupA
-color	black
-%%
-%RowerNode
-address	2083
-child	2084
-sibling	2085
-row	7
-column	10
-%%
-%DisplayText
-address	2084
 sibling	0
 style	0
 size	14
@@ -724,28 +665,68 @@ text
 color	black
 %%
 %RowerNode
-address	2085
-child	2086
-sibling	2087
-row	8
-column	10
+address	2080
+child	2081
+sibling	2082
+row	5
+column	15
 %%
 %DisplayText
-address	2086
+address	2081
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	c ($flag) = (groupA)
+text	------------------script----------------------------
 color	black
+%%
+%RowerNode
+address	2082
+child	2083
+sibling	2084
+row	6
+column	15
+%%
+%DisplayText
+address	2083
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	(%% /style bold/color blue/bold and blue)
+color	black
+%%
+%RowerNode
+address	2084
+child	2085
+sibling	2086
+row	7
+column	15
+%%
+%DisplayText
+address	2085
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-----------------------------------------------------
+color	black
+%%
+%CardSetTask
+address	2086
+sibling	2087
+task	continue
+type	0
 %%
 %RowerNode
 address	2087
 child	2088
 sibling	2089
-row	9
-column	10
+row	8
+column	5
 %%
 %DisplayText
 address	2088
@@ -754,175 +735,175 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	d How long have you been a member of A
+text	 
 color	black
 %%
 %RowerNode
 address	2089
 child	2090
-sibling	2091
-row	10
-column	10
+sibling	0
+row	9
+column	5
 %%
 %DisplayText
 address	2090
 sibling	0
-style	0
+style	1
 size	14
 column	0
 name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2091
-child	2092
-sibling	2093
-row	11
-column	10
-%%
-%DisplayText
-address	2092
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	c ($flag) = (groupA)
-color	black
-%%
-%RowerNode
-address	2093
-child	2094
-sibling	2095
-row	12
-column	10
-%%
-%DisplayText
-address	2094
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	d When did you join A
-color	black
-%%
-%RowerNode
-address	2095
-child	2096
-sibling	2097
-row	13
-column	10
-%%
-%DisplayText
-address	2096
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2097
-child	2098
-sibling	2099
-row	14
-column	10
-%%
-%DisplayText
-address	2098
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	c ($flag) != (groupA)
-color	black
-%%
-%RowerNode
-address	2099
-child	2100
-sibling	2101
-row	15
-column	10
-%%
-%DisplayText
-address	2100
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	d How long have you been a member of B
-color	black
-%%
-%RowerNode
-address	2101
-child	2102
-sibling	2103
-row	16
-column	10
-%%
-%DisplayText
-address	2102
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2103
-child	2104
-sibling	2105
-row	17
-column	10
-%%
-%DisplayText
-address	2104
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	c ($flag) != (groupA)
-color	black
-%%
-%RowerNode
-address	2105
-child	2106
-sibling	0
-row	18
-column	10
-%%
-%DisplayText
-address	2106
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	d When did you join B
-color	black
+text	bold and blue
+color	blue
 %%
 %CardSet
-address	2107
-child	2108
-sibling	2135
+address	2091
+child	2092
+sibling	2117
 button	0
 name	0
 condition	0
 %%
 %RowerNode
+address	2092
+child	2093
+sibling	2094
+row	7
+column	5
+%%
+%DisplayText
+address	2093
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The appearance of a whole line is altered by
+color	black
+%%
+%RowerNode
+address	2094
+child	2095
+sibling	2096
+row	8
+column	5
+%%
+%DisplayText
+address	2095
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	the '/<key> value/' immediately following 'd'
+color	black
+%%
+%RowerNode
+address	2096
+child	2097
+sibling	2098
+row	9
+column	5
+%%
+%DisplayText
+address	2097
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	command and space ' '; or by following the
+color	black
+%%
+%RowerNode
+address	2098
+child	2099
+sibling	2100
+row	10
+column	5
+%%
+%DisplayText
+address	2099
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'column/row' expression, such as:
+color	black
+%%
+%RowerNode
+address	2100
+child	2101
+sibling	2102
+row	11
+column	5
+%%
+%DisplayText
+address	2101
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2102
+child	2103
+sibling	2104
+row	12
+column	15
+%%
+%DisplayText
+address	2103
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------script----------------------
+color	black
+%%
+%RowerNode
+address	2104
+child	2105
+sibling	2106
+row	13
+column	15
+%%
+%DisplayText
+address	2105
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d 5/3/color blue/this line is blue
+color	black
+%%
+%RowerNode
+address	2106
+child	2107
+sibling	2108
+row	14
+column	15
+%%
+%DisplayText
+address	2107
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-----------------------------------------------
+color	black
+%%
+%RowerNode
 address	2108
 child	2109
 sibling	2110
-row	1
+row	15
 column	5
 %%
 %DisplayText
@@ -932,35 +913,24 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	The 'a' command is capable of math 
+text	 
 color	black
 %%
-%RowerNode
+%CardSetTask
 address	2110
-child	2111
-sibling	2112
-row	2
-column	5
-%%
-%DisplayText
-address	2111
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	operations.
-color	black
+sibling	2111
+task	continue
+type	0
 %%
 %RowerNode
-address	2112
-child	2113
-sibling	2114
-row	3
+address	2111
+child	2112
+sibling	2113
+row	16
 column	5
 %%
 %DisplayText
-address	2113
+address	2112
 sibling	0
 style	0
 size	14
@@ -970,45 +940,53 @@ text
 color	black
 %%
 %RowerNode
-address	2114
-child	2115
-sibling	2116
-row	4
+address	2113
+child	2114
+sibling	2115
+row	17
 column	5
 %%
 %DisplayText
-address	2115
+address	2114
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	The following initializes $count to zero and 
+text	Execution of above script:
 color	black
 %%
 %RowerNode
-address	2116
-child	2117
-sibling	2118
-row	5
+address	2115
+child	2116
+sibling	0
+row	2
 column	5
 %%
 %DisplayText
-address	2117
+address	2116
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	then increments it to one.
-color	black
+text	this line is blue
+color	blue
+%%
+%CardSet
+address	2117
+child	2118
+sibling	2137
+button	0
+name	0
+condition	0
 %%
 %RowerNode
 address	2118
 child	2119
 sibling	2120
-row	6
-column	10
+row	2
+column	5
 %%
 %DisplayText
 address	2119
@@ -1017,15 +995,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	------------script-----------------
+text	Only text within the (%% ...) expression is
 color	black
 %%
 %RowerNode
 address	2120
 child	2121
 sibling	2122
-row	7
-column	10
+row	3
+column	5
 %%
 %DisplayText
 address	2121
@@ -1034,15 +1012,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	a $count=0
+text	changed. 
 color	black
 %%
 %RowerNode
 address	2122
 child	2123
 sibling	2124
-row	8
-column	10
+row	4
+column	5
 %%
 %DisplayText
 address	2123
@@ -1051,15 +1029,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	a $count=$count +1
+text	 
 color	black
 %%
 %RowerNode
 address	2124
 child	2125
 sibling	2126
-row	9
-column	10
+row	5
+column	5
 %%
 %DisplayText
 address	2125
@@ -1068,55 +1046,55 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	--------------------------------------
+text	----------------------script--------------------------------
 color	black
 %%
-%CardSetTask
-address	2126
-sibling	2127
-task	continue
-type	0
-%%
 %RowerNode
-address	2127
-child	2128
-sibling	2129
-row	10
+address	2126
+child	2127
+sibling	2128
+row	6
 column	5
 %%
 %DisplayText
-address	2128
+address	2127
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	Another example of the math expression:
+text	d Start of line (%%/color blue/blue text) end of line
 color	black
 %%
 %RowerNode
-address	2129
-child	2130
-sibling	2131
-row	11
-column	10
+address	2128
+child	2129
+sibling	2130
+row	7
+column	5
 %%
 %DisplayText
-address	2130
+address	2129
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	-------------script-----------------
+text	--------------------------------------------------------------
 color	black
+%%
+%CardSetTask
+address	2130
+sibling	2131
+task	continue
+type	0
 %%
 %RowerNode
 address	2131
 child	2132
 sibling	2133
-row	12
-column	10
+row	8
+column	5
 %%
 %DisplayText
 address	2132
@@ -1125,56 +1103,59 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	a $xyz= (3+$count)/(6*($xyz)-2)
+text	 
 color	black
 %%
 %RowerNode
 address	2133
 child	2134
 sibling	0
-row	13
-column	10
+row	9
+column	5
 %%
 %DisplayText
 address	2134
+sibling	2135
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Start of line 
+color	black
+%%
+%DisplayText
+address	2135
+sibling	2136
+style	0
+size	14
+column	0
+name	TimesRoman
+text	blue text
+color	blue
+%%
+%DisplayText
+address	2136
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	---------------------------------------
+text	 end of line
 color	black
 %%
 %CardSet
-address	2135
-child	2136
-sibling	2171
+address	2137
+child	2138
+sibling	2157
 button	0
 name	0
 condition	0
 %%
 %RowerNode
-address	2136
-child	2137
-sibling	2138
-row	2
-column	5
-%%
-%DisplayText
-address	2137
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	The 'a' command has an optional logic 
-color	black
-%%
-%RowerNode
 address	2138
 child	2139
 sibling	2140
-row	3
+row	2
 column	5
 %%
 %DisplayText
@@ -1184,14 +1165,14 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	expression.
+text	In the following script the line is blue
 color	black
 %%
 %RowerNode
 address	2140
 child	2141
 sibling	2142
-row	4
+row	3
 column	5
 %%
 %DisplayText
@@ -1201,15 +1182,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	except for the '(%% ...)' expression:
 color	black
 %%
 %RowerNode
 address	2142
 child	2143
 sibling	2144
-row	5
-column	5
+row	4
+column	10
 %%
 %DisplayText
 address	2143
@@ -1218,15 +1199,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	A complication exists, however.
+text	---------------script-------------------
 color	black
 %%
 %RowerNode
 address	2144
 child	2145
 sibling	2146
-row	6
-column	5
+row	5
+column	10
 %%
 %DisplayText
 address	2145
@@ -1235,15 +1216,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	d /color blue/now is (%%/color red/time) for all.
 color	black
 %%
 %RowerNode
 address	2146
 child	2147
 sibling	2148
-row	7
-column	5
+row	6
+column	10
 %%
 %DisplayText
 address	2147
@@ -1252,164 +1233,25 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	The parser detects the logic expression in the
-color	black
-%%
-%RowerNode
-address	2148
-child	2149
-sibling	2150
-row	8
-column	5
-%%
-%DisplayText
-address	2149
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	'c' command by the open parenthesis, i.e., '('.
-color	black
-%%
-%RowerNode
-address	2150
-child	2151
-sibling	2152
-row	9
-column	5
-%%
-%DisplayText
-address	2151
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2152
-child	2153
-sibling	2154
-row	10
-column	5
-%%
-%DisplayText
-address	2153
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	The math expression may also have an 
-color	black
-%%
-%RowerNode
-address	2154
-child	2155
-sibling	2156
-row	11
-column	5
-%%
-%DisplayText
-address	2155
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	open parenthesis.
-color	black
-%%
-%RowerNode
-address	2156
-child	2157
-sibling	2158
-row	12
-column	5
-%%
-%DisplayText
-address	2157
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
+text	-------------------------------------------
 color	black
 %%
 %CardSetTask
-address	2158
-sibling	2159
+address	2148
+sibling	2149
 task	continue
 type	0
 %%
 %RowerNode
-address	2159
-child	2160
-sibling	2161
-row	13
+address	2149
+child	2150
+sibling	2151
+row	7
 column	5
 %%
 %DisplayText
-address	2160
+address	2150
 sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	The 'a' command with a logic expression, 
-color	black
-%%
-%RowerNode
-address	2161
-child	2162
-sibling	2163
-row	14
-column	5
-%%
-%DisplayText
-address	2162
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	with or without a math expression, must 
-color	black
-%%
-%RowerNode
-address	2163
-child	2164
-sibling	2169
-row	15
-column	5
-%%
-%DisplayText
-address	2164
-sibling	2165
-style	0
-size	14
-column	0
-name	TimesRoman
-text	have the 
-color	black
-%%
-%DisplayText
-address	2165
-sibling	2166
-style	0
-size	14
-column	0
-name	TimesRoman
-text	if
-color	blue
-%%
-%DisplayText
-address	2166
-sibling	2167
 style	0
 size	14
 column	0
@@ -1417,94 +1259,111 @@ name	TimesRoman
 text	 
 color	black
 %%
-%DisplayText
-address	2167
-sibling	2168
-style	0
-size	14
-column	0
-name	TimesRoman
-text	tag
-color	blue
-%%
-%DisplayText
-address	2168
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 preceding the logic
-color	black
-%%
 %RowerNode
-address	2169
-child	2170
-sibling	0
-row	16
+address	2151
+child	2152
+sibling	2155
+row	8
 column	5
 %%
 %DisplayText
-address	2170
+address	2152
+sibling	2153
+style	0
+size	14
+column	0
+name	TimesRoman
+text	now is 
+color	blue
+%%
+%DisplayText
+address	2153
+sibling	2154
+style	0
+size	14
+column	0
+name	TimesRoman
+text	time
+color	red
+%%
+%DisplayText
+address	2154
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	expression.
+text	 for all.
+color	blue
+%%
+%RowerNode
+address	2155
+child	2156
+sibling	0
+row	9
+column	5
+%%
+%DisplayText
+address	2156
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	condition of the Clear 'c' command.
 color	black
 %%
 %CardSet
-address	2171
-child	2172
-sibling	2190
+address	2157
+child	2158
+sibling	2172
 button	0
 name	0
 condition	0
 %%
 %RowerNode
-address	2172
-child	2173
-sibling	2174
-row	1
-column	5
-%%
-%DisplayText
-address	2173
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	Examples of logic expressions in the 
-color	black
-%%
-%RowerNode
-address	2174
-child	2175
-sibling	2176
+address	2158
+child	2159
+sibling	2160
 row	2
 column	5
 %%
 %DisplayText
-address	2175
+address	2159
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	'a' command.
+text	The Display text is altered by the
 color	black
 %%
 %RowerNode
-address	2176
-child	2177
-sibling	2178
+address	2160
+child	2161
+sibling	2162
 row	3
 column	5
 %%
 %DisplayText
-address	2177
+address	2161
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	following keywords:
+color	black
+%%
+%RowerNode
+address	2162
+child	2163
+sibling	2164
+row	4
+column	5
+%%
+%DisplayText
+address	2163
 sibling	0
 style	0
 size	14
@@ -1514,164 +1373,124 @@ text
 color	black
 %%
 %RowerNode
-address	2178
-child	2179
-sibling	2180
-row	4
-column	10
-%%
-%DisplayText
-address	2179
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	-------------------script-----------------------
-color	black
-%%
-%RowerNode
-address	2180
-child	2181
-sibling	2184
+address	2164
+child	2165
+sibling	2166
 row	5
 column	10
 %%
 %DisplayText
-address	2181
-sibling	2182
-style	0
-size	14
-column	0
-name	TimesRoman
-text	a $one=1 
-color	black
-%%
-%DisplayText
-address	2182
-sibling	2183
-style	0
-size	14
-column	0
-name	TimesRoman
-text	if
-color	blue
-%%
-%DisplayText
-address	2183
+address	2165
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	($one)=(0)
+text	color       (blue, red, orange, etc)
 color	black
 %%
 %RowerNode
-address	2184
-child	2185
-sibling	2188
+address	2166
+child	2167
+sibling	2168
 row	6
 column	10
 %%
 %DisplayText
-address	2185
-sibling	2186
-style	0
-size	14
-column	0
-name	TimesRoman
-text	a $two= $high/($low -3.3) 
-color	black
-%%
-%DisplayText
-address	2186
-sibling	2187
-style	0
-size	14
-column	0
-name	TimesRoman
-text	if
-color	blue
-%%
-%DisplayText
-address	2187
+address	2167
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	 ($timer)>=(22)
+text	style        (bold, italic)
 color	black
 %%
 %RowerNode
-address	2188
-child	2189
-sibling	0
+address	2168
+child	2169
+sibling	2170
 row	7
 column	10
 %%
 %DisplayText
-address	2189
+address	2169
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	---------------------------------------------------
+text	size         (text height)
+color	black
+%%
+%RowerNode
+address	2170
+child	2171
+sibling	0
+row	8
+column	10
+%%
+%DisplayText
+address	2171
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	name      (font name)
 color	black
 %%
 %CardSet
-address	2190
-child	2191
-sibling	2199
+address	2172
+child	2173
+sibling	2181
 button	0
 name	0
 condition	0
 %%
 %RowerNode
-address	2191
-child	2192
-sibling	2193
+address	2173
+child	2174
+sibling	2175
 row	2
 column	5
 %%
 %DisplayText
-address	2192
+address	2174
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	This completes the survey of the 
+text	This completes the survey of the
 color	black
 %%
 %RowerNode
-address	2193
-child	2194
-sibling	2195
+address	2175
+child	2176
+sibling	2177
 row	3
 column	5
 %%
 %DisplayText
-address	2194
+address	2176
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	Assign 'a' command.
+text	Display 'd' command.
 color	black
 %%
 %RowerNode
-address	2195
-child	2196
-sibling	2197
+address	2177
+child	2178
+sibling	2179
 row	4
 column	5
 %%
 %DisplayText
-address	2196
+address	2178
 sibling	0
 style	0
 size	14
@@ -1681,30 +1500,30 @@ text
 color	black
 %%
 %RowerNode
-address	2197
-child	2198
+address	2179
+child	2180
 sibling	0
 row	5
 column	5
 %%
 %DisplayText
-address	2198
+address	2180
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	The next file covers the File 'f' command.
+text	The next file covers the logic
 color	black
 %%
 %NextFile
-address	2199
-sibling	2200
-filename	fileCommand
+address	2181
+sibling	2182
+filename	clearLogic
 condition	0
 %%
 %NotecardTask
-address	2200
+address	2182
 sibling	0
 task	end
 type	0

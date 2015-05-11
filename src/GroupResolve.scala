@@ -65,10 +65,7 @@ class GroupResolve()   {
 					// condition only 
 			case ThenNode=>	
 				if(groupNode.isConditionTrue) {
-<<<<<<< HEAD
-=======
 					//println("GroupResolve:  thenTrue is true and do returned")	
->>>>>>> addBackup
 					thenTrue=true  // case ElseNode=> will return 'skip'
 					"do"
 					}
@@ -95,11 +92,8 @@ class GroupResolve()   {
 						"skip"
 
 			case EmptyNode=>  // no else and no condition
-<<<<<<< HEAD
 					println("GroupResolve:  case EmptyNode=> done")
-=======
 					//println("GroupResolve:  case EmptyNode=> done")
->>>>>>> addBackup
 					"done"
 			case _=> println("\t\tGroupResolve: unknown match value="+groupNode.whatKind)
 			}

@@ -1,5 +1,5 @@
 AddCardSet
--------------
+==============
 
 The following script creates a CardSet and an AddCardSet.   
 
@@ -11,25 +11,22 @@ The following script creates a CardSet and an AddCardSet.
 
 		* end
 
-The CardSet, beginning with the command 'c', asks a    
-question requiring a user response. The AddCardSet,   
-beginning with the command '+', provides a probe or   
-prompt, that is, a hint, to the user   
+The CardSet, beginning with the command 'c', asks a question requiring   
+a user response. The AddCardSet, beginning with the command '+',   
+provides a probe or prompt, that is, a hint, to the user.  If it is   
+not needed, then it is esaily skipped by activating the 'Next' button.      
 
-The question-CardSet arms the '+Add' button. Activation    
-of the +Add button presents the AddCardSet along    
-with its hint. In the AddCardSet, the activation of   
-the +Add button returns the user to the question-CardSet  
-to complete the response.       
+The question-CardSet arms the '+Add' button. Activation of the +Add  
+button presents the AddCardSet along  with its hint. In the   
+AddCardSet, the activation of the +Add button returns the user to the     
+question-CardSet to complete the response.       
 
-On the otherhand, the AddCardSet can be avoided. The   
-user can answer the question, followed by the 'Next'   
-button, to skip the AddCardSet.   
+On the otherhand, the AddCardSet can be avoided. The user can answer   
+the question, followed by the 'Next' button, to skip the AddCardSet.   
 
-The AddCardSet is always associated with the   
-immediately preceding CardSet.  A CardSet may have   
-more than one AddCardSet as the following script   
-illustrates.   
+The AddCardSet is always associated with the immediately preceding   
+CardSet.  A CardSet may have more than one AddCardSet as the   
+following script illustrates.   
 
 		c
 		d What is the capital of Ohio (# $columbus)
@@ -42,91 +39,224 @@ illustrates.
 
 		* end
 
-Termination of the last AddCardSet initiates the   
-return or re-display of the question-CardSet. A   
-single AddCardSet is also the last in the series.    
-The series my be terminated before the last   
-AddCardSet by activation of the 'Next' button.   
-
+Termination of the last AddCardSet initiates the return or re-display   
+of the question-CardSet. A single AddCardSet is also the last in the   
+series. In a sequential series of AddCardSets, any AddCardSet can  
+initiate the return and re-display with the activation of the 'Next'   
+button.  
 
 Notecard Program
+----------------
 
-The CardSet and AddCardSet are identical in almost   
-all respects. The differ by the 'button' parameter that   
-each has.    
+The CardSAet and AddCardSet are identical in almost all respects. The   
+differ by the 'button' parameter that each has.    
 
 		CardSet        button=0     No associated AddCardSet
 		CardSet        button=1     Associated AddCardSet
 		AddCardSet     button=2     Not last
 		AddCardSet     button=99    Last AddCardSet
 
-A CardSet whose button parameter is '1' has one or more   
-associated AddCardSets.   
+A CardSet whose button parameter is '1' has one or more associated   
+AddCardSets.   
 
 Notecard class:   
+-------------
 
-CardSet and AddCardSet are children of the Notecard object.   
-The AddCardSet objects are treated as CardSet objects but retains   
+CardSet and AddCardSet are children of the Notecard object. The   
+AddCardSet objects are treated as CardSet objects but retains   
 AddCardSet indentity by 'button' parameter values of '2' or '99'.      
 
-	def executeNotecardChildren(...)  obj match{
-
-				// test button for '2' or '99'
-		case bcs:CardSet if(bcs.isAddCardSet) =>
-			if(activatedAddButton)
-				startCardSetThenDoButtonsAfter(...)
-		case cs:CardSet=> 
-				// test button for '1'
-			if(cs.hasAddCardSet) {
-				saveCurrentNode
-				buttonSet.armAddButton
-				}
-			  ...
-			startCardSetThenDoButtonsAfter(...)
-
-The first case statement will catch all AddCardSet; however, it   
-is not executed unless 'activatedAddButton' is true.  The +Add   
-button sets this boolean value to 'true'.  The user activating   
-the Next button causes the AddCardSet to be skipped (actuvated-   
-AddButton is false). The function 'startCardSetThenDoButtonsAfter'   
-is bypassed.   
-
-Since a CardSet preceeds an associated AddCardSet, the second case    
-statement handles this object. The 'if(cs.hasAddCardSet)' detects    
-(button ==1) CardSet objects with dependent AddCardSets. In this   
-situation, the '+Add' button is highlighted and 'Node' or pointer   
-to the CardSet is saved to allow the CardSet to be re-presented.   
-
-	def waitOverDoButtons(...)  buttonSet.selectedButton match {
-
-		case "+"     //+Add button activated
-			if(cardSet.isLastAddCardSet) {  //button== 99	
-				activateAddButton=false
-				restoreCurrentNode
-				}
-			  else
-				activateAddButton=true
-
-The last AddCardSet, following the associated CardSet, establishes    
-a return to this CardSet with the function 'restoreCurrentNode'    
-(see Linker.scala).   
-
-	def iterateNotecardChildren(...)
-
-		reset(child)
-		while(iterate) {
+		def executeOneNotecardChild(...)  
+		   obj match{
 			...
-			executeNotecardChildren(node, 
-			}
+			case acs:CardSet if(acs.isAddCardSet) =>
+				if(buttonSet.selectedButton == "+" || ...) {
+					...
+			case cs:CardSet=> 
+					...
+				if(cs.hasAddCardSet) {
+					buttonSet.armAddButton
+				...
 
-The 'iterate' function addresses the next Notecard child to execute.  
-Assume that a series of AddCardSets have been processed. The CardSet   
-that is associated with these objects has had it address saved:   
-		
-		saveCurrentNode	
+The first case statement will catch all AddCardSets; however, it   
+is not executed unless the '+Add' button was activated (selected-  
+Button=="+"). The second case statement detects that the CardSet   
+has a dependent AddCardSet (button variable==1) and thus arms the   
+'+Add' button. The user activating the 'Next' button causes the   
+AddCardSet to be skipped (selectdButton=="next").  
 
-The function:  
+A CardSet with associated AddCardSet(s) is returned (re-displayed)  
+once the executed AddCardSet(s) series has ended or at any time  
+during the execution that the "Next" button is activated.   
 
-		restoreCurrentNode
+End of AddCardSet Series.  
+------------------------
 
-causes 'while(iterate) {...' to reprocess the associated CardSet.   
+The last AddCardSet in a series had the 'button' value of '99'.      
+Notecard-- doAddButton function invokes 'CardSet.isLastAddCardSet'     
+to test this condition.  
+
+		def doAddButton( ...
+			...
+			addCardSetFlags.activatedAddButton=true
+			if(cardSet.isLastAddCardSet){  // 'button==99'
+				addCardSetFlags.activatedAddButton=false
+				restoreCurrentCardSet  // see Linker trait
+				}
+			,,,		
+If condition is found, then 'restoreCurrentCardSet' is invoked.  
+Control passes to the 'while(iterate)' statement:    
+
+		def iterateNotecardChildren(...)
+			reset(child)
+			while(iterate) {
+				...
+				executeOneNotecardChild(...
+				...
+Normally, the 'while' statement executes the next or subsequent   
+child object.  However, 'restoreCurrentCardSet' has "loaded" the    
+CardSet associated with the AddCardSet(s) just before control    
+passes to the 'while' statement, thus affecting a return.   
+
+		def executeOneNotecardChild(...)  
+		   obj match{
+			case bcs:CardSet if(bcs.isAddCardSet) =>
+					...
+			case cs:CardSet=> 
+					...
+				if(cs.hasAddCardSet) { // 'button'==2<or>99
+					storeCurrentCardSet
+				...
+
+In the above abstract code, the function 'storeCurrentCardSet'   
+saves the CardSet that has associated AddCardSet(s).    
+
+AddCardSet Termination with Next Button.  
+--------------------------------------
+
+The 'Next' button is designed to render the following CardSet.  In     
+order to re-display  the earlier CardSet with its associated   
+AddCardSet(s), the program must recognize that the '+Add' button   
+was activated.  The 'doAddButton' functions establishes this   
+detection with the Boolean value 'activatedAddButton':  
+
+		def doAddButton( ...
+			...
+			addCardSetFlags.activatedAddButton=true
+			...
+
+In turn, the 'doNextButton(... function employees this value to   
+re-display the earlier CardSet.   
+
+		def doNextButton(...
+			....
+			if(addCardSetFlags.activatedAddButton) {
+				addCardSetFlags.activatedAddButton=false
+				restoreCurrentCardSet
+				}
+			...
+
+Wait State
+---------
+
+The Notecard buttons and input fields operate when the system is   
+put into a wait state by the CardSet object.   
+
+		def haltCommandExecution(lock:AnyRef): Unit=lock.synchronized {
+			lock.wait()	
+
+The wait is issued just before CardSet returns to Notecard-- its parent.    
+CardSet children have executed and text is displayed and input fields    
+are presented.  A return key following the last response or a button     
+activation releases the wait state.   
+
+The 'x' command presents a problem. The following script incorporates   
+the 'x' command:    
+
+		c
+		d What is the capital of Ohio (# $columbus)
+		x
+		g ($columbus)=(Columbus)
+		d Correct
+		ge
+		d Sorry, Columbus is the capital.
+
+In CardSet, the function: 'executeOneCardSetChild(... processes the 'x'   
+command:   
+
+		case xn:XNode => 	
+			...
+			haltCommandExecution(lock) // issue lock.wait()
+			...
+
+This stops the execution of:  
+					
+		g ($columbus)=(Columbus)
+		d Correct
+		ge
+		d Sorry, Columbus is the capital.
+
+The wait is not released until the response has been entered, thus not   
+all CardSet children have been executed. The halt operation allows the   
+the $columbus variable to hold the user's input so as to be tested by the        
+Group 'g' command.  The user's entry of the 'Enter' key releases the    
+wait allowing the remaining script to execute.    
+
+The problem this presents for the following AddCardSet, such as:   
+
+		+
+		d Discover of the New World.
+
+is to prevent the execution of remaining CardSet script when the    
+'+Add' button is activated (user choses not to enter a response  
+but to view the hint). First, 'selectedButton=="+" ' indicates that      
+the user opted for the hint.  Next, an exception is thrown.    
+
+		case xn:XNode => 	
+			...
+			if(buttonSet.selectedButton == "+" && addCardSetFlags.hasDependentAdd ){
+				...
+				throw new AddButtonException
+				...
+
+The thrown exception is caught by Notecard:
+
+			try {
+		executeOneNotecardChild(...
+			}  catch { case _:AddButtonException => }
+
+The next CardSet, which happends to be version of AddCardSet, is     
+processed to provide the hint of 'Discover of the New World'.  
+
+Backup Mechanism of AddCardSet(s). 
+-------------------------------
+
+The Notecard system has two backup mechanisms. One mechanism for CardSet    
+and one for AddCardSet.  
+
+A CardSet with only one associated AddCardSet does not have a backup.  
+Nevertheless, the BackupMechanism is instantiated by that CardSet:  
+
+		case cs:CardSet=> 
+			...
+			if(cs.hasAddCardSet) {
+				whichBackup="addCardSet"
+				establishAddBackup(addCardSetFlags)
+			...
+
+		def establishAddBackup(...
+			addBackupMechanism= new BackupMechanism("AddCardSet")
+			addCardSetFlags.hasDependentAdd=true
+			...
+
+A new BackupMechanism is instantiated each time a CardSet had one or more  
+associated AddCardSet series.    
+
+
+		def doPriorButton( ...
+			if(whichBackup=="cardSet") ...
+				doPriorButtonBackup(backupMechanism)
+			  else  
+				doPriorButtonBackup(addBackupMechanism)
+			...	
+

@@ -10,12 +10,7 @@
 	the prior CardSet is presented.
 
 	Note, a second BackupMechanism object is created in Notecard for
-<<<<<<< HEAD
-	Add-CardSets.
-=======
 	AddCardSets.
->>>>>>> addBackup
-
 */
 
 package com.client
@@ -53,13 +48,14 @@ class BackupMechanism(val kind:String) {
 				}
 
 			// Notecard invoked when 'PRIOR' button is activated. 
-			// Instead of loading 'iterator' with the next Card, 
-			// the backup mechanism loads it with the prior Card.
-			// Note, the first Card has no prior Card
+			// Instead of loading 'iterator' with the next CardSet, 
+			// the backup mechanism loads it with the prior CardSet.
+			// Note, the first CardSet has no prior CardSet
 		def loadIteratorWithBackup=  {
 			var iterator:Node=null
 			if( ! backupList.tail.isEmpty) {  // Indicates that backup
 											  // can be initiated.
+			println("BackupMechanism:  tail not empty")
 						  //println("BackupMech:  backupList not empty")
 					// backing up so drop the current Node
 				backupList=backupList.tail
@@ -70,10 +66,11 @@ class BackupMechanism(val kind:String) {
 				if(  backupList.tail != Nil)
 							// also drop the prior Node since it will
 							// again be captured by 'backupList'
-							// the first Card is reloaded by Notecard
+							// the first CardSet is reloaded by Notecard
 					backupList=backupList.tail
 				}		
 			  else { 
+			println("BackupMechanism:  tail is empty")
 			  		// Can not backup so impliment first CardSet
 			  	iterator=backupList.head  //restore iterator with 1st sibling
 				backupList=Nil

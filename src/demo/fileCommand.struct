@@ -1,8 +1,10 @@
 %Notecard
 child	2002
-height	500
-width	450
-font_size	14
+height	600
+width	400
+size	14
+name	TimesRoman
+style	0
 asteriskButton	on
 priorButton	on
 %%
@@ -24,11 +26,11 @@ column	5
 %DisplayText
 address	2004
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	One or more Card Sets are in a text
+text	One or more CardSets are in a text
 color	black
 %%
 %RowerNode
@@ -41,7 +43,7 @@ column	5
 %DisplayText
 address	2006
 sibling	2007
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -51,7 +53,7 @@ color	black
 %DisplayText
 address	2007
 sibling	2008
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -61,7 +63,7 @@ color	blue
 %DisplayText
 address	2008
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -78,7 +80,7 @@ column	5
 %DisplayText
 address	2010
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -95,11 +97,11 @@ column	5
 %DisplayText
 address	2012
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	When the last Card Set in a '.nc' file 
+text	When the last CardSet in a '.nc' file 
 color	black
 %%
 %RowerNode
@@ -112,11 +114,11 @@ column	5
 %DisplayText
 address	2014
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	executes, a File command can link to 
+text	executes, a File 'f' command can link to 
 color	black
 %%
 %RowerNode
@@ -129,7 +131,7 @@ column	5
 %DisplayText
 address	2016
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -146,7 +148,7 @@ column	5
 %DisplayText
 address	2018
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -169,7 +171,7 @@ column	5
 %DisplayText
 address	2021
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -186,7 +188,7 @@ column	5
 %DisplayText
 address	2023
 sibling	2024
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -196,7 +198,7 @@ color	black
 %DisplayText
 address	2024
 sibling	2025
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -206,7 +208,7 @@ color	blue
 %DisplayText
 address	2025
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -223,7 +225,7 @@ column	5
 %DisplayText
 address	2027
 sibling	2028
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -233,7 +235,7 @@ color	black
 %DisplayText
 address	2028
 sibling	2029
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -243,7 +245,7 @@ color	blue
 %DisplayText
 address	2029
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -268,11 +270,11 @@ column	5
 %DisplayText
 address	2032
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	The 2 Card Sets in file one.nc are linked
+text	The 2 CardSets in file one.nc are linked
 color	black
 %%
 %RowerNode
@@ -285,11 +287,11 @@ column	5
 %DisplayText
 address	2034
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	to the 2 Card Sets in file two.nc via
+text	to the 2 CardSets in file two.nc via
 color	black
 %%
 %RowerNode
@@ -302,7 +304,7 @@ column	5
 %DisplayText
 address	2036
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -319,7 +321,7 @@ column	5
 %DisplayText
 address	2038
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -336,7 +338,7 @@ column	10
 %DisplayText
 address	2040
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -353,7 +355,7 @@ column	10
 %DisplayText
 address	2042
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -370,7 +372,7 @@ column	10
 %DisplayText
 address	2044
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -387,7 +389,7 @@ column	10
 %DisplayText
 address	2046
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -404,7 +406,7 @@ column	10
 %DisplayText
 address	2048
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -421,7 +423,7 @@ column	10
 %DisplayText
 address	2050
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -438,7 +440,7 @@ column	10
 %DisplayText
 address	2052
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -455,7 +457,7 @@ column	10
 %DisplayText
 address	2054
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -472,7 +474,7 @@ column	10
 %DisplayText
 address	2056
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -489,7 +491,7 @@ column	10
 %DisplayText
 address	2058
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -506,11 +508,11 @@ column	10
 %DisplayText
 address	2060
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	c 
+text	 
 color	black
 %%
 %RowerNode
@@ -523,7 +525,7 @@ column	10
 %DisplayText
 address	2062
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -548,7 +550,7 @@ column	5
 %DisplayText
 address	2065
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -565,7 +567,7 @@ column	5
 %DisplayText
 address	2067
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -582,7 +584,7 @@ column	10
 %DisplayText
 address	2069
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -599,7 +601,7 @@ column	10
 %DisplayText
 address	2071
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -616,7 +618,7 @@ column	10
 %DisplayText
 address	2073
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -633,7 +635,7 @@ column	10
 %DisplayText
 address	2075
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -650,7 +652,7 @@ column	10
 %DisplayText
 address	2077
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -667,7 +669,7 @@ column	10
 %DisplayText
 address	2079
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -684,7 +686,7 @@ column	10
 %DisplayText
 address	2081
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -701,7 +703,7 @@ column	5
 %DisplayText
 address	2083
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -718,7 +720,7 @@ column	5
 %DisplayText
 address	2085
 sibling	2086
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -728,7 +730,7 @@ color	black
 %DisplayText
 address	2086
 sibling	2087
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -738,7 +740,7 @@ color	blue
 %DisplayText
 address	2087
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -761,7 +763,7 @@ column	5
 %DisplayText
 address	2090
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -778,11 +780,11 @@ column	5
 %DisplayText
 address	2092
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	The entry of 'female' braches to the
+text	The entry other than 'male' branches to 
 color	black
 %%
 %RowerNode
@@ -795,7 +797,7 @@ column	5
 %DisplayText
 address	2094
 sibling	2095
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -805,7 +807,7 @@ color	black
 %DisplayText
 address	2095
 sibling	2096
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -815,21 +817,419 @@ color	blue
 %DisplayText
 address	2096
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
 text	.
 color	black
 %%
-%NextFile
+%CardSet
 address	2097
-sibling	2098
+child	2098
+sibling	2114
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2098
+child	2099
+sibling	2100
+row	2
+column	5
+%%
+%DisplayText
+address	2099
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2100
+child	2101
+sibling	2102
+row	3
+column	5
+%%
+%DisplayText
+address	2101
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	In place of the literal filename, a $<variable>
+color	black
+%%
+%RowerNode
+address	2102
+child	2103
+sibling	2104
+row	4
+column	5
+%%
+%DisplayText
+address	2103
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	may be substituted, for example:
+color	black
+%%
+%RowerNode
+address	2104
+child	2105
+sibling	2106
+row	5
+column	15
+%%
+%DisplayText
+address	2105
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------script----------------
+color	black
+%%
+%RowerNode
+address	2106
+child	2107
+sibling	2108
+row	6
+column	15
+%%
+%DisplayText
+address	2107
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	c
+color	black
+%%
+%RowerNode
+address	2108
+child	2109
+sibling	2110
+row	7
+column	15
+%%
+%DisplayText
+address	2109
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Enter file name (# $filename)
+color	black
+%%
+%RowerNode
+address	2110
+child	2111
+sibling	2112
+row	8
+column	15
+%%
+%DisplayText
+address	2111
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	f $filename
+color	black
+%%
+%RowerNode
+address	2112
+child	2113
+sibling	0
+row	9
+column	15
+%%
+%DisplayText
+address	2113
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------------------------
+color	black
+%%
+%CardSet
+address	2114
+child	2115
+sibling	2133
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2115
+child	2116
+sibling	2117
+row	2
+column	5
+%%
+%DisplayText
+address	2116
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2117
+child	2118
+sibling	2119
+row	3
+column	5
+%%
+%DisplayText
+address	2118
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	A few commands are not members of the
+color	black
+%%
+%RowerNode
+address	2119
+child	2120
+sibling	2121
+row	4
+column	5
+%%
+%DisplayText
+address	2120
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	CardSet.  In fact, they work to
+color	black
+%%
+%RowerNode
+address	2121
+child	2122
+sibling	2123
+row	5
+column	5
+%%
+%DisplayText
+address	2122
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	designate the end of a CardSet and
+color	black
+%%
+%RowerNode
+address	2123
+child	2124
+sibling	2125
+row	6
+column	5
+%%
+%DisplayText
+address	2124
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	would cause problems embedded into
+color	black
+%%
+%RowerNode
+address	2125
+child	2126
+sibling	2127
+row	7
+column	5
+%%
+%DisplayText
+address	2126
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a CardSet.
+color	black
+%%
+%RowerNode
+address	2127
+child	2128
+sibling	2129
+row	8
+column	5
+%%
+%DisplayText
+address	2128
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2129
+child	2130
+sibling	2131
+row	9
+column	5
+%%
+%DisplayText
+address	2130
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The File 'f' command is one of these
+color	black
+%%
+%RowerNode
+address	2131
+child	2132
+sibling	0
+row	10
+column	5
+%%
+%DisplayText
+address	2132
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	commands.
+color	black
+%%
+%CardSet
+address	2133
+child	2134
+sibling	2144
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2134
+child	2135
+sibling	2136
+row	2
+column	5
+%%
+%DisplayText
+address	2135
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	This completes the survey of the
+color	black
+%%
+%RowerNode
+address	2136
+child	2137
+sibling	2138
+row	3
+column	5
+%%
+%DisplayText
+address	2137
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	File 'f' command.
+color	black
+%%
+%RowerNode
+address	2138
+child	2139
+sibling	2140
+row	4
+column	5
+%%
+%DisplayText
+address	2139
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2140
+child	2141
+sibling	2142
+row	5
+column	5
+%%
+%DisplayText
+address	2141
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The next file covers the Group 'g'
+color	black
+%%
+%RowerNode
+address	2142
+child	2143
+sibling	0
+row	6
+column	5
+%%
+%DisplayText
+address	2143
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	command.
+color	black
+%%
+%NextFile
+address	2144
+sibling	2145
 filename	groupCommand
 condition	0
 %%
 %NotecardTask
-address	2098
+address	2145
 sibling	0
 task	end
 type	0

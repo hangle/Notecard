@@ -1,15 +1,17 @@
 %Notecard
 child	2002
-height	500
-width	450
-font_size	14
+height	600
+width	400
+size	14
+name	TimesRoman
+style	0
 asteriskButton	on
 priorButton	on
 %%
 %CardSet
 address	2002
 child	2003
-sibling	2015
+sibling	2019
 button	0
 name	0
 condition	0
@@ -24,11 +26,11 @@ column	5
 %DisplayText
 address	2004
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	The highlights of the eight script 
+text	The highlights of the ten script 
 color	black
 %%
 %RowerNode
@@ -41,7 +43,7 @@ column	5
 %DisplayText
 address	2006
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -58,7 +60,7 @@ column	5
 %DisplayText
 address	2008
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -75,7 +77,7 @@ column	5
 %DisplayText
 address	2010
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -92,7 +94,7 @@ column	5
 %DisplayText
 address	2012
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -102,157 +104,56 @@ color	black
 %RowerNode
 address	2013
 child	2014
-sibling	0
+sibling	2015
 row	7
 column	5
 %%
 %DisplayText
 address	2014
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
 text	documentation.
 color	black
 %%
-%CardSet
+%RowerNode
 address	2015
 child	2016
-sibling	2024
-button	0
-name	0
-condition	0
+sibling	2017
+row	8
+column	5
 %%
-%RowerNode
+%DisplayText
 address	2016
-child	2017
-sibling	2018
-row	2
-column	5
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
 %%
-%DisplayText
+%RowerNode
 address	2017
+child	2018
 sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	The script documentation is
-color	black
+row	9
+column	15
 %%
-%RowerNode
+%DisplayText
 address	2018
-child	2019
-sibling	2020
-row	3
-column	5
-%%
-%DisplayText
-address	2019
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	found at:
-color	black
-%%
-%RowerNode
-address	2020
-child	2021
-sibling	2022
-row	4
-column	5
-%%
-%DisplayText
-address	2021
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2022
-child	2023
-sibling	0
-row	5
-column	10
-%%
-%DisplayText
-address	2023
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	notecard.org/document
-color	black
-%%
-%CardSet
-address	2024
-child	2025
-sibling	2031
-button	0
-name	0
-condition	0
-%%
-%RowerNode
-address	2025
-child	2026
-sibling	2027
-row	2
-column	5
-%%
-%DisplayText
-address	2026
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	Thankyou for your time and effort.
-color	black
-%%
-%RowerNode
-address	2027
-child	2028
-sibling	2029
-row	3
-column	5
-%%
-%DisplayText
-address	2028
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2029
-child	2030
-sibling	0
-row	4
-column	5
-%%
-%DisplayText
-address	2030
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	This ends the highlights.
+text	see: Notecard/documents/Commands/
 color	black
 %%
 %NotecardTask
-address	2031
+address	2019
 sibling	0
 task	end
 type	0

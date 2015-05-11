@@ -1,6 +1,6 @@
 <hr />
 
-<h2>Test Directory (Notecard/src/test):  </h2>
+<h2>Test Directory (Script/src/test):  </h2>
 
 <p>The execution of the script in the DEMO directory:  </p>
 
@@ -16,7 +16,7 @@ system.  </p>
 <p>The TEST directory contains script to exercises every <br />
 feature of the system.  Its purpose is not a tutorial; <br />
 rather, it is a means  to reveal or find errors and <br />
-limitations in the script :code.     </p>
+limitations in the script :code.   </p>
 
 <p>It is expected that each script in the TEST directory <br />
 will grow to exercise every combination of script elements <br />
@@ -35,30 +35,36 @@ The TEST directory also serves as a regression test.   </p>
 
 <p>To date, the following TEST scripts are available:   </p>
 
-<pre><code>appearance.struct       
-    Example:  
-        d 5/4/color red/Sorry wrong answer  
-        d now is (%%/color blue/for all good) men  
-groupCmd.struct  
-    Example:  
-        g (flag)=(true)  
-        ge  
-inputFields.struct  
-    Example:  
-        d Enter (# $name)  
-        d (# $one)  (# $two)  (# $three)  
-letterSize.struct       Note, component of appearance  
-    Example:  
-        d 5/4/size 20/Sorry wrong answer  
-        d now is (%%/size 10/for all good) men  
-loadDictionary.struct  
-    Example:  
-        l  
-        a $count=0  
+<pre><code>appearance.nc       
+    Example:
+        d 5/4/color red/Sorry wrong answer
+        d now is (%%/color blue/for all good) men
+groupCmd.nc
+    Example:
+        g (flag)=(true)
+        ge
+inputFields.nc
+    Example:
+        d Enter (# $name)
+        d (# $one)  (# $two)  (# $three)
+letterSize.nc       Note, component of appearance
+    Example:
+        d 5/4/size 20/Sorry wrong answer
+        d now is (%%/size 10/for all good) men
+loadDictionary.nc
+    Example:
+        l
+        a $count=0
         a $flag=false
+addCardSet.nc
+    Example:
+        c
+        d This is a CardSet
+        +
+        d This is an AddCardSet
 </code></pre>
 
-<h2>Execution:  </h2>
+<h2>Execution:</h2>
 
 <p>Execution of the sript appearance.nc  must  be compiled in <br />
 the Script/src directory:    </p>

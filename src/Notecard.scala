@@ -94,7 +94,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		// has instantiated a Notecard object. This object is created  in 
 		// NotecardTask and is passed here from 'taskGather'. 
 	var manageNotecard:Notecard= _
-		// Contains 'activatedAddButton', 'isFirstAddCardSet'. 
+		// Contains 'activatedAddButton' and 'hadDependentAdd'
 	val addCardSetFlags=new AddCardSetFlags
 
 	def startNotecard(taskGather:TaskGather) {
@@ -157,7 +157,8 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 										defaultFont)
 
 				}
-					}  catch { case _:AddButtonException => }
+					}  catch { case _:AddButtonException => 
+							}
 			}   
 		}
 			//Notecard's children: CardSet, FrameTask, NextFile, LoadDictionary
@@ -207,10 +208,12 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					backupMechanism.captureFirstChild(node)
 						// save all 'node's to be used to back up to prior CardSet
 					backupMechanism.storePriorSiblingInBackupList( node)
-								// button==1 A CardSet with associate ButtonCardSet
+							// button==1 A CardSet with associate ButtonCardSet
 					if(cs.hasAddCardSet) {
-								// Arm +Add button and save 'current node' to restore CardSet
+							// Arm +Add button and save 'current node' to restore CardSet
 						buttonSet.armAddButton
+							// To affect a return to the dependent CardSet
+						saveCurrentCardSet 
 							// Create BackupMechanism for AddCardSet(s)
 						establishAddBackup(addCardSetFlags)
 						}
@@ -250,17 +253,14 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 			// Create BackupMechanism for AddCardSet(s)
 	def establishAddBackup(addCardSetFlags:AddCardSetFlags) {
 				// Indicates which BackupMechanism to execute in 'doPriorButton'
-			whichBackup="cardSet"
+			//whichBackup="cardSet"
 				// release prior backup mechanism
 			addBackupMechanism=null
 				// AddCardSets have their own backup mechanism.
 			addBackupMechanism= new BackupMechanism("AddCardSet")
 				// In CardSet. 'hadDependentAdd' along with "+" throws
-				// AddButtonException in 'xn:XNote=>'
+				// AddButtonException in CardSet-- 'xn:XNode=>'
 			addCardSetFlags.hasDependentAdd=true
-				// current CardSet node is saved to be re-installed by
-				// 'restoreCurrentCardSet'
-			saveCurrentCardSet 
 		}
 
 	def startCardSetThenDoButtonsAfter( cardSet:CardSet,
@@ -317,16 +317,27 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 			//
 	def saveCurrentCardSet { currentCardSet=node }
 	def restoreCurrentCardSet { iterator=currentCardSet }
-
+			// Remove AddCardSet values and restore CardSet values.
+	def addCardSetOverRestoreCardSet={
+			// Prevents addCardSet(s) from being executed.
+			// also set false in 'doPriorButton'
+		addCardSetFlags.activatedAddButton=false
+			// CardSet backup replaces AddCardSet backup
+		whichBackup="cardSet"
+			// CardSet already on BackupList so 'restoreCurrentCardSet'
+			// put it on again, therefore, remove it.
+		backupMechanism.loadIteratorWithBackup
+			// re-displays CardSet
+		restoreCurrentCardSet
+		}
 	def doNextButton(buttonSet:ButtonSet, addCardSetFlags:AddCardSetFlags) ={
 			// add button armed via 'acs:CardSet=> ...'
 		buttonSet.grayAndDisableAddButton
 		buttonSet.grayAndDisablePriorButton
 			// Terminate AddCardSet series
-		if(addCardSetFlags.activatedAddButton) {
-			addCardSetFlags.activatedAddButton=false
-			restoreCurrentCardSet
-			}
+		if(addCardSetFlags.activatedAddButton) 
+					// Remove AddCardSet values and restore CardSet values.
+			addCardSetOverRestoreCardSet
 		}
 		// Return to previous CardSet by assigning the previous CardSet node
 		// to Linker's 'iterator'. 
@@ -417,6 +428,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// be returned to the invoking function.  Since the current
 					// state is 'manageNotecard',then  the invoking function has to
 					// be Notecard, rather than 'card'. 
+				println("Notecard: AsteriskException")
 				throw new AsteriskException
 				}
 		}
@@ -430,13 +442,9 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 			// Last AddCardSet restores associated CardSet
 			// last AddCardSet in series has a button value
 			// of 99, therefore, terminate the series.
-		if(cardSet.isLastAddCardSet){
-				// Prevents addCardSet(s) from being executed.
-			addCardSetFlags.activatedAddButton=false
-				//Enable CardSet to repeat
-			restoreCurrentCardSet  // see Linker trait
-			}
-
+		if(cardSet.isLastAddCardSet)
+					// Remove AddCardSet values and restore CardSet values.
+			addCardSetOverRestoreCardSet
 		}
 			// Invokes new CardWindow (extends JFrame) and setVisible
 	def createAndMakeVisibleCardWindow( notePanel:JPanel,

@@ -1,15 +1,17 @@
 %Notecard
 child	2002
-height	500
-width	450
-font_size	14
+height	600
+width	400
+size	14
+name	TimesRoman
+style	0
 asteriskButton	on
 priorButton	on
 %%
 %CardSet
 address	2002
 child	2003
-sibling	2023
+sibling	2033
 button	0
 name	0
 condition	0
@@ -24,7 +26,7 @@ column	5
 %DisplayText
 address	2004
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -41,7 +43,7 @@ column	5
 %DisplayText
 address	2006
 sibling	2007
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -51,7 +53,7 @@ color	black
 %DisplayText
 address	2007
 sibling	2008
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -61,7 +63,7 @@ color	blue
 %DisplayText
 address	2008
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -78,7 +80,7 @@ column	5
 %DisplayText
 address	2010
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -95,11 +97,11 @@ column	5
 %DisplayText
 address	2012
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	Tasks:
+text	The '*' is followed by a 'task' element
 color	black
 %%
 %RowerNode
@@ -107,16 +109,16 @@ address	2013
 child	2014
 sibling	2015
 row	5
-column	15
+column	5
 %%
 %DisplayText
 address	2014
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	* end
+text	and, in certain cases, by a third
 color	black
 %%
 %RowerNode
@@ -124,16 +126,16 @@ address	2015
 child	2016
 sibling	2017
 row	6
-column	15
+column	5
 %%
 %DisplayText
 address	2016
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	* continue
+text	element.
 color	black
 %%
 %RowerNode
@@ -141,16 +143,16 @@ address	2017
 child	2018
 sibling	2019
 row	7
-column	15
+column	5
 %%
 %DisplayText
 address	2018
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	* save <filename>
+text	 
 color	black
 %%
 %RowerNode
@@ -158,29 +160,114 @@ address	2019
 child	2020
 sibling	2021
 row	8
-column	15
+column	5
 %%
 %DisplayText
 address	2020
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	* status <message>
+text	Tasks:
 color	black
 %%
 %RowerNode
 address	2021
 child	2022
-sibling	0
+sibling	2023
 row	9
-column	15
+column	5
 %%
 %DisplayText
 address	2022
 sibling	0
-style	1
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2023
+child	2024
+sibling	2025
+row	10
+column	15
+%%
+%DisplayText
+address	2024
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* end
+color	black
+%%
+%RowerNode
+address	2025
+child	2026
+sibling	2027
+row	11
+column	15
+%%
+%DisplayText
+address	2026
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* continue
+color	black
+%%
+%RowerNode
+address	2027
+child	2028
+sibling	2029
+row	12
+column	15
+%%
+%DisplayText
+address	2028
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* save <filename>
+color	black
+%%
+%RowerNode
+address	2029
+child	2030
+sibling	2031
+row	13
+column	15
+%%
+%DisplayText
+address	2030
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* status <text message>
+color	black
+%%
+%RowerNode
+address	2031
+child	2032
+sibling	0
+row	14
+column	15
+%%
+%DisplayText
+address	2032
+sibling	0
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -188,78 +275,85 @@ text	* manage <filename.nc>
 color	black
 %%
 %CardSet
-address	2023
-child	2024
-sibling	2049
+address	2033
+child	2034
+sibling	2062
 button	0
 name	0
 condition	0
 %%
 %RowerNode
-address	2024
-child	2025
-sibling	2026
+address	2034
+child	2035
+sibling	2037
 row	2
 column	5
 %%
 %DisplayText
-address	2025
-sibling	0
-style	1
+address	2035
+sibling	2036
+style	0
 size	14
 column	0
 name	TimesRoman
-text	The termination of the Card set execution
+text	The '*' command whose task is 
 color	black
 %%
+%DisplayText
+address	2036
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	end
+color	blue
+%%
 %RowerNode
-address	2026
-child	2027
-sibling	2030
+address	2037
+child	2038
+sibling	2039
 row	3
 column	5
 %%
 %DisplayText
-address	2027
-sibling	2028
-style	1
-size	14
-column	0
-name	TimesRoman
-text	is caused by the 
-color	black
-%%
-%DisplayText
-address	2028
-sibling	2029
-style	1
-size	14
-column	0
-name	TimesRoman
-text	* end
-color	blue
-%%
-%DisplayText
-address	2029
+address	2038
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	 command.
+text	terminate of the execution of the '*.nc' file 
 color	black
 %%
 %RowerNode
-address	2030
-child	2031
-sibling	2032
+address	2039
+child	2040
+sibling	2041
 row	4
 column	5
 %%
 %DisplayText
-address	2031
+address	2040
 sibling	0
-style	1
+style	0
+size	14
+column	0
+name	TimesRoman
+text	and terminates the session.
+color	black
+%%
+%RowerNode
+address	2041
+child	2042
+sibling	2043
+row	5
+column	5
+%%
+%DisplayText
+address	2042
+sibling	0
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -267,16 +361,16 @@ text
 color	black
 %%
 %RowerNode
-address	2032
-child	2033
-sibling	2034
-row	5
+address	2043
+child	2044
+sibling	2045
+row	6
 column	10
 %%
 %DisplayText
-address	2033
+address	2044
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -284,16 +378,16 @@ text	----------script----------
 color	black
 %%
 %RowerNode
-address	2034
-child	2035
-sibling	2036
-row	6
+address	2045
+child	2046
+sibling	2047
+row	7
 column	10
 %%
 %DisplayText
-address	2035
+address	2046
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -301,16 +395,16 @@ text	* end
 color	black
 %%
 %RowerNode
-address	2036
-child	2037
-sibling	2038
-row	7
+address	2047
+child	2048
+sibling	2049
+row	8
 column	10
 %%
 %DisplayText
-address	2037
+address	2048
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -318,22 +412,22 @@ text	-----------------------------
 color	black
 %%
 %CardSetTask
-address	2038
-sibling	2039
+address	2049
+sibling	2050
 task	continue
 type	0
 %%
 %RowerNode
-address	2039
-child	2040
-sibling	2041
-row	8
+address	2050
+child	2051
+sibling	2052
+row	9
 column	5
 %%
 %DisplayText
-address	2040
+address	2051
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -341,16 +435,16 @@ text
 color	black
 %%
 %RowerNode
-address	2041
-child	2042
-sibling	2045
-row	9
+address	2052
+child	2053
+sibling	2056
+row	10
 column	5
 %%
 %DisplayText
-address	2042
-sibling	2043
-style	1
+address	2053
+sibling	2054
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -358,9 +452,9 @@ text	The
 color	black
 %%
 %DisplayText
-address	2043
-sibling	2044
-style	1
+address	2054
+sibling	2055
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -368,9 +462,9 @@ text	* end
 color	blue
 %%
 %DisplayText
-address	2044
+address	2055
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -378,268 +472,149 @@ text	 typically follows the last
 color	black
 %%
 %RowerNode
-address	2045
-child	2046
-sibling	2047
-row	10
-column	5
-%%
-%DisplayText
-address	2046
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	Card set of the .nc file.  Otherwise, the file 
-color	black
-%%
-%RowerNode
-address	2047
-child	2048
-sibling	0
-row	11
-column	5
-%%
-%DisplayText
-address	2048
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	will "loop" and execute the 1st Card Set. 
-color	black
-%%
-%CardSet
-address	2049
-child	2050
-sibling	2079
-button	0
-name	0
-condition	0
-%%
-%RowerNode
-address	2050
-child	2051
-sibling	2052
-row	0
-column	5
-%%
-%DisplayText
-address	2051
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	In this demo, text is displayed 
-color	black
-%%
-%RowerNode
-address	2052
-child	2053
-sibling	2054
-row	1
-column	5
-%%
-%DisplayText
-address	2053
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	but often, following the activation 
-color	black
-%%
-%RowerNode
-address	2054
-child	2055
-sibling	2056
-row	2
-column	5
-%%
-%DisplayText
-address	2055
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	of the NEXT button, the window is 
-color	black
-%%
-%RowerNode
 address	2056
 child	2057
 sibling	2058
-row	3
+row	11
 column	5
 %%
 %DisplayText
 address	2057
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	not cleared.  
+text	CardSet of the .nc file.  Otherwise, the file 
 color	black
 %%
 %RowerNode
 address	2058
 child	2059
 sibling	2060
-row	4
+row	12
 column	5
 %%
 %DisplayText
 address	2059
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	will "loop" and execute the 1st CardSet, and
 color	black
 %%
 %RowerNode
 address	2060
 child	2061
-sibling	2062
-row	5
+sibling	0
+row	13
 column	5
 %%
 %DisplayText
 address	2061
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	Instead, additional text is 
+text	so on.
 color	black
 %%
-%RowerNode
+%CardSet
 address	2062
 child	2063
-sibling	2064
-row	6
+sibling	2080
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2063
+child	2064
+sibling	2065
+row	2
 column	5
 %%
 %DisplayText
-address	2063
+address	2064
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	displayed within the same 
+text	A <file.nc> that is linked to another
 color	black
 %%
 %RowerNode
-address	2064
-child	2065
-sibling	2066
-row	7
+address	2065
+child	2066
+sibling	2067
+row	3
 column	5
 %%
 %DisplayText
-address	2065
+address	2066
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	window.
+text	<file.nc> will not loop if it has
 color	black
-%%
-%CardSetTask
-address	2066
-sibling	2067
-task	continue
-type	0
 %%
 %RowerNode
 address	2067
 child	2068
 sibling	2069
-row	8
+row	4
 column	5
 %%
 %DisplayText
 address	2068
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	a File 'f' command to pass control to. 
 color	black
 %%
 %RowerNode
 address	2069
 child	2070
 sibling	2071
-row	9
+row	5
 column	5
 %%
 %DisplayText
 address	2070
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	The Asterick command:
+text	 
 color	black
 %%
-%RowerNode
+%CardSetTask
 address	2071
-child	2072
-sibling	2073
-row	10
-column	5
+sibling	2072
+task	continue
+type	0
 %%
-%DisplayText
+%RowerNode
 address	2072
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
+child	2073
+sibling	2074
+row	6
+column	5
 %%
-%RowerNode
+%DisplayText
 address	2073
-child	2074
-sibling	2075
-row	11
-column	15
-%%
-%DisplayText
-address	2074
 sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	* continue
-color	blue
-%%
-%RowerNode
-address	2075
-child	2076
-sibling	2077
-row	12
-column	5
-%%
-%DisplayText
-address	2076
-sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -647,63 +622,90 @@ text
 color	black
 %%
 %RowerNode
-address	2077
-child	2078
-sibling	0
-row	13
+address	2074
+child	2075
+sibling	2076
+row	7
 column	5
 %%
 %DisplayText
-address	2078
+address	2075
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	provides this feature. 
+text	Like the File 'f' command, The Asterisk
+color	black
+%%
+%RowerNode
+address	2076
+child	2077
+sibling	2078
+row	8
+column	5
+%%
+%DisplayText
+address	2077
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'* end' command is not a member of the
+color	black
+%%
+%RowerNode
+address	2078
+child	2079
+sibling	0
+row	9
+column	5
+%%
+%DisplayText
+address	2079
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	CardSet.
 color	black
 %%
 %CardSet
-address	2079
-child	2080
-sibling	2103
+address	2080
+child	2081
+sibling	2108
 button	0
 name	0
 condition	0
 %%
 %RowerNode
-address	2080
-child	2081
-sibling	2082
-row	1
-column	5
-%%
-%DisplayText
 address	2081
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	The following script is executed to
-color	black
-%%
-%RowerNode
-address	2082
-child	2083
+child	2082
 sibling	2084
 row	2
 column	5
 %%
 %DisplayText
-address	2083
-sibling	0
-style	1
+address	2082
+sibling	2083
+style	0
 size	14
 column	0
 name	TimesRoman
-text	illustrate the action of this Asterisk
+text	The '*' command whose task is 
 color	black
+%%
+%DisplayText
+address	2083
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	continue
+color	blue
 %%
 %RowerNode
 address	2084
@@ -715,11 +717,11 @@ column	5
 %DisplayText
 address	2085
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	command.
+text	halts the execution of the CardSet until
 color	black
 %%
 %RowerNode
@@ -727,16 +729,16 @@ address	2086
 child	2087
 sibling	2088
 row	4
-column	10
+column	5
 %%
 %DisplayText
 address	2087
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	-----------Script--------------
+text	Next button is activated.
 color	black
 %%
 %RowerNode
@@ -744,16 +746,16 @@ address	2088
 child	2089
 sibling	2090
 row	5
-column	10
+column	5
 %%
 %DisplayText
 address	2089
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	d First you read this.
+text	 
 color	black
 %%
 %RowerNode
@@ -761,16 +763,16 @@ address	2090
 child	2091
 sibling	2092
 row	6
-column	10
+column	5
 %%
 %DisplayText
 address	2091
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	* continue
+text	The next CardSet executes the following
 color	black
 %%
 %RowerNode
@@ -778,16 +780,16 @@ address	2092
 child	2093
 sibling	2094
 row	7
-column	10
+column	5
 %%
 %DisplayText
 address	2093
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	d Then you read that.
+text	script.
 color	black
 %%
 %RowerNode
@@ -795,16 +797,16 @@ address	2094
 child	2095
 sibling	2096
 row	8
-column	10
+column	15
 %%
 %DisplayText
 address	2095
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	----------------------------------
+text	------------script-------------------
 color	black
 %%
 %RowerNode
@@ -812,16 +814,16 @@ address	2096
 child	2097
 sibling	2098
 row	9
-column	5
+column	15
 %%
 %DisplayText
 address	2097
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	c
 color	black
 %%
 %RowerNode
@@ -829,148 +831,151 @@ address	2098
 child	2099
 sibling	2100
 row	10
-column	5
+column	15
 %%
 %DisplayText
 address	2099
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	First you read this.
+text	d This precedes the '* continue' command.
 color	black
 %%
-%CardSetTask
-address	2100
-sibling	2101
-task	continue
-type	0
-%%
 %RowerNode
-address	2101
-child	2102
-sibling	0
+address	2100
+child	2101
+sibling	2102
 row	11
-column	5
+column	15
 %%
 %DisplayText
-address	2102
+address	2101
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	Then you read that.
+text	* continue
+color	black
+%%
+%RowerNode
+address	2102
+child	2103
+sibling	2104
+row	12
+column	15
+%%
+%DisplayText
+address	2103
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d This follows the '* continue' command
+color	black
+%%
+%RowerNode
+address	2104
+child	2105
+sibling	2106
+row	13
+column	15
+%%
+%DisplayText
+address	2105
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	c ...
+color	black
+%%
+%RowerNode
+address	2106
+child	2107
+sibling	0
+row	14
+column	15
+%%
+%DisplayText
+address	2107
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------------------------------
 color	black
 %%
 %CardSet
-address	2103
-child	2104
-sibling	2135
+address	2108
+child	2109
+sibling	2121
 button	0
 name	0
 condition	0
 %%
 %RowerNode
-address	2104
-child	2105
-sibling	2108
-row	1
-column	5
-%%
-%DisplayText
-address	2105
-sibling	2106
-style	1
-size	14
-column	0
-name	TimesRoman
-text	The Asterisk or 
-color	black
-%%
-%DisplayText
-address	2106
-sibling	2107
-style	1
-size	14
-column	0
-name	TimesRoman
-text	*
-color	blue
-%%
-%DisplayText
-address	2107
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	 command writes
-color	black
-%%
-%RowerNode
-address	2108
-child	2109
-sibling	2110
-row	2
-column	5
-%%
-%DisplayText
 address	2109
-sibling	0
-style	1
-size	14
+child	2110
+sibling	2111
+row	0
 column	0
-name	TimesRoman
-text	or saves the data captured by the 
-color	black
-%%
-%RowerNode
-address	2110
-child	2111
-sibling	2112
-row	3
-column	5
 %%
 %DisplayText
-address	2111
+address	2110
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	(# $<variable) expression and the 
+text	This precedes the '* continue' command.
 color	black
+%%
+%CardSetTask
+address	2111
+sibling	2112
+task	continue
+type	0
 %%
 %RowerNode
 address	2112
 child	2113
 sibling	2114
-row	4
-column	5
+row	1
+column	0
 %%
 %DisplayText
 address	2113
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	data logged by the Assign command.
+text	This follows the '* continue' command
 color	black
 %%
-%RowerNode
+%CardSetTask
 address	2114
-child	2115
-sibling	2116
-row	5
-column	5
+sibling	2115
+task	continue
+type	0
+%%
+%RowerNode
+address	2115
+child	2116
+sibling	2117
+row	2
+column	0
 %%
 %DisplayText
-address	2115
+address	2116
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -978,16 +983,153 @@ text
 color	black
 %%
 %RowerNode
-address	2116
-child	2117
-sibling	2118
+address	2117
+child	2118
+sibling	2119
+row	3
+column	0
+%%
+%DisplayText
+address	2118
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The Asterisk  '* continue' command is a member
+color	black
+%%
+%RowerNode
+address	2119
+child	2120
+sibling	0
+row	4
+column	0
+%%
+%DisplayText
+address	2120
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	of the CardSet.
+color	black
+%%
+%CardSet
+address	2121
+child	2122
+sibling	2152
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2122
+child	2123
+sibling	2125
+row	2
+column	5
+%%
+%DisplayText
+address	2123
+sibling	2124
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The '*' command whose task is 
+color	black
+%%
+%DisplayText
+address	2124
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	save
+color	blue
+%%
+%RowerNode
+address	2125
+child	2126
+sibling	2127
+row	3
+column	5
+%%
+%DisplayText
+address	2126
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	writes or saves the data  captured by the 
+color	black
+%%
+%RowerNode
+address	2127
+child	2128
+sibling	2129
+row	4
+column	5
+%%
+%DisplayText
+address	2128
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d (# $<variable) expression and the data of 
+color	black
+%%
+%RowerNode
+address	2129
+child	2130
+sibling	2131
+row	5
+column	5
+%%
+%DisplayText
+address	2130
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	the Assign 'a' command.
+color	black
+%%
+%RowerNode
+address	2131
+child	2132
+sibling	2133
 row	6
 column	5
 %%
 %DisplayText
-address	2117
+address	2132
 sibling	0
-style	1
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2133
+child	2134
+sibling	2135
+row	7
+column	5
+%%
+%DisplayText
+address	2134
+sibling	0
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -995,16 +1137,16 @@ text	Example:
 color	black
 %%
 %RowerNode
-address	2118
-child	2119
-sibling	2120
-row	7
+address	2135
+child	2136
+sibling	2137
+row	8
 column	10
 %%
 %DisplayText
-address	2119
+address	2136
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1012,16 +1154,16 @@ text	------------script---------
 color	black
 %%
 %RowerNode
-address	2120
-child	2121
-sibling	2122
-row	8
+address	2137
+child	2138
+sibling	2139
+row	9
 column	10
 %%
 %DisplayText
-address	2121
+address	2138
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1029,16 +1171,16 @@ text	* save one/two/myfile
 color	black
 %%
 %RowerNode
-address	2122
-child	2123
-sibling	2124
-row	9
+address	2139
+child	2140
+sibling	2141
+row	10
 column	10
 %%
 %DisplayText
-address	2123
+address	2140
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1046,169 +1188,22 @@ text	------------------------------
 color	black
 %%
 %CardSetTask
-address	2124
-sibling	2125
+address	2141
+sibling	2142
 task	continue
 type	0
-%%
-%RowerNode
-address	2125
-child	2126
-sibling	2127
-row	10
-column	5
-%%
-%DisplayText
-address	2126
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2127
-child	2128
-sibling	2130
-row	11
-column	5
-%%
-%DisplayText
-address	2128
-sibling	2129
-style	1
-size	14
-column	0
-name	TimesRoman
-text	$<variable>
-color	blue
-%%
-%DisplayText
-address	2129
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	 names, along with their 
-color	black
-%%
-%RowerNode
-address	2130
-child	2131
-sibling	2133
-row	12
-column	5
-%%
-%DisplayText
-address	2131
-sibling	2132
-style	1
-size	14
-column	0
-name	TimesRoman
-text	values
-color	blue
-%%
-%DisplayText
-address	2132
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	, are written to 'myfile' 
-color	black
-%%
-%RowerNode
-address	2133
-child	2134
-sibling	0
-row	13
-column	5
-%%
-%DisplayText
-address	2134
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	file in directory  'one/two'. 
-color	black
-%%
-%CardSet
-address	2135
-child	2136
-sibling	2160
-button	0
-name	0
-condition	0
-%%
-%RowerNode
-address	2136
-child	2137
-sibling	2138
-row	1
-column	5
-%%
-%DisplayText
-address	2137
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	At present, the appearance of displayed text, 
-color	black
-%%
-%RowerNode
-address	2138
-child	2139
-sibling	2140
-row	2
-column	5
-%%
-%DisplayText
-address	2139
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	such as, color, size, height, are controlled 
-color	black
-%%
-%RowerNode
-address	2140
-child	2141
-sibling	2142
-row	3
-column	5
-%%
-%DisplayText
-address	2141
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	by default values:
-color	black
 %%
 %RowerNode
 address	2142
 child	2143
 sibling	2144
-row	4
-column	10
+row	11
+column	5
 %%
 %DisplayText
 address	2143
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1218,334 +1213,137 @@ color	black
 %RowerNode
 address	2144
 child	2145
-sibling	2146
-row	5
-column	10
+sibling	2147
+row	12
+column	5
 %%
 %DisplayText
 address	2145
-sibling	0
-style	1
+sibling	2146
+style	0
 size	14
 column	0
 name	TimesRoman
-text	height "300"  ---window size 
-color	black
-%%
-%RowerNode
-address	2146
-child	2147
-sibling	2148
-row	6
-column	10
+text	$<variable>
+color	blue
 %%
 %DisplayText
-address	2147
+address	2146
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	width  "400"  ---window size 
+text	 names, along with their 
 color	black
 %%
 %RowerNode
-address	2148
-child	2149
+address	2147
+child	2148
 sibling	2150
-row	7
-column	10
+row	13
+column	5
+%%
+%DisplayText
+address	2148
+sibling	2149
+style	0
+size	14
+column	0
+name	TimesRoman
+text	values
+color	blue
 %%
 %DisplayText
 address	2149
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	name   "TimesRoman" ---font name
+text	, are written to 'myfile' 
 color	black
 %%
 %RowerNode
 address	2150
 child	2151
-sibling	2152
-row	8
-column	10
+sibling	0
+row	14
+column	5
 %%
 %DisplayText
 address	2151
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	size   "14"   ---size of lettering
-color	black
-%%
-%RowerNode
-address	2152
-child	2153
-sibling	2154
-row	9
-column	10
-%%
-%DisplayText
-address	2153
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	color  "black"---color of lettering
-color	black
-%%
-%RowerNode
-address	2154
-child	2155
-sibling	2156
-row	10
-column	10
-%%
-%DisplayText
-address	2155
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	style  "1"---normal,2=bold,3=italics
-color	black
-%%
-%RowerNode
-address	2156
-child	2157
-sibling	2158
-row	11
-column	10
-%%
-%DisplayText
-address	2157
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	length "10" ---input field size 
-color	black
-%%
-%RowerNode
-address	2158
-child	2159
-sibling	0
-row	12
-column	10
-%%
-%DisplayText
-address	2159
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	limit   "99"---limit of input chars. 
+text	file in directory  'one/two'. 
 color	black
 %%
 %CardSet
-address	2160
-child	2161
-sibling	2192
+address	2152
+child	2153
+sibling	2184
 button	0
 name	0
 condition	0
 %%
 %RowerNode
-address	2161
-child	2162
-sibling	2163
-row	0
-column	5
-%%
-%DisplayText
-address	2162
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	The appearance defaults values can
-color	black
-%%
-%RowerNode
-address	2163
-child	2164
-sibling	2165
-row	1
-column	5
-%%
-%DisplayText
-address	2164
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	be overriden with '*' commands.
-color	black
-%%
-%RowerNode
-address	2165
-child	2166
-sibling	2167
+address	2153
+child	2154
+sibling	2156
 row	2
 column	5
 %%
 %DisplayText
-address	2166
-sibling	0
-style	1
+address	2154
+sibling	2155
+style	0
 size	14
 column	0
 name	TimesRoman
-text	For example:
+text	The '*' command whose task is 
 color	black
 %%
+%DisplayText
+address	2155
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	status
+color	blue
+%%
 %RowerNode
-address	2167
-child	2168
-sibling	2169
+address	2156
+child	2157
+sibling	2158
 row	3
-column	10
-%%
-%DisplayText
-address	2168
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	------------------------
-color	black
-%%
-%RowerNode
-address	2169
-child	2170
-sibling	2171
-row	4
-column	10
-%%
-%DisplayText
-address	2170
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	* height 645
-color	black
-%%
-%RowerNode
-address	2171
-child	2172
-sibling	2173
-row	5
-column	10
-%%
-%DisplayText
-address	2172
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	* width  500
-color	black
-%%
-%RowerNode
-address	2173
-child	2174
-sibling	2175
-row	6
-column	10
-%%
-%DisplayText
-address	2174
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	c
-color	black
-%%
-%RowerNode
-address	2175
-child	2176
-sibling	2177
-row	7
-column	10
-%%
-%DisplayText
-address	2176
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	d first card set
-color	black
-%%
-%RowerNode
-address	2177
-child	2178
-sibling	2179
-row	8
-column	10
-%%
-%DisplayText
-address	2178
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	...
-color	black
-%%
-%RowerNode
-address	2179
-child	2180
-sibling	2181
-row	9
-column	10
-%%
-%DisplayText
-address	2180
-sibling	0
-style	1
-size	14
-column	0
-name	TimesRoman
-text	----------------------------
-color	black
-%%
-%CardSetTask
-address	2181
-sibling	2182
-task	continue
-type	0
-%%
-%RowerNode
-address	2182
-child	2183
-sibling	2184
-row	10
 column	5
 %%
 %DisplayText
-address	2183
+address	2157
 sibling	0
-style	1
+style	0
+size	14
+column	0
+name	TimesRoman
+text	has a third element termed the <text message>.
+color	black
+%%
+%RowerNode
+address	2158
+child	2159
+sibling	2160
+row	4
+column	15
+%%
+%DisplayText
+address	2159
+sibling	0
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1553,169 +1351,1000 @@ text
 color	black
 %%
 %RowerNode
-address	2184
-child	2185
-sibling	2186
+address	2160
+child	2161
+sibling	2162
+row	5
+column	15
+%%
+%DisplayText
+address	2161
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------script--------------------
+color	black
+%%
+%RowerNode
+address	2162
+child	2163
+sibling	2164
+row	6
+column	15
+%%
+%DisplayText
+address	2163
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* status do not use the TAB key
+color	black
+%%
+%RowerNode
+address	2164
+child	2165
+sibling	2166
+row	7
+column	15
+%%
+%DisplayText
+address	2165
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-----------------------------------------
+color	black
+%%
+%RowerNode
+address	2166
+child	2167
+sibling	2168
+row	8
+column	5
+%%
+%DisplayText
+address	2167
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2168
+child	2169
+sibling	2170
+row	9
+column	5
+%%
+%DisplayText
+address	2169
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The <message> is a brief text that is displayed
+color	black
+%%
+%RowerNode
+address	2170
+child	2171
+sibling	2172
+row	10
+column	5
+%%
+%DisplayText
+address	2171
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	right above the row of buttons. 
+color	black
+%%
+%CardSetTask
+address	2172
+sibling	2173
+task	continue
+type	0
+%%
+%RowerNode
+address	2173
+child	2174
+sibling	2175
 row	11
 column	5
 %%
 %DisplayText
-address	2185
+address	2174
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	The window default sizes (300,400)
+text	 
 color	black
 %%
 %RowerNode
-address	2186
-child	2187
-sibling	2188
+address	2175
+child	2176
+sibling	2177
 row	12
 column	5
 %%
 %DisplayText
-address	2187
+address	2176
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	are overridden with values (645,500)
+text	The above script was just executed.
 color	black
 %%
+%CardSetTask
+address	2177
+sibling	2178
+task	status
+type	  do not use the TAB key
+%%
 %RowerNode
-address	2188
-child	2189
-sibling	2190
+address	2178
+child	2179
+sibling	2180
 row	13
 column	5
 %%
 %DisplayText
-address	2189
+address	2179
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	Note: these '*' commands precede the
+text	 
 color	black
 %%
 %RowerNode
-address	2190
-child	2191
-sibling	0
+address	2180
+child	2181
+sibling	2182
 row	14
 column	5
 %%
 %DisplayText
-address	2191
+address	2181
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	first Card set.
+text	The Asterisk '* status <text msg>' is a 
+color	black
+%%
+%RowerNode
+address	2182
+child	2183
+sibling	0
+row	15
+column	5
+%%
+%DisplayText
+address	2183
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	member of the CardSet.
 color	black
 %%
 %CardSet
-address	2192
-child	2193
-sibling	2199
+address	2184
+child	2185
+sibling	2202
 button	0
 name	0
 condition	0
 %%
 %RowerNode
-address	2193
-child	2194
-sibling	2195
+address	2185
+child	2186
+sibling	2188
 row	2
 column	5
 %%
 %DisplayText
-address	2194
-sibling	0
-style	1
+address	2186
+sibling	2187
+style	0
 size	14
 column	0
 name	TimesRoman
-text	The other appearance default values
+text	The '*' command whose task is 
 color	black
 %%
+%DisplayText
+address	2187
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	manage
+color	blue
+%%
 %RowerNode
-address	2195
-child	2196
-sibling	2197
+address	2188
+child	2189
+sibling	2190
 row	3
 column	5
 %%
 %DisplayText
-address	2196
+address	2189
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	may be overridden with '*'
+text	has a third element <filename.nc>.
 color	black
 %%
 %RowerNode
-address	2197
-child	2198
-sibling	2201
+address	2190
+child	2191
+sibling	2192
 row	4
 column	5
 %%
 %DisplayText
-address	2198
+address	2191
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	commands.
+text	 
 color	black
 %%
-%NextFile
-address	2199
-sibling	2200
-filename	end
-condition	0
-%%
-%NotecardTask
-address	2200
-sibling	2203
-task	end
-type	0
-%%
 %RowerNode
-address	2201
-child	2202
-sibling	0
+address	2192
+child	2193
+sibling	2196
 row	5
 column	5
 %%
 %DisplayText
-address	2202
-sibling	0
-style	1
+address	2193
+sibling	2194
+style	0
 size	14
 column	0
 name	TimesRoman
-text	commands.
+text	In the row of buttons there is one labeled 
+color	black
+%%
+%DisplayText
+address	2194
+sibling	2195
+style	0
+size	14
+column	0
+name	TimesRoman
+text	*
+color	blue
+%%
+%DisplayText
+address	2195
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	.
+color	black
+%%
+%RowerNode
+address	2196
+child	2197
+sibling	2198
+row	6
+column	5
+%%
+%DisplayText
+address	2197
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Activation of the '*' button transfers 
+color	black
+%%
+%RowerNode
+address	2198
+child	2199
+sibling	2200
+row	7
+column	5
+%%
+%DisplayText
+address	2199
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	control to the scrip file designated as
+color	black
+%%
+%RowerNode
+address	2200
+child	2201
+sibling	0
+row	8
+column	5
+%%
+%DisplayText
+address	2201
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	<filename.nc>.
+color	black
+%%
+%CardSet
+address	2202
+child	2203
+sibling	2228
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2203
+child	2204
+sibling	2205
+row	1
+column	5
+%%
+%DisplayText
+address	2204
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2205
+child	2206
+sibling	2207
+row	2
+column	15
+%%
+%DisplayText
+address	2206
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	------------script-------------------
+color	black
+%%
+%RowerNode
+address	2207
+child	2208
+sibling	2209
+row	3
+column	15
+%%
+%DisplayText
+address	2208
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* manage abc/managementFile
+color	black
+%%
+%RowerNode
+address	2209
+child	2210
+sibling	2211
+row	4
+column	15
+%%
+%DisplayText
+address	2210
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------------
+color	black
+%%
+%RowerNode
+address	2211
+child	2212
+sibling	2213
+row	5
+column	5
+%%
+%DisplayText
+address	2212
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2213
+child	2214
+sibling	2215
+row	6
+column	5
+%%
+%DisplayText
+address	2214
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Activation of the '*' button transfers control
+color	black
+%%
+%RowerNode
+address	2215
+child	2216
+sibling	2217
+row	7
+column	5
+%%
+%DisplayText
+address	2216
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	to the 'managementFile.nc' script file.
+color	black
+%%
+%CardSetTask
+address	2217
+sibling	2218
+task	continue
+type	0
+%%
+%RowerNode
+address	2218
+child	2219
+sibling	2220
+row	8
+column	5
+%%
+%DisplayText
+address	2219
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2220
+child	2221
+sibling	2222
+row	9
+column	5
+%%
+%DisplayText
+address	2221
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Within the 'managementFile' (or within any 
+color	black
+%%
+%RowerNode
+address	2222
+child	2223
+sibling	2224
+row	10
+column	5
+%%
+%DisplayText
+address	2223
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	file linked to it), activation of the '*'
+color	black
+%%
+%RowerNode
+address	2224
+child	2225
+sibling	2226
+row	11
+column	5
+%%
+%DisplayText
+address	2225
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	button returns control to the CardSet
+color	black
+%%
+%RowerNode
+address	2226
+child	2227
+sibling	0
+row	12
+column	5
+%%
+%DisplayText
+address	2227
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	which initiated the transfer. 
+color	black
+%%
+%CardSet
+address	2228
+child	2229
+sibling	2266
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2229
+child	2230
+sibling	2231
+row	2
+column	5
+%%
+%DisplayText
+address	2230
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2231
+child	2232
+sibling	2233
+row	3
+column	15
+%%
+%DisplayText
+address	2232
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	------------script-------------------
+color	black
+%%
+%RowerNode
+address	2233
+child	2234
+sibling	2235
+row	4
+column	15
+%%
+%DisplayText
+address	2234
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* manage abc/managementFile
+color	black
+%%
+%RowerNode
+address	2235
+child	2236
+sibling	2237
+row	5
+column	15
+%%
+%DisplayText
+address	2236
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------------
+color	black
+%%
+%RowerNode
+address	2237
+child	2238
+sibling	2239
+row	6
+column	5
+%%
+%DisplayText
+address	2238
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2239
+child	2240
+sibling	2241
+row	7
+column	5
+%%
+%DisplayText
+address	2240
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	If 'managementFile.nc' does not exist, a
+color	black
+%%
+%RowerNode
+address	2241
+child	2242
+sibling	2243
+row	8
+column	5
+%%
+%DisplayText
+address	2242
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	default (internal file) 'start.nc' is
+color	black
+%%
+%RowerNode
+address	2243
+child	2244
+sibling	2245
+row	9
+column	5
+%%
+%DisplayText
+address	2244
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	executed, with the following features:
+color	black
+%%
+%RowerNode
+address	2245
+child	2246
+sibling	2247
+row	10
+column	5
+%%
+%DisplayText
+address	2246
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2247
+child	2248
+sibling	2249
+row	11
+column	15
+%%
+%DisplayText
+address	2248
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------script----------------
+color	black
+%%
+%RowerNode
+address	2249
+child	2250
+sibling	2251
+row	12
+column	15
+%%
+%DisplayText
+address	2250
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	c
+color	black
+%%
+%RowerNode
+address	2251
+child	2252
+sibling	2253
+row	13
+column	15
+%%
+%DisplayText
+address	2252
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Enter file name (# $filename)
+color	black
+%%
+%RowerNode
+address	2253
+child	2254
+sibling	2255
+row	14
+column	15
+%%
+%DisplayText
+address	2254
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	f $filename
+color	black
+%%
+%RowerNode
+address	2255
+child	2256
+sibling	2257
+row	15
+column	15
+%%
+%DisplayText
+address	2256
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------------------------
+color	black
+%%
+%CardSetTask
+address	2257
+sibling	2258
+task	continue
+type	0
+%%
+%RowerNode
+address	2258
+child	2259
+sibling	2260
+row	16
+column	5
+%%
+%DisplayText
+address	2259
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2260
+child	2261
+sibling	2262
+row	17
+column	5
+%%
+%DisplayText
+address	2261
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	In the absence of '* manage <filename>', the
+color	black
+%%
+%RowerNode
+address	2262
+child	2263
+sibling	2264
+row	18
+column	5
+%%
+%DisplayText
+address	2263
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	above script is executed by the '*' button
+color	black
+%%
+%RowerNode
+address	2264
+child	2265
+sibling	0
+row	19
+column	5
+%%
+%DisplayText
+address	2265
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	activation. 
+color	black
+%%
+%CardSet
+address	2266
+child	2267
+sibling	2277
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2267
+child	2268
+sibling	2269
+row	2
+column	5
+%%
+%DisplayText
+address	2268
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	This completes the survey of the
+color	black
+%%
+%RowerNode
+address	2269
+child	2270
+sibling	2271
+row	3
+column	5
+%%
+%DisplayText
+address	2270
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Asterisk '*' command.
+color	black
+%%
+%RowerNode
+address	2271
+child	2272
+sibling	2273
+row	4
+column	5
+%%
+%DisplayText
+address	2272
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2273
+child	2274
+sibling	2275
+row	5
+column	5
+%%
+%DisplayText
+address	2274
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The next file covers the Load 'l'
+color	black
+%%
+%RowerNode
+address	2275
+child	2276
+sibling	0
+row	6
+column	5
+%%
+%DisplayText
+address	2276
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	command.
 color	black
 %%
 %NextFile
-address	2203
-sibling	2204
-filename	end
+address	2277
+sibling	2278
+filename	loadCommand
 condition	0
 %%
 %NotecardTask
-address	2204
+address	2278
 sibling	0
 task	end
 type	0

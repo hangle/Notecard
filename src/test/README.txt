@@ -1,6 +1,6 @@
 
 ---------------------------------------------  
-Test Directory (Notecard/src/test):  
+Test Directory (Script/src/test):  
 ---------------------------------------------   
 
 The execution of the script in the DEMO directory:  
@@ -16,9 +16,9 @@ system.
 The TEST directory contains script to exercises every   
 feature of the system.  Its purpose is not a tutorial;   
 rather, it is a means  to reveal or find errors and   
-limitations in the script :code.     
+limitations in the script :code.   
 
-It is expected that each script in the TEST directory  
+It is expected that each script in the TEST directory   
 will grow to exercise every combination of script elements  
 in serarch of a failure, either leading to code correction  
 or a controlled exception in the script program. For  
@@ -35,35 +35,41 @@ The TEST directory also serves as a regression test.
 
 To date, the following TEST scripts are available:   
 
-	appearance.struct		
-		Example:  
-			d 5/4/color red/Sorry wrong answer  
-			d now is (%%/color blue/for all good) men  
-	groupCmd.struct  
-		Example:  
-			g (flag)=(true)  
-			ge  
-	inputFields.struct  
-		Example:  
-			d Enter (# $name)  
-			d (# $one)  (# $two)  (# $three)  
-	letterSize.struct		Note, component of appearance  
-		Example:  
-			d 5/4/size 20/Sorry wrong answer  
-			d now is (%%/size 10/for all good) men  
-	loadDictionary.struct  
-		Example:  
-			l  
-			a $count=0  
-			a $flag=false  
+	appearance.nc		
+		Example:
+			d 5/4/color red/Sorry wrong answer
+			d now is (%%/color blue/for all good) men
+	groupCmd.nc
+		Example:
+			g (flag)=(true)
+			ge
+	inputFields.nc
+		Example:
+			d Enter (# $name)
+			d (# $one)  (# $two)  (# $three)
+	letterSize.nc		Note, component of appearance
+		Example:
+			d 5/4/size 20/Sorry wrong answer
+			d now is (%%/size 10/for all good) men
+	loadDictionary.nc
+		Example:
+			l
+			a $count=0
+			a $flag=false
+	addCardSet.nc
+		Example:
+			c
+			d This is a CardSet
+			+
+			d This is an AddCardSet
 	
-Execution:  
+Execution:
 --------------
 
 Execution of the sript appearance.nc  must  be compiled in   
 the Script/src directory:    
 
-		scala script test/appearance  
+		scala script test/appearance
 
 The output file of the 'scala script text/appearance' is  
 'appearance.struct'.  This file is executed in the Notecard  

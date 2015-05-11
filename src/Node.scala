@@ -159,18 +159,5 @@ trait Node  {
 				}
 			}
 		}
-/*
-	def convertToAddButton(swizzleTable:Map[String, Node]) ={
-		if(symAddButton != "0") {
-			if(swizzleTable.contains(symAddButton)){
-				addButton=swizzleTable(symAddButton) 
-				}
-			else    {
-				println("Node  add throw exception")
-				throw new Exception 
-				}
-			}
-		}
-*/
 
 }

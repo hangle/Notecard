@@ -11,7 +11,7 @@ priorButton	on
 %CardSet
 address	2002
 child	2003
-sibling	2018
+sibling	2030
 button	0
 name	0
 condition	0
@@ -19,43 +19,49 @@ condition	0
 %RowerNode
 address	2003
 child	2004
-sibling	2005
+sibling	2009
 row	2
 column	5
 %%
 %DisplayText
 address	2004
-sibling	0
+sibling	2005
 style	0
 size	14
 column	0
 name	TimesRoman
-text	The Display command survey begins with the
+text	The 
 color	black
 %%
-%RowerNode
+%DisplayText
 address	2005
-child	2006
-sibling	2007
-row	3
-column	5
+sibling	2006
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Add
+color	blue
 %%
 %DisplayText
 address	2006
-sibling	0
+sibling	2007
 style	0
 size	14
 column	0
 name	TimesRoman
-text	placement a text line within the card
+text	 command whose tag is 
 color	black
 %%
-%RowerNode
+%DisplayText
 address	2007
-child	2008
-sibling	2009
-row	4
-column	5
+sibling	2008
+style	0
+size	14
+column	0
+name	TimesRoman
+text	+
+color	blue
 %%
 %DisplayText
 address	2008
@@ -64,14 +70,14 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	window. The line occupies a window row,
+text	 
 color	black
 %%
 %RowerNode
 address	2009
 child	2010
 sibling	2011
-row	5
+row	3
 column	5
 %%
 %DisplayText
@@ -81,24 +87,35 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	begining in a specified window column.
+text	performs the same function as the Clear  
 color	black
 %%
-%CardSetTask
-address	2011
-sibling	2012
-task	continue
-type	0
-%%
 %RowerNode
-address	2012
-child	2013
-sibling	2014
-row	6
+address	2011
+child	2012
+sibling	2013
+row	4
 column	5
 %%
 %DisplayText
+address	2012
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'c' command.
+color	black
+%%
+%RowerNode
 address	2013
+child	2014
+sibling	2015
+row	5
+column	5
+%%
+%DisplayText
+address	2014
 sibling	0
 style	0
 size	14
@@ -108,53 +125,48 @@ text
 color	black
 %%
 %RowerNode
-address	2014
-child	2015
-sibling	2016
+address	2015
+child	2016
+sibling	2017
+row	6
+column	5
+%%
+%DisplayText
+address	2016
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	It is the initial command of a special
+color	black
+%%
+%RowerNode
+address	2017
+child	2018
+sibling	2021
 row	7
 column	5
 %%
 %DisplayText
-address	2015
-sibling	0
+address	2018
+sibling	2019
 style	0
 size	14
 column	0
 name	TimesRoman
-text	The window location (row and column) of
+text	CardSet that is termed the 
 color	black
-%%
-%RowerNode
-address	2016
-child	2017
-sibling	0
-row	8
-column	5
 %%
 %DisplayText
-address	2017
-sibling	0
+address	2019
+sibling	2020
 style	0
 size	14
 column	0
 name	TimesRoman
-text	the 'd' command text is described.
-color	black
-%%
-%CardSet
-address	2018
-child	2019
-sibling	2054
-button	0
-name	0
-condition	0
-%%
-%RowerNode
-address	2019
-child	2020
-sibling	2021
-row	1
-column	5
+text	AddCardSet
+color	blue
 %%
 %DisplayText
 address	2020
@@ -163,1107 +175,24 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	Following the 'c' command, the text of
-color	black
-%%
-%RowerNode
-address	2021
-child	2022
-sibling	2025
-row	2
-column	5
-%%
-%DisplayText
-address	2022
-sibling	2023
-style	0
-size	14
-column	0
-name	TimesRoman
-text	the first '
-color	black
-%%
-%DisplayText
-address	2023
-sibling	2024
-style	0
-size	14
-column	0
-name	TimesRoman
-text	d
-color	blue
-%%
-%DisplayText
-address	2024
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	' command is presented
-color	black
-%%
-%RowerNode
-address	2025
-child	2026
-sibling	2029
-row	3
-column	5
-%%
-%DisplayText
-address	2026
-sibling	2027
-style	0
-size	14
-column	0
-name	TimesRoman
-text	on the 
-color	black
-%%
-%DisplayText
-address	2027
-sibling	2028
-style	0
-size	14
-column	0
-name	TimesRoman
-text	first
-color	blue
-%%
-%DisplayText
-address	2028
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 row of the card window.
-color	black
-%%
-%CardSetTask
-address	2029
-sibling	2030
-task	continue
-type	0
-%%
-%RowerNode
-address	2030
-child	2031
-sibling	2032
-row	4
-column	5
-%%
-%DisplayText
-address	2031
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2032
-child	2033
-sibling	2036
-row	5
-column	5
-%%
-%DisplayText
-address	2033
-sibling	2034
-style	0
-size	14
-column	0
-name	TimesRoman
-text	The next '
-color	black
-%%
-%DisplayText
-address	2034
-sibling	2035
-style	0
-size	14
-column	0
-name	TimesRoman
-text	d
-color	blue
-%%
-%DisplayText
-address	2035
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	' command text is displayed
-color	black
-%%
-%RowerNode
-address	2036
-child	2037
-sibling	2040
-row	6
-column	5
-%%
-%DisplayText
-address	2037
-sibling	2038
-style	0
-size	14
-column	0
-name	TimesRoman
-text	on the 
-color	black
-%%
-%DisplayText
-address	2038
-sibling	2039
-style	0
-size	14
-column	0
-name	TimesRoman
-text	second
-color	blue
-%%
-%DisplayText
-address	2039
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 row. 
-color	black
-%%
-%RowerNode
-address	2040
-child	2041
-sibling	2042
-row	7
-column	5
-%%
-%DisplayText
-address	2041
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2042
-child	2043
-sibling	2046
-row	8
-column	5
-%%
-%DisplayText
-address	2043
-sibling	2044
-style	0
-size	14
-column	0
-name	TimesRoman
-text	The next '
-color	black
-%%
-%DisplayText
-address	2044
-sibling	2045
-style	0
-size	14
-column	0
-name	TimesRoman
-text	d
-color	blue
-%%
-%DisplayText
-address	2045
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	' command text is 
-color	black
-%%
-%RowerNode
-address	2046
-child	2047
-sibling	2050
-row	9
-column	5
-%%
-%DisplayText
-address	2047
-sibling	2048
-style	0
-size	14
-column	0
-name	TimesRoman
-text	on the 
-color	black
-%%
-%DisplayText
-address	2048
-sibling	2049
-style	0
-size	14
-column	0
-name	TimesRoman
-text	third
-color	blue
-%%
-%DisplayText
-address	2049
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 row.
-color	black
-%%
-%RowerNode
-address	2050
-child	2051
-sibling	2052
-row	10
-column	5
-%%
-%DisplayText
-address	2051
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2052
-child	2053
-sibling	0
-row	11
-column	5
-%%
-%DisplayText
-address	2053
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	And so on. 
-color	black
-%%
-%CardSet
-address	2054
-child	2055
-sibling	2074
-button	0
-name	0
-condition	0
-%%
-%RowerNode
-address	2055
-child	2056
-sibling	2057
-row	1
-column	5
-%%
-%DisplayText
-address	2056
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	The 'd' command allows the card row to 
-color	black
-%%
-%RowerNode
-address	2057
-child	2058
-sibling	2059
-row	2
-column	5
-%%
-%DisplayText
-address	2058
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	be specified. When unspecified, the 
-color	black
-%%
-%RowerNode
-address	2059
-child	2060
-sibling	2061
-row	3
-column	5
-%%
-%DisplayText
-address	2060
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	row position is incrementally 
-color	black
-%%
-%RowerNode
-address	2061
-child	2062
-sibling	2063
-row	4
-column	5
-%%
-%DisplayText
-address	2062
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	adjusted.
-color	black
-%%
-%RowerNode
-address	2063
-child	2064
-sibling	2065
-row	5
-column	5
-%%
-%DisplayText
-address	2064
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%CardSetTask
-address	2065
-sibling	2066
-task	continue
-type	0
-%%
-%RowerNode
-address	2066
-child	2067
-sibling	2068
-row	6
-column	5
-%%
-%DisplayText
-address	2067
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	Before revealing how to specify the 'd' 
-color	black
-%%
-%RowerNode
-address	2068
-child	2069
-sibling	2070
-row	7
-column	5
-%%
-%DisplayText
-address	2069
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	command's row position, the starting 
-color	black
-%%
-%RowerNode
-address	2070
-child	2071
-sibling	2072
-row	8
-column	5
-%%
-%DisplayText
-address	2071
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	text position (column) of the 'd' 
-color	black
-%%
-%RowerNode
-address	2072
-child	2073
-sibling	0
-row	9
-column	5
-%%
-%DisplayText
-address	2073
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	command is described.
-color	black
-%%
-%CardSet
-address	2074
-child	2075
-sibling	2096
-button	0
-name	0
-condition	0
-%%
-%RowerNode
-address	2075
-child	2076
-sibling	2077
-row	1
-column	5
-%%
-%DisplayText
-address	2076
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	The starting column of text may be 
-color	black
-%%
-%RowerNode
-address	2077
-child	2078
-sibling	2079
-row	2
-column	5
-%%
-%DisplayText
-address	2078
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	specified in the 'd' command.
-color	black
-%%
-%RowerNode
-address	2079
-child	2080
-sibling	2081
-row	3
-column	5
-%%
-%DisplayText
-address	2080
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2081
-child	2082
-sibling	2083
-row	4
-column	5
-%%
-%DisplayText
-address	2082
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	If not specified, the text starts in 
-color	black
-%%
-%RowerNode
-address	2083
-child	2084
-sibling	2085
-row	5
-column	5
-%%
-%DisplayText
-address	2084
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	column 1, for example:
-color	black
-%%
-%RowerNode
-address	2085
-child	2086
-sibling	2087
-row	6
-column	10
-%%
-%DisplayText
-address	2086
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	-----------script --------------------
-color	black
-%%
-%RowerNode
-address	2087
-child	2088
-sibling	2089
-row	7
-column	10
-%%
-%DisplayText
-address	2088
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	d This text starts in column 1
-color	black
-%%
-%RowerNode
-address	2089
-child	2090
-sibling	2091
-row	8
-column	10
-%%
-%DisplayText
-address	2090
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	-----------------------------------------
-color	black
-%%
-%CardSetTask
-address	2091
-sibling	2092
-task	continue
-type	0
-%%
-%RowerNode
-address	2092
-child	2093
-sibling	2094
-row	9
-column	10
-%%
-%DisplayText
-address	2093
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2094
-child	2095
-sibling	0
-row	10
-column	1
-%%
-%DisplayText
-address	2095
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	This text starts in column 1
-color	black
-%%
-%CardSet
-address	2096
-child	2097
-sibling	2122
-button	0
-name	0
-condition	0
-%%
-%RowerNode
-address	2097
-child	2098
-sibling	2099
-row	1
-column	5
-%%
-%DisplayText
-address	2098
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	The following script displays two lines,
-color	black
-%%
-%RowerNode
-address	2099
-child	2100
-sibling	2101
-row	2
-column	5
-%%
-%DisplayText
-address	2100
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	however, the second 'd' command now has
-color	black
-%%
-%RowerNode
-address	2101
-child	2102
-sibling	2105
-row	3
-column	5
-%%
-%DisplayText
-address	2102
-sibling	2103
-style	0
-size	14
-column	0
-name	TimesRoman
-text	the 
-color	black
-%%
-%DisplayText
-address	2103
-sibling	2104
-style	0
-size	14
-column	0
-name	TimesRoman
-text	column
-color	blue
-%%
-%DisplayText
-address	2104
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 position
-color	black
-%%
-%RowerNode
-address	2105
-child	2106
-sibling	2107
-row	4
-column	5
-%%
-%DisplayText
-address	2106
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	specified.
-color	black
-%%
-%RowerNode
-address	2107
-child	2108
-sibling	2109
-row	5
-column	10
-%%
-%DisplayText
-address	2108
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	---------------script-------------------
-color	black
-%%
-%RowerNode
-address	2109
-child	2110
-sibling	2111
-row	6
-column	10
-%%
-%DisplayText
-address	2110
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	d This text starts in column 1
-color	black
-%%
-%RowerNode
-address	2111
-child	2112
-sibling	2113
-row	7
-column	10
-%%
-%DisplayText
-address	2112
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	d 10/This text starts in column 10
-color	black
-%%
-%RowerNode
-address	2113
-child	2114
-sibling	2115
-row	8
-column	10
-%%
-%DisplayText
-address	2114
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	----------------------------------------
-color	black
-%%
-%CardSetTask
-address	2115
-sibling	2116
-task	continue
-type	0
-%%
-%RowerNode
-address	2116
-child	2117
-sibling	2118
-row	9
-column	5
-%%
-%DisplayText
-address	2117
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2118
-child	2119
-sibling	2120
-row	10
-column	1
-%%
-%DisplayText
-address	2119
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	This text starts in column 1
-color	black
-%%
-%RowerNode
-address	2120
-child	2121
-sibling	0
-row	11
-column	10
-%%
-%DisplayText
-address	2121
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	This text starts in column 10
-color	black
-%%
-%CardSet
-address	2122
-child	2123
-sibling	2152
-button	0
-name	0
-condition	0
-%%
-%RowerNode
-address	2123
-child	2124
-sibling	2125
-row	1
-column	5
-%%
-%DisplayText
-address	2124
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	To specify the starting column of 
-color	black
-%%
-%RowerNode
-address	2125
-child	2126
-sibling	2127
-row	2
-column	5
-%%
-%DisplayText
-address	2126
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	text, indicate the numeric position, 
-color	black
-%%
-%RowerNode
-address	2127
-child	2128
-sibling	2131
-row	3
-column	5
-%%
-%DisplayText
-address	2128
-sibling	2129
-style	0
-size	14
-column	0
-name	TimesRoman
-text	followed by a 
-color	black
-%%
-%DisplayText
-address	2129
-sibling	2130
-style	0
-size	14
-column	0
-name	TimesRoman
-text	slash
-color	blue
-%%
-%DisplayText
-address	2130
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
 text	.
 color	black
 %%
-%RowerNode
-address	2131
-child	2132
-sibling	2133
-row	4
-column	5
-%%
-%DisplayText
-address	2132
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2133
-child	2134
-sibling	2135
-row	5
-column	5
-%%
-%DisplayText
-address	2134
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	The starting column component (number 
-color	black
-%%
-%RowerNode
-address	2135
-child	2136
-sibling	2137
-row	6
-column	5
-%%
-%DisplayText
-address	2136
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	and slash) immediately follows the 
-color	black
-%%
-%RowerNode
-address	2137
-child	2138
-sibling	2139
-row	7
-column	5
-%%
-%DisplayText
-address	2138
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	'd' symbol and space.  Example:
-color	black
-%%
-%RowerNode
-address	2139
-child	2140
-sibling	2141
-row	8
-column	5
-%%
-%DisplayText
-address	2140
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2141
-child	2142
-sibling	2143
-row	9
-column	5
-%%
-%DisplayText
-address	2142
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	---------script------------
-color	black
-%%
-%RowerNode
-address	2143
-child	2144
-sibling	2145
-row	10
-column	5
-%%
-%DisplayText
-address	2144
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	d 25/start column 25
-color	black
-%%
-%RowerNode
-address	2145
-child	2146
-sibling	2147
-row	11
-column	5
-%%
-%DisplayText
-address	2146
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	---------------------------
-color	black
-%%
 %CardSetTask
-address	2147
-sibling	2148
+address	2021
+sibling	2022
 task	continue
 type	0
 %%
 %RowerNode
-address	2148
-child	2149
-sibling	2150
-row	12
+address	2022
+child	2023
+sibling	2024
+row	8
 column	5
 %%
 %DisplayText
-address	2149
+address	2023
 sibling	0
 style	0
 size	14
@@ -1273,273 +202,175 @@ text
 color	black
 %%
 %RowerNode
-address	2150
-child	2151
-sibling	0
-row	13
-column	25
+address	2024
+child	2025
+sibling	2026
+row	9
+column	5
 %%
 %DisplayText
-address	2151
+address	2025
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	start column 25
+text	The command members of the AddCardSet
+color	black
+%%
+%RowerNode
+address	2026
+child	2027
+sibling	2028
+row	10
+column	5
+%%
+%DisplayText
+address	2027
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	are the same members as those of the 
+color	black
+%%
+%RowerNode
+address	2028
+child	2029
+sibling	0
+row	11
+column	5
+%%
+%DisplayText
+address	2029
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	CardSet.
 color	black
 %%
 %CardSet
-address	2152
-child	2153
-sibling	2189
+address	2030
+child	2031
+sibling	2062
 button	0
 name	0
 condition	0
 %%
 %RowerNode
-address	2153
-child	2154
-sibling	2155
-row	0
-column	5
-%%
-%DisplayText
-address	2154
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	The starting column remains in 
-color	black
-%%
-%RowerNode
-address	2155
-child	2156
-sibling	2157
-row	1
-column	5
-%%
-%DisplayText
-address	2156
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	effect for subsequent 'd' commands 
-color	black
-%%
-%RowerNode
-address	2157
-child	2158
-sibling	2159
+address	2031
+child	2032
+sibling	2033
 row	2
 column	5
 %%
 %DisplayText
-address	2158
+address	2032
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	or until it is change again:
+text	An example of the AddCardSet:
 color	black
 %%
 %RowerNode
-address	2159
-child	2160
-sibling	2161
+address	2033
+child	2034
+sibling	2035
 row	3
 column	5
 %%
 %DisplayText
-address	2160
+address	2034
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	-------------script------------------
+text	 
 color	black
 %%
 %RowerNode
-address	2161
-child	2162
-sibling	2164
+address	2035
+child	2036
+sibling	2037
 row	4
-column	5
+column	10
 %%
 %DisplayText
-address	2162
-sibling	2163
-style	0
-size	14
-column	0
-name	TimesRoman
-text	10/
-color	blue
-%%
-%DisplayText
-address	2163
+address	2036
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	Now is
+text	------------script-----------------
 color	black
 %%
 %RowerNode
-address	2164
-child	2165
-sibling	2166
+address	2037
+child	2038
+sibling	2039
 row	5
-column	5
+column	10
 %%
 %DisplayText
-address	2165
+address	2038
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	the time 
+text	+
 color	black
 %%
 %RowerNode
-address	2166
-child	2167
-sibling	2168
+address	2039
+child	2040
+sibling	2041
 row	6
-column	5
+column	10
 %%
 %DisplayText
-address	2167
+address	2040
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	for all
+text	d Display text of an
 color	black
 %%
 %RowerNode
-address	2168
-child	2169
-sibling	2171
+address	2041
+child	2042
+sibling	2043
 row	7
-column	5
+column	10
 %%
 %DisplayText
-address	2169
-sibling	2170
-style	0
-size	14
-column	0
-name	TimesRoman
-text	20/
-color	blue
-%%
-%DisplayText
-address	2170
+address	2042
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	good men
+text	d AddCardSet
 color	black
 %%
 %RowerNode
-address	2171
-child	2172
-sibling	2173
+address	2043
+child	2044
+sibling	2045
 row	8
-column	5
+column	10
 %%
 %DisplayText
-address	2172
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	to come
-color	black
-%%
-%RowerNode
-address	2173
-child	2174
-sibling	2175
-row	9
-column	5
-%%
-%DisplayText
-address	2174
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	to the 
-color	black
-%%
-%RowerNode
-address	2175
-child	2176
-sibling	2178
-row	10
-column	5
-%%
-%DisplayText
-address	2176
-sibling	2177
-style	0
-size	14
-column	0
-name	TimesRoman
-text	3/
-color	blue
-%%
-%DisplayText
-address	2177
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	aid of
-color	black
-%%
-%RowerNode
-address	2178
-child	2179
-sibling	2180
-row	11
-column	5
-%%
-%DisplayText
-address	2179
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	their country.
-color	black
-%%
-%RowerNode
-address	2180
-child	2181
-sibling	2182
-row	12
-column	5
-%%
-%DisplayText
-address	2181
+address	2044
 sibling	0
 style	0
 size	14
@@ -1549,17 +380,1180 @@ text	-------------------------------------
 color	black
 %%
 %CardSetTask
-address	2182
-sibling	2183
+address	2045
+sibling	2046
 task	continue
 type	0
+%%
+%RowerNode
+address	2046
+child	2047
+sibling	2048
+row	9
+column	5
+%%
+%DisplayText
+address	2047
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2048
+child	2049
+sibling	2050
+row	10
+column	5
+%%
+%DisplayText
+address	2049
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	However, the AddCardSet is only 
+color	black
+%%
+%RowerNode
+address	2050
+child	2051
+sibling	2052
+row	11
+column	5
+%%
+%DisplayText
+address	2051
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	associated with the immediately 
+color	black
+%%
+%RowerNode
+address	2052
+child	2053
+sibling	2054
+row	12
+column	5
+%%
+%DisplayText
+address	2053
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	preceeding CardSet.
+color	black
+%%
+%RowerNode
+address	2054
+child	2055
+sibling	2056
+row	13
+column	5
+%%
+%DisplayText
+address	2055
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2056
+child	2057
+sibling	2058
+row	14
+column	5
+%%
+%DisplayText
+address	2057
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2058
+child	2059
+sibling	2060
+row	15
+column	10
+%%
+%DisplayText
+address	2059
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	This association is yet to
+color	black
+%%
+%RowerNode
+address	2060
+child	2061
+sibling	0
+row	16
+column	10
+%%
+%DisplayText
+address	2061
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	be disclosed.
+color	black
+%%
+%CardSet
+address	2062
+child	2063
+sibling	2094
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2063
+child	2064
+sibling	2065
+row	2
+column	5
+%%
+%DisplayText
+address	2064
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	An example of a  CardSet and its
+color	black
+%%
+%RowerNode
+address	2065
+child	2066
+sibling	2067
+row	3
+column	5
+%%
+%DisplayText
+address	2066
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	associated AddCardSet.
+color	black
+%%
+%RowerNode
+address	2067
+child	2068
+sibling	2069
+row	4
+column	5
+%%
+%DisplayText
+address	2068
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2069
+child	2070
+sibling	2071
+row	5
+column	15
+%%
+%DisplayText
+address	2070
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	--------------script---------------
+color	black
+%%
+%RowerNode
+address	2071
+child	2072
+sibling	2073
+row	6
+column	15
+%%
+%DisplayText
+address	2072
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	c
+color	black
+%%
+%RowerNode
+address	2073
+child	2074
+sibling	2075
+row	7
+column	15
+%%
+%DisplayText
+address	2074
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Display text of a 
+color	black
+%%
+%RowerNode
+address	2075
+child	2076
+sibling	2077
+row	8
+column	15
+%%
+%DisplayText
+address	2076
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d CardSet
+color	black
+%%
+%RowerNode
+address	2077
+child	2078
+sibling	2079
+row	9
+column	15
+%%
+%DisplayText
+address	2078
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2079
+child	2080
+sibling	2081
+row	10
+column	15
+%%
+%DisplayText
+address	2080
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	+
+color	black
+%%
+%RowerNode
+address	2081
+child	2082
+sibling	2083
+row	11
+column	15
+%%
+%DisplayText
+address	2082
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Display text of an
+color	black
+%%
+%RowerNode
+address	2083
+child	2084
+sibling	2085
+row	12
+column	15
+%%
+%DisplayText
+address	2084
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d AddCardSet
+color	black
+%%
+%RowerNode
+address	2085
+child	2086
+sibling	2087
+row	13
+column	15
+%%
+%DisplayText
+address	2086
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------------
+color	black
+%%
+%RowerNode
+address	2087
+child	2088
+sibling	2089
+row	14
+column	5
+%%
+%DisplayText
+address	2088
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%CardSetTask
+address	2089
+sibling	2090
+task	continue
+type	0
+%%
+%RowerNode
+address	2090
+child	2091
+sibling	2092
+row	15
+column	5
+%%
+%DisplayText
+address	2091
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	More than one AddCardSet can be
+color	black
+%%
+%RowerNode
+address	2092
+child	2093
+sibling	0
+row	16
+column	5
+%%
+%DisplayText
+address	2093
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	associated with a particular CardSet.
+color	black
+%%
+%CardSet
+address	2094
+child	2095
+sibling	2129
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2095
+child	2096
+sibling	2097
+row	1
+column	5
+%%
+%DisplayText
+address	2096
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2097
+child	2098
+sibling	2099
+row	2
+column	15
+%%
+%DisplayText
+address	2098
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	--------------script---------------
+color	black
+%%
+%RowerNode
+address	2099
+child	2100
+sibling	2101
+row	3
+column	15
+%%
+%DisplayText
+address	2100
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	c
+color	black
+%%
+%RowerNode
+address	2101
+child	2102
+sibling	2103
+row	4
+column	15
+%%
+%DisplayText
+address	2102
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Display text of a 
+color	black
+%%
+%RowerNode
+address	2103
+child	2104
+sibling	2105
+row	5
+column	15
+%%
+%DisplayText
+address	2104
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d CardSet
+color	black
+%%
+%RowerNode
+address	2105
+child	2106
+sibling	2107
+row	6
+column	15
+%%
+%DisplayText
+address	2106
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2107
+child	2108
+sibling	2109
+row	7
+column	15
+%%
+%DisplayText
+address	2108
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	+
+color	black
+%%
+%RowerNode
+address	2109
+child	2110
+sibling	2111
+row	8
+column	15
+%%
+%DisplayText
+address	2110
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Display text of an
+color	black
+%%
+%RowerNode
+address	2111
+child	2112
+sibling	2113
+row	9
+column	15
+%%
+%DisplayText
+address	2112
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d AddCardSet
+color	black
+%%
+%RowerNode
+address	2113
+child	2114
+sibling	2115
+row	10
+column	15
+%%
+%DisplayText
+address	2114
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------------
+color	black
+%%
+%RowerNode
+address	2115
+child	2116
+sibling	2117
+row	11
+column	5
+%%
+%DisplayText
+address	2116
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2117
+child	2118
+sibling	2121
+row	12
+column	5
+%%
+%DisplayText
+address	2118
+sibling	2119
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The CardSet enables the 
+color	black
+%%
+%DisplayText
+address	2119
+sibling	2120
+style	0
+size	14
+column	0
+name	TimesRoman
+text	+Add
+color	blue
+%%
+%DisplayText
+address	2120
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 button
+color	black
+%%
+%RowerNode
+address	2121
+child	2122
+sibling	2123
+row	13
+column	5
+%%
+%DisplayText
+address	2122
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	(color change from gray to yellow).
+color	black
+%%
+%RowerNode
+address	2123
+child	2124
+sibling	2125
+row	14
+column	5
+%%
+%DisplayText
+address	2124
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2125
+child	2126
+sibling	2127
+row	15
+column	5
+%%
+%DisplayText
+address	2126
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	This change only occurs if the CardSet has
+color	black
+%%
+%RowerNode
+address	2127
+child	2128
+sibling	0
+row	16
+column	5
+%%
+%DisplayText
+address	2128
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	one or more, associated AddCardSets.
+color	black
+%%
+%CardSet
+address	2129
+child	2130
+sibling	2172
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2130
+child	2131
+sibling	2132
+row	1
+column	5
+%%
+%DisplayText
+address	2131
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2132
+child	2133
+sibling	2134
+row	2
+column	15
+%%
+%DisplayText
+address	2133
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	--------------script---------------
+color	black
+%%
+%RowerNode
+address	2134
+child	2135
+sibling	2136
+row	3
+column	15
+%%
+%DisplayText
+address	2135
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	c
+color	black
+%%
+%RowerNode
+address	2136
+child	2137
+sibling	2138
+row	4
+column	15
+%%
+%DisplayText
+address	2137
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Display text of a 
+color	black
+%%
+%RowerNode
+address	2138
+child	2139
+sibling	2140
+row	5
+column	15
+%%
+%DisplayText
+address	2139
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d CardSet
+color	black
+%%
+%RowerNode
+address	2140
+child	2141
+sibling	2142
+row	6
+column	15
+%%
+%DisplayText
+address	2141
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2142
+child	2143
+sibling	2144
+row	7
+column	15
+%%
+%DisplayText
+address	2143
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	+
+color	black
+%%
+%RowerNode
+address	2144
+child	2145
+sibling	2146
+row	8
+column	15
+%%
+%DisplayText
+address	2145
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Display text of an
+color	black
+%%
+%RowerNode
+address	2146
+child	2147
+sibling	2148
+row	9
+column	15
+%%
+%DisplayText
+address	2147
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d AddCardSet
+color	black
+%%
+%RowerNode
+address	2148
+child	2149
+sibling	2150
+row	10
+column	15
+%%
+%DisplayText
+address	2149
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------------
+color	black
+%%
+%RowerNode
+address	2150
+child	2151
+sibling	2152
+row	11
+column	5
+%%
+%DisplayText
+address	2151
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2152
+child	2153
+sibling	2154
+row	12
+column	5
+%%
+%DisplayText
+address	2153
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2154
+child	2155
+sibling	2156
+row	13
+column	5
+%%
+%DisplayText
+address	2155
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	While the CardSet is active and the +Add
+color	black
+%%
+%RowerNode
+address	2156
+child	2157
+sibling	2158
+row	14
+column	5
+%%
+%DisplayText
+address	2157
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	button is enabled, the user had the following
+color	black
+%%
+%RowerNode
+address	2158
+child	2159
+sibling	2160
+row	15
+column	5
+%%
+%DisplayText
+address	2159
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	choice.
+color	black
+%%
+%RowerNode
+address	2160
+child	2161
+sibling	2162
+row	16
+column	5
+%%
+%DisplayText
+address	2161
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2162
+child	2163
+sibling	2164
+row	17
+column	5
+%%
+%DisplayText
+address	2163
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Activate the +Add button to execute the
+color	black
+%%
+%RowerNode
+address	2164
+child	2165
+sibling	2166
+row	18
+column	5
+%%
+%DisplayText
+address	2165
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	AddCardSet.
+color	black
+%%
+%RowerNode
+address	2166
+child	2167
+sibling	2168
+row	19
+column	5
+%%
+%DisplayText
+address	2167
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2168
+child	2169
+sibling	2170
+row	20
+column	5
+%%
+%DisplayText
+address	2169
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Activate the Next button to skip the
+color	black
+%%
+%RowerNode
+address	2170
+child	2171
+sibling	0
+row	21
+column	5
+%%
+%DisplayText
+address	2171
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	AddCardSet.
+color	black
+%%
+%CardSet
+address	2172
+child	2173
+sibling	2210
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2173
+child	2174
+sibling	2175
+row	0
+column	5
+%%
+%DisplayText
+address	2174
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2175
+child	2176
+sibling	2177
+row	1
+column	15
+%%
+%DisplayText
+address	2176
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	--------------script---------------
+color	black
+%%
+%RowerNode
+address	2177
+child	2178
+sibling	2179
+row	2
+column	15
+%%
+%DisplayText
+address	2178
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	c
+color	black
+%%
+%RowerNode
+address	2179
+child	2180
+sibling	2181
+row	3
+column	15
+%%
+%DisplayText
+address	2180
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Display text of a 
+color	black
+%%
+%RowerNode
+address	2181
+child	2182
+sibling	2183
+row	4
+column	15
+%%
+%DisplayText
+address	2182
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d CardSet
+color	black
 %%
 %RowerNode
 address	2183
 child	2184
 sibling	2185
-row	13
-column	5
+row	5
+column	15
 %%
 %DisplayText
 address	2184
@@ -1575,8 +1569,8 @@ color	black
 address	2185
 child	2186
 sibling	2187
-row	14
-column	5
+row	6
+column	15
 %%
 %DisplayText
 address	2186
@@ -1585,15 +1579,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	The above script will be executed by
+text	+
 color	black
 %%
 %RowerNode
 address	2187
 child	2188
-sibling	0
-row	15
-column	5
+sibling	2189
+row	7
+column	15
 %%
 %DisplayText
 address	2188
@@ -1602,421 +1596,52 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	the next card.
+text	d Display text of an
 color	black
 %%
-%CardSet
+%RowerNode
 address	2189
 child	2190
-sibling	2229
-button	0
-name	0
-condition	0
-%%
-%RowerNode
-address	2190
-child	2191
-sibling	2192
-row	0
-column	0
+sibling	2191
+row	8
+column	15
 %%
 %DisplayText
-address	2191
+address	2190
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	----------script-----------------------
+text	d AddCardSet
 color	black
 %%
 %RowerNode
-address	2192
-child	2193
-sibling	2195
-row	1
-column	0
+address	2191
+child	2192
+sibling	2193
+row	9
+column	15
 %%
 %DisplayText
-address	2193
-sibling	2194
+address	2192
+sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	10/
-color	blue
+text	-------------------------------------
+color	black
+%%
+%RowerNode
+address	2193
+child	2194
+sibling	2195
+row	10
+column	5
 %%
 %DisplayText
 address	2194
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	Now is
-color	black
-%%
-%RowerNode
-address	2195
-child	2196
-sibling	2197
-row	2
-column	0
-%%
-%DisplayText
-address	2196
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	the time 
-color	black
-%%
-%RowerNode
-address	2197
-child	2198
-sibling	2199
-row	3
-column	0
-%%
-%DisplayText
-address	2198
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	for all
-color	black
-%%
-%RowerNode
-address	2199
-child	2200
-sibling	2202
-row	4
-column	0
-%%
-%DisplayText
-address	2200
-sibling	2201
-style	0
-size	14
-column	0
-name	TimesRoman
-text	20/
-color	blue
-%%
-%DisplayText
-address	2201
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	good men
-color	black
-%%
-%RowerNode
-address	2202
-child	2203
-sibling	2204
-row	5
-column	0
-%%
-%DisplayText
-address	2203
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	to come
-color	black
-%%
-%RowerNode
-address	2204
-child	2205
-sibling	2206
-row	6
-column	0
-%%
-%DisplayText
-address	2205
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	to the 
-color	black
-%%
-%RowerNode
-address	2206
-child	2207
-sibling	2209
-row	7
-column	0
-%%
-%DisplayText
-address	2207
-sibling	2208
-style	0
-size	14
-column	0
-name	TimesRoman
-text	3/
-color	blue
-%%
-%DisplayText
-address	2208
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	aid of
-color	black
-%%
-%RowerNode
-address	2209
-child	2210
-sibling	2211
-row	8
-column	0
-%%
-%DisplayText
-address	2210
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	their country.
-color	black
-%%
-%RowerNode
-address	2211
-child	2212
-sibling	2213
-row	9
-column	0
-%%
-%DisplayText
-address	2212
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	---------execution----------------------
-color	black
-%%
-%RowerNode
-address	2213
-child	2214
-sibling	2215
-row	10
-column	10
-%%
-%DisplayText
-address	2214
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	Now is
-color	black
-%%
-%RowerNode
-address	2215
-child	2216
-sibling	2217
-row	11
-column	10
-%%
-%DisplayText
-address	2216
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	the time 
-color	black
-%%
-%RowerNode
-address	2217
-child	2218
-sibling	2219
-row	12
-column	10
-%%
-%DisplayText
-address	2218
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	for all
-color	black
-%%
-%RowerNode
-address	2219
-child	2220
-sibling	2221
-row	13
-column	20
-%%
-%DisplayText
-address	2220
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	good men
-color	black
-%%
-%RowerNode
-address	2221
-child	2222
-sibling	2223
-row	14
-column	20
-%%
-%DisplayText
-address	2222
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	to come
-color	black
-%%
-%RowerNode
-address	2223
-child	2224
-sibling	2225
-row	15
-column	20
-%%
-%DisplayText
-address	2224
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	to the 
-color	black
-%%
-%RowerNode
-address	2225
-child	2226
-sibling	2227
-row	16
-column	3
-%%
-%DisplayText
-address	2226
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	aid of
-color	black
-%%
-%RowerNode
-address	2227
-child	2228
-sibling	0
-row	17
-column	3
-%%
-%DisplayText
-address	2228
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	their country.
-color	black
-%%
-%CardSet
-address	2229
-child	2230
-sibling	2261
-button	0
-name	0
-condition	0
-%%
-%RowerNode
-address	2230
-child	2231
-sibling	2232
-row	1
-column	5
-%%
-%DisplayText
-address	2231
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	The numeric column value is followed 
-color	black
-%%
-%RowerNode
-address	2232
-child	2233
-sibling	2234
-row	2
-column	5
-%%
-%DisplayText
-address	2233
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	by a slash:
-color	black
-%%
-%RowerNode
-address	2234
-child	2235
-sibling	2236
-row	3
-column	10
-%%
-%DisplayText
-address	2235
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	d 20/start text 20th column
-color	blue
-%%
-%RowerNode
-address	2236
-child	2237
-sibling	2238
-row	4
-column	10
-%%
-%DisplayText
-address	2237
 sibling	0
 style	0
 size	14
@@ -2026,27 +1651,390 @@ text
 color	black
 %%
 %RowerNode
-address	2238
-child	2239
-sibling	2240
-row	5
+address	2195
+child	2196
+sibling	2197
+row	11
 column	5
 %%
 %DisplayText
-address	2239
+address	2196
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	The numeric row position value is preceded 
+text	In the event the +Add button is activated
 color	black
+%%
+%RowerNode
+address	2197
+child	2198
+sibling	2199
+row	12
+column	5
+%%
+%DisplayText
+address	2198
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	and the AddCardSet executes. 
+color	black
+%%
+%CardSetTask
+address	2199
+sibling	2200
+task	continue
+type	0
+%%
+%RowerNode
+address	2200
+child	2201
+sibling	2202
+row	13
+column	5
+%%
+%DisplayText
+address	2201
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2202
+child	2203
+sibling	2204
+row	14
+column	5
+%%
+%DisplayText
+address	2203
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	From the AddCardSet, the +Add button
+color	black
+%%
+%RowerNode
+address	2204
+child	2205
+sibling	2208
+row	15
+column	5
+%%
+%DisplayText
+address	2205
+sibling	2206
+style	0
+size	14
+column	0
+name	TimesRoman
+text	activation 
+color	black
+%%
+%DisplayText
+address	2206
+sibling	2207
+style	0
+size	14
+column	0
+name	TimesRoman
+text	returns
+color	blue
+%%
+%DisplayText
+address	2207
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 the user to the 
+color	black
+%%
+%RowerNode
+address	2208
+child	2209
+sibling	0
+row	16
+column	5
+%%
+%DisplayText
+address	2209
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	associated CardSet.
+color	black
+%%
+%CardSet
+address	2210
+child	2211
+sibling	2250
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2211
+child	2212
+sibling	2213
+row	1
+column	5
+%%
+%DisplayText
+address	2212
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	A practical example of the AddCardSet is
+color	black
+%%
+%RowerNode
+address	2213
+child	2214
+sibling	2215
+row	2
+column	5
+%%
+%DisplayText
+address	2214
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a learning situation.  A user, unsure of an
+color	black
+%%
+%RowerNode
+address	2215
+child	2216
+sibling	2217
+row	3
+column	5
+%%
+%DisplayText
+address	2216
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	answer, may benefit from a hint or probe.
+color	black
+%%
+%RowerNode
+address	2217
+child	2218
+sibling	2219
+row	4
+column	5
+%%
+%DisplayText
+address	2218
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2219
+child	2220
+sibling	2221
+row	5
+column	15
+%%
+%DisplayText
+address	2220
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------script----------------
+color	black
+%%
+%RowerNode
+address	2221
+child	2222
+sibling	2223
+row	6
+column	15
+%%
+%DisplayText
+address	2222
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	c
+color	black
+%%
+%RowerNode
+address	2223
+child	2224
+sibling	2225
+row	7
+column	15
+%%
+%DisplayText
+address	2224
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Ohio's capital is (# $columbus)
+color	black
+%%
+%RowerNode
+address	2225
+child	2226
+sibling	2227
+row	8
+column	15
+%%
+%DisplayText
+address	2226
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	+
+color	black
+%%
+%RowerNode
+address	2227
+child	2228
+sibling	2229
+row	9
+column	15
+%%
+%DisplayText
+address	2228
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Discover of the New World
+color	black
+%%
+%RowerNode
+address	2229
+child	2230
+sibling	2231
+row	10
+column	15
+%%
+%DisplayText
+address	2230
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	+
+color	black
+%%
+%RowerNode
+address	2231
+child	2232
+sibling	2233
+row	11
+column	15
+%%
+%DisplayText
+address	2232
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Eight letters beginning with 'C'
+color	black
+%%
+%RowerNode
+address	2233
+child	2234
+sibling	2235
+row	12
+column	15
+%%
+%DisplayText
+address	2234
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	c ...
+color	black
+%%
+%RowerNode
+address	2235
+child	2236
+sibling	2237
+row	13
+column	15
+%%
+%DisplayText
+address	2236
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------
+color	black
+%%
+%RowerNode
+address	2237
+child	2238
+sibling	2239
+row	14
+column	5
+%%
+%DisplayText
+address	2238
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%CardSetTask
+address	2239
+sibling	2240
+task	continue
+type	0
 %%
 %RowerNode
 address	2240
 child	2241
 sibling	2242
-row	6
+row	15
 column	5
 %%
 %DisplayText
@@ -2056,15 +2044,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	by a slash and followed by a slash:
+text	Rather than guess the answer, the user
 color	black
 %%
 %RowerNode
 address	2242
 child	2243
 sibling	2244
-row	7
-column	10
+row	16
+column	5
 %%
 %DisplayText
 address	2243
@@ -2073,24 +2061,18 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	d /5/position is 5th row
-color	blue
-%%
-%CardSetTask
-address	2244
-sibling	2245
-task	continue
-type	0
+text	hits the +Add button.
+color	black
 %%
 %RowerNode
-address	2245
-child	2246
-sibling	2247
-row	8
+address	2244
+child	2245
+sibling	2246
+row	17
 column	5
 %%
 %DisplayText
-address	2246
+address	2245
 sibling	0
 style	0
 size	14
@@ -2100,68 +2082,70 @@ text
 color	black
 %%
 %RowerNode
-address	2247
-child	2248
-sibling	2251
-row	9
+address	2246
+child	2247
+sibling	2248
+row	18
 column	5
 %%
 %DisplayText
-address	2248
-sibling	2249
-style	0
-size	14
-column	0
-name	TimesRoman
-text	The 
-color	black
-%%
-%DisplayText
-address	2249
-sibling	2250
-style	0
-size	14
-column	0
-name	TimesRoman
-text	double slash
-color	orange
-%%
-%DisplayText
-address	2250
+address	2247
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	 row component 
+text	The user returns to answer the
 color	black
+%%
+%RowerNode
+address	2248
+child	2249
+sibling	0
+row	19
+column	5
+%%
+%DisplayText
+address	2249
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	question.
+color	black
+%%
+%CardSet
+address	2250
+child	2251
+sibling	2276
+button	0
+name	0
+condition	0
 %%
 %RowerNode
 address	2251
 child	2252
-sibling	2255
-row	10
+sibling	2253
+row	2
 column	5
 %%
 %DisplayText
 address	2252
-sibling	2253
+sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	immediately follows the 
+text	The user who knows that the capital
 color	black
 %%
-%DisplayText
+%RowerNode
 address	2253
-sibling	2254
-style	0
-size	14
-column	0
-name	TimesRoman
-text	d
-color	blue
+child	2254
+sibling	2255
+row	3
+column	5
 %%
 %DisplayText
 address	2254
@@ -2170,76 +2154,71 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	 symbol 
+text	of Ohio is Columbus will answer the
 color	black
 %%
 %RowerNode
 address	2255
 child	2256
-sibling	2259
-row	11
+sibling	2257
+row	4
 column	5
 %%
 %DisplayText
 address	2256
-sibling	2257
+sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	and 
+text	question and skip the two AddCardSets.
 color	black
 %%
-%DisplayText
+%CardSetTask
 address	2257
 sibling	2258
-style	0
-size	14
-column	0
-name	TimesRoman
-text	space
-color	blue
-%%
-%DisplayText
-address	2258
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	  with one exception 
-color	black
+task	continue
+type	0
 %%
 %RowerNode
-address	2259
-child	2260
-sibling	0
-row	12
+address	2258
+child	2259
+sibling	2260
+row	5
 column	5
 %%
 %DisplayText
-address	2260
+address	2259
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	(described later). 
+text	 
 color	black
 %%
-%CardSet
+%RowerNode
+address	2260
+child	2261
+sibling	2262
+row	6
+column	5
+%%
+%DisplayText
 address	2261
-child	2262
-sibling	2285
-button	0
-name	0
-condition	0
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	In a series of two or more AddCardSets 
+color	black
 %%
 %RowerNode
 address	2262
 child	2263
 sibling	2264
-row	1
+row	7
 column	5
 %%
 %DisplayText
@@ -2249,14 +2228,14 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	The following 'd' command is placed on 
+text	associated with a CardSet, the +Add 
 color	black
 %%
 %RowerNode
 address	2264
 child	2265
 sibling	2266
-row	2
+row	8
 column	5
 %%
 %DisplayText
@@ -2266,14 +2245,14 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	the 10th row while subsequent commands 
+text	button executes this series and 
 color	black
 %%
 %RowerNode
 address	2266
 child	2267
 sibling	2268
-row	3
+row	9
 column	5
 %%
 %DisplayText
@@ -2283,14 +2262,14 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	rows are incremented.
+text	eventually returns to the CardSet.
 color	black
 %%
 %RowerNode
 address	2268
 child	2269
 sibling	2270
-row	4
+row	10
 column	5
 %%
 %DisplayText
@@ -2306,29 +2285,26 @@ color	black
 %RowerNode
 address	2270
 child	2271
-sibling	2274
-row	5
+sibling	2272
+row	11
 column	5
 %%
 %DisplayText
 address	2271
-sibling	2272
+sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	      d 
+text	In the series, activation of the Next
 color	black
 %%
-%DisplayText
+%RowerNode
 address	2272
-sibling	2273
-style	0
-size	14
-column	0
-name	TimesRoman
-text	/10/
-color	blue
+child	2273
+sibling	2274
+row	12
+column	5
 %%
 %DisplayText
 address	2273
@@ -2337,14 +2313,14 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	tenth row
+text	button initiates the return from any
 color	black
 %%
 %RowerNode
 address	2274
 child	2275
-sibling	2276
-row	6
+sibling	0
+row	13
 column	5
 %%
 %DisplayText
@@ -2354,55 +2330,57 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	      d eleventh row
+text	AddCardSet. 
 color	black
 %%
-%RowerNode
+%CardSet
 address	2276
 child	2277
-sibling	2278
-row	7
+sibling	2303
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2277
+child	2278
+sibling	2279
+row	1
 column	5
 %%
 %DisplayText
-address	2277
+address	2278
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	      d twelth row
+text	The next CarsSet executes the following
 color	black
 %%
 %RowerNode
-address	2278
-child	2279
-sibling	2280
-row	8
+address	2279
+child	2280
+sibling	2281
+row	2
 column	5
 %%
 %DisplayText
-address	2279
+address	2280
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	      d thirteen row
+text	script
 color	black
-%%
-%CardSetTask
-address	2280
-sibling	2281
-task	continue
-type	0
 %%
 %RowerNode
 address	2281
 child	2282
 sibling	2283
-row	9
-column	5
+row	3
+column	15
 %%
 %DisplayText
 address	2282
@@ -2411,15 +2389,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	----------script----------------
 color	black
 %%
 %RowerNode
 address	2283
 child	2284
-sibling	0
-row	10
-column	5
+sibling	2285
+row	4
+column	15
 %%
 %DisplayText
 address	2284
@@ -2428,131 +2406,120 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	Next card displays above commands
+text	c
 color	black
 %%
-%CardSet
+%RowerNode
 address	2285
 child	2286
-sibling	2320
-button	0
-name	0
-condition	0
-%%
-%RowerNode
-address	2286
-child	2287
-sibling	2288
-row	0
-column	5
+sibling	2287
+row	5
+column	15
 %%
 %DisplayText
-address	2287
+address	2286
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	------------script-------------      
+text	Ohio's capital is (# $columbus)
 color	black
 %%
 %RowerNode
-address	2288
-child	2289
-sibling	2292
-row	1
-column	5
+address	2287
+child	2288
+sibling	2289
+row	6
+column	15
 %%
 %DisplayText
-address	2289
-sibling	2290
+address	2288
+sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	      d 
+text	+
 color	black
+%%
+%RowerNode
+address	2289
+child	2290
+sibling	2291
+row	7
+column	15
 %%
 %DisplayText
 address	2290
-sibling	2291
+sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	/10/
-color	blue
+text	d Discover of the New World
+color	black
 %%
-%DisplayText
+%RowerNode
 address	2291
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	tenth row
-color	black
+child	2292
+sibling	2293
+row	8
+column	15
 %%
-%RowerNode
+%DisplayText
 address	2292
-child	2293
-sibling	2294
-row	2
-column	5
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	+
+color	black
 %%
-%DisplayText
+%RowerNode
 address	2293
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	      d eleventh row
-color	black
+child	2294
+sibling	2295
+row	9
+column	15
 %%
-%RowerNode
+%DisplayText
 address	2294
-child	2295
-sibling	2296
-row	3
-column	5
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Eight letters beginning with 'C'
+color	black
 %%
-%DisplayText
+%RowerNode
 address	2295
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	      d twelth row
-color	black
+child	2296
+sibling	2297
+row	10
+column	15
 %%
-%RowerNode
+%DisplayText
 address	2296
-child	2297
-sibling	2298
-row	4
-column	5
-%%
-%DisplayText
-address	2297
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	      d thirteen row
+text	c ...
 color	black
 %%
 %RowerNode
-address	2298
-child	2299
-sibling	2300
-row	5
-column	5
+address	2297
+child	2298
+sibling	2299
+row	11
+column	15
 %%
 %DisplayText
-address	2299
+address	2298
 sibling	0
 style	0
 size	14
@@ -2562,88 +2529,14 @@ text	----------------------------------
 color	black
 %%
 %RowerNode
-address	2300
-child	2301
-sibling	2302
-row	9
-column	5
-%%
-%DisplayText
-address	2301
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	tenth row
-color	black
-%%
-%RowerNode
-address	2302
-child	2303
-sibling	2304
-row	10
-column	5
-%%
-%DisplayText
-address	2303
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	eleventh row
-color	black
-%%
-%RowerNode
-address	2304
-child	2305
-sibling	2306
-row	11
-column	5
-%%
-%DisplayText
-address	2305
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	twelth row
-color	black
-%%
-%RowerNode
-address	2306
-child	2307
-sibling	2308
+address	2299
+child	2300
+sibling	2301
 row	12
 column	5
 %%
 %DisplayText
-address	2307
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	thirteen row
-color	black
-%%
-%CardSetTask
-address	2308
-sibling	2309
-task	continue
-type	0
-%%
-%RowerNode
-address	2309
-child	2310
-sibling	2311
-row	13
-column	5
-%%
-%DisplayText
-address	2310
+address	2300
 sibling	0
 style	0
 size	14
@@ -2653,48 +2546,134 @@ text
 color	black
 %%
 %RowerNode
-address	2311
-child	2312
-sibling	2313
-row	14
+address	2301
+child	2302
+sibling	0
+row	13
 column	5
 %%
 %DisplayText
-address	2312
+address	2302
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	Following command is placed on 8th row:
+text	To begin, activate the +Add button.
+color	black
+%%
+%CardSet
+address	2303
+child	2304
+sibling	2309
+button	1
+name	0
+condition	0
+%%
+%RowerNode
+address	2304
+child	2305
+sibling	2307
+row	0
+column	0
+%%
+%DisplayText
+address	2305
+sibling	2306
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Ohio's capital is 
+color	black
+%%
+%BoxField
+address	2306
+child	0
+sibling	0
+field	$columbus
+length	10
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%RowerNode
+address	2307
+child	2308
+sibling	0
+row	16
+column	20
+%%
+%DisplayText
+address	2308
+sibling	0
+style	1
+size	10
+column	0
+name	TimesRoman
+text	hit +Add button
+color	black
+%%
+%AddCardSet
+address	2309
+child	2310
+sibling	2314
+button	2
+name	0
+condition	0
+%%
+%RowerNode
+address	2310
+child	2311
+sibling	2312
+row	0
+column	0
+%%
+%DisplayText
+address	2311
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Discover of the New World
 color	black
 %%
 %RowerNode
-address	2313
-child	2314
-sibling	2317
-row	15
-column	5
+address	2312
+child	2313
+sibling	0
+row	16
+column	20
 %%
 %DisplayText
-address	2314
-sibling	2315
-style	0
-size	14
+address	2313
+sibling	0
+style	1
+size	10
 column	0
 name	TimesRoman
-text	d 
+text	hit +Add button
 color	black
 %%
-%DisplayText
+%AddCardSet
+address	2314
+child	2315
+sibling	2319
+button	99
+name	0
+condition	0
+%%
+%RowerNode
 address	2315
-sibling	2316
-style	0
-size	14
+child	2316
+sibling	2317
+row	0
 column	0
-name	TimesRoman
-text	/8/
-color	blue
 %%
 %DisplayText
 address	2316
@@ -2703,141 +2682,142 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	eight row
+text	Eight letters beginning with 'C'
 color	black
 %%
-%CardSetTask
-address	2317
-sibling	2318
-task	continue
-type	0
-%%
 %RowerNode
-address	2318
-child	2319
+address	2317
+child	2318
 sibling	0
-row	7
-column	5
+row	16
+column	20
 %%
 %DisplayText
-address	2319
+address	2318
 sibling	0
-style	0
-size	14
+style	1
+size	10
 column	0
 name	TimesRoman
-text	eight row
+text	hit +Add button
 color	black
 %%
 %CardSet
-address	2320
-child	2321
-sibling	2344
+address	2319
+child	2320
+sibling	2334
 button	0
 name	0
 condition	0
 %%
 %RowerNode
-address	2321
-child	2322
-sibling	2323
-row	0
-column	5
-%%
-%DisplayText
-address	2322
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	To position the 'd' command at a specific
-color	black
-%%
-%RowerNode
-address	2323
-child	2324
-sibling	2325
-row	1
-column	5
-%%
-%DisplayText
-address	2324
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	starting column as well at a specific
-color	black
-%%
-%RowerNode
-address	2325
-child	2326
-sibling	2327
+address	2320
+child	2321
+sibling	2322
 row	2
 column	5
 %%
 %DisplayText
-address	2326
+address	2321
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	row, the column component precedes the
+text	In a series of AddCardSets associated
 color	black
 %%
 %RowerNode
-address	2327
-child	2328
-sibling	2329
+address	2322
+child	2323
+sibling	2324
 row	3
 column	5
 %%
 %DisplayText
-address	2328
+address	2323
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	row component. For example,
+text	with a particular CardSet, the series
 color	black
 %%
 %RowerNode
-address	2329
-child	2330
-sibling	2331
+address	2324
+child	2325
+sibling	2326
 row	4
-column	10
+column	5
 %%
 %DisplayText
-address	2330
+address	2325
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	----------------script-----------------
+text	has its own backup mechanism (Prior key).
 color	black
 %%
 %RowerNode
-address	2331
-child	2332
-sibling	2334
+address	2326
+child	2327
+sibling	2328
 row	5
-column	10
+column	5
 %%
 %DisplayText
-address	2332
-sibling	2333
+address	2327
+sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	d 10/15/
-color	blue
+text	 
+color	black
+%%
+%RowerNode
+address	2328
+child	2329
+sibling	2330
+row	6
+column	5
+%%
+%DisplayText
+address	2329
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The Prior key is disabled for the first
+color	black
+%%
+%RowerNode
+address	2330
+child	2331
+sibling	2332
+row	7
+column	5
+%%
+%DisplayText
+address	2331
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	AddCardSet since there is no prior
+color	black
+%%
+%RowerNode
+address	2332
+child	2333
+sibling	0
+row	8
+column	5
 %%
 %DisplayText
 address	2333
@@ -2846,25 +2826,23 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	text starts column 10, row at 15
+text	AddCardSet.
 color	black
 %%
-%RowerNode
+%CardSet
 address	2334
 child	2335
-sibling	2337
-row	6
-column	10
+sibling	2339
+button	0
+name	0
+condition	0
 %%
-%DisplayText
+%RowerNode
 address	2335
-sibling	2336
-style	0
-size	14
-column	0
-name	TimesRoman
-text	d 20/9/
-color	blue
+child	2336
+sibling	2337
+row	2
+column	5
 %%
 %DisplayText
 address	2336
@@ -2873,15 +2851,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	column 20, row 9 
+text	This completes the survey of the
 color	black
 %%
 %RowerNode
 address	2337
 child	2338
-sibling	2339
-row	7
-column	10
+sibling	0
+row	3
+column	5
 %%
 %DisplayText
 address	2338
@@ -2890,325 +2868,17 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	---------------------------------------
-color	black
-%%
-%CardSetTask
-address	2339
-sibling	2340
-task	continue
-type	0
-%%
-%RowerNode
-address	2340
-child	2341
-sibling	2342
-row	14
-column	10
-%%
-%DisplayText
-address	2341
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	text starts column 10, row at 15
-color	black
-%%
-%RowerNode
-address	2342
-child	2343
-sibling	0
-row	8
-column	20
-%%
-%DisplayText
-address	2343
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	column 20, row 9 
-color	black
-%%
-%CardSet
-address	2344
-child	2345
-sibling	2375
-button	0
-name	0
-condition	0
-%%
-%RowerNode
-address	2345
-child	2346
-sibling	2347
-row	0
-column	20
-%%
-%DisplayText
-address	2346
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	d 20/5/column 20, row 5
-color	blue
-%%
-%RowerNode
-address	2347
-child	2348
-sibling	2349
-row	1
-column	20
-%%
-%DisplayText
-address	2348
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2349
-child	2350
-sibling	2351
-row	2
-column	5
-%%
-%DisplayText
-address	2350
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	When column component and row component 
-color	black
-%%
-%RowerNode
-address	2351
-child	2352
-sibling	2353
-row	3
-column	5
-%%
-%DisplayText
-address	2352
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	are combined, the parser recognizes the 
-color	black
-%%
-%RowerNode
-address	2353
-child	2354
-sibling	2355
-row	4
-column	5
-%%
-%DisplayText
-address	2354
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	column component because it does not 
-color	black
-%%
-%RowerNode
-address	2355
-child	2356
-sibling	2361
-row	5
-column	5
-%%
-%DisplayText
-address	2356
-sibling	2357
-style	0
-size	14
-column	0
-name	TimesRoman
-text	have a leading 
-color	black
-%%
-%DisplayText
-address	2357
-sibling	2358
-style	0
-size	14
-column	0
-name	TimesRoman
-text	/
-color	blue
-%%
-%DisplayText
-address	2358
-sibling	2359
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 but has a trailing 
-color	black
-%%
-%DisplayText
-address	2359
-sibling	2360
-style	0
-size	14
-column	0
-name	TimesRoman
-text	/
-color	blue
-%%
-%DisplayText
-address	2360
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	.
-color	black
-%%
-%RowerNode
-address	2361
-child	2362
-sibling	2363
-row	6
-column	20
-%%
-%DisplayText
-address	2362
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	20/
-color	blue
-%%
-%RowerNode
-address	2363
-child	2364
-sibling	2365
-row	7
-column	5
-%%
-%DisplayText
-address	2364
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2365
-child	2366
-sibling	2367
-row	8
-column	5
-%%
-%DisplayText
-address	2366
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%CardSetTask
-address	2367
-sibling	2368
-task	continue
-type	0
-%%
-%RowerNode
-address	2368
-child	2369
-sibling	2370
-row	9
-column	5
-%%
-%DisplayText
-address	2369
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	The parser detects the row component 
-color	black
-%%
-%RowerNode
-address	2370
-child	2371
-sibling	2373
-row	10
-column	20
-%%
-%DisplayText
-address	2371
-sibling	2372
-style	0
-size	14
-column	0
-name	TimesRoman
-text	/5/
-color	blue
-%%
-%DisplayText
-address	2372
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2373
-child	2374
-sibling	0
-row	11
-column	5
-%%
-%DisplayText
-address	2374
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	because it has leading and trailing slashes.
+text	AddCardSet '+' command.
 color	black
 %%
 %NextFile
-address	2375
-sibling	2376
-filename	displayInput
+address	2339
+sibling	2340
+filename	end
 condition	0
 %%
 %NotecardTask
-address	2376
+address	2340
 sibling	0
 task	end
 type	0

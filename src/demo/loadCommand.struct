@@ -11,7 +11,7 @@ priorButton	on
 %CardSet
 address	2002
 child	2003
-sibling	2032
+sibling	2021
 button	0
 name	0
 condition	0
@@ -30,7 +30,7 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	What makes the Display 'd' command involved
+text	Recall that a script file without an
 color	black
 %%
 %RowerNode
@@ -47,7 +47,7 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	is that, beside displaying text, it is
+text	'* end' statement or without a file 'f'
 color	black
 %%
 %RowerNode
@@ -64,7 +64,7 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	capable of capturing the user's response
+text	command, lacking a logic expression, 
 color	black
 %%
 %RowerNode
@@ -81,7 +81,7 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	or input.
+text	loops and continues to repeat.
 color	black
 %%
 %RowerNode
@@ -104,26 +104,29 @@ color	black
 %RowerNode
 address	2013
 child	2014
-sibling	2015
+sibling	2017
 row	7
 column	5
 %%
 %DisplayText
 address	2014
-sibling	0
+sibling	2015
 style	0
 size	14
 column	0
 name	TimesRoman
-text	The following Display command sets up an
+text	The 
 color	black
 %%
-%RowerNode
+%DisplayText
 address	2015
-child	2016
-sibling	2017
-row	8
-column	5
+sibling	2016
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Load
+color	blue
 %%
 %DisplayText
 address	2016
@@ -132,15 +135,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	input field:
+text	 'l' command is employed 
 color	black
 %%
 %RowerNode
 address	2017
 child	2018
 sibling	2019
-row	9
-column	20
+row	8
+column	5
 %%
 %DisplayText
 address	2018
@@ -149,15 +152,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	to support this looping action.
 color	black
 %%
 %RowerNode
 address	2019
 child	2020
-sibling	2021
-row	10
-column	20
+sibling	0
+row	9
+column	5
 %%
 %DisplayText
 address	2020
@@ -166,38 +169,43 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	d (# $age)
+text	 
 color	black
 %%
-%CardSetTask
+%CardSet
 address	2021
-sibling	2022
-task	continue
-type	0
+child	2022
+sibling	2038
+button	0
+name	0
+condition	0
 %%
 %RowerNode
 address	2022
 child	2023
-sibling	2024
-row	11
+sibling	2026
+row	2
 column	5
 %%
 %DisplayText
 address	2023
-sibling	0
+sibling	2024
 style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	The 
 color	black
 %%
-%RowerNode
+%DisplayText
 address	2024
-child	2025
-sibling	2026
-row	12
-column	5
+sibling	2025
+style	0
+size	14
+column	0
+name	TimesRoman
+text	l
+color	blue
 %%
 %DisplayText
 address	2025
@@ -206,14 +214,14 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	The user enters a value and hits the
+text	 command is the initial or 
 color	black
 %%
 %RowerNode
 address	2026
 child	2027
 sibling	2028
-row	13
+row	3
 column	5
 %%
 %DisplayText
@@ -223,14 +231,14 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	'Enter' key.
+text	beginning command to one or more 
 color	black
 %%
 %RowerNode
 address	2028
 child	2029
 sibling	2030
-row	14
+row	4
 column	5
 %%
 %DisplayText
@@ -240,14 +248,14 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	Assign 'a' commands.
 color	black
 %%
 %RowerNode
 address	2030
 child	2031
-sibling	0
-row	15
+sibling	2032
+row	5
 column	5
 %%
 %DisplayText
@@ -257,74 +265,74 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	The input is stored in a card variable.
+text	 
+color	black
+%%
+%RowerNode
+address	2032
+child	2033
+sibling	2034
+row	6
+column	5
+%%
+%DisplayText
+address	2033
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	These Assign 'a' commands are only 
+color	black
+%%
+%RowerNode
+address	2034
+child	2035
+sibling	2036
+row	7
+column	5
+%%
+%DisplayText
+address	2035
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	executed once, even though the file 
+color	black
+%%
+%RowerNode
+address	2036
+child	2037
+sibling	0
+row	8
+column	5
+%%
+%DisplayText
+address	2037
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	may loop.
 color	black
 %%
 %CardSet
-address	2032
-child	2033
-sibling	2067
+address	2038
+child	2039
+sibling	2077
 button	0
 name	0
 condition	0
 %%
 %RowerNode
-address	2033
-child	2034
-sibling	2035
-row	1
-column	5
-%%
-%DisplayText
-address	2034
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	Display command:
-color	black
-%%
-%RowerNode
-address	2035
-child	2036
-sibling	2037
-row	2
-column	5
-%%
-%DisplayText
-address	2036
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2037
-child	2038
-sibling	2039
-row	3
-column	20
-%%
-%DisplayText
-address	2038
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	d (# $age)
-color	black
-%%
-%RowerNode
 address	2039
 child	2040
 sibling	2041
-row	4
-column	20
+row	2
+column	5
 %%
 %DisplayText
 address	2040
@@ -333,14 +341,14 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	The following script is a brief
 color	black
 %%
 %RowerNode
 address	2041
 child	2042
 sibling	2043
-row	5
+row	3
 column	5
 %%
 %DisplayText
@@ -350,14 +358,14 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	script file that loops
 color	black
 %%
 %RowerNode
 address	2043
 child	2044
 sibling	2045
-row	6
+row	4
 column	5
 %%
 %DisplayText
@@ -367,15 +375,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	A captured response is assigned to
+text	 
 color	black
 %%
 %RowerNode
 address	2045
 child	2046
 sibling	2047
-row	7
-column	5
+row	5
+column	15
 %%
 %DisplayText
 address	2046
@@ -384,116 +392,117 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	a variable whose name begins with
+text	-----------script--------------
 color	black
 %%
 %RowerNode
 address	2047
 child	2048
-sibling	2050
-row	8
-column	5
-%%
-%DisplayText
-address	2048
 sibling	2049
-style	0
-size	14
-column	0
-name	TimesRoman
-text	a dollar symbol 
-color	black
-%%
-%DisplayText
-address	2049
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	$<variable>
-color	blue
-%%
-%RowerNode
-address	2050
-child	2051
-sibling	2052
-row	9
-column	5
-%%
-%DisplayText
-address	2051
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2052
-child	2053
-sibling	2054
-row	10
-column	5
-%%
-%DisplayText
-address	2053
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	Examples:
-color	black
-%%
-%RowerNode
-address	2054
-child	2055
-sibling	2056
-row	11
-column	5
-%%
-%DisplayText
-address	2055
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2056
-child	2057
-sibling	2058
-row	12
+row	6
 column	15
 %%
 %DisplayText
-address	2057
+address	2048
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	$age
-color	blue
+text	l
+color	black
 %%
-%CardSetTask
-address	2058
+%RowerNode
+address	2049
+child	2050
+sibling	2051
+row	7
+column	15
+%%
+%DisplayText
+address	2050
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $counter=0
+color	black
+%%
+%RowerNode
+address	2051
+child	2052
+sibling	2053
+row	8
+column	15
+%%
+%DisplayText
+address	2052
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2053
+child	2054
+sibling	2055
+row	9
+column	15
+%%
+%DisplayText
+address	2054
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	c
+color	black
+%%
+%RowerNode
+address	2055
+child	2056
+sibling	2057
+row	10
+column	15
+%%
+%DisplayText
+address	2056
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $counter=$counter +1
+color	black
+%%
+%RowerNode
+address	2057
+child	2058
 sibling	2059
-task	continue
-type	0
+row	11
+column	15
+%%
+%DisplayText
+address	2058
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d counter = (% $counter)
+color	black
 %%
 %RowerNode
 address	2059
 child	2060
 sibling	2061
-row	13
-column	5
+row	12
+column	15
 %%
 %DisplayText
 address	2060
@@ -502,15 +511,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	f nextFile ($counter)=(2)
 color	black
 %%
 %RowerNode
 address	2061
 child	2062
 sibling	2063
-row	14
-column	5
+row	13
+column	15
 %%
 %DisplayText
 address	2062
@@ -519,59 +528,54 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	Other Notecard commands can now
+text	--------------------------------
+color	black
+%%
+%CardSetTask
+address	2063
+sibling	2064
+task	continue
+type	0
+%%
+%RowerNode
+address	2064
+child	2065
+sibling	2066
+row	14
+column	5
+%%
+%DisplayText
+address	2065
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
 color	black
 %%
 %RowerNode
-address	2063
-child	2064
-sibling	0
+address	2066
+child	2067
+sibling	2068
 row	15
 column	5
 %%
 %DisplayText
-address	2064
-sibling	2065
-style	0
-size	14
-column	0
-name	TimesRoman
-text	reference 
-color	black
-%%
-%DisplayText
-address	2065
-sibling	2066
-style	0
-size	14
-column	0
-name	TimesRoman
-text	$age
-color	blue
-%%
-%DisplayText
-address	2066
+address	2067
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	.
+text	 
 color	black
-%%
-%CardSet
-address	2067
-child	2068
-sibling	2086
-button	0
-name	0
-condition	0
 %%
 %RowerNode
 address	2068
 child	2069
 sibling	2070
-row	1
+row	16
 column	5
 %%
 %DisplayText
@@ -581,106 +585,24 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	To capture a user's input, the
+text	The file will repeat twice
 color	black
 %%
-%RowerNode
+%CardSetTask
 address	2070
-child	2071
-sibling	2072
-row	2
-column	5
+sibling	2071
+task	continue
+type	0
 %%
-%DisplayText
+%RowerNode
 address	2071
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	'd' command has a field expression
-color	black
+child	2072
+sibling	2073
+row	17
+column	5
 %%
-%RowerNode
+%DisplayText
 address	2072
-child	2073
-sibling	2076
-row	3
-column	5
-%%
-%DisplayText
-address	2073
-sibling	2074
-style	0
-size	14
-column	0
-name	TimesRoman
-text	that begins with 
-color	black
-%%
-%DisplayText
-address	2074
-sibling	2075
-style	0
-size	14
-column	0
-name	TimesRoman
-text	( #
-color	blue
-%%
-%DisplayText
-address	2075
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	, followed by 
-color	black
-%%
-%RowerNode
-address	2076
-child	2077
-sibling	2078
-row	4
-column	5
-%%
-%DisplayText
-address	2077
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	$<variable>, and ends with a closed 
-color	black
-%%
-%RowerNode
-address	2078
-child	2079
-sibling	2080
-row	5
-column	5
-%%
-%DisplayText
-address	2079
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	parenthesis.  For example:
-color	black
-%%
-%RowerNode
-address	2080
-child	2081
-sibling	2082
-row	6
-column	5
-%%
-%DisplayText
-address	2081
 sibling	0
 style	0
 size	14
@@ -690,11 +612,87 @@ text
 color	black
 %%
 %RowerNode
+address	2073
+child	2074
+sibling	2075
+row	18
+column	5
+%%
+%DisplayText
+address	2074
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Recall, the statment (% $counter)
+color	black
+%%
+%RowerNode
+address	2075
+child	2076
+sibling	0
+row	19
+column	5
+%%
+%DisplayText
+address	2076
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	prints the contents of $counter
+color	black
+%%
+%CardSet
+address	2077
+child	2078
+sibling	2121
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2078
+child	2079
+sibling	2080
+row	2
+column	5
+%%
+%DisplayText
+address	2079
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The file looping action, along with
+color	black
+%%
+%RowerNode
+address	2080
+child	2081
+sibling	2082
+row	3
+column	5
+%%
+%DisplayText
+address	2081
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	the ability to initialize $<variable>s,
+color	black
+%%
+%RowerNode
 address	2082
 child	2083
 sibling	2084
-row	7
-column	15
+row	4
+column	5
 %%
 %DisplayText
 address	2083
@@ -703,15 +701,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	d (# $name)
-color	blue
+text	may be useful in a learning situation.
+color	black
 %%
 %RowerNode
 address	2084
 child	2085
-sibling	0
-row	8
-column	15
+sibling	2086
+row	5
+column	5
 %%
 %DisplayText
 address	2085
@@ -723,224 +721,49 @@ name	TimesRoman
 text	 
 color	black
 %%
-%CardSet
+%RowerNode
 address	2086
 child	2087
-sibling	2106
-button	0
-name	0
-condition	0
-%%
-%RowerNode
-address	2087
-child	2088
-sibling	2089
-row	1
-column	5
-%%
-%DisplayText
-address	2088
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	The following 'd' command adds text to
-color	black
-%%
-%RowerNode
-address	2089
-child	2090
-sibling	2091
-row	2
-column	5
-%%
-%DisplayText
-address	2090
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	input field expression:
-color	black
-%%
-%RowerNode
-address	2091
-child	2092
-sibling	2093
-row	3
-column	5
-%%
-%DisplayText
-address	2092
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2093
-child	2094
-sibling	2095
-row	4
-column	10
-%%
-%DisplayText
-address	2094
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	d Enter a name (# $name)
-color	blue
-%%
-%RowerNode
-address	2095
-child	2096
-sibling	2097
-row	5
-column	10
-%%
-%DisplayText
-address	2096
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2097
-child	2098
-sibling	2099
+sibling	2088
 row	6
 column	5
 %%
 %DisplayText
-address	2098
+address	2087
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	Consider the following script.
 color	black
 %%
-%CardSetTask
-address	2099
-sibling	2100
-task	continue
-type	0
-%%
 %RowerNode
-address	2100
-child	2101
-sibling	2102
+address	2088
+child	2089
+sibling	2090
 row	7
-column	5
+column	15
 %%
 %DisplayText
-address	2101
+address	2089
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	------------script-----------------
 color	black
 %%
 %RowerNode
-address	2102
-child	2103
-sibling	2104
+address	2090
+child	2091
+sibling	2092
 row	8
-column	5
+column	15
 %%
 %DisplayText
-address	2103
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	The next card executes the above 'd' 
-color	black
-%%
-%RowerNode
-address	2104
-child	2105
-sibling	0
-row	9
-column	5
-%%
-%DisplayText
-address	2105
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	command.
-color	black
-%%
-%CardSet
-address	2106
-child	2107
-sibling	2144
-button	0
-name	0
-condition	0
-%%
-%RowerNode
-address	2107
-child	2108
-sibling	2109
-row	1
-column	5
-%%
-%DisplayText
-address	2108
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2109
-child	2110
-sibling	2111
-row	2
-column	5
-%%
-%DisplayText
-address	2110
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	------------script----------------
-color	black
-%%
-%RowerNode
-address	2111
-child	2112
-sibling	2113
-row	3
-column	5
-%%
-%DisplayText
-address	2112
+address	2091
 sibling	0
 style	0
 size	14
@@ -950,11 +773,187 @@ text	c
 color	black
 %%
 %RowerNode
+address	2092
+child	2093
+sibling	2094
+row	9
+column	15
+%%
+%DisplayText
+address	2093
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Ohio's capital is (# $ans)
+color	black
+%%
+%RowerNode
+address	2094
+child	2095
+sibling	2096
+row	10
+column	15
+%%
+%DisplayText
+address	2095
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g ($ans)=(Columbus)
+color	black
+%%
+%RowerNode
+address	2096
+child	2097
+sibling	2098
+row	11
+column	15
+%%
+%DisplayText
+address	2097
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Correct
+color	black
+%%
+%RowerNode
+address	2098
+child	2099
+sibling	2100
+row	12
+column	15
+%%
+%DisplayText
+address	2099
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2100
+child	2101
+sibling	2102
+row	13
+column	15
+%%
+%DisplayText
+address	2101
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Wrong. Columbus is the capital
+color	black
+%%
+%RowerNode
+address	2102
+child	2103
+sibling	2104
+row	14
+column	15
+%%
+%DisplayText
+address	2103
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-----------------------------------
+color	black
+%%
+%CardSetTask
+address	2104
+sibling	2105
+task	continue
+type	0
+%%
+%RowerNode
+address	2105
+child	2106
+sibling	2107
+row	15
+column	5
+%%
+%DisplayText
+address	2106
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2107
+child	2108
+sibling	2109
+row	16
+column	5
+%%
+%DisplayText
+address	2108
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	What is needed:
+color	black
+%%
+%RowerNode
+address	2109
+child	2110
+sibling	2111
+row	17
+column	10
+%%
+%DisplayText
+address	2110
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Initialized $counter to count 
+color	black
+%%
+%RowerNode
+address	2111
+child	2112
+sibling	2113
+row	18
+column	10
+%%
+%DisplayText
+address	2112
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	the number of incorrect answers. 
+color	black
+%%
+%RowerNode
 address	2113
 child	2114
 sibling	2115
-row	4
-column	5
+row	19
+column	10
 %%
 %DisplayText
 address	2114
@@ -963,15 +962,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	d Enter a name (# $name)
+text	 
 color	black
 %%
 %RowerNode
 address	2115
 child	2116
 sibling	2117
-row	5
-column	5
+row	20
+column	10
 %%
 %DisplayText
 address	2116
@@ -980,15 +979,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	----------------------------------
+text	$ohioAns to signal a correct 
 color	black
 %%
 %RowerNode
 address	2117
 child	2118
 sibling	2119
-row	6
-column	5
+row	21
+column	10
 %%
 %DisplayText
 address	2118
@@ -997,15 +996,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	respone for a File 'f' command 
 color	black
 %%
 %RowerNode
 address	2119
 child	2120
-sibling	2121
-row	7
-column	12
+sibling	0
+row	22
+column	10
 %%
 %DisplayText
 address	2120
@@ -1014,97 +1013,91 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	Enter a response (anything) then hit
+text	to escape the loop.
 color	black
 %%
-%RowerNode
+%CardSet
 address	2121
 child	2122
-sibling	2123
-row	8
-column	12
+sibling	2163
+button	0
+name	0
+condition	0
 %%
-%DisplayText
+%RowerNode
 address	2122
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	the ENTER key.  
-color	black
+child	2123
+sibling	2124
+row	0
+column	15
 %%
-%RowerNode
+%DisplayText
 address	2123
-child	2124
-sibling	2125
-row	9
-column	12
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	------------script-----------------
+color	black
 %%
-%DisplayText
+%RowerNode
 address	2124
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	(Do not use the TAB key)
-color	blue
+child	2125
+sibling	2126
+row	1
+column	15
 %%
-%RowerNode
+%DisplayText
 address	2125
-child	2126
-sibling	2127
-row	10
-column	5
-%%
-%DisplayText
-address	2126
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	l
 color	black
 %%
 %RowerNode
-address	2127
-child	2128
-sibling	2130
-row	11
-column	5
+address	2126
+child	2127
+sibling	2128
+row	2
+column	15
 %%
 %DisplayText
-address	2128
-sibling	2129
+address	2127
+sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	Enter a name 
+text	a $ohioAns=incorrect
 color	black
 %%
-%BoxField
+%RowerNode
+address	2128
+child	2129
+sibling	2130
+row	3
+column	15
+%%
+%DisplayText
 address	2129
-child	0
 sibling	0
-field	$name
-length	10
-column	00
-size	14
 style	0
+size	14
+column	0
 name	TimesRoman
+text	a $ohioCnt=0
 color	black
-limit	99
-options	0
 %%
 %RowerNode
 address	2130
 child	2131
 sibling	2132
-row	12
-column	5
+row	4
+column	15
 %%
 %DisplayText
 address	2131
@@ -1116,43 +1109,46 @@ name	TimesRoman
 text	 
 color	black
 %%
-%XNode
-address	2132
-sibling	2133
-%%
 %RowerNode
-address	2133
-child	2134
-sibling	2136
-row	13
-column	5
+address	2132
+child	2133
+sibling	2134
+row	5
+column	15
 %%
 %DisplayText
-address	2134
-sibling	2135
+address	2133
+sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	 Your input is 
+text	c ($ohioAns)=(incorrect)
 color	black
 %%
-%DisplayVariable
+%RowerNode
+address	2134
+child	2135
+sibling	2136
+row	6
+column	15
+%%
+%DisplayText
 address	2135
 sibling	0
-text	$name
-column	0
-size	14
 style	0
+size	14
+column	0
 name	TimesRoman
+text	d Ohio's capital is (# $ans)
 color	black
 %%
 %RowerNode
 address	2136
 child	2137
 sibling	2138
-row	14
-column	5
+row	7
+column	15
 %%
 %DisplayText
 address	2137
@@ -1161,15 +1157,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	g ($ans)=(Columbus)
 color	black
 %%
 %RowerNode
 address	2138
 child	2139
 sibling	2140
-row	15
-column	5
+row	8
+column	15
 %%
 %DisplayText
 address	2139
@@ -1178,15 +1174,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	Notice, the Next button was not activated 
+text	d Correct
 color	black
 %%
 %RowerNode
 address	2140
 child	2141
 sibling	2142
-row	16
-column	5
+row	9
+column	15
 %%
 %DisplayText
 address	2141
@@ -1195,15 +1191,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	(color change) until your response was 
+text	a $ohioAns=correct
 color	black
 %%
 %RowerNode
 address	2142
 child	2143
-sibling	0
-row	17
-column	5
+sibling	2144
+row	10
+column	15
 %%
 %DisplayText
 address	2143
@@ -1212,73 +1208,71 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	completed with the Enter key. 
+text	ge
 color	black
 %%
-%CardSet
+%RowerNode
 address	2144
 child	2145
-sibling	2170
-button	0
-name	0
-condition	0
+sibling	2146
+row	11
+column	15
 %%
-%RowerNode
+%DisplayText
 address	2145
-child	2146
-sibling	2147
-row	1
-column	5
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Wrong. Columbus is the capital
+color	black
 %%
-%DisplayText
+%RowerNode
 address	2146
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	A CardSet can have one or more
-color	black
+child	2147
+sibling	2148
+row	12
+column	15
 %%
-%RowerNode
+%DisplayText
 address	2147
-child	2148
-sibling	2149
-row	2
-column	5
-%%
-%DisplayText
-address	2148
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	'd' commands each with a input field.
+text	a $ohioCnt=$ohioCnt +1
 color	black
 %%
 %RowerNode
-address	2149
-child	2150
-sibling	2151
-row	3
-column	5
+address	2148
+child	2149
+sibling	2150
+row	13
+column	15
 %%
 %DisplayText
-address	2150
+address	2149
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	--------------------------------------
 color	black
+%%
+%CardSetTask
+address	2150
+sibling	2151
+task	continue
+type	0
 %%
 %RowerNode
 address	2151
 child	2152
 sibling	2153
-row	4
+row	14
 column	5
 %%
 %DisplayText
@@ -1288,15 +1282,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	For example:
+text	 
 color	black
 %%
 %RowerNode
 address	2153
 child	2154
 sibling	2155
-row	5
-column	10
+row	15
+column	5
 %%
 %DisplayText
 address	2154
@@ -1305,15 +1299,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	-----------script----------------
+text	 
 color	black
 %%
 %RowerNode
 address	2155
 child	2156
 sibling	2157
-row	6
-column	10
+row	16
+column	5
 %%
 %DisplayText
 address	2156
@@ -1322,15 +1316,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	c
+text	The script for the File 'f' command
 color	black
 %%
 %RowerNode
 address	2157
 child	2158
 sibling	2159
-row	7
-column	10
+row	17
+column	15
 %%
 %DisplayText
 address	2158
@@ -1339,15 +1333,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	d Enter name (# $name)
+text	-------------script--------------
 color	black
 %%
 %RowerNode
 address	2159
 child	2160
 sibling	2161
-row	8
-column	10
+row	18
+column	15
 %%
 %DisplayText
 address	2160
@@ -1356,15 +1350,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	d Enter  age (# $age)
+text	f nextFile ($ohioAns)=(correct)
 color	black
 %%
 %RowerNode
 address	2161
 child	2162
-sibling	2163
-row	9
-column	10
+sibling	0
+row	19
+column	15
 %%
 %DisplayText
 address	2162
@@ -1373,37 +1367,39 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	----------------------------------- 
+text	------------------------------------
 color	black
 %%
-%RowerNode
+%CardSet
 address	2163
 child	2164
-sibling	2165
-row	10
-column	10
+sibling	2191
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2164
+child	2165
+sibling	2166
+row	2
+column	5
 %%
 %DisplayText
-address	2164
+address	2165
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	Suppose the script file had nine
 color	black
-%%
-%CardSetTask
-address	2165
-sibling	2166
-task	continue
-type	0
 %%
 %RowerNode
 address	2166
 child	2167
 sibling	2168
-row	11
+row	3
 column	5
 %%
 %DisplayText
@@ -1413,14 +1409,14 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	The following card will ask you
+text	other, similar capital questions, and
 color	black
 %%
 %RowerNode
 address	2168
 child	2169
-sibling	0
-row	12
+sibling	2170
+row	4
 column	5
 %%
 %DisplayText
@@ -1430,73 +1426,71 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	to enter your name and age.
+text	the developer wished the user to
 color	black
 %%
-%CardSet
+%RowerNode
 address	2170
 child	2171
-sibling	2196
-button	0
-name	0
-condition	0
+sibling	2172
+row	5
+column	5
 %%
-%RowerNode
+%DisplayText
 address	2171
-child	2172
-sibling	2173
-row	1
-column	5
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	get all correct before escaping the
+color	black
 %%
-%DisplayText
+%RowerNode
 address	2172
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	------------script-----------
-color	black
+child	2173
+sibling	2174
+row	6
+column	5
 %%
-%RowerNode
+%DisplayText
 address	2173
-child	2174
-sibling	2175
-row	2
-column	5
-%%
-%DisplayText
-address	2174
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	d Enter name(# $name)
+text	file.
 color	black
 %%
 %RowerNode
-address	2175
-child	2176
-sibling	2177
-row	3
+address	2174
+child	2175
+sibling	2176
+row	7
 column	5
 %%
 %DisplayText
-address	2176
+address	2175
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	d Enter age(# $age)
+text	 
 color	black
+%%
+%CardSetTask
+address	2176
+sibling	2177
+task	continue
+type	0
 %%
 %RowerNode
 address	2177
 child	2178
 sibling	2179
-row	4
+row	8
 column	5
 %%
 %DisplayText
@@ -1506,15 +1500,15 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	-------------------------------
+text	What is needed are nine other pairs of 
 color	black
 %%
 %RowerNode
 address	2179
 child	2180
 sibling	2181
-row	5
-column	10
+row	9
+column	5
 %%
 %DisplayText
 address	2180
@@ -1523,14 +1517,14 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	(Enter key; do not use TAB key)
-color	blue
+text	Assign 'a' commands, along with a rather 
+color	black
 %%
 %RowerNode
 address	2181
 child	2182
 sibling	2183
-row	6
+row	10
 column	5
 %%
 %DisplayText
@@ -1540,77 +1534,66 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	long File 'f' command.
 color	black
 %%
 %RowerNode
 address	2183
 child	2184
-sibling	2186
-row	7
+sibling	2185
+row	11
 column	5
 %%
 %DisplayText
 address	2184
-sibling	2185
+sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	 Enter name 
+text	 
 color	black
-%%
-%BoxField
-address	2185
-child	0
-sibling	0
-field	$name
-length	10
-column	00
-size	14
-style	0
-name	TimesRoman
-color	black
-limit	99
-options	0
 %%
 %RowerNode
-address	2186
-child	2187
-sibling	2189
-row	8
-column	5
+address	2185
+child	2186
+sibling	2187
+row	12
+column	1
 %%
 %DisplayText
-address	2187
-sibling	2188
+address	2186
+sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	 Enter age  
+text	----------------------------script-------------------------
 color	black
 %%
-%BoxField
+%RowerNode
+address	2187
+child	2188
+sibling	2189
+row	13
+column	1
+%%
+%DisplayText
 address	2188
-child	0
 sibling	0
-field	$age
-length	10
-column	00
-size	14
 style	0
+size	14
+column	0
 name	TimesRoman
+text	f nextFile ($ohioAns)=(correct)and($texasAns)=...
 color	black
-limit	99
-options	0
 %%
 %RowerNode
 address	2189
 child	2190
-sibling	2191
-row	9
-column	5
+sibling	0
+row	14
+column	1
 %%
 %DisplayText
 address	2190
@@ -1619,18 +1602,22 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	 
+text	-------------------------------------------------------------
 color	black
 %%
-%XNode
+%CardSet
 address	2191
-sibling	2192
+child	2192
+sibling	2202
+button	0
+name	0
+condition	0
 %%
 %RowerNode
 address	2192
 child	2193
 sibling	2194
-row	10
+row	2
 column	5
 %%
 %DisplayText
@@ -1640,14 +1627,14 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	Again, the Next button was not activated
+text	This completes the survey of the
 color	black
 %%
 %RowerNode
 address	2194
 child	2195
-sibling	0
-row	11
+sibling	2196
+row	3
 column	5
 %%
 %DisplayText
@@ -1657,485 +1644,68 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	until both responses were completed.
+text	Load 'l' command.
 color	black
 %%
-%CardSet
+%RowerNode
 address	2196
 child	2197
-sibling	2220
-button	0
-name	0
-condition	0
+sibling	2198
+row	4
+column	5
 %%
-%RowerNode
+%DisplayText
 address	2197
-child	2198
-sibling	2199
-row	1
-column	5
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
 %%
-%DisplayText
+%RowerNode
 address	2198
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	A 'd' command may contain multiple field
-color	black
+child	2199
+sibling	2200
+row	5
+column	5
 %%
-%RowerNode
+%DisplayText
 address	2199
-child	2200
-sibling	2201
-row	2
-column	5
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The next file covers the Add '+'
+color	black
 %%
-%DisplayText
+%RowerNode
 address	2200
+child	2201
 sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	expressions.
-color	black
+row	6
+column	5
 %%
-%RowerNode
+%DisplayText
 address	2201
-child	2202
-sibling	2203
-row	3
-column	5
-%%
-%DisplayText
-address	2202
 sibling	0
 style	0
 size	14
 column	0
 name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2203
-child	2204
-sibling	2205
-row	4
-column	10
-%%
-%DisplayText
-address	2204
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	---------------script-------------------
-color	black
-%%
-%RowerNode
-address	2205
-child	2206
-sibling	2207
-row	5
-column	10
-%%
-%DisplayText
-address	2206
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	d Enter name (# $name) age (# $age)
-color	black
-%%
-%RowerNode
-address	2207
-child	2208
-sibling	2209
-row	6
-column	10
-%%
-%DisplayText
-address	2208
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	-----------------------------------------
-color	black
-%%
-%RowerNode
-address	2209
-child	2210
-sibling	2211
-row	7
-column	5
-%%
-%DisplayText
-address	2210
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2211
-child	2212
-sibling	2216
-row	8
-column	5
-%%
-%DisplayText
-address	2212
-sibling	2213
-style	0
-size	14
-column	0
-name	TimesRoman
-text	Enter name 
-color	black
-%%
-%BoxField
-address	2213
-child	0
-sibling	2214
-field	$name
-length	7
-column	00
-size	14
-style	0
-name	TimesRoman
-color	black
-limit	99
-options	0
-%%
-%DisplayText
-address	2214
-sibling	2215
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 age 
-color	black
-%%
-%BoxField
-address	2215
-child	0
-sibling	0
-field	$age
-length	3
-column	00
-size	14
-style	0
-name	TimesRoman
-color	black
-limit	99
-options	0
-%%
-%RowerNode
-address	2216
-child	2217
-sibling	2218
-row	9
-column	5
-%%
-%DisplayText
-address	2217
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2218
-child	2219
-sibling	0
-row	10
-column	20
-%%
-%DisplayText
-address	2219
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	ENTER key not TAB key
-color	black
-%%
-%CardSet
-address	2220
-child	2221
-sibling	2250
-button	0
-name	0
-condition	0
-%%
-%RowerNode
-address	2221
-child	2222
-sibling	2223
-row	1
-column	5
-%%
-%DisplayText
-address	2222
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2223
-child	2224
-sibling	2225
-row	2
-column	5
-%%
-%DisplayText
-address	2224
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	In the following script, the input focus
-color	black
-%%
-%RowerNode
-address	2225
-child	2226
-sibling	2227
-row	3
-column	5
-%%
-%DisplayText
-address	2226
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	first moves left to right, then top to 
-color	black
-%%
-%RowerNode
-address	2227
-child	2228
-sibling	2229
-row	4
-column	5
-%%
-%DisplayText
-address	2228
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	bottom rows.
-color	black
-%%
-%RowerNode
-address	2229
-child	2230
-sibling	2231
-row	5
-column	5
-%%
-%DisplayText
-address	2230
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2231
-child	2232
-sibling	2233
-row	6
-column	5
-%%
-%DisplayText
-address	2232
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 ---------------script ----------------
-color	black
-%%
-%RowerNode
-address	2233
-child	2234
-sibling	2235
-row	7
-column	5
-%%
-%DisplayText
-address	2234
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 c
-color	black
-%%
-%RowerNode
-address	2235
-child	2236
-sibling	2237
-row	8
-column	5
-%%
-%DisplayText
-address	2236
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 d (# $one)   (# $two)   (# $three)
-color	black
-%%
-%RowerNode
-address	2237
-child	2238
-sibling	2239
-row	9
-column	5
-%%
-%DisplayText
-address	2238
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 d (# $four)  (# $five)  (# $six)
-color	black
-%%
-%RowerNode
-address	2239
-child	2240
-sibling	2241
-row	10
-column	5
-%%
-%DisplayText
-address	2240
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 d (# $seven) (# $eight) (# $nine)
-color	black
-%%
-%RowerNode
-address	2241
-child	2242
-sibling	2243
-row	11
-column	5
-%%
-%DisplayText
-address	2242
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	-------------------------------------
-color	black
-%%
-%CardSetTask
-address	2243
-sibling	2244
-task	continue
-type	0
-%%
-%RowerNode
-address	2244
-child	2245
-sibling	2246
-row	12
-column	5
-%%
-%DisplayText
-address	2245
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	 
-color	black
-%%
-%RowerNode
-address	2246
-child	2247
-sibling	2248
-row	13
-column	5
-%%
-%DisplayText
-address	2247
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	You will not be asked to enter responses
-color	black
-%%
-%RowerNode
-address	2248
-child	2249
-sibling	0
-row	14
-column	5
-%%
-%DisplayText
-address	2249
-sibling	0
-style	0
-size	14
-column	0
-name	TimesRoman
-text	for this script. 
+text	command.
 color	black
 %%
 %NextFile
-address	2250
-sibling	2251
-filename	parenthesized
+address	2202
+sibling	2203
+filename	addCommand
 condition	0
 %%
 %NotecardTask
-address	2251
+address	2203
 sibling	0
 task	end
 type	0
