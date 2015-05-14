@@ -60,7 +60,7 @@ The Group command may have the tag 'ge' that denotes an else
 condition. For example:
 
 		c
-		g($capital)=(Columbus)
+		g ($capital)=(Columbus)
 		d Correct
 		ge
 		d Sorry, Columbus is the capital of Ohio
@@ -69,3 +69,61 @@ condition. For example:
 
 Had $capital contained the value Cleveland, then the second Displays   
 command, and not the first, would have printed.   
+
+###GroupNode
+
+ In the above script code, the script program translates the 'g ($capital)=(columbus)'   
+and 'ge' to the following in the '.struct' file:  
+
+		%GroupNode
+		address	2023
+		sibling	2024
+		name		0
+		condition	($capital)=(Columbus)
+		post	0
+		%%
+		%DisplayText 
+		...
+		%%
+		%GroutNode
+		address 2025
+		sibling 2026
+		name		0
+		condition	0
+		post	else
+		%DisplayText 
+		...
+		%%
+ 
+The paramter 'name' is not operational.  The first GroupNode 'condition' argument   
+is  '($capital)=(Columbus)' and its 'post' argument is '0'.  The 'condition'   
+argument of the second GroupNode is zero; but its 'post' argument is 'else'.   
+ 
+In the GroupNode class, the combinition of 'condition' and 'post' produce the
+following mutually exclusive types:
+
+		ThenNode = 1		Has condition expression, e.g., g (1)=(1)
+		ElseNode = 2		"else" type but no condition, i.e., ge
+		ElseConditionNode=3	"else" type with condition, e.g., ge (1)=(1)
+		EmptyNode=4		no "else' type and no condition, i.e., g
+
+The type value (1,2,3,4) is assigned to 'kind'.
+
+###CardSet
+
+The Group command is a child class of CardSet. In the iteration of CardSet objects,  
+the function 'executeOneCardSet' is invoked to process child object.   
+
+		obj match {
+			case rn:RowerNode=> ...
+			case as:Assigner=>  ...
+			case cst:CardSetTask=> ...
+			case xn: XNode => ...
+			case gn:GroupNode=>
+				whatToDo( ...
+
+The Group command is processed by the 'whatToDo(...) function.  This function decides  
+whether of not execute the CardSet commands within its scope of control. It also  
+decides on whether the Group command has completed its task.  
+
+

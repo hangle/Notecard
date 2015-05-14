@@ -95,7 +95,6 @@ The directory in which the Notecard program is executed is
 termed the 'home' directory.  The 'appearance.ini' file in  
 the 'home' directory is applied to the script files in 'home'   
 directory and to all  script files in its subdirectories.   
-
 An 'appearance.ini' directory within a 'home' subdirectory  
 is applied to just the script files in that directory.   
 

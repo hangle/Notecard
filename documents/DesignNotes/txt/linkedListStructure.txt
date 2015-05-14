@@ -5,7 +5,7 @@ Linked List Structure
 The Notecard program executes 
 
 <pre>
-		class			   	:w
+		class			   	
 	script examples
 		------			    	-------------
 	Notecard

@@ -8,6 +8,7 @@ It is, however, a component of four command types (Assign, Clear, Edit, <br />
 and Group).  </p>
 
 <pre>
+    Add
     Assign
     Asterisk
     ButtonCardSet
@@ -18,7 +19,7 @@ and Group).  </p>
     File
     Group
     Load
-    logicComponent
+    logicComponent (not command type)
 </pre> 
 
 <h2>Features Directory</h2>
@@ -30,7 +31,7 @@ Script program terms.    </p>
 <p>The means to change the default values controlling the appearance of window <br />
 size, text, and input fields is explained by 'appearance.md'.  </p>
 
-<h2>Design Notes Directory</h2>
+<h2>DesignNotes Directory</h2>
 
 <p>The directory describes the Notecard program at the level of the Scala language.   </p>
 

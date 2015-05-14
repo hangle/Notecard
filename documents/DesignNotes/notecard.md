@@ -12,7 +12,7 @@ consists of the three commands types whose tags are (c, d, *). <br />
 displays "now is" and the second displays "the time".  </p>
 
 <pre>
-                c
+        c
                 d now is
                 c
                 d the time
@@ -20,45 +20,46 @@ displays "now is" and the second displays "the time".  </p>
 </pre>
 
 <p>The Script program has validated these commands and has <br />
-generated an input file to the Notecard program (beginning <br />
-with the '%Notecard' group and ending with the '%NotecardTask' <br />
-group:    </p>
+generated an input file (nowis.struct) to the Notecard program <br />
+(beginning with the '%Notecard' group and ending with the <br />
+'%NotecardTask' group:  </p>
 
 <pre>
-                 %Notecard                        %CardSet
-                 child       2002                  child    2006
-                 height 300                        address  2005
-                 width  400                        siblinng 2008
-                 font_size  14                     name        0
-                 asteriskButton on                 condition   0
+                 %Notecard                         %CardSet
+                 child       2002                  address    2005
+                 height      300                   child      2006
+                 width       400                   sibling    2008
+                 font_size   14                    name       0
+                 asteriskButton on                 condition  0
                  priorButton    on                 %%
                  %%
 
                  %CardSet                         %RowerNode
-                 child      2003                  child     2007
                  address    2002                  address   2006
+                 child      2003                  child     2007
                  sibling    2005                  sibling   0
                  name       0                     row       0
                  condition  0                     column    0
                  %%                               %%
 
                  %RowerNode                       %DisplayText
-                 child      2004                  address   2007
-                 address    2003                  sibling   0
-                 sibling    0                     style   14
-                 row    0                         column  0
-                 column 0                         name TimesRoman
-                 %%                               text the time
-                                                  color black
-                 %DisplayText                     %%
+                 address    2003                  address  2007
+                 child      2004                  sibling      0
+                 sigling    0                     style    14
+                 row        0                     column    0 
+                 column     0                     name    TimesRoman
+                 %%`                              text    the time
+                                                  color   black
+                                                  %%
+                 %DisplayText                    
                  address    2004
-                 sibling    0                     %NotecardTask
-                 style  1                         address   2008
-                 size   14                        task   end
-                 column 0                         type   0
-                 name   TimesRoman                %%
-                 text   now is
-                 color  black
+                 sibling    0                    %NotecardTask
+                 style      1                    address   2008
+                 size       14                   task      end
+                 column     0                    type      0
+                 name       TimesRoman           %%
+                 text       now is
+                 color      black
                  %%
 </pre>
 
@@ -267,8 +268,8 @@ that has a response  or input field.   </p>
 
 <pre>
                 %Notecard                      %BoxField
-                child   2002                   child     0
-                height  300                    address  2004
+                child   2002                   address  2006   0
+                height  300                    address  0 
                 width   400                    sibling   0
                 font_size   14                 field    $myInput
                 asteriskButton  on             length   10
@@ -276,18 +277,18 @@ that has a response  or input field.   </p>
                 %%                             size     14
                                                style    1
                 %CardSet                       name     TimesRoman
-                child   2003                   color    black
-                address 2002                   limit    99
-                sibling 0                      option   0
-                name        0                  %%
-                condition       0
+                address    2002                color    black
+                child      2003                limit    99
+                sibling    0                   option   0
+                name       0                    %%
+                condition  0
                 %%                             
 
                 %RowerNode
-                child   2004
                 address 2003
+                child   2004
                 sibling 0
-                row 0
+                row     0
                 column  0
                 %%
 </pre>
@@ -296,7 +297,7 @@ that has a response  or input field.   </p>
 JTextField) . The input is   stored in '$myInput'.  Until the <br />
 user hits the 'ENTER' key, the 'NEXT' button is inactive. <br />
 The 'ENTER' key set the button color to orange.  Activation of <br />
-the button would display   the next card, provided one existed <br />
+the button would display the next card, provided one existed <br />
 (instead, a new instance of 'Notecard' is created and  the <br />
 card repeats).  Typically, a '* end' command is present to <br />
 terminate the session.  </p>

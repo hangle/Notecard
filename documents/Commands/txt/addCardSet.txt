@@ -1,84 +1,77 @@
 AddCardSet
 =================
 
-An Add Card Set has the same functionality as a Card Set.  
-However, it does not begin with the 'c' command. Instead,  
-it begins with the 'b' command that also clears the  
-screen.  
+An AddCardSet has the same functionality as a CardSet.  
+However, it does not begin with the 'c' command. Instead,    
+it begins with the '+' command; and, like the 'c' command,  
+it also clears the  screen.    
 
-The Sets differ by their controlling button.  The Add  
-Card Set is activated by the +Add button and are termed  
-AddCardSets.  The user, activating the Next button, may   
-elect to skip the AddCardSets.  
+The two Sets differ by their controlling button. The CardSet   
+is activated by the Next button.  The AddCardSet is activated   
+by the +Add button.  
 
-One or more Add Card Sets is associated with a particular  
-Card Set.  A script developer may utilize the AddCardSets   
-to provide  optional information that serves to clarify the   
-information provided by a CardSet.  
+One or more AddCardSets are associated with a particular   
+CardSet.  As such, the AddCardSet(s) must immediately   
+follow the particular CardSet. The user has the option of   
+executing the associated AddCardSet(s) by activating the  
++Add button, or skipping the AddCardSet(s) by activating   
+the Next button.  
 
-The following  CardSet asks the user to enter the capital of Ohio.  
+The AddCardSets to provide  optional information that   
+serves to clarify the information provided by a CardSet.    
+
+The following  CardSet asks the user to enter the capital of Ohio.    
 
 		c
 		d Capital of Ohio is: (# $capital)
 		
-In the case of a user who "knows" the answer but cannot quite recall   
-it, a hint or a probe would be beneficial.  Something like:  
+In the case of a user who "knows" the answer but cannot quite recall     
+it, a hint or a probe would be beneficial, perhaps something like:  
 
-		Person who discovered the New World
+		Discover of the New World
 
-An Add Card Set providing the hint or probe must be optional.  Users   
-knowing the answer should not be encumbered with unneeded information.
+An AddCardSet providing the hint or probe must be optional.  Users   
+knowing the answer should not be encumbered with unneeded information.  
 
-The hint or probe CardSet is assigned to the '+Add' button.  
-User activation of this button presents the following commands: 
+The hint or probe CardSet is assigned to the '+Add' button.   
+User activation of this button presents the following commands:   
 
-		b
-		d Person who discovered the New World
+		+
+		d Discover of the New World
 
-The tag 'b' is the leading command of the AddCardSet.  The 'b'   
-command has the same functionality as the 'c' command.   
+The tag '+' is the leading command of the AddCardSet.  
 
-The following commands includes an additional Button CardSet:  
+The following commands includes two AddCardSets associated  
+with the CardSet seeking the answer: Columbus.  
 
 		c
 		d Capital of Ohio is: (# $capitalOh)
 							.
-		b
-		d Person who discovered the New World
+		+
+		d Discover of the New World
 							.
-		b
-		d Answer begins with/and ends with,
-		d and has 8 letters:
-		d         C o l _ _ b u s
+		+
+		d Answer begins with C and has 8 letters 
 							.
 		c 
 		d Capital of New York is (# capitalNY)
 		...
 
-The AddCardSets must immediately follow the CardSet to which   
-they are associated.  In the above script, the  two Add  
-CardSets relate only to the Ohio capital question and not  
-the subsequent New York question.  
 
-A CardSet that has associated one or more AddCardSets arms the      
+A CardSet that has associated one or more AddCardSets arms the        
 '+Add' button.  Its color becomes yellow.   
 
-The user who answers the Ohio question and does not activate the   
+The user who answers the Ohio question and does not activate the      
 '+Add' button skips the AddCardSets and is presented with the   
-New York question.  
+New York question.   
 
-Activation of the '+Add' button in the Ohio question CardSet has   
-the same affect has hitting the 'Next' button. That is, the   
-following AddCardSet is executed.   
+The user activating the Add button twice is presented the first    
+and second AddCardSets. The +Add button remains enabled. When    
+activated again, then the associated CardSet is re-executed.  
 
-The user activates the 'Next' button in both AddCardSets.   
+Thus, the user, equipped with the addition information of the   
+AddCardSets, is given the opportunity to respond appropriately   
+to the question.   
 
-Activation of the 'Next' button in the last AddCardSet   
-restores the CardSet associated with the AddCardSets.   
-
-The initial CardSet is again executed. Hopefully, the user has been   
-provided with enough supplemential informaton to answer the Ohio   
-question.    
-
-
-
+In a series of AddCardSet, activation of the Next button returns  
+the user to the associated CardSet.  

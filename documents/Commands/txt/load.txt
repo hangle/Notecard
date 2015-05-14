@@ -4,7 +4,7 @@ Load Command
 The Load command has an 'l' tag, followed by none  or one or more spaces.  
  
 The Load command line is followed by one or more Assign commands. Together,  
-the Load and Assign commands is termed the Load Command Set.  This set
+the Load and Assign commands is termed the Load Command Set.  This set  
 typically is placed at the beginning of a '.nc' file.  for example:    
 
 		l
@@ -14,8 +14,8 @@ typically is placed at the beginning of a '.nc' file.  for example:
 		...
 
 The Load command set is a special case.  It assign values to   
-$variables the first time the Load Command Set is executed but  
-but not on subsequent encounters.   
+$<variable>s the first time the Load Command Set is executed but  
+not on subsequent encounters.   
 
 The execution of a script file repeats when the file does not   
 terminated with the '* end' command or with the execution of  
@@ -58,3 +58,6 @@ Note, the Assign 'a' command is a member of the CardSet as well
 as a member of the Load command set.  In the '*.struct' file,   
 membership distinction is maintained by renaming '%Assign' to   
 '%LoadAssign' for 'a' commands associated with the Load command set.   
+
+The Load 'l' command is not a member of the CardSet or AddCardSet.  
+

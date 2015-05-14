@@ -3,7 +3,7 @@
 <p>The Load command has an 'l' tag, followed by none  or one or more spaces.  </p>
 
 <p>The Load command line is followed by one or more Assign commands. Together, <br />
-the Load and Assign commands is termed the Load Command Set.  This set
+the Load and Assign commands is termed the Load Command Set.  This set <br />
 typically is placed at the beginning of a '.nc' file.  for example:    </p>
 
 <pre><code>    l
@@ -14,8 +14,8 @@ typically is placed at the beginning of a '.nc' file.  for example:    </p>
 </code></pre>
 
 <p>The Load command set is a special case.  It assign values to <br />
-$variables the first time the Load Command Set is executed but <br />
-but not on subsequent encounters.   </p>
+$<variable>s the first time the Load Command Set is executed but <br />
+not on subsequent encounters.   </p>
 
 <p>The execution of a script file repeats when the file does not <br />
 terminated with the '* end' command or with the execution of <br />
@@ -55,3 +55,10 @@ requiring that they be successfully answered before continuing.  </p>
 <p>The 'l' command and its associated 'a' commands are not commands of <br />
 the CardSet.  A script syntax error is displayed when a 'l'  tag <br />
 is found within the CardSet scope (<em>todo</em>).  </p>
+
+<p>Note, the Assign 'a' command is a member of the CardSet as well <br />
+as a member of the Load command set.  In the '*.struct' file, <br />
+membership distinction is maintained by renaming '%Assign' to <br />
+'%LoadAssign' for 'a' commands associated with the Load command set.   </p>
+
+<p>The Load 'l' command is not a member of the CardSet or AddCardSet.  </p>
