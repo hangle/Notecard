@@ -9,6 +9,27 @@
 	The LoadDictionary is a special case.  It loads or assign values
 	to the 'symbolTable' using the Assigner class.   In an '*.nc'
 	script file, 
+
+	Script example:
+			l
+			a $count=0
+			c
+			d (% $count)    // prints 0,1,2,3,4
+			f nextFile ($count)=(5)
+
+	The example script loops and prints the value of $count until
+	count is "5", whereupon, 'nextFile.struct' executes.
+
+	The LoadDictionary is envoked on each loop or iteration, however,
+	its Assigner children are only processed during the first loop.
+
+	It is processed on the first loop because 'startLoadDictionary'
+	fails, in a match statement, to find its 'filename' parameter in 
+	the SymbolTable. As such, it executes the LoadDictionary children
+	(Assigner objects). It also loads 'filename' to the SymbolTable so
+	that on subsequent invocations, its children objects are not
+	processed.
+
 */ 
 
 package com.client
@@ -30,24 +51,26 @@ case class LoadDictionary(var symbolTable:Map[String,String]) extends Linker{
 			//println("LoadDictionary  convertToChild")
 			convertToChild(swizzleTable)  // Is a parent of Assigner
 			}
-//-------------------------------------------------------------------
+//---o----------------------------------------------------------------
 	def startLoadDictionary  {
-		symbolTable.get(filename) match {
-				
+				// retrieve key (filename)/value from symbol
+				// table. Initially, get returns None
+			symbolTable.get(filename) match {
+					// Do nothing when get yields the paramter
+					// filename from the Symbol table
 				case Some(value) =>
-								//Only executed one time
+					// Initial value
 				case None =>
-								// 
-						symbolTable += filename-> "0"
-						iterateAssignerObjects
+						// store key and value (0) in SymbolTable.
+					symbolTable += filename-> "0"
+						//Only executed one time
+					iterateAssignerObjects
 				}
-		}
-	
+			}
 	def iterateAssignerObjects {
 			reset(child) // 1st child or 1st sibling
 			while( iterate) {
 		//			println("LoadDictionary  iterate")
-//				Value match {
 				node match {
 						case as:Assigner=> as.startAssigner
 						case _=> println("LoadDictionary:  unknown Value="+node)

@@ -39,8 +39,7 @@ The text of the 'd' command  is displayed in a window
 dimensioned as 300 x 400.  The   text color is black.  Its size  
 is 14, and its font style is TimesRoman.  
 
-Ways to override default value.
--------------------------------
+###Ways to override default value.
 
 Asterisk Commands.   The '*' command  with an appearance  
 key/value pair,  supercedes the   corresponding program  
@@ -72,9 +71,14 @@ the next script file is executed.
 
 ###The appearance.ini file.
 
+The 'appearance.ini' file provides values to the script program.  
+It does not directly involve the Notecard program. The script    
+program uses the 'appearance.ini' to create the '.struct' files  
+that are employed by the Notecard program.    
+
 The  'appearance.ini' file,  consisting of key/value pairs.  
 These key/value pairs  change the default values for all  
-script files in a session. The following is an example of an    
+script files in a session. The following is an example of an      
 'appearance.ini' file.     
 
 <pre>
@@ -143,8 +147,7 @@ The default letter size is 22 for text in the script file
 having the '*' size 22 command.  The other script files  
 have a default letter size of 10.  
 
-Two Types of '*' commands.
---------------------------
+###Two Types of '*' commands.
 
 The '*'  Appearance commands, such as, '* size 22',  are   
 not executed by the Notecard program.  The Notecard program  

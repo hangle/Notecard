@@ -1,0 +1,121 @@
+Input Mechanism
+===============
+
+The commands of a CardSet are executed and control passes  
+to an input field (JComponent) or a button (JButton).  
+On completion of the CardSet commands, execution is halted  
+by CardSet:
+
+		def haltCommandExecution(lock:AnyRef): Unit=lock.synchronized {
+			lock.wait()	
+			}
+
+When a CardSet has an input field, the mechanism is a little more  
+complicated, so the initial description excludes the input field.  
+
+The following script lacks a input field:  
+
+		c
+		d display text
+		* end
+
+The CardSet commands consist of 'c' and 'd display text'.   
+Their execution initiates the 'wait()' state and the  
+Next button is enabled (colored orange); The Next button  
+activation causes ButtonSet to release the wait state by  
+invoking:
+
+		def start():Unit= {
+			lock.synchronized{ lock.notifyAll() } 
+			}
+
+CardSet returns control to Notecard to process its next child.  
+In the case of the above script, the Asterisk '* end' command  
+is executed and the session is terminated.  
+
+The following script has an input field:
+
+		c
+		d (# $age)
+		* end
+
+When a CardSet object is invoked, it creates an InputFocus object  
+that is used by the input field. Also created is a ListenerArray   
+object used by the input field.  In the earlier script, InputFocus   
+and ListenerArray were unused. The current script brings the two   
+into play.   
+
+The BoxField class supports the input field operation. This class  
+is a child of the RowerNode class which, in turn, is a child of  
+CardSet ( d (# $age) is a 'd' command occupying a given card row  
+is supported by RowerNode).  
+
+###RowerNode
+
+Parent: CardSet   
+Children: DisplayText, DisplayVariable, BoxField.  
+
+		def executeOneRowerNodeChild(...
+			obj match {
+				case dt:DisplayText=> ...
+				case dv:DisplayVariable=> ...
+				case bf:BoxField=>
+					BoxField.startBoxField(rowPosition)
+					notePanel.add(bf) // bf is JTextField
+					createListenerAndFocus(...)
+				}	
+			}
+
+		def createListAndFocus( ...
+			inputFocus.addToArray(boxField)			
+			val keyListenerObject(boxField, inputFocus, ...
+
+The above code is described with respect to the following CardSet   
+script that has two input fields (BoxField)s.  
+
+		c
+		d (# $one)
+		d (# $two)
+		c ...
+
+The screen displays two input fields; the first on row 1 and the   
+second on row 2. The class InputFocus places the cursor into the   
+first field.  InputFocus moves the cursor to the second field on     
+capture of the first response. On capture of the second response,     
+InputFocus detects that the CardSet, with its two input fields,   
+has captured both responses, therefor, the Next button is  
+enabled, allowing the next CardSet to execute.  
+
+The function 'createListAndFocus' passes BoxField to InputFocus to   
+be stored in an ArrayBuffer[JComponent] (BoxField extends JTextField).   
+This array serves two purposes. First, each JComponent holds the   
+screen coordinates of the input field.  Second, the size of the array   
+indicates the number of CardSet input fields.   
+
+###InputFocus
+			
+Parent: RowerNode
+Collaberates with: KeyListenerObject.
+
+In RowerNode, the class KeyListenerObject is created for each input   
+field (BoxField) of the CardSet.  Its parameters are InputFocus and   
+BoxField. The KeyListenerObject performs the response capture  and   
+transfer control to 'InputFocus.actWhenAll- FieldsCaptured' when the   
+Enter key is pressed.
+
+		def actWhenAllFieldsCaptured(...
+			arrayIndex += 1 
+			if(arrayIndex == components.size)
+				...
+				buttonSet.armNextButton
+				buttonSet.next.requestFocus
+				...
+			  else
+				components(arrayIndex).requestFocus
+
+Recall, the number of elements in ArrayBuffer[JComponent], determined   
+by 'component.size', is equal to the number of CardSet input fields.   
+In the script example, the if statment fails for the first response   
+capture, so the focus is directed to the second field (component(1)).    
+The if statement succeeds after the second response is captured.    
+The Next button is enabled and given focus.   

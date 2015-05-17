@@ -1,7 +1,7 @@
 
 c
 d 5/3/The letter size within the Input Field
-d can be altered the the argument (%%/color blue//size <n>),
+d can be altered the the argument (%%/color blue/size <n>),
 d for example:
 d 10/
 d --------------------------
@@ -48,13 +48,14 @@ d  (# $one)  (# $two)
 d  (# $three)  (# $four)
 c
 d 5/3/The length of the Input Field is
-d set by the argument (%%/color blue//length <n>/),
+d set by the argument (%%/color blue/length <n>),
 d for example:
 d 10/
 d ----------------------------
-d  d \(# /length 4/ $one)
+d  d \(# /length 2/ $one)
 d ----------------------------
-
+d
+d (# /length 2/ $one1)
 c
 d very last card
 * end

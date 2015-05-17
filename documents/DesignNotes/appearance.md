@@ -38,7 +38,7 @@ of the program as listed below:  </p>
 dimensioned as 300 x 400.  The   text color is black.  Its size <br />
 is 14, and its font style is TimesRoman.  </p>
 
-<h2>Ways to override default value.</h2>
+<h3>Ways to override default value.</h3>
 
 <p>Asterisk Commands.   The '*' command  with an appearance <br />
 key/value pair,  supercedes the   corresponding program <br />
@@ -70,6 +70,11 @@ the next script file is executed.   </p>
 
 <h3>The appearance.ini file.</h3>
 
+<p>The 'appearance.ini' file provides values to the script program. <br />
+It does not directly involve the Notecard program. The script <br />
+program uses the 'appearance.ini' to create the '.struct' files <br />
+that are employed by the Notecard program.    </p>
+
 <p>The  'appearance.ini' file,  consisting of key/value pairs. <br />
 These key/value pairs  change the default values for all <br />
 script files in a session. The following is an example of an <br />
@@ -92,9 +97,8 @@ files ( the '* end' command terminates a session).  </p>
 <p>The directory in which the Notecard program is executed is <br />
 termed the 'home' directory.  The 'appearance.ini' file in <br />
 the 'home' directory is applied to the script files in 'home' <br />
-directory and to all  script files in its subdirectories.   </p>
-
-<p>An 'appearance.ini' directory within a 'home' subdirectory <br />
+directory and to all  script files in its subdirectories. <br />
+An 'appearance.ini' directory within a 'home' subdirectory <br />
 is applied to just the script files in that directory.   </p>
 
 <p>In the event that 'appearance.ini' files are in both the <br />
@@ -142,7 +146,7 @@ size is 10 :  </p>
 having the '*' size 22 command.  The other script files <br />
 have a default letter size of 10.  </p>
 
-<h2>Two Types of '*' commands.</h2>
+<h3>Two Types of '*' commands.</h3>
 
 <p>The '<em>'  Appearance commands, such as, '</em> size 22',  are <br />
 not executed by the Notecard program.  The Notecard program <br />

@@ -20,16 +20,10 @@ import javax.swing._
 
 class KeyListenerObject(boxField:BoxField,  
 						inputFocus:InputFocus, 
-						listenerIndex:Int, // unique identifer for each listener
-										// Note:  listenerIndex not used in class 
-										// suggesting that it is no longer operational.
 						statusLine:StatusLine)	extends KeyListener   { 
 
 			// BoxField parameters, i.e., getLimit, isYesNoMode, 
 			// IndexFocus   -- allow communication with IndexFocus
-			// listenerIndex	-- each KeyListenerObject given a unique 
-			//						id by RowerNode:Indexer
-			//				    --- first KeyListenerObject index is zero
 	var limit=boxField.getLimit;   // number of input characters accepted.
 	var count=0   // count of the number of input chars received.
 			//addKey.. is JTextField method--needed to detect ENTER key.

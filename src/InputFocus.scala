@@ -106,6 +106,8 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 		// called by 'KeyListenerObject' each time a response is posted. 
 		// Function  determines if all input fields have been captured.
 	def actWhenAllFieldsCaptured  {  
+			// Count the number of times the 'Enter' key has been pressed in
+			// KeyListenerObject.
 		arrayIndex +=1  // JComponent index
 		//println("InputFocus:  arrayIndex="+arrayIndex+"  components.size="+components.size)
 				//	println("InputField: here arrayIndex="+arrayIndex)

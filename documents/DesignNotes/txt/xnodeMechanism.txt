@@ -40,4 +40,23 @@ response. Again, the Next button is highlighted (wait invoked).
 Until it is activated, the user has the opportunity to read
 the feedback.
 
+###CardSet
 
+The XNode class supports the eXecute 'x' command. This class is a  
+child of CardSet.  
+		
+		CardSet.executeOneCardSetChild(...
+			obj match {  // obj is a child object
+				case rn: RowerNode=> ...
+				case as: Assigner=> ...
+				case cst: CardSetTasks=> ...
+				case gn: GroupNode=> ...
+				case xn: XNode=>
+					showPanel(notePanel) 
+					imputFocus.giveFocusToFirstInputField
+					inputFocus.turnOnXNode
+					haltCommandExecution(lock)
+					...
+
+The Display 'd' commands preceeding the 'x' command are rendered, focus is given
+to the first input field, and executon of commands is halted.

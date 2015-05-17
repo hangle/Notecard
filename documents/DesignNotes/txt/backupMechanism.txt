@@ -2,9 +2,9 @@
 Backup  Mechanism
 ----------------
 
-The following script  shows three CardSets.  In the present case,
-each CardSet consist of a clear (c) command and a display (d)
-command
+The following script  shows three CardSets.  In the present case,   
+each CardSet consist of a clear (c) command and a display (d)   
+command   
 
 <pre>
 		c
@@ -18,24 +18,24 @@ command
 </pre>
 
 The design document NodeLinker.md describes how the Notecard  
-program processes  CardSets in their proper order (First,
-Second, Third).  This design document describes how Notecard
-processes CardSets in reverse order (Third, Second, First).
-Reversing the order provides a backup mechanism.
+program processes  CardSets in their proper order (First,  
+Second, Third).  This design document describes how Notecard  
+processes CardSets in reverse order (Third, Second, First).   
+Reversing the CardSet order provides a backup mechanism.   
 
-When a backup operation is available, the Prior button is
-highlighted along with the Next button.  Assume the current
-CardSet is the second CardSet with the display:
+When a backup operation is available, the Prior button is  
+highlighted along with the Next button.  Assume the current   
+CardSet is the second CardSet with the Display 'd' command:   
 
-		Second CardSet display
+		d Second CardSet display
 
-Both the Next and the Prior buttons are highlighted. The
-activation of the Next button executes the third CardSet.
-The execution of the Prior button re-presents the first
-CardSet.
+Both the Next and the Prior buttons are highlighted. The   
+activation of the Next button executes the third CardSet.   
+The execution of the Prior button re-presents the First   
+CardSet.   
 
-Assume the CardSet is the first CardSet. In this case,
-the Prior button is greyed. There is no Prior CardSet.
+Assume the CardSet is the First CardSet. In this case,  
+the Prior button is greyed. There is no Prior CardSet.  
   
 
 

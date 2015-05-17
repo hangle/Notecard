@@ -2,15 +2,15 @@ Management System
 ================
 
 The Management System allows the user to switch from one  script   
-command file (*.nc) to   another script file by activating a button.  
-The switch occurs from any CardSet of the   first file to the   
+command file (*.nc) to another script file by activating a button.  
+The switch occurs from any CardSet of the first file to the   
 beginning CardSet of the second file.  From any CardSet of the second    
 file, activation of the button returns the display of the CardSet  
-within the first file  from which the button was initially activated.  
+within the first file from which the button was initially activated.  
 
 Switching to a 'management' file was useful within a survey/interview   
 context.  When an interviewee is unable to complete the survey,  
-then an interviewer, following button activation, can record in   
+then an interviewer, following the button activation, can record in   
 the 'management' file the reasons for interruption.  In addition,     
 the 'management' file records the stopping point of the interview   
 so that the interview can be restarted at a later time (current   

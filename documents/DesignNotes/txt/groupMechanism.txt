@@ -2,15 +2,9 @@
 Group Command Mechanism
 ========================
 
-The following command script displays 'not in scope...'.  The two display   
-commands:
-
-		d in scope of group command
-		d also in scope of group command
-
-are bounded by the Group command 'g (1)=(1)' and the Clear command of   
-the next CardSet.  These Display commands are executed when the   
-condition '(1)=(1)' of the Group Command is true.   
+Within the CardSet, the Group 'g' command controls whether or not a group  
+of commands are executed or skipped. The following script illustrates the  
+control of the Group command:  
 
 		c
 		d not in scope of group command
@@ -19,6 +13,13 @@ condition '(1)=(1)' of the Group Command is true.
 		d also in scope of group command
 		c  
 		...
+
+The condition of the Group command '(1)=(1) is true, thus the two Display 'd'  
+command are processed.  
+
+
+		d in scope of group command
+		d also in scope of group command
 
 The two Display commands in question are not executed in the following:  
 
@@ -97,10 +98,10 @@ and 'ge' to the following in the '.struct' file:
  
 The paramter 'name' is not operational.  The first GroupNode 'condition' argument   
 is  '($capital)=(Columbus)' and its 'post' argument is '0'.  The 'condition'   
-argument of the second GroupNode is zero; but its 'post' argument is 'else'.   
+Targument of the second GroupNode is zero; but its 'post' argument is 'else'.   
  
-In the GroupNode class, the combinition of 'condition' and 'post' produce the
-following mutually exclusive types:
+In the GroupNode class, the combinition of 'condition' and 'post' produce the  
+following mutually exclusive types:  
 
 		ThenNode = 1		Has condition expression, e.g., g (1)=(1)
 		ElseNode = 2		"else" type but no condition, i.e., ge
@@ -109,7 +110,16 @@ following mutually exclusive types:
 
 The type value (1,2,3,4) is assigned to 'kind'.
 
+
+
 ###CardSet
+
+The 'Notecard' object invokes 'startCardSet(...)' consisting of:  
+
+	executeCardSet(...
+		iterateCardSetChildren(...`
+			executeOneCardSet(...
+		}
 
 The Group command is a child class of CardSet. In the iteration of CardSet objects,  
 the function 'executeOneCardSet' is invoked to process child object.   
@@ -122,8 +132,38 @@ the function 'executeOneCardSet' is invoked to process child object.
 			case gn:GroupNode=>
 				whatToDo( ...
 
-The Group command is processed by the 'whatToDo(...) function.  This function decides  
-whether of not execute the CardSet commands within its scope of control. It also  
+The Group command is processed by the 'whatToDo(...) function.  This function decides    
+whether of not to execute the CardSet commands within its scope of control. It also    
 decides on whether the Group command has completed its task.  
+
+The 'whatToDo(...)' function consist of a match statement with three case statements  
+
+		groupResolve.actionToTake(groupNode) match
+			case "do"=> iterateCardSetChildren(...)
+			case "skip"=> iterateToNextGroup)(...)
+			case "done"=>
+
+The 'actionToTake(groupNode)' decides whether of not to execute the CardSet commands.     
+The "do" action invokes 'iterateCardSetChildren(...)'.  This invocation is a recursive  
+call since it has already been invoked by 'startCardSet(...).  The commands are   
+executed until the CardSet terminates or until 'executeOneCardSet(...) encounters  
+a 'case gn:GroupNode=>' to recusrively invokes 'whatToDo(...).  
+
+The "skip" action invokes 'iterateToNextGroup(...)'.  CardSet commands are processed  
+but not executed, hense they are skipped.  The 'iterateToNextGroup(...) iterates one  
+CardSet object on each invocation, passing the object to a match statement:  
+
+		case gn: GroupNode=> whatToDo(...)
+		case _=> iterateToNextGroup(...)
+
+'iterateToNextGroup' is recursively called until the CardSet terminates or until  
+another GroupNode object is encountered.  
+		
+
+
+
+
+
+
 
 

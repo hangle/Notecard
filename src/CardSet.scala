@@ -60,10 +60,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			}
 //-------------------------------------------------------------------
 	var groupResolve:GroupResolve=new GroupResolve  
-			// Indexer has member 'index' that is initialized to 
-			// minus one. RowerNode increments this index each time a
-			// KeyListenerObject is created giving this object a unique index
-	val indexer=new Indexer(-1) 
 
 	def isAddCardSet= button > 1 //AddCardSets have button values of 2 or 99
 	def isLastAddCardSet= button == 99   // last AddCardSet in the series.
@@ -81,7 +77,8 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// CardSet is executed, 'backup' holds the pointer
 			// to the prior Card.  Used to capture one or more input fields.
 		val inputFocus= new InputFocus(buttonSet, backupMechanism ) 
-			// set true at end
+			// Passed to InputFocus and added to by RowerNode each time a (# $<variable>)
+			// is encountered. A BoxField is created for each '(# $<variable>) ./
 		val listenerArray= new ArrayBuffer[KeyListenerObject]
 			// Used by Visual objects (DisplayText, DisplayVariable, BoxField) in 
 			// collaboration with RowerNode. RowerNode passes row and column placement
@@ -97,7 +94,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									  rowPosition,
 									  lock, 
 									  inputFocus, 
-									  indexer, 
 									  statusLine, 
 									  defaultFont,
 									  addCardSetFlags,
@@ -136,7 +132,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									  rowPosition:RowPosition,
 									  lock:AnyRef,
 									  inputFocus:InputFocus,
-									  indexer:Indexer, 
 									  statusLine: StatusLine,
 									  defaultFont: DefaultFont,
 									  addCardSetFlags:AddCardSetFlags,
@@ -150,7 +145,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									notePanel, 
 									lock, 
 									inputFocus, 
-									indexer, 
 									statusLine, 
 									defaultFont,
 									addCardSetFlags,
@@ -163,7 +157,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 								 notePanel:JPanel, 
 								 lock:AnyRef, 
 								 inputFocus:InputFocus,
-								 indexer:Indexer,
 								 statusLine:StatusLine, 
 								 defaultFont:DefaultFont,
 								 addCardSetFlags:AddCardSetFlags,
@@ -181,7 +174,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									 notePanel, 
 									 lock,
 									 inputFocus, 
-									 indexer, 
 									 statusLine, 
 									 defaultFont,
 									 addCardSetFlags,
@@ -195,7 +187,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 								 notePanel:JPanel, 
 								 lock:AnyRef, 
 								 inputFocus:InputFocus, 
-								 indexer:Indexer,
 								 statusLine:StatusLine,
 								 defaultFont:DefaultFont,
 								 addCardSetFlags:AddCardSetFlags,
@@ -206,7 +197,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				rn.startRowerNode(rowPosition, 
 								  notePanel, 
 								  inputFocus, 
-								  indexer:Indexer, 
 								  statusLine,
 								  listenerArray) //recusion
 			case as:Assigner=> 
@@ -228,7 +218,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 						 notePanel, 
 						 lock, 
 						 inputFocus, 
-						 indexer, 
 						 statusLine, 
 						 defaultFont,
 						 addCardSetFlags,
@@ -299,7 +288,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 					notePanel: JPanel, 
 					lock:AnyRef,
 					inputFocus:InputFocus,
-					indexer:Indexer,
 					statusLine:StatusLine,
 					defaultFont:DefaultFont,
 					addCardSetFlags:AddCardSetFlags,
@@ -316,20 +304,18 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 										notePanel, 
 										lock, 
 										inputFocus, 
-										indexer, 
 										statusLine, 
 										defaultFont,
 										addCardSetFlags,
 										listenerArray)
 			case  "skip" =>  
 						// Outcome unccessful, so skip the enclosed Group commands.
-				iterateToNextGroup(groupResolve, 
+				iterateToNextGroup(groupResolve,
 								   rowPosition, 
 								   buttonSet,
 								   notePanel, 
 								   lock, 
 								   inputFocus, 
-								   indexer, 
 								   statusLine, 
 								   defaultFont,
 								   addCardSetFlags,
@@ -348,7 +334,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 								notePanel:JPanel, 
 								lock:AnyRef,
 								inputFocus:InputFocus,
-								indexer:Indexer,
 								statusLine:StatusLine,
 								defaultFont: DefaultFont,
 								addCardSetFlags:AddCardSetFlags,
@@ -371,7 +356,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 							 notePanel, 
 							 lock, 
 							 inputFocus, 
-							 indexer, 
 							 statusLine, 
 							 defaultFont,
 							 addCardSetFlags,
@@ -385,7 +369,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 									 notePanel, 
 									 lock, 
 									 inputFocus, 
-									 indexer, 
 									 statusLine, 
 									 defaultFont,
 									 addCardSetFlags,

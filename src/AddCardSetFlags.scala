@@ -27,6 +27,5 @@ class AddCardSetFlags  {
 			// In Notecard.executeOneNotecardChild- case cs:CardSet=> set true this
 			// variable. In CardSet throw AddButtonException, set variable false
 	var hasDependentAdd=false
-//	var whichBackup="cardSet"   // either CardSet or AddCardSet
 
 	}

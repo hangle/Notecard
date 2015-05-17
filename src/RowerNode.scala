@@ -49,7 +49,6 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 			rowPosition:RowPosition, // converts row values (1,2,3,4,...) to pixels.
 			notePanel:JPanel, 		// window where lines are displayed/
 			inputFocus:InputFocus,  // passed to KeyListenerObject
-			indexer:Indexer,		// passed to KeyListenerObject
 			statusLine:StatusLine,	// passed to KeyListenerObject. message to client (optional)
 			listenerArray:ArrayBuffer[KeyListenerObject] //array of KeyListenerObjects
 			) {
@@ -65,7 +64,6 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 		iterateRowerNodeChildren(rowPosition, 
 								 notePanel, 
 					 			 inputFocus, 
-					 			 indexer, 
 					 			 statusLine, 
 					 			 listenerArray)
 			//The visual components of the 'd' command my specify different height
@@ -80,26 +78,23 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 	def iterateRowerNodeChildren(rowPosition:RowPosition, 
 				 notePanel:JPanel, 
 				 inputFocus:InputFocus, 
-				 indexer:Indexer,
 				 statusLine:StatusLine,
 				 listenerArray:ArrayBuffer[KeyListenerObject]) {
 		reset(child)	//point to head of linked list (setFirstChild)
 		while(iterate) {   	//Linker processes linked list of CardSet children
-			executeRowerNodeChildren(node, // node references a particular sibling, 
+			executeOneRowerNodeChild(node, // node references a particular sibling, 
 							// such as DisplayText 
 						 rowPosition, 
 						 notePanel, 
 						 inputFocus, 
-						 indexer, 
 						 statusLine , 
 						 listenerArray)
 			}
 		}
-	def executeRowerNodeChildren(obj:Node,  
+	def executeOneRowerNodeChild(obj:Node,  
 				 rowPosition:RowPosition, 
 				 notePanel:JPanel, 
 				 inputFocus:InputFocus, 
-				 indexer:Indexer,
 				 statusLine:StatusLine,
 				 listenerArray:ArrayBuffer[KeyListenerObject]) {
 		obj match{
@@ -112,12 +107,29 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 				notePanel.add(dv)
 			case bf:BoxField=>
 				bf.startBoxField(rowPosition)
-				notePanel.add(bf) //refresh panel before creating listeners or incur focus problems
-				createListenerAndFocus(bf, inputFocus, indexer:Indexer, statusLine, listenerArray)
+						//refresh panel before creating listeners or incur focus problems
+				notePanel.add(bf) 
+				
+				createListenerAndFocus(bf, inputFocus,  statusLine, listenerArray)
 			case _=>
 				println("RowerNode:  unkown RowerNode child")
 			 	throw new Exception
 			}
+		}
+	def createListenerAndFocus( boxField:BoxField, 
+				inputFocus:InputFocus, 
+				statusLine:StatusLine,
+				listenerArray:ArrayBuffer[KeyListenerObject]) {
+				// KeyListenerObject "listens" for key input characters. 
+		val keyListenerObject=new KeyListenerObject(boxField,  
+													inputFocus, 
+													statusLine)
+				// added to an ArrayBuffer of InputFocus
+				// 'components += component (boxField)
+		inputFocus.addToArray(boxField) 
+				// ListenerArray used in CardSet to remove 
+				// listeners on card termination
+		listenerArray += keyListenerObject
 		}
 
 		// Find the largest height (size) value in pixels among the 'd' command's
@@ -157,23 +169,6 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 		maxValue
 		}
 
-	def createListenerAndFocus( boxField:BoxField, 
-				inputFocus:InputFocus, 
-				indexer:Indexer, 
-				statusLine:StatusLine,
-				listenerArray:ArrayBuffer[KeyListenerObject]) {
-		indexer.increment   // add one to index member of Indexer
-				// KeyListenerObject "listens" for key input characters. 
-		val keyListenerObject=new KeyListenerObject(boxField,  
-													inputFocus, 
-													indexer.getIndex, 
-													statusLine)
-				// added to an ArrayBuffer of InputFocus
-		inputFocus.addToArray(boxField) 
-				// ListenerArray used in CardSet to remove 
-				// listeners on card termination
-		listenerArray += keyListenerObject
-		}
 		// CreateClass generates instances of RowerNode without fields or parameters.
 		// However, it invokes 'receive_objects' to load parameters from *.struct
 		// file as well as symbolic addresses to be made physical ones. 

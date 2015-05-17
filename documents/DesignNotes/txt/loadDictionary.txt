@@ -2,8 +2,7 @@
 Load Dictionary (Notecard)
 ==========================
 
-Script File
---------------
+###Script File
 
 The Load 'l' command, along with associated Assign 'a' commands,   
 initializes '$variables'. That is, the associated 'a' commands  
@@ -48,9 +47,8 @@ exercise.
 		f nextExercise ($capital1)=(true) and ($capital2)=(true)
 
 Correct answers set $capital1 and $capital2 to 'true',  
-allowing the File  'f' command to execute. The script is  
-incomplete in order to simplify.  The 'Capital of Ohio'  
-script is shown with added commands:   
+allowing the File  'f' command to execute, thus terminating the
+looping action. 
 
 		c ($capital1) = (false)
 		d Capital of Ohio (# $columbus)
@@ -61,27 +59,13 @@ script is shown with added commands:
 		d Sorry, Columbus is the capital
 
 
-Linked-List Class Structure
---------------------------
+###Linked-List Class Structure
 
-Before the advent of the Load command, the linked-list  
-class structure was: 
+The following is the linked list structure of the command classes.     
+Notecard is the root of the structure.  As a parent, it has 4   
+children (LoadDictionary, NotecardType, NextFile, and CardSet).  
+LoadDictionary and CardSet are also parents  
 
-<pre>
-		Notecard
-			NotecardType
-			NextFile
-			CardSet
-				AssignerNode
-				CardSetType
-				GroupNode
-				XNode
-				RowerNode
-					DisplayVariable
-					DisplayText
-					BoxField
-						EditNode
-</pre>
 
 The classes to the right of 'Notecard' are children and  
 grandchildren of 'Notecard'.  The classes to the right of  
@@ -92,7 +76,7 @@ associated Assign commands  add the following substructure:
 <pre>
 		Notecard
 			LoadDictionary
-				AssignerNode
+				AssignerNode (LoadAssign)
 			NotecardType
 			NextFile
 			CardSet
@@ -108,21 +92,37 @@ associated Assign commands  add the following substructure:
 </pre>
 
 The Assign command (clasname: AssignerNode) has different  
-parant classes   (LoadDictionary and CardSet).   The  
+parent classes   (LoadDictionary and CardSet).   The  
 AssignerNode, whose parent is CardSet, executes everytime  
 it is accessed; the AssignerNode, whose parant is  
 LoadDictionary, exectues just once.  
  
-A crucial task of the LoadDictionary class is to access  
-the $< script filename > value.    Initially, the  
-Dictionary of $< variables >s does not contain the  
-script's filename; therefore, the associated Assign  
-commands are executed. The $< script filename > key     
-is added to the Dictionary preventing the subsequent  
-execution of Assign commands.   
+The LoadDictionary is envoked on each loop or iteration, however,  
+its Assigner children are only processed during the first loop.  
 
-Renaming the AssignNode class
-----------------------------
+		def startLoadDictionary  {
+				// retrieve key (filename)/value from symbol
+				// table. Initially, get returns None
+			symbolTable.get(filename) match {
+					// Do nothing when get yields the paramter
+					// filename from the Symbol table
+				case Some(value) =>
+					// Initial value
+				case None =>
+					symbolTable += filename-> "0"
+						//Only executed one time
+					iterateAssignerObjects
+				}
+			}
+
+It is processed on the first loop because 'startLoadDictionary'  
+fails, in a match statement, to find its 'filename' parameter in   
+the SymbolTable. As such, it executes the LoadDictionary children  
+(Assigner objects). It also loads 'filename' to the SymbolTable so  
+that on subsequent invocations, its children objects are not  
+processed.  
+
+###Renaming the AssignNode class
 
 The AssignNode class whose parent is LoadDictionary has  
 had its '%< classname >   renamed from that of '%AssignerNode'  

@@ -3,10 +3,10 @@
 		GroupNode is a child of CardSet.  When the first GroupNode is detected,
 		then CardSet instantiates GroupResolve and passes it GroupNode.
 				(CardSet.createGroupResolveAndPassItGroupNode(groupNode) )
-		Next, 'whatToDo(..)' is invoked having two options:
+		Next, 'whatToDo(..)' is invoked having three options:
 			1)	'do'     Invokes 'iterateCardSetChildren' to execute cmds.
 			2)  'skip'   Iterate to next GroupNode without execution of cmds.
-
+			3)  'done'   Terminate group execution
 
 		Example script code:				second example		third example
 		g (1) = (2)					g (1) =(2)						g(1)=(2)
@@ -49,10 +49,10 @@ class GroupResolve()   {
 	var elseCondition=false
 	var elseConditionTrue=false
 
-		// Invoked in CardSet
+		// Invoked in CardSet by 'whatToDo(...)'
 		// Group action is based on outcome history
 		// one or more GroupNodes. For example, if
-		// the then Group clause fails, then its 
+		// the then Group expression fails, then its 
 		// commands are skipped; and the
 		// else Group clause commands are executed. 
 	def actionToTake(groupNode:GroupNode)= {	// returns either 'skip' or 'do' or 'done'

@@ -4,7 +4,7 @@ height	550
 width	400
 size	14
 name	TimesRoman
-style	1
+style	0
 asteriskButton	on
 priorButton	on
 %%
@@ -26,7 +26,7 @@ column	5
 %DisplayText
 address	2004
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -43,7 +43,7 @@ column	5
 %DisplayText
 address	2006
 sibling	2007
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -53,17 +53,17 @@ color	black
 %DisplayText
 address	2007
 sibling	2008
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	/size <n>
+text	size <n>
 color	blue
 %%
 %DisplayText
 address	2008
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -80,7 +80,7 @@ column	5
 %DisplayText
 address	2010
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -97,7 +97,7 @@ column	10
 %DisplayText
 address	2012
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -114,7 +114,7 @@ column	10
 %DisplayText
 address	2014
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -131,7 +131,7 @@ column	10
 %DisplayText
 address	2016
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -148,7 +148,7 @@ column	10
 %DisplayText
 address	2018
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -173,7 +173,7 @@ column	5
 %DisplayText
 address	2021
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -190,7 +190,7 @@ column	5
 %DisplayText
 address	2023
 sibling	2024
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -205,7 +205,7 @@ field	$one
 length	10
 column	00
 size	10
-style	1
+style	0
 name	TimesRoman
 color	black
 limit	99
@@ -229,7 +229,7 @@ column	5
 %DisplayText
 address	2027
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -246,7 +246,7 @@ column	5
 %DisplayText
 address	2029
 sibling	2030
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -261,7 +261,7 @@ field	$one
 length	4
 column	00
 size	14
-style	1
+style	0
 name	TimesRoman
 color	black
 limit	99
@@ -285,7 +285,7 @@ column	15
 %DisplayText
 address	2033
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -310,7 +310,7 @@ column	5
 %DisplayText
 address	2036
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -327,7 +327,7 @@ column	5
 %DisplayText
 address	2038
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -344,7 +344,7 @@ column	10
 %DisplayText
 address	2040
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -361,7 +361,7 @@ column	10
 %DisplayText
 address	2042
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -378,7 +378,7 @@ column	10
 %DisplayText
 address	2044
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -395,7 +395,7 @@ column	10
 %DisplayText
 address	2046
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -425,7 +425,7 @@ field	$one
 length	10
 column	00
 size	14
-style	1
+style	0
 name	TimesRoman
 color	black
 limit	99
@@ -449,7 +449,7 @@ column	5
 %DisplayText
 address	2052
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -466,7 +466,7 @@ column	10
 %DisplayText
 address	2054
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -483,7 +483,7 @@ column	10
 %DisplayText
 address	2056
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -500,7 +500,7 @@ column	10
 %DisplayText
 address	2058
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -517,7 +517,7 @@ column	10
 %DisplayText
 address	2060
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -542,7 +542,7 @@ column	5
 %DisplayText
 address	2063
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -564,7 +564,7 @@ field	$one
 length	10
 column	00
 size	14
-style	1
+style	0
 name	TimesRoman
 color	black
 limit	99
@@ -573,7 +573,7 @@ options	0
 %DisplayText
 address	2066
 sibling	2067
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -588,7 +588,7 @@ field	$two
 length	10
 column	00
 size	14
-style	1
+style	0
 name	TimesRoman
 color	black
 limit	99
@@ -612,7 +612,7 @@ column	5
 %DisplayText
 address	2070
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -629,7 +629,7 @@ column	10
 %DisplayText
 address	2072
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -646,7 +646,7 @@ column	10
 %DisplayText
 address	2074
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -663,7 +663,7 @@ column	10
 %DisplayText
 address	2076
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -680,7 +680,7 @@ column	10
 %DisplayText
 address	2078
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -697,7 +697,7 @@ column	10
 %DisplayText
 address	2080
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -722,7 +722,7 @@ column	5
 %DisplayText
 address	2083
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -739,7 +739,7 @@ column	5
 %DisplayText
 address	2085
 sibling	2086
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -754,7 +754,7 @@ field	$one
 length	10
 column	00
 size	14
-style	1
+style	0
 name	TimesRoman
 color	black
 limit	99
@@ -763,7 +763,7 @@ options	0
 %DisplayText
 address	2087
 sibling	2088
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -778,7 +778,7 @@ field	$two
 length	10
 column	00
 size	14
-style	1
+style	0
 name	TimesRoman
 color	black
 limit	99
@@ -794,7 +794,7 @@ column	5
 %DisplayText
 address	2090
 sibling	2091
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -809,7 +809,7 @@ field	$three
 length	10
 column	00
 size	14
-style	1
+style	0
 name	TimesRoman
 color	black
 limit	99
@@ -818,7 +818,7 @@ options	0
 %DisplayText
 address	2092
 sibling	2093
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -833,7 +833,7 @@ field	$four
 length	10
 column	00
 size	14
-style	1
+style	0
 name	TimesRoman
 color	black
 limit	99
@@ -842,7 +842,7 @@ options	0
 %CardSet
 address	2094
 child	2095
-sibling	2111
+sibling	2115
 button	0
 name	0
 condition	0
@@ -857,7 +857,7 @@ column	5
 %DisplayText
 address	2096
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -874,7 +874,7 @@ column	5
 %DisplayText
 address	2098
 sibling	2099
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -884,17 +884,17 @@ color	black
 %DisplayText
 address	2099
 sibling	2100
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	/length <n>/
+text	length <n>
 color	blue
 %%
 %DisplayText
 address	2100
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -911,7 +911,7 @@ column	5
 %DisplayText
 address	2102
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -928,7 +928,7 @@ column	10
 %DisplayText
 address	2104
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -945,7 +945,7 @@ column	10
 %DisplayText
 address	2106
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -962,49 +962,87 @@ column	10
 %DisplayText
 address	2108
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	 d (# /length 4/ $one)
+text	 d (# /length 2/ $one)
 color	black
 %%
 %RowerNode
 address	2109
 child	2110
-sibling	0
+sibling	2111
 row	8
 column	10
 %%
 %DisplayText
 address	2110
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
 text	----------------------------
 color	black
 %%
-%CardSet
+%RowerNode
 address	2111
 child	2112
-sibling	2114
+sibling	2113
+row	9
+column	10
+%%
+%DisplayText
+address	2112
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2113
+child	2114
+sibling	0
+row	10
+column	10
+%%
+%BoxField
+address	2114
+child	0
+sibling	0
+field	$one1
+length	2
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%CardSet
+address	2115
+child	2116
+sibling	2118
 button	0
 name	0
 condition	0
 %%
 %RowerNode
-address	2112
-child	2113
+address	2116
+child	2117
 sibling	0
 row	0
 column	0
 %%
 %DisplayText
-address	2113
+address	2117
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1012,7 +1050,7 @@ text	very last card
 color	black
 %%
 %NotecardTask
-address	2114
+address	2118
 sibling	0
 task	end
 type	0
