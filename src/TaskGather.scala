@@ -17,26 +17,14 @@
 _____________________________
 */
 package com.client
-import javax.swing.JFrame
 
 class TaskGather()   {
 	val NEXT_FILE=1
 	val END_SESSION=2
 	val TASK_NONE=3     //default state
 	var task=TASK_NONE
-		// JFrame instance assigned in Notecard that is passed to 'card'
-		// to be disposed of.
-	var oldJFrame:JFrame=null
 		//'filename' transfered from NextFile to 'card'.
 	var filename=""     
-		// NotecardTask.loadFileAndBuildNetword() creates the Linked List class network
-		// with .struct file from '* manage <filename.struct>. 'manageNotecard' is
-		// the root of this linked list. 
-	var manageNotecard:Notecard=null
-
-	var oldJFrameList=List[JFrame]()
-		// Used by Notecard to assign NotecardTask's framer to manageNotecard.
-	def isManagement= if(manageNotecard ==null) false; else true
 		// Tested at the completion of 'card'. 
 		// loop. Sets while(isLoop) false for '* end'
 		// command
@@ -58,15 +46,4 @@ class TaskGather()   {
 		// Transfers <filename> from NextFile to
 		// TaskGather.getFilename in 'card'.
 	def putFileName(s:String)={ filename=s} //NextFile.startNextFile
-		// java.awt.Window.dispose() is used on a GUI component that is
-		// to properly release and destroy native UI resources (such
-		// as the screen).  	
-	def disposeJFrameResources={ 
-				oldJFrame.dispose() 
-				disposeOldJFrame 
-				}
-
-	def addOldJFrameList(old:JFrame)= oldJFrameList = old :: oldJFrameList
-	def disposeOldJFrame= { oldJFrameList.foreach(x=> x.dispose()) }
-
 }

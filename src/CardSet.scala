@@ -341,7 +341,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// Process just one command. If the command is not 'GroupNode' then call itself
 			// to process the next command.
 		if(iterate) {  //iterate is method of Core returning node (cmd object, eg, GroupNode)
-			       // iteration terminates at end of cmd set, returning 'null'
+			       // iteration terminates at end of cmd set, returning nxull'
 			val any:Any=node match{			
 						//case gn:GroupNode=> gn  //found next 'g' cmd, so stop iteration
 				case gn:GroupNode=> 

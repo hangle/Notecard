@@ -107,6 +107,12 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		button.addActionListener(this)
 		buttonPanel.add(button)
 		}
+	def grayAndDisableAllButtons={
+		grayAndDisableAsteriskButton
+		grayAndDisablePriorButton
+		grayAndDisableAddButton
+		grayAndDisableNextButton
+		}
 	def grayAndDisableAsteriskButton={
 		asterisk.setEnabled(false)
 		asterisk.setBackground(Color.lightGray)

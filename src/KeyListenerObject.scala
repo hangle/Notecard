@@ -83,7 +83,7 @@ class KeyListenerObject(boxField:BoxField,
 		}
 		// Invoked when number chars limit reached, or ENTER key detected.
 		// Store BoxField response in symbol table and return 'true', unless
-		// 'Edit' is on. If so, the
+		// 'Edit' is on. If so, then determine if edits are successful.
 	def captureInputResponse:Boolean= { // invoked following KeyRelease
 		boxField.addFieldToSymbolTable // store input resonse
 		if(boxField.isEditNodeOn) {      // Edit evaluation active

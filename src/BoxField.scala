@@ -142,20 +142,20 @@ case class BoxField(var symbolTable:Map[String,String])
 		}
 		// used in KeyListenerObject when 'captureInputResponse is invoked.
 		// Indicates the Edit command is present and is subject to test.
+		// 'symChild' indicates that BoxField is parent of EditNode.
 	def isEditNodeOn= {if(symChild != "0") true; else false }
 		// Iterate EditNode children. Returns true if all
 		// EditField(s) associated with the BoxField each return 
-		// true, or returns false is any one returns false
+		// true, or returns false if any one returns false
 		//	   Invoked in KeyListenerObject.actOnNewLineEvent(...)
 	def isEditSuccessful: Boolean={
-		var editNode:EditNode=null
+	//	var editNode:EditNode= _
 		var editSuccess=true
 		val response=getInput  // the input to be evaluated
 
 		reset(child)    // initialize  'while(iterate)'
 		while(iterate) {// loop to execute children 		 
-			//editNode=Value.asInstanceOf[EditNode] 
-			editNode=node.asInstanceOf[EditNode] 
+			val editNode=node.asInstanceOf[EditNode] 
 			if(editSuccess){ //any failure turns 'if' expression off
 				editSuccess=editNode.evaluateTheEditNode(response) //return false if failure
 				if( ! editSuccess) //load message when EditNode fails. 

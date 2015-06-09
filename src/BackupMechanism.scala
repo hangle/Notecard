@@ -20,20 +20,22 @@ class BackupMechanism(val kind:String) {
 		var backupList:List[Node]=Nil
 
 			// 1st CardSet sibling that passes the condition test 
-		var firstChild:Node=null
+		var firstChild:Option[Node]=None
+
 
 		def listSize=backupList.length
-
-	//	def showKind=println("BackupMechanism:  kind="+kind)
 			// Store 1st CardSet sibling that passes the condition test 
 		def captureFirstChild(node:Node) {
-			if(firstChild==null)
-				firstChild= node
+			firstChild match {
+					case None => firstChild= Some(node)
+					case _=> 
+					}
 			}
 			// test in Notecard and InputFocus to prevent backup
 			// beyond 1st sibling. Also to disable Prior button.
 		def isFirstChild={
-			if(firstChild eq backupList.head) {
+			val child= firstChild.get
+			if(child eq backupList.head) {
 				true
 				}
 			else{
@@ -55,7 +57,6 @@ class BackupMechanism(val kind:String) {
 			var iterator:Node=null
 			if( ! backupList.tail.isEmpty) {  // Indicates that backup
 											  // can be initiated.
-			println("BackupMechanism:  tail not empty")
 						  //println("BackupMech:  backupList not empty")
 					// backing up so drop the current Node
 				backupList=backupList.tail
@@ -70,7 +71,6 @@ class BackupMechanism(val kind:String) {
 					backupList=backupList.tail
 				}		
 			  else { 
-			println("BackupMechanism:  tail is empty")
 			  		// Can not backup so impliment first CardSet
 			  	iterator=backupList.head  //restore iterator with 1st sibling
 				backupList=Nil

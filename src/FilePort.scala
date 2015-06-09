@@ -35,7 +35,7 @@ class FilePort  extends PathFile {
 				setSessionPath(currentPath) //In Session: stores 
 				fileName= getSessionPath+fileName+".struct" //In Session
 				}
-			else {  //currentPath is null
+			else {  
 				if( ! pathSessionEmpty) { //current file lacks path, but Session has path
 					fileName=getSessionPath+fileName+".struct"   // getPath is in Session
 					}

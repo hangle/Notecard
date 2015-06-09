@@ -8,19 +8,17 @@
 package com.client
 import java.awt.Font
 import java.awt.FontMetrics
-//import java.awt.Color
-//import javax.swing._
 import java.awt.Component
 
 trait VisualMetric  extends Component {
 		// DisplayText, DisplayVisual, and BoxField
 		// 'receive_object(..) set 'metrics' by invoking 
 		// metrics=establishMetrics(nameFont, styleFont, sizeFont)
-	var metrics:FontMetrics=null
+	var metrics:FontMetrics= _
 		//invoked by 'receive_objects(..)
 	def establishMetrics(nameFont:String, 
 						 styleFont:Int, 
-						 sizeFont:Int)={
+						 sizeFont:Int):FontMetrics={
 		val font=new Font(nameFont,styleFont, sizeFont)
 		setFont(font)		
 		getFontMetrics(font) 	// Toolkit method

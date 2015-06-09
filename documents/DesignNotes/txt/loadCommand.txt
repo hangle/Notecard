@@ -1,0 +1,113 @@
+Load Command (Script)
+----------------------
+
+###Script File
+
+The Load 'l' command, along with associated Assign 'a' commands, initializes   
+'$variables'. That is, the associated 'a' commands are only executed once.   
+The 'l' command and   associated 'a' commands are termed the  Load command   
+set, for example:
+
+		l 
+		a $one=1
+		a $one=2
+
+The two Assign 'a' commands that immediately follow the Load 'l' command are   
+associated with the Load command.
+
+The script can be made to loop or repeat when and '* end' command is missing or   
+a File 'f' command is not executed.  The following code performs a looping  
+action.
+
+		l
+		a $one=0
+		c
+		d (% one)		// prints 0,1,2,3,...
+		a $one = $one + 1
+
+Script, without an '* end' command,  loops  and increment the value of $one. 
+
+###Two Kinds of Assign Commands
+
+Above script has two 'a' commands:
+
+		a $one= 0		// executues once
+		a $one=$one+1		// executes each iteration
+
+In the Notecard program, both commands are serviced by the AssignerNode class.  
+However, the AssignerNode class is found at two different node in the Linked  
+List structure of command classes:
+
+<pre>
+		Notecard
+			LoadDictionary
+				AssignerNode
+			NotecardType
+			NextFile
+			CardSet
+				AssignerNode
+				CardSetType
+				GroupNode
+				RowerNode
+					DisplayVariable
+					DisplayText
+					BoxField
+						EditNode
+</pre>
+
+First, it is a child of 'LoadDictionary' and next it is a child of 'CardSet.  
+The Script program creates this structure, converts the structure's physical   
+addresses to symbolic ones, and passes the symbolic addresses, via the '.struct'   
+file, to the Notecard program.
+
+###Load command and Associated Assign Commands
+
+The 'ParserValidator' object collaborates with the ScanScriptFile object search  
+the script file for:
+
+		Named Edit commands
+		Asterisk Appearance commands
+		Load command and associated Assign commands
+
+The 'LoadScriptCommand' object finds the 'l' command and associated 'a' commands  
+and transform the 'a' tag to '+', for example:
+
+		before				after
+		------         		 -----
+		l 				l
+		a $one=0		+ $one=0
+		c	      		c
+		d (% $one)		d (% $one)
+		a $one=$one+1	a $one=$one+1
+
+The Assign command 'a $one=$one+1' is not in the scope of the Load command so its tag   
+is unchanged. 	
+
+In 'CommandMaker' the command tags  ('d','c','f','g','*', 'a', 'x', l, +) creates    
+'<classname>Command' classes.  The following code high lights the tags (
+
+		case 'l' =>
+			LoadDictionaryCommand.loadDictionaryCommand(...)
+		case '+' =>
+			Assigner.assignerCommand(..., "+")
+		case 'a' =>
+			Assigner.assignerCommand(..., "a")
+
+The 'Assigner' instance gains an argument ("a", "+") to indicate its node in the Linked  
+List structure.  'Assigner' invokes 'assignerScript' to create the Assign command script;  
+however, the parameters "a" or "+" produce two kinds of script for the '.struct' file:  
+
+<pre>
+		if(kind=="a") 
+			script += "%AssignerNode"
+		else
+			script += "%LoadAssign"
+</pre>
+
+'script' is an ArrayBuffer whose output is the '.struct' file. The 'Notecard' program   
+employees "%AssignerNode" to instantiate 'AssignerNode' to executes the Assign command.  
+The 'Notecard' program does not instaniate a 'LoadAssign' class; instead, a   
+'AssignerNode' instance is created.  The instance's symbolic addresses places it its  
+appropriate node of the Linked List structure.   
+
+

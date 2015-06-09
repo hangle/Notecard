@@ -23,13 +23,14 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 //------------paramters pass by .struct file-----------------
 	var xtask=""
 	var xtype=""
-	var notecard:Notecard=null  //root of linked list command hierarchy
 
 //-------------------swizzle---------------------------------
 	def convertToReference(swizzleTable:Map[String, Node])={
 		convertToSibling(swizzleTable)
 		}
 //-----------------------------------------------------------
+	var manageNotecard:Option[Notecard]=None
+
 		//invoked by Notecard
 		//Created by 'card' and passed to:
 		//	Notecard, NextFile, NotecardTask
@@ -44,6 +45,7 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 			case "save"=>		// * save <filename> script encountered.
 				writeSymbolTableToFile(xtype, symbolTable)
 			case "nobackup"=>
+					println("NotecardTask:  no backup not operational")
 			case _=> println("NotecardTask: Unknown type=["+xtask+"]")
 			}
 		}
@@ -65,9 +67,14 @@ case class NotecardTask(var symbolTable:Map[String,String]) extends Node  {
 			// hierarchy of linked lists, returning the root of 
 			// the network.  If file not found, then it returns 
 			// 'start.struct'. Also invoked in card.scala to start Notecard
-		notecard=loadFileAndBuildNetwork(filename, symbolTable) //In CommandNetwork	
-			// pass notecard to current instance of Notecard
-		taskGather.manageNotecard= notecard
+		//val notecardTask=loadFileAndBuildNetwork(filename, symbolTable) //In CommandNetwork	
+		val notecard =loadFileAndBuildNetwork(filename, symbolTable) //In CommandNetwork	
+			// pass notecardTask:Notecard to TaskGather to be delivered to Notecard
+			// Returns Some(notecardTask) assigned to 'Notecard.manageNotecard'
+			//		println("NotecardTask:  establishManagementFile")
+	//	taskGather.manageNotecard= Some(notecard)
+		manageNotecard= Some(notecard)
+	//	taskGather.getNotecardTask(notecardTask)
 		}
 		// transfer SymbolTable $<variable> to file where file content
 		// is variable name <key> and value, separated by a tab. 

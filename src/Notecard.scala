@@ -93,9 +93,13 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		// FrameTask was passed a '* manage <filename>' command and CardSet
 		// has instantiated a Notecard object. This object is created  in 
 		// NotecardTask and is passed here from 'taskGather'. 
-	var manageNotecard:Notecard= _
+	var manageNotecard:Option[Notecard]= None
 		// Contains 'activatedAddButton' and 'hadDependentAdd'
 	val addCardSetFlags=new AddCardSetFlags
+		// JFrame instance assigned in Notecard that is passed to 'card'
+		// to be disposed of.
+	var oldJFrameList=List[JFrame]()
+
 
 	def startNotecard(taskGather:TaskGather) {
 			// * button to Management file is alway armed
@@ -105,19 +109,20 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 
 			// 'oldJFrame' references CardWindow whose subclass is JFrame. 
 			// Used in 'card' to dispose of JFrame.
-			//taskGather.oldJFrame=createCardWindow 	
+			// oldJFrame=createCardWindow 	
 
 			// Creates the notecard window (JFrame) with a BorderLayout  and adds Note 
 			// and Button panels to this window along with statusLine:JLabel. Also makes
 			// the window visible.
-		taskGather.oldJFrame=createAndMakeVisibleCardWindow (notePanel, 
+		val oldJFrame=createAndMakeVisibleCardWindow(notePanel, 
 															buttonPanel,
 															statusLine, 
 															frame_width, 
 															frame_height)	
 			// Load 'oldJFrame' on list to be /disposed by 'card' when
 			// the *.struct file ends.
-		taskGather.addOldJFrameList(taskGather.oldJFrame)
+			//	taskGather.addOldJFrameList(taskGather.oldJFrame)
+		addOldJFrameList(oldJFrame)
 				try{ 
 			// Execute Notecard's children (CardSet, NextFile, NotecardTask)
 		iterateNotecardChildren(notePanel, taskGather, buttonSet, defaultFont)
@@ -155,8 +160,10 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 										taskGather, 
 										buttonSet, 
 										defaultFont)
-
 				}
+							// Thrown in CardSet when'+' activated && 'hasDependentAdd'==true
+							// The current CardSet with dependent AddCardSet(s) is terminated,
+							// and its first AddCardSet begins execution
 					}  catch { case _:AddButtonException => 
 							}
 			}   
@@ -167,8 +174,9 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 								taskGather:TaskGather, 
 								buttonSet:ButtonSet,
 								defaultFont:DefaultFont) { 
+
 		obj match	{
-				// CardSet with 'button' values of 2 or 99 are ButtonCardSet types.
+				// CardSet with 'button' values of 2 or 99 are AddCardSet types.
 				// button > 1  where 1=CardSet, 2=ButtonCardSet, 3=LastButtonCardSet
 			case acs:CardSet if(acs.isAddCardSet) =>
 					// +Add button detected in 'waitOverDoButton'				
@@ -214,7 +222,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 						buttonSet.armAddButton
 							// To affect a return to the dependent CardSet
 						saveCurrentCardSet 
-							// Create BackupMechanism for AddCardSet(s)
+							// Create BackupMechanism for AddCardSet(s)/
 						establishAddBackup(addCardSetFlags)
 						}
 						// Activate CardSet to process RowerNode,:
@@ -236,10 +244,10 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// a notecard task, such as ending the card session.
 			case ft:NotecardTask=> //println("ft:NotecardTask") 
 					ft.startNotecardTask(taskGather)
-						// check if task was '* manage <filename>'
-					if(taskGather.isManagement){
+						// check if NotecardTask had  '* manage <filename>' commnad
+					if(ft.xtask=="manage"){
 							// transfer management's Notecard to current object.
-						manageNotecard=taskGather.manageNotecard
+						manageNotecard=ft.manageNotecard
 						}
 						// NextFile is a command that provides the name 
 						// of the <.struct> file that is read by Client. 
@@ -252,15 +260,12 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		}
 			// Create BackupMechanism for AddCardSet(s)
 	def establishAddBackup(addCardSetFlags:AddCardSetFlags) {
-				// Indicates which BackupMechanism to execute in 'doPriorButton'
-			//whichBackup="cardSet"
-				// release prior backup mechanism
-			addBackupMechanism=null
-				// AddCardSets have their own backup mechanism.
-			addBackupMechanism= new BackupMechanism("AddCardSet")
 				// In CardSet. 'hadDependentAdd' along with "+" throws
 				// AddButtonException in CardSet-- 'xn:XNode=>'
 			addCardSetFlags.hasDependentAdd=true
+				// AddCardSets have their own backup mechanism so
+				// indicate which BackupMechanism to execute in 'doPriorButton'
+			addBackupMechanism=new BackupMechanism("AddCardSet")
 		}
 
 	def startCardSetThenDoButtonsAfter( cardSet:CardSet,
@@ -342,18 +347,17 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		// Return to previous CardSet by assigning the previous CardSet node
 		// to Linker's 'iterator'. 
 		// Note: CardSet and AddCardSet have separate backup mechanisms.
-	def doPriorButton(buttonSet:ButtonSet, addCardSetFlags:AddCardSetFlags)={
+	def doPriorButton(buttonSet:ButtonSet, 
+					  addCardSetFlags:AddCardSetFlags)={
 		buttonSet.grayAndDisableAddButton
 		buttonSet.grayAndDisablePriorButton
-		if(whichBackup=="cardSet"){
-				doPriorButtonBackup(backupMechanism)
-				}
-			else{ //--if else then whichBackup=="addCardSet"
-
-					// processing Add sets so armAddButton
-				buttonSet.armAddButton	
-				doPriorButtonBackup(addBackupMechanism)
-				}
+		if(whichBackup=="cardSet")
+			doPriorButtonBackup(backupMechanism)  // backupMec... is global
+		  else{ //--else path means whichBackup=="addCardSet"
+				     // processing an AddCardSet so armAddButton
+			buttonSet.armAddButton	
+			doPriorButtonBackup(addBackupMechanism) // addBackupMec.. is global
+			}
 		}
 
 		//Execute back up operation for either CardSet or for AddCardSet
@@ -379,43 +383,25 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// set  'manageNotecard' state false so next time '*' button is
 					// activated, the 'else' group is executed
 			Session.initialNotecardState=false   
-			if(manageNotecard == null) {
-					//'*' button activated without '* manage <filename>' command. The 
-					// 'xyzxxyzv' file does not exist, so 'start' file is invoked.
-				manageNotecard=CommandNetwork.loadFileAndBuildNetwork( "xyzxxyzv", symbolTable)
-				}
+					// In the event '* manage <filename>' command is not present but '*' button
+					// is activated, then invokde 'startFile.struct' internal file.
+				println( "Notecard: prior match")
+			manageNotecard match {
+					//'*' button activated without '* manage <filename>' command. 
+				case None=>
+				//	println("Notecard: None")
+							// since the 'xyzxxyzv' file does not exist, then the 'start' file is invoked.
+					val notecard=CommandNetwork.loadFileAndBuildNetwork( "xyzxxyzv", symbolTable)
+					switchToManagementOrStartFile (buttonSet, taskGather, notecard) 
+
 					// 'manageNotecard' is the command linked-list hierarchy of the file
 					// whose filename is an argument of NotecardTask (* manage <filename> ).
 					// see 'executeOneNotecardChild'-- 'case ft:NotecardTask'. 
-			if(manageNotecard != null) {     
-					//Store Card node if needed to restart clientNotecard
-				saveCurrentNode   // Linker
-					// window may display two asterisk buttons. ensure that
-					// 'initialNotecardState's asterisk button is the grayed one.
-				buttonSet.grayAndDisableAsteriskButton
-					//Begin executing the Card file designated
-					//by '* manage <filename> in FrameTask
-				manageNotecard.startNotecard(taskGather)
-					// Invokes new CardWindow and setVisible. This function is
-					// also invoked in 'startNotecard', However, unless it is also
-					// called here, the window is blanked when 'startNotecard' 
-					// returns from the manageNotecard state.
-				var oldManagement=createAndMakeVisibleCardWindow (  notePanel, 
-																	buttonPanel,
-																	statusLine, 
-																	frame_width, 
-																	frame_height)	
-					// Put on List to be invoked in 'card' to dispose of
-					// window resources.
-				taskGather.addOldJFrameList(oldManagement)
-					// Display the Card from which the '*' button was activated
-				restoreCurrentNode //Linker   Restore clientNotecard
-					// reestablish 'initialNotecardState's grayed button is high-
-					// lighted.
-				buttonSet.armAsteriskButton
+				case Some(notecard)=>
+				//	println("Notecard: Some(notecard)")
+					switchToManagementOrStartFile (buttonSet, taskGather, notecard) 
 			   	}
 				
-			 else println("Notecard: manageNotecard is NULL unable to call startFile?")
 			}
 				// Management system currently running. The following code
 				// switches system back to the initial system.
@@ -428,9 +414,41 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// be returned to the invoking function.  Since the current
 					// state is 'manageNotecard',then  the invoking function has to
 					// be Notecard, rather than 'card'. 
-				println("Notecard: AsteriskException")
+				//println("Notecard: AsteriskException")
 				throw new AsteriskException
 				}
+		}
+			// Invoked by '*' button, however, two conditions exists. Either a management file
+			// has been specified by '* manage <filename>' or not. In the latter case, the
+			// Start File is invoked. 
+	def switchToManagementOrStartFile(buttonSet:ButtonSet, taskGather:TaskGather, notecard:Notecard) {
+			//Store Card node if needed to restart clientNotecard
+		saveCurrentNode   // Linker
+			// window may display two asterisk buttons. ensure that
+			// 'initialNotecardState's asterisk button is the grayed one.
+	//	buttonSet.grayAndDisableAsteriskButton
+			// Disable all buttons before transition to Management file or Start Card
+		buttonSet.grayAndDisableAllButtons
+			//Begin executing the Card file designated
+			//by '* manage <filename> in FrameTask
+		notecard.startNotecard(taskGather)
+			// Invokes new CardWindow and setVisible. This function is
+			// also invoked in 'startNotecard', However, unless it is also
+			// called here, the window is blanked when 'startNotecard' 
+			// returns from the manageNotecard state.
+		var oldManagement=createAndMakeVisibleCardWindow (  notePanel, 
+															buttonPanel,
+															statusLine, 
+															frame_width, 
+															frame_height)	
+			// Put on List to be invoked in 'card' to dispose of
+			// window resources.
+		addOldJFrameList(oldManagement)
+			// Display the Card from which the '*' button was activated
+		restoreCurrentNode //Linker   Restore clientNotecard
+			// reestablish 'initialNotecardState's grayed button is high-
+			// lighted.
+		buttonSet.armAsteriskButton
 		}
 
 	def doAddButton(buttonSet:ButtonSet,
@@ -438,7 +456,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					addCardSetFlags:AddCardSetFlags)={
 			 // Restores the parent CardSet (see: doNextButton(... ) 
 		addCardSetFlags.activatedAddButton=true
-
 			// Last AddCardSet restores associated CardSet
 			// last AddCardSet in series has a button value
 			// of 99, therefore, terminate the series.
@@ -461,9 +478,19 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		window.setVisible(true)
 		window
 		}
-		// CreateClass generates an instance of Notecard without fields or parameters.
-		// However, it invokes 'receive_objects' to load parameters from *.struct
-		// file as well as symbolic addresses to be physical ones. 
+		// java.awt.Window.dispose() is used on a GUI component that is
+		// to properly release and destroy native UI resources (such
+		// as the screen).  	
+	def disposeJFrameResources={ 
+	//	oldJFrame.dispose() 
+		disposeOldJFrame 
+		}
+	def addOldJFrameList(old:JFrame)= oldJFrameList = old :: oldJFrameList
+	def disposeOldJFrame= { oldJFrameList.foreach(x=> x.dispose()) }
+
+				// CreateClass generates an instance of Notecard without fields or parameters.
+				// However, it invokes 'receive_objects' to load parameters from *.struct
+				// file as well as symbolic addresses to be physical ones. 
 	def receive_objects(structSet:List[String]) {
 			import util.control.Breaks._
 			var flag=true

@@ -64,6 +64,7 @@ object LogicType {
 		var leftValue=(left.tail).init   // remove parentheses
 		var rightValue=(right.tail).init
 		val (op,qualifiers)=getOperatorAndQualifier(operator)
+		println("LogicType:  op="+op+"   qualifiers="+qualifiers)
 				// Perform operation on left and right variables, returning
 				// true of false. Invoked by LogicTest.recurse()
 		def evaluate(table:mutable.Map[String,String]):Boolean={ // logicTest/ 
@@ -118,15 +119,6 @@ object LogicType {
 				 else
 				 	false
 				}
-			// Operator detected by inspection of 1st character and
-			// second character equal to '=' or'm'.  
-		def isRelationOperator(operator:String)={
-			val relationOperatorRegex="""([=<>!%nm][=m]?)([n1][cs])?""" .r
-			operator match {
-				case relationOperatorRegex(op, qualify)=> (op, qualify)
-				case _=> (null, null)
-				}
-			}
 			// In a relation, determine is both variables are
 			// numbers.
 		def areNumbers(leftValue:String, rightValue:String) : Boolean={
