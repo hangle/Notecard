@@ -77,9 +77,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 		// Create a JPanel with a layout of NoteLayout and
 		// enclose it in a black border.
 	val notePanel=new NotePanel().getNotePanel 
-		// Save current CardSet to be restore  after AddCardSet
-		// has executed
-	var tmpNode:Node= _
 	var currentCardSet:Node= _
 		// Creates a List of nodes used when Prior button is activated to
 		// re-present the prior CardSet.
@@ -319,8 +316,10 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					println("Notecard: unknown button actionPerformed--"+buttonSet.selectedButton)
 				}
 		}
-			//
+			// In 'executeOneCardSetChild', the CardSet's Node is saved when it has
+			// a dependent AddCardSet(s).
 	def saveCurrentCardSet { currentCardSet=node }
+			// 
 	def restoreCurrentCardSet { iterator=currentCardSet }
 			// Remove AddCardSet values and restore CardSet values.
 	def addCardSetOverRestoreCardSet={

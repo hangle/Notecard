@@ -112,7 +112,7 @@ trait Node  {
 	var backup:Node=null	// current node assigned after Framer completes
 							// processing of CardSet
 	var node:Node=null
-	def getNext= next
+//	def getNext= next
 	def setBackup= backup=next//Framer invoked on return from startCardSet 
 	def getBackup= backup		// used by Linker's loadIteratorWithBackup
 			// setAddress() and setNext() are invoked by the object's
@@ -150,6 +150,7 @@ trait Node  {
 		}
 	def convertToChild(swizzleTable:Map[String, Node]) ={
 		if(symChild != "0") {
+
 			if(swizzleTable.contains(symChild)){
 				child=swizzleTable(symChild) 
 				}
