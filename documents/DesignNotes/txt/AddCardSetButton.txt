@@ -1,0 +1,20 @@
+
+AddCardSet Button
+================
+
+ButtonSet
+---------
+
+Two functions that control the AddCardSet button
+	1. armAddButton             --yellow highlight 
+	2. grayAndDisableAddButton  --grays button
+
+	armAddButton   --location
+		CardSet
+			startCardSet(...)
+				if(isAddCardSet &&  ! addCardSetFlag){
+						// color button yellow and enable it
+					buttonSet.armAddButton
+					}
+`
+	grayAndDisableAddButton    --location

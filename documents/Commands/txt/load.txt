@@ -15,7 +15,8 @@ typically is placed at the beginning of a '.nc' file.  for example:
 
 The Load command set is a special case.  It assign values to   
 $<variable>s the first time the Load Command Set is executed but  
-not on subsequent encounters.   
+not on subsequent encounters, assuming that the script file loops
+and the file commands are repeated..   
 
 The execution of a script file repeats when the file does not   
 terminated with the '* end' command or with the execution of  

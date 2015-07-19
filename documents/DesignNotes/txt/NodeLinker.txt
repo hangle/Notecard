@@ -113,12 +113,16 @@ was processed by the Script program whose output is 'fourCards.struct'.
 		------fourCards.nc --------------
 		c
 		d one
+
 		c
 		d two
+
 		c
 		d three
+
 		c
 		d four
+
 		* end
 </pre>
 

@@ -1,0 +1,165 @@
+AddCardSet (Notecard)
+=======================
+
+The script shows a two CardSets beginning the the 'c' (clear)  
+command and a Add-CardSet beginning with a '+' command ('+'  
+also clears the screen):   
+
+		c
+		d I am a card set
+
+		+
+		d I am an add card set
+
+		c
+		d I am a second card set
+
+		* end
+
+The 'c' command begins a CardSet. The '+' command begins an 
+AddCardSet.
+
+Notecard buttons consist of the following:  
+
+		*, +Add, Prior, and Next
+
+The 1st CardSet has its '+Add' and 'Next' buttons  both enabled ('+Add 
+button is yellow and 'Next' button is orange).
+
+In the first CardSet with the display 'I am a card set', activation  
+of the Next button presents the second CardSet with the display 'I  
+am a second card set'.  The Add-CardSet is skipped without   
+displaying 'I am an add card set'.   
+
+One or more Add-CardSets that immediately follow a CardSet are  
+controlled by the +Add button.  While 'I am a card set' is  
+shown, then activation of the +Add button clears the screen and  
+displays 'I am an add card set'.  A second activation of the  
++Add button terminates the Add-CardSet because the linked list  
+of the one Add-CardSet has ended.  
+
+Following the screen erasurer of 'I am an add card set',  
+the initial CardSet with the display 'I am a card set' is  
+reactivated.   
+
+In the case where there are two or more immediate Add-CardSets,   
+the +Add button would activate the multiple Add-CardSets.  
+Activation, of the Next button would, however, terminate   
+the Add-CardSets.  
+
+The AddCardSet with the beginning 'b' tag is associated with   
+the CardSet with the begnning 'c' tag.  Both the 'c' and 'b'    
+commands have the same functionality of clearing the screen.    
+
+A CardSet having an associated AddCardSet arms its '+Add'   
+button; the button color becomes yellow.  Activating this button   
+executes the AddCardSet.  Waiting for the 'Next' button to   
+be armed and activating it causes the AddCardSet to be    
+skipped.    
+
+Approach
+--------
+
+Notecard  execution is based on a linked list structure of   
+commands where there is a hierarchy of four sublists and   
+four parent classes for the four sublists:   
+
+		Notecard
+		CarsSet
+		RowerNode
+		BoxField
+
+CardSet, RowerNode, and BoxField parent classes have two    
+variables that hold physical addresses to other class types:   
+
+		child           // starting address of sublist
+		sibling         // address of next member in
+				// the current sublist
+
+The CardSet class has an additional physical address variable:   
+
+		button		// starting address of AddCardSet
+
+The script program treated the AddCardSet as if it was   
+a CardSet.  In the Script program, AddCardSet elements are removed      
+from the linked list heirarchy by ButtonCardSetRemap and are  
+assigned to the 'button' address variables.  The sibling address   
+of CardSet with an associated AddCardSet is changed to point to   
+next sibling remaining in the heirarchy.   
+
+Note, a CardSet may have two or more associated AddCardSet   
+members. Thus it is appropriate to indicate that the button   
+variable of CardSet holds a sublist of AddCardSet members.   
+	
+Notecard's input file '*.struct' distinguishes CardSet and   
+AddCardSet by different classnames:   
+
+		%CardSet
+		%AddCardSet
+
+'CreateClass.create_object(...)' removed this distinction    
+by instantiating a CardSet object for both:   
+
+		case "%CardSet" | "%AddCardSet" =>
+			val cardSet=CardSet(symbolTable)
+
+The common CardSet object maintains the distinction via   
+the 'button' address variable; either it is zero (0) or   
+it has a physical address value of an AddCardSet.    
+'CardSet.isAddCardSet' return true when a physical   
+address is present.    
+
+Notecard
+--------
+'Notecard', as the root of the linked hierarchy, iterates its children  
+and invokes 'executeNotecardChildren(...):   
+
+		def executeNotecardChildren(obj:Any, ...)
+			obj match	{
+		    		case cs:CardSet=> 
+					if(cs.isAddCardSet) 
+						buttonSet.armAddCardSet		
+					...
+					cs.startCardSet(...)
+					waitOverDoButtons(..., cs, ...)
+
+				case ft:NotecardTask=> ...
+				case nf:NextFile => ...
+			...
+
+If the CardSet object has an associated AddCardSet, then
+on completion of the CardSet objects (waitOverDoButtons(...),
+the '+Add' button is colored yellow (armAddCardSet).  
+Activation of the +Add button along with 'doAddCardButton(...)   
+invokes:
+		cs.startCardSet(...)
+
+It is noted that Notecard invokes 'startCardSet(...)' from two 
+different functions:
+		1.  startNotecard(...)   
+		2.  doAddCardButton(...)
+Also, 'doAddCardButton' is called within the scope of
+'startNotecard'.  The 'startCardSet' boolean parameter 'addCardSetFlag'
+indicates which function invoked it. This parameter is 'true' when
+called by 'doAddCardButton'. The parameter functions to enable and
+disable the +Add button.
+
+Add Button
+----------
+Two functions of ButtonSet control the AddCardSet button
+	1. armAddButton             --yellow highlight 
+	2. grayAndDisableAddButton  --grays an inactivates the button
+
+	addCardSetFlag match {
+		case true =>			// AddCardSet
+			if(isLastAddCardSet)	// symSibling =="0"     see def above
+				buttonSet.grayAndDisableAddButton
+			  else
+				buttonSet.armAddButton	// color button yellow
+		case false =>			// CardSet
+			if(isAddCardSet)		// symAddButton != "0"  see def above
+				buttonSet.armAddButton	// color button yellow
+			  else
+				buttonSet.grayAndDisableAddButton
+			}
+

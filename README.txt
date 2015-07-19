@@ -8,6 +8,10 @@ to and accepts input from the program user.
 The text and response capture are controlled by a script file of ten command types  
 (see documents/Command directory).    
 
+Command documents and Notecard window examples are shown at:
+
+		notecard.org/document
+
 Applications:  
 -------------
 

@@ -110,4 +110,3 @@ The 'Notecard' program does not instaniate a 'LoadAssign' class; instead, a
 'AssignerNode' instance is created.  The instance's symbolic addresses places it its  
 appropriate node of the Linked List structure.   
 
-

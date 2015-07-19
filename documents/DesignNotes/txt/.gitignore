@@ -1,0 +1,5 @@
+*.htm
+*.md
+*.txt.swp
+.gitignore
+.gitignore.swp

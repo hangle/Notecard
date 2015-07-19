@@ -13,7 +13,7 @@ consists of the three commands types whose tags are (c, d, *).
 displays "now is" and the second displays "the time".  
 
 <pre>
-		c
+                c
                 d now is
                 c
                 d the time
@@ -65,8 +65,9 @@ generated an input file (nowis.struct) to the Notecard program
 </pre>
 
 The script beginning with the single '%' symbol, followed by a   
-classname, such as,   "Notecard", create objects from four case   
-classes (Notecard, CardSet, RowerNode, and  DisplayText).     
+classname, such as,   "Notecard", create objects from five case   
+classes (Notecard, CardSet, RowerNode, DisplayText and  
+NotecardTask).     
 
 				CreateClass.scala
 				-----------------
@@ -75,6 +76,7 @@ classes (Notecard, CardSet, RowerNode, and  DisplayText).
 			case "%CardSet" =>      cardSet= CardSet(..)  ...
 			case "%RowerNode" =>    rowerNode=RowerNode(..)  ...
 			case "%DipslayText" =>  displayText=DisplayText(..)  ...
+			case "%NotecardTask"=>  notecardTask=NotecardTask(..) ...
 			.... }  
 
 The pairs of values following the '%<classname>' tag are arguments   
