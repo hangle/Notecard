@@ -48,8 +48,20 @@ button.  </p>
 
 <h2>Notecard Program</h2>
 
-<p>The CardSAet and AddCardSet are identical in almost all respects. The <br />
-differ by the 'button' parameter that each has.    </p>
+<p>The CardSet and AddCardSet layout in the '*.struct' file is:</p>
+
+<pre><code>    %CardSet            %AddCardSet     
+    address 2082        address 2101
+    child   2083        child   2102
+    sibling 2101        sibling 2118
+    button  1           button  99
+    name    0           name    0
+    condition   0       condition   0
+    %%                  %%
+</code></pre>
+
+<p>The CardSet and AddCardSet are identical in almost all respects. They <br />
+differ by the 'button' parameter that each has:    </p>
 
 <pre><code>    CardSet        button=0     No associated AddCardSet
     CardSet        button=1     Associated AddCardSet
@@ -57,14 +69,16 @@ differ by the 'button' parameter that each has.    </p>
     AddCardSet     button=99    Last AddCardSet
 </code></pre>
 
-<p>A CardSet whose button parameter is '1' has one or more associated <br />
-AddCardSets.   </p>
+<p>A CardSet whose 'button' parameter is '1' has one or more associated <br />
+AddCardSets.  In the '*.struct' file, the 'button' parameter is '1' and <br />
+the %CardSet is linked to the %AddCardSet via the 'sibling 2101' parameter. </p>
 
 <h2>Notecard class:   </h2>
 
 <p>CardSet and AddCardSet are children of the Notecard object. The <br />
 AddCardSet objects are treated as CardSet objects but retains <br />
-AddCardSet indentity by 'button' parameter values of '2' or '99'.      </p>
+AddCardSet indentity by 'button' parameter values of '2' or '99' via the <br />
+function 'isAddCardSet'.      </p>
 
 <pre><code>    def executeOneNotecardChild(...)  
        obj match{
@@ -167,7 +181,7 @@ re-display the earlier CardSet.   </p>
 <p>The Notecard buttons and input fields operate when the system is <br />
 put into a wait state by the CardSet object.   </p>
 
-<pre><code>    def haltCommandExecution(lock:AnyRef): Unit=lock.synchronized {
+<pre><code>    def haltCommandExecution(lock:AnyRef): Unit=lock.synchronized { 
         lock.wait()
 </code></pre>
 

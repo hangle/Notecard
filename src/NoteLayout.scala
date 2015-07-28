@@ -21,6 +21,7 @@ class NoteLayout   extends LayoutManager{
 	def minimumLayoutSize(parent:Container)= preferredLayoutSize(parent)
 	def layoutContainer(parent: Container) {
 		for(i <- 0 until parent.getComponentCount()) {
+	//			println("NoteLayout: i="+i)
 			parent.getComponent(i).asInstanceOf[Visual].render()
 			}
 		}

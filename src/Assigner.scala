@@ -94,8 +94,8 @@ case class Assigner(var symbolTable:Map[String,String]) extends Linker  {
 		}
 	def mathExpression(key:String,expr: String, symbolTable:Map[String,String])  {
 			// converts expression string to List[String]
-		val t =new Tokener 
-		val list=t.extract(expr)
+		val tokener =new Tokener 
+		val list=tokener.extract(expr)
 			// Recursive-decent math expression parser
 		val e=new Evaluator(list, symbolTable)
 		val result=e.evaluate.toString  // double to string

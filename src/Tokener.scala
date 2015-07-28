@@ -57,6 +57,7 @@ class Tokener {
 				l=e.toString :: l
 				}
 			else if(isNumber(e)) {
+				println("Tokener: isNumber  e="+e)
 				buffer.append(e)
 				}
 			else if(isVariable(e)) {

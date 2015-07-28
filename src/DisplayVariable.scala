@@ -68,7 +68,7 @@ symbolTable holds $<variables>		def setId
 				Visual
 					def render
 				VisualMetric
-					var metrics
+					var metrics%CardSet
 					def establishMetrics
 					def local_getMetricsHeight()
 					dev local_getMetricsWidth()
@@ -80,39 +80,36 @@ symbolTable holds $<variables>		def setId
 	var column="0"		// not used ??	
 	var dollarVariable=""
 	var xcolor:Color=Color.green
+//-------------computed parameters passed by .struct file--------------
+	var metricWidth=0   // metric + text
+	var metricHeight=0   // metric + text
 //------------------------------swizzle routines---------------------
 	def convertToReference(swizzleTable:Map[String, Node]) ={
 			convertToSibling(swizzleTable)
 			}
 
 //-------------------------------------------------------------------
+			// Assigned by RowerNode.maxJeogjtValueOfVisualObject
+	var adjustedY=0
+				// The row of VisualObjects adds to this value
+	var accumulatedX=0
+
 	var symbolTableText=""
-	var xx=0   //set by RowPosition
-	var yy=0   //set by RowPosition
-		// Assigned in RowerNode by visiting each Visual component
-		// of the 'd' command and finding the one with the 
-		// greatest height value. 
-	//var greatestHeight= rowPosition.greatestHeight
-    //var defaultHeight=  rowPosition.defaultHeight
-	var defaultHeight=0
-	var greatestHeight=0
-	var maxHeight=0
 		//invoked by RowerNode which has the row position
 		//as well as the starting column position.
 	def startDisplayVariable(rowPosition:RowPosition) {
-			// the value (getCurrentHeight()) is actually the 'y' axis 
-			// position of the next line, so subtract the height
-			// value of the current line. 
-		yy=rowPosition.yCoordinate
-		xx=rowPosition.currentPixelWidth
-		greatestHeight= rowPosition.greatestHeight
-		defaultHeight=  rowPosition.defaultHeight
 
-			// computes the metric width of the text string so as
-			//extract $<variable> value
+				// computes the metric width of the text string so as
+				//extract $<variable> value
 		symbolTableText=convertVariableToText(dollarVariable)
-			// to adjust row position for next display component
+				// Line row may have multiple VisualObjects so prior text 
+				// width is added for each VisualObject.
+		accumulatedX=rowPosition.currentPixelWidth
+				// to adjust row position for next display component
 		rowPosition.sumToCurrentWidth(local_getMetricsWidth(symbolTableText))
+
+		metricWidth= local_getMetricsWidth(symbolTableText)  // VisualMetric trait
+
 		}
 		//Access symbolTable to find variable <key>.
 		//Returns value associated with key.
@@ -122,24 +119,18 @@ symbolTable holds $<variables>		def setId
 			}
 		  else
 		  	"Unkwn("+variable+")"
+
 		}
 		// In NoteLayout, LayoutManager.layoutContainer iterates
 		// thru all components added to the notecard panel.
 		// This method invokes 'render() for all Visual objs.
 	def render() {
-		val maxHeight= local_getMetricsHeight()
 		setForeground(xcolor)
 		setText(symbolTableText)
-		var y=yy    // in event that yy does not need an adjustment
-		//println("DisplayVariable y="+y)
 
-		 if (greatestHeight != maxHeight){ 		 
-		 //	println("DisplayVariable greatestHeight="+greatestHeight+"   maxHeight="+maxHeight)
-			y+= greatestHeight - maxHeight - 3 
-			}
 
 		// println("DisplayVariable: y="+y)
-		setBounds(xx, y, local_getMetricsWidth(symbolTableText), maxHeight);
+		setBounds(accumulatedX, adjustedY, metricWidth, metricHeight);
 		}
 		// CreateClass generates instances of NotecardTask without fields or parameters.
 		// However, it invokes 'receive_objects' to load parameters from *.struct
@@ -172,22 +163,10 @@ symbolTable holds $<variables>		def setId
 				}
 			   }  //breakable		 
 			 metrics=establishMetrics(nameFont, styleFont, sizeFont)
+			 metricHeight=local_getMetricsHeight() // VisualMetric trait
+
 			 }
 
 		}
-/*
-		val in=structSet.iterator
-		setAddress(in.next)
-		setNext(in.next)
-		dollarVariable=in.next
-		column=in.next
-		sizeFont=in.next.toInt
-		styleFont=in.next.toInt
-		nameFont=in.next
-		xcolor=Paint.setColor(in.next) //see Paint objectw
-		metrics=establishMetrics(nameFont, styleFont, sizeFont)
-		val percent= in. next
-		//println("DisplayVariable: percent="+percent)
-*/
 	}
 

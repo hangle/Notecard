@@ -52,46 +52,35 @@ case class DisplayText(var symbolTable:Map[String,String])
 	var duration=0
 	var text=""
 	var xcolor:Color=Color.green
+//-------------computed parameters passed by .struct file--------------
+	var metricWidth=0   // metric + text
+	var metricHeight=0   // metric + text
 //------------------------------swizzle routines---------------------
 	def convertToReference(swizzleTable:Map[String, Node])={
 			convertToSibling(swizzleTable)
 			}
 //-------------------------------------------------------------------
-	var xx=0   //set by RowPosition
-	var yy=0   //set by RowPosition
-	var defaultHeight=0
-	var greatestHeight=0
-	var maxHeight=0
-				// Assigned in RowerNode by visiting each Visual component
-				// of the 'd' command and finding the one with the 
-				// greatest height value. 
+				// Assigned by RowerNode.maxHeightValueOfVisualObject
+	var adjustedY=0
+				// The row of VisualObjects adds to this value
+	var accumulatedX=0
+				//  Get 'accumulatedX' from row RowPosition.currentPixelWidth 
+				//  and then add text width to RowPosition's currentPixelWidth 
+				//  for next  VisualObject. 
 	def startDisplayText(rowPosition:RowPosition) {
-				// the value (getCurrentHeight()) is actually the 'y' axis 
-				// position of the next line, so subtract the height
-				// value of the current line. 
-			//	println("DisplayText: startDisplayText")
-		yy=rowPosition.yCoordinate
-		xx=rowPosition.currentPixelWidth
-		greatestHeight= rowPosition.greatestHeight
-		defaultHeight=  rowPosition.defaultHeight
-				// computes the metric width of the text string so as
-				// to adjust row position for next display component
-		rowPosition.sumToCurrentWidth(local_getMetricsWidth(text))
+					// Line row may have multiple VisualObjects so prior text 
+					// width is added for each VisualObject.
+		accumulatedX=rowPosition.currentPixelWidth
+					// add text with for next VisualObject.
+		rowPosition.sumToCurrentWidth(metricWidth)
 		}
 				// In NoteLayout, LayoutManager.layoutContainer iterates
                	// thru all components added to the notecard panel.
                	// This method invokes 'render() for all Visual objs.
 	def render() {
-		 val maxHeight=local_getMetricsHeight()
-
 	     setForeground(xcolor)
        	 setText(text)
-		 // println("DisplayText:  render()  text="+text)
-		 var y=yy    // in event that yy does not need an adjustment
-		 if (greatestHeight != maxHeight){ 
-			y+= greatestHeight - maxHeight - 3 
-			}
-		setBounds(xx, y, local_getMetricsWidth(text), maxHeight )
+		 setBounds(accumulatedX, adjustedY, metricWidth, metricHeight )
 		}
 		// CreateClass generates instances of DisplayText without fields or parameters.
 		// However, it invokes 'receive_objects' to load parameters from *.struct
@@ -124,6 +113,8 @@ case class DisplayText(var symbolTable:Map[String,String])
 				}
 			   }  //breakable		 
 			 metrics=establishMetrics(nameFont, styleFont, sizeFont)
+			 metricWidth= local_getMetricsWidth(text)  // VisualMetric trait
+			 metricHeight=local_getMetricsHeight() // VisualMetric trait
 			 }
 		}
 	}

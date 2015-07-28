@@ -69,38 +69,51 @@ case class BoxField(var symbolTable:Map[String,String])
    var nameFont=""
    var ycolor:Color=Color.black
    var limit=0		// number of input characters allowed.
-   var options=0	// number options of multiple choice  
-   				
+   var options=0	// number options of multiple choice 
+//-------------computed parameters passed by .struct file--------------
+	var metricWidth=0   // metric + text
+	var metricHeight=0   // metric + text
+//---------------------------------------------------------------------
+   		// Assigned by RowerNode.maxJeogjtValueOfVisualObject
+	var adjustedY=0
+		// The row of VisualObjects adds to this value
+	var accumulatedX=0	
 //----------------------------(used in KeyListenerObject)-----------
-	def getLimit=limit    
-	def isYesNoMode=if(column==1) true; else false 
+	
+	def getLimit=limit    // KeyListenerObject restrict number input characters.
+	def isYesNoMode=if(column==1) true; else false // KeyListenerObject
+			// MultipleListener
 	def isValidOptionRange= { if(options > 0 && getInput.toInt  <= options) true; else false }
     def isMultipleChoice= {if(options > 0) true; else false} //used in KeyListenerObject
+			// KeyListenerObject
 	def validateYesNoResponse(key:Int)= if(key==110 || key==121) true; else false
-	def adjustLimit= { if(options <= 9) 1; else 2 }  //
 //------------------------------swizzle routines---------------------
 	def convertToReference(swizzleTable:Map[String, Node])={
 			convertToSibling(swizzleTable)
 			convertToChild(swizzleTable)  // Is a parent of the Edit commands
 			}
+
 //-------------------------------------------------------------------
-	var xx=0   //set by RowPosition
-	var yy=0   //set by RowPosition
-			// Assigned in RowerNode by visiting each Visual component
-			// of the 'd' command and finding the one with the 
-			// greatest height value. 
-	var maxHeight=0
-
-
 
 	def startBoxField(rowPosition:RowPosition) {
-		xx=rowPosition.currentPixelWidth
-		yy=rowPosition.yCoordinate
+			// Line row may have multiple VisualObjects so prior text 
+			// width is added for each VisualObject.
+		accumulatedX=rowPosition.currentPixelWidth
+
 			// computes the metric width of the text string so as
 			// to adjust row position for next display component
 		rowPosition.sumToCurrentWidth(length * local_getMetricsWidth("m"))
 		}
-			// record captured response
+  			// In NoteLayout, LayoutManager.layoutContainer iterates
+           	// thru all components added to the notecard panel.
+           	// This method invokes 'render() for all Visual objs.
+	def render() {
+		setForeground(ycolor)
+
+        setBounds(accumulatedX, adjustedY, length * local_getMetricsWidth("m"), local_getMetricsHeight());
+		}
+
+				// record captured response
 	def addFieldToSymbolTable {
 		symbolTable += (field -> getInput)
 		}
@@ -108,48 +121,20 @@ case class BoxField(var symbolTable:Map[String,String])
 		symbolTable -= field
 		}
 	def getInput= getText().trim      //getText() in JTextField
-  			// In NoteLayout, LayoutManager.layoutContainer iterates
-           	// thru all components added to the notecard panel.
-           	// This method invokes 'render() for all Visual objs.
-	def render() {
-		setForeground(ycolor)
-        //setColumns(5)
-		var y=yy    // in event that yy does not need an adjustment
-		if(isHeightDifferentThanMaxHeight) 
-			// y axis is ajusted downward for text whose height < maxHeight
-			// so that text of different heights are aligned on the same line.
-					y=adjustYyForSizeLessThanMax( yy )
-        setBounds(xx, y, length * local_getMetricsWidth("m"), local_getMetricsHeight());
-		}
-		// if text height is not same as the largest height 
-	def isHeightDifferentThanMaxHeight: Boolean={
-			local_getMetricsHeight() != maxHeight
-			}
-		// In 'd' command ( d (%% /size 10/now) (%% /size 15/is) ) for 'now'
-		// to be aligned with 'is',  the y axis value of Component() must be
-		// adjusted. 
-	def adjustYyForSizeLessThanMax(yy:Int)= { 
-		val difference= maxHeight - local_getMetricsHeight()
-		yy + difference - (difference * .25).toInt
-		}
 		// When an EditNode fails, its message parameter
-		// passed to BoxFieldc
+		// passed to BoxField
 	var editMessage=""
 		// Invoked by KeyListenerObject.
 	def getEditMessage=editMessage
-	def detectYesNoToSetLengthToOne(xtype:Int, size:Int)={
-
-		}
 		// used in KeyListenerObject when 'captureInputResponse is invoked.
 		// Indicates the Edit command is present and is subject to test.
 		// 'symChild' indicates that BoxField is parent of EditNode.
 	def isEditNodeOn= {if(symChild != "0") true; else false }
 		// Iterate EditNode children. Returns true if all
 		// EditField(s) associated with the BoxField each return 
-		// true, or returns false if any one returns false
+   var flag=true // true, or returns false if any one returns false
 		//	   Invoked in KeyListenerObject.actOnNewLineEvent(...)
 	def isEditSuccessful: Boolean={
-	//	var editNode:EditNode= _
 		var editSuccess=true
 		val response=getInput  // the input to be evaluated
 
@@ -164,6 +149,7 @@ case class BoxField(var symbolTable:Map[String,String])
 			}
 		editSuccess
 		}
+		// Invoked in MultipleListener and KeyListenerObject
 	def clearInputField=setText("")	
 
 		// CreateClass generates instances of BoxField without fields or parameters.
@@ -187,10 +173,12 @@ case class BoxField(var symbolTable:Map[String,String])
 									field=pair(1)
 							case "length" => //println(pair(1) )
 									length=pair(1).toInt
+
 							case "column" => //println(pair(1) )
 									column=pair(1).toInt
 							case "size" => //println(pair(1))
 									sizeFont= pair(1).toInt
+
 							case "style" =>
 									styleFont= pair(1).toInt
 							case "name"=> //println(pair(1))
@@ -205,6 +193,7 @@ case class BoxField(var symbolTable:Map[String,String])
 				}
 			   }  //breakable		 
 			 metrics=establishMetrics(nameFont, styleFont, sizeFont)
+			 metricHeight=local_getMetricsHeight() // VisualMetric trait
 			 }
 		}
 	}
