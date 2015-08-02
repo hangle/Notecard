@@ -35,7 +35,7 @@
 	DisplayVisual is a child of CardSet.  When CardSet executes DisplayVariable.startDisplayVariable(..)
 	then the 'x' and 'y' coordinates as pixels are computed by RowPlacement functions.
 	These coordinates are used in 'render()' by 'setBounds()':
-	 	Component.setBounds(x, y, local_getMetricsWidth(), local_getMetricsHeight());
+	 	Component.setBounds(x, y, visualObjectWidth(), visualObjectHeight());
 	However, 'render()' is not invoked until just prior to the 'wait()'is issued  by
 	CardSet, for example: 
 							// CardSet children has executed, now invoke the 'render()' methods
@@ -70,8 +70,8 @@ symbolTable holds $<variables>		def setId
 				VisualMetric
 					var metrics%CardSet
 					def establishMetrics
-					def local_getMetricsHeight()
-					dev local_getMetricsWidth()
+					def visualObjectHeight()
+					dev visualObjectWidth()
 	*/
 //------------paramters pass by .struct file-----------------
 	var styleFont=0
@@ -90,14 +90,16 @@ symbolTable holds $<variables>		def setId
 
 //-------------------------------------------------------------------
 			// Assigned by RowerNode.maxJeogjtValueOfVisualObject
+			// RowPosition.priorYFromTop+2
 	var adjustedY=0
 				// The row of VisualObjects adds to this value
 	var accumulatedX=0
+	var startColumnX=0
 
 	var symbolTableText=""
 		//invoked by RowerNode which has the row position
 		//as well as the starting column position.
-	def startDisplayVariable(rowPosition:RowPosition) {
+	def startDisplayVariable(rowPosition:RowPosition, startColumn:Int) {
 
 				// computes the metric width of the text string so as
 				//extract $<variable> value
@@ -106,9 +108,9 @@ symbolTable holds $<variables>		def setId
 				// width is added for each VisualObject.
 		accumulatedX=rowPosition.currentPixelWidth
 				// to adjust row position for next display component
-		rowPosition.sumToCurrentWidth(local_getMetricsWidth(symbolTableText))
+		rowPosition.sumToCurrentWidth(visualObjectWidth(symbolTableText))
 
-		metricWidth= local_getMetricsWidth(symbolTableText)  // VisualMetric trait
+		metricWidth= visualObjectWidth(symbolTableText)  // VisualMetric trait
 
 		}
 		//Access symbolTable to find variable <key>.
@@ -130,7 +132,7 @@ symbolTable holds $<variables>		def setId
 
 
 		// println("DisplayVariable: y="+y)
-		setBounds(accumulatedX, adjustedY, metricWidth, metricHeight);
+		setBounds(startColumnX+accumulatedX, adjustedY, metricWidth, metricHeight);
 		}
 		// CreateClass generates instances of NotecardTask without fields or parameters.
 		// However, it invokes 'receive_objects' to load parameters from *.struct
@@ -163,7 +165,7 @@ symbolTable holds $<variables>		def setId
 				}
 			   }  //breakable		 
 			 metrics=establishMetrics(nameFont, styleFont, sizeFont)
-			 metricHeight=local_getMetricsHeight() // VisualMetric trait
+			 metricHeight=visualObjectHeight() // VisualMetric trait
 
 			 }
 

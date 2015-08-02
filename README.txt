@@ -10,7 +10,7 @@ The text and response capture are controlled by a script file of ten command typ
 
 Command documents and Notecard window examples are shown at:
 
-		notecard.org/document
+		http://notecard.org/document
 
 Applications:  
 -------------

@@ -27,8 +27,8 @@ trait VisualMetric  extends Component {
 							// 'getHeight() in RowPosition's
 							// defaultRowHeightWidth().
 			// used in RowerNode and in VisualObjects
-	def local_getMetricsHeight()={ metrics.getHeight() +4 }
-	def local_getMetricsWidth(text:String) ={ 
+	def visualObjectHeight()={ metrics.getHeight() +4 }
+	def visualObjectWidth(text:String) ={ 
 			metrics.stringWidth(text) +4 
 			}
 }

@@ -18,7 +18,7 @@
 	BoxField is a child of CardSet.  When CardSet executes BoxField.startBoxField(..)
 	then the 'x' and 'y' coordinates as pixels are computed by RowPlacement functions.
 	These coordinates are used in 'render()' by 'setBounds()':
-	 	Component.setBounds(x, y, local_getMetricsWidth("m"), local_getMetricsHeight());
+	 	Component.setBounds(x, y, visualObjectWidth("m"), visualObjectHeight());
 	However, 'render()' is not invoked until just prior to the 'wait()'is issued  by
 	CardSet, for example: 
 			// CardSet children has executed, now invoke the 'render()' methods
@@ -56,8 +56,8 @@ case class BoxField(var symbolTable:Map[String,String])
 				VisualMetric
 					var metrics
 					def establishMetrics
-					def local_getMetricsHeight()
-					dev local_getMetricsWidth("m")
+					def visualObjectHeight()
+					dev visualObjectWidth("m")
 	*/
 //------------paramters pass by .struct file-----------------
    var field=""     //e.g.,  $one where field="$one"
@@ -75,9 +75,11 @@ case class BoxField(var symbolTable:Map[String,String])
 	var metricHeight=0   // metric + text
 //---------------------------------------------------------------------
    		// Assigned by RowerNode.maxJeogjtValueOfVisualObject
+		// RowPosition.priorYFromTop+2
 	var adjustedY=0
 		// The row of VisualObjects adds to this value
 	var accumulatedX=0	
+	var startColumnX=0
 //----------------------------(used in KeyListenerObject)-----------
 	
 	def getLimit=limit    // KeyListenerObject restrict number input characters.
@@ -95,14 +97,15 @@ case class BoxField(var symbolTable:Map[String,String])
 
 //-------------------------------------------------------------------
 
-	def startBoxField(rowPosition:RowPosition) {
+	def startBoxField(rowPosition:RowPosition, startColumn:Int) {
+		startColumnX=startColumn
 			// Line row may have multiple VisualObjects so prior text 
 			// width is added for each VisualObject.
 		accumulatedX=rowPosition.currentPixelWidth
 
 			// computes the metric width of the text string so as
 			// to adjust row position for next display component
-		rowPosition.sumToCurrentWidth(length * local_getMetricsWidth("m"))
+		rowPosition.sumToCurrentWidth(length * visualObjectWidth("m"))
 		}
   			// In NoteLayout, LayoutManager.layoutContainer iterates
            	// thru all components added to the notecard panel.
@@ -110,7 +113,10 @@ case class BoxField(var symbolTable:Map[String,String])
 	def render() {
 		setForeground(ycolor)
 
-        setBounds(accumulatedX, adjustedY, length * local_getMetricsWidth("m"), local_getMetricsHeight());
+        setBounds(  startColumnX +accumulatedX, 
+					adjustedY, 
+					length * visualObjectWidth("m"), 
+					visualObjectHeight());
 		}
 
 				// record captured response
@@ -193,7 +199,7 @@ case class BoxField(var symbolTable:Map[String,String])
 				}
 			   }  //breakable		 
 			 metrics=establishMetrics(nameFont, styleFont, sizeFont)
-			 metricHeight=local_getMetricsHeight() // VisualMetric trait
+			 metricHeight=visualObjectHeight() // VisualMetric trait
 			 }
 		}
 	}

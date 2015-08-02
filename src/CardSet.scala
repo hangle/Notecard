@@ -85,7 +85,9 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// values to RowPosition.  These value are converted to pixels.  When the
 			// "next" row is to be displayed, RowPosition.currentPosition becomes
 			// the 'y' value for 'java.awt.Component.setBounds(x,y,width, height)'
-		val rowPosition= new RowPosition(defaultFont) 
+//		val rowPosition= new RowPosition(defaultFont) 
+		//val rowPosition= new RowPosition(defaultFont) 
+		val rowPosition= new RowPosition 
 			// prior CardSet set may have posted a status message so remove for new CardSet.
 		statusLine.clearStatusLine 
 			// Iterate CardSet commands then display	
@@ -121,7 +123,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// Stop (issue wait()) to allow the user to enter responses.
 		haltCommandExecution(lock)	
 			//remove all components & calls 'repaint()'
-		clearNotePanel(notePanel)	
+		clearNotePanel(notePanel)
 			// KeyListenerObject(s) are removed from the
 			// corresponding BoxField
 		removeInputFieldListeners(listenerArray) 
@@ -186,7 +188,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 								 rowPosition:RowPosition, 
 								 notePanel:JPanel, 
 								 lock:AnyRef, 
-								 inputFocus:InputFocus, 
+								 inputFocus: InputFocus, 
 								 statusLine:StatusLine,
 								 defaultFont:DefaultFont,
 								 addCardSetFlags:AddCardSetFlags,
@@ -198,6 +200,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 								  notePanel, 
 								  inputFocus, 
 								  statusLine,
+								  defaultFont,
 								  listenerArray) //recusion
 			case as:Assigner=> 
 						// Assign command, e.g., 'a flag=true' or 'a count=count+1'.

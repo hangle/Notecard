@@ -50,68 +50,77 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 			convertToSibling(swizzleTable)
 			convertToChild(swizzleTable)  // Is a parent
 			}
-//-------------------------------------------------------------------
+//-------------------------------------scala fsc------------------------------
 	def startRowerNode(
 			rowPosition:RowPosition, // converts row values (1,2,3,4,...) to pixels.
 			notePanel:JPanel, 		// window where lines are displayed/
 			inputFocus:InputFocus,  // passed to KeyListenerObject
 			statusLine:StatusLine,	// passed to KeyListenerObject. message to client (optional)
+			defaultFont:DefaultFont, // used for start column
 			listenerArray:ArrayBuffer[KeyListenerObject] //array of KeyListenerObjects
 			) {
+				// The 'column' value of 5, for example, 'd 5/text', specifies that 'text' begins in column 5. 
+		val startColumnX= (column) * defaultFont.defaultPixelLetter()
+		println("RowerNode startColumnX="+startColumnX+" column="+column+"  defaultLetter="+defaultFont.defaultPixelLetter() )
+				// Used to access 'row' and 'DefaultFont.defaultHeight()'
+		rowPosition.getRowerNode(row, defaultFont.defaultHeight())
 				// Iterate each RowerNode Visual object.
 				// For the current Row, find the largest height value of all 'd' 
 				// command Visual components. 
-		val maxHeight= maxHeightValuesOfVisualObjects(rowPosition.yCoordinateFromTop)
+		val maxHeight= maxHeightValuesOfVisualObjects()
 
 				//  sets CurrentWidth of RowPosition
-				//	resolveColumnRowPosition(rowPosition, column, row)
+				//	resolveColumnRowPosiscala fsction(rowPosition, column, row)
 				//  execute DisplayText, DisplayVariable, BoxField
 		iterateRowerNodeChildren(maxHeight,
 								 rowPosition, 
 								 notePanel, 
 					 			 inputFocus, 
 					 			 statusLine, 
+								 startColumnX,
 					 			 listenerArray)
-			// initialized for next 'd' command line. 
+			// Visual material has been displayed, so initialized RowPosition values
+
+			// for next VisualObject.
 		rowPosition.resetCurrentWidth()
-		rowPosition.priorYFromTop=maxHeight
+		rowPosition.addToPriorYFromTop(maxHeight)
 		}
 	def iterateRowerNodeChildren(maxHeight:Int,
 								 rowPosition:RowPosition, 
 								 notePanel:JPanel, 
 								 inputFocus:InputFocus, 
 								 statusLine:StatusLine,
+								 startColumnX:Int,
 								 listenerArray:ArrayBuffer[KeyListenerObject]) {
 				// Iterate each RowerNode Visual object.
 				//'maxHeight' is subtracted from the height  of the VisualObject and 
 				// assigned to 'adjustetY' values of the VisualObject.
 		assignAdjustedHeightInEachVidualObject( maxHeight, 
-												//rowPosition.yCoordinateFromTop, 
-												//rowPosition.priorYFromTop,
 												notePanel,
 												inputFocus,
 												statusLine,
 												rowPosition,
+												startColumnX,
 												listenerArray) 
 		}
 		// A 'd' cmd line may consist of multiple text and input Visual objects.
 		// Find the largest height (size) value in pixels among the 'd' command's
 		// Visual objects. Assign 'maxHeight' to every line component
 		// via Visual object's 'maxHeight'.
-	def maxHeightValuesOfVisualObjects(yCoordinateFromTop:Int)= {
+	def maxHeightValuesOfVisualObjects()= {
 		var maxHeight=0
 		reset(child)//point to head of linked list (setFirstChild)
 		while(iterate) {   //Linker processes linked list of visual display components
 			node match {
 				case dt:DisplayText=>
-						val height=dt.local_getMetricsHeight()
+						val height=dt.visualObjectHeight()
 						if(height > maxHeight) maxHeight=height
 				case dv:DisplayVariable=>
-						val height=dv.local_getMetricsHeight()
+						val height=dv.visualObjectHeight()
 
 						if(height > maxHeight) maxHeight=height
 				case bf:BoxField=>
-						val height=bf.local_getMetricsHeight()
+						val height=bf.visualObjectHeight()
 						if(height > maxHeight) maxHeight=height
 				case _=> //println("RowerNode: maxHeight..()  case _=>")
 				}
@@ -121,12 +130,11 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 		//'maxHeight' of maxHeightValuesOfVisualObject(..) is subtracted from the height
 		// of the VisualObject. If maxHeight equals metricHeight, then 'diff' is zero.
 	def assignAdjustedHeightInEachVidualObject( maxHeight:Int, 
-										//		yCoordinateFromTop:Int,
-										//		priorYFromTop:Int,
 												notePanel:JPanel,
 												inputFocus:InputFocus,
 												statusLine:StatusLine,
 												rowPosition:RowPosition,
+												startColumnX:Int,
 												listenerArray:ArrayBuffer[KeyListenerObject]) { 
 		reset(child)
 			// Every Visual object of the 'd' command  will have 'maxHeight
@@ -137,30 +145,34 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 				case dt:DisplayText=>
 							//  Subtract metricHeight from maximum height. Add difference to
 							//  to accumulated 'priorYFromTop' assigned to adjustedY.
-			  			adjustmentHeightForText(dt, maxHeight, rowPosition.priorYFromTop) 
+			  	//		adjustmentHeightForText(dt, maxHeight, rowPosition.priorYFromTop) 
+			  			adjustmentHeightForText(dt, maxHeight, rowPosition) 
 							//  Get 'accumulatedX' from row RowPosition.currentPixelWidth and
 							//  then add text width to RowPosition's currentPixelWidth for next
 							//  VisualObject. 
-						dt.startDisplayText(rowPosition)
+						dt.startDisplayText(rowPosition, startColumnX)
 							//  VisualObject added to Component. 
 						notePanel.add(dt)			
 				case dv:DisplayVariable=>
 							//  Subtract metricHeight from maximum height. Add difference to
 							//  to accumulated 'priorYFromTop' assigned to adjustedY.
-			  			adjustmentHeightForVariable(dv, maxHeight, rowPosition.priorYFromTop) 
+			  			adjustmentHeightForVariable(dv, maxHeight, rowPosition) 
 							//  Get 'accumulatedX' from row RowPosition.currentPixelWidth and
 							//  then add text width to RowPosition's currentPixelWidth for next
 							//  VisualObject. 
-						dv.startDisplayVariable(rowPosition)
+						dv.startDisplayVariable(rowPosition, startColumnX)
 							//  VisualObject added to Component. 
 						notePanel.add(dv)			
+
 				case bf:BoxField=>
 							//  to accumulated 'priorYFromTop' assigned to adjustedY.
-			  			adjustmentHeightForBox(bf, maxHeight, rowPosition.priorYFromTop) 
-							//  Get 'accumulatedX' from row RowPosition.currentPixelWidth and
+			  		//	adjustmentHeightForBox(bf, maxHeight, rowPosition.priorYFromTop) 
+			  			adjustmentHeightForBox(bf, maxHeight, rowPosition) 
+							//  Get 'accumuscala fsclatedX' from row RowPosition.currentPixelWidth and
+
 							//  then add text width to RowPosition's currentPixelWidth for next
 							//  VisualObject. 
-						bf.startBoxField(rowPosition)
+						bf.startBoxField(rowPosition, startColumnX)
 							//  VisualObject added to Component. 
 						notePanel.add(bf)			
 						createListenerAndFocus(bf, inputFocus,  statusLine, listenerArray)
@@ -174,40 +186,42 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 			// and the maximun height of the row's VisualObjects. 
 	def adjustmentHeightForText(  displayText:DisplayText, 
 									maxHeight:Int,
-									priorYFromTop:Int) {
+								//	priorYFromTop:Int) {
+									rowPosition:RowPosition) {
 		var diff=0
 		val height=displayText.metricHeight
 		if(height < maxHeight) 
-			diff=maxHeight-height
-		println("RowerNode: displayText diff="+diff)
+			diff=maxHeight-height 
+//		println("RowerNode: displayText diff="+diff)
 			
-		displayText.adjustedY=diff+priorYFromTop
+			// '2' added because BoxField not aligned with DisplayText or DisplayVariable
+		displayText.adjustedY=diff+rowPosition.priorYFromTop +2
 		}
 			// compute the difference in height between the metricHeight (default height)
 			// and the maximun height of the row's VisualObjects. 
 	def adjustmentHeightForVariable(displayVariable:DisplayVariable, 
 									maxHeight:Int,
-									priorYFromTop:Int) {
+									rowPosition:RowPosition) {
 		var diff=0
 		val height=displayVariable.metricHeight
 		if(height < maxHeight) 
-			diff=maxHeight-height
-		println("RowerNode: variableText diff="+diff)
+			diff=maxHeight-height 
+//		println("RowerNode: variableText diff="+diff)
 			
-		displayVariable.adjustedY=diff+priorYFromTop
+			// '2' added because BoxField not aligned with DisplayText or DisplayVariable
+		displayVariable.adjustedY=diff+rowPosition.priorYFromTop +2
 		}
 			// compute the difference in height between the metricHeight (default height)
 			// and the maximun height of the row's VisualObjects. 
 	def adjustmentHeightForBox( boxField:BoxField, 
 								maxHeight:Int,
-								priorYFromTop:Int) {
+								rowPosition:RowPosition) {
 		var diff=0
 		val height=boxField.metricHeight
 		if(height < maxHeight) 
 			diff=maxHeight-height
-		println("RowerNode: height="+height+" maxHeight="+maxHeight+"  boxField diff="+diff+" priorY..="+priorYFromTop)
-			
-		boxField.adjustedY=diff+priorYFromTop
+//		println("RowerNode: height="+height+" maxHeight="+maxHeight+"  boxField diff="+diff+" priorY..="+priorYFromTop)
+		boxField.adjustedY=diff+rowPosition.priorYFromTop 
 		}
 
 
@@ -216,13 +230,16 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 				statusLine:StatusLine,
 				listenerArray:ArrayBuffer[KeyListenerObject]) {
 				// KeyListenerObject "listens" for key input characters. 
+
 		val keyListenerObject=new KeyListenerObject(boxField,  
 
 													inputFocus, 
 													statusLine)
+
 				// added to an ArrayBuffer of InputFocus
 				// 'components += component (boxField)
 		inputFocus.addToArray(boxField) 
+
 				// ListenerArray used in CardSet to remove 
 				// listeners on card termination
 		listenerArray += keyListenerObject
@@ -250,6 +267,9 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 									row=pair(1).toInt
 							case "column" => //println(pair(1))
 									column= pair(1).toInt
+									if(column != 0) column -= 1
+									//println("RowerNode: receive_ob... column="+column)
+
 							}
 				}
 			   }  //breakable		 

@@ -6,7 +6,7 @@
 	DisplayText is a child of CardSet.  When CardSet executes DisplayText.startDisplayText(..)
 	then the 'x' and 'y' coordinates as pixels are computed by RowPlacement functions.
 	These coordinates are used in 'render()' by 'setBounds()':
-	 	Component.setBounds(x, y, local_getMetricsWidth(), local_getMetricsHeight());
+	 	Component.setBounds(x, y, visualObjectWidth(), visualObjectHeight());
 	However, 'render()' is not invoked until just prior to the 'wait()'is issued  by
 	CardSet, for example: 
 		CardSet children has executed, now invoke the 'render()' methods
@@ -42,8 +42,8 @@ case class DisplayText(var symbolTable:Map[String,String])
 					VisualMetric
 						var metrics
 						def establishMetrics
-						def local_getMetricsHeight()
-						dev local_getMetricsWidth()
+						def visualObjectHeight()
+						dev visualObjectWidth()
 			*/
 //------------paramters pass by .struct file-----------------
 	var styleFont=0
@@ -60,18 +60,26 @@ case class DisplayText(var symbolTable:Map[String,String])
 			convertToSibling(swizzleTable)
 			}
 //-------------------------------------------------------------------
+				// RowerNode row value may jump incremen-by-one value, such as,
+				// 'd /7/now is the time' specifies line on row '7'.
+	var rowOffset=0
 				// Assigned by RowerNode.maxHeightValueOfVisualObject
 	var adjustedY=0
 				// The row of VisualObjects adds to this value
 	var accumulatedX=0
+				// RowerNode.column * DefaultFont.defaultPixelLetter()
+	var startColumnX=0
 				//  Get 'accumulatedX' from row RowPosition.currentPixelWidth 
 				//  and then add text width to RowPosition's currentPixelWidth 
 				//  for next  VisualObject. 
-	def startDisplayText(rowPosition:RowPosition) {
+	def startDisplayText(rowPosition:RowPosition, startColumn:Int) {
+		startColumnX=startColumn
 					// Line row may have multiple VisualObjects so prior text 
 					// width is added for each VisualObject.
 		accumulatedX=rowPosition.currentPixelWidth
-					// add text with for next VisualObject.
+					// Added for the  next VisualObject. 
+					// 'metricWidth' is the conversion of 'text' variable to pixels. 
+					// Added to RowPosition.currentPixelWidth
 		rowPosition.sumToCurrentWidth(metricWidth)
 		}
 				// In NoteLayout, LayoutManager.layoutContainer iterates
@@ -80,7 +88,10 @@ case class DisplayText(var symbolTable:Map[String,String])
 	def render() {
 	     setForeground(xcolor)
        	 setText(text)
-		 setBounds(accumulatedX, adjustedY, metricWidth, metricHeight )
+		 setBounds( startColumnX+accumulatedX, 
+		 			rowOffset +	adjustedY, 
+					metricWidth, 
+					metricHeight )
 		}
 		// CreateClass generates instances of DisplayText without fields or parameters.
 		// However, it invokes 'receive_objects' to load parameters from *.struct
@@ -113,8 +124,8 @@ case class DisplayText(var symbolTable:Map[String,String])
 				}
 			   }  //breakable		 
 			 metrics=establishMetrics(nameFont, styleFont, sizeFont)
-			 metricWidth= local_getMetricsWidth(text)  // VisualMetric trait
-			 metricHeight=local_getMetricsHeight() // VisualMetric trait
+			 metricWidth= visualObjectWidth(text)  // VisualMetric trait
+			 metricHeight=visualObjectHeight() // VisualMetric trait
 			 }
 		}
 	}
