@@ -4,7 +4,7 @@ height	550
 width	400
 size	14
 name	TimesRoman
-style	1
+style	0
 asteriskButton	on
 priorButton	on
 %%
@@ -43,7 +43,7 @@ column	5
 %DisplayText
 address	2006
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -60,7 +60,7 @@ column	5
 %DisplayText
 address	2008
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -77,7 +77,7 @@ column	5
 %DisplayText
 address	2010
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -94,7 +94,7 @@ column	5
 %DisplayText
 address	2012
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -111,7 +111,7 @@ column	5
 %DisplayText
 address	2014
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -128,7 +128,7 @@ column	5
 %DisplayText
 address	2016
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -145,7 +145,7 @@ column	5
 %DisplayText
 address	2018
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -168,7 +168,7 @@ column	5
 %DisplayText
 address	2021
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -185,7 +185,7 @@ column	5
 %DisplayText
 address	2023
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -202,7 +202,7 @@ column	15
 %DisplayText
 address	2025
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -219,7 +219,7 @@ column	5
 %DisplayText
 address	2027
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -244,7 +244,7 @@ column	5
 %DisplayText
 address	2030
 sibling	2031
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -254,7 +254,7 @@ color	black
 %DisplayText
 address	2031
 sibling	2032
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -264,7 +264,7 @@ color	blue
 %DisplayText
 address	2032
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -281,7 +281,7 @@ column	5
 %DisplayText
 address	2034
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -298,7 +298,7 @@ column	5
 %DisplayText
 address	2036
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -315,7 +315,7 @@ column	5
 %DisplayText
 address	2038
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -332,7 +332,7 @@ column	5
 %DisplayText
 address	2040
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -349,7 +349,7 @@ column	5
 %DisplayText
 address	2042
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -366,7 +366,7 @@ column	5
 %DisplayText
 address	2044
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -383,7 +383,7 @@ column	5
 %DisplayText
 address	2046
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -400,7 +400,7 @@ column	5
 %DisplayText
 address	2048
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -417,7 +417,7 @@ column	5
 %DisplayText
 address	2050
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -434,7 +434,7 @@ column	5
 %DisplayText
 address	2052
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -459,7 +459,7 @@ column	0
 %DisplayText
 address	2055
 sibling	0
-style	1
+style	0
 size	10
 column	0
 name	TimesRoman
@@ -476,7 +476,7 @@ column	0
 %DisplayText
 address	2057
 sibling	0
-style	1
+style	0
 size	12
 column	0
 name	TimesRoman
@@ -493,7 +493,7 @@ column	0
 %DisplayText
 address	2059
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -510,7 +510,7 @@ column	0
 %DisplayText
 address	2061
 sibling	0
-style	1
+style	0
 size	16
 column	0
 name	TimesRoman
@@ -527,7 +527,7 @@ column	0
 %DisplayText
 address	2063
 sibling	0
-style	1
+style	0
 size	18
 column	0
 name	TimesRoman
@@ -544,7 +544,7 @@ column	0
 %DisplayText
 address	2065
 sibling	0
-style	1
+style	0
 size	20
 column	0
 name	TimesRoman
@@ -569,7 +569,7 @@ column	5
 %DisplayText
 address	2068
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -586,7 +586,7 @@ column	5
 %DisplayText
 address	2070
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -603,7 +603,7 @@ column	5
 %DisplayText
 address	2072
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -620,7 +620,7 @@ column	5
 %DisplayText
 address	2074
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -637,7 +637,7 @@ column	5
 %DisplayText
 address	2076
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -654,7 +654,7 @@ column	5
 %DisplayText
 address	2078
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -671,7 +671,7 @@ column	5
 %DisplayText
 address	2080
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -688,7 +688,7 @@ column	5
 %DisplayText
 address	2082
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -705,7 +705,7 @@ column	5
 %DisplayText
 address	2084
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -722,7 +722,7 @@ column	5
 %DisplayText
 address	2086
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -739,7 +739,7 @@ column	5
 %DisplayText
 address	2088
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -756,7 +756,7 @@ column	5
 %DisplayText
 address	2090
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -773,7 +773,7 @@ column	5
 %DisplayText
 address	2092
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -790,7 +790,7 @@ column	5
 %DisplayText
 address	2094
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -815,7 +815,7 @@ column	0
 %DisplayText
 address	2097
 sibling	2098
-style	1
+style	0
 size	10
 column	0
 name	TimesRoman
@@ -825,7 +825,7 @@ color	black
 %DisplayText
 address	2098
 sibling	0
-style	1
+style	0
 size	20
 column	0
 name	TimesRoman
@@ -842,7 +842,7 @@ column	0
 %DisplayText
 address	2100
 sibling	2101
-style	1
+style	0
 size	12
 column	0
 name	TimesRoman
@@ -852,7 +852,7 @@ color	black
 %DisplayText
 address	2101
 sibling	0
-style	1
+style	0
 size	18
 column	0
 name	TimesRoman
@@ -869,7 +869,7 @@ column	0
 %DisplayText
 address	2103
 sibling	2104
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -879,7 +879,7 @@ color	black
 %DisplayText
 address	2104
 sibling	0
-style	1
+style	0
 size	16
 column	0
 name	TimesRoman
@@ -896,7 +896,7 @@ column	0
 %DisplayText
 address	2106
 sibling	2107
-style	1
+style	0
 size	16
 column	0
 name	TimesRoman
@@ -906,7 +906,7 @@ color	black
 %DisplayText
 address	2107
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -923,7 +923,7 @@ column	0
 %DisplayText
 address	2109
 sibling	2110
-style	1
+style	0
 size	18
 column	0
 name	TimesRoman
@@ -933,7 +933,7 @@ color	black
 %DisplayText
 address	2110
 sibling	0
-style	1
+style	0
 size	12
 column	0
 name	TimesRoman
@@ -950,7 +950,7 @@ column	0
 %DisplayText
 address	2112
 sibling	2113
-style	1
+style	0
 size	20
 column	0
 name	TimesRoman
@@ -960,7 +960,7 @@ color	black
 %DisplayText
 address	2113
 sibling	0
-style	1
+style	0
 size	10
 column	0
 name	TimesRoman
@@ -985,7 +985,7 @@ column	5
 %DisplayText
 address	2116
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1002,7 +1002,7 @@ column	5
 %DisplayText
 address	2118
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1019,7 +1019,7 @@ column	1
 %DisplayText
 address	2120
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1036,7 +1036,7 @@ column	1
 %DisplayText
 address	2122
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1053,7 +1053,7 @@ column	1
 %DisplayText
 address	2124
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1070,7 +1070,7 @@ column	1
 %DisplayText
 address	2126
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1087,7 +1087,7 @@ column	1
 %DisplayText
 address	2128
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1110,31 +1110,31 @@ column	1
 %DisplayText
 address	2131
 sibling	2132
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	Text following the 
+text	Text preceeding and following 
 color	black
 %%
 %DisplayText
 address	2132
 sibling	2133
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	(%%
+text	(%%/size 18/...
 color	blue
 %%
 %DisplayText
 address	2133
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	 component
+text	 )
 color	black
 %%
 %RowerNode
@@ -1147,7 +1147,7 @@ column	1
 %DisplayText
 address	2135
 sibling	2136
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1157,21 +1157,21 @@ color	black
 %DisplayText
 address	2136
 sibling	2137
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	 /size 10/ 
+text	 d /size 10/... 
 color	blue
 %%
 %DisplayText
 address	2137
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
-text	 value.
+text	 height.
 color	black
 %%
 %CardSet
@@ -1192,7 +1192,7 @@ column	0
 %DisplayText
 address	2140
 sibling	2141
-style	1
+style	0
 size	10
 column	0
 name	TimesRoman
@@ -1202,7 +1202,7 @@ color	black
 %DisplayText
 address	2141
 sibling	2142
-style	1
+style	0
 size	18
 column	0
 name	TimesRoman
@@ -1212,7 +1212,7 @@ color	black
 %DisplayText
 address	2142
 sibling	0
-style	1
+style	0
 size	10
 column	0
 name	TimesRoman
@@ -1237,7 +1237,7 @@ column	5
 %DisplayText
 address	2145
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1254,7 +1254,7 @@ column	5
 %DisplayText
 address	2147
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1271,7 +1271,7 @@ column	5
 %DisplayText
 address	2149
 sibling	2150
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1281,7 +1281,7 @@ color	black
 %DisplayText
 address	2150
 sibling	2151
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1291,7 +1291,7 @@ color	blue
 %DisplayText
 address	2151
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1308,7 +1308,7 @@ column	5
 %DisplayText
 address	2153
 sibling	2154
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1318,7 +1318,7 @@ color	blue
 %DisplayText
 address	2154
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1335,7 +1335,7 @@ column	5
 %DisplayText
 address	2156
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1352,7 +1352,7 @@ column	10
 %DisplayText
 address	2158
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1369,7 +1369,7 @@ column	10
 %DisplayText
 address	2160
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1386,7 +1386,7 @@ column	10
 %DisplayText
 address	2162
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1403,7 +1403,7 @@ column	10
 %DisplayText
 address	2164
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1426,7 +1426,7 @@ column	5
 %DisplayText
 address	2167
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1443,7 +1443,7 @@ column	5
 %DisplayText
 address	2169
 sibling	2170
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1453,7 +1453,7 @@ color	black
 %DisplayText
 address	2170
 sibling	2171
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1463,7 +1463,7 @@ color	blue
 %DisplayText
 address	2171
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1480,7 +1480,7 @@ column	5
 %DisplayText
 address	2173
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1497,7 +1497,7 @@ column	10
 %DisplayText
 address	2175
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1514,7 +1514,7 @@ column	10
 %DisplayText
 address	2177
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1531,7 +1531,7 @@ column	10
 %DisplayText
 address	2179
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1588,7 +1588,7 @@ column	5
 %DisplayText
 address	2186
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1605,7 +1605,7 @@ column	10
 %DisplayText
 address	2188
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1622,7 +1622,7 @@ column	10
 %DisplayText
 address	2190
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1639,7 +1639,7 @@ column	10
 %DisplayText
 address	2192
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1656,7 +1656,7 @@ column	10
 %DisplayText
 address	2194
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1673,7 +1673,7 @@ column	10
 %DisplayText
 address	2196
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1690,7 +1690,7 @@ column	10
 %DisplayText
 address	2198
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1707,7 +1707,7 @@ column	10
 %DisplayText
 address	2200
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1724,7 +1724,7 @@ column	10
 %DisplayText
 address	2202
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1747,7 +1747,7 @@ column	5
 %DisplayText
 address	2205
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1764,7 +1764,7 @@ column	5
 %DisplayText
 address	2207
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1781,7 +1781,7 @@ column	5
 %DisplayText
 address	2209
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1798,7 +1798,7 @@ column	5
 %DisplayText
 address	2211
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1823,7 +1823,7 @@ column	0
 %DisplayText
 address	2214
 sibling	2215
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1836,7 +1836,7 @@ sibling	0
 text	$size22
 column	0
 size	22
-style	1
+style	0
 name	TimesRoman
 color	black
 %%
@@ -1850,7 +1850,7 @@ column	0
 %DisplayText
 address	2217
 sibling	2218
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1863,7 +1863,7 @@ sibling	0
 text	$size10
 column	0
 size	10
-style	1
+style	0
 name	TimesRoman
 color	black
 %%
@@ -1877,7 +1877,7 @@ column	0
 %DisplayText
 address	2220
 sibling	2221
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1890,7 +1890,7 @@ sibling	0
 text	$size14
 column	0
 size	14
-style	1
+style	0
 name	TimesRoman
 color	black
 %%
@@ -1904,7 +1904,7 @@ column	0
 %DisplayText
 address	2223
 sibling	2224
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1917,7 +1917,7 @@ sibling	0
 text	$size18
 column	0
 size	18
-style	1
+style	0
 name	TimesRoman
 color	black
 %%
@@ -1939,7 +1939,7 @@ column	5
 %DisplayText
 address	2227
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1956,7 +1956,7 @@ column	5
 %DisplayText
 address	2229
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1973,7 +1973,7 @@ column	5
 %DisplayText
 address	2231
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -1990,7 +1990,7 @@ column	5
 %DisplayText
 address	2233
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2007,7 +2007,7 @@ column	5
 %DisplayText
 address	2235
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2024,7 +2024,7 @@ column	5
 %DisplayText
 address	2237
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2041,7 +2041,7 @@ column	5
 %DisplayText
 address	2239
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2058,7 +2058,7 @@ column	5
 %DisplayText
 address	2241
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2075,7 +2075,7 @@ column	5
 %DisplayText
 address	2243
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2092,7 +2092,7 @@ column	5
 %DisplayText
 address	2245
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2117,7 +2117,7 @@ column	0
 %DisplayText
 address	2248
 sibling	2249
-style	1
+style	0
 size	10
 column	0
 name	TimesRoman
@@ -2130,14 +2130,14 @@ sibling	2250
 text	$size22
 column	0
 size	22
-style	1
+style	0
 name	TimesRoman
 color	black
 %%
 %DisplayText
 address	2250
 sibling	0
-style	1
+style	0
 size	10
 column	0
 name	TimesRoman
@@ -2154,7 +2154,7 @@ column	0
 %DisplayText
 address	2252
 sibling	2253
-style	1
+style	0
 size	22
 column	0
 name	TimesRoman
@@ -2167,14 +2167,14 @@ sibling	2254
 text	$size10
 column	0
 size	11
-style	1
+style	0
 name	TimesRoman
 color	black
 %%
 %DisplayText
 address	2254
 sibling	0
-style	1
+style	0
 size	22
 column	0
 name	TimesRoman
@@ -2191,7 +2191,7 @@ column	0
 %DisplayText
 address	2256
 sibling	2257
-style	1
+style	0
 size	18
 column	0
 name	TimesRoman
@@ -2204,14 +2204,14 @@ sibling	2258
 text	$size14
 column	0
 size	14
-style	1
+style	0
 name	TimesRoman
 color	black
 %%
 %DisplayText
 address	2258
 sibling	0
-style	1
+style	0
 size	18
 column	0
 name	TimesRoman
@@ -2228,7 +2228,7 @@ column	0
 %DisplayText
 address	2260
 sibling	2261
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2241,14 +2241,14 @@ sibling	2262
 text	$size18
 column	0
 size	18
-style	1
+style	0
 name	TimesRoman
 color	black
 %%
 %DisplayText
 address	2262
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2273,7 +2273,7 @@ column	5
 %DisplayText
 address	2265
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2290,7 +2290,7 @@ column	5
 %DisplayText
 address	2267
 sibling	2268
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2300,7 +2300,7 @@ color	black
 %DisplayText
 address	2268
 sibling	2269
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2310,7 +2310,7 @@ color	blue
 %DisplayText
 address	2269
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2327,7 +2327,7 @@ column	5
 %DisplayText
 address	2271
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2344,7 +2344,7 @@ column	1
 %DisplayText
 address	2273
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2361,7 +2361,7 @@ column	1
 %DisplayText
 address	2275
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2378,7 +2378,7 @@ column	1
 %DisplayText
 address	2277
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2395,7 +2395,7 @@ column	1
 %DisplayText
 address	2279
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2412,7 +2412,7 @@ column	1
 %DisplayText
 address	2281
 sibling	0
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2437,7 +2437,7 @@ column	0
 %DisplayText
 address	2284
 sibling	2285
-style	1
+style	0
 size	10
 column	0
 name	TimesRoman
@@ -2447,7 +2447,7 @@ color	black
 %DisplayText
 address	2285
 sibling	2286
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2457,7 +2457,7 @@ color	black
 %DisplayText
 address	2286
 sibling	2287
-style	1
+style	0
 size	10
 column	0
 name	TimesRoman
@@ -2467,7 +2467,7 @@ color	black
 %DisplayText
 address	2287
 sibling	0
-style	1
+style	0
 size	18
 column	0
 name	TimesRoman
@@ -2484,7 +2484,7 @@ column	0
 %DisplayText
 address	2289
 sibling	2290
-style	1
+style	0
 size	18
 column	0
 name	TimesRoman
@@ -2494,7 +2494,7 @@ color	black
 %DisplayText
 address	2290
 sibling	2291
-style	1
+style	0
 size	14
 column	0
 name	TimesRoman
@@ -2504,7 +2504,7 @@ color	black
 %DisplayText
 address	2291
 sibling	2292
-style	1
+style	0
 size	18
 column	0
 name	TimesRoman
@@ -2514,7 +2514,7 @@ color	black
 %DisplayText
 address	2292
 sibling	0
-style	1
+style	0
 size	10
 column	0
 name	TimesRoman

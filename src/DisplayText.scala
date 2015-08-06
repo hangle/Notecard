@@ -63,7 +63,8 @@ case class DisplayText(var symbolTable:Map[String,String])
 				// RowerNode row value may jump incremen-by-one value, such as,
 				// 'd /7/now is the time' specifies line on row '7'.
 	var rowOffset=0
-				// Assigned by RowerNode.maxHeightValueOfVisualObject
+				// RowerNode invokes 'displayText.adjustedY=diff+rowPosition.priorYFromTop +2
+				// 
 	var adjustedY=0
 				// The row of VisualObjects adds to this value
 	var accumulatedX=0
@@ -73,6 +74,8 @@ case class DisplayText(var symbolTable:Map[String,String])
 				//  and then add text width to RowPosition's currentPixelWidth 
 				//  for next  VisualObject. 
 	def startDisplayText(rowPosition:RowPosition, startColumn:Int) {
+				// RowerNode.startColumnX= (column) * defaultFont.defaultPixelLetter()
+				// for example:  'd 10/text begins column 10' where RowNode.column=10
 		startColumnX=startColumn
 					// Line row may have multiple VisualObjects so prior text 
 					// width is added for each VisualObject.
@@ -84,14 +87,15 @@ case class DisplayText(var symbolTable:Map[String,String])
 		}
 				// In NoteLayout, LayoutManager.layoutContainer iterates
                	// thru all components added to the notecard panel.
-               	// This method invokes 'render() for all Visual objs.
+               	// This method invokes 'render() for all VisualObjects.
 	def render() {
 	     setForeground(xcolor)
        	 setText(text)
 		 setBounds( startColumnX+accumulatedX, 
-		 			rowOffset +	adjustedY, 
+		 			adjustedY, 
 					metricWidth, 
 					metricHeight )
+//		println("DisplayText: render()  adjustedY="+adjustedY+"   metricHeight="+metricHeight)
 		}
 		// CreateClass generates instances of DisplayText without fields or parameters.
 		// However, it invokes 'receive_objects' to load parameters from *.struct

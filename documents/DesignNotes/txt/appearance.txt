@@ -27,6 +27,7 @@ of the program as listed below:
 	priorButton     on 		//  "on" allow 'PRIOR button' to be armed (active)
 </pre>
 
+
 The script command file:
 
 <pre>
@@ -55,6 +56,7 @@ The script command file:
 		d now is the time for all good men
 		* end
 </pre>
+
 
 The window size changes to 500 x 600, and the text size becomes  
 '22'.  The  text color  is still black and the font size is still  
@@ -116,6 +118,7 @@ For example, the following 'appearance.ini' file in the
 			appearance.ini
 		__________________
 		|  size  12
+
 </pre>
 
 The initial default value of 14 is becomes 12 for all  
@@ -162,3 +165,31 @@ executes the following '*' commands:
 
 The  '*'  Appearance commands are consumed in the Script  
 program and are removed.  
+
+###Script Program
+
+The default values in AsteriskCommand.defaultSetting:Map are copied to 
+'overrideSetting'. 
+
+	val defaultSetting=Map (
+		"height"-> "300",	//window size argument
+		"width"->  "400",	//window size argument
+		"name"-> "TimesRoman",// name of Font
+		"size"-> "14",		// pixel size of lettering
+		"color"-> "black",	// color of lettering
+		"style"-> "0",		// 0=normal, 1=bold, 2=italics
+		"length"-> "10",    // used in Display cmd for BoxField
+		"limit"-> "99",	   // used in Display cmd for BoxField
+		"column"-> "0",		// not operational
+		"manage"-> "task" , //  to create FramerTask
+		"asteriskButton"-> "on", //  "on" allows '* button' to be armed (active)
+		"save"-> "task" , //  n to create FramerTask-- save symbolTable data
+		"priorButton"-> "on" , //  "on" allow 'PRIOR button' to be armed (active)
+		"end"-> "task",  //  to create FramerTask-- terminate session
+		"status"->"task",   // display msg in status field
+		"continue"-> "task" // to create CardSetTask--
+
+
+
+								)
+

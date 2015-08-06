@@ -45,14 +45,32 @@ class RowPosition  {
 		//width values are added to 'currentPixelWidth'.
 		//Visual.local_getMetricsWidth() determines the width
 	def sumToCurrentWidth(value:Int) { currentPixelWidth += value; }
-
+		// Invoked in RowerNode. When row==priorRow, then row was incremented by 1,
+		// Handle differences greater or lesser than 0. Increment is > or < than 1.
+		// For example:  c
+		//				 d /3/first line begins row 3
 	def getRowerNode(row:Int, defaultHeight:Int) {
-		if(row > priorRow) {
-			val rowDifference=row - priorRow
-			val offset=rowDifference * defaultHeight
-			priorYFromTop += offset
+		if(row > priorRow) {  // example 'd /3/...' 
+			rowIncrease(row, defaultHeight)
 			}
-		priorRow=row +1
+		if(row < priorRow) {
+			rowDecrease(row, defaultHeight)
+			}
+		if(row==priorRow)
+				priorRow +=1
+		}
+		// 		
+	def rowIncrease(row:Int, defaultHeight:Int) {
+		val rowDifference=row - priorRow
+		val offset=rowDifference * defaultHeight
+		priorYFromTop += offset
+		priorRow=row 
+		}
+	def rowDecrease(row:Int, defaultHeight:Int) {
+		val rowDifference=priorRow - row
+		val offset=rowDifference * defaultHeight
+		priorYFromTop -= offset
+		priorRow -=row 
 		}
 	}
 

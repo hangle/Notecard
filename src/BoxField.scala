@@ -79,7 +79,6 @@ case class BoxField(var symbolTable:Map[String,String])
 	var adjustedY=0
 		// The row of VisualObjects adds to this value
 	var accumulatedX=0	
-	var startColumnX=0
 //----------------------------(used in KeyListenerObject)-----------
 	
 	def getLimit=limit    // KeyListenerObject restrict number input characters.
@@ -97,8 +96,10 @@ case class BoxField(var symbolTable:Map[String,String])
 
 //-------------------------------------------------------------------
 
+			// RowerNode.column * DefaultFont.defaultPixelLetter()
+	var startColumnX=0
+
 	def startBoxField(rowPosition:RowPosition, startColumn:Int) {
-		startColumnX=startColumn
 			// Line row may have multiple VisualObjects so prior text 
 			// width is added for each VisualObject.
 		accumulatedX=rowPosition.currentPixelWidth

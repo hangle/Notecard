@@ -1,0 +1,30 @@
+ RowerNode.scala parameter 'column'. 
+	if 'column' is not zero, than 1 is substracted.
+
+		Row Position
+	.nc file	.struct file 
+		column value        row value
+c	show/lines1
+d 10/3/third row	10		2
+d 5/forth row		5		3
+d 2/fifth row		2		4
+d 1/six row		1		5
+d seventh row		1		6
+* end
+
+c	show/linesColumn
+d a			0		0
+d 1/b			1		1
+d 2/c			2		2
+d 3/d			3		3
+d 4/f			4		4
+d 5/g			5		5	
+d 6/h			6		6	
+d 7/i			7		7
+d 8/j			8		8	
+d 9/k			9		9
+d 10/l			10		10
+
+c	show/column1Row1
+d 1/1/column 1 row 1	1		0
+d next line		1		1

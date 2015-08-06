@@ -68,7 +68,6 @@ symbolTable holds $<variables>		def setId
 				Visual
 					def render
 				VisualMetric
-					var metrics%CardSet
 					def establishMetrics
 					def visualObjectHeight()
 					dev visualObjectWidth()
@@ -89,11 +88,12 @@ symbolTable holds $<variables>		def setId
 			}
 
 //-------------------------------------------------------------------
-			// Assigned by RowerNode.maxJeogjtValueOfVisualObject
-			// RowPosition.priorYFromTop+2
+				// Assigned by RowerNode.maxJeogjtValueOfVisualObject
+				// RowPosition.priorYFromTop+2
 	var adjustedY=0
 				// The row of VisualObjects adds to this value
 	var accumulatedX=0
+				// RowerNode.column * DefaultFont.defaultPixelLetter()
 	var startColumnX=0
 
 	var symbolTableText=""
