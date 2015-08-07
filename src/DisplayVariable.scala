@@ -100,7 +100,9 @@ symbolTable holds $<variables>		def setId
 		//invoked by RowerNode which has the row position
 		//as well as the starting column position.
 	def startDisplayVariable(rowPosition:RowPosition, startColumn:Int) {
-
+				// RowerNode.startColumnX= (column) * defaultFont.defaultPixelLetter()
+				// for example:  'd 10/text begins column 10' where RowNode.column=10
+		startColumnX=startColumn
 				// computes the metric width of the text string so as
 				//extract $<variable> value
 		symbolTableText=convertVariableToText(dollarVariable)

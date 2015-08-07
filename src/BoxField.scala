@@ -100,10 +100,12 @@ case class BoxField(var symbolTable:Map[String,String])
 	var startColumnX=0
 
 	def startBoxField(rowPosition:RowPosition, startColumn:Int) {
+			// RowerNode.startColumnX= (column) * defaultFont.defaultPixelLetter()
+			// for example:  'd 10/text begins column 10' where RowNode.column=10
+		startColumnX=startColumn
 			// Line row may have multiple VisualObjects so prior text 
 			// width is added for each VisualObject.
 		accumulatedX=rowPosition.currentPixelWidth
-
 			// computes the metric width of the text string so as
 			// to adjust row position for next display component
 		rowPosition.sumToCurrentWidth(length * visualObjectWidth("m"))
@@ -119,7 +121,6 @@ case class BoxField(var symbolTable:Map[String,String])
 					length * visualObjectWidth("m"), 
 					visualObjectHeight());
 		}
-
 				// record captured response
 	def addFieldToSymbolTable {
 		symbolTable += (field -> getInput)

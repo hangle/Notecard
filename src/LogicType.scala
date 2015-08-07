@@ -64,7 +64,7 @@ object LogicType {
 		var leftValue=(left.tail).init   // remove parentheses
 		var rightValue=(right.tail).init
 		val (op,qualifiers)=getOperatorAndQualifier(operator)
-		println("LogicType:  op="+op+"   qualifiers="+qualifiers)
+		//println("LogicType:  op="+op+"   qualifiers="+qualifiers)
 				// Perform operation on left and right variables, returning
 				// true of false. Invoked by LogicTest.recurse()
 		def evaluate(table:mutable.Map[String,String]):Boolean={ // logicTest/ 

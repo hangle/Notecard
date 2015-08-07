@@ -236,7 +236,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 													backupMechanism)
 
 					}
-					else println("Notecard:  skip cs.noConditionOrIsTrue")
+					//else println("Notecard:  skip cs.noConditionOrIsTrue")
 					// FrameTask is an <asterisk> command that performs
 					// a notecard task, such as ending the card session.
 			case ft:NotecardTask=> //println("ft:NotecardTask") 
@@ -384,11 +384,9 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 			Session.initialNotecardState=false   
 					// In the event '* manage <filename>' command is not present but '*' button
 					// is activated, then invokde 'startFile.struct' internal file.
-				println( "Notecard: prior match")
 			manageNotecard match {
 					//'*' button activated without '* manage <filename>' command. 
 				case None=>
-				//	println("Notecard: None")
 							// since the 'xyzxxyzv' file does not exist, then the 'start' file is invoked.
 					val notecard=CommandNetwork.loadFileAndBuildNetwork( "xyzxxyzv", symbolTable)
 					switchToManagementOrStartFile (buttonSet, taskGather, notecard) 
@@ -397,7 +395,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// whose filename is an argument of NotecardTask (* manage <filename> ).
 					// see 'executeOneNotecardChild'-- 'case ft:NotecardTask'. 
 				case Some(notecard)=>
-				//	println("Notecard: Some(notecard)")
 					switchToManagementOrStartFile (buttonSet, taskGather, notecard) 
 			   	}
 				
@@ -413,7 +410,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					// be returned to the invoking function.  Since the current
 					// state is 'manageNotecard',then  the invoking function has to
 					// be Notecard, rather than 'card'. 
-				//println("Notecard: AsteriskException")
 				throw new AsteriskException
 				}
 		}
