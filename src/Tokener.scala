@@ -40,11 +40,17 @@ class Tokener {
 		var l=List[String]()
 		var flag=false
 		var buffer=new StringBuffer
-		println("Tokener:  extract():  expr="+expr)
+				//println("Tokener:  extract():  expr="+expr)
 		val expr2=LogicType.removeSpacesInString(expr)
+				//println("Tokener:  expr2="+expr2)
 		for(e <- expr2) {
 			if(isOperator(e)) {
-				l=buffer.toString :: l
+						//println("Tokener:  operator e="+e)
+					// Ensure element is valad, otherwise a specious blank element
+					// is stored in list
+				if(buffer.toString !="")
+						l=buffer.toString :: l
+							// println("Tokener: op buffer=|"+buffer.toString+"|")
 				l=e.toString :: l
 				buffer=new StringBuffer
 				}
@@ -53,11 +59,13 @@ class Tokener {
 					// preceded an parenthesis
 				if(  buffer.length != 0) {
 					l=buffer.toString :: l
-					buffer=new StringBuffer }
+							// println("Tokener: ( buffer=|"+buffer.toString+"|")
+					buffer=new StringBuffer 
+					}
 				l=e.toString :: l
 				}
 			else if(isNumber(e)) {
-				println("Tokener: isNumber  e="+e)
+						//println("Tokener: isNumber  e="+e)
 				buffer.append(e)
 				}
 			else if(isVariable(e)) {

@@ -74,9 +74,9 @@ case class Assigner(var symbolTable:Map[String,String]) extends Linker  {
 					source=retrieveValueFromSymbolTable(source, symbolTable)
 					addFieldToSymbolTable(target, source, symbolTable)
 					}
-				else 
-					//source is, e.g., (rate+2)/4^tax
+				else //source is, e.g., (rate+2)/4^tax
 					mathExpression(target,source, symbolTable)
+
 				false
 				}
 		}

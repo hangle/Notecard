@@ -67,7 +67,6 @@ package com.client
 import scala.collection.mutable.Map
 
 class Evaluator(var l:List[String], symbolTable:Map[String,String])  { 
-			//println("Evaluator instantiated")
 	var token=""
 	val variableRegex= """([$a-zA-Z_])""" .r
 
@@ -146,6 +145,10 @@ class Evaluator(var l:List[String], symbolTable:Map[String,String])  {
 		val value=token
 			// value having [a-zA-Z_] are variables
 		if(isVariable(value) ){
+			if(symbolTable.get(value)==None){
+				println("Assign cmd math $<variable>("+value+") is unknown")
+				throw new Exception
+				}
 			number=symbolTable(value)
 			}
 			else number=value
