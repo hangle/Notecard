@@ -46,6 +46,7 @@ object LogicTest  {
 			// Perform logic test of condition expression, e.g., '(1)=(1)'
 			// List[Logic] is provided by LogicType.
    	def logicTest(condition:String, symbolTable:mutable.Map[String,String]):Boolean= {
+	println("LogicText: here  condition="+condition)
 		val logicList=LogicType.logicTokener(condition)
 		recurse(logicList,symbolTable)
 		}

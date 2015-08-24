@@ -1,0 +1,211 @@
+%Notecard
+child	2002
+height	600
+width	400
+size	14
+name	TimesRoman
+style	0
+asteriskButton	on
+priorButton	on
+%%
+%CardSet
+address	2002
+child	2003
+sibling	2025
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2003
+child	2004
+sibling	2005
+row	2
+column	5
+%%
+%DisplayText
+address	2004
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The command:
+color	black
+%%
+%RowerNode
+address	2005
+child	2006
+sibling	2007
+row	3
+column	5
+%%
+%DisplayText
+address	2006
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2007
+child	2008
+sibling	2009
+row	4
+column	10
+%%
+%DisplayText
+address	2008
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	f nextFile ($g1)=(true) and ($g2)=(true)
+color	black
+%%
+%RowerNode
+address	2009
+child	2010
+sibling	2011
+row	5
+column	10
+%%
+%DisplayText
+address	2010
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2011
+child	2012
+sibling	2013
+row	6
+column	5
+%%
+%DisplayText
+address	2012
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	was executed.
+color	black
+%%
+%RowerNode
+address	2013
+child	2014
+sibling	2015
+row	7
+column	5
+%%
+%DisplayText
+address	2014
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2015
+child	2016
+sibling	2017
+row	8
+column	5
+%%
+%DisplayText
+address	2016
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2017
+child	2018
+sibling	2019
+row	9
+column	5
+%%
+%DisplayText
+address	2018
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	This is the first CardSet of the
+color	black
+%%
+%RowerNode
+address	2019
+child	2020
+sibling	2021
+row	10
+column	5
+%%
+%DisplayText
+address	2020
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	file 'nextFile'.  You have successfully
+color	black
+%%
+%RowerNode
+address	2021
+child	2022
+sibling	2023
+row	11
+column	5
+%%
+%DisplayText
+address	2022
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	answered questions to the State
+color	black
+%%
+%RowerNode
+address	2023
+child	2024
+sibling	0
+row	12
+column	5
+%%
+%DisplayText
+address	2024
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	capitals of Ohio and New York.
+color	black
+%%
+%NotecardTask
+address	2025
+sibling	0
+task	end
+type	0
+%%

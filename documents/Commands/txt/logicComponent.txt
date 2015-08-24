@@ -11,35 +11,39 @@ The following command types have a logic component.
 		Edit
 
 The outcome of the logic component determines whether or not the command is   
-executed.  An example a Clear command with a logic component and an associated   
+executed.  As example, a Clear command with a logic component and an associated   
 Display command is:  
 
 		c (1) = (2)  
 		d This display is never executed becase the Clear command always fails.  
 		c ...  
 
+When the logic of the Clear 'c' command fails, then the entire group CardSet commands   
+are skipped.  
+
 The logic component consists of the following elements:  
 
-		value/$(variable)  
+		value / $Variable  
 		relational operators  
 		logic operators  
 		qualifying tags  
 ___________________________________________________________________
 
-Value / $(Variable) elements  
+Value / $Variable elements  
 ________________________________________________________________________
+
 
 Logic values are, for example:   
 
 		22, male, flag, 3.14.  
 
-$(variable)s are, for example:    
+$Variables are, for example:    
 
 		$male and $xyz.  
 
-A Value or $(Variable) are enclosed in parentheses, for example:   
+A Value or $Variable are enclosed in parentheses, for example:   
 
-		(22), (male), (flag), (3.14), ($male), ($xyz)  
+		(22), (male), (flag), (3.14), ($male), ($xyz)  (east end)
 _____________________________________________________________________
 
 Relational operator
@@ -56,9 +60,10 @@ The relational operators are:
         <>       not equal
         n%       percentage match when n is a percentage value (see explanation below)
         m        match left-operand with right-operand list of items. (see explanation below)
+        !m       match left-operand with right-operand list of items. (see explanation below)
 </pre>
 
-The relational operator compares two Value/$(Variable) operands, for example:  
+The relational operator compares two operands (Value / $Variable), for example:  
 
 		($age) >= (21)
 _____________________________________________________________________
@@ -80,6 +85,7 @@ ________________________________________________________________________
 
 		nc      No case. Convert to lower case before relational operation.
 		ns      No spaces. Remove spaces before relational operation.
+		1s      Reduce consecutive spaces to one space.
 
 The following logic component with the 'nc' tag returns true:  
 
@@ -93,6 +99,16 @@ The following logic component with the 'nc' and 'ns' tags returns true:
 
 		(Columbus) = nc ns ( c olu m bus )  
 
+The following logic component with the '1s' tag returns true:
+
+		(now is the time) = 1s (now   is  the   time)
+
+The qualifying tags 'nc', 'nc', and '1s' when used in the Match 'm' statement   
+only affect the left operand. They are not applied to the list of string       
+elements in the right operand. However, the qualifying operations are   
+applied to $Variables in right operand as well as the left operand:
+
+		($one) m nc ns ($two $three $four)
 _____________________________________________________________________
 
 n % operator   
@@ -115,11 +131,13 @@ _____________________________________________________________________
 m operator   
 ________________________________________________________________________
 
-The m operator compares a Value or $(variable) to one or more values (i.e., list   
-of values and/or $<variables>).  For example, the following returns true because   
+The m operator compares a Value or $Variable to one or more values (i.e., list   
+of values and/or $Variables).  For example, the following returns true because   
 'west' is a member of the list of values.  
 
 		(west) m (north east west south)  
 
-The list of Values and/or $(Variables) is contained in the right operand.  
+The '!m' operator returns false when a match occurs.
+
+The list of Values and/or $Variables is contained in the right operand.  
 

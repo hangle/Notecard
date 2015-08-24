@@ -18,12 +18,16 @@ package com.client
 import collection.mutable
 
 object LogicType {
-		val relationRegex="""([<>=!M]+)([1nsc]+)?""" .r
-		val matchRegex=   """([0-9]+%)([1nsc]+)?""" .r
+		val relationRegex="""([<>=!]+)([1nsc]+)?""" .r
+		val gestaultRegex=   """([0-9]+%)([1nsc]+)?""" .r
+		val matchRegex=    """(m||!m)([1nsc]+)?""" .r
 		def getOperatorAndQualifier(s:String): (String,String)={
+		println("LogicType getOperatorAndQual... s="+s)
 			s match {
 				case relationRegex(a,b) => (a,b)
-				case matchRegex(a,b) =>    (a,b)
+				case gestaultRegex(a,b) =>    (a,b)
+				case matchRegex(a,b) => (a,b)
+				case _ => println("LogicType unknown op="+s); (s,null)
 				}
 		}
 			// from script.LogicSupport
@@ -61,26 +65,37 @@ object LogicType {
 		// the 'x' in Relationx avoids conflict with Relation a module
 		// that supported a obsolate logic testing
 	case class Relationx(left:String, operator:String, right:String) extends Logic {
+			//	println("LogicType:  instantiate Relationx")
 		var leftValue=(left.tail).init   // remove parentheses
+			//println("LogicType leftValue="+leftValue)
 		var rightValue=(right.tail).init
+			// println("LogicType rightValue="+rightValue)
 		val (op,qualifiers)=getOperatorAndQualifier(operator)
-		//println("LogicType:  op="+op+"   qualifiers="+qualifiers)
+		println("LogicType:  op="+op+"   qualifiers="+qualifiers)
 				// Perform operation on left and right variables, returning
 				// true of false. Invoked by LogicTest.recurse()
 		def evaluate(table:mutable.Map[String,String]):Boolean={ // logicTest/ 
+					//println("LogicType evaluate() ")
 				// Convert $<variable> to value
 			leftValue=variableToValue(leftValue, table)
-				// Convert $<variable> to value
-			rightValue=variableToValue(rightValue, table)
+				// Skip if match operator. Do table conversions later
+			if( ! op.contains("m"))
+						// Convert $<variable> to value
+					rightValue=variableToValue(rightValue, table)
 				// left and right values are converted to lower case letters
 				// (qualifier=nc), or spaces removed (qualifier=ns) or only 
 				// one space  retained(qualifier=1s)
+		println("LogicType: rightValue="+rightValue)
 			if(qualifiers != null){	
 				leftValue= qualifyValue(qualifiers, leftValue)
-				rightValue=qualifyValue(qualifiers, rightValue)
+					// match qualitifier not performed on list of right values
+				if( ! isMatchOperator(op))
+					rightValue=qualifyValue(qualifiers, rightValue)
+					//	println("LogicType=leftValue="+leftValue+"  rightValue="+rightValue)
 				}
 				// Indicate whether left and right values are both numbers
 			val bothAreNumbers=areNumbers(leftValue, rightValue)
+		   println("LogicType: op match {  op: "+op)
 		   op match {
 			case "=" =>
 				val xxx=if(leftValue==rightValue) true; else false
@@ -105,20 +120,50 @@ object LogicType {
 						// rating >= percent
 				Gestalt.testGestalt(percent, rightValue, leftValue)
 	 		case "m"  =>
-				matchMultipleStringsToTarget(leftValue, rightValue)
+				matchMultipleStringsToTarget(leftValue, rightValue, table)
+			case "!m" =>  // return true when match fails
+				if(matchMultipleStringsToTarget(leftValue, rightValue, table) ) false; else true
 			case _=>
 					false
 				}
 			}	
 			// 'leftValue' contains one or more space separated strings whereby
-			// each is compared to the 'rightValue'.
-		def	matchMultipleStringsToTarget(leftValue:String, rightValue:String):Boolean={
+			// each is compared to the 'rightValue'. 'true' returned when left
+			// operand matches any element in the right operand's list.
+		def	matchMultipleStringsToTarget(leftValue:String, 
+										 rightValue:String, 
+										 table:mutable.Map[String,String]):Boolean={
 				val array= rightValue.trim.split("[ \t]+")
-				if(array.contains(leftValue))
+				println("LogicType:  foreach:  "+array.foreach(println) )
+						// Right operand containing $<variable>s are translated to values
+				val array2= convertVariableToValue(array, table)
+				if(array2.contains(leftValue)){
+				 	println("LogicType: matgch Multiple true:")
 					true
-				 else
+					}
+				 else{
+				 	println("LogicType: matgch Multiple false:")
 				 	false
+					}
 				}
+				// 'm' match command right operand may contain 0 to n $<variable>s.
+		def convertVariableToValue( array:Array[String], 
+									table:mutable.Map[String,String]): Array[String]={
+			println("LogicType  convertVariableToValue...")
+			val buffer= new collection.mutable.ArrayBuffer[String]()
+			for(e <- array) {
+						// $<variable> to Value
+				if(e(0)=='$')
+					buffer+=variableToValue(e, table)
+				  else
+				  	buffer+= e
+				}	
+			buffer.toArray
+			}
+		def isMatchOperator(operator:String):Boolean={
+			if(operator=="m" || operator=="!m") true; else false
+			}
+
 			// In a relation, determine is both variables are
 			// numbers.
 		def areNumbers(leftValue:String, rightValue:String) : Boolean={
@@ -173,7 +218,9 @@ object LogicType {
 			//----------------------------------------------------
 	def logicTokener(condition:String) ={ //Invoked by: LogicTest.logicTest
 			// convert condition string to List[String]
+			println("LogicType: logicTokener():  condition="+condition)
 		val extracted= extract( List[String](),condition)
+				println("LogicType logicTokener extracted="+extracted)
 		combine(List[Logic](),extracted)
 		}
 		 // detects '(('
@@ -203,22 +250,26 @@ object LogicType {
 		// a time. 
 	def extract(l:List[String],expr:String): List[String] = { // recursive
 	   if(expr=="")
-		l.reverse  //List
+			l.reverse  //List
    	    else {
-		if( isDoubleParens(expr)) {    // two '('s indicate a push
-			val  paren=expr.take(1)
-			extract(paren :: l,expr.drop(1))
-			}
+			if( isDoubleParens(expr)) {    // two '('s indicate a push
+				val  paren=expr.take(1)
+				extract(paren :: l,expr.drop(1))
+				}
 				// substring to end of relation, extracting relation
+				// expr==(
 		else if(isOpenParens(expr)) { 
 			val index= expr.indexOf(")") +1
 			extract(expr.take(index)::l, expr.drop(index)  )  // remove relation expression
 			}
 				// detect operator, then substring to start of next relation
+				// expr== '=' or (<,>,!,a,o,m,n)
 		else if( isStartOfOperator(expr)) {
+					//println("LogicType:  extract()  isStartOfOperator.. expr="+expr)
 			val index=expr.indexOf("(")
 			extract(expr.take(index)::l, expr.drop(index)) // removed operator expression
 			}
+				// expr==)
 		else if( isCloseParens(expr)) {
 			extract(expr(0).toString :: l, expr.drop(1))
 			}
@@ -230,27 +281,34 @@ object LogicType {
 		// Combines Reletion elements of left, operator, and right values
 		// List( (,(abc),=,(efg),or,(xyz),=,(mng),) ) to:
 		// List( (,(abc)=(efg),or,(xyz)=(mng),)  )
+		// invoke by logicTokener()
 	def combine(ll:List[Logic],l:List[String]) : List[Logic]={
+		println("LogicType combine l="+l)
 		if(l.isEmpty) ll.reverse
     	   else {
-		val s=l.head
-		if(s.length==1 && isOpenParens(s)) {
-			combine(OpenParen():: ll, l.tail)
+				val s=l.head
+				println("LogicType: s="+s)
+				if(s.length==1 && isOpenParens(s)) {
+					combine(OpenParen():: ll, l.tail)
+					}
+				else if(s.length==1 && isCloseParens(s)  ) {
+				println("LogicType: isColseParens(s) s="+s)
+					combine(CloseParen() :: ll, l.tail)
+					}
+				else if(isOpenParens(s) ) {
+				println("LogicType: isOpenParens(s) s="+s)
+					combine(Relationx(l(0),l(1),l(2)) :: ll,  l.drop(3))
+					}
+				else if(isAndOrOperator(s) ) {
+				println("LogicType: isAndOr(s) s="+s)
+					combine(AndOr(s):: ll,  l.tail)
+					}		
+				else {
+					println("LogicType: unknown value="+s)
+					Nil
+					}
 			}
-		else if(s.length==1 && isCloseParens(s)  ) {
-			combine(CloseParen() :: ll, l.tail)
-			}
-		else if(isOpenParens(s) ) {
-			combine(Relationx(l(0),l(1),l(2)) :: ll,  l.drop(3))
-			}
-		else if(isAndOrOperator(s) ) {
-			combine(AndOr(s):: ll,  l.tail)
-			}		
-		else {
-			println("LogicType: unknown value="+s)
-			Nil
-			}
-		}
 	    }
 
 }
+
