@@ -22,7 +22,7 @@ object LogicType {
 		val gestaultRegex=   """([0-9]+%)([1nsc]+)?""" .r
 		val matchRegex=    """(m||!m)([1nsc]+)?""" .r
 		def getOperatorAndQualifier(s:String): (String,String)={
-		println("LogicType getOperatorAndQual... s="+s)
+				//println("LogicType getOperatorAndQual... s="+s)
 			s match {
 				case relationRegex(a,b) => (a,b)
 				case gestaultRegex(a,b) =>    (a,b)
@@ -79,64 +79,92 @@ object LogicType {
 				// Convert $<variable> to value
 			leftValue=variableToValue(leftValue, table)
 				// Skip if match operator. Do table conversions later
-			if( ! op.contains("m"))
+			if( ! isMatchOperator(op)) 
 						// Convert $<variable> to value
 					rightValue=variableToValue(rightValue, table)
 				// left and right values are converted to lower case letters
 				// (qualifier=nc), or spaces removed (qualifier=ns) or only 
 				// one space  retained(qualifier=1s)
-		println("LogicType: rightValue="+rightValue)
+				println("LogicType: rightValue="+rightValue)
 			if(qualifiers != null){	
 				leftValue= qualifyValue(qualifiers, leftValue)
-					// match qualitifier not performed on list of right values
+					// match 'm' qualitifier (nc,ns,1s) not performed on list of right values
 				if( ! isMatchOperator(op))
 					rightValue=qualifyValue(qualifiers, rightValue)
-					//	println("LogicType=leftValue="+leftValue+"  rightValue="+rightValue)
+				println("LogicType=leftValue="+leftValue+"  rightValue="+rightValue)
 				}
 				// Indicate whether left and right values are both numbers
 			val bothAreNumbers=areNumbers(leftValue, rightValue)
 		   println("LogicType: op match {  op: "+op)
-		   op match {
-			case "=" =>
-				val xxx=if(leftValue==rightValue) true; else false
-				xxx
-			case "<>" => 
-				if(leftValue != rightValue) true; else false
-				true
-			case "!=" =>
-				if(leftValue != rightValue) true; else false
-			case ">"  =>
-				Comparison.greaterThan(leftValue,rightValue, bothAreNumbers)
-			case ">=" =>
-				Comparison.greaterThanOrEqual(leftValue,rightValue,bothAreNumbers)
-			case "<"  =>
-
-				Comparison.lessThan(leftValue, rightValue, bothAreNumbers)
-			case "<=" => 
-				Comparison.lessThanOrEqual(leftValue,rightValue,bothAreNumbers)
-			case "%"  =>
-				val percent= operator.init  // drop % symbol
-						// Target to be matched to  is rightValue
-						// rating >= percent
+		   		// logic such as:  ($abc) 80% ($xyz)
+		   if(isPercentMatch(op)) {
+		   			// take number preceding "%"
+				val percent= extractPercentValue(operator)
+				println("LogicType: percent="+percent+"  right="+rightValue+"   left="+leftValue)
+					// ratio of letters in $abc to the number of matching letters
+					// in $xyz; return true if ratio >= 80%
 				Gestalt.testGestalt(percent, rightValue, leftValue)
-	 		case "m"  =>
-				matchMultipleStringsToTarget(leftValue, rightValue, table)
-			case "!m" =>  // return true when match fails
-				if(matchMultipleStringsToTarget(leftValue, rightValue, table) ) false; else true
-			case _=>
-					false
+		   		}
+			 else {
+				 op match {
+					case "=" =>
+						val xxx=if(leftValue==rightValue) true; else false
+						xxx
+					case "<>" => 
+						if(leftValue != rightValue) true; else false
+						true
+					case "!=" =>
+						if(leftValue != rightValue) true; else false
+					case ">"  =>
+						Comparison.greaterThan(leftValue,rightValue, bothAreNumbers)
+					case ">=" =>
+						Comparison.greaterThanOrEqual(leftValue,rightValue,bothAreNumbers)
+					case "<"  =>
+
+						Comparison.lessThan(leftValue, rightValue, bothAreNumbers)
+					case "<=" => 
+						Comparison.lessThanOrEqual(leftValue,rightValue,bothAreNumbers)
+					case "m"  =>
+						matchMultipleStringsToTarget(leftValue, rightValue, table, qualifiers)
+					case "!m" =>  // return true when match fails
+						if(matchMultipleStringsToTarget(leftValue, 
+														rightValue, 
+														table, 
+														qualifiers) ) false; else true
+					case _=>
+							println("LogicType Unknown operator="+op)
+							false
+						}
+					}
 				}
+			}	
+				// Find index of "%" then the preceding number.
+		def extractPercentValue(operator:String):String={
+			val index= operator.indexOf("%")
+			operator.take(index)
+			}
+				// op has % symbol
+		def isPercentMatch(operator:String):Boolean={
+			if(operator.contains("%")) true
+				else
+					false
 			}	
 			// 'leftValue' contains one or more space separated strings whereby
 			// each is compared to the 'rightValue'. 'true' returned when left
 			// operand matches any element in the right operand's list.
+			// example:   ($abc) m (north south east west) return "true' if $abc
+			// equals 'west', or any other listed string. 
 		def	matchMultipleStringsToTarget(leftValue:String, 
 										 rightValue:String, 
-										 table:mutable.Map[String,String]):Boolean={
+										 table:mutable.Map[String,String],
+										 qualifiers:String):Boolean={
 				val array= rightValue.trim.split("[ \t]+")
 				println("LogicType:  foreach:  "+array.foreach(println) )
 						// Right operand containing $<variable>s are translated to values
-				val array2= convertVariableToValue(array, table)
+				var array2= convertVariableToValue(array, table)
+				if (qualifiers !=null)
+							// Qualifiers (nc,ns,1l) are applied to $<variable>s.
+						array2= qualifyDollarValues(array, array2, qualifiers)
 				if(array2.contains(leftValue)){
 				 	println("LogicType: matgch Multiple true:")
 					true
@@ -159,6 +187,25 @@ object LogicType {
 				  	buffer+= e
 				}	
 			buffer.toArray
+			}
+				// Apply qualifiers (nc,ns,1s) to all $<variables>.
+				// Qualifiers are not applied to string values.
+				// Note, not called if qualifiers is null.
+		def qualifyDollarValues(array:Array[String], 
+								array2:Array[String],
+								qualifiers:String): Array[String]={
+			val array3= new Array[String](array.length)
+			for( index <- 0 until array.length ) {
+					if( array(index).take(1)=="$") {
+							println("LogicType  index="+index+"   array(index)="+ array(index)+"  array2(index)="+array2(index) )
+							array3(index)= qualifyValue(qualifiers, array2(index))
+							println("\t\tLogicType  index="+index+"   array3(index)="+ array3(index) )
+							}
+					  else
+					  		// String and not $<variable>
+					  	array3(index)=array(index)
+					}
+			array3
 			}
 		def isMatchOperator(operator:String):Boolean={
 			if(operator=="m" || operator=="!m") true; else false
@@ -202,7 +249,7 @@ object LogicType {
 				}
 			valueString
 			}
-		}
+		 
 	case class AndOr(val andOr:String) extends Logic {
 		override def toString="andOr="+andOr
 		def get=andOr
@@ -283,7 +330,7 @@ object LogicType {
 		// List( (,(abc)=(efg),or,(xyz)=(mng),)  )
 		// invoke by logicTokener()
 	def combine(ll:List[Logic],l:List[String]) : List[Logic]={
-		println("LogicType combine l="+l)
+				//println("LogicType combine l="+l)
 		if(l.isEmpty) ll.reverse
     	   else {
 				val s=l.head

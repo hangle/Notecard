@@ -1,0 +1,4638 @@
+%Notecard
+child	2002
+height	600
+width	400
+size	14
+name	TimesRoman
+style	0
+asteriskButton	on
+priorButton	on
+%%
+%CardSet
+address	2002
+child	2003
+sibling	2035
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2003
+child	2004
+sibling	2005
+row	2
+column	5
+%%
+%DisplayText
+address	2004
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Logic qualification allows unequal
+color	black
+%%
+%RowerNode
+address	2005
+child	2006
+sibling	2007
+row	3
+column	5
+%%
+%DisplayText
+address	2006
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	operands to match one another.
+color	black
+%%
+%RowerNode
+address	2007
+child	2008
+sibling	2009
+row	4
+column	5
+%%
+%DisplayText
+address	2008
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2009
+child	2010
+sibling	2011
+row	5
+column	5
+%%
+%DisplayText
+address	2010
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The tag 'nc' (no case), following the equal 
+color	black
+%%
+%RowerNode
+address	2011
+child	2012
+sibling	2013
+row	6
+column	5
+%%
+%DisplayText
+address	2012
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'=' operator, converts the two operands
+color	black
+%%
+%RowerNode
+address	2013
+child	2014
+sibling	2015
+row	7
+column	5
+%%
+%DisplayText
+address	2014
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	to lower case.
+color	black
+%%
+%RowerNode
+address	2015
+child	2016
+sibling	2017
+row	8
+column	5
+%%
+%DisplayText
+address	2016
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2017
+child	2018
+sibling	2019
+row	9
+column	10
+%%
+%DisplayText
+address	2018
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------Script------------
+color	black
+%%
+%RowerNode
+address	2019
+child	2020
+sibling	2021
+row	10
+column	10
+%%
+%DisplayText
+address	2020
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (ABC)=nc(aBc)
+color	black
+%%
+%RowerNode
+address	2021
+child	2022
+sibling	2023
+row	11
+column	10
+%%
+%DisplayText
+address	2022
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d ABC equals aBc
+color	black
+%%
+%RowerNode
+address	2023
+child	2024
+sibling	2025
+row	12
+column	10
+%%
+%DisplayText
+address	2024
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------
+color	black
+%%
+%RowerNode
+address	2025
+child	2026
+sibling	2027
+row	13
+column	10
+%%
+%DisplayText
+address	2026
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2027
+child	2028
+sibling	2029
+row	14
+column	5
+%%
+%DisplayText
+address	2028
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Next button will execute the above.
+color	black
+%%
+%CardSetTask
+address	2029
+sibling	2030
+task	continue
+type	0
+%%
+%RowerNode
+address	2030
+child	2031
+sibling	2032
+row	15
+column	5
+%%
+%DisplayText
+address	2031
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%GroupNode
+address	2032
+sibling	2033
+name		0
+condition	(ABC)=nc(aBc)
+post	0
+%%
+%RowerNode
+address	2033
+child	2034
+sibling	0
+row	16
+column	10
+%%
+%DisplayText
+address	2034
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ABC equals aBc
+color	black
+%%
+%CardSet
+address	2035
+child	2036
+sibling	2063
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2036
+child	2037
+sibling	2038
+row	2
+column	5
+%%
+%DisplayText
+address	2037
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	One operands is $<variable>.
+color	black
+%%
+%RowerNode
+address	2038
+child	2039
+sibling	2040
+row	3
+column	5
+%%
+%DisplayText
+address	2039
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The other is a string.
+color	black
+%%
+%RowerNode
+address	2040
+child	2041
+sibling	2042
+row	4
+column	5
+%%
+%DisplayText
+address	2041
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2042
+child	2043
+sibling	2044
+row	5
+column	10
+%%
+%DisplayText
+address	2043
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-----------Script-----------
+color	black
+%%
+%RowerNode
+address	2044
+child	2045
+sibling	2046
+row	6
+column	10
+%%
+%DisplayText
+address	2045
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $abc=ABC
+color	black
+%%
+%RowerNode
+address	2046
+child	2047
+sibling	2048
+row	7
+column	10
+%%
+%DisplayText
+address	2047
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g ($abc)=nc(aBc)
+color	black
+%%
+%RowerNode
+address	2048
+child	2049
+sibling	2050
+row	8
+column	10
+%%
+%DisplayText
+address	2049
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d ABC equals aBc
+color	black
+%%
+%RowerNode
+address	2050
+child	2051
+sibling	2052
+row	9
+column	10
+%%
+%DisplayText
+address	2051
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------
+color	black
+%%
+%RowerNode
+address	2052
+child	2053
+sibling	2054
+row	10
+column	10
+%%
+%DisplayText
+address	2053
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2054
+child	2055
+sibling	2056
+row	11
+column	5
+%%
+%DisplayText
+address	2055
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Next button will execute the above.
+color	black
+%%
+%CardSetTask
+address	2056
+sibling	2057
+task	continue
+type	0
+%%
+%RowerNode
+address	2057
+child	2058
+sibling	2059
+row	12
+column	5
+%%
+%DisplayText
+address	2058
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%AssignerNode
+address	2059
+sibling	2060
+target	$abc
+source	ABC
+special	simple
+condition	0
+%%
+%GroupNode
+address	2060
+sibling	2061
+name		0
+condition	($abc)=nc(aBc)
+post	0
+%%
+%RowerNode
+address	2061
+child	2062
+sibling	0
+row	13
+column	10
+%%
+%DisplayText
+address	2062
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ABC equals aBc
+color	black
+%%
+%CardSet
+address	2063
+child	2064
+sibling	2092
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2064
+child	2065
+sibling	2066
+row	2
+column	5
+%%
+%DisplayText
+address	2065
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Operands are $<variable>s.
+color	black
+%%
+%RowerNode
+address	2066
+child	2067
+sibling	2068
+row	3
+column	5
+%%
+%DisplayText
+address	2067
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2068
+child	2069
+sibling	2070
+row	4
+column	10
+%%
+%DisplayText
+address	2069
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-----------Script-----------
+color	black
+%%
+%RowerNode
+address	2070
+child	2071
+sibling	2072
+row	5
+column	10
+%%
+%DisplayText
+address	2071
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $abc=ABC
+color	black
+%%
+%RowerNode
+address	2072
+child	2073
+sibling	2074
+row	6
+column	10
+%%
+%DisplayText
+address	2073
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $xyz=aBc
+color	black
+%%
+%RowerNode
+address	2074
+child	2075
+sibling	2076
+row	7
+column	10
+%%
+%DisplayText
+address	2075
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g ($abc)=nc($xyz)
+color	black
+%%
+%RowerNode
+address	2076
+child	2077
+sibling	2078
+row	8
+column	10
+%%
+%DisplayText
+address	2077
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d ABC equals aBc
+color	black
+%%
+%RowerNode
+address	2078
+child	2079
+sibling	2080
+row	9
+column	10
+%%
+%DisplayText
+address	2079
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------
+color	black
+%%
+%RowerNode
+address	2080
+child	2081
+sibling	2082
+row	10
+column	10
+%%
+%DisplayText
+address	2081
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2082
+child	2083
+sibling	2084
+row	11
+column	5
+%%
+%DisplayText
+address	2083
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Next button will execute the above.
+color	black
+%%
+%CardSetTask
+address	2084
+sibling	2085
+task	continue
+type	0
+%%
+%RowerNode
+address	2085
+child	2086
+sibling	2087
+row	12
+column	5
+%%
+%DisplayText
+address	2086
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%AssignerNode
+address	2087
+sibling	2088
+target	$abc
+source	ABC
+special	simple
+condition	0
+%%
+%AssignerNode
+address	2088
+sibling	2089
+target	$xyz
+source	aBc
+special	simple
+condition	0
+%%
+%GroupNode
+address	2089
+sibling	2090
+name		0
+condition	($abc)=nc($xyz)
+post	0
+%%
+%RowerNode
+address	2090
+child	2091
+sibling	0
+row	13
+column	10
+%%
+%DisplayText
+address	2091
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ABC equals aBc
+color	black
+%%
+%CardSet
+address	2092
+child	2093
+sibling	2130
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2093
+child	2094
+sibling	2095
+row	2
+column	5
+%%
+%DisplayText
+address	2094
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Again the operands are $<variable>s.
+color	black
+%%
+%RowerNode
+address	2095
+child	2096
+sibling	2097
+row	3
+column	5
+%%
+%DisplayText
+address	2096
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	but the logic fails
+color	black
+%%
+%RowerNode
+address	2097
+child	2098
+sibling	2099
+row	4
+column	5
+%%
+%DisplayText
+address	2098
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2099
+child	2100
+sibling	2101
+row	5
+column	10
+%%
+%DisplayText
+address	2100
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-----------Script-----------
+color	black
+%%
+%RowerNode
+address	2101
+child	2102
+sibling	2103
+row	6
+column	10
+%%
+%DisplayText
+address	2102
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $abc=ABC
+color	black
+%%
+%RowerNode
+address	2103
+child	2104
+sibling	2105
+row	7
+column	10
+%%
+%DisplayText
+address	2104
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $xyz=aBx
+color	black
+%%
+%RowerNode
+address	2105
+child	2106
+sibling	2107
+row	8
+column	10
+%%
+%DisplayText
+address	2106
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g ($abc)=nc($xyz)
+color	black
+%%
+%RowerNode
+address	2107
+child	2108
+sibling	2109
+row	9
+column	10
+%%
+%DisplayText
+address	2108
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d ABC equals aBx
+color	black
+%%
+%RowerNode
+address	2109
+child	2110
+sibling	2111
+row	10
+column	10
+%%
+%DisplayText
+address	2110
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2111
+child	2112
+sibling	2113
+row	11
+column	10
+%%
+%DisplayText
+address	2112
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d ABC Not equal to aBx
+color	black
+%%
+%RowerNode
+address	2113
+child	2114
+sibling	2115
+row	12
+column	10
+%%
+%DisplayText
+address	2114
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------
+color	black
+%%
+%RowerNode
+address	2115
+child	2116
+sibling	2117
+row	13
+column	10
+%%
+%DisplayText
+address	2116
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2117
+child	2118
+sibling	2119
+row	14
+column	5
+%%
+%DisplayText
+address	2118
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Next button will execute the above.
+color	black
+%%
+%CardSetTask
+address	2119
+sibling	2120
+task	continue
+type	0
+%%
+%RowerNode
+address	2120
+child	2121
+sibling	2122
+row	15
+column	5
+%%
+%DisplayText
+address	2121
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%AssignerNode
+address	2122
+sibling	2123
+target	$abc
+source	ABC
+special	simple
+condition	0
+%%
+%AssignerNode
+address	2123
+sibling	2124
+target	$xyz
+source	aBx
+special	simple
+condition	0
+%%
+%GroupNode
+address	2124
+sibling	2125
+name		0
+condition	($abc)=nc($xyz)
+post	0
+%%
+%RowerNode
+address	2125
+child	2126
+sibling	2127
+row	16
+column	10
+%%
+%DisplayText
+address	2126
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ABC equals aBx
+color	black
+%%
+%GroupNode
+address	2127
+sibling	2128
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2128
+child	2129
+sibling	0
+row	17
+column	10
+%%
+%DisplayText
+address	2129
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ABC Not equal to aBx
+color	black
+%%
+%CardSet
+address	2130
+child	2131
+sibling	2157
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2131
+child	2132
+sibling	2133
+row	2
+column	5
+%%
+%DisplayText
+address	2132
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The tag 'ns' (no spaces), following the equal 
+color	black
+%%
+%RowerNode
+address	2133
+child	2134
+sibling	2135
+row	3
+column	5
+%%
+%DisplayText
+address	2134
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'=' operator, removes all spaces from the two 
+color	black
+%%
+%RowerNode
+address	2135
+child	2136
+sibling	2137
+row	4
+column	5
+%%
+%DisplayText
+address	2136
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	operands.
+color	black
+%%
+%RowerNode
+address	2137
+child	2138
+sibling	2139
+row	5
+column	5
+%%
+%DisplayText
+address	2138
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2139
+child	2140
+sibling	2141
+row	6
+column	10
+%%
+%DisplayText
+address	2140
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------Script------------
+color	black
+%%
+%RowerNode
+address	2141
+child	2142
+sibling	2143
+row	7
+column	10
+%%
+%DisplayText
+address	2142
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (a  b c)=ns( a    b    c)
+color	black
+%%
+%RowerNode
+address	2143
+child	2144
+sibling	2145
+row	8
+column	10
+%%
+%DisplayText
+address	2144
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d 'a  b c' equals ' a    b    c'
+color	black
+%%
+%RowerNode
+address	2145
+child	2146
+sibling	2147
+row	9
+column	10
+%%
+%DisplayText
+address	2146
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------
+color	black
+%%
+%RowerNode
+address	2147
+child	2148
+sibling	2149
+row	10
+column	10
+%%
+%DisplayText
+address	2148
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2149
+child	2150
+sibling	2151
+row	11
+column	5
+%%
+%DisplayText
+address	2150
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Next button will execute the above.
+color	black
+%%
+%CardSetTask
+address	2151
+sibling	2152
+task	continue
+type	0
+%%
+%RowerNode
+address	2152
+child	2153
+sibling	2154
+row	12
+column	5
+%%
+%DisplayText
+address	2153
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%GroupNode
+address	2154
+sibling	2155
+name		0
+condition	(a  b c)=ns( a    b    c)
+post	0
+%%
+%RowerNode
+address	2155
+child	2156
+sibling	0
+row	13
+column	10
+%%
+%DisplayText
+address	2156
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'a  b c' equals ' a    b    c'
+color	black
+%%
+%CardSet
+address	2157
+child	2158
+sibling	2185
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2158
+child	2159
+sibling	2160
+row	2
+column	5
+%%
+%DisplayText
+address	2159
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The right operand, with spaces,  is made a 
+color	black
+%%
+%RowerNode
+address	2160
+child	2161
+sibling	2162
+row	3
+column	5
+%%
+%DisplayText
+address	2161
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	$<variable>
+color	black
+%%
+%RowerNode
+address	2162
+child	2163
+sibling	2164
+row	4
+column	5
+%%
+%DisplayText
+address	2163
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2164
+child	2165
+sibling	2166
+row	5
+column	10
+%%
+%DisplayText
+address	2165
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------Script------------
+color	black
+%%
+%RowerNode
+address	2166
+child	2167
+sibling	2168
+row	6
+column	10
+%%
+%DisplayText
+address	2167
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $right= a    b    c
+color	black
+%%
+%RowerNode
+address	2168
+child	2169
+sibling	2170
+row	7
+column	10
+%%
+%DisplayText
+address	2169
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (a  b c)=ns($right)
+color	black
+%%
+%RowerNode
+address	2170
+child	2171
+sibling	2172
+row	8
+column	10
+%%
+%DisplayText
+address	2171
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d 'a  b c' equals ' a    b    c'
+color	black
+%%
+%RowerNode
+address	2172
+child	2173
+sibling	2174
+row	9
+column	10
+%%
+%DisplayText
+address	2173
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------
+color	black
+%%
+%RowerNode
+address	2174
+child	2175
+sibling	2176
+row	10
+column	10
+%%
+%DisplayText
+address	2175
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2176
+child	2177
+sibling	2178
+row	11
+column	5
+%%
+%DisplayText
+address	2177
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Next button will execute the above.
+color	black
+%%
+%CardSetTask
+address	2178
+sibling	2179
+task	continue
+type	0
+%%
+%RowerNode
+address	2179
+child	2180
+sibling	2181
+row	12
+column	5
+%%
+%DisplayText
+address	2180
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%AssignerNode
+address	2181
+sibling	2182
+target	$right
+source	 a    b    c
+special	simple
+condition	0
+%%
+%GroupNode
+address	2182
+sibling	2183
+name		0
+condition	(a  b c)=ns($right)
+post	0
+%%
+%RowerNode
+address	2183
+child	2184
+sibling	0
+row	13
+column	10
+%%
+%DisplayText
+address	2184
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'a  b c' equals ' a    b    c'
+color	black
+%%
+%CardSet
+address	2185
+child	2186
+sibling	2214
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2186
+child	2187
+sibling	2188
+row	2
+column	5
+%%
+%DisplayText
+address	2187
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Both operands are made  $<variable>s.
+color	black
+%%
+%RowerNode
+address	2188
+child	2189
+sibling	2190
+row	3
+column	5
+%%
+%DisplayText
+address	2189
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2190
+child	2191
+sibling	2192
+row	4
+column	10
+%%
+%DisplayText
+address	2191
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------Script------------
+color	black
+%%
+%RowerNode
+address	2192
+child	2193
+sibling	2194
+row	5
+column	10
+%%
+%DisplayText
+address	2193
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $left=a  b c
+color	black
+%%
+%RowerNode
+address	2194
+child	2195
+sibling	2196
+row	6
+column	10
+%%
+%DisplayText
+address	2195
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $right= a    b    c
+color	black
+%%
+%RowerNode
+address	2196
+child	2197
+sibling	2198
+row	7
+column	10
+%%
+%DisplayText
+address	2197
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g ($left)=ns($right)
+color	black
+%%
+%RowerNode
+address	2198
+child	2199
+sibling	2200
+row	8
+column	10
+%%
+%DisplayText
+address	2199
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d 'a  b c' equals ' a    b    c'
+color	black
+%%
+%RowerNode
+address	2200
+child	2201
+sibling	2202
+row	9
+column	10
+%%
+%DisplayText
+address	2201
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------
+color	black
+%%
+%RowerNode
+address	2202
+child	2203
+sibling	2204
+row	10
+column	10
+%%
+%DisplayText
+address	2203
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2204
+child	2205
+sibling	2206
+row	11
+column	5
+%%
+%DisplayText
+address	2205
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Next button will execute the above.
+color	black
+%%
+%CardSetTask
+address	2206
+sibling	2207
+task	continue
+type	0
+%%
+%RowerNode
+address	2207
+child	2208
+sibling	2209
+row	12
+column	5
+%%
+%DisplayText
+address	2208
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%AssignerNode
+address	2209
+sibling	2210
+target	$left
+source	a  b c
+special	simple
+condition	0
+%%
+%AssignerNode
+address	2210
+sibling	2211
+target	$right
+source	 a    b    c
+special	simple
+condition	0
+%%
+%GroupNode
+address	2211
+sibling	2212
+name		0
+condition	($left)=ns($right)
+post	0
+%%
+%RowerNode
+address	2212
+child	2213
+sibling	0
+row	13
+column	10
+%%
+%DisplayText
+address	2213
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'a  b c' equals ' a    b    c'
+color	black
+%%
+%CardSet
+address	2214
+child	2215
+sibling	2253
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2215
+child	2216
+sibling	2217
+row	2
+column	5
+%%
+%DisplayText
+address	2216
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Both operands are  $<variable>s but
+color	black
+%%
+%RowerNode
+address	2217
+child	2218
+sibling	2219
+row	3
+column	5
+%%
+%DisplayText
+address	2218
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	the logic is made to fail when 'c' becomes
+color	black
+%%
+%RowerNode
+address	2219
+child	2220
+sibling	2221
+row	4
+column	5
+%%
+%DisplayText
+address	2220
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'x'
+color	black
+%%
+%RowerNode
+address	2221
+child	2222
+sibling	2223
+row	5
+column	5
+%%
+%DisplayText
+address	2222
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2223
+child	2224
+sibling	2225
+row	6
+column	10
+%%
+%DisplayText
+address	2224
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------Script------------
+color	black
+%%
+%RowerNode
+address	2225
+child	2226
+sibling	2227
+row	7
+column	10
+%%
+%DisplayText
+address	2226
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $left=a  b c
+color	black
+%%
+%RowerNode
+address	2227
+child	2228
+sibling	2229
+row	8
+column	10
+%%
+%DisplayText
+address	2228
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $right= a    b    x
+color	black
+%%
+%RowerNode
+address	2229
+child	2230
+sibling	2231
+row	9
+column	10
+%%
+%DisplayText
+address	2230
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g ($left)=ns($right)
+color	black
+%%
+%RowerNode
+address	2231
+child	2232
+sibling	2233
+row	10
+column	10
+%%
+%DisplayText
+address	2232
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d 'a  b c' equals ' a    b    c'
+color	black
+%%
+%GroupNode
+address	2233
+sibling	2234
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2234
+child	2235
+sibling	2236
+row	11
+column	10
+%%
+%DisplayText
+address	2235
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d 'a  b c' Not equal to  ' a    b    x'
+color	black
+%%
+%RowerNode
+address	2236
+child	2237
+sibling	2238
+row	12
+column	10
+%%
+%DisplayText
+address	2237
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------
+color	black
+%%
+%RowerNode
+address	2238
+child	2239
+sibling	2240
+row	13
+column	10
+%%
+%DisplayText
+address	2239
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2240
+child	2241
+sibling	2242
+row	14
+column	5
+%%
+%DisplayText
+address	2241
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Next button will execute the above.
+color	black
+%%
+%CardSetTask
+address	2242
+sibling	2243
+task	continue
+type	0
+%%
+%RowerNode
+address	2243
+child	2244
+sibling	2245
+row	15
+column	5
+%%
+%DisplayText
+address	2244
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%AssignerNode
+address	2245
+sibling	2246
+target	$left
+source	a  b c
+special	simple
+condition	0
+%%
+%AssignerNode
+address	2246
+sibling	2247
+target	$right
+source	 a    b    x
+special	simple
+condition	0
+%%
+%GroupNode
+address	2247
+sibling	2248
+name		0
+condition	($left)=ns($right)
+post	0
+%%
+%RowerNode
+address	2248
+child	2249
+sibling	2250
+row	16
+column	10
+%%
+%DisplayText
+address	2249
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'a  b c' equals ' a    b    c'
+color	black
+%%
+%GroupNode
+address	2250
+sibling	2251
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2251
+child	2252
+sibling	0
+row	17
+column	10
+%%
+%DisplayText
+address	2252
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'a  b c' Not equal to  ' a    b    x'
+color	black
+%%
+%CardSet
+address	2253
+child	2254
+sibling	2280
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2254
+child	2255
+sibling	2256
+row	2
+column	5
+%%
+%DisplayText
+address	2255
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The tag '1s' (one space), following the equal 
+color	black
+%%
+%RowerNode
+address	2256
+child	2257
+sibling	2258
+row	3
+column	5
+%%
+%DisplayText
+address	2257
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'=' operator, reduces all consecutive spaces to
+color	black
+%%
+%RowerNode
+address	2258
+child	2259
+sibling	2260
+row	4
+column	5
+%%
+%DisplayText
+address	2259
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	one space.
+color	black
+%%
+%RowerNode
+address	2260
+child	2261
+sibling	2262
+row	5
+column	5
+%%
+%DisplayText
+address	2261
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2262
+child	2263
+sibling	2264
+row	6
+column	10
+%%
+%DisplayText
+address	2263
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------Script------------
+color	black
+%%
+%RowerNode
+address	2264
+child	2265
+sibling	2266
+row	7
+column	10
+%%
+%DisplayText
+address	2265
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (a  b c)=1s( a    b           c)
+color	black
+%%
+%RowerNode
+address	2266
+child	2267
+sibling	2268
+row	8
+column	10
+%%
+%DisplayText
+address	2267
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d 'a  b c' equals ' a    b           c'
+color	black
+%%
+%RowerNode
+address	2268
+child	2269
+sibling	2270
+row	9
+column	10
+%%
+%DisplayText
+address	2269
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------
+color	black
+%%
+%RowerNode
+address	2270
+child	2271
+sibling	2272
+row	10
+column	10
+%%
+%DisplayText
+address	2271
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2272
+child	2273
+sibling	2274
+row	11
+column	5
+%%
+%DisplayText
+address	2273
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Next button will execute the above.
+color	black
+%%
+%CardSetTask
+address	2274
+sibling	2275
+task	continue
+type	0
+%%
+%RowerNode
+address	2275
+child	2276
+sibling	2277
+row	12
+column	5
+%%
+%DisplayText
+address	2276
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%GroupNode
+address	2277
+sibling	2278
+name		0
+condition	(a  b c)=ns(a    b         c)
+post	0
+%%
+%RowerNode
+address	2278
+child	2279
+sibling	0
+row	13
+column	10
+%%
+%DisplayText
+address	2279
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'a  b c' equals ' a    b           c'
+color	black
+%%
+%CardSet
+address	2280
+child	2281
+sibling	2333
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2281
+child	2282
+sibling	2283
+row	0
+column	5
+%%
+%DisplayText
+address	2282
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The following illustrates the difference
+color	black
+%%
+%RowerNode
+address	2283
+child	2284
+sibling	2285
+row	1
+column	5
+%%
+%DisplayText
+address	2284
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	between the 'ns' and '1s' tags when a 
+color	black
+%%
+%RowerNode
+address	2285
+child	2286
+sibling	2287
+row	2
+column	5
+%%
+%DisplayText
+address	2286
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a space in missing in 'nowis'.
+color	black
+%%
+%RowerNode
+address	2287
+child	2288
+sibling	2289
+row	3
+column	5
+%%
+%DisplayText
+address	2288
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2289
+child	2290
+sibling	2291
+row	4
+column	10
+%%
+%DisplayText
+address	2290
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------Script------------
+color	black
+%%
+%RowerNode
+address	2291
+child	2292
+sibling	2293
+row	5
+column	10
+%%
+%DisplayText
+address	2292
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (nowis the time)=ns(now is the time)
+color	black
+%%
+%RowerNode
+address	2293
+child	2294
+sibling	2295
+row	6
+column	10
+%%
+%DisplayText
+address	2294
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d 'nowis the time' equals 'now is the time'
+color	black
+%%
+%RowerNode
+address	2295
+child	2296
+sibling	2297
+row	7
+column	10
+%%
+%DisplayText
+address	2296
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------
+color	black
+%%
+%RowerNode
+address	2297
+child	2298
+sibling	2299
+row	8
+column	5
+%%
+%DisplayText
+address	2298
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Next button will execute the above.
+color	black
+%%
+%CardSetTask
+address	2299
+sibling	2300
+task	continue
+type	0
+%%
+%RowerNode
+address	2300
+child	2301
+sibling	2302
+row	9
+column	5
+%%
+%DisplayText
+address	2301
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%GroupNode
+address	2302
+sibling	2303
+name		0
+condition	(nowis the time)=ns(now is the time)
+post	0
+%%
+%RowerNode
+address	2303
+child	2304
+sibling	2305
+row	10
+column	10
+%%
+%DisplayText
+address	2304
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'nowis the time' equals 'now is the time'
+color	black
+%%
+%CardSetTask
+address	2305
+sibling	2306
+task	continue
+type	0
+%%
+%RowerNode
+address	2306
+child	2307
+sibling	2308
+row	11
+column	10
+%%
+%DisplayText
+address	2307
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2308
+child	2309
+sibling	2310
+row	12
+column	10
+%%
+%DisplayText
+address	2309
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------Script------------
+color	black
+%%
+%RowerNode
+address	2310
+child	2311
+sibling	2312
+row	13
+column	10
+%%
+%DisplayText
+address	2311
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (nowis the time)=1s(now is the time)
+color	black
+%%
+%RowerNode
+address	2312
+child	2313
+sibling	2314
+row	14
+column	10
+%%
+%DisplayText
+address	2313
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d 'nowis the time' equals 'now is the time'
+color	black
+%%
+%RowerNode
+address	2314
+child	2315
+sibling	2316
+row	15
+column	10
+%%
+%DisplayText
+address	2315
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2316
+child	2317
+sibling	2318
+row	16
+column	10
+%%
+%DisplayText
+address	2317
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d 'nowis the time' Not equals 'now is the time'
+color	black
+%%
+%RowerNode
+address	2318
+child	2319
+sibling	2320
+row	17
+column	10
+%%
+%DisplayText
+address	2319
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------
+color	black
+%%
+%RowerNode
+address	2320
+child	2321
+sibling	2322
+row	18
+column	10
+%%
+%DisplayText
+address	2321
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2322
+child	2323
+sibling	2324
+row	19
+column	5
+%%
+%DisplayText
+address	2323
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Next button will execute the above.
+color	black
+%%
+%CardSetTask
+address	2324
+sibling	2325
+task	continue
+type	0
+%%
+%RowerNode
+address	2325
+child	2326
+sibling	2327
+row	20
+column	10
+%%
+%DisplayText
+address	2326
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%GroupNode
+address	2327
+sibling	2328
+name		0
+condition	(nowis the time)=1s(now is the time)
+post	0
+%%
+%RowerNode
+address	2328
+child	2329
+sibling	2330
+row	21
+column	10
+%%
+%DisplayText
+address	2329
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'nowis the time' equals 'now is the time'
+color	black
+%%
+%GroupNode
+address	2330
+sibling	2331
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2331
+child	2332
+sibling	0
+row	22
+column	10
+%%
+%DisplayText
+address	2332
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'nowis the time' Not equals 'now is the time'
+color	black
+%%
+%CardSet
+address	2333
+child	2334
+sibling	2358
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2334
+child	2335
+sibling	2336
+row	2
+column	5
+%%
+%DisplayText
+address	2335
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The tags 'nc' and 'ns' may be used jointly as
+color	black
+%%
+%RowerNode
+address	2336
+child	2337
+sibling	2338
+row	3
+column	5
+%%
+%DisplayText
+address	2337
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	well as the tags  'nc' and '1s'.
+color	black
+%%
+%RowerNode
+address	2338
+child	2339
+sibling	2340
+row	4
+column	5
+%%
+%DisplayText
+address	2339
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2340
+child	2341
+sibling	2342
+row	5
+column	10
+%%
+%DisplayText
+address	2341
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-----------Script--------------
+color	black
+%%
+%RowerNode
+address	2342
+child	2343
+sibling	2344
+row	6
+column	10
+%%
+%DisplayText
+address	2343
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (ABC)=ncns(a  B    c)
+color	black
+%%
+%RowerNode
+address	2344
+child	2345
+sibling	2346
+row	7
+column	10
+%%
+%DisplayText
+address	2345
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d 'ABC' equals 'a  B   c'
+color	black
+%%
+%RowerNode
+address	2346
+child	2347
+sibling	2348
+row	8
+column	10
+%%
+%DisplayText
+address	2347
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------
+color	black
+%%
+%RowerNode
+address	2348
+child	2349
+sibling	2350
+row	9
+column	10
+%%
+%DisplayText
+address	2349
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2350
+child	2351
+sibling	2352
+row	10
+column	5
+%%
+%DisplayText
+address	2351
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Next button will execute the above.
+color	black
+%%
+%CardSetTask
+address	2352
+sibling	2353
+task	continue
+type	0
+%%
+%RowerNode
+address	2353
+child	2354
+sibling	2355
+row	11
+column	5
+%%
+%DisplayText
+address	2354
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%GroupNode
+address	2355
+sibling	2356
+name		0
+condition	(ABC)=ncns(a  B    c)
+post	0
+%%
+%RowerNode
+address	2356
+child	2357
+sibling	0
+row	12
+column	10
+%%
+%DisplayText
+address	2357
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'ABC' equals 'a  B   c'
+color	black
+%%
+%CardSet
+address	2358
+child	2359
+sibling	2403
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2359
+child	2360
+sibling	2361
+row	2
+column	5
+%%
+%DisplayText
+address	2360
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The logic operator '%' allows a partial match
+color	black
+%%
+%RowerNode
+address	2361
+child	2362
+sibling	2363
+row	3
+column	5
+%%
+%DisplayText
+address	2362
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	to be successful, for example:
+color	black
+%%
+%RowerNode
+address	2363
+child	2364
+sibling	2365
+row	4
+column	5
+%%
+%DisplayText
+address	2364
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2365
+child	2366
+sibling	2367
+row	5
+column	10
+%%
+%DisplayText
+address	2366
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------Script-------------
+color	black
+%%
+%RowerNode
+address	2367
+child	2368
+sibling	2369
+row	6
+column	10
+%%
+%DisplayText
+address	2368
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $city=Philedelphia
+color	black
+%%
+%RowerNode
+address	2369
+child	2370
+sibling	2371
+row	7
+column	10
+%%
+%DisplayText
+address	2370
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g ($city) 80% (Philadelphia)
+color	black
+%%
+%RowerNode
+address	2371
+child	2372
+sibling	2373
+row	8
+column	10
+%%
+%DisplayText
+address	2372
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Match
+color	black
+%%
+%RowerNode
+address	2373
+child	2374
+sibling	2375
+row	9
+column	10
+%%
+%DisplayText
+address	2374
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2375
+child	2376
+sibling	2377
+row	10
+column	10
+%%
+%DisplayText
+address	2376
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d No Match
+color	black
+%%
+%RowerNode
+address	2377
+child	2378
+sibling	2379
+row	11
+column	10
+%%
+%DisplayText
+address	2378
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------
+color	black
+%%
+%AssignerNode
+address	2379
+sibling	2380
+target	$city
+source	Philedelphia
+special	simple
+condition	0
+%%
+%GroupNode
+address	2380
+sibling	2381
+name		0
+condition	($city)80%(Philadelphia)
+post	0
+%%
+%RowerNode
+address	2381
+child	2382
+sibling	2383
+row	12
+column	10
+%%
+%DisplayText
+address	2382
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Match (partial)
+color	black
+%%
+%GroupNode
+address	2383
+sibling	2384
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2384
+child	2385
+sibling	2386
+row	13
+column	10
+%%
+%DisplayText
+address	2385
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	No Match
+color	black
+%%
+%GroupNode
+address	2386
+sibling	2387
+name		0
+condition	0
+post	0
+%%
+%RowerNode
+address	2387
+child	2388
+sibling	2389
+row	14
+column	5
+%%
+%DisplayText
+address	2388
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2389
+child	2390
+sibling	2391
+row	15
+column	5
+%%
+%DisplayText
+address	2390
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2391
+child	2392
+sibling	2393
+row	16
+column	5
+%%
+%DisplayText
+address	2392
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	$city is misspelled.
+color	black
+%%
+%RowerNode
+address	2393
+child	2394
+sibling	2395
+row	17
+column	5
+%%
+%DisplayText
+address	2394
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2395
+child	2396
+sibling	2397
+row	18
+column	5
+%%
+%DisplayText
+address	2396
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Eleven letters out of 12 are the same.
+color	black
+%%
+%RowerNode
+address	2397
+child	2398
+sibling	2399
+row	19
+column	5
+%%
+%DisplayText
+address	2398
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Both operands match with respect to:
+color	black
+%%
+%RowerNode
+address	2399
+child	2400
+sibling	2401
+row	20
+column	10
+%%
+%DisplayText
+address	2400
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Phil  <and>  delphia  such 
+color	black
+%%
+%RowerNode
+address	2401
+child	2402
+sibling	0
+row	21
+column	10
+%%
+%DisplayText
+address	2402
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	that 11/12= 92.6% exceeds 80%.
+color	black
+%%
+%CardSet
+address	2403
+child	2404
+sibling	2450
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2404
+child	2405
+sibling	2406
+row	0
+column	5
+%%
+%DisplayText
+address	2405
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Assume $city was captured by:
+color	black
+%%
+%RowerNode
+address	2406
+child	2407
+sibling	2408
+row	1
+column	10
+%%
+%DisplayText
+address	2407
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Enter: (# $city)
+color	black
+%%
+%RowerNode
+address	2408
+child	2409
+sibling	2410
+row	2
+column	5
+%%
+%DisplayText
+address	2409
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The spelling mistake still occurred, but
+color	black
+%%
+%RowerNode
+address	2410
+child	2411
+sibling	2412
+row	3
+column	5
+%%
+%DisplayText
+address	2411
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	leading spaces were entered and 'p' was
+color	black
+%%
+%RowerNode
+address	2412
+child	2413
+sibling	2414
+row	4
+column	5
+%%
+%DisplayText
+address	2413
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	not capitalized.
+color	black
+%%
+%RowerNode
+address	2414
+child	2415
+sibling	2416
+row	5
+column	5
+%%
+%DisplayText
+address	2415
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2416
+child	2417
+sibling	2418
+row	6
+column	10
+%%
+%DisplayText
+address	2417
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------Script-------------
+color	black
+%%
+%RowerNode
+address	2418
+child	2419
+sibling	2420
+row	7
+column	10
+%%
+%DisplayText
+address	2419
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $city=   philedelphia
+color	black
+%%
+%RowerNode
+address	2420
+child	2421
+sibling	2422
+row	8
+column	10
+%%
+%DisplayText
+address	2421
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g ($city) 80% nc ns (Philadelphia)
+color	black
+%%
+%RowerNode
+address	2422
+child	2423
+sibling	2424
+row	9
+column	10
+%%
+%DisplayText
+address	2423
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Match (partial)
+color	black
+%%
+%RowerNode
+address	2424
+child	2425
+sibling	2426
+row	10
+column	10
+%%
+%DisplayText
+address	2425
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2426
+child	2427
+sibling	2428
+row	11
+column	10
+%%
+%DisplayText
+address	2427
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d No Match
+color	black
+%%
+%RowerNode
+address	2428
+child	2429
+sibling	2430
+row	12
+column	10
+%%
+%DisplayText
+address	2429
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------
+color	black
+%%
+%AssignerNode
+address	2430
+sibling	2431
+target	$city
+source	Philedelphia
+special	simple
+condition	0
+%%
+%GroupNode
+address	2431
+sibling	2432
+name		0
+condition	($city)80%ncns(Philadelphia)
+post	0
+%%
+%RowerNode
+address	2432
+child	2433
+sibling	2434
+row	13
+column	10
+%%
+%DisplayText
+address	2433
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Match (partial)
+color	black
+%%
+%GroupNode
+address	2434
+sibling	2435
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2435
+child	2436
+sibling	2437
+row	14
+column	10
+%%
+%DisplayText
+address	2436
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	No Match
+color	black
+%%
+%GroupNode
+address	2437
+sibling	2438
+name		0
+condition	0
+post	0
+%%
+%RowerNode
+address	2438
+child	2439
+sibling	2440
+row	15
+column	5
+%%
+%DisplayText
+address	2439
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2440
+child	2441
+sibling	2442
+row	16
+column	5
+%%
+%DisplayText
+address	2441
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2442
+child	2443
+sibling	2444
+row	17
+column	5
+%%
+%DisplayText
+address	2443
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	$city is misspelled.
+color	black
+%%
+%RowerNode
+address	2444
+child	2445
+sibling	2446
+row	18
+column	5
+%%
+%DisplayText
+address	2445
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2446
+child	2447
+sibling	2448
+row	19
+column	5
+%%
+%DisplayText
+address	2447
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Qualifier 'ns' removed leading spaces.
+color	black
+%%
+%RowerNode
+address	2448
+child	2449
+sibling	0
+row	20
+column	5
+%%
+%DisplayText
+address	2449
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Qualifier 'nc' changed 'P' to 'p'. 
+color	black
+%%
+%CardSet
+address	2450
+child	2451
+sibling	2495
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2451
+child	2452
+sibling	2453
+row	0
+column	5
+%%
+%DisplayText
+address	2452
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The Match 'm' operator applies a 
+color	black
+%%
+%RowerNode
+address	2453
+child	2454
+sibling	2455
+row	1
+column	5
+%%
+%DisplayText
+address	2454
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	single left-hand  value to a list 
+color	black
+%%
+%RowerNode
+address	2455
+child	2456
+sibling	2457
+row	2
+column	5
+%%
+%DisplayText
+address	2456
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	of right-hand values.
+color	black
+%%
+%RowerNode
+address	2457
+child	2458
+sibling	2459
+row	3
+column	10
+%%
+%DisplayText
+address	2458
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2459
+child	2460
+sibling	2461
+row	4
+column	10
+%%
+%DisplayText
+address	2460
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------Script-----------
+color	black
+%%
+%RowerNode
+address	2461
+child	2462
+sibling	2463
+row	5
+column	10
+%%
+%DisplayText
+address	2462
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $abc=west
+color	black
+%%
+%RowerNode
+address	2463
+child	2464
+sibling	2465
+row	6
+column	10
+%%
+%DisplayText
+address	2464
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g ($abc) m (north south east west)
+color	black
+%%
+%RowerNode
+address	2465
+child	2466
+sibling	2467
+row	7
+column	10
+%%
+%DisplayText
+address	2466
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------------------------
+color	black
+%%
+%RowerNode
+address	2467
+child	2468
+sibling	2469
+row	8
+column	5
+%%
+%DisplayText
+address	2468
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2469
+child	2470
+sibling	2471
+row	9
+column	5
+%%
+%DisplayText
+address	2470
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	In the case of a qualifier (nc ns 1s)
+color	black
+%%
+%RowerNode
+address	2471
+child	2472
+sibling	2473
+row	10
+column	5
+%%
+%DisplayText
+address	2472
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	conversion to, for example, (ns & nc)
+color	black
+%%
+%RowerNode
+address	2473
+child	2474
+sibling	2475
+row	11
+column	5
+%%
+%DisplayText
+address	2474
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	are applied only to $<variable> values
+color	black
+%%
+%RowerNode
+address	2475
+child	2476
+sibling	2477
+row	12
+column	5
+%%
+%DisplayText
+address	2476
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2477
+child	2478
+sibling	2479
+row	13
+column	10
+%%
+%DisplayText
+address	2478
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------Script----------------------
+color	black
+%%
+%RowerNode
+address	2479
+child	2480
+sibling	2481
+row	14
+column	10
+%%
+%DisplayText
+address	2480
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $abc= W es  t
+color	black
+%%
+%RowerNode
+address	2481
+child	2482
+sibling	2483
+row	15
+column	10
+%%
+%DisplayText
+address	2482
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g ($abc) m nc ns (north south east west)
+color	black
+%%
+%RowerNode
+address	2483
+child	2484
+sibling	2485
+row	16
+column	10
+%%
+%DisplayText
+address	2484
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------------
+color	black
+%%
+%RowerNode
+address	2485
+child	2486
+sibling	2487
+row	17
+column	10
+%%
+%DisplayText
+address	2486
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2487
+child	2488
+sibling	2489
+row	18
+column	10
+%%
+%DisplayText
+address	2488
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The contents of $abc matches "west" in
+color	black
+%%
+%RowerNode
+address	2489
+child	2490
+sibling	2491
+row	19
+column	10
+%%
+%DisplayText
+address	2490
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	spite of spaces and capitalization. 
+color	black
+%%
+%RowerNode
+address	2491
+child	2492
+sibling	2493
+row	20
+column	5
+%%
+%DisplayText
+address	2492
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2493
+child	2494
+sibling	0
+row	21
+column	5
+%%
+%DisplayText
+address	2494
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The next CardSet will test this arrangement.
+color	black
+%%
+%CardSet
+address	2495
+child	2496
+sibling	2521
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2496
+child	2497
+sibling	2498
+row	1
+column	5
+%%
+%DisplayText
+address	2497
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2498
+child	2499
+sibling	2500
+row	2
+column	5
+%%
+%DisplayText
+address	2499
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------Script-----------
+color	black
+%%
+%RowerNode
+address	2500
+child	2501
+sibling	2502
+row	3
+column	5
+%%
+%DisplayText
+address	2501
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $abc= W es  t
+color	black
+%%
+%RowerNode
+address	2502
+child	2503
+sibling	2504
+row	4
+column	5
+%%
+%DisplayText
+address	2503
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g ($abc) m nc ns (north south east west)
+color	black
+%%
+%RowerNode
+address	2504
+child	2505
+sibling	2506
+row	5
+column	5
+%%
+%DisplayText
+address	2505
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d $abc equals west
+color	black
+%%
+%RowerNode
+address	2506
+child	2507
+sibling	2508
+row	6
+column	5
+%%
+%DisplayText
+address	2507
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2508
+child	2509
+sibling	2510
+row	7
+column	5
+%%
+%DisplayText
+address	2509
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d $abc does Not equal west
+color	black
+%%
+%RowerNode
+address	2510
+child	2511
+sibling	2512
+row	8
+column	5
+%%
+%DisplayText
+address	2511
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------------------------
+color	black
+%%
+%RowerNode
+address	2512
+child	2513
+sibling	2514
+row	9
+column	5
+%%
+%DisplayText
+address	2513
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%AssignerNode
+address	2514
+sibling	2515
+target	$abc
+source	 W es  t
+special	simple
+condition	0
+%%
+%GroupNode
+address	2515
+sibling	2516
+name		0
+condition	($abc)mncns(north south east west)
+post	0
+%%
+%RowerNode
+address	2516
+child	2517
+sibling	2518
+row	10
+column	5
+%%
+%DisplayText
+address	2517
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	$abc equals west
+color	black
+%%
+%GroupNode
+address	2518
+sibling	2519
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2519
+child	2520
+sibling	0
+row	11
+column	5
+%%
+%DisplayText
+address	2520
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	$abc does Not equal west
+color	black
+%%
+%CardSet
+address	2521
+child	2522
+sibling	2556
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2522
+child	2523
+sibling	2524
+row	2
+column	5
+%%
+%DisplayText
+address	2523
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	$<variable>s in the left-hand list are
+color	black
+%%
+%RowerNode
+address	2524
+child	2525
+sibling	2526
+row	3
+column	5
+%%
+%DisplayText
+address	2525
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	also subjects to qualification of 
+color	black
+%%
+%RowerNode
+address	2526
+child	2527
+sibling	2528
+row	4
+column	5
+%%
+%DisplayText
+address	2527
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	no spaces, no capitalizaton and single
+color	black
+%%
+%RowerNode
+address	2528
+child	2529
+sibling	2530
+row	5
+column	5
+%%
+%DisplayText
+address	2529
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	space (1s).
+color	black
+%%
+%RowerNode
+address	2530
+child	2531
+sibling	2532
+row	6
+column	10
+%%
+%DisplayText
+address	2531
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 ------------Script----------------
+color	black
+%%
+%RowerNode
+address	2532
+child	2533
+sibling	2534
+row	7
+column	10
+%%
+%DisplayText
+address	2533
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $abc=   W es   T
+color	black
+%%
+%RowerNode
+address	2534
+child	2535
+sibling	2536
+row	8
+column	10
+%%
+%DisplayText
+address	2535
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a $west=w   ES  t  
+color	black
+%%
+%RowerNode
+address	2536
+child	2537
+sibling	2538
+row	9
+column	10
+%%
+%DisplayText
+address	2537
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g ($abc) m ns nc (north south east $west)
+color	black
+%%
+%RowerNode
+address	2538
+child	2539
+sibling	2540
+row	10
+column	10
+%%
+%DisplayText
+address	2539
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d $abc equals $west
+color	black
+%%
+%RowerNode
+address	2540
+child	2541
+sibling	2542
+row	11
+column	10
+%%
+%DisplayText
+address	2541
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2542
+child	2543
+sibling	2544
+row	12
+column	10
+%%
+%DisplayText
+address	2543
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d $abc Not equal to $west
+color	black
+%%
+%RowerNode
+address	2544
+child	2545
+sibling	2546
+row	13
+column	10
+%%
+%DisplayText
+address	2545
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	------------------------------------
+color	black
+%%
+%RowerNode
+address	2546
+child	2547
+sibling	2548
+row	14
+column	10
+%%
+%DisplayText
+address	2547
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%AssignerNode
+address	2548
+sibling	2549
+target	$abc
+source	   W es   T
+special	simple
+condition	0
+%%
+%AssignerNode
+address	2549
+sibling	2550
+target	$west
+source	w   ES  t  
+special	simple
+condition	0
+%%
+%GroupNode
+address	2550
+sibling	2551
+name		0
+condition	($abc)mnsnc(north south east $west)
+post	0
+%%
+%RowerNode
+address	2551
+child	2552
+sibling	2553
+row	15
+column	10
+%%
+%DisplayText
+address	2552
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	$abc equals $west
+color	black
+%%
+%GroupNode
+address	2553
+sibling	2554
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2554
+child	2555
+sibling	0
+row	16
+column	10
+%%
+%DisplayText
+address	2555
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	$abc Not equal to $west
+color	black
+%%
+%NotecardTask
+address	2556
+sibling	0
+task	end
+type	0
+%%
