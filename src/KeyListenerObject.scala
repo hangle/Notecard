@@ -43,10 +43,11 @@ class KeyListenerObject(boxField:BoxField,
 			// to '1'
 		if(boxField.isYesNoMode) {   //BoxField.column ==1
 				// Record 'y' or 'n' if valuation succeeds
-			if(evaluateYesNoEntry(key))
+			if(evaluateYesNoEntry(key)){
 						// switches focus to next component if all fields have
 						// not been captured.
 					inputFocus.actWhenAllFieldsCaptured
+					}
 			}
 		  else if(boxField.isMultipleChoice) {  //BoxField.options > 0
 			// Validates that response is numeric and that response does
@@ -76,10 +77,11 @@ class KeyListenerObject(boxField:BoxField,
 		  else if(isInputLengthEqualToLimit(key, limit)) //true if count = limit
 						// Store input if Edit is on and is successful or
 						// store input if edit if off
-			if(captureInputResponse)	//fails if Edit fails
+			if(captureInputResponse){	//fails if Edit fails
 						// inputFocus counts number response required
 						// Releases CardSet wait() when count achieved
 				inputFocus.actWhenAllFieldsCaptured
+				}
 		}
 		// Invoked when number chars limit reached, or ENTER key detected.
 		// Store BoxField response in symbol table and return 'true', unless

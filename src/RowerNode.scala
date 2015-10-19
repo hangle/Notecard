@@ -61,7 +61,6 @@ case class RowerNode(var symbolTable:Map[String,String]) extends  Linker {
 			) {
 				// The 'column' value of 5, for example, 'd 5/text', specifies that 'text' begins in column 5. 
 		val startColumnX= (column) * defaultFont.defaultPixelLetter()
-//		println("RowerNode startColumnX="+startColumnX+" column="+column+"  defaultLetter="+defaultFont.defaultPixelLetter() )
 				// Used to access 'row' and 'DefaultFont.defaultHeight()'.
 				// RowPosition adjust line height either by incrementing the row by 1 or by values greater
 				// than 1 or less than 1, for example:

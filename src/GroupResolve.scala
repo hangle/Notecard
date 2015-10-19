@@ -64,14 +64,11 @@ class GroupResolve()   {
 		groupNode.whatKind match {
 					// condition only 
 			case ThenNode=>	
-	println("GroupResolve: here")
 				if(groupNode.isConditionTrue) {
-					//println("GroupResolve:  thenTrue is true and do returned")	
 					thenTrue=true  // case ElseNode=> will return 'skip'
 					"do"
 					}
 				 else {
-					//println("GroupResolve:  thenTrue is fasle and skip is returned")	
 					thenTrue=false
 					"skip"
 					}
@@ -93,8 +90,6 @@ class GroupResolve()   {
 						"skip"
 
 			case EmptyNode=>  // no else and no condition
-					//println("GroupResolve:  case EmptyNode=> done")
-					//println("GroupResolve:  case EmptyNode=> done")
 					"done"
 			case _=> println("\t\tGroupResolve: unknown match value="+groupNode.whatKind)
 			}

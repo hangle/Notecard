@@ -67,13 +67,12 @@ with the CardSet seeking the answer: Columbus.  </p>
 '+Add' button skips the AddCardSets and is presented with the <br />
 New York question.   </p>
 
-<p>The user activating the Add button twice is presented the first <br />
-and second AddCardSets. The +Add button remains enabled. When <br />
-activated again, then the associated CardSet is re-executed.  </p>
+<p>In the case of multiple AddCardSets associated with a particular <br />
+CardSet, the '+' Add button of the last AddCardSet terminates the <br />
+series and re-presents the associated CardSet.  Thus, the user, <br />
+equipped with the addition information of the AddCardSets, is <br />
+given the opportunity to respond appropriately to the question.     </p>
 
-<p>Thus, the user, equipped with the addition information of the <br />
-AddCardSets, is given the opportunity to respond appropriately <br />
-to the question.   </p>
-
-<p>In a series of AddCardSet, activation of the Next button returns <br />
-the user to the associated CardSet.  </p>
+<p>In a series of AddCardSet, the series is terminated at any <br />
+point by the activation of the Next button. Again, the user <br />
+is returned to the associated CardSet.  </p>

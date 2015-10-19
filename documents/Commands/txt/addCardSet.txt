@@ -65,13 +65,12 @@ The user who answers the Ohio question and does not activate the
 '+Add' button skips the AddCardSets and is presented with the   
 New York question.   
 
-The user activating the Add button twice is presented the first    
-and second AddCardSets. The +Add button remains enabled. When    
-activated again, then the associated CardSet is re-executed.  
+In the case of multiple AddCardSets associated with a particular  
+CardSet, the '+' Add button of the last AddCardSet terminates the  
+series and re-presents the associated CardSet.  Thus, the user,   
+equipped with the addition information of the AddCardSets, is   
+given the opportunity to respond appropriately to the question.     
 
-Thus, the user, equipped with the addition information of the   
-AddCardSets, is given the opportunity to respond appropriately   
-to the question.   
-
-In a series of AddCardSet, activation of the Next button returns  
-the user to the associated CardSet.  
+In a series of AddCardSet, the series is terminated at any    
+point by the activation of the Next button. Again, the user    
+is returned to the associated CardSet.  

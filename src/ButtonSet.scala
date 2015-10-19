@@ -169,7 +169,7 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		addButton.setBackground(Color.YELLOW)
 		//println("ButtonSet   armAddButton set Yellow")
 		}
-
+		// Activation of any button invokes start().
 		//card commands halted by 'wait' in
 		// CardSet. 'Next' button action 
 		// terminates the wait condition.

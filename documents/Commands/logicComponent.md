@@ -1,6 +1,6 @@
 <h1>Logic Component</h1>
 
-<p>The following command types have a logic component.  </p>
+<p>The following command types have a logic component.</p>
 
 <pre><code>    Clear
     Group
@@ -19,14 +19,15 @@ Display command is:  </p>
 </code></pre>
 
 <p>When the logic of the Clear 'c' command fails, then the entire group CardSet commands <br />
-are skipped.  </p>
+is skipped (the 'd' command is an element of the CardSet, whereby the 'c' command <br />
+begins the CardSet). </p>
 
 <p>The logic component consists of the following elements:  </p>
 
 <pre><code>    value / $Variable  
-    relational operators  
-    logic operators  
-    qualifying tags
+    logic operators (e.g., &gt; )  
+    relational operators (and &amp; or)
+    qualifying tags  (ns nc 1s)
 </code></pre>
 
 <hr />
@@ -138,15 +139,15 @@ applied to $Variables in right operand as well as the left operand:</p>
 
 <p>Measures the similarity of two strings. Two identical strings measure 100%. Two <br />
 strings that are closely similar have a higher score than two completely dissimilar <br />
-strings which measure 0%.  The two strings “philadelphia” and “philedelphia” are <br />
-not identical but are similar in that both contain “phil” and “delphia”. There is <br />
+strings which measure 0%.  The two strings 'philadelphia' and 'philedelphia' are <br />
+not identical but are similar in that both contain 'phil' and 'delphia'. There is <br />
 a 11 to 12 letter match, yielding a value of 91%. The following logic component <br />
 would return a true outcome because 91% match exceeds 80%:  </p>
 
 <pre><code>    (philadelphia) 80% (philedelphia)
 </code></pre>
 
-<p>In an application, use of the N % operator allows partial credit  for a typing <br />
+<p>In an application, use of the Number % operator allows partial credit  for a typing <br />
 or misspelling mistake.   </p>
 
 <hr />
@@ -155,7 +156,7 @@ or misspelling mistake.   </p>
 
 <hr />
 
-<p>The m operator compares a Value or $Variable to one or more values (i.e., list <br />
+<p>The 'm' operator compares a Value or $Variable to one or more values (i.e., list <br />
 of values and/or $Variables).  For example, the following returns true because <br />
 'west' is a member of the list of values.  </p>
 
@@ -164,4 +165,10 @@ of values and/or $Variables).  For example, the following returns true because <
 
 <p>The '!m' operator returns false when a match occurs.</p>
 
-<p>The list of Values and/or $Variables is contained in the right operand.  </p>
+<p>The $Variable may be elements of the left and right operands, for example:   </p>
+
+<pre><code>    ($abc) m (north east west south $otherDirection)
+</code></pre>
+
+<p>As mentioned above, the qualifying tags (nc ns 1s) only apply to the contens of <br />
+the $Variable.    </p>

@@ -59,6 +59,10 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			convertToChild(swizzleTable)  // Is a parent
 			}
 //-------------------------------------------------------------------
+		// 'isContinue' in CardSetTask is 'true' when task is '* continue' command which causes
+		// 'continueFlag' to be set 'true' in 'executeOneCardSetChild()'
+	var continueFlag=false
+
 	var groupResolve:GroupResolve=new GroupResolve  
 
 	def isAddCardSet= button > 1 //AddCardSets have button values of 2 or 99
@@ -76,7 +80,7 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// Assign Linker.next to 'backup'. The next time
 			// CardSet is executed, 'backup' holds the pointer
 			// to the prior Card.  Used to capture one or more input fields.
-		val inputFocus= new InputFocus(buttonSet, backupMechanism ) 
+		val inputFocus= new InputFocus(buttonSet, backupMechanism, addCardSetFlags ) 
 			// Passed to InputFocus and added to by RowerNode each time a (# $<variable>)
 			// is encountered. A BoxField is created for each '(# $<variable>) ./
 		val listenerArray= new ArrayBuffer[KeyListenerObject]
@@ -85,9 +89,8 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// values to RowPosition.  These value are converted to pixels.  When the
 			// "next" row is to be displayed, RowPosition.currentPosition becomes
 			// the 'y' value for 'java.awt.Component.setBounds(x,y,width, height)'
-//		val rowPosition= new RowPosition(defaultFont) 
-		//val rowPosition= new RowPosition(defaultFont) 
 		val rowPosition= new RowPosition 
+
 			// prior CardSet set may have posted a status message so remove for new CardSet.
 		statusLine.clearStatusLine 
 			// Iterate CardSet commands then display	
@@ -103,13 +106,14 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 				// 1st child has no sibling to backup to
 				// also coded in InputFocus
 		if( ! backupMechanism.isFirstChild) {
-				// arm only after '* continue' abd 'x' commands have completed.
+				// arm only after '* continue' and 'x' commands have completed.
 			buttonSet.armPriorButton
 			}
 		else {
 			buttonSet.grayAndDisablePriorButton
 			}
-			// Execution of CardSet commands have ended. So arm Next button
+			// Execution of CardSet commands have ended. So arm Next button to exectue
+			// the next CardSet.
 		buttonSet.armNextButton	
 			// Give focus to Next button
 		buttonSet.next.requestFocus
@@ -117,6 +121,21 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			// these fields are given focus and are processed by InputFocus.
 		inputFocus.giveFocusToFirstInputField
 		showPanel(notePanel) // display panel content (paint, validate)
+				// parameter 'button' equals 1, indicating a CardSet that has
+				// an associating AddCardSet.
+		if(hasAddCardSet ){
+				// add arming is here in the event the CardSet contains preceding
+				// '* continue' commands.
+			//continueFlag=false
+			continueFlag=false
+				// 'firstInputActivated' is false when CardSet executes its commands.
+				// 1st response in InputField set value to 'true' so do not arm Add button
+				// when CardSet loops after XNode command has executed.
+			if( ! addCardSetFlags.firstInputActivated)
+				buttonSet.armAddButton
+			//println("CardSet: startCardSet() preceeds haltCommandExecution and in if(hasCardSet())  armAddButton") 
+			}
+
 			// Invoked by CardSet (2 places) just before 'haltCommandExecution'.
 			// Note: focus not requested when CardSet has no InputFields (counterInputFields==0)
 			// or when 'actWhenAllFieldsCaptured' set this value to 0.
@@ -208,7 +227,9 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 			case cst:CardSetTask =>
 						// * asterisk commands for '* status <msg>' and 
 						// '* continue'.
-				cst.startCardSetTask (inputFocus, statusLine, notePanel)
+				cst.startCardSetTask (inputFocus, statusLine, notePanel )
+						// when task is '* continue', then set 'continueFlag'= true.
+				continueFlag= cst.continueFlag
 			case gn:GroupNode=> 
 						// Determine whether to 'do' the enclosed commnds of the 
 						// Group command or to 'skip' these commands. 
@@ -239,25 +260,40 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 					//InputFocus.actWhenAllFieldsCaptured invoked/ 
 					// from enabling NEXT button
 				inputFocus.turnOnXNode  
+					// parameter 'button' equals 1, indicating a CardSet that has
+					// an associating AddCardSet.
+				if(hasAddCardSet)
+						// add arming is here in the event the CardSet contains preceding
+						// '* continue' commands.
+					buttonSet.armAddButton
 					// issue lock.wait(). When released, control returns to 
 					// 'iterateCardSetChildren' to process remaining CardSet children.
-					// Following release of the 'wait' state, 'selectedButton' determines
-					// if the '+Add' button was activated.  When '+Add' button returns the
-					// the CardSet with dependent AddCardSets, the 'selectedButton' will
-					// hold "+" and needs clearing, otherwise, 'AddButtonException is thrown.
 				haltCommandExecution(lock) // issue lock.wait()
-					// Execute group when the '+Add' button is activated and when the CardSet
-					// has dependent AddCardSet(s). 
-				if(buttonSet.selectedButton == "+" && addCardSetFlags.hasDependentAdd ){
-					addCardSetFlags.hasDependentAdd=false
+				if(hasAddCardSet){
+					buttonSet.grayAndDisableAddButton
+					//println("CardSet: xn:Xnode=>  following halt: in if(hasAddCardSet) group:  grayAndDisableAddButton")
+					}	
+					// Two events release the halt command:
+					//		1. Next button
+					//		2. +Add button
+					// Next button causes the next CardSet command to execute.
+					// 'selectedButton' equals '+' indicates that the  +AddButton was activated and
+					//    causes an 'AddButtonException' to be thrown that is caught by Notecard.
+					//    Also 'activatedAddButton' is set true. 
+					// 
+				if(buttonSet.selectedButton == "+" && addCardSetFlags.createAddBackup ){
+							// Notecard detects CardSet with dependent AddCardSets so it sets
+							// this variable to 'true', therefore re-initialize it. 
+					addCardSetFlags.createAddBackup=false
 							// Clear window of the current CardSet.
 					clearNotePanel(notePanel)	
 							// '+Add' button was activated in CardSet with a dependent
 							// AddCardSet.
 					addCardSetFlags.activatedAddButton=true
 							// This exception is caught in 'Notecard.iterateNotecardChildren'
-							// The current CardSet with dependent AddCardSet(s) is terminated,
+							// The current CardSet is terminated,
 							// and its first AddCardSet begins execution
+					//println("CardSet:  throw new AddButtonException")
 					throw new AddButtonException
 					}
 			case _=> println("\tCardSet: unknown CardSetChild obj="+obj)	
@@ -381,10 +417,10 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 		//gNode
 		}
 //---------------------------------------------------------------------
-		// used startCardSet(): No input fields
-		// used startCardSet(): Input fields-- focus to 1st field
-		// used executeCardSetChildren(): case xn: Xnode=>
-		// used executeOneCardSetChild(): case xn: Xnode=>
+		// used in startCardSet(): No input fields
+		// used in startCardSet(): Input fields-- focus to 1st field
+		// used in executeCardSetChildren(): case xn: Xnode=>
+		// used in executeOneCardSetChild(): case xn: Xnode=>
  	def showPanel(notePanel:JPanel) {
 			// JPanel extends JComponent having
 			// validate(), and repaint()

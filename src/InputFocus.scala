@@ -61,7 +61,11 @@ import javax.swing.JComponent
 import collection.mutable.ArrayBuffer
 			// ButtonSet used when when all inputs are captured so as to
 			// activate NEXT button and to release wait() in CardSet
-class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
+class InputFocus (  buttonSet:ButtonSet, 
+					backupMechanism:BackupMechanism,
+					addCardSetFlags:AddCardSetFlags) {
+			// Contains 'component' of BoxField detected by parent RowerNode
+			// which calls InputFocus.addToArray().
 	var components=new ArrayBuffer[JComponent] //JComponent can be BoxField
 			// Increment in  InputFocus.addToArray(...), however, RowerNode invokes
 			// this function `when BoxField object is detected.
@@ -86,7 +90,7 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 				// buttonSet.grayAndDisableNextAndPrior
 			buttonSet.grayAndDisableNextButton
 			buttonSet.grayAndDisablePriorButton
-	//		val component=components(0)
+
 			val component=components(arrayIndex)
 			component.requestFocus
 			}
@@ -106,11 +110,12 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 		// called by 'KeyListenerObject' each time a response is posted. 
 		// Function  determines if all input fields have been captured.
 	def actWhenAllFieldsCaptured  {  
+		buttonSet.grayAndDisableAddButton
+			// Indicated that InputField has been activated.
+		addCardSetFlags.firstInputActivated=true
 			// Count the number of times the 'Enter' key has been pressed in
 			// KeyListenerObject.
 		arrayIndex +=1  // JComponent index
-		//println("InputFocus:  arrayIndex="+arrayIndex+"  components.size="+components.size)
-				//	println("InputField: here arrayIndex="+arrayIndex)
 			// When true, than all inputs are accounted for.
 		if(arrayIndex == components.size) {
 					// XNode state treated differently because the processing of input
@@ -123,7 +128,6 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 				counterInputFields=0  
 					// Release CardSet to execute remaining CardSet commands.
 				buttonSet.start() // XNode releases wait()
-				//println("InputFocus:  start()")
 					}
 			  else{
 						// 1st child has no sibling to backup to
@@ -140,10 +144,6 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 			}
 		  else{
 					// Move cursor to next input field 
-				//println("InputFocus: actWhenAllFieldsCaptured arrayIndex!=size-- component.requestFocus")
-		//	if(arrayIndex+1 >=components.length)
-		//	  	println("ImputFocus:  ********* arrayIndex="+arrayIndex+" Greater<or>Equal components.length="+components.length+"********")
-		//	else
 	    	  components(arrayIndex).requestFocus
 			  }
 	}
@@ -155,7 +155,7 @@ class InputFocus ( buttonSet:ButtonSet, backupMechanism:BackupMechanism) {
 	def establishAsteriskContinue {
 			// enable button, get focus, color button orange
 		buttonSet.armNextButton 
-		//println("InputFocus: establishAsteriskContinue-- NextButton.requstFocus")
+			// Next button is given focus
 		buttonSet.next.requestFocus
 			// wait() invoked, button hit invokes 'notifyAll()'
 		buttonSet.issueWait

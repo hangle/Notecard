@@ -35,13 +35,19 @@ case class CardSetTask(var symbolTable:Map[String,String]) extends Node   {
 			convertToSibling(swizzleTable)
 			}
 //-------------------------------------------------------------------
+		// set 'true' when task is '* continue' commmand
+	var continueFlag=false
 								// Invoked by CardSet( FrameNodeTasl is child of CardSet)
-	def startCardSetTask( inputFocus:InputFocus, statusLine:StatusLine, notePanel:JPanel) {
+	def startCardSetTask( inputFocus:InputFocus, 
+							statusLine:StatusLine, 
+							notePanel:JPanel ) {
 		taskx match {
 			case "status" => 
 					statusLine.addMessageToStatusLine(typex)
 			case "continue"=>  
 					activateNextButtonForContinue(inputFocus, notePanel)
+					continueFlag=true
+							// used in CardSet
 			case _=> println("CardSetTask  unknown type="+ taskx)
 			}
 		}

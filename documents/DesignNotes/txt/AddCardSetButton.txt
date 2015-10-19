@@ -9,12 +9,69 @@ Two functions that control the AddCardSet button
 	1. armAddButton             --yellow highlight 
 	2. grayAndDisableAddButton  --grays button
 
-	armAddButton   --location
-		CardSet
-			startCardSet(...)
-				if(isAddCardSet &&  ! addCardSetFlag){
-						// color button yellow and enable it
-					buttonSet.armAddButton
-					}
-`
-	grayAndDisableAddButton    --location
+Script -without Input Field:
+
+	c
+	d CardSet with dependent Add
+	+
+	d AddCardSet
+	c
+	d CardSet no dependent Add
+	* end
+
+
+In the following:
+
+	c
+	d CardSet with dependent Add
+
+the AddButton is highlighted in:
+	CardSet. startCardSet...
+			if(hasAddCardSet ){
+					// add arming here in the event the CardSet contains
+					// a preceding '* continue' commands.
+				continueFlag=false
+				buttonSet.armAddButton
+				}
+			...
+			haltCommandExecution(lock)	
+
+	Notecard. doNextButton...
+			grayAndDisableAddButton
+
+Script -with Input Field:
+
+	c
+	d (# $one)
+	+
+	d AddCardSet
+	c
+	d CardSet no dependent Add
+	* end
+
+In the following:
+
+	c
+	d (# $one)
+
+the AddButton is highlighted in:
+
+	CardSet. startCardSet...
+			if(hasAddCardSet ){
+					// add arming here in the event the CardSet contains
+					// a preceding '* continue' commands.
+				continueFlag=false  // set true in CardSetTask
+				buttonSet.armAddButton
+				}
+			...
+			haltCommandExecution(lock)	
+
+When the $one Input Field is activated:
+
+	InputFocus.actWhenAllFieldsCaptured  {  
+			buttonSet.grayAndDisableAddButton
+			...
+
+
+
+

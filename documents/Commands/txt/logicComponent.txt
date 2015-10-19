@@ -2,7 +2,8 @@ Logic Component
 =============
 
 
-The following command types have a logic component.  
+The following command types have a logic component.
+  
 
 		Clear
 		Group
@@ -18,15 +19,16 @@ Display command is:
 		d This display is never executed becase the Clear command always fails.  
 		c ...  
 
-When the logic of the Clear 'c' command fails, then the entire group CardSet commands   
-are skipped.  
+When the logic of the Clear 'c' command fails, then the entire group CardSet commands     
+is skipped (the 'd' command is an element of the CardSet, whereby the 'c' command  
+begins the CardSet). 
 
 The logic component consists of the following elements:  
 
 		value / $Variable  
-		relational operators  
-		logic operators  
-		qualifying tags  
+		logic operators (e.g., > )  
+		relational operators (and & or)
+		qualifying tags  (ns nc 1s)
 ___________________________________________________________________
 
 Value / $Variable elements  
@@ -116,14 +118,14 @@ ________________________________________________________________________
 
 Measures the similarity of two strings. Two identical strings measure 100%. Two   
 strings that are closely similar have a higher score than two completely dissimilar   
-strings which measure 0%.  The two strings “philadelphia” and “philedelphia” are   
-not identical but are similar in that both contain “phil” and “delphia”. There is   
+strings which measure 0%.  The two strings 'philadelphia' and 'philedelphia' are   
+not identical but are similar in that both contain 'phil' and 'delphia'. There is   
 a 11 to 12 letter match, yielding a value of 91%. The following logic component   
 would return a true outcome because 91% match exceeds 80%:  
 
         (philadelphia) 80% (philedelphia)  
 
-In an application, use of the N % operator allows partial credit  for a typing   
+In an application, use of the Number % operator allows partial credit  for a typing   
 or misspelling mistake.   
 
 _____________________________________________________________________
@@ -131,7 +133,7 @@ _____________________________________________________________________
 m operator   
 ________________________________________________________________________
 
-The m operator compares a Value or $Variable to one or more values (i.e., list   
+The 'm' operator compares a Value or $Variable to one or more values (i.e., list   
 of values and/or $Variables).  For example, the following returns true because   
 'west' is a member of the list of values.  
 
@@ -139,5 +141,10 @@ of values and/or $Variables).  For example, the following returns true because
 
 The '!m' operator returns false when a match occurs.
 
-The list of Values and/or $Variables is contained in the right operand.  
+The $Variable may be elements of the left and right operands, for example:   
+
+		($abc) m (north east west south $otherDirection)  
+
+As mentioned above, the qualifying tags (nc ns 1s) only apply to the contens of   
+the $Variable.    
 

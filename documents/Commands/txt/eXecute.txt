@@ -33,4 +33,5 @@ practical application shows the value of the eXecute command:
 		d Wrong.  Columbus is the capital  
 		c  ...  
 
-
+The '* continue' command also halts the execution of the CardSet. The eXecute 'x'  
+command and the '* continue' cannot reside in the same CardSet.

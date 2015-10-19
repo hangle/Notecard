@@ -46,7 +46,6 @@ object LogicTest  {
 			// Perform logic test of condition expression, e.g., '(1)=(1)'
 			// List[Logic] is provided by LogicType.
    	def logicTest(condition:String, symbolTable:mutable.Map[String,String]):Boolean= {
-	println("LogicText: here  condition="+condition)
 		val logicList=LogicType.logicTokener(condition)
 		recurse(logicList,symbolTable)
 		}
@@ -76,12 +75,10 @@ object LogicTest  {
 				case r:Relationx=> 	// to evaluate
 					current=r.evaluate(symbolTable)
 					running=resolve(andOr, current, running)
-					//println("LogicTest: within getToken match   runnint="+running)
 				case a:AndOr=>		// to resolve
 					andOr=a.andOr
 				case o:OpenParen =>
 					popped=recurse(logicList, symbolTable)
-					//println("LogicTest: recursive():  popped="+popped)
 					running=resolve(andOr, popped, running)
 					flag=true // its off, so turn on to keep looping 
 				case g:CloseParen=>  	 // to pop
@@ -89,7 +86,6 @@ object LogicTest  {
 				case _=> println("test: unknown");false
 				}
 			}
-		//println("LogicTest: running="+running)
 		running   // on return, the value of 'running' is assigned to 'popped'
 		}
 			// And or Or comparison of prior relation outcome and current 

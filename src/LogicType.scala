@@ -22,7 +22,6 @@ object LogicType {
 		val gestaultRegex=   """([0-9]+%)([1nsc]+)?""" .r
 		val matchRegex=    """(m||!m)([1nsc]+)?""" .r
 		def getOperatorAndQualifier(s:String): (String,String)={
-				//println("LogicType getOperatorAndQual... s="+s)
 			s match {
 				case relationRegex(a,b) => (a,b)
 				case gestaultRegex(a,b) =>    (a,b)
@@ -65,17 +64,12 @@ object LogicType {
 		// the 'x' in Relationx avoids conflict with Relation a module
 		// that supported a obsolate logic testing
 	case class Relationx(left:String, operator:String, right:String) extends Logic {
-			//	println("LogicType:  instantiate Relationx")
 		var leftValue=(left.tail).init   // remove parentheses
-			//println("LogicType leftValue="+leftValue)
 		var rightValue=(right.tail).init
-			// println("LogicType rightValue="+rightValue)
 		val (op,qualifiers)=getOperatorAndQualifier(operator)
-		println("LogicType:  op="+op+"   qualifiers="+qualifiers)
 				// Perform operation on left and right variables, returning
 				// true of false. Invoked by LogicTest.recurse()
 		def evaluate(table:mutable.Map[String,String]):Boolean={ // logicTest/ 
-					//println("LogicType evaluate() ")
 				// Convert $<variable> to value
 			leftValue=variableToValue(leftValue, table)
 				// Skip if match operator. Do table conversions later
@@ -85,22 +79,18 @@ object LogicType {
 				// left and right values are converted to lower case letters
 				// (qualifier=nc), or spaces removed (qualifier=ns) or only 
 				// one space  retained(qualifier=1s)
-				println("LogicType: rightValue="+rightValue)
 			if(qualifiers != null){	
 				leftValue= qualifyValue(qualifiers, leftValue)
 					// match 'm' qualitifier (nc,ns,1s) not performed on list of right values
 				if( ! isMatchOperator(op))
 					rightValue=qualifyValue(qualifiers, rightValue)
-				println("LogicType=leftValue="+leftValue+"  rightValue="+rightValue)
 				}
 				// Indicate whether left and right values are both numbers
 			val bothAreNumbers=areNumbers(leftValue, rightValue)
-		   println("LogicType: op match {  op: "+op)
 		   		// logic such as:  ($abc) 80% ($xyz)
 		   if(isPercentMatch(op)) {
 		   			// take number preceding "%"
 				val percent= extractPercentValue(operator)
-				println("LogicType: percent="+percent+"  right="+rightValue+"   left="+leftValue)
 					// ratio of letters in $abc to the number of matching letters
 					// in $xyz; return true if ratio >= 80%
 				Gestalt.testGestalt(percent, rightValue, leftValue)
@@ -159,25 +149,21 @@ object LogicType {
 										 table:mutable.Map[String,String],
 										 qualifiers:String):Boolean={
 				val array= rightValue.trim.split("[ \t]+")
-				println("LogicType:  foreach:  "+array.foreach(println) )
 						// Right operand containing $<variable>s are translated to values
 				var array2= convertVariableToValue(array, table)
 				if (qualifiers !=null)
 							// Qualifiers (nc,ns,1l) are applied to $<variable>s.
 						array2= qualifyDollarValues(array, array2, qualifiers)
 				if(array2.contains(leftValue)){
-				 	println("LogicType: matgch Multiple true:")
 					true
 					}
 				 else{
-				 	println("LogicType: matgch Multiple false:")
 				 	false
 					}
 				}
 				// 'm' match command right operand may contain 0 to n $<variable>s.
 		def convertVariableToValue( array:Array[String], 
 									table:mutable.Map[String,String]): Array[String]={
-			println("LogicType  convertVariableToValue...")
 			val buffer= new collection.mutable.ArrayBuffer[String]()
 			for(e <- array) {
 						// $<variable> to Value
@@ -197,9 +183,7 @@ object LogicType {
 			val array3= new Array[String](array.length)
 			for( index <- 0 until array.length ) {
 					if( array(index).take(1)=="$") {
-							println("LogicType  index="+index+"   array(index)="+ array(index)+"  array2(index)="+array2(index) )
 							array3(index)= qualifyValue(qualifiers, array2(index))
-							println("\t\tLogicType  index="+index+"   array3(index)="+ array3(index) )
 							}
 					  else
 					  		// String and not $<variable>
@@ -214,9 +198,14 @@ object LogicType {
 			// In a relation, determine is both variables are
 			// numbers.
 		def areNumbers(leftValue:String, rightValue:String) : Boolean={
+			//println("LogicType leftValue="+leftValue+" rightValue="+rightValue)
 			val left:Boolean= VString.isNumber(leftValue)
 			val right:Boolean= VString.isNumber(rightValue)
-			left == right
+			//println("LogicType left="+left+" right="+right)
+			if(left==false || right==false) 
+				false
+			  else
+			  	true
 			}
 			// Detects '$' variables e.g., ($abc).
 			// Table key to return the key's value. 
@@ -265,9 +254,7 @@ object LogicType {
 			//----------------------------------------------------
 	def logicTokener(condition:String) ={ //Invoked by: LogicTest.logicTest
 			// convert condition string to List[String]
-			println("LogicType: logicTokener():  condition="+condition)
 		val extracted= extract( List[String](),condition)
-				println("LogicType logicTokener extracted="+extracted)
 		combine(List[Logic](),extracted)
 		}
 		 // detects '(('
@@ -312,7 +299,6 @@ object LogicType {
 				// detect operator, then substring to start of next relation
 				// expr== '=' or (<,>,!,a,o,m,n)
 		else if( isStartOfOperator(expr)) {
-					//println("LogicType:  extract()  isStartOfOperator.. expr="+expr)
 			val index=expr.indexOf("(")
 			extract(expr.take(index)::l, expr.drop(index)) // removed operator expression
 			}
@@ -320,7 +306,7 @@ object LogicType {
 		else if( isCloseParens(expr)) {
 			extract(expr(0).toString :: l, expr.drop(1))
 			}
-		else { println("LogicType: unknown expr(0)=|"+expr(0)+"|")
+		else { 
 			Nil
 	 	      }
 		}
@@ -330,28 +316,22 @@ object LogicType {
 		// List( (,(abc)=(efg),or,(xyz)=(mng),)  )
 		// invoke by logicTokener()
 	def combine(ll:List[Logic],l:List[String]) : List[Logic]={
-				//println("LogicType combine l="+l)
 		if(l.isEmpty) ll.reverse
     	   else {
 				val s=l.head
-				println("LogicType: s="+s)
 				if(s.length==1 && isOpenParens(s)) {
 					combine(OpenParen():: ll, l.tail)
 					}
 				else if(s.length==1 && isCloseParens(s)  ) {
-				println("LogicType: isColseParens(s) s="+s)
 					combine(CloseParen() :: ll, l.tail)
 					}
 				else if(isOpenParens(s) ) {
-				println("LogicType: isOpenParens(s) s="+s)
 					combine(Relationx(l(0),l(1),l(2)) :: ll,  l.drop(3))
 					}
 				else if(isAndOrOperator(s) ) {
-				println("LogicType: isAndOr(s) s="+s)
 					combine(AndOr(s):: ll,  l.tail)
 					}		
 				else {
-					println("LogicType: unknown value="+s)
 					Nil
 					}
 			}
