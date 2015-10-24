@@ -9,9 +9,9 @@ and Group).  </p>
 
 <pre>
     Add
+    AddCardSet
     Assign
     Asterisk
-    ButtonCardSet
     Clear
     Display
     Edit
@@ -31,7 +31,7 @@ Script program terms.    </p>
 <p>The means to change the default values controlling the appearance of window <br />
 size, text, and input fields is explained by 'appearance.md'.  </p>
 
-<h2>DesignNotes Directory</h2>
+<h2>DesinNotes Directory</h2>
 
 <p>The directory describes the Notecard program at the level of the Scala language.   </p>
 

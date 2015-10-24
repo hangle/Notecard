@@ -4,7 +4,7 @@
 
 <pre>
         A Notecard instruction to display text or to capture a user's
-        input.  There are eight command types. (see document/commands/)
+        input.  There are ten command types. (see documents/Commands/)
 </pre>
 
 <h2>Script File</h2>
@@ -37,35 +37,45 @@
         Group of Script Commands beginning with the 'c' command and ending
         when the next 'c' command is encountered or when the end of the
         Script file is reached. The group consists of the following commands:
+            Add     '+'
             Assignment  'a'
-            Asterisk    '*'
+            Asterisk    '*' (continue, status)
             Clear       'c'
             Display     'd'
             Edit        'e'
             eXecute     'x'
             Group       'g' <or> 'ge'
+
         The CardSet displays a Notecard window. 
         The following Script File presents two Notecard windows:
             c
             d first window
             c
             d second window
+
+        The commands that are not CardSet members are:
+
+            File        'f'
+            Load        'l'
+            Asterisk    '*' (end, manage, store)
 </pre>
 
-<h2>Card Session</h2>
+<h2>Program Session</h2>
 
 <pre>
-        A Card or Notecard Session is the execution of one or more Script Files 
-        that is eventually terminated by the Asterisk command:  '* end'.
+        A Program Session is the execution of one or more Script Files  
+        that are eventually terminated by the Asterisk command:  '* end'.
 </pre>
 
 <h2>Dollar Variable</h2>
 
 <pre>
-        A user's response to an input field is stored in a Dollar Variable whose
-        name begins with the symbol '$'.  The Display command, for example,
-        'd (# $myVariable)' creates an input field and assigns the entered value
-        to '$myVariable'.  The Assign command is also a way to store a value. 
+        A user's response to an input field is stored in a Dollar Variable 
+        $<variable> whose name begins with the symbol '$'.  The Display 
+        command, for example, 'd (# $myVariable)' creates an input field and 
+        assigns the entered value to '$myVariable'.  
+
+        The Assign 'a' command also assigns a value to the $<variable>.
 </pre>
 
 <h2>Start File</h2>
@@ -95,12 +105,16 @@
             +Add
             Prior
             Next
-        The first three buttons may or may not be enabled.  The 'Next' button is
-        always enabled to transit to the next CardSet or to end the session or to
-        read a new command file.
+        The first three buttons may or may not be enabled.  The 'Next' button is  
+        always enabled to transit to the next CardSet or to end the session or to  
+        read a new command file.  
         The '*' button, when white, initiates the 'Management File' 
-        The '+Add' button, when yellow, initiates one or more ButtonCardSets
+        The '+Add' button, when yellow, initiates one or more AddCardSets
         The 'Prior' button, when green, executed the preceding CardSet
+
+        The Next button is disabled until all the CardSet inputs are captured, 
+        or until the CardSet '* continue's  are executed
+
 </pre>
 
 <h2>Status Line</h2>
@@ -116,9 +130,9 @@
 <h2>Management File</h2>
 
 <pre>
-        A script file that is initiated, during a Card Session, by the '*' Button. 
+        A script file that is initiated, during a Program Session, by the '*' Button. 
         This file is termed the Management File and can be linked to other script
-        files via the 'f' command. If an '* end' commands is encounter, the Card
+        files via the 'f' command. If an '* end' commands is encounter, the Program
         Session is terminated.  On the otherhand, a second activation of the
         '*' Button returns the session to the CardSet from which the '*' Button
         was first activated. 
@@ -141,15 +155,15 @@
         specified.  See 'appearance.md'. 
 </pre>  
 
-<h2>Button CardSet</h2>
+<h2>AddCardSet</h2>
 
 <pre>
-        A ButtonCardSet is a CardSet that is initiated by the '+Add' button.  
+        An AddCardSet is a CardSet that is initiated by the '+Add' button.  
         The leading command of the CardSet is the 'c' tag.  The leading
-        command of the ButtonCardSet is the 'b' tag (both 'b' and 'c' tags
+        command of the AddCardSet is the '+' tag (both '+' and 'c' tags
         have the same functionality of clearing the window). The role of
-        the ButtonCardSet is to provide a hint or probe or supplimental
+        the AddCardSet is to provide a hint or probe or supplimental
         information to an associated CardSet. If the '+Add' is not activated, 
-        then the one or more ButtonCardSets associated with the CardSet are 
+        then the one or more AddCardSets associated with the CardSet are 
         skipped.
 </pre>

@@ -8,9 +8,15 @@ package com.client
 object VString  {
 
 	def isNumber(s:String) ={
-		val isDigits="""([-+]+||[0-9.]+)""" .r 
+//		val isDigits="""([-+]+||[0-9.]+)""" .r 
+		val isDigits="""([-+]?[0-9.]+)""" .r 
+				//println("VString: s="+s)
 		s match {
-			case isDigits(x)=> true
-			case _=> false
+			case isDigits(x)=> 
+				//println("\ttrue")
+				true
+			case _=> 
+				//println("\tfalse")
+				false
 		} }
 }

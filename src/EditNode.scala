@@ -74,11 +74,15 @@ case class EditNode(var symbolTable:Map[String,String]) extends Node {
 
 		//Invoked by BoxField in an iteration loop
 	def evaluateTheEditNode(response:String):Boolean= {
-		if(isNumberOrLetter(xtype)) // edit cmd such as  'e number'
-			evaluateNumberOrLetter(xtype, response)
-		  else {  // edit cmd has logic such as 'e ($age) > (0)'
-			val xxx=isConditionTrue	  // invokes LogicTest.logicTest(..)
-			xxx
+			// "" responses unallowed
+		if(response=="") false
+		else {
+				if(isNumberOrLetter(xtype)) // edit cmd such as  'e number'
+					evaluateNumberOrLetter(xtype, response)
+				  else {  // edit cmd has logic such as 'e ($age) > (0)'
+					val xxx=isConditionTrue	  // invokes LogicTest.logicTest(..)
+					xxx
+					}
 			}
 		}
 	def isNumberOrLetter(xtype:String):Boolean= { xtype=="number" || xtype=="letter"}

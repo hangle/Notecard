@@ -62,7 +62,12 @@ To date, the following TEST scripts are available:
 			d This is a CardSet
 			+
 			d This is an AddCardSet
-	
+	editCommand.nc
+		Example
+			c
+			d Enter your age (# $age)
+			e number
+			e ($age) >(0) and ($age) < (100)	
 Execution:
 --------------
 

@@ -1,0 +1,4635 @@
+%Notecard
+child	2002
+height	600
+width	400
+size	14
+name	TimesRoman
+style	0
+asteriskButton	on
+priorButton	on
+%%
+%CardSet
+address	2002
+child	2003
+sibling	2040
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2003
+child	2004
+sibling	2005
+row	1
+column	20
+%%
+%DisplayText
+address	2004
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Edit Command
+color	black
+%%
+%RowerNode
+address	2005
+child	2006
+sibling	2007
+row	2
+column	5
+%%
+%DisplayText
+address	2006
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2007
+child	2008
+sibling	2009
+row	3
+column	5
+%%
+%DisplayText
+address	2008
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Suppose the correct response for the following
+color	black
+%%
+%RowerNode
+address	2009
+child	2010
+sibling	2012
+row	4
+column	5
+%%
+%DisplayText
+address	2010
+sibling	2011
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'd' command is 
+color	black
+%%
+%DisplayText
+address	2011
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	cat
+color	blue
+%%
+%RowerNode
+address	2012
+child	2013
+sibling	2014
+row	5
+column	10
+%%
+%DisplayText
+address	2013
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	------------script-------------------
+color	black
+%%
+%RowerNode
+address	2014
+child	2015
+sibling	2016
+row	6
+column	10
+%%
+%DisplayText
+address	2015
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Enter name of the animal (# $input)
+color	black
+%%
+%RowerNode
+address	2016
+child	2017
+sibling	2018
+row	7
+column	10
+%%
+%DisplayText
+address	2017
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------------
+color	black
+%%
+%RowerNode
+address	2018
+child	2019
+sibling	2020
+row	8
+column	5
+%%
+%DisplayText
+address	2019
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2020
+child	2021
+sibling	2023
+row	9
+column	5
+%%
+%DisplayText
+address	2021
+sibling	2022
+style	0
+size	14
+column	0
+name	TimesRoman
+text	And we do not want to procede until 
+color	black
+%%
+%DisplayText
+address	2022
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	cat
+color	blue
+%%
+%RowerNode
+address	2023
+child	2024
+sibling	2025
+row	10
+column	5
+%%
+%DisplayText
+address	2024
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	is entered.
+color	black
+%%
+%CardSetTask
+address	2025
+sibling	2026
+task	continue
+type	0
+%%
+%RowerNode
+address	2026
+child	2027
+sibling	2028
+row	11
+column	5
+%%
+%DisplayText
+address	2027
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2028
+child	2029
+sibling	2034
+row	12
+column	5
+%%
+%DisplayText
+address	2029
+sibling	2030
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The 
+color	black
+%%
+%DisplayText
+address	2030
+sibling	2031
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Edit
+color	blue
+%%
+%DisplayText
+address	2031
+sibling	2032
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 or 
+color	black
+%%
+%DisplayText
+address	2032
+sibling	2033
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e
+color	blue
+%%
+%DisplayText
+address	2033
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 command requires
+color	black
+%%
+%RowerNode
+address	2034
+child	2035
+sibling	2036
+row	13
+column	5
+%%
+%DisplayText
+address	2035
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	the response to have a definite form, 
+color	black
+%%
+%RowerNode
+address	2036
+child	2037
+sibling	0
+row	14
+column	5
+%%
+%DisplayText
+address	2037
+sibling	2038
+style	0
+size	14
+column	0
+name	TimesRoman
+text	such as, 
+color	black
+%%
+%DisplayText
+address	2038
+sibling	2039
+style	0
+size	14
+column	0
+name	TimesRoman
+text	cat
+color	blue
+%%
+%DisplayText
+address	2039
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	.
+color	black
+%%
+%CardSet
+address	2040
+child	2041
+sibling	2076
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2041
+child	2042
+sibling	2045
+row	1
+column	5
+%%
+%DisplayText
+address	2042
+sibling	2043
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The Edit or 
+color	black
+%%
+%DisplayText
+address	2043
+sibling	2044
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e
+color	blue
+%%
+%DisplayText
+address	2044
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 command controls what
+color	black
+%%
+%RowerNode
+address	2045
+child	2046
+sibling	2047
+row	2
+column	5
+%%
+%DisplayText
+address	2046
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	the user may enter as a response or input.
+color	black
+%%
+%RowerNode
+address	2047
+child	2048
+sibling	2049
+row	3
+column	5
+%%
+%DisplayText
+address	2048
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2049
+child	2050
+sibling	2051
+row	4
+column	10
+%%
+%DisplayText
+address	2050
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	------------script-------------------
+color	black
+%%
+%RowerNode
+address	2051
+child	2052
+sibling	2053
+row	5
+column	10
+%%
+%DisplayText
+address	2052
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Enter name of the animal (# $input)
+color	black
+%%
+%RowerNode
+address	2053
+child	2054
+sibling	2055
+row	6
+column	10
+%%
+%DisplayText
+address	2054
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e ($input)=(cat)
+color	black
+%%
+%RowerNode
+address	2055
+child	2056
+sibling	2057
+row	7
+column	10
+%%
+%DisplayText
+address	2056
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------------------------------
+color	black
+%%
+%RowerNode
+address	2057
+child	2058
+sibling	2059
+row	8
+column	5
+%%
+%DisplayText
+address	2058
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2059
+child	2060
+sibling	2061
+row	9
+column	5
+%%
+%DisplayText
+address	2060
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The above 'e' command causes any response
+color	black
+%%
+%RowerNode
+address	2061
+child	2062
+sibling	2065
+row	10
+column	5
+%%
+%DisplayText
+address	2062
+sibling	2063
+style	0
+size	14
+column	0
+name	TimesRoman
+text	other than 
+color	black
+%%
+%DisplayText
+address	2063
+sibling	2064
+style	0
+size	14
+column	0
+name	TimesRoman
+text	cat
+color	blue
+%%
+%DisplayText
+address	2064
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 to be rejected.
+color	black
+%%
+%RowerNode
+address	2065
+child	2066
+sibling	2067
+row	11
+column	5
+%%
+%DisplayText
+address	2066
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%CardSetTask
+address	2067
+sibling	2068
+task	continue
+type	0
+%%
+%RowerNode
+address	2068
+child	2069
+sibling	2070
+row	12
+column	5
+%%
+%DisplayText
+address	2069
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	When rejected, The response field is cleared. 
+color	black
+%%
+%RowerNode
+address	2070
+child	2071
+sibling	2074
+row	13
+column	5
+%%
+%DisplayText
+address	2071
+sibling	2072
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The user must  enter 
+color	black
+%%
+%DisplayText
+address	2072
+sibling	2073
+style	0
+size	14
+column	0
+name	TimesRoman
+text	cat
+color	blue
+%%
+%DisplayText
+address	2073
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 to proceed 
+color	black
+%%
+%RowerNode
+address	2074
+child	2075
+sibling	0
+row	14
+column	5
+%%
+%DisplayText
+address	2075
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	to the next CardSet.
+color	black
+%%
+%CardSet
+address	2076
+child	2077
+sibling	2108
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2077
+child	2078
+sibling	2079
+row	2
+column	10
+%%
+%DisplayText
+address	2078
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	------------script---------------
+color	black
+%%
+%RowerNode
+address	2079
+child	2080
+sibling	2081
+row	3
+column	10
+%%
+%DisplayText
+address	2080
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2081
+child	2082
+sibling	2083
+row	4
+column	10
+%%
+%DisplayText
+address	2082
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Enter cat (# $animal)
+color	black
+%%
+%RowerNode
+address	2083
+child	2084
+sibling	2085
+row	5
+column	10
+%%
+%DisplayText
+address	2084
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e ($animal)=(cat)
+color	black
+%%
+%RowerNode
+address	2085
+child	2086
+sibling	2087
+row	6
+column	10
+%%
+%DisplayText
+address	2086
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2087
+child	2088
+sibling	2089
+row	7
+column	10
+%%
+%DisplayText
+address	2088
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-----------------------------------------
+color	black
+%%
+%RowerNode
+address	2089
+child	2090
+sibling	2091
+row	8
+column	10
+%%
+%DisplayText
+address	2090
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2091
+child	2092
+sibling	2093
+row	9
+column	25
+%%
+%DisplayText
+address	2092
+sibling	0
+style	0
+size	10
+column	0
+name	TimesRoman
+text	First enter 'xxx' to fail.
+color	black
+%%
+%RowerNode
+address	2093
+child	2094
+sibling	2095
+row	10
+column	25
+%%
+%DisplayText
+address	2094
+sibling	0
+style	0
+size	10
+column	0
+name	TimesRoman
+text	Then end 'cat' to succeed.
+color	black
+%%
+%RowerNode
+address	2095
+child	2096
+sibling	2097
+row	11
+column	5
+%%
+%DisplayText
+address	2096
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2097
+child	2098
+sibling	2101
+row	12
+column	5
+%%
+%DisplayText
+address	2098
+sibling	2099
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Enter cat 
+color	black
+%%
+%BoxField
+address	2099
+child	2100
+sibling	0
+field	$animal
+length	10
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%EditNode
+address	2100
+sibling	0
+condition	($animal)=(cat)
+type	0
+status	0
+variable	0
+%%
+%XNode
+address	2101
+sibling	2102
+%%
+%RowerNode
+address	2102
+child	2103
+sibling	2104
+row	13
+column	5
+%%
+%DisplayText
+address	2103
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2104
+child	2105
+sibling	2106
+row	14
+column	5
+%%
+%DisplayText
+address	2105
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2106
+child	2107
+sibling	0
+row	15
+column	5
+%%
+%DisplayText
+address	2107
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Success
+color	black
+%%
+%CardSet
+address	2108
+child	2109
+sibling	2135
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2109
+child	2110
+sibling	2111
+row	2
+column	10
+%%
+%DisplayText
+address	2110
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	------------script---------------
+color	black
+%%
+%RowerNode
+address	2111
+child	2112
+sibling	2113
+row	3
+column	10
+%%
+%DisplayText
+address	2112
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2113
+child	2114
+sibling	2115
+row	4
+column	10
+%%
+%DisplayText
+address	2114
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Enter  (# $animal)
+color	black
+%%
+%RowerNode
+address	2115
+child	2116
+sibling	2117
+row	5
+column	10
+%%
+%DisplayText
+address	2116
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e ($animal)=(cat)
+color	black
+%%
+%RowerNode
+address	2117
+child	2118
+sibling	2119
+row	6
+column	10
+%%
+%DisplayText
+address	2118
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2119
+child	2120
+sibling	2121
+row	7
+column	10
+%%
+%DisplayText
+address	2120
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-----------------------------------------
+color	black
+%%
+%RowerNode
+address	2121
+child	2122
+sibling	2123
+row	8
+column	5
+%%
+%DisplayText
+address	2122
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2123
+child	2124
+sibling	2125
+row	9
+column	5
+%%
+%DisplayText
+address	2124
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The previous script:
+color	black
+%%
+%RowerNode
+address	2125
+child	2126
+sibling	2127
+row	10
+column	5
+%%
+%DisplayText
+address	2126
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	       d Enter cat ...
+color	black
+%%
+%RowerNode
+address	2127
+child	2128
+sibling	2129
+row	11
+column	5
+%%
+%DisplayText
+address	2128
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	has been changed to
+color	black
+%%
+%RowerNode
+address	2129
+child	2130
+sibling	2131
+row	12
+column	5
+%%
+%DisplayText
+address	2130
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	       d Enter ...
+color	black
+%%
+%RowerNode
+address	2131
+child	2132
+sibling	2133
+row	13
+column	5
+%%
+%DisplayText
+address	2132
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The new script has no clue as to the 
+color	black
+%%
+%RowerNode
+address	2133
+child	2134
+sibling	0
+row	14
+column	5
+%%
+%DisplayText
+address	2134
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	correct response.
+color	black
+%%
+%CardSet
+address	2135
+child	2136
+sibling	2160
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2136
+child	2137
+sibling	2139
+row	1
+column	5
+%%
+%DisplayText
+address	2137
+sibling	2138
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The following 'e' command has a 
+color	black
+%%
+%DisplayText
+address	2138
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	status=
+color	blue
+%%
+%RowerNode
+address	2139
+child	2140
+sibling	2141
+row	2
+column	5
+%%
+%DisplayText
+address	2140
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	tag specifying the required response.
+color	black
+%%
+%RowerNode
+address	2141
+child	2142
+sibling	2143
+row	3
+column	5
+%%
+%DisplayText
+address	2142
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2143
+child	2144
+sibling	2145
+row	4
+column	10
+%%
+%DisplayText
+address	2144
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	--------------script------------------------
+color	black
+%%
+%RowerNode
+address	2145
+child	2146
+sibling	2147
+row	5
+column	10
+%%
+%DisplayText
+address	2146
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Enter animal name (# $animal)
+color	black
+%%
+%RowerNode
+address	2147
+child	2148
+sibling	2151
+row	6
+column	10
+%%
+%DisplayText
+address	2148
+sibling	2149
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e ($animal)=(cat) 
+color	black
+%%
+%DisplayText
+address	2149
+sibling	2150
+style	0
+size	14
+column	0
+name	TimesRoman
+text	status=
+color	blue
+%%
+%DisplayText
+address	2150
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	enter cat
+color	black
+%%
+%RowerNode
+address	2151
+child	2152
+sibling	2153
+row	7
+column	10
+%%
+%DisplayText
+address	2152
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-----------------------------------------------
+color	black
+%%
+%RowerNode
+address	2153
+child	2154
+sibling	2155
+row	8
+column	5
+%%
+%DisplayText
+address	2154
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2155
+child	2156
+sibling	2158
+row	9
+column	5
+%%
+%DisplayText
+address	2156
+sibling	2157
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The message follows the tag 
+color	black
+%%
+%DisplayText
+address	2157
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	status=
+color	blue
+%%
+%RowerNode
+address	2158
+child	2159
+sibling	0
+row	10
+column	5
+%%
+%DisplayText
+address	2159
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	consisting of 'enter cat'.
+color	black
+%%
+%CardSet
+address	2160
+child	2161
+sibling	2173
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2161
+child	2162
+sibling	2163
+row	1
+column	5
+%%
+%DisplayText
+address	2162
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2163
+child	2164
+sibling	2165
+row	2
+column	20
+%%
+%DisplayText
+address	2164
+sibling	0
+style	0
+size	10
+column	0
+name	TimesRoman
+text	First enter 'xxx' to fail.
+color	black
+%%
+%RowerNode
+address	2165
+child	2166
+sibling	2167
+row	3
+column	20
+%%
+%DisplayText
+address	2166
+sibling	0
+style	0
+size	10
+column	0
+name	TimesRoman
+text	Then enter 'cat' to succeed.
+color	black
+%%
+%RowerNode
+address	2167
+child	2168
+sibling	2169
+row	4
+column	5
+%%
+%DisplayText
+address	2168
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2169
+child	2170
+sibling	0
+row	5
+column	5
+%%
+%DisplayText
+address	2170
+sibling	2171
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Enter animal name 
+color	black
+%%
+%BoxField
+address	2171
+child	2172
+sibling	0
+field	$animal2
+length	10
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%EditNode
+address	2172
+sibling	0
+condition	($animal2)=(cat)
+type	0
+status	enter cat
+variable	0
+%%
+%CardSet
+address	2173
+child	2174
+sibling	2225
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2174
+child	2175
+sibling	2176
+row	1
+column	5
+%%
+%DisplayText
+address	2175
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	In place of a logic expression, the 'e' 
+color	black
+%%
+%RowerNode
+address	2176
+child	2177
+sibling	2178
+row	2
+column	5
+%%
+%DisplayText
+address	2177
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	command may have a literal. There are two 
+color	black
+%%
+%RowerNode
+address	2178
+child	2179
+sibling	2180
+row	3
+column	5
+%%
+%DisplayText
+address	2179
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	literals:
+color	black
+%%
+%RowerNode
+address	2180
+child	2181
+sibling	2183
+row	4
+column	10
+%%
+%DisplayText
+address	2181
+sibling	2182
+style	0
+size	14
+column	0
+name	TimesRoman
+text	letter
+color	blue
+%%
+%DisplayText
+address	2182
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2183
+child	2184
+sibling	2186
+row	5
+column	10
+%%
+%DisplayText
+address	2184
+sibling	2185
+style	0
+size	14
+column	0
+name	TimesRoman
+text	number
+color	blue
+%%
+%DisplayText
+address	2185
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	.
+color	black
+%%
+%RowerNode
+address	2186
+child	2187
+sibling	2188
+row	6
+column	10
+%%
+%DisplayText
+address	2187
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2188
+child	2189
+sibling	2190
+row	7
+column	10
+%%
+%DisplayText
+address	2189
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------script-------------------------
+color	black
+%%
+%RowerNode
+address	2190
+child	2191
+sibling	2192
+row	8
+column	10
+%%
+%DisplayText
+address	2191
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Enter name (# $name) 
+color	black
+%%
+%RowerNode
+address	2192
+child	2193
+sibling	2195
+row	9
+column	10
+%%
+%DisplayText
+address	2193
+sibling	2194
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e 
+color	black
+%%
+%DisplayText
+address	2194
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	letter
+color	blue
+%%
+%RowerNode
+address	2195
+child	2196
+sibling	2197
+row	10
+column	10
+%%
+%DisplayText
+address	2196
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Enter age  (# $age)
+color	black
+%%
+%RowerNode
+address	2197
+child	2198
+sibling	2200
+row	11
+column	10
+%%
+%DisplayText
+address	2198
+sibling	2199
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e 
+color	black
+%%
+%DisplayText
+address	2199
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	number
+color	blue
+%%
+%RowerNode
+address	2200
+child	2201
+sibling	2202
+row	12
+column	10
+%%
+%DisplayText
+address	2201
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	--------------------------------------------
+color	black
+%%
+%CardSetTask
+address	2202
+sibling	2203
+task	continue
+type	0
+%%
+%RowerNode
+address	2203
+child	2204
+sibling	2205
+row	13
+column	5
+%%
+%DisplayText
+address	2204
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2205
+child	2206
+sibling	2209
+row	14
+column	5
+%%
+%DisplayText
+address	2206
+sibling	2207
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The 
+color	black
+%%
+%DisplayText
+address	2207
+sibling	2208
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e number
+color	blue
+%%
+%DisplayText
+address	2208
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 also allows a decimal '.'
+color	black
+%%
+%RowerNode
+address	2209
+child	2210
+sibling	2213
+row	15
+column	5
+%%
+%DisplayText
+address	2210
+sibling	2211
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The 
+color	black
+%%
+%DisplayText
+address	2211
+sibling	2212
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e letter
+color	blue
+%%
+%DisplayText
+address	2212
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 also allows spaces '  '
+color	black
+%%
+%RowerNode
+address	2213
+child	2214
+sibling	2215
+row	16
+column	5
+%%
+%DisplayText
+address	2214
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2215
+child	2216
+sibling	2217
+row	17
+column	5
+%%
+%DisplayText
+address	2216
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The default statuse for 'e number' is:
+color	black
+%%
+%RowerNode
+address	2217
+child	2218
+sibling	2219
+row	18
+column	10
+%%
+%DisplayText
+address	2218
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	number required
+color	black
+%%
+%RowerNode
+address	2219
+child	2220
+sibling	2221
+row	19
+column	5
+%%
+%DisplayText
+address	2220
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The default statuse for 'e letter' is:
+color	black
+%%
+%RowerNode
+address	2221
+child	2222
+sibling	2223
+row	20
+column	10
+%%
+%DisplayText
+address	2222
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	letter (non numeric) required
+color	black
+%%
+%RowerNode
+address	2223
+child	2224
+sibling	0
+row	21
+column	10
+%%
+%DisplayText
+address	2224
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%CardSet
+address	2225
+child	2226
+sibling	2255
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2226
+child	2227
+sibling	2228
+row	2
+column	10
+%%
+%DisplayText
+address	2227
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------script----------------
+color	black
+%%
+%RowerNode
+address	2228
+child	2229
+sibling	2230
+row	3
+column	10
+%%
+%DisplayText
+address	2229
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Enter age (# $age)
+color	black
+%%
+%RowerNode
+address	2230
+child	2231
+sibling	2232
+row	4
+column	10
+%%
+%DisplayText
+address	2231
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e number
+color	black
+%%
+%RowerNode
+address	2232
+child	2233
+sibling	2234
+row	5
+column	10
+%%
+%DisplayText
+address	2233
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Enter name (# $name)
+color	black
+%%
+%RowerNode
+address	2234
+child	2235
+sibling	2236
+row	6
+column	10
+%%
+%DisplayText
+address	2235
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e letter 
+color	black
+%%
+%RowerNode
+address	2236
+child	2237
+sibling	2238
+row	7
+column	10
+%%
+%DisplayText
+address	2237
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	--------------------------------------
+color	black
+%%
+%RowerNode
+address	2238
+child	2239
+sibling	2240
+row	8
+column	5
+%%
+%DisplayText
+address	2239
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2240
+child	2241
+sibling	2242
+row	9
+column	25
+%%
+%DisplayText
+address	2241
+sibling	0
+style	0
+size	10
+column	0
+name	TimesRoman
+text	First enter letter for age.
+color	black
+%%
+%RowerNode
+address	2242
+child	2243
+sibling	2244
+row	10
+column	25
+%%
+%DisplayText
+address	2243
+sibling	0
+style	0
+size	10
+column	0
+name	TimesRoman
+text	First enter number of name
+color	black
+%%
+%RowerNode
+address	2244
+child	2245
+sibling	2246
+row	11
+column	5
+%%
+%DisplayText
+address	2245
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2246
+child	2247
+sibling	2250
+row	12
+column	5
+%%
+%DisplayText
+address	2247
+sibling	2248
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Enter age 
+color	black
+%%
+%BoxField
+address	2248
+child	2249
+sibling	0
+field	$age
+length	10
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%EditNode
+address	2249
+sibling	0
+condition	0
+type	number
+status	number required
+variable	0
+%%
+%RowerNode
+address	2250
+child	2251
+sibling	0
+row	13
+column	5
+%%
+%DisplayText
+address	2251
+sibling	2252
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Enter name 
+color	black
+%%
+%BoxField
+address	2252
+child	2254
+sibling	2253
+field	$name
+length	10
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%DisplayText
+address	2253
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%EditNode
+address	2254
+sibling	0
+condition	0
+type	letter
+status	letter (non numeric) required
+variable	0
+%%
+%CardSet
+address	2255
+child	2256
+sibling	2287
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2256
+child	2257
+sibling	2258
+row	1
+column	5
+%%
+%DisplayText
+address	2257
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	A field expression of the 'd' command may
+color	black
+%%
+%RowerNode
+address	2258
+child	2259
+sibling	2260
+row	2
+column	5
+%%
+%DisplayText
+address	2259
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	have more than one related 'e' commands.
+color	black
+%%
+%RowerNode
+address	2260
+child	2261
+sibling	2262
+row	3
+column	5
+%%
+%DisplayText
+address	2261
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2262
+child	2263
+sibling	2264
+row	4
+column	5
+%%
+%DisplayText
+address	2263
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	For example, age must be a numeric value,
+color	black
+%%
+%RowerNode
+address	2264
+child	2265
+sibling	2266
+row	5
+column	5
+%%
+%DisplayText
+address	2265
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	but not less than 1 or greater than 100.
+color	black
+%%
+%RowerNode
+address	2266
+child	2267
+sibling	2268
+row	6
+column	5
+%%
+%DisplayText
+address	2267
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2268
+child	2269
+sibling	2270
+row	7
+column	5
+%%
+%DisplayText
+address	2269
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The following script will achieve this:
+color	black
+%%
+%CardSetTask
+address	2270
+sibling	2271
+task	continue
+type	0
+%%
+%RowerNode
+address	2271
+child	2272
+sibling	2273
+row	8
+column	5
+%%
+%DisplayText
+address	2272
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2273
+child	2274
+sibling	2275
+row	9
+column	10
+%%
+%DisplayText
+address	2274
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	--------------------script------------------------
+color	black
+%%
+%RowerNode
+address	2275
+child	2276
+sibling	2277
+row	10
+column	10
+%%
+%DisplayText
+address	2276
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Enter age (# $age)
+color	black
+%%
+%RowerNode
+address	2277
+child	2278
+sibling	2279
+row	11
+column	10
+%%
+%DisplayText
+address	2278
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e number  
+color	black
+%%
+%RowerNode
+address	2279
+child	2280
+sibling	2281
+row	12
+column	10
+%%
+%DisplayText
+address	2280
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e ($age)>(0)and($age)<=(100) status=1 to 100 
+color	black
+%%
+%RowerNode
+address	2281
+child	2282
+sibling	2283
+row	13
+column	10
+%%
+%DisplayText
+address	2282
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------------------------
+color	black
+%%
+%RowerNode
+address	2283
+child	2284
+sibling	2285
+row	14
+column	5
+%%
+%DisplayText
+address	2284
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2285
+child	2286
+sibling	0
+row	15
+column	5
+%%
+%DisplayText
+address	2286
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The next CardSet executes the above script
+color	black
+%%
+%CardSet
+address	2287
+child	2288
+sibling	2317
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2288
+child	2289
+sibling	2290
+row	1
+column	5
+%%
+%DisplayText
+address	2289
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2290
+child	2291
+sibling	2292
+row	2
+column	5
+%%
+%DisplayText
+address	2291
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2292
+child	2293
+sibling	2294
+row	3
+column	5
+%%
+%DisplayText
+address	2293
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	--------------------script------------------------
+color	black
+%%
+%RowerNode
+address	2294
+child	2295
+sibling	2296
+row	4
+column	5
+%%
+%DisplayText
+address	2295
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Enter age (# $age)
+color	black
+%%
+%RowerNode
+address	2296
+child	2297
+sibling	2298
+row	5
+column	5
+%%
+%DisplayText
+address	2297
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e number  status
+color	black
+%%
+%RowerNode
+address	2298
+child	2299
+sibling	2300
+row	6
+column	5
+%%
+%DisplayText
+address	2299
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e ($age)>(0)and($age)<=(100) status=1 to 100 
+color	black
+%%
+%RowerNode
+address	2300
+child	2301
+sibling	2302
+row	7
+column	5
+%%
+%DisplayText
+address	2301
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------------------------
+color	black
+%%
+%RowerNode
+address	2302
+child	2303
+sibling	2304
+row	8
+column	5
+%%
+%DisplayText
+address	2303
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2304
+child	2305
+sibling	2306
+row	9
+column	20
+%%
+%DisplayText
+address	2305
+sibling	0
+style	0
+size	10
+column	0
+name	TimesRoman
+text	Enter 200 to view status message.
+color	black
+%%
+%RowerNode
+address	2306
+child	2307
+sibling	2308
+row	10
+column	20
+%%
+%DisplayText
+address	2307
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2308
+child	2309
+sibling	2313
+row	11
+column	20
+%%
+%DisplayText
+address	2309
+sibling	2310
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Enter age 
+color	black
+%%
+%BoxField
+address	2310
+child	2311
+sibling	0
+field	$age2
+length	10
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%EditNode
+address	2311
+sibling	2312
+condition	0
+type	number
+status	numbers only
+variable	0
+%%
+%EditNode
+address	2312
+sibling	0
+condition	($age2)>(0)and($age2)<=(100)
+type	0
+status	1 to 100
+variable	0
+%%
+%RowerNode
+address	2313
+child	2314
+sibling	2315
+row	12
+column	20
+%%
+%DisplayText
+address	2314
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2315
+child	2316
+sibling	0
+row	13
+column	20
+%%
+%DisplayText
+address	2316
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Success 
+color	black
+%%
+%CardSet
+address	2317
+child	2318
+sibling	2356
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2318
+child	2319
+sibling	2320
+row	2
+column	5
+%%
+%DisplayText
+address	2319
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The 'e' command examples showed
+color	black
+%%
+%RowerNode
+address	2320
+child	2321
+sibling	2322
+row	3
+column	5
+%%
+%DisplayText
+address	2321
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	a 'd' command, with one InputField,
+color	black
+%%
+%RowerNode
+address	2322
+child	2323
+sibling	2324
+row	4
+column	5
+%%
+%DisplayText
+address	2323
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	followed by a 'e' command.
+color	black
+%%
+%RowerNode
+address	2324
+child	2325
+sibling	2326
+row	5
+column	5
+%%
+%DisplayText
+address	2325
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2326
+child	2327
+sibling	2328
+row	6
+column	10
+%%
+%DisplayText
+address	2327
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------script-------------
+color	black
+%%
+%RowerNode
+address	2328
+child	2329
+sibling	2330
+row	7
+column	10
+%%
+%DisplayText
+address	2329
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Enter cat (# $cat)
+color	black
+%%
+%RowerNode
+address	2330
+child	2331
+sibling	2332
+row	8
+column	10
+%%
+%DisplayText
+address	2331
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e ($cat)=(cat) status=Enter cat
+color	black
+%%
+%RowerNode
+address	2332
+child	2333
+sibling	2334
+row	9
+column	10
+%%
+%DisplayText
+address	2333
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	------------------------------
+color	black
+%%
+%RowerNode
+address	2334
+child	2335
+sibling	2336
+row	10
+column	5
+%%
+%DisplayText
+address	2335
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Both commands referenced the same 
+color	black
+%%
+%RowerNode
+address	2336
+child	2337
+sibling	2338
+row	11
+column	5
+%%
+%DisplayText
+address	2337
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	$cat variable.
+color	black
+%%
+%CardSetTask
+address	2338
+sibling	2339
+task	continue
+type	0
+%%
+%RowerNode
+address	2339
+child	2340
+sibling	2341
+row	12
+column	5
+%%
+%DisplayText
+address	2340
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2341
+child	2342
+sibling	2343
+row	13
+column	5
+%%
+%DisplayText
+address	2342
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	A 'd' command may have multiple
+color	black
+%%
+%RowerNode
+address	2343
+child	2344
+sibling	2345
+row	14
+column	5
+%%
+%DisplayText
+address	2344
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Input Fields, for example:
+color	black
+%%
+%RowerNode
+address	2345
+child	2346
+sibling	2347
+row	15
+column	5
+%%
+%DisplayText
+address	2346
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2347
+child	2348
+sibling	2349
+row	16
+column	5
+%%
+%DisplayText
+address	2348
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d (# $first) (# $second) (# $third)
+color	black
+%%
+%CardSetTask
+address	2349
+sibling	2350
+task	continue
+type	0
+%%
+%RowerNode
+address	2350
+child	2351
+sibling	2352
+row	17
+column	5
+%%
+%DisplayText
+address	2351
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2352
+child	2353
+sibling	2354
+row	18
+column	5
+%%
+%DisplayText
+address	2353
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Referencing a particular $<variable> 
+color	black
+%%
+%RowerNode
+address	2354
+child	2355
+sibling	0
+row	19
+column	5
+%%
+%DisplayText
+address	2355
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	presents a problem.
+color	black
+%%
+%CardSet
+address	2356
+child	2357
+sibling	2384
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2357
+child	2358
+sibling	2359
+row	2
+column	5
+%%
+%DisplayText
+address	2358
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	$<variable> referencing is handled by
+color	black
+%%
+%RowerNode
+address	2359
+child	2360
+sibling	2361
+row	3
+column	5
+%%
+%DisplayText
+address	2360
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	beginning the 'e' command with the
+color	black
+%%
+%RowerNode
+address	2361
+child	2362
+sibling	2363
+row	4
+column	5
+%%
+%DisplayText
+address	2362
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	associated $<variable>, for example:
+color	black
+%%
+%RowerNode
+address	2363
+child	2364
+sibling	2365
+row	5
+column	5
+%%
+%DisplayText
+address	2364
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2365
+child	2366
+sibling	2367
+row	6
+column	5
+%%
+%DisplayText
+address	2366
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------script----------------------
+color	black
+%%
+%RowerNode
+address	2367
+child	2368
+sibling	2369
+row	7
+column	5
+%%
+%DisplayText
+address	2368
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d (# $first) (# $second) (# $third)
+color	black
+%%
+%RowerNode
+address	2369
+child	2370
+sibling	2371
+row	8
+column	5
+%%
+%DisplayText
+address	2370
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e $first ($first)=(1) status=1 required
+color	black
+%%
+%RowerNode
+address	2371
+child	2372
+sibling	2373
+row	9
+column	5
+%%
+%DisplayText
+address	2372
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e $second ($second)=(2) status=2 required
+color	black
+%%
+%RowerNode
+address	2373
+child	2374
+sibling	2375
+row	10
+column	5
+%%
+%DisplayText
+address	2374
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e $third ($third)=(3) status=3 required
+color	black
+%%
+%RowerNode
+address	2375
+child	2376
+sibling	2377
+row	11
+column	5
+%%
+%DisplayText
+address	2376
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	--------------------------------------------
+color	black
+%%
+%RowerNode
+address	2377
+child	2378
+sibling	2379
+row	12
+column	5
+%%
+%DisplayText
+address	2378
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%CardSetTask
+address	2379
+sibling	2380
+task	continue
+type	0
+%%
+%RowerNode
+address	2380
+child	2381
+sibling	2382
+row	13
+column	5
+%%
+%DisplayText
+address	2381
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2382
+child	2383
+sibling	0
+row	14
+column	5
+%%
+%DisplayText
+address	2383
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	The next CardSet executes the above.
+color	black
+%%
+%CardSet
+address	2384
+child	2385
+sibling	2417
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2385
+child	2386
+sibling	2387
+row	1
+column	5
+%%
+%DisplayText
+address	2386
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2387
+child	2388
+sibling	2389
+row	2
+column	5
+%%
+%DisplayText
+address	2388
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------script----------------------
+color	black
+%%
+%RowerNode
+address	2389
+child	2390
+sibling	2391
+row	3
+column	5
+%%
+%DisplayText
+address	2390
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d (# $first) (# $second) (# $third)
+color	black
+%%
+%RowerNode
+address	2391
+child	2392
+sibling	2393
+row	4
+column	5
+%%
+%DisplayText
+address	2392
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e $first ($first)=(1) status=1 required
+color	black
+%%
+%RowerNode
+address	2393
+child	2394
+sibling	2395
+row	5
+column	5
+%%
+%DisplayText
+address	2394
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e $second ($second)=(2) status=2 required
+color	black
+%%
+%RowerNode
+address	2395
+child	2396
+sibling	2397
+row	6
+column	5
+%%
+%DisplayText
+address	2396
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e $third ($third)=(3) status=3 required
+color	black
+%%
+%RowerNode
+address	2397
+child	2398
+sibling	2399
+row	7
+column	5
+%%
+%DisplayText
+address	2398
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	--------------------------------------------
+color	black
+%%
+%RowerNode
+address	2399
+child	2400
+sibling	2401
+row	8
+column	5
+%%
+%DisplayText
+address	2400
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2401
+child	2402
+sibling	2403
+row	9
+column	20
+%%
+%DisplayText
+address	2402
+sibling	0
+style	0
+size	10
+column	0
+name	TimesRoman
+text	Make it fail before success
+color	black
+%%
+%RowerNode
+address	2403
+child	2404
+sibling	2405
+row	10
+column	20
+%%
+%DisplayText
+address	2404
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2405
+child	2406
+sibling	0
+row	11
+column	20
+%%
+%BoxField
+address	2406
+child	2407
+sibling	2408
+field	$first
+length	4
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%EditNode
+address	2407
+sibling	0
+condition	($first)=(1)
+type	0
+status	1 required
+variable	$first
+%%
+%DisplayText
+address	2408
+sibling	2409
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%BoxField
+address	2409
+child	2410
+sibling	2411
+field	$second
+length	4
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%EditNode
+address	2410
+sibling	0
+condition	($second)=(2)
+type	0
+status	2 required
+variable	$second
+%%
+%DisplayText
+address	2411
+sibling	2412
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%BoxField
+address	2412
+child	2413
+sibling	0
+field	$third
+length	4
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%EditNode
+address	2413
+sibling	2414
+condition	($third)=(3)
+type	0
+status	3 required
+variable	$third
+%%
+%EditNode
+address	2414
+sibling	2415
+condition	($first)=(1)
+type	0
+status	1 required
+variable	$first
+%%
+%EditNode
+address	2415
+sibling	2416
+condition	($second)=(2)
+type	0
+status	2 required
+variable	$second
+%%
+%EditNode
+address	2416
+sibling	0
+condition	($third)=(3)
+type	0
+status	3 required
+variable	$third
+%%
+%CardSet
+address	2417
+child	2418
+sibling	2454
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2418
+child	2419
+sibling	2420
+row	2
+column	5
+%%
+%DisplayText
+address	2419
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Does the order matter?
+color	black
+%%
+%RowerNode
+address	2420
+child	2421
+sibling	2422
+row	3
+column	5
+%%
+%DisplayText
+address	2421
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	It should not since the $<varuabke> locks it in. 
+color	black
+%%
+%RowerNode
+address	2422
+child	2423
+sibling	2424
+row	4
+column	5
+%%
+%DisplayText
+address	2423
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2424
+child	2425
+sibling	2426
+row	5
+column	5
+%%
+%DisplayText
+address	2425
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	---------------script----------------------
+color	black
+%%
+%RowerNode
+address	2426
+child	2427
+sibling	2428
+row	6
+column	5
+%%
+%DisplayText
+address	2427
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d (# $first) (# $second) (# $third)
+color	black
+%%
+%RowerNode
+address	2428
+child	2429
+sibling	2430
+row	7
+column	5
+%%
+%DisplayText
+address	2429
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e $third ($third)=(3) status=3 required
+color	black
+%%
+%RowerNode
+address	2430
+child	2431
+sibling	2432
+row	8
+column	5
+%%
+%DisplayText
+address	2431
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e $first ($first)=(1) status=1 required
+color	black
+%%
+%RowerNode
+address	2432
+child	2433
+sibling	2434
+row	9
+column	5
+%%
+%DisplayText
+address	2433
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e $second ($second)=(2) status=2 required
+color	black
+%%
+%RowerNode
+address	2434
+child	2435
+sibling	2436
+row	10
+column	5
+%%
+%DisplayText
+address	2435
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	--------------------------------------------
+color	black
+%%
+%RowerNode
+address	2436
+child	2437
+sibling	2438
+row	11
+column	5
+%%
+%DisplayText
+address	2437
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2438
+child	2439
+sibling	2440
+row	12
+column	20
+%%
+%DisplayText
+address	2439
+sibling	0
+style	0
+size	10
+column	0
+name	TimesRoman
+text	Make it fail before success
+color	black
+%%
+%RowerNode
+address	2440
+child	2441
+sibling	2442
+row	13
+column	20
+%%
+%DisplayText
+address	2441
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2442
+child	2443
+sibling	0
+row	14
+column	20
+%%
+%BoxField
+address	2443
+child	2444
+sibling	2445
+field	$first2
+length	4
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%EditNode
+address	2444
+sibling	0
+condition	($first2)=(1)
+type	0
+status	1 required
+variable	$first2
+%%
+%DisplayText
+address	2445
+sibling	2446
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%BoxField
+address	2446
+child	2447
+sibling	2448
+field	$second2
+length	4
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%EditNode
+address	2447
+sibling	0
+condition	($second2)=(2)
+type	0
+status	2 required
+variable	$second2
+%%
+%DisplayText
+address	2448
+sibling	2449
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%BoxField
+address	2449
+child	2450
+sibling	0
+field	$third2
+length	4
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%EditNode
+address	2450
+sibling	2451
+condition	($third2)=(3)
+type	0
+status	3 required
+variable	$third2
+%%
+%EditNode
+address	2451
+sibling	2452
+condition	($third2)=(3)
+type	0
+status	3 required
+variable	$third2
+%%
+%EditNode
+address	2452
+sibling	2453
+condition	($first2)=(1)
+type	0
+status	1 required
+variable	$first2
+%%
+%EditNode
+address	2453
+sibling	0
+condition	($second2)=(2)
+type	0
+status	2 required
+variable	$second2
+%%
+%CardSet
+address	2454
+child	2455
+sibling	2496
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2455
+child	2456
+sibling	2457
+row	2
+column	5
+%%
+%DisplayText
+address	2456
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Referencing the $<variable> in the Edit
+color	black
+%%
+%RowerNode
+address	2457
+child	2458
+sibling	2459
+row	3
+column	5
+%%
+%DisplayText
+address	2458
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	command also works when the 'd' command
+color	black
+%%
+%RowerNode
+address	2459
+child	2460
+sibling	2461
+row	4
+column	5
+%%
+%DisplayText
+address	2460
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	has a single Input Field.
+color	black
+%%
+%RowerNode
+address	2461
+child	2462
+sibling	2463
+row	5
+column	5
+%%
+%DisplayText
+address	2462
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2463
+child	2464
+sibling	2465
+row	6
+column	10
+%%
+%DisplayText
+address	2464
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	--------------script--------------------
+color	black
+%%
+%RowerNode
+address	2465
+child	2466
+sibling	2467
+row	7
+column	10
+%%
+%DisplayText
+address	2466
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d (# $one)
+color	black
+%%
+%RowerNode
+address	2467
+child	2468
+sibling	2469
+row	8
+column	10
+%%
+%DisplayText
+address	2468
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e $one ($one)=(1)
+color	black
+%%
+%RowerNode
+address	2469
+child	2470
+sibling	2471
+row	9
+column	10
+%%
+%DisplayText
+address	2470
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d (# $two)
+color	black
+%%
+%RowerNode
+address	2471
+child	2472
+sibling	2473
+row	10
+column	10
+%%
+%DisplayText
+address	2472
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e $two ($two)=(2)
+color	black
+%%
+%RowerNode
+address	2473
+child	2474
+sibling	2475
+row	11
+column	10
+%%
+%DisplayText
+address	2474
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d (# $three)
+color	black
+%%
+%RowerNode
+address	2475
+child	2476
+sibling	2477
+row	12
+column	10
+%%
+%DisplayText
+address	2476
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e $three ($three)=(3)
+color	black
+%%
+%RowerNode
+address	2477
+child	2478
+sibling	2479
+row	13
+column	10
+%%
+%DisplayText
+address	2478
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------------------
+color	black
+%%
+%RowerNode
+address	2479
+child	2480
+sibling	2481
+row	14
+column	5
+%%
+%DisplayText
+address	2480
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2481
+child	2482
+sibling	2486
+row	15
+column	5
+%%
+%BoxField
+address	2482
+child	2483
+sibling	0
+field	$one
+length	10
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%EditNode
+address	2483
+sibling	2484
+condition	($one)=(1)
+type	0
+status	0
+variable	$one
+%%
+%EditNode
+address	2484
+sibling	2485
+condition	($one)=(1)
+type	0
+status	0
+variable	$one
+%%
+%EditNode
+address	2485
+sibling	0
+condition	($one)=(1)
+type	0
+status	0
+variable	$one
+%%
+%RowerNode
+address	2486
+child	2487
+sibling	2491
+row	16
+column	5
+%%
+%BoxField
+address	2487
+child	2488
+sibling	0
+field	$two
+length	10
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%EditNode
+address	2488
+sibling	2489
+condition	($two)=(2)
+type	0
+status	0
+variable	$two
+%%
+%EditNode
+address	2489
+sibling	2490
+condition	($two)=(2)
+type	0
+status	0
+variable	$two
+%%
+%EditNode
+address	2490
+sibling	0
+condition	($two)=(2)
+type	0
+status	0
+variable	$two
+%%
+%RowerNode
+address	2491
+child	2492
+sibling	0
+row	17
+column	5
+%%
+%BoxField
+address	2492
+child	2493
+sibling	0
+field	$three
+length	10
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%EditNode
+address	2493
+sibling	2494
+condition	($three)=(3)
+type	0
+status	0
+variable	$three
+%%
+%EditNode
+address	2494
+sibling	2495
+condition	($three)=(3)
+type	0
+status	0
+variable	$three
+%%
+%EditNode
+address	2495
+sibling	0
+condition	($three)=(3)
+type	0
+status	0
+variable	$three
+%%
+%CardSet
+address	2496
+child	2497
+sibling	2536
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2497
+child	2498
+sibling	2499
+row	2
+column	5
+%%
+%DisplayText
+address	2498
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Edit commands are grouped together
+color	black
+%%
+%RowerNode
+address	2499
+child	2500
+sibling	2501
+row	3
+column	5
+%%
+%DisplayText
+address	2500
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	and in mixed order.
+color	black
+%%
+%RowerNode
+address	2501
+child	2502
+sibling	2503
+row	4
+column	5
+%%
+%DisplayText
+address	2502
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2503
+child	2504
+sibling	2505
+row	5
+column	10
+%%
+%DisplayText
+address	2504
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	--------------script--------------------
+color	black
+%%
+%RowerNode
+address	2505
+child	2506
+sibling	2507
+row	6
+column	10
+%%
+%DisplayText
+address	2506
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d (# $one)
+color	black
+%%
+%RowerNode
+address	2507
+child	2508
+sibling	2509
+row	7
+column	10
+%%
+%DisplayText
+address	2508
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d (# $two)
+color	black
+%%
+%RowerNode
+address	2509
+child	2510
+sibling	2511
+row	8
+column	10
+%%
+%DisplayText
+address	2510
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d (# $three)
+color	black
+%%
+%RowerNode
+address	2511
+child	2512
+sibling	2513
+row	9
+column	10
+%%
+%DisplayText
+address	2512
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e $three ($three)=(3)
+color	black
+%%
+%RowerNode
+address	2513
+child	2514
+sibling	2515
+row	10
+column	10
+%%
+%DisplayText
+address	2514
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e $one ($one)=(1)
+color	black
+%%
+%RowerNode
+address	2515
+child	2516
+sibling	2517
+row	11
+column	10
+%%
+%DisplayText
+address	2516
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	e $two ($two)=(2)
+color	black
+%%
+%RowerNode
+address	2517
+child	2518
+sibling	2519
+row	12
+column	10
+%%
+%DisplayText
+address	2518
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------------------------------------
+color	black
+%%
+%RowerNode
+address	2519
+child	2520
+sibling	2521
+row	13
+column	5
+%%
+%DisplayText
+address	2520
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2521
+child	2522
+sibling	2525
+row	14
+column	5
+%%
+%BoxField
+address	2522
+child	2523
+sibling	0
+field	$one
+length	10
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%EditNode
+address	2523
+sibling	2524
+condition	($one)=(1)
+type	0
+status	0
+variable	$one
+%%
+%EditNode
+address	2524
+sibling	0
+condition	($one)=(1)
+type	0
+status	0
+variable	$one
+%%
+%RowerNode
+address	2525
+child	2526
+sibling	2529
+row	15
+column	5
+%%
+%BoxField
+address	2526
+child	2527
+sibling	0
+field	$two
+length	10
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%EditNode
+address	2527
+sibling	2528
+condition	($two)=(2)
+type	0
+status	0
+variable	$two
+%%
+%EditNode
+address	2528
+sibling	0
+condition	($two)=(2)
+type	0
+status	0
+variable	$two
+%%
+%RowerNode
+address	2529
+child	2530
+sibling	0
+row	16
+column	5
+%%
+%BoxField
+address	2530
+child	2531
+sibling	0
+field	$three
+length	10
+column	00
+size	14
+style	0
+name	TimesRoman
+color	black
+limit	99
+options	0
+%%
+%EditNode
+address	2531
+sibling	2532
+condition	($three)=(3)
+type	0
+status	0
+variable	$three
+%%
+%EditNode
+address	2532
+sibling	2533
+condition	($three)=(3)
+type	0
+status	0
+variable	$three
+%%
+%EditNode
+address	2533
+sibling	2534
+condition	($three)=(3)
+type	0
+status	0
+variable	$three
+%%
+%EditNode
+address	2534
+sibling	2535
+condition	($one)=(1)
+type	0
+status	0
+variable	$one
+%%
+%EditNode
+address	2535
+sibling	0
+condition	($two)=(2)
+type	0
+status	0
+variable	$two
+%%
+%NotecardTask
+address	2536
+sibling	0
+task	end
+type	0
+%%
