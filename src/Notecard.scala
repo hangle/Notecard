@@ -43,6 +43,8 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 					def Value
 			*/
 //------------paramters pass by .struct file-----------------
+	var xlocate=0
+	var ylocate=0
 	var frame_height=0
 	var frame_width=0
 	var font_size=0
@@ -99,6 +101,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 
 
 	def startNotecard(taskGather:TaskGather) {
+	println("Notecard:  xlocate="+xlocate+" ylocate="+ylocate)
 			// * button to Management file is alway armed
 		buttonSet.armAsteriskButton
 			// Container of values to pass to RowPosition.
@@ -112,10 +115,12 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 			// and Button panels to this window along with statusLine:JLabel. Also makes
 			// the window visible.
 		val oldJFrame=createAndMakeVisibleCardWindow(notePanel, 
-															buttonPanel,
-															statusLine, 
-															frame_width, 
-															frame_height)	
+													buttonPanel,
+													statusLine, 
+													frame_width, // card width 
+													frame_height,// card height
+													xlocate, // card screem locate
+													ylocate) // card screem locate
 			// Load 'oldJFrame' on list to be /disposed by 'card' when
 			// the *.struct file ends.
 			//	taskGather.addOldJFrameList(taskGather.oldJFrame)
@@ -476,7 +481,9 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 															buttonPanel,
 															statusLine, 
 															frame_width, 
-															frame_height)	
+															frame_height,
+															xlocate,
+															ylocate)	
 			// Put on List to be invoked in 'card' to dispose of
 			// window resources.
 		addOldJFrameList(oldManagement)
@@ -491,13 +498,21 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 										buttonPanel:JPanel,
 										statusLine:JLabel,
 										frame_width:Int,  // object parameter
-										frame_height:Int) // object parameter
+										frame_height:Int, // object parameter
+										xlocate:Int, // object parameter
+										ylocate:Int)  // object parameter
 										={
 			// Creates the notecard window (JFrame) with a BorderLayout
 			// and adds Note and Button panels to this window along with
 			// statusLine:JLabel.
 			// Also allows window size to change (height,width)
-		val window= new CardWindow(notePanel, buttonPanel, statusLine, frame_width, frame_height)
+		val window= new CardWindow(notePanel, 
+									buttonPanel, 
+									statusLine, 
+									frame_width, 
+									frame_height,
+									xlocate,
+									ylocate)
 		window.setVisible(true)
 		window
 		}
@@ -524,6 +539,10 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				pair(0) match {
 					case "child" => 
 							setChild(pair(1))
+					case "xlocate"=>
+							xlocate=pair(1).toInt
+					case "ylocate"=>
+							ylocate=pair(1).toInt
 					case "height" => 
 							frame_height=pair(1).toInt
 					case "width" => 

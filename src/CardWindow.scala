@@ -8,6 +8,8 @@
 	The content of the JLabel statusLine is the
 	asterisk status command, e.g., '* status  message'
 
+	Added xlocate and ylocate Nov 1, 2015
+
 	Creaded in:  Notecard
 */
 package com.client
@@ -16,7 +18,13 @@ import javax.swing._
 import javax.swing.border._
 import scala.language.postfixOps
 
-class CardWindow(notePanel:JPanel, buttonPanel:JPanel, statusLine:JLabel, width:Int, height:Int)  extends JFrame {
+class CardWindow(notePanel:JPanel, 
+				 buttonPanel:JPanel, 
+				 statusLine:JLabel, 
+				 width:Int, 
+				 height:Int,
+				 xlocate:Int,
+				 ylocate:Int)  extends JFrame {
 					// 350 width & 450 height are default values for window size
 	val w=if(width==0) 350; else width
 	val h=if(height==0) 450; else height
@@ -32,4 +40,5 @@ class CardWindow(notePanel:JPanel, buttonPanel:JPanel, statusLine:JLabel, width:
 	this.getContentPane().add(notePanel, BorderLayout.CENTER);	
 	this.getContentPane.add(box, BorderLayout.SOUTH)
 	this.setDefaultCloseOperation(JFrame EXIT_ON_CLOSE)
+	this.setLocation(xlocate, ylocate)
 }

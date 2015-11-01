@@ -15,6 +15,8 @@ of the program as listed below:
 <pre>
 	 key           value
 
+	xlocate		0		//window x screen location
+	ylocate		0		//window y screen location
 	height    	300		//window size argument
 	width   	400		//window size argument
 	name    	TimesRoman	// name of Font
@@ -46,7 +48,7 @@ Asterisk Commands.   The '*' command  with an appearance
 key/value pair,  supercedes the   corresponding program  
 default value.  
 
-The script command file:
+The script command file:		(ParserValidator.AsteriskCommand)
 
 <pre>
 		* width 500

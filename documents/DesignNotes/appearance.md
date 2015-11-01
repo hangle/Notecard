@@ -14,6 +14,8 @@ of the program as listed below:  </p>
 <pre>
      key           value
 
+    xlocate     0       //window x screen location
+    ylocate     0       //window y screen location
     height      300     //window size argument
     width       400     //window size argument
     name        TimesRoman  // name of Font
@@ -44,7 +46,7 @@ is 14, and its font style is TimesRoman.  </p>
 key/value pair,  supercedes the   corresponding program <br />
 default value.  </p>
 
-<p>The script command file:</p>
+<p>The script command file:        (ParserValidator.AsteriskCommand)</p>
 
 <pre>
         * width 500
@@ -115,6 +117,7 @@ For example, the following 'appearance.ini' file in the <br />
             appearance.ini
         __________________
         |  size  12
+
 </pre>
 
 <p>The initial default value of 14 is becomes 12 for all <br />
@@ -161,3 +164,31 @@ executes the following '*' commands:  </p>
 
 <p>The  '*'  Appearance commands are consumed in the Script <br />
 program and are removed.  </p>
+
+<h3>Script Program</h3>
+
+<p>The default values in AsteriskCommand.defaultSetting:Map are copied to 
+'overrideSetting'. </p>
+
+<pre><code>val defaultSetting=Map (
+    "height"-&gt; "300",   //window size argument
+    "width"-&gt;  "400",   //window size argument
+    "name"-&gt; "TimesRoman",// name of Font
+    "size"-&gt; "14",      // pixel size of lettering
+    "color"-&gt; "black",  // color of lettering
+    "style"-&gt; "0",      // 0=normal, 1=bold, 2=italics
+    "length"-&gt; "10",    // used in Display cmd for BoxField
+    "limit"-&gt; "99",    // used in Display cmd for BoxField
+    "column"-&gt; "0",     // not operational
+    "manage"-&gt; "task" , //  to create FramerTask
+    "asteriskButton"-&gt; "on", //  "on" allows '* button' to be armed (active)
+    "save"-&gt; "task" , //  n to create FramerTask-- save symbolTable data
+    "priorButton"-&gt; "on" , //  "on" allow 'PRIOR button' to be armed (active)
+    "end"-&gt; "task",  //  to create FramerTask-- terminate session
+    "status"-&gt;"task",   // display msg in status field
+    "continue"-&gt; "task" // to create CardSetTask--
+
+
+
+                            )
+</code></pre>

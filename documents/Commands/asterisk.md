@@ -14,6 +14,8 @@ the asterisk command ' * bold ' overrides the default font-- normal, for the cur
         nomanage              <no value>
         manage                < filename string>
         save                  < filename string>
+    xlocate           0
+    ylocate           0
         height                300
         width                 400
         size                  14
@@ -215,3 +217,25 @@ ENTER key terminates the input. The default limit is 99.  </p>
 
 <p>The user may delete input characters prior to reaching the limit. The deleted <br />
 characters do not effect the character count towards the limit.  </p>
+
+<hr />
+
+<p>. * xlocate   (Asterisk Command)  </p>
+
+<hr />
+
+<p>The screen placement of the card windown along the x or row axis. When this 
+command is absent, along with the '* ylocate' command, then the the card window 
+is displayed in the upper, lefthand screen corner.  The xlocate value is a
+pixel number.</p>
+
+<hr />
+
+<p>. * xlocate   (Asterisk Command)  </p>
+
+<hr />
+
+<p>The screen placement of the card windown along the y or column axis. When this 
+command is absent, along with the '* xlocate' command, then the the card window 
+is displayed in the upper, lefthand screen corner.  The ylocate value is a
+pixel number.</p>
