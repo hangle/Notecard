@@ -40,7 +40,6 @@ trait Linker extends Node   {
 				//	before 'while(iterator)' is invoked.
 				// 'iterate' function assign "next" sibling to 'iterator'
 		var iterator:Node=null 
-//		var value:Node=null    
 			// capture 'reset's argument to be used by 'isChild'
 		var current:Node=null  // saved 
 			// Notecard: doAsteriskButton() Employed to restart clientNotecard state.

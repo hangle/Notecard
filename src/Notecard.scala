@@ -101,7 +101,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 
 
 	def startNotecard(taskGather:TaskGather) {
-	println("Notecard:  xlocate="+xlocate+" ylocate="+ylocate)
 			// * button to Management file is alway armed
 		buttonSet.armAsteriskButton
 			// Container of values to pass to RowPosition.
@@ -169,7 +168,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 							// the 'doNextButton()-via addCardSetOverRestoreCardSet()' has
 							// restored this CardSet in the Linker loop. 
 					}  catch { case _:AddButtonException => 
-					//println("Notecard: catch  case_:AddButtonException")
 							}
 			}   
 		}
@@ -182,6 +180,7 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 
 		obj match	{
 				// CardSet with 'button' values of 2 or 99 are AddCardSet types.
+				// AddCardSets are skipped when +Add button is not activated.
 			case acs:CardSet if(acs.isAddCardSet) =>
 					// +Add button detected in 'waitOverDoButton'				
 					// AddCardSets fall thru (not processed) unless ButtonSet 'event'
@@ -199,7 +198,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 							// save all 'node's (obj) to be used to back up to prior CardSet
 						addBackupMechanism.storePriorSiblingInBackupList( obj)
 						buttonSet.armAddButton
-						//println("Notecard: case acs:CardSet...  armAddButton")
 							// Activate CardSet to process RowerNode,:
 							// Assigner, CardSetTask, GroupNode, XNode to
 							// present one Card. CardSet enters a wait() state
@@ -300,7 +298,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 				// wait() of CardSet just released. Determine if either
 				// backup button or * asterisk button or '+Add' button was 
 				// activated. If so, than take care of button activated.
-		//println("Notecard: just prior to waitOverDoButtons")
 		waitOverDoButtons(taskGather,
 						  cardSet,
 						  notePanel,
@@ -357,7 +354,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 	def doNextButton(buttonSet:ButtonSet, addCardSetFlags:AddCardSetFlags) ={
 			// add button armed via 'acs:CardSet=> ...'
 		buttonSet.grayAndDisableAddButton
-		//println("Notecard: doNextButton():  grayAndDisableAddButton")
 		buttonSet.grayAndDisablePriorButton
 			// Terminate AddCardSet series either caused by an ?
 		if(addCardSetFlags.activatedAddButton) 
@@ -370,14 +366,12 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 	def doPriorButton(buttonSet:ButtonSet, 
 					  addCardSetFlags:AddCardSetFlags)={
 		buttonSet.grayAndDisableAddButton
-		//println("Notecard: doPriorButton():  grayAndDisableAddButton")
 		buttonSet.grayAndDisablePriorButton
 		if(whichBackup=="cardSet")
 			doPriorButtonBackup(backupMechanism)  // backupMec... is global
 		  else{ //--else path means whichBackup=="addCardSet"
 				     // processing an AddCardSet so armAddButton
 			buttonSet.armAddButton	
-			//println("Notecard: def doPriorButton... armAddButton")
 			doPriorButtonBackup(addBackupMechanism) // addBackupMec.. is global
 			}
 		}
@@ -390,7 +384,6 @@ case class Notecard(var symbolTable:Map[String,String]) extends Linker {
 			 // CardSet is re-presented.
 		if(  cardSet.isLastAddCardSet){ 
 				buttonSet.grayAndDisableAddButton
-				//println("Notecard: doAddButton() if(isLastAddCardSet):  grayAndDisableAddButton")
 				}
 			 // Restores the parent CardSet (see: doNextButton(... ) 
 		addCardSetFlags.activatedAddButton=true

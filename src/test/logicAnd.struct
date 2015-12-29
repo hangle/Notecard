@@ -1,0 +1,2436 @@
+%Notecard
+child	2002
+height	600
+width	400
+size	14
+name	TimesRoman
+style	0
+asteriskButton	on
+priorButton	on
+xlocate	200
+ylocate	300
+%%
+%CardSet
+address	2002
+child	2003
+sibling	2005
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2003
+child	2004
+sibling	0
+row	2
+column	5
+%%
+%DisplayText
+address	2004
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Logic is tested with AND condition
+color	black
+%%
+%CardSet
+address	2005
+child	2006
+sibling	2027
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2006
+child	2007
+sibling	2008
+row	2
+column	5
+%%
+%DisplayText
+address	2007
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------script---------------
+color	black
+%%
+%RowerNode
+address	2008
+child	2009
+sibling	2010
+row	3
+column	5
+%%
+%DisplayText
+address	2009
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (1)=(1)and(1)=(1)
+color	black
+%%
+%RowerNode
+address	2010
+child	2011
+sibling	2012
+row	4
+column	5
+%%
+%DisplayText
+address	2011
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Success
+color	black
+%%
+%RowerNode
+address	2012
+child	2013
+sibling	2014
+row	5
+column	5
+%%
+%DisplayText
+address	2013
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2014
+child	2015
+sibling	2016
+row	6
+column	5
+%%
+%DisplayText
+address	2015
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d failure
+color	black
+%%
+%RowerNode
+address	2016
+child	2017
+sibling	2018
+row	7
+column	5
+%%
+%DisplayText
+address	2017
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* continue
+color	black
+%%
+%RowerNode
+address	2018
+child	2019
+sibling	2020
+row	8
+column	5
+%%
+%DisplayText
+address	2019
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------------
+color	black
+%%
+%CardSetTask
+address	2020
+sibling	2021
+task	continue
+type	0
+%%
+%GroupNode
+address	2021
+sibling	2022
+name		0
+condition	(1)=(1)and(1)=(1)
+post	0
+%%
+%RowerNode
+address	2022
+child	2023
+sibling	2024
+row	9
+column	5
+%%
+%DisplayText
+address	2023
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Success
+color	black
+%%
+%GroupNode
+address	2024
+sibling	2025
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2025
+child	2026
+sibling	0
+row	10
+column	5
+%%
+%DisplayText
+address	2026
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	failure
+color	black
+%%
+%CardSet
+address	2027
+child	2028
+sibling	2049
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2028
+child	2029
+sibling	2030
+row	2
+column	5
+%%
+%DisplayText
+address	2029
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------script---------------
+color	black
+%%
+%RowerNode
+address	2030
+child	2031
+sibling	2032
+row	3
+column	5
+%%
+%DisplayText
+address	2031
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (1)<>(2)and(1)<>(2)
+color	black
+%%
+%RowerNode
+address	2032
+child	2033
+sibling	2034
+row	4
+column	5
+%%
+%DisplayText
+address	2033
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Success
+color	black
+%%
+%RowerNode
+address	2034
+child	2035
+sibling	2036
+row	5
+column	5
+%%
+%DisplayText
+address	2035
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2036
+child	2037
+sibling	2038
+row	6
+column	5
+%%
+%DisplayText
+address	2037
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d failure
+color	black
+%%
+%RowerNode
+address	2038
+child	2039
+sibling	2040
+row	7
+column	5
+%%
+%DisplayText
+address	2039
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* continue
+color	black
+%%
+%RowerNode
+address	2040
+child	2041
+sibling	2042
+row	8
+column	5
+%%
+%DisplayText
+address	2041
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------------
+color	black
+%%
+%CardSetTask
+address	2042
+sibling	2043
+task	continue
+type	0
+%%
+%GroupNode
+address	2043
+sibling	2044
+name		0
+condition	(1)<>(2)and(1)<>(2)
+post	0
+%%
+%RowerNode
+address	2044
+child	2045
+sibling	2046
+row	9
+column	5
+%%
+%DisplayText
+address	2045
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Success
+color	black
+%%
+%GroupNode
+address	2046
+sibling	2047
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2047
+child	2048
+sibling	0
+row	10
+column	5
+%%
+%DisplayText
+address	2048
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	failure
+color	black
+%%
+%CardSet
+address	2049
+child	2050
+sibling	2071
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2050
+child	2051
+sibling	2052
+row	2
+column	5
+%%
+%DisplayText
+address	2051
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------script---------------
+color	black
+%%
+%RowerNode
+address	2052
+child	2053
+sibling	2054
+row	3
+column	5
+%%
+%DisplayText
+address	2053
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (1)!=(2)and(1)!=(2)
+color	black
+%%
+%RowerNode
+address	2054
+child	2055
+sibling	2056
+row	4
+column	5
+%%
+%DisplayText
+address	2055
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Success
+color	black
+%%
+%RowerNode
+address	2056
+child	2057
+sibling	2058
+row	5
+column	5
+%%
+%DisplayText
+address	2057
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2058
+child	2059
+sibling	2060
+row	6
+column	5
+%%
+%DisplayText
+address	2059
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d failure
+color	black
+%%
+%RowerNode
+address	2060
+child	2061
+sibling	2062
+row	7
+column	5
+%%
+%DisplayText
+address	2061
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* continue
+color	black
+%%
+%RowerNode
+address	2062
+child	2063
+sibling	2064
+row	8
+column	5
+%%
+%DisplayText
+address	2063
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------------
+color	black
+%%
+%CardSetTask
+address	2064
+sibling	2065
+task	continue
+type	0
+%%
+%GroupNode
+address	2065
+sibling	2066
+name		0
+condition	(1)!=(2)and(1)!=(2)
+post	0
+%%
+%RowerNode
+address	2066
+child	2067
+sibling	2068
+row	9
+column	5
+%%
+%DisplayText
+address	2067
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Success
+color	black
+%%
+%GroupNode
+address	2068
+sibling	2069
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2069
+child	2070
+sibling	0
+row	10
+column	5
+%%
+%DisplayText
+address	2070
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	failure
+color	black
+%%
+%CardSet
+address	2071
+child	2072
+sibling	2093
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2072
+child	2073
+sibling	2074
+row	2
+column	5
+%%
+%DisplayText
+address	2073
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------script---------------
+color	black
+%%
+%RowerNode
+address	2074
+child	2075
+sibling	2076
+row	3
+column	5
+%%
+%DisplayText
+address	2075
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (2)>(1)and(2)>(1)
+color	black
+%%
+%RowerNode
+address	2076
+child	2077
+sibling	2078
+row	4
+column	5
+%%
+%DisplayText
+address	2077
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Success
+color	black
+%%
+%RowerNode
+address	2078
+child	2079
+sibling	2080
+row	5
+column	5
+%%
+%DisplayText
+address	2079
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2080
+child	2081
+sibling	2082
+row	6
+column	5
+%%
+%DisplayText
+address	2081
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d failure
+color	black
+%%
+%RowerNode
+address	2082
+child	2083
+sibling	2084
+row	7
+column	5
+%%
+%DisplayText
+address	2083
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* continue
+color	black
+%%
+%RowerNode
+address	2084
+child	2085
+sibling	2086
+row	8
+column	5
+%%
+%DisplayText
+address	2085
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------------
+color	black
+%%
+%CardSetTask
+address	2086
+sibling	2087
+task	continue
+type	0
+%%
+%GroupNode
+address	2087
+sibling	2088
+name		0
+condition	(2)>(1)and(2)>(1)
+post	0
+%%
+%RowerNode
+address	2088
+child	2089
+sibling	2090
+row	9
+column	5
+%%
+%DisplayText
+address	2089
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Success
+color	black
+%%
+%GroupNode
+address	2090
+sibling	2091
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2091
+child	2092
+sibling	0
+row	10
+column	5
+%%
+%DisplayText
+address	2092
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	failure
+color	black
+%%
+%CardSet
+address	2093
+child	2094
+sibling	2115
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2094
+child	2095
+sibling	2096
+row	2
+column	5
+%%
+%DisplayText
+address	2095
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------script---------------
+color	black
+%%
+%RowerNode
+address	2096
+child	2097
+sibling	2098
+row	3
+column	5
+%%
+%DisplayText
+address	2097
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (1)<(2)and(1)<(2)
+color	black
+%%
+%RowerNode
+address	2098
+child	2099
+sibling	2100
+row	4
+column	5
+%%
+%DisplayText
+address	2099
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Success
+color	black
+%%
+%RowerNode
+address	2100
+child	2101
+sibling	2102
+row	5
+column	5
+%%
+%DisplayText
+address	2101
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2102
+child	2103
+sibling	2104
+row	6
+column	5
+%%
+%DisplayText
+address	2103
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d failure
+color	black
+%%
+%RowerNode
+address	2104
+child	2105
+sibling	2106
+row	7
+column	5
+%%
+%DisplayText
+address	2105
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* continue
+color	black
+%%
+%RowerNode
+address	2106
+child	2107
+sibling	2108
+row	8
+column	5
+%%
+%DisplayText
+address	2107
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------------
+color	black
+%%
+%CardSetTask
+address	2108
+sibling	2109
+task	continue
+type	0
+%%
+%GroupNode
+address	2109
+sibling	2110
+name		0
+condition	(1)<(2)and(1)<(2)
+post	0
+%%
+%RowerNode
+address	2110
+child	2111
+sibling	2112
+row	9
+column	5
+%%
+%DisplayText
+address	2111
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Success
+color	black
+%%
+%GroupNode
+address	2112
+sibling	2113
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2113
+child	2114
+sibling	0
+row	10
+column	5
+%%
+%DisplayText
+address	2114
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	failure
+color	black
+%%
+%CardSet
+address	2115
+child	2116
+sibling	2137
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2116
+child	2117
+sibling	2118
+row	2
+column	5
+%%
+%DisplayText
+address	2117
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------script---------------
+color	black
+%%
+%RowerNode
+address	2118
+child	2119
+sibling	2120
+row	3
+column	5
+%%
+%DisplayText
+address	2119
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (1)>=(1)and(1)>=(1)
+color	black
+%%
+%RowerNode
+address	2120
+child	2121
+sibling	2122
+row	4
+column	5
+%%
+%DisplayText
+address	2121
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Success
+color	black
+%%
+%RowerNode
+address	2122
+child	2123
+sibling	2124
+row	5
+column	5
+%%
+%DisplayText
+address	2123
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2124
+child	2125
+sibling	2126
+row	6
+column	5
+%%
+%DisplayText
+address	2125
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d failure
+color	black
+%%
+%RowerNode
+address	2126
+child	2127
+sibling	2128
+row	7
+column	5
+%%
+%DisplayText
+address	2127
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* continue
+color	black
+%%
+%RowerNode
+address	2128
+child	2129
+sibling	2130
+row	8
+column	5
+%%
+%DisplayText
+address	2129
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------------
+color	black
+%%
+%CardSetTask
+address	2130
+sibling	2131
+task	continue
+type	0
+%%
+%GroupNode
+address	2131
+sibling	2132
+name		0
+condition	(1)>=(1)and(1)>=(1)
+post	0
+%%
+%RowerNode
+address	2132
+child	2133
+sibling	2134
+row	9
+column	5
+%%
+%DisplayText
+address	2133
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Success
+color	black
+%%
+%GroupNode
+address	2134
+sibling	2135
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2135
+child	2136
+sibling	0
+row	10
+column	5
+%%
+%DisplayText
+address	2136
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	failure
+color	black
+%%
+%CardSet
+address	2137
+child	2138
+sibling	2159
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2138
+child	2139
+sibling	2140
+row	2
+column	5
+%%
+%DisplayText
+address	2139
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------script---------------
+color	black
+%%
+%RowerNode
+address	2140
+child	2141
+sibling	2142
+row	3
+column	5
+%%
+%DisplayText
+address	2141
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (2)>=(1)and(2)>=(1)
+color	black
+%%
+%RowerNode
+address	2142
+child	2143
+sibling	2144
+row	4
+column	5
+%%
+%DisplayText
+address	2143
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Success
+color	black
+%%
+%RowerNode
+address	2144
+child	2145
+sibling	2146
+row	5
+column	5
+%%
+%DisplayText
+address	2145
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2146
+child	2147
+sibling	2148
+row	6
+column	5
+%%
+%DisplayText
+address	2147
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d failure
+color	black
+%%
+%RowerNode
+address	2148
+child	2149
+sibling	2150
+row	7
+column	5
+%%
+%DisplayText
+address	2149
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* continue
+color	black
+%%
+%RowerNode
+address	2150
+child	2151
+sibling	2152
+row	8
+column	5
+%%
+%DisplayText
+address	2151
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------------
+color	black
+%%
+%CardSetTask
+address	2152
+sibling	2153
+task	continue
+type	0
+%%
+%GroupNode
+address	2153
+sibling	2154
+name		0
+condition	(2)>=(1)and(2)>=(1)
+post	0
+%%
+%RowerNode
+address	2154
+child	2155
+sibling	2156
+row	9
+column	5
+%%
+%DisplayText
+address	2155
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Success
+color	black
+%%
+%GroupNode
+address	2156
+sibling	2157
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2157
+child	2158
+sibling	0
+row	10
+column	5
+%%
+%DisplayText
+address	2158
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	failure
+color	black
+%%
+%CardSet
+address	2159
+child	2160
+sibling	2181
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2160
+child	2161
+sibling	2162
+row	2
+column	5
+%%
+%DisplayText
+address	2161
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------script---------------
+color	black
+%%
+%RowerNode
+address	2162
+child	2163
+sibling	2164
+row	3
+column	5
+%%
+%DisplayText
+address	2163
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (1)<=(1)and(1)<=(1)
+color	black
+%%
+%RowerNode
+address	2164
+child	2165
+sibling	2166
+row	4
+column	5
+%%
+%DisplayText
+address	2165
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Success
+color	black
+%%
+%RowerNode
+address	2166
+child	2167
+sibling	2168
+row	5
+column	5
+%%
+%DisplayText
+address	2167
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2168
+child	2169
+sibling	2170
+row	6
+column	5
+%%
+%DisplayText
+address	2169
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d failure
+color	black
+%%
+%RowerNode
+address	2170
+child	2171
+sibling	2172
+row	7
+column	5
+%%
+%DisplayText
+address	2171
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* continue
+color	black
+%%
+%RowerNode
+address	2172
+child	2173
+sibling	2174
+row	8
+column	5
+%%
+%DisplayText
+address	2173
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------------
+color	black
+%%
+%CardSetTask
+address	2174
+sibling	2175
+task	continue
+type	0
+%%
+%GroupNode
+address	2175
+sibling	2176
+name		0
+condition	(1)<=(1)and(1)<=(1)
+post	0
+%%
+%RowerNode
+address	2176
+child	2177
+sibling	2178
+row	9
+column	5
+%%
+%DisplayText
+address	2177
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Success
+color	black
+%%
+%GroupNode
+address	2178
+sibling	2179
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2179
+child	2180
+sibling	0
+row	10
+column	5
+%%
+%DisplayText
+address	2180
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	failure
+color	black
+%%
+%CardSet
+address	2181
+child	2182
+sibling	2203
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2182
+child	2183
+sibling	2184
+row	2
+column	5
+%%
+%DisplayText
+address	2183
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------script---------------
+color	black
+%%
+%RowerNode
+address	2184
+child	2185
+sibling	2186
+row	3
+column	5
+%%
+%DisplayText
+address	2185
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (1)<=(2)and(1)<=(2)
+color	black
+%%
+%RowerNode
+address	2186
+child	2187
+sibling	2188
+row	4
+column	5
+%%
+%DisplayText
+address	2187
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Success
+color	black
+%%
+%RowerNode
+address	2188
+child	2189
+sibling	2190
+row	5
+column	5
+%%
+%DisplayText
+address	2189
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2190
+child	2191
+sibling	2192
+row	6
+column	5
+%%
+%DisplayText
+address	2191
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d failure
+color	black
+%%
+%RowerNode
+address	2192
+child	2193
+sibling	2194
+row	7
+column	5
+%%
+%DisplayText
+address	2193
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* continue
+color	black
+%%
+%RowerNode
+address	2194
+child	2195
+sibling	2196
+row	8
+column	5
+%%
+%DisplayText
+address	2195
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------------
+color	black
+%%
+%CardSetTask
+address	2196
+sibling	2197
+task	continue
+type	0
+%%
+%GroupNode
+address	2197
+sibling	2198
+name		0
+condition	(1)<=(2)and(1)<=(2)
+post	0
+%%
+%RowerNode
+address	2198
+child	2199
+sibling	2200
+row	9
+column	5
+%%
+%DisplayText
+address	2199
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Success
+color	black
+%%
+%GroupNode
+address	2200
+sibling	2201
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2201
+child	2202
+sibling	0
+row	10
+column	5
+%%
+%DisplayText
+address	2202
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	failure
+color	black
+%%
+%CardSet
+address	2203
+child	2204
+sibling	2225
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2204
+child	2205
+sibling	2206
+row	2
+column	5
+%%
+%DisplayText
+address	2205
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------script---------------
+color	black
+%%
+%RowerNode
+address	2206
+child	2207
+sibling	2208
+row	3
+column	5
+%%
+%DisplayText
+address	2207
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (east)m(north east)and(east)m(north east)
+color	black
+%%
+%RowerNode
+address	2208
+child	2209
+sibling	2210
+row	4
+column	5
+%%
+%DisplayText
+address	2209
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Success
+color	black
+%%
+%RowerNode
+address	2210
+child	2211
+sibling	2212
+row	5
+column	5
+%%
+%DisplayText
+address	2211
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2212
+child	2213
+sibling	2214
+row	6
+column	5
+%%
+%DisplayText
+address	2213
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d failure
+color	black
+%%
+%RowerNode
+address	2214
+child	2215
+sibling	2216
+row	7
+column	5
+%%
+%DisplayText
+address	2215
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* continue
+color	black
+%%
+%RowerNode
+address	2216
+child	2217
+sibling	2218
+row	8
+column	5
+%%
+%DisplayText
+address	2217
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------------
+color	black
+%%
+%CardSetTask
+address	2218
+sibling	2219
+task	continue
+type	0
+%%
+%GroupNode
+address	2219
+sibling	2220
+name		0
+condition	(east)m(north east)and(east)m(north east)
+post	0
+%%
+%RowerNode
+address	2220
+child	2221
+sibling	2222
+row	9
+column	5
+%%
+%DisplayText
+address	2221
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Success
+color	black
+%%
+%GroupNode
+address	2222
+sibling	2223
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2223
+child	2224
+sibling	0
+row	10
+column	5
+%%
+%DisplayText
+address	2224
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	failure
+color	black
+%%
+%CardSet
+address	2225
+child	2226
+sibling	2247
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2226
+child	2227
+sibling	2228
+row	2
+column	5
+%%
+%DisplayText
+address	2227
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------script---------------
+color	black
+%%
+%RowerNode
+address	2228
+child	2229
+sibling	2230
+row	3
+column	5
+%%
+%DisplayText
+address	2229
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (other)!m(north east)and(other)!m(north east)
+color	black
+%%
+%RowerNode
+address	2230
+child	2231
+sibling	2232
+row	4
+column	5
+%%
+%DisplayText
+address	2231
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Success
+color	black
+%%
+%RowerNode
+address	2232
+child	2233
+sibling	2234
+row	5
+column	5
+%%
+%DisplayText
+address	2233
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2234
+child	2235
+sibling	2236
+row	6
+column	5
+%%
+%DisplayText
+address	2235
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d failure
+color	black
+%%
+%RowerNode
+address	2236
+child	2237
+sibling	2238
+row	7
+column	5
+%%
+%DisplayText
+address	2237
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* continue
+color	black
+%%
+%RowerNode
+address	2238
+child	2239
+sibling	2240
+row	8
+column	5
+%%
+%DisplayText
+address	2239
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------------
+color	black
+%%
+%CardSetTask
+address	2240
+sibling	2241
+task	continue
+type	0
+%%
+%GroupNode
+address	2241
+sibling	2242
+name		0
+condition	(other)!m(north east)and(other)!m(north east)
+post	0
+%%
+%RowerNode
+address	2242
+child	2243
+sibling	2244
+row	9
+column	5
+%%
+%DisplayText
+address	2243
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Success
+color	black
+%%
+%GroupNode
+address	2244
+sibling	2245
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2245
+child	2246
+sibling	0
+row	10
+column	5
+%%
+%DisplayText
+address	2246
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	failure
+color	black
+%%
+%CardSet
+address	2247
+child	2248
+sibling	2269
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2248
+child	2249
+sibling	2250
+row	2
+column	5
+%%
+%DisplayText
+address	2249
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------script---------------
+color	black
+%%
+%RowerNode
+address	2250
+child	2251
+sibling	2252
+row	3
+column	5
+%%
+%DisplayText
+address	2251
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (philadelphia)100%(philadelphia)and(1)=(1)
+color	black
+%%
+%RowerNode
+address	2252
+child	2253
+sibling	2254
+row	4
+column	5
+%%
+%DisplayText
+address	2253
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Success
+color	black
+%%
+%RowerNode
+address	2254
+child	2255
+sibling	2256
+row	5
+column	5
+%%
+%DisplayText
+address	2255
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2256
+child	2257
+sibling	2258
+row	6
+column	5
+%%
+%DisplayText
+address	2257
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d failure
+color	black
+%%
+%RowerNode
+address	2258
+child	2259
+sibling	2260
+row	7
+column	5
+%%
+%DisplayText
+address	2259
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* continue
+color	black
+%%
+%RowerNode
+address	2260
+child	2261
+sibling	2262
+row	8
+column	5
+%%
+%DisplayText
+address	2261
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------------
+color	black
+%%
+%CardSetTask
+address	2262
+sibling	2263
+task	continue
+type	0
+%%
+%GroupNode
+address	2263
+sibling	2264
+name		0
+condition	(philadelphia)100%(philadelphia)and(1)=(1)
+post	0
+%%
+%RowerNode
+address	2264
+child	2265
+sibling	2266
+row	9
+column	5
+%%
+%DisplayText
+address	2265
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Success
+color	black
+%%
+%GroupNode
+address	2266
+sibling	2267
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2267
+child	2268
+sibling	0
+row	10
+column	5
+%%
+%DisplayText
+address	2268
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	failure
+color	black
+%%
+%CardSet
+address	2269
+child	2270
+sibling	2295
+button	0
+name	0
+condition	0
+%%
+%RowerNode
+address	2270
+child	2271
+sibling	2272
+row	2
+column	5
+%%
+%DisplayText
+address	2271
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	'x' char results in a 92% match
+color	black
+%%
+%RowerNode
+address	2272
+child	2273
+sibling	2274
+row	3
+column	5
+%%
+%DisplayText
+address	2273
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	 
+color	black
+%%
+%RowerNode
+address	2274
+child	2275
+sibling	2276
+row	4
+column	5
+%%
+%DisplayText
+address	2275
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	-------------script---------------
+color	black
+%%
+%RowerNode
+address	2276
+child	2277
+sibling	2278
+row	5
+column	5
+%%
+%DisplayText
+address	2277
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	g (philadelphia)90%(philxdelphia)and(1)=(1)
+color	black
+%%
+%RowerNode
+address	2278
+child	2279
+sibling	2280
+row	6
+column	5
+%%
+%DisplayText
+address	2279
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d Success
+color	black
+%%
+%RowerNode
+address	2280
+child	2281
+sibling	2282
+row	7
+column	5
+%%
+%DisplayText
+address	2281
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	ge
+color	black
+%%
+%RowerNode
+address	2282
+child	2283
+sibling	2284
+row	8
+column	5
+%%
+%DisplayText
+address	2283
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	d failure
+color	black
+%%
+%RowerNode
+address	2284
+child	2285
+sibling	2286
+row	9
+column	5
+%%
+%DisplayText
+address	2285
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	* continue
+color	black
+%%
+%RowerNode
+address	2286
+child	2287
+sibling	2288
+row	10
+column	5
+%%
+%DisplayText
+address	2287
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	----------------------------------------
+color	black
+%%
+%CardSetTask
+address	2288
+sibling	2289
+task	continue
+type	0
+%%
+%GroupNode
+address	2289
+sibling	2290
+name		0
+condition	(philadelphia)90%(philxdelphia)and(1)=(1)
+post	0
+%%
+%RowerNode
+address	2290
+child	2291
+sibling	2292
+row	11
+column	5
+%%
+%DisplayText
+address	2291
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	Success
+color	black
+%%
+%GroupNode
+address	2292
+sibling	2293
+name		0
+condition	0
+post	else
+%%
+%RowerNode
+address	2293
+child	2294
+sibling	0
+row	12
+column	5
+%%
+%DisplayText
+address	2294
+sibling	0
+style	0
+size	14
+column	0
+name	TimesRoman
+text	failure
+color	black
+%%
+%NextFile
+address	2295
+sibling	2296
+filename	logicOr
+condition	0
+%%
+%NotecardTask
+address	2296
+sibling	0
+task	end
+type	0
+%%

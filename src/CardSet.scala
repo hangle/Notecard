@@ -267,11 +267,11 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 						// '* continue' commands.
 					buttonSet.armAddButton
 					// issue lock.wait(). When released, control returns to 
-					// 'iterateCardSetChildren' to process remaining CardSet children.
+					// 'iterateCardSetChildren' to process remaining CardSet children,
+					// or if '+Add' button activated, then AddButtonException is thrown.
 				haltCommandExecution(lock) // issue lock.wait()
 				if(hasAddCardSet){
 					buttonSet.grayAndDisableAddButton
-					//println("CardSet: xn:Xnode=>  following halt: in if(hasAddCardSet) group:  grayAndDisableAddButton")
 					}	
 					// Two events release the halt command:
 					//		1. Next button
@@ -293,7 +293,6 @@ case class CardSet(var symbolTable:Map[String,String]) extends Linker{
 							// This exception is caught in 'Notecard.iterateNotecardChildren'
 							// The current CardSet is terminated,
 							// and its first AddCardSet begins execution
-					//println("CardSet:  throw new AddButtonException")
 					throw new AddButtonException
 					}
 			case _=> println("\tCardSet: unknown CardSetChild obj="+obj)	

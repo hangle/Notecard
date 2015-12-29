@@ -73,17 +73,13 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 		event getActionCommand() match{
 				// Next button enabled by FieldFocus
 			case "Next"=>  
-				//println("ButtonSet: actionPerformed:  Next")
 				selectedButton="next" //Notecard: match expression
 				start()   //unlock all
 			case "Prior"=> 
-				//println("ButtonSet: actionPerformed:  Prior")
 							//	println("ButtonSet: actionPerf...    --prior-- ")
 				selectedButton="prior"  //Notecard: match expression
-		//		grayAndDisablePriorButton
 				start()   //unlock all
 			case " * "=> 
-				//println("ButtonSet: actionPerformed:  * button")
 							//	println("ButtonSet: actionPerf...    --*-- ")
 						//used in Notecard: match expression
 				selectedButton="*"  
@@ -91,10 +87,6 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 					// in old script before the move.
 				start()   //unlock all
 			case "+Add"=>
-		//		println("ButtonSet: actionPerformed:  +Add")
-				selectedButton="+"  //Notecard: match expression
-//				turnOnExitCardSet	// allows return in <CardSet>  xn:case=>
-				//println("ButtonSet: actionPerformed:  +Add")
 				selectedButton="+"  //Notecard: match expression
 				start()    //unlock all
 			case _=> 		println("ButtonSet unknown event=")
@@ -167,7 +159,6 @@ class ButtonSet(buttonPanel:JPanel, lock:AnyRef) extends ActionListener{
 	def armAddButton={
 		addButton.setEnabled(true)	
 		addButton.setBackground(Color.YELLOW)
-		//println("ButtonSet   armAddButton set Yellow")
 		}
 		// Activation of any button invokes start().
 		//card commands halted by 'wait' in

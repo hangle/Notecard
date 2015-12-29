@@ -13,27 +13,24 @@ DEMO directory just highlights the major Notecard features. <br />
 For the user, it illustrates the potential of the Notecard <br />
 system.  </p>
 
-<p>The TEST directory contains script to exercises every <br />
-feature of the system.  Its purpose is not a tutorial; <br />
-rather, it is a means  to reveal or find errors and <br />
-limitations in the script :code.   </p>
+<p>The TEST directory holds the '.nc' and '.struct' files. The <br />
+'.struct' files contain script to exercises features of the <br />
+system.  Its purpose is not a tutorial; rather, it is a means <br />
+to reveal or find errors and imitations in the script <br />
+commands.  The code of the '.struct' files has passed the <br />
+edits and verfications of the 'script' program.  However, <br />
+the TEST files verify whether or not the commands are <br />
+accurately operating. For example, the script:  </p>
 
-<p>It is expected that each script in the TEST directory <br />
-will grow to exercise every combination of script elements <br />
-in serarch of a failure, either leading to code correction <br />
-or a controlled exception in the script program. For <br />
-example, suppose a command begins with the letter 's' <br />
-(not a valid command tag), then the Script program will <br />
-print this invalid line and will indicate that the 's' is <br />
-an invalid command tag. Or, execution of the Notecard <br />
-program fails. In this case, the culprit may be the Script <br />
-program for not detecting the code that caused the <br />
-Notecard program to fail.   </p>
+<pre><code>    g (1)=(1)
+    d Success
+    ge
+    d Failure
+</code></pre>
 
-<p>The  focus of the TEST directory is to sresss the system. <br />
-The TEST directory also serves as a regression test.   </p>
+<p>should print 'Success' and not 'Failure'.</p>
 
-<p>To date, the following TEST scripts are available:   </p>
+<p>To date, the following TEST script files are available:   </p>
 
 <pre><code>appearance.nc       
     Example:
@@ -62,12 +59,29 @@ addCardSet.nc
         d This is a CardSet
         +
         d This is an AddCardSet
+editCommand.nc
+    Example
+        c
+        d Enter your age (# $age)
+        e number
+        e ($age) &gt;(0) and ($age) &lt; (100)    
+logic.nc
+    &lt;linked to&gt;
+  logicAnd.nc
+  logicOr.nc
+
+    Example
+        d g (1)&gt;=(1)
+        d d Success
+        d ge
+        d d Failure
+        d * continue
 </code></pre>
 
 <h2>Execution:</h2>
 
 <p>Execution of the sript appearance.nc  must  be compiled in <br />
-the Script/src directory:    </p>
+the Script/src directory to produce a appearance.struct file:    </p>
 
 <pre><code>    scala script test/appearance
 </code></pre>

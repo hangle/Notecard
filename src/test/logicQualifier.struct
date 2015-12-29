@@ -1,12 +1,14 @@
 %Notecard
 child	2002
-height	600
+height	550
 width	400
 size	14
 name	TimesRoman
 style	0
 asteriskButton	on
 priorButton	on
+xlocate	0
+ylocate	0
 %%
 %CardSet
 address	2002
@@ -780,7 +782,7 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	Again the operands are $<variable>s.
+text	Again the operands are $<variable>s
 color	black
 %%
 %RowerNode
@@ -797,7 +799,7 @@ style	0
 size	14
 column	0
 name	TimesRoman
-text	but the logic fails
+text	but the logic fails (aBc changed to aBx)
 color	black
 %%
 %RowerNode
